@@ -1,0 +1,344 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Traces &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Traces">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/traces/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/traces/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Traces</h1>
+    <div class="article-wrap" itemprop="text">
+      <h4 id="s3d-traces">S3D Traces</h4>
+
+<p>This page describes how to download and interpret several traces 
+that we have captured of the Legion implementation of S3D running 
+on <a href="https://www.olcf.ornl.gov/titan/">Titan</a>. Each trace contains
+both the start-up and execution of four time steps. Traces are 
+captured at the Realm interface on which the Legion runtime is
+built. We will detail the types of Realm operations and their
+corresponding logging calls in <a href="#eventlogging">Realm Event Logging</a>.</p>
+
+<h3 id="downloading-traces">Downloading Traces</h3>
+
+<p>Below are the current set of traces that we have been captured. Each
+trace is a separate run and comes in a tar ball. The size of the tar
+balls is given on the URLs. When unpacked some of the tar balls will
+expand to several GBs of data.</p>
+
+<p>All the traces share a common naming convention: mechanism name 
+followed by mapping strategy followed by node count. The chemical
+mechansim is either DME or Heptane.  DME is the smaller mechanism
+containing only 30 species while Heptane is the larger mechnaism
+with 52 species. The mapping strategy is listed as either <code class="highlighter-rouge">all</code> or
+<code class="highlighter-rouge">mixed</code>. The <code class="highlighter-rouge">all</code> mapping strategy is used to place the majority
+of the computation on the GPU (hence all-GPU), while the <code class="highlighter-rouge">mixed</code>
+mapping strategy is designed to mix work evenly between CPUs and
+GPUs. Finally, the node count says how many nodes where used as
+part of the run.</p>
+
+<ul>
+  <li><a href="/s3dtraces/dme_all_2nodes.tar.gz">DME - ALL - 2 Nodes</a> (5.1 MB)</li>
+  <li><a href="/s3dtraces/dme_mixed_2nodes.tar.gz">DME - MIXED - 2 Nodes</a> (16 MB)</li>
+  <li><a href="/s3dtraces/dme_all_4nodes.tar.gz">DME - ALL - 4 Nodes</a> (11 MB)</li>
+  <li><a href="/s3dtraces/dme_mixed_4nodes.tar.gz">DME - MIXED - 4 Nodes</a> (32 MB)</li>
+  <li><a href="/s3dtraces/dme_all_32nodes.tar.gz">DME - ALL - 32 Nodes</a> (85 MB)</li>
+  <li><a href="/s3dtraces/dme_mixed_32nodes.tar.gz">DME - MIXED - 32 Nodes</a> (255 MB)</li>
+  <li><a href="/s3dtraces/hept_all_32nodes.tar.gz">Heptane - ALL - 32 Nodes</a> (98 MB)</li>
+  <li><a href="/s3dtraces/hept_mixed_32nodes.tar.gz">Heptane - MIXED - 32 Nodes</a> (175 MB)</li>
+</ul>
+
+<h3 id="-realm-event-logging"><a name="eventlogging"></a> Realm Event Logging</h3>
+
+<p>Traces are captured at the Realm interface inside the Legion runtime.
+Realm is the low-level component of the Legion runtime. Its design and
+architecture are laid out in <a href="/pdfs/realm2014.pdf">this paper</a> which we
+assume as prior knowledge for the description of the logging calls. The
+benefit of capturing traces at the Realm level is that we can easily see
+the low-level structure of an application in terms of its most basic
+operations (e.g. tasks, data movement, and synchronization) without
+needing to understand any of the high-level Legion semantics. Furthermore,
+these traces can easily be replayed on different machine architectures
+as operations and data movement can mapped and executed in any order that
+is consistent with the generated event graph. This makes Realm traces
+particularly attractive when considering the design of future architectures.</p>
+
+<p>Each trace below is composed of a collection of files. Each file contains
+logging calls for each of the different Realm operations invoked on a
+different node. While the files contain operations that are local to a
+node, the handles and operations are not required to remain local to a
+node. For example, a task registered on one node, may end being run on 
+a different node depending on the processor that it was directed to.
+Similarly an event created on one node, may serve as the precondition to
+an operation launched on a different node. As we describe in the Realm
+paper, we guarantee that all handles are globally unique with each handle
+refering to exactly one globally unique thing.</p>
+
+<p>There are 14 logging calls which can appear in the log files. Each logging
+call is proceeded with an human readable name which can be used to parse
+each logging call unambiguously using a top-down LL parsing algorithm.</p>
+
+<ol>
+  <li>Record the existence of a given processor: <b>Processor: %1 %2</b>
+    <ol>
+      <li>Processor ID</li>
+      <li>Processor Kind (CPU, GPU, Utility)</li>
+    </ol>
+  </li>
+  <li>Record a processor group based on a set of processors: <b>Group: %1 %2 %3 %4 …</b>
+    <ol>
+      <li>Processor Group ID</li>
+      <li>Number of contained processors</li>
+      <li>First Processor ID</li>
+      <li>Second Processor ID
+… the given number of contained processors in the group</li>
+    </ol>
+  </li>
+  <li>Record the existence of a given memory: <b>Memory: %1 %2</b>
+    <ol>
+      <li>Memory ID</li>
+      <li>Processor Kind (GASNet, System, Registered, Socket, Zero-Copy, Framebuffer)</li>
+    </ol>
+  </li>
+  <li>Record a task lauch: <b>Task Request: %1 %2 (%3,%4) (%5,%6) (%7,%8) %9 %10 %11</b>
+    <ol>
+      <li>Function ID for the task to run</li>
+      <li>Target processor for task</li>
+      <li>ID of the termination event</li>
+      <li>Generation of the termination event</li>
+      <li>ID of the precondition event</li>
+      <li>Generation of the precondition event</li>
+      <li>ID of the termination event for the enclosing task</li>
+      <li>Generation of the termination event for the enclosing task</li>
+      <li>Priority for the task</li>
+      <li>Pointer for the arguments</li>
+      <li>Argument length in bytes</li>
+    </ol>
+  </li>
+  <li>Record the time taken to execute the task: <b>Task Time: (%1,%2) %3</b>
+    <ol>
+      <li>ID of the termination event for the task</li>
+      <li>Generation of the termination event for the task</li>
+      <li>Execution time in microseconds</li>
+    </ol>
+  </li>
+  <li>Record when a task waits for an event internally: <b>Task Wait: (%1,%2) (%3,%4) %5</b>
+    <ol>
+      <li>ID of the termination event for the task</li>
+      <li>Generation of the termination event for the task</li>
+      <li>ID of the event being waited on</li>
+      <li>Generation of the event being waited on</li>
+      <li>Time spent waiting on an event</li>
+    </ol>
+  </li>
+  <li>Record the beginning of event merge: <b>Event Merge: (%1,%2) %3</b>
+    <ol>
+      <li>ID of the merged event</li>
+      <li>Generation of the merged event</li>
+      <li>Number of precondition events</li>
+    </ol>
+  </li>
+  <li>Record an event precondition for a merged event: <b>Event Precondition (%1,%2) (%3,%4)</b>
+    <ol>
+      <li>ID of the merged event</li>
+      <li>Generation of the merged event</li>
+      <li>ID of the precondition event</li>
+      <li>Generation of the precondition event</li>
+    </ol>
+  </li>
+  <li>Record an event trigger operation: <b>Event Trigger: (%1,%2) (%3,%4) (%5,%6)</b>
+    <ol>
+      <li>ID of the triggered event</li>
+      <li>Generation of the triggered event</li>
+      <li>ID of the precondition event</li>
+      <li>Generation of the precondition event</li>
+      <li>ID of the termination event for the enclosing task</li>
+      <li>Generation of the termination event for the enclosing task</li>
+    </ol>
+  </li>
+  <li>Record the creation of a phase barrier: <b>Barrier Creation: %1 %2</b>
+    <ol>
+      <li>ID of the barrier</li>
+      <li>Initial expected number of arrivals for all generations</li>
+    </ol>
+  </li>
+  <li>Record an alteration of the expected barrier arrival count: <b>Barrier Alter: (%1,%2) (%3,%4) %5</b>
+    <ol>
+      <li>ID of the barrier</li>
+      <li>Generation of the barrier</li>
+      <li>ID of the termination event for the enclosing task</li>
+      <li>Generation of the termination event for the enclosing task</li>
+      <li>Delta by which to alter the expected arrival count</li>
+    </ol>
+  </li>
+  <li>Record an arrival on a phase barrier <b>Barrier Arrive: (%1,%2) (%3,%4) (%5,%6) %7</b>
+    <ol>
+      <li>ID of the barrier</li>
+      <li>Generation of the barrier</li>
+      <li>ID of the precondition event</li>
+      <li>Generation of the precondition event</li>
+      <li>ID of the termination event for the enclosing task</li>
+      <li>Generation of the termination event for the enclosing task</li>
+      <li>Arrival count</li>
+    </ol>
+  </li>
+  <li>Record the a copy request between physical regions: <b>Copy Request: (%1,%2) (%3,%4) (%5,%6) %7 %8</b>
+    <ol>
+      <li>ID of the copy termination event</li>
+      <li>Generation of the copy termination event</li>
+      <li>ID of the precondition event</li>
+      <li>Generation of the precondition event</li>
+      <li>ID of the termination event for the enclosing task</li>
+      <li>Generation of the termination event for the enclosing task</li>
+      <li>Source Memory</li>
+      <li>Destination Memory</li>
+    </ol>
+  </li>
+  <li>Record the total size of a copy in bytes: <b>Copy Size: (%1,%2) %3</b>
+    <ol>
+      <li>ID of the copy termination event</li>
+      <li>Generation of the copy termination event</li>
+      <li>Total bytes transfered</li>
+    </ol>
+  </li>
+</ol>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

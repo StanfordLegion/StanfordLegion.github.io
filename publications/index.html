@@ -1,0 +1,476 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Publications &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Publications">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/publications/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/publications/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Publications</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li>Legion Runtime:
+    <ul>
+      <li><a href="#sc2012">Overview (SC 2012)</a> [<a href="/pdfs/sc2012.pdf">PDF</a>]</li>
+      <li><a href="#sc2014">Structure Slicing (SC 2014)</a> [<a href="/pdfs/legion-fields.pdf">PDF</a>]</li>
+      <li><a href="#bauer_thesis">Michael Bauer’s Thesis (2014)</a> [<a href="/pdfs/bauer_thesis.pdf">PDF</a>]</li>
+    </ul>
+  </li>
+  <li>Programming Model:
+    <ul>
+      <li><a href="#oopsla2013">Partitioning Type System (OOPSLA 2013)</a> [<a href="/pdfs/oopsla2013.pdf">PDF</a>]</li>
+      <li><a href="#dpl2016">Dependent Partitioning (OOPSLA 2016)</a> [<a href="/pdfs/dpl2016.pdf">PDF</a>]</li>
+    </ul>
+  </li>
+  <li><a href="#pact2014">Realm (PACT 2014)</a> [<a href="/pdfs/realm2014.pdf">PDF</a>]
+    <ul>
+      <li><a href="#treichler_thesis">Sean Treichler’s Thesis (2016)</a> [<a href="/pdfs/treichler_thesis.pdf">PDF</a>]</li>
+    </ul>
+  </li>
+  <li><a href="#sc2015">Regent (SC 2015)</a> [<a href="/pdfs/regent2015.pdf">PDF</a>]</li>
+  <li>DSLs:
+    <ul>
+      <li><a href="#ppopp2014">Singe (PPoPP 2014)</a> [<a href="/pdfs/singe2014.pdf">PDF</a>]</li>
+      <li><a href="#wolfhpc2014">Scout (WOLFHPC 2014)</a> [<a href="/pdfs/scout2014.pdf">PDF</a>]</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="papers">Papers</h2>
+
+<p><a name="sc2012"></a><strong>Legion: Expressing Locality and Independence with Logical Regions</strong> <a href="/pdfs/sc2012.pdf">PDF</a> <br />
+<em>Michael Bauer, Sean Treichler, Elliott Slaughter, Alex Aiken</em> <br />
+In the International Conference on Supercomputing (<a href="http://sc12.supercomputing.org">SC 2012</a>) <br />
+<strong>Abstract:</strong> Modern parallel architectures have both heterogeneous processors and deep, complex 
+memory hierarchies. We present Legion, a programming model and runtime system
+for achieving high performance on these machines. Legion is
+organized around logical regions, which express both locality and
+independence of program data, and tasks, functions that perform
+computations on regions. We describe a runtime system that
+dynamically extracts parallelism from Legion programs, using
+a distributed, parallel scheduling algorithm that identifies both
+independent tasks and nested parallelism. Legion also enables
+explicit, programmer controlled movement of data through the
+memory hierarchy and placement of tasks based on locality
+information via a novel mapping interface. We evaluate our
+Legion implementation on three applications: fluid-flow on a
+regular grid, a three-level AMR code solving a heat diffusion
+equation, and a circuit simulation.</p>
+
+<p><a name="oopsla2013"></a><strong>Language Support for Dynamic, Hierarchical Data Partitioning</strong> <a href="/pdfs/oopsla2013.pdf">PDF</a> <br />
+<em>Sean Treichler, Michael Bauer, Alex Aiken</em> <br />
+In Object Oriented Programming, Systems, Languages, 
+and Applications (<a href="http://splashcon.org/2013/program/oopsla-research-papers">OOPSLA 2013</a>) <br />
+<strong>Abstract:</strong> Applications written for distributed-memory parallel architectures must 
+partition their data to enable parallel execution. As memory hierarchies become deeper, 
+it is increasingly necessary that the data partitioning also be hierarchical to match. 
+Current language proposals perform this hierarchical partitioning statically, which excludes 
+many important applications where the appropriate partitioning is itself data
+dependent and so must be computed dynamically. We describe Legion, a region-based 
+programming system, where each region may be partitioned into subregions. Partitions
+are computed dynamically and are fully programmable. The division of data need not be 
+disjoint and subregions of a region may overlap, or alias one another. Computations use
+regions with certain privileges (e.g., expressing that a computation uses a region 
+read-only) and data coherence (e.g., expressing that the computation need only be atomic with
+respect to other operations on the region), which can be controlled on a per-region 
+(or subregion) basis.</p>
+
+<p>We present the novel aspects of the Legion design, in particular 
+the combination of static and dynamic checks used to enforce soundness. We give an 
+extended example illustrating how Legion can express computations with dynamically 
+determined relationships between computations and data partitions. We prove the soundness 
+of Legion’s type system, and show Legion type checking improves performance by up to
+71% by eliding provably safe memory checks. In particular, we show that the dynamic 
+checks to detect aliasing at runtime at the region granularity have negligible overhead.
+We report results for three real-world applications running
+on distributed memory machines, achieving up to 62.5X
+speedup on 96 GPUs on the Keeneland supercomputer.</p>
+
+<p><a name="pact2014"></a><strong>Realm: An Event-Based Low-Level Runtime for Distributed Memory Architectures</strong> <a href="/pdfs/realm2014.pdf">PDF</a> <br />
+<em>Sean Treichler, Michael Bauer, Alex Aiken</em> <br />
+In Parallel Architectures and Compilation Techniques (<a href="http://www.pactconf.org/program.php">PACT 2014</a>) <br />
+<strong>Abstract:</strong> We present Realm, an event-based runtime system for heterogeneous,
+distributed memory machines. Realm is fully asynchronous: all runtime actions
+are non-blocking. Realm supports spawning computations, moving data, and 
+<em>reservations</em>, a novel synchronization primitive. Asynchrony is exposed
+via a light-weight event system capable of operating without central management.</p>
+
+<p>We describe an implementation of Realm that relies on a novel <em>generational event</em>
+data structure for efficiently handling large numbers of events in a distributed
+address space. Micro-benchmark experiments show our implementation of Realm 
+approaches the underlying hardware performance limits. We measure the performance
+of three real-world applications on the Keeneland supercomputer. Our results
+demonstrate that Realm confers considerable latency hiding to clients, attaining
+significant speedups over traditional bulk-synchronous and independently optimized
+MPI codes.</p>
+
+<p><a name="sc2014"></a><strong>Structure Slicing: Extending Logical Regions with Fields</strong> <a href="/pdfs/legion-fields.pdf">PDF</a> <br />
+<em>Michael Bauer, Sean Treichler, Elliott Slaughter, Alex Aiken</em> <br />
+In the International Conference on Supercomputing (<a href="http://sc14.supercomputing.org/schedule/event_detail?evid=pap522">SC 2014</a>) <br />
+<strong>Abstract:</strong> Applications on modern supercomputers are increasingly limited by the
+cost of data movement, but mainstream programming systems have few abstractions for
+describing the structure of a program’s data. Consequently, the burden of managing
+data movement, placement, and layout currently falls primarily upon the programmer</p>
+
+<p>To address this problem, we previously proposed a data model based on <em>logical regions</em>
+and described Legion, a programming system incorporating logical regions. In this paper,
+we present <em>structure slicing</em>, which incorporates <em>fields</em> into the logical
+region data model. We show that structure slicing enables Legion to automatically infer
+task parallelism from field non-interference, decouple the specification of data usage
+from layout, and reduce the overall amount of data moved. We demonstrate that structure
+slicing enables both strong and weak scaling of three Legion applications, including S3D,
+a production combustion simulation that uses logical regions and thousands of fields, with
+speedups of up to 3.68X over a vectorized CPU-only Fortran implementation and 1.88X over
+an independently hand-tuned OpenACC code.</p>
+
+<p><a name="ppopp2014"></a><em>Note: The following paper is a result of our collaboration with the <a href="http://exactcodesign.org/">ExaCT
+Combustion Co-Design Center</a> and shows how a DSL
+compiler can be used to generate fast tasks for Legion applications.</em><br />
+<strong>Singe: Leveraging Warp Specialization for High Performance on GPUs</strong> <a href="/pdfs/singe2014.pdf">PDF</a> <br />
+<em>Michael Bauer, Sean Treichler, Alex Aiken</em><br />
+In Principles and Practices of Parallel Programming (<a href="https://sites.google.com/site/ppopp2014/home/schedule/">PPoPP 2014</a>) <br />
+<strong>Abstract:</strong> We present Singe, a Domain Specific Language (DSL) compiler for combustion
+chemistry that leverages <em>warp specialization</em> to produce high performance code for GPUs.
+Instead of relying on traditional GPU programming models that emphasize data-parallel
+computations, warp specialization allows compilers like Singe to partition computations
+into sub-computations, which are then assigned to different warps within a thread block.
+Fine-grain synchronization between warps is performed efficiently in hardware using
+producer-consumer named barriers.  Partitioning computations using warp specialization
+allows Singe to deal efficiently with the irregularity in both data access patterns
+and computation.  Furthermore, warp-specialized partitioning of computations allows
+Singe to fit extremely large working sets into on-chip memories.  Finally, we describe
+the architecture and general computation techniques necessary for constructing a
+warp-specializing compiler.  We show that the warp-specialized code emitted by Singe
+is up to 3.75X faster than previously optimized data-parallel GPU kernels.</p>
+
+<p><a name="wolfhpc2014"></a><em>Note: The following paper is an example of a DSL
+compiler toolchain that targets Legion as a backend.</em><br />
+<strong>Exploring the Construction of a Domain-Aware Toolchain for High-Performance Computing</strong> <a href="/pdfs/scout2014.pdf">PDF</a> <br />
+<em>Patrick McCormick, Christine Sweeney, Nick Moss, Dean Prichard,
+Samuel K. Gutierrez, Kei Davis, Jamaludin Mohd-Yusof</em><br />
+In the International Workshop on Domain-Specific Languages and High-Level Frameworks for High Performance Computing (<a href="http://conferences.computer.org/wolfhpc/2014/">WOLFHPC 2014</a>) <br />
+<strong>Abstract:</strong> The push towards exascale computing has sparked
+a new set of explorations for providing new productive programming
+environments. While many efforts are focusing on
+the design and development of domain-specific languages (DSLs),
+few have addressed the need for providing a fully domain-aware
+toolchain. Without such domain awareness critical features for
+achieving acceptance and adoption, such as debugger support,
+pose a long-term risk to the overall success of the DSL approach.
+In this paper we explore the use of language extensions to
+design and implement the Scout DSL and a supporting toolchain
+infrastructure. We highlight how language features and the
+software design methodologies used within the toolchain play
+a significant role in providing a suitable environment for DSL
+development.</p>
+
+<p><a name="sc2015"></a><strong>Regent: A High-Productivity Programming Language for HPC with Logical Regions</strong> <a href="/pdfs/regent2015.pdf">PDF</a> <br />
+<em>Elliott Slaughter, Wonchan Lee, Sean Treichler, Michael Bauer, and Alex Aiken</em> <br />
+In the International Conference on Supercomputing (<a href="http://sc15.supercomputing.org/schedule/event_detail?evid=pap326">SC 2015</a>) <br />
+<strong>Abstract:</strong> We present Regent, a high-productivity programming language for high
+performance computing with logical regions. Regent users compose
+programs with tasks (functions eligible for parallel execution) and
+logical regions (hierarchical collections of structured
+objects). Regent programs appear to execute sequentially, require no
+explicit synchronization, and are trivially deadlock-free. Regent’s
+type system catches many common classes of mistakes and guarantees
+that a program with correct serial execution produces
+identical results on parallel and distributed machines.</p>
+
+<p>We present an optimizing compiler for Regent that translates Regent
+programs into efficient implementations for Legion, an asynchronous
+task-based model. Regent employs several novel compiler optimizations
+to minimize the dynamic overhead of the runtime system and enable
+efficient operation. We evaluate Regent on three benchmark
+applications and demonstrate that Regent achieves performance
+comparable to hand-tuned Legion.</p>
+
+<p><a name="dpl2016"></a><strong>Dependent Partitioning</strong> <a href="/pdfs/dpl2016.pdf">PDF</a> <br />
+<em>Sean Treichler, Michael Bauer, Rahul Sharma, Elliott Slaughter, and Alex Aiken</em> <br />
+In Object Oriented Programming, Systems, Languages,
+and Applications (<a href="http://2016.splashcon.org/track/splash-2016-oopsla">OOPSLA 2016</a>) <br />
+<strong>Abstract:</strong> A key problem in parallel programming is how data is
+<em>partitioned</em>: divided into subsets that can be operated on in
+parallel and, in distributed memory machines, spread across multiple
+address spaces.</p>
+
+<p>We present a <em>dependent partitioning</em> framework that allows an
+application to concisely describe relationships between partitions.
+Applications first establish <em>independent partitions</em>, which may
+contain arbitrary subsets of application data, permitting the
+expression of arbitrary application-specific data distributions.
+<em>Dependent partitions</em> are then derived from these using the
+<em>dependent partitioning operations</em> provided by the framework.  By
+directly capturing inter-partition relationships, our framework can
+soundly and precisely reason about programs to perform important
+program analyses crucial to ensuring correctness and achieving good
+performance.  As an example of the reasoning made possible, we present
+a static analysis that discharges most consistency checks on
+partitioned data during compilation.</p>
+
+<p>We describe an implementation of our framework within Regent, a
+language designed for the Legion programming model.  The use of
+dependent partitioning constructs results in a 86-96% decrease in the
+lines of code required to describe the partitioning, the elimination
+of many of the expensive dynamic checks required for soundness by the
+current Regent partitioning implementation, and speeds up the
+computation of partitions by 2.6-12.7X even on a single thread.
+Furthermore, we show that a distributed implementation incorporated
+into the the Legion runtime system allows partitioning of data sets
+that are too large to fit on a single node and yields an additional
+29X speedup of partitioning operations on 64 nodes.</p>
+
+<h2 id="theses">Theses</h2>
+
+<p><a name="bauer_thesis"></a><em>Note: The following thesis is a thorough guide to the Legion programming model and covers many implementation details that are not documented elsewhere.</em><br />
+<strong>Legion: Programming Distributed Heterogeneous Architectures with Logical Regions</strong> <a href="/pdfs/bauer_thesis.pdf">PDF</a><br />
+<em>Michael Edward Bauer</em><br />
+December 2014<br />
+<strong>Abstract:</strong> This thesis covers the design and implementation of
+Legion, a new programming model and runtime system for targeting
+distributed heterogeneous machine architectures. Legion introduces
+logical regions as a new abstraction for describing the structure and
+usage of program data. We describe how logical regions provide a
+mechanism for applications to express important properties of program
+data, such as locality and independence, that are often ignored by
+current programming systems. We also show how logical regions allow
+programmers to scope the usage of program data by different
+computations. The explicit nature of logical regions makes these
+properties of programs manifest, allowing many of the challenging
+burdens of parallel programming, including dependence analysis and
+data movement, to be off-loaded from the programmer to the programming
+system.</p>
+
+<p>Logical regions also improve the programmability and portability of
+applications by decoupling the specification of a program from how it
+is mapped onto a target architecture. Logical regions abstractly
+describe sets of program data without requiring any specification
+regarding the placement or layout of data. To control decisions about
+the placement of computations and data, we introduce a novel mapping
+interface that gives an application programmatic control over mapping
+decisions at runtime. Different implementations of the mapper
+interface can be used to port applications to new architectures and to
+explore alternative mapping choices. Legion guarantees that the
+decisions made through the mapping interface are independent of the
+correctness of the program, thus facilitating easy porting and tuning
+of applications to new architectures with different performance
+characteristics.</p>
+
+<p>Using the information provided by logical regions, an implementation
+of Legion can automatically extract parallelism, manage data movement,
+and infer synchronization. We describe the algorithms and data
+structures necessary for efficiently performing these operations. We
+further show how the Legion runtime can be generalized to operate as a
+distributed system, making it possible for Legion applications to
+scale well. As both applications and machines continue to become more
+complex, the ability of Legion to relieve application developers of
+many of the tedious responsibilities they currently face will become
+increasingly important.</p>
+
+<p>To demonstrate the performance of Legion, we port a production
+combustion simulation, called S3D, to Legion. We describe how S3D is
+implemented within the Legion programming model as well as the
+different mapping strategies that are employed to tune S3D for runs on
+different architectures. Our performance results show that a version
+of S3D running on Legion is nearly three times as fast as comparable
+state-of-the-art versions of S3D when run at 8192 nodes on the number
+two supercomputer in the world.</p>
+
+<p><a name="treichler_thesis"></a><strong>Realm: Performance Portability through Composable
+Asynchrony</strong> <a href="/pdfs/treichler_thesis.pdf">PDF</a><br />
+<em>Sean Jeffrey Treichler</em><br />
+December 2016<br />
+<strong>Abstract:</strong> Modern supercomputers are growing increasingly
+complicated. The laws of physics have forced processor counts into the
+thousands or even millions, resulted in the creation of deep
+distributed memory hierarchies, and encouraged the use of multiple
+processor and memory types in the same system. Developing an
+application that is able to fully utilize such a system is very
+difficult. The development of an application that is able to run well
+on more than one such system with current programming models is so
+daunting that it is generally not even attempted.</p>
+
+<p>The Legion project attempts to address these challenges by combining a
+traditional hierarchical application structure (i.e. tasks/functions
+calling other tasks/functions) with a hierarchical data model (logical
+regions, which may be partitioned into subregions), and introducing
+the concept of mapping, a process in which the tasks and regions of a
+machine-agnostic description are assigned to the processors and
+memories of a particular machine.</p>
+
+<p>This dissertation focuses on Realm, the “low-level” runtime that
+manages the execution of a mapped Legion application. Realm is a fully
+asynchronous event-based runtime. Realm operations are deferred by the
+runtime, returning an event that triggers upon completion of the
+operation.  These events may be used as preconditions for other
+operations, allowing arbitrary composition of asynchronous
+operations. The resulting operation graph naturally exposes the
+available parallelism in the application as well as opportunities for
+hiding the latency of any required communication.  While asynchronous
+task launches and non-blocking data movement are fairly common in
+existing programming models, Realm makes all runtime operations
+asynchronous — this includes resource management, performance
+feedback, and even, apparently paradoxically, synchronization
+primitives.</p>
+
+<p>Important design and implementation issues of Realm will be discussed,
+including the novel generational event data structure that allows
+Realm to efficiently and scalably handle a very large number of events
+in a distributed environment and the machine model that provides the
+information required for the mapping of a Legion application onto a
+system. Realm anticipates dynamic behavior of both future applications
+and future systems and includes mechanisms for application-directed
+profiling, fault reporting, and dynamic code generation that further
+improve performance portability by allowing an application to adapt to
+and optimize for the exact system configuration used for each run.</p>
+
+<p>Microbenchmarks demonstrate the efficiency and scalability of the
+Realm and justify some of the non-obvious design decisions
+(e.g. unfairness in locks). Experiments with several mini-apps are
+used to measure the benefit of a fully asynchronous runtime compared
+to existing “non-blocking” approaches. Finally, performance of Legion
+applications at full-scale show how Realm’s composable asynchrony and
+support for heterogeneity benefit the overall Legion system on a
+variety of modern supercomputers.</p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

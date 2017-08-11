@@ -1,0 +1,263 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Getting Started &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/starting/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/starting/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Getting Started</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="dependencies">Dependencies</h2>
+
+<p>To get started with Legion, you’ll need:</p>
+
+<ul>
+  <li>Linux, macOS, or another Unix</li>
+  <li>A C++ 98 (or newer) compiler (GCC, Clang, Intel, or PGI) and GNU Make</li>
+  <li><em>Optional</em>: Python 2.7 (used for profiling/debugging tools)</li>
+  <li><em>Optional</em>: CUDA 5.0 or newer (for NVIDIA GPUs)</li>
+  <li><em>Optional</em>: <a href="https://gasnet.lbl.gov/">GASNet</a> (for networking, see
+ <a href="/gasnet/">installation instructions</a>)</li>
+  <li><em>Optional</em>: LLVM 3.5 (for dynamic code generation)</li>
+  <li><em>Optional</em>: HDF5 (for file I/O)</li>
+</ul>
+
+<h2 id="installing">Installing</h2>
+
+<p>Download Legion from <a href="https://github.com/StanfordLegion/legion">Github</a>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/StanfordLegion/legion.git</code></pre></figure>
+
+<p>To test, find an example you’d like to try and run <code class="highlighter-rouge">make</code>. For example:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LG_RT_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/legion/runtime"</span>
+<span class="nb">cd </span>legion/examples/full_circuit
+make
+./ckt_sim</code></pre></figure>
+
+<h2 id="contents">Contents</h2>
+
+<p>The top-level contents of the repository include:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">tutorial</code>: Source code for the <a href="/tutorial/">tutorials</a>.</li>
+  <li><code class="highlighter-rouge">examples</code>: Larger examples for advanced programming techniques.</li>
+  <li><code class="highlighter-rouge">apps</code>: Several complete Legion applications.</li>
+  <li><code class="highlighter-rouge">language</code>: The <a href="http://regent-lang.org/">Regent programming language</a> compiler and examples.</li>
+  <li><code class="highlighter-rouge">runtime</code>: The core runtime components:
+    <ul>
+      <li><code class="highlighter-rouge">legion</code>: The Legion runtime itself (see <code class="highlighter-rouge">legion.h</code>).</li>
+      <li><code class="highlighter-rouge">realm</code>: The Realm low-level runtime (see <code class="highlighter-rouge">realm.h</code>).</li>
+      <li><code class="highlighter-rouge">mappers</code>: Several mappers, including the default mapper (see <code class="highlighter-rouge">default_mapper.h</code>).</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">tools</code>: Miscellaneous tools:
+    <ul>
+      <li><code class="highlighter-rouge">legion_spy.py</code>: A <a href="/debugging/#legion-spy">visualization tool</a> for task dependencies.</li>
+      <li><code class="highlighter-rouge">legion_prof.py</code>: A task-level <a href="/profiling/#legion-prof">profiler</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The rest of this page covers how to begin using the
+Legion runtime.</p>
+
+<h2 id="makefile-variables">Makefile Variables</h2>
+
+<p>The Legion Makefile includes several variables which influence the
+build. These may either be set in the environment (e.g. <code class="highlighter-rouge">DEBUG=0
+make</code>) or at the top of each application’s Makefile.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">DEBUG=&lt;0,1&gt;</code>: controls optimization level and enables various
+dynamic checks which are too expensive for release builds.</li>
+  <li><code class="highlighter-rouge">OUTPUT_LEVEL=&lt;level_name&gt;</code>: controls the compile-time <a href="/debugging/#logging-infrastructure">logging
+level</a>.</li>
+  <li><code class="highlighter-rouge">USE_CUDA=&lt;0,1&gt;</code>: enables CUDA support.</li>
+  <li><code class="highlighter-rouge">USE_GASNET=&lt;0,1&gt;</code>: enables GASNet support (see <a href="/gasnet/">installation instructions</a>).</li>
+  <li><code class="highlighter-rouge">USE_LLVM=&lt;0,1&gt;</code>: enables LLVM support.</li>
+  <li><code class="highlighter-rouge">USE_HDF=&lt;0,1&gt;</code>: enables HDF5 support.</li>
+</ul>
+
+<h2 id="build-flags">Build Flags</h2>
+
+<p>In addition to Makefile variables, compilation is influenced by a
+number of build flags. These flags may be added to the environment
+variable <code class="highlighter-rouge">CC_FLAGS</code> (or again set inside the Makefile).</p>
+
+<ul>
+  <li><code class="highlighter-rouge">CC_FLAGS=-DLEGION_SPY</code>: enables <a href="/debugging/#legion-spy">Legion Spy</a>.</li>
+  <li><code class="highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS</code>: enables <a href="/debugging/#privilege-checks">extra privilege checks</a>.</li>
+  <li><code class="highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS</code>: enables <a href="/debugging/#bounds-checks">dynamic bounds checks</a>.</li>
+</ul>
+
+<h2 id="command-line-flags">Command-Line Flags</h2>
+
+<p>Legion and Realm accept command-line arguments for various runtime
+parameters. Below are some of the more commonly used flags:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">-level &lt;category&gt;=&lt;int&gt;</code>:
+sets <a href="/debugging/#logging-infrastructure">logging level</a> for <code class="highlighter-rouge">category</code></li>
+  <li><code class="highlighter-rouge">-logfile &lt;filename&gt;</code>:
+directs <a href="/debugging/#logging-infrastructure">logging output</a> to <code class="highlighter-rouge">filename</code></li>
+  <li><code class="highlighter-rouge">-ll:cpu &lt;int&gt;</code>: CPU processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:gpu &lt;int&gt;</code>: GPU processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:cpu &lt;int&gt;</code>: utility processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:csize &lt;int&gt;</code>: size of CPU DRAM memory per process (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:gsize &lt;int&gt;</code>: size of GASNet global memory available per process (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:rsize &lt;int&gt;</code>: size of GASNet registered RDMA memory available per process (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:fsize &lt;int&gt;</code>: size of framebuffer memory for each GPU (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:zsize &lt;int&gt;</code>: size of zero-copy memory for each GPU (in MB)</li>
+  <li><code class="highlighter-rouge">-lg:window &lt;int&gt;</code>: maximum number of tasks that can be created in a parent task window</li>
+  <li><code class="highlighter-rouge">-lg:sched &lt;int&gt;</code>: minimum number of tasks to try to schedule for each invocation of the scheduler</li>
+</ul>
+
+<p>The default mapper also has several flags for controlling the default mapping.
+See <code class="highlighter-rouge">default_mapper.cc</code> for more details.</p>
+
+<h2 id="tutorials">Tutorials</h2>
+
+<p>Now that a working version of Legion has been established we recommend
+that users follow the <a href="/tutorial/">tutorials</a> to begin using Legion.</p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

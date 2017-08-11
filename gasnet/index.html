@@ -1,0 +1,367 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>GASNet &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GASNet">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/gasnet/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/gasnet/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">GASNet</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>Legion uses <a href="http://gasnet.lbl.gov/">GASNet</a> to support a variety of
+network architectures. Compiling GASNet is non-trivial, so new users
+are advised to leave it disabled until their application is fully
+ported and optimized on a single node.</p>
+
+<ul>
+  <li><a href="#building-gasnet">Building GASNet</a></li>
+  <li><a href="#configuring-gasnet-for-performance">Configuring GASNet for Performance</a></li>
+  <li><a href="#gasnet-performance-environment-variables">GASNet Performance Environment Variables</a></li>
+</ul>
+
+<h2 id="building-gasnet">Building GASNet</h2>
+
+<p>Before continuing users should download the most recent version of
+<a href="http://gasnet.lbl.gov/#download">GASNet</a> and read the associated
+<a href="http://gasnet.lbl.gov/dist/README">README</a>.  As described in the
+README, GASNet is organized around the concept of conduits. Conduits
+provide implementations for different types of interconnect
+networks. It is imperative that the GASNet configuration script is
+setup to build the correct conduit for the target machine. The
+configure script attempts to determine the underlying hardware based
+on installed drivers. However, the configure script can be misled
+especially if drivers are not visible in a user’s path or are not
+loaded by the operating system. For example, if a cluster has
+Infiniband hardware, but the drivers are not loaded by the OS then the
+GASNet configure script will not build the Infiniband conduit. <strong>BE
+SURE THE CONFIGURE SCRIPT BUILDS THE CORRECT CONDUIT</strong>.</p>
+
+<p>We have tested Legion on four different conduits on a wide variety of
+machines ranging from our own personal Infiniband cluster to the Titan
+supercomputer with a Gemini interconnect to a collection of Amazon AWS
+nodes in the cloud using ethernet. Below are some useful configure
+flags that we use when building our own versions of GASNet:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">--enable-gemini</code>: force GASNet to build the Gemini conduit for Cray interconnects.</li>
+  <li><code class="highlighter-rouge">--enable-ibv</code>: force GASNet to build the Infiniband conduit.</li>
+  <li><code class="highlighter-rouge">--enable-udp</code>: force GASNet to build the UDP conduit for ethernet interconnects.</li>
+  <li><code class="highlighter-rouge">--disable-mpi</code>: prevent GASNet from building the MPI conduit. It is very slow.</li>
+  <li><code class="highlighter-rouge">--prefix</code>: specify the destination for the GASNet installation.</li>
+  <li><code class="highlighter-rouge">--enable-par</code>: enable calling GASNet from multiple threads. Required for Legion.</li>
+  <li><code class="highlighter-rouge">--enable-mpi-compat</code>: allow GASNet to interoperate with MPI. Necessary
+  for Legion applications which interact with MPI applications.</li>
+  <li><code class="highlighter-rouge">--enable-segment-fast</code>: necessary for supporting one-sided RDMA operations.</li>
+  <li><code class="highlighter-rouge">--disable-aligned-segments</code>: remove the requirement for aligned pinned memory.</li>
+  <li><code class="highlighter-rouge">--disable-pshm</code>: there should only ever be one GASNet process per node
+  in a Legion application.</li>
+  <li><code class="highlighter-rouge">--enable-pshm</code>: used only when Legion GASNet applications will interoperate
+  with MPI applications with more than one process per node.</li>
+  <li><code class="highlighter-rouge">--with-segment-mmap-max=&lt;#&gt;GB</code>: specify a block size for GASNet to use
+  when discovering the amount of available memory by gradually allocating
+  blocks. Default is 1MB which results in GASNet start-up times of several
+  MINUTES with large (e.g. 48 GB) address spaces.</li>
+  <li><code class="highlighter-rouge">--enable-cross-compile</code>: necessary when targeting machines like
+  Titan which employ different compilers for user-nodes and compute-nodes.</li>
+</ul>
+
+<p>After following the instructions to build and install GASNet, there
+will be a GASNet library and a binary used for running
+applications. All applications using GASNet will need to link against
+the GASNet library (we describe how this is handled by the Legion
+build system below). Similar to running an MPI application with
+<code class="highlighter-rouge">mpirun</code>, a GASNet application must be launched by a wrapper
+script. This script is installed in the <code class="highlighter-rouge">bin</code> directory wherever
+GASNet was installed and usually takes the form <code class="highlighter-rouge">gasnetrun_&lt;conduit&gt;</code>
+where ‘conduit’ names the conduit that should be used
+(e.g. <code class="highlighter-rouge">gasnetrun_ibv</code>). When Legion applications are built with
+GASNet, they must be launched using this script. This script has a
+number of parameters and we refer users to the GASNet documentation
+regarding it.</p>
+
+<p><strong>We strongly recommend users test the performance of their GASNet
+installation.</strong> A GASNet installation also comes with some basic
+benchmarks for determining the performance of the underlying
+network. Users should run these benchmarks and compare them against
+<a href="http://gasnet.lbl.gov/performance/">known performance results</a> to
+ensure that they meet expectations. A slow GASNet installation will
+result in poor performance of Legion applications.</p>
+
+<h3 id="configuring-gasnet-for-performance">Configuring GASNet for Performance</h3>
+
+<p>The configuration of a GASNet installation is important for
+performance of many applications. Here we give two examples of
+configuring GASNet for different architectures. We caution readers
+that the examples shown here demonstrate some of the GASNet features
+necessary for performance but are in no way comprehensive. In all
+cases users should always consult the <a href="http://gasnet.lbl.gov/">GASNet
+Documentation</a> to ensure that they ascertain
+the highest possible performance installation for their target
+machine.</p>
+
+<p>Below is a configure command that we use for our installation of
+GASNet on the <a href="http://keeneland.gatech.edu/">Keeneland supercomputer</a>.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./configure --prefix<span class="o">=</span>/nics/d/home/sequoia/gasnet-1.22.0/ --enable-ibv <span class="se">\</span>
+--enable-mpi --disable-portals --disable-mxm --enable-pthreads <span class="se">\</span>
+--enable-segment-fast --with-segment-mmap-max<span class="o">=</span>4GB --enable-par <span class="se">\</span>
+--disable-seq --disable-parsync --enable-mpi-compat --with-ibv-spawner<span class="o">=</span>mpi <span class="se">\</span>
+--disable-ibv-rcv-thread --disable-aligned-segments --disable-pshm --disable-fca</code></pre></figure>
+
+<p>We describe each of the flags in turn. The <code class="highlighter-rouge">--prefix</code> flag specifies
+the target installation location for GASNet in our user space
+directory (because we do not have administrative privilege on
+Keeneland). We then specify the target conduits to build with the
+<code class="highlighter-rouge">--enable-ibv</code> and <code class="highlighter-rouge">--enable-mpi</code> flags indicating that GASNet should
+build the Infiniband and MPI conduits. The <code class="highlighter-rouge">--disable-portals</code> and
+<code class="highlighter-rouge">--disable-mxm</code> tell GASNet to avoid using any available
+<a href="http://www.cs.sandia.gov/Portals/">Portals</a> or Mellanox APIs when
+building our conduits respectively. The <code class="highlighter-rouge">--enable-pthreads</code> flag
+instructs GASNet that it can use the Posix threads API as part of its
+implementation. We instruct GASNet that it should pin 4 GB of memory
+on each node to be used for its fast active message segment using the
+<code class="highlighter-rouge">--enable-segment-fast --with-segment-mmap-max=4GB</code> flags. Legion is
+multi-threaded and we therefore need the thread safe version of GASNet
+which we specify with the <code class="highlighter-rouge">--enable-par</code> flag. We do not require the
+sequential, or thread-unsafe multi-threaded GASNet versions so we
+disable them with the <code class="highlighter-rouge">--disable-seq</code> and <code class="highlighter-rouge">--disable_parsync</code> flags.
+We enable our GASNet implementation to inter-operate with MPI by
+passing the <code class="highlighter-rouge">--enable-mpi-compat</code> flag. Since we usually use <code class="highlighter-rouge">mpirun</code>
+for spawning our applications instead of the <code class="highlighter-rouge">gasnet*_run</code> utilities,
+we set the spawner to MPI with the <code class="highlighter-rouge">--with-ibv-spawner</code> flag. By
+default, GASNet enables a thread for receiving active messages. Legion
+performs the same operation so we disable the GASNet thread with the
+<code class="highlighter-rouge">--disable-ibv-rcv-thread</code>.  Since Keeneland is operated by an
+installation of Linux with memory layout randomization we pass the
+<code class="highlighter-rouge">--disable-aligned-segments</code> flag to guarantee correct execution by
+GASNet. The <code class="highlighter-rouge">--disable-pshm</code> and <code class="highlighter-rouge">--disable-fca</code> flags disable shared
+memory and fast atomic operations which are unnecessary for Legion and
+can sometimes degrade performance.</p>
+
+<p>While our installation for Keeneland is fairly straight-forward, some
+machines require more complex GASNet installations. As an example, our
+installation of GASNet on the <a href="https://www.olcf.ornl.gov/titan/">Titan
+supercomputer</a> requires us to
+leverage a GASNet cross-configure script because the compilers on the
+login nodes of Titan are different from the compilers necessary for
+building code to run on Titan compute nodes. Titan is an instance of a
+Cray XE architecture, therefore we use the correct GASNet
+cross-configure script for the Cray XE architecture. Below are the two
+command lines for first building a symbolic link to the correct
+cross-configure script, and then invoking it.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ln -s other/contrib/cross-configure-crayxe-linux cross-configure
+./cross-configure --prefix<span class="o">=</span>/ccs/home/mebauer/gasnet/ --enable-gemini <span class="se">\</span>
+--disable-portals --enable-pthreads --enable-segment-fast <span class="se">\</span>
+--with-segment-mmap-max<span class="o">=</span>4GB --enable-par --disable-seq <span class="se">\</span>
+--disable-parsync --disable-mpi --enable-mpi-compat <span class="se">\</span>
+--with-target-cxx<span class="o">=</span>/opt/cray/xt-asyncpe/5.24/CC</code></pre></figure>
+
+<p>Many of the flags are the same as previous example. We note that we
+include the <code class="highlighter-rouge">--enable-gemini</code> flag in order to ensure that the conduit
+for the Gemini interconnect is built. We also specify the correct MPI
+cross-compiler with the <code class="highlighter-rouge">--with-target-cxx</code> flag. These two examples
+should provide a useful illustration of the kinds of flags that can
+influence the performance of GASNet installation and should be
+considered when building an installation of GASNet to be used with
+Legion.</p>
+
+<h3 id="gasnet-performance-environment-variables">GASNet Performance Environment Variables</h3>
+
+<p>In addition to the configure time settings, GASNet also supports a
+myriad array of environment variables that can influence the
+performance of an application. When performance tuning an application
+these variables should be properly set to match the communication
+patterns of the target application. While there are many environment
+variables that can be set, we cover some of the more important
+performance ones here. We first look at the environment variables for
+the Infiniband conduit, and then look at the ones for a Cray Gemini
+conduit.</p>
+
+<p>The documentation for the GASNet Infiniband conduit can be found
+<a href="http://gasnet.lbl.gov/dist/ibv-conduit/README">here</a>. For all of our
+applications that use the Infiniband conduit we tune the following
+environment variables.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH_PP</code> - Specifies the total number of operations
+(active messages and RDMA) operations that can be in flight
+between any pair of nodes.</li>
+  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH_TOTAL</code> - Specifies the total number of operations
+that can be in flight from any one node to all the others.</li>
+  <li><code class="highlighter-rouge">GASNET_AM_CREDITS_PP</code> - Set the total number of active messages
+that can be in flight between any pair of nodes.</li>
+  <li><code class="highlighter-rouge">GASNET_AM_CREDITS_TOTAL</code> - Set the total number of active messages
+that can be in flight from any one node at a time.</li>
+  <li><code class="highlighter-rouge">GASNET_AM_CREDITS_SLACK</code> - Control how quickly active message
+credits are sent back to the node that sent them.</li>
+  <li><code class="highlighter-rouge">GASNET_AMRDMA_MAX_PEERS</code> - Control the number of nodes which
+support the faster path for active messages by using RDMA.
+In some cases we have found this variable needs to be set
+to zero in order to guarantee correct execution of Legion
+with the Infiniband conduit. (We have an outstanding bug
+registered with the GASNet developers regarding this issue.)</li>
+</ul>
+
+<p>The documentation for the GASNet Gemini conduit can be found
+<a href="http://gasnet.lbl.gov/dist/gemini-conduit/README">here</a>. We regularly
+tune the following variables when optimizing an application for the
+Gemini conduit.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH</code> - Maximum number of network operations
+which can be in flight between any pair of nodes.</li>
+  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH_TOTAL</code> - Maximum number of network
+operations which can be in flight from an individual
+node at a time.</li>
+  <li><code class="highlighter-rouge">GASNET_GNI_NUM_PD</code> - Control the number of UGNI post
+descriptors available for performing network operations.</li>
+  <li><code class="highlighter-rouge">GASNET_GNI_MEMREG</code> - Specify the number of pinned memory
+allocations available for GASNet to use.  Most often
+needed when running applications without the -ll:rsize
+flag (see below).</li>
+</ul>
+
+<p>In order to tune these variables we regularly employ a simple script
+which sweeps the parameter space, records the performance of our
+applications, and then reports the best configuration to use.</p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

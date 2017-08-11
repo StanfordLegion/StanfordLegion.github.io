@@ -1,0 +1,767 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Physical Regions &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Physical Regions">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/physical_regions.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/physical_regions.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Physical Regions</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>Now that we have introduced many of
+the necessary features for constructing
+Legion programs we can begin 
+constructing full applications
+that make use of logical regions. Starting 
+with this example, and for most of the
+remaining examples, we gradually 
+refine an implementation of the BLAS
+DAXPY routine to introduce new features. 
+In this section we begin
+with a sequential implementation of DAXPY 
+to show how to create <em>physical instances</em>
+of logical regions and access data. In
+later examples we will show how to extend
+this implementation to execute parallel sub-tasks.</p>
+
+<h4 id="a-useful-analogy">A Useful Analogy</h4>
+
+<p>To build intuition before jumping into the
+example, we begin by introducing an analogy that we 
+have found useful when describing the relationship
+between logical regions and physical instances to
+new Legion users. In many ways the relationship
+between logical regions and physical instances
+is isomorphic to that of variables and registers
+in the C language. A logical region/variable in C
+gives a name to data. This data can be mutated
+over time. While a logical region/variable name
+uniquely identifies, the Legion runtime/C compiler
+can store data in different physical instances/registers
+throughout the execution of the application.</p>
+
+<p>Writing to the Legion runtime API, is therefore 
+analogous to writing inline assembly code in C as
+the user is explicitly responsible for managing
+the mapping from logical regions/variable names to
+physical instances/registers. Similarly, writing in Regent is directly
+analogous to writing in C, as Regent makes no distinction
+between logical and physical regions. Instead the
+Regent compiler automatically manages the mapping from
+logical regions to physical instances just like the 
+C compiler automatically manages the mapping from a 
+variable name to different registers. Users targeting
+the runtime API should be aware that they
+are effectively writing low-level Legion code and
+are therefore responsible for managing the mapping
+from logical regions to physical instances. We’ll
+cover how to handle this responsibility in this example.</p>
+
+<h4 id="region-strategy">Region Strategy</h4>
+
+<p>To implement DAXPY we’ll create two logical
+regions with a common index space. One logical
+region will store the inputs and the other
+will store the results. The input region will
+have two fields, one for storing the ‘X’ values
+and the other for storing the ‘Y’ values. The
+output region will have a single ‘Z’ field for
+storing the result of the DAXPY computation.</p>
+
+<p>On lines 31-33 we create a 1D <code class="highlighter-rouge">Rect</code> to describe
+the space of elements for our index space and
+then create a structured index space. We then
+create two field spaces: one for describing
+the two input fields (line 34) and one for
+describing the output (line 41). In the input
+field space <code class="highlighter-rouge">input_fs</code> we allocate two fields
+with field IDs <code class="highlighter-rouge">FID_X</code> and <code class="highlighter-rouge">FID_Y</code> each with
+enough space for holding double precision values.
+In the output field space <code class="highlighter-rouge">output_fs</code> we allocate
+a single field <code class="highlighter-rouge">FID_Z</code> for storing the result
+of the computation.</p>
+
+<p>After creating the two fields spaces and allocating
+fields, we create two logical regions each with
+the same index space (lines 47-48). The <code class="highlighter-rouge">input_lr</code>
+and <code class="highlighter-rouge">output_lr</code> logical regions store the input
+and output logical regions respectively. We’ll 
+make use of the same region scheme throughout
+all of our remaining DAXPY examples. The next
+few sections describe the primary building
+blocks of our DAXPY implementation, while the
+last section will describe the overall structure
+of the application.</p>
+
+<h4 id="physical-instances">Physical Instances</h4>
+
+<p>Having created logical regions for describing our 
+data, we now want to instantiate <em>physical instances</em>
+of these regions which we can use for accessing
+data. Unlike logical regions which are abstractions
+for describing how data is organized and have no
+implied placement or layout in the memory hierarchy,
+physical instances will have an explicit placement
+and layout. The choice of placement and layout are
+made by the mapping process which we cover in a
+later example. Physical instances that are created
+are represented by <code class="highlighter-rouge">PhysicalRegion</code> handles which
+we discuss in more detail momentarily.</p>
+
+<p>One common criticism about the Legion C++ runtime
+API is there exists a dichotomy between logical
+and physical regions which programmers are explicitly
+expected to manage. This increases the verbosity
+of Legion applications, but is a common artifact
+of targeting a runtime API. Regent does not suffer from the same effect as
+there are only <em>regions</em> and the compiler automatically
+manages the distinction between logical and physical
+regions analogous to how sequential
+compilers manages the mapping between variables and
+hardware registers. This is consistent with the 
+design principles laid out in our 
+<a href="/overview/index.html">Legion overview</a>:
+the runtime API is designed for expressiveness while
+productivity features primarily only appear in Regent.</p>
+
+<h4 id="inline-mappings">Inline Mappings</h4>
+
+<p>We now introduce one way to create physical instances
+of logical regions using <em>inline mappings</em> (we’ll
+discuss other ways to create physical instances in
+coming examples). Inline mappings provide a mechanism
+for a task to manifest a physical instance of
+a logical region directly inline as part of the task’s 
+execution. Performing an inline mapping will give
+a task a copy of the data for the specified logical
+region consistent with given privileges and
+coherence. In this particular DAXPY example, our
+first mapping of our logical regions will simply
+create an empty physical instances containing space
+for the data since the data in the logical regions 
+has not yet been initialized.</p>
+
+<p>To perform an inline mapping, applications create an
+<code class="highlighter-rouge">InlineLauncher</code> object similar to other launcher
+objects for launching tasks (line 54). The argument
+passed to the <code class="highlighter-rouge">InlineLauncher</code> constructor is a 
+<code class="highlighter-rouge">RegionRequirement</code> which is used to describe the
+logical region requested. <code class="highlighter-rouge">RegionRequiremnt</code> objects
+are covered in the next section. Once we have have
+set up the launcher, we invoke the <code class="highlighter-rouge">map_region</code>
+runtime method and pass the launcher. This call
+returns a <code class="highlighter-rouge">PhysicalRegion</code> handle which represents
+the physical instance of the data. In keeping with
+Legion’s deferred execution model, the <code class="highlighter-rouge">map_region</code>
+call is asynchronous, allowing the application to
+issue many operations in flight and perform other
+useful work while waiting for the region to be
+ready. We describe the interface for <code class="highlighter-rouge">PhysicalRegion</code>
+objects later in this example.</p>
+
+<h4 id="region-requirements">Region Requirements</h4>
+
+<p><code class="highlighter-rouge">RegionRequirement</code> objects are used to describe
+the logical regions requested by launcher objects as
+well as what privileges and coherence are requested
+on the specified logical region. On line
+50 we create a <code class="highlighter-rouge">RegionRequirement</code> that requests
+the <code class="highlighter-rouge">input_lr</code> logical region with <code class="highlighter-rouge">READ-WRITE</code>
+privileges and <code class="highlighter-rouge">EXCLUSIVE</code> coherence. The last 
+argument specifies the logical region for which 
+the enclosing parent task has privileges. We
+discuss privileges in more detail in the next
+example. By default most Legion applications should
+use <code class="highlighter-rouge">EXCLUSIVE</code> coherence. For those interested
+in learning more about <em>relaxed</em> coherence we
+encourage them to read our 
+<a href="/publications/index.html">OOPSLA paper</a> which
+covers the semantics of various coherence modes.
+After specifying the requested logical region,
+<code class="highlighter-rouge">RegionRequirement</code> objects must also specify
+which fields on the logical region to request. 
+Fields are added by calling the <code class="highlighter-rouge">add_field</code> method 
+on the <code class="highlighter-rouge">RegionRequirement</code> (lines 51-52). There are
+many other constructors, methods, and fields
+on <code class="highlighter-rouge">RegionRequirement</code> objects, some of which
+we will see in the remaining examples.</p>
+
+<h4 id="physical-regions">Physical Regions</h4>
+
+<p><code class="highlighter-rouge">PhysicalRegion</code> objects are handles which name physical
+instances. However, similar to <code class="highlighter-rouge">Future</code> objects
+which represent values which need to be completed,
+<code class="highlighter-rouge">PhysicalRegion</code> objects must be explicitly checked
+for completion as part of Legion’s deferred
+execution model. The application can either poll
+a <code class="highlighter-rouge">PhysicalRegion</code> to see if it is complete
+using the <code class="highlighter-rouge">is_valid</code> method or it can explicitly
+wait for the physical instance to be ready
+by invoking the <code class="highlighter-rouge">wait_until_valid</code> method (line 56). 
+Just like waiting for a <code class="highlighter-rouge">Future</code>, if the physical
+instance is not ready the task is preempted
+and other tasks may be run while waiting for
+the region to be ready. Applications do not need
+to explicitly wait for a physical region to
+be ready, but any attempt to create a region
+<em>accessor</em> (described in the next section) will
+implicitly cause the task to wait until the 
+physical instance contains valid data for the
+corresponding logical region to maintain correctness.
+This guarantees that the application can only
+access the data contained in the physical instance
+once the data is valid. (In the case where data
+in the logical region has yet to be initialized, 
+Legion will never require the application to wait.)</p>
+
+<p>Like other resources applications can 
+explicitly release physical instances that it
+has mapped. We discuss how to explicitly unmap
+a <code class="highlighter-rouge">PhysicalRegion</code> later in this example.
+<code class="highlighter-rouge">PhysicalRegion</code> objects are also reference
+counted so when the handles go out of scope references
+are removed. If the runtime detects that all
+handles to the <code class="highlighter-rouge">PhysicalRegion</code> have gone out
+of scope, it will automatically unmap the
+physical instance as well.</p>
+
+<h4 id="region-accessors">Region Accessors</h4>
+
+<p>To access data within a physical region,
+an application must create <code class="highlighter-rouge">RegionAccessor</code> objects.
+Physical instances can be laid out in many different
+ways including array-of-struct (AOS), struct-of-array
+(SOA), and hybrid formats depending on decisions
+made as part of the process of mapping a Legion
+application. <code class="highlighter-rouge">RegionAccessor</code> objects provide the 
+necessary level of indirection to make application
+code independent of the selected mapping and therefore
+correct under all possible mapping decisions. 
+<code class="highlighter-rouge">RegionAccessor</code> objects have their own namespace
+that must be explicitly included (line 6).</p>
+
+<p><code class="highlighter-rouge">RegionAccessor</code> objects are tied directly to the
+<code class="highlighter-rouge">PhysicalRegion</code> for which they are created. Once
+the physical region is invalidated, either because
+it is reclaimed or it is explicitly unmapped by
+the application, then all accessors for the physical
+instance are also invalidated and any attempt to
+re-use them will result in undefined behavior. Each
+region accessor is also associated with a specific
+field of the physical instance and can be obtained
+by invoking the <code class="highlighter-rouge">get_field_accessor</code> method (line 59) 
+on a <code class="highlighter-rouge">PhysicalRegion</code> and passing the corresponding 
+<code class="highlighter-rouge">FieldID</code> for the desired field. To aid programmers
+in writing correct Legion applications, we provide
+a <code class="highlighter-rouge">typeify</code> method to convert from an untyped
+<code class="highlighter-rouge">RegionAccessor</code> to a typed one (line 59). This allows 
+the C++ compiler to enforce standard typing rules
+on <code class="highlighter-rouge">RegionAccessor</code> operations.</p>
+
+<p>The <code class="highlighter-rouge">AccessorType::Generic</code> template argument on 
+the <code class="highlighter-rouge">RegionAccessor</code> type specifies the kind of 
+accessor (line 58). In this example we create a 
+specific kind of accessor called a <em>generic</em> accessor. 
+Generic accessors are the simplest kind of accessors 
+and have the ability to verify many important correctness
+properties of region tasks (e.g. abiding by their
+specified privileges), but they also have the worst 
+performance. In this example we only make use of generic
+accessors for simplicity. In practice, we often write
+two variants of every Legion task, one using generic
+accessors which we use to validate the application,
+and second using high-performance accessors. Generic
+accessors should <strong>NEVER</strong> be used in production code.</p>
+
+<p>The generic <code class="highlighter-rouge">RegionAccessor</code> provides the <code class="highlighter-rouge">read</code> 
+(line 81) and <code class="highlighter-rouge">write</code> (line 64) methods for accessing
+data within the region. These methods are overloaded
+to either work with <code class="highlighter-rouge">ptr_t</code> pointers for logical regions
+created with unstructured index spaces, or with
+non-dimensionalized <code class="highlighter-rouge">DomainPoint</code> objects for logical
+regions associated with structured index spaces. For
+our DAXPY example, we use the <code class="highlighter-rouge">GenericPointInRectIterator</code>
+iterator object to iterate over all the points in the
+index space associated with both of our logical regions
+whenever we need to access values in our logical 
+regions (line 63).</p>
+
+<p>We quickly recall an important observation about 
+Legion pointers made in a earlier example. Legion
+pointers do not directly reference data, but instead
+name an entry in an index space. They are used when
+accessing data within accessors for logical regions.
+The accessor is specifically associated with the field
+being accessed and the pointer names the row entry.
+Since pointers are associated with index spaces they
+can be used with an accessor for physical instance. In
+this way Legion pointers are not tied to memory address
+spaces or physical instances, but instead can be used
+to access data for any physical instance of a logical
+region created with an index space to which the pointer
+belongs.</p>
+
+<h4 id="unmapping-and-remapping-regions">Unmapping and Remapping Regions</h4>
+
+<p>When launching sub-tasks that use logical regions
+that alias with the parent task’s logical regions, it is
+necessary to unmap all physical instances of the aliased
+logical regions. Effectively this is the calling convention
+for sub-tasks and is analogous to the calling convention
+for functions in a C compiler’s implementation of its
+application-binary interface (ABI). We’ll provide a compelling 
+case when this occurs in the next example.</p>
+
+<p><code class="highlighter-rouge">PhysicalRegion</code> objects can be explicitly unmapped using the 
+<code class="highlighter-rouge">HighLevelRuntime</code> method <code class="highlighter-rouge">unmap_region</code> (line 87). This allows 
+the application to maintain a handle to the physical instance
+in case it decides to remap the region using the
+<code class="highlighter-rouge">remap_region</code> method. The <code class="highlighter-rouge">remap_region</code> method will
+ensure that the exact same physical instance is brought
+up to date which does not invalidate any <code class="highlighter-rouge">RegionAccessor</code>
+objects.</p>
+
+<p>The other way of remapping a region is to perform
+another inline mapping (possibly with different
+privileges or coherence) as we do in this example.
+The process of mapping may ultimately create a new
+<code class="highlighter-rouge">PhysicalRegion</code> object which will invalidate all earlier
+<code class="highlighter-rouge">RegionAccessor</code> objects. Attempts to use <code class="highlighter-rouge">RegionAccessor</code>
+objects which have been invalidated will result
+in undefined behavior.</p>
+
+<h4 id="daxpy-implementation">DAXPY Implementation</h4>
+
+<p>Having covered the initial components for constructing a
+Legion DAXPY application, we can now describe the overall
+structure of the application. Lines 21-29 handle command
+line arguments and allow programmers to deviate from the
+default number of elements by passing a “-n” flag with
+the new number of elements to use when creating our
+index space. The application then creates the index space,
+field spaces, and logical regions (lines 31-48). The
+fields for each of the two field spaces are allocated
+in lines 36-39 and 43-45.</p>
+
+<p>After the primary resources for DAXPY are setup, we
+first map a physical instance of input region by
+performing an inline mapping (lines 50-56). Using
+the physical instance that is created we create 
+accessors for both of the fields in the <code class="highlighter-rouge">input_lr</code>
+logical region (lines 58-61)and iterate over all the 
+points in the index space to initialize all entries for
+both fields with random numbers (lines 63-66).</p>
+
+<p>Having all the necessary data in the input logical
+region, we then map the output logical region using
+another inline mapping (lines 68-72) and then
+create a region accessor (lines 74-75, note we do
+not explicitly wait for the <code class="highlighter-rouge">RegionAccessor</code> but 
+instead wait for the runtime to do it for us when
+creating the accessor). Having mapping physical instances
+of both logical regions, we then perform the DAXPY
+computation using a single iterator over the single
+index space used to create both logical regions
+(lines 78-83).</p>
+
+<p>When the DAXPY computation is complete, we then
+unmap the <code class="highlighter-rouge">PhysicalRegion</code> for the output logical
+region and remap it using a new inline mapping
+(lines 88-91) to illustrate changing the mapping
+privileges from <code class="highlighter-rouge">WRITE_DISCARD</code> to <code class="highlighter-rouge">READ_ONLY</code>.
+Note that because we performed a new inline 
+mapping instead of calling <code class="highlighter-rouge">remap_region</code> we
+had to create a new <code class="highlighter-rouge">RegionAccessor</code> since it
+was possible we received a new physical instance
+(line 91). We then check the results of our
+DAXPY computation to make sure they are correct
+and report the result (lines 93-103). Finally,
+we clean up our resources (lines 107-111).</p>
+
+<p>Next Example: <a href="/tutorial/privileges.html">Privileges</a>
+<br />
+Previous Example: <a href="/tutorial/logical_regions.html">Logical Regions</a></p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+#include &lt;cassert&gt;
+#include &lt;cstdlib&gt;
+#include "legion.h"
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">Accessor</span><span class="p">;</span>
+
+<span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
+  <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="n">FieldIDs</span> <span class="p">{</span>
+  <span class="n">FID_X</span><span class="p">,</span>
+  <span class="n">FID_Y</span><span class="p">,</span>
+  <span class="n">FID_Z</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">num_elements</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span> 
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">command_args</span><span class="p">.</span><span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s">"-n"</span><span class="p">))</span>
+        <span class="n">num_elements</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Running daxpy for %d elements...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_elements</span><span class="p">);</span>
+
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">elem_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="n">IndexSpace</span> <span class="n">is</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
+                          <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">elem_rect</span><span class="p">));</span>
+  <span class="n">FieldSpace</span> <span class="n">input_fs</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+  <span class="p">{</span>
+    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span> 
+      <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_allocator</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">input_fs</span><span class="p">);</span>
+    <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_X</span><span class="p">);</span>
+    <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_Y</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">FieldSpace</span> <span class="n">output_fs</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+  <span class="p">{</span>
+    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span> 
+      <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_allocator</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_fs</span><span class="p">);</span>
+    <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_Z</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">LogicalRegion</span> <span class="n">input_lr</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_logical_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">,</span> <span class="n">input_fs</span><span class="p">);</span>
+  <span class="n">LogicalRegion</span> <span class="n">output_lr</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_logical_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">,</span> <span class="n">output_fs</span><span class="p">);</span>
+
+  <span class="n">RegionRequirement</span> <span class="n">req</span><span class="p">(</span><span class="n">input_lr</span><span class="p">,</span> <span class="n">READ_WRITE</span><span class="p">,</span> <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">input_lr</span><span class="p">);</span>
+  <span class="n">req</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="n">FID_X</span><span class="p">);</span>
+  <span class="n">req</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="n">FID_Y</span><span class="p">);</span>
+
+  <span class="n">InlineLauncher</span> <span class="n">input_launcher</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+  <span class="n">PhysicalRegion</span> <span class="n">input_region</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">map_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">input_launcher</span><span class="p">);</span>
+  <span class="n">input_region</span><span class="p">.</span><span class="n">wait_until_valid</span><span class="p">();</span>
+
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_x</span> <span class="o">=</span> 
+    <span class="n">input_region</span><span class="p">.</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_X</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_y</span> <span class="o">=</span> 
+    <span class="n">input_region</span><span class="p">.</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Y</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">elem_rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">acc_x</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">drand48</span><span class="p">());</span>
+    <span class="n">acc_y</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">drand48</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="n">InlineLauncher</span> <span class="n">output_launcher</span><span class="p">(</span><span class="n">RegionRequirement</span><span class="p">(</span><span class="n">output_lr</span><span class="p">,</span> <span class="n">WRITE_DISCARD</span><span class="p">,</span>
+                                                   <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">output_lr</span><span class="p">));</span>
+  <span class="n">output_launcher</span><span class="p">.</span><span class="n">requirement</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="n">FID_Z</span><span class="p">);</span>
+
+  <span class="n">PhysicalRegion</span> <span class="n">output_region</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">map_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_launcher</span><span class="p">);</span>
+
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_z</span> <span class="o">=</span> 
+    <span class="n">output_region</span><span class="p">.</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Z</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="k">const</span> <span class="kt">double</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">drand48</span><span class="p">();</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Running daxpy computation with alpha %.8g..."</span><span class="p">,</span> <span class="n">alpha</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">elem_rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">))</span> <span class="o">+</span> 
+                           <span class="n">acc_y</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
+    <span class="n">acc_z</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Done!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">unmap_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_region</span><span class="p">);</span>
+
+  <span class="n">output_launcher</span><span class="p">.</span><span class="n">requirement</span><span class="p">.</span><span class="n">privilege</span> <span class="o">=</span> <span class="n">READ_ONLY</span><span class="p">;</span>
+  <span class="n">output_region</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">map_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_launcher</span><span class="p">);</span>
+
+  <span class="n">acc_z</span> <span class="o">=</span> <span class="n">output_region</span><span class="p">.</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Z</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Checking results..."</span><span class="p">);</span>
+  <span class="kt">bool</span> <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">elem_rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">))</span> <span class="o">+</span> 
+                           <span class="n">acc_y</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
+    <span class="kt">double</span> <span class="n">received</span> <span class="o">=</span> <span class="n">acc_z</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">expected</span> <span class="o">!=</span> <span class="n">received</span><span class="p">)</span>
+      <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">all_passed</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"SUCCESS!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"FAILURE!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_logical_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">input_lr</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_logical_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_lr</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">input_fs</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_fs</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

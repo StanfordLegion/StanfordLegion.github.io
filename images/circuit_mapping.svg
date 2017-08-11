@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="560px" height="260px" viewBox="0 0 560 260" enable-background="new 0 0 560 260" xml:space="preserve">
+<rect x="113.63" y="15.062" transform="matrix(1 -0.0027 0.0027 1 -0.3672 0.4127)" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="79.12" height="243.245"/>
+<rect x="218.729" y="15.063" transform="matrix(1 -0.0027 0.0027 1 -0.3667 0.6955)" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="79.122" height="243.139"/>
+<rect x="330.21" y="15.024" transform="matrix(1 -0.0027 0.0027 1 -0.3667 0.9975)" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="80.565" height="243.475"/>
+<rect x="108.817" y="2.597" fill="none" width="88.957" height="12.465"/>
+<text transform="matrix(1 0 0 1 110.958 11.1885)" font-family="'ArialMT'" font-size="12">i-th GPU DRAM</text>
+<rect x="218.051" y="3.079" fill="none" width="77.004" height="11.5"/>
+<text transform="matrix(1 0 0 1 218.0508 11.6709)" font-family="'ArialMT'" font-size="12">i-th Zero-Copy</text>
+<rect x="331.03" y="3.079" fill="none" width="82" height="11.5"/>
+<text transform="matrix(1 0 0 1 331.0303 11.6709)" font-family="'ArialMT'" font-size="12">GASNet Mem</text>
+<rect x="7.295" y="20.356" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="95" height="42.32"/>
+<rect x="7.295" y="26.009" fill="none" width="95" height="36.187"/>
+<text transform="matrix(1 0 0 1 12.8394 33.1685)" font-family="'ArialMT'" font-size="10">Calc New Currents</text>
+<text transform="matrix(1 0 0 1 12.1055 45.1685)" font-family="'ArialMT'" font-size="10">w</text>
+<text transform="matrix(0.583 0 0 0.583 19.3271 48.4985)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 20.6226 45.1685)" font-family="'ArialMT'" font-size="10"> : RWE   p</text>
+<text transform="matrix(0.583 0 0 0.583 66.1841 48.4985)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 67.4795 45.1685)" font-family="'ArialMT'" font-size="10"> : ROE</text>
+<text transform="matrix(1 0 0 1 12.9355 57.1685)" font-family="'ArialMT'" font-size="10">w</text>
+<text transform="matrix(0.583 0 0 0.583 20.1572 60.4985)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 21.4526 57.1685)" font-family="'ArialMT'" font-size="10"> : ROE   g</text>
+<text transform="matrix(0.583 0 0 0.583 65.354 60.4985)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 66.6494 57.1685)" font-family="'ArialMT'" font-size="10"> : ROE</text>
+<rect x="7.295" y="84.035" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="95" height="39.026"/>
+<rect x="7.295" y="154.938" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="95" height="24.615"/>
+<rect x="7.295" y="214.517" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="95" height="37.68"/>
+<rect x="7.295" y="87.206" fill="none" width="95" height="37.75"/>
+<text transform="matrix(1 0 0 1 15.8887 94.3652)" font-family="'ArialMT'" font-size="10">Distribute Charge</text>
+<text transform="matrix(1 0 0 1 12.1055 106.3652)" font-family="'ArialMT'" font-size="10">w</text>
+<text transform="matrix(0.583 0 0 0.583 19.3271 109.6953)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 20.6226 106.3652)" font-family="'ArialMT'" font-size="10"> : ROE   p</text>
+<text transform="matrix(0.583 0 0 0.583 64.5239 109.6953)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 65.8193 106.3652)" font-family="'ArialMT'" font-size="10"> : RWE</text>
+<text transform="matrix(1 0 0 1 14.874 118.3652)" font-family="'ArialMT'" font-size="10">s</text>
+<text transform="matrix(0.583 0 0 0.583 19.874 121.6953)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 21.1694 118.3652)" font-family="'ArialMT'" font-size="10"> : RdS    g</text>
+<text transform="matrix(0.583 0 0 0.583 65.6323 121.6953)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 66.9277 118.3652)" font-family="'ArialMT'" font-size="10"> : RdS</text>
+<rect x="7.295" y="215.267" fill="none" width="95" height="36.18"/>
+<text transform="matrix(1 0 0 1 12.8394 222.4263)" font-family="'ArialMT'" font-size="10">Calc New Currents</text>
+<text transform="matrix(1 0 0 1 10.7163 234.4263)" font-family="'ArialMT'" font-size="10">w</text>
+<text transform="matrix(0.583 0 0 0.583 17.938 237.7563)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 19.2334 234.4263)" font-family="'ArialMT'" font-size="10"> : RWE    p</text>
+<text transform="matrix(0.583 0 0 0.583 67.5732 237.7563)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 68.8687 234.4263)" font-family="'ArialMT'" font-size="10"> : ROE</text>
+<text transform="matrix(1 0 0 1 12.6572 246.4263)" font-family="'ArialMT'" font-size="10">s</text>
+<text transform="matrix(0.583 0 0 0.583 17.6572 249.7563)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 18.9526 246.4263)" font-family="'ArialMT'" font-size="10"> : ROE    g</text>
+<text transform="matrix(0.583 0 0 0.583 65.6323 249.7563)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 66.9277 246.4263)" font-family="'ArialMT'" font-size="10"> : ROE</text>
+<rect x="125.792" y="14.579" fill="#90A9CA" stroke="#000000" stroke-miterlimit="10" width="17.002" height="243.93"/>
+<rect x="162.328" y="15.062" fill="#69BE5C" stroke="#000000" stroke-miterlimit="10" width="17.002" height="243.546"/>
+<rect x="229.373" y="14.958" fill="#F89D4D" stroke="#000000" stroke-miterlimit="10" width="17.002" height="47.238"/>
+<rect x="265.793" y="15.02" fill="#C5B0D5" stroke="#000000" stroke-miterlimit="10" width="17.002" height="47.175"/>
+<rect x="229.373" y="84.035" fill="#F89D4D" stroke="#000000" stroke-miterlimit="10" width="17.002" height="39.026"/>
+<rect x="265.793" y="84.035" fill="#C5B0D5" stroke="#000000" stroke-miterlimit="10" width="17.002" height="38.751"/>
+<rect x="345.245" y="84.035" fill="none" stroke="#EC665D" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="12,3" width="17.75" height="56.212"/>
+<rect x="345.245" y="15.068" fill="#EC665D" stroke="#000000" stroke-miterlimit="10" width="17.75" height="68.967"/>
+<rect x="345.245" y="139.717" fill="#EC665D" stroke="#000000" stroke-miterlimit="10" width="17.75" height="15.221"/>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="12,3" x1="282.795" y1="123.356" x2="342.326" y2="138.952"/>
+		<g>
+			<path d="M345.245,139.717c-1.507,0.15-3.439,0.573-4.736,1.217l1.435-2.083l-0.229-2.518
+				C342.528,137.532,344.005,138.848,345.245,139.717z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="12,3" x1="246.384" y1="122.826" x2="342.282" y2="139.724"/>
+		<g>
+			<path d="M345.254,140.247c-1.49,0.272-3.381,0.852-4.621,1.6l1.26-2.192l-0.435-2.491
+				C342.368,138.292,343.947,139.482,345.254,140.247z"/>
+		</g>
+	</g>
+</g>
+<rect x="229.373" y="154.938" fill="#F89D4D" stroke="#000000" stroke-miterlimit="10" width="17.002" height="103.571"/>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="345.762" y1="141.759" x2="249.206" y2="154.542"/>
+		<g>
+			<path d="M246.214,154.938c1.338-0.708,2.967-1.831,3.925-2.918l-0.541,2.47l1.165,2.244
+				C249.555,155.934,247.69,155.273,246.214,154.938z"/>
+		</g>
+	</g>
+</g>
+<rect x="345.245" y="155.245" fill="none" stroke="#EC665D" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="12,3" width="17.75" height="44.223"/>
+<rect x="345.245" y="199.468" fill="#EC665D" stroke="#000000" stroke-miterlimit="10" width="17.75" height="59.041"/>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="246.425" y1="179.759" x2="342.286" y2="198.877"/>
+		<g>
+			<path d="M345.245,199.468c-1.495,0.239-3.399,0.776-4.656,1.496l1.309-2.164l-0.379-2.5
+				C342.403,197.448,343.955,198.674,345.245,199.468z"/>
+		</g>
+	</g>
+</g>
+<rect x="265.793" y="215.251" fill="#C5B0D5" stroke="#000000" stroke-miterlimit="10" width="17.002" height="43.258"/>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="345.325" y1="205.68" x2="287.25" y2="214.944"/>
+		<g>
+			<path d="M284.271,215.42c1.319-0.744,2.917-1.909,3.846-3.021l-0.475,2.484l1.224,2.212
+				C287.637,216.326,285.756,215.716,284.271,215.42z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="12,3" x1="424.162" y1="124.53" x2="366.802" y2="137.86"/>
+		<g>
+			<path d="M363.862,138.543c1.264-0.834,2.776-2.109,3.624-3.284l-0.299,2.511l1.376,2.121
+				C367.284,139.211,365.364,138.734,363.862,138.543z"/>
+		</g>
+	</g>
+</g>
+<rect x="426.044" y="108.192" fill="none" width="42" height="30.776"/>
+<text transform="matrix(1 0 0 1 427.0322 113.9204)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="8">Reductions</tspan><tspan x="1.783" y="9.6" font-family="'ArialMT'" font-size="8">from other </tspan><tspan x="9.113" y="19.2" font-family="'ArialMT'" font-size="8">nodes</tspan></text>
+<rect x="426.192" y="142.89" fill="none" width="42" height="30.776"/>
+<text transform="matrix(1 0 0 1 434.7412 148.6182)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="8">Copies</tspan><tspan x="-1.113" y="9.6" font-family="'ArialMT'" font-size="8">to other </tspan><tspan x="1.553" y="19.2" font-family="'ArialMT'" font-size="8">nodes</tspan></text>
+<rect x="426.044" y="179.245" fill="none" width="42" height="30.776"/>
+<text transform="matrix(1 0 0 1 434.5928 184.9731)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="8">Copies</tspan><tspan x="-5.777" y="9.6" font-family="'ArialMT'" font-size="8">from other </tspan><tspan x="1.553" y="19.2" font-family="'ArialMT'" font-size="8">nodes</tspan></text>
+<rect x="426.044" y="213.897" fill="none" width="42" height="30.776"/>
+<text transform="matrix(1 0 0 1 434.5928 219.625)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="8">Copies</tspan><tspan x="-1.113" y="9.6" font-family="'ArialMT'" font-size="8">to other </tspan><tspan x="1.553" y="19.2" font-family="'ArialMT'" font-size="8">nodes</tspan></text>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="426.075" y1="187.829" x2="365.963" y2="198.92"/>
+		<g>
+			<path d="M362.995,199.468c1.301-0.776,2.87-1.979,3.771-3.114l-0.415,2.494l1.277,2.182
+				C366.383,200.292,364.487,199.728,362.995,199.468z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="362.937" y1="142.89" x2="422.115" y2="153.285"/>
+		<g>
+			<path d="M425.087,153.807c-1.489,0.273-3.38,0.854-4.621,1.603l1.259-2.193l-0.436-2.491
+				C422.2,151.853,423.779,153.043,425.087,153.807z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="363.46" y1="206.897" x2="422.667" y2="220.233"/>
+		<g>
+			<path d="M425.61,220.896c-1.501,0.202-3.417,0.692-4.691,1.381l1.361-2.131l-0.316-2.508
+				C422.819,218.807,424.341,220.071,425.61,220.896z"/>
+		</g>
+	</g>
+</g>
+<rect x="139.456" y="26.009" fill="none" width="20.676" height="13.5"/>
+<text transform="matrix(1 0 0 1 144.6836 34.6006)" font-family="'ArialMT'" font-size="12">w</text>
+<text transform="matrix(0.583 0 0 0.583 153.3496 38.5967)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="174.831" y="26.009" fill="none" width="20.676" height="13.5"/>
+<text transform="matrix(1 0 0 1 181.0542 34.6006)" font-family="'ArialMT'" font-size="12">p</text>
+<text transform="matrix(0.583 0 0 0.583 187.728 38.5967)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="242.457" y="26.009" fill="none" width="20.676" height="13.5"/>
+<text transform="matrix(1 0 0 1 249.0181 34.6006)" font-family="'ArialMT'" font-size="12">s</text>
+<text transform="matrix(0.583 0 0 0.583 255.0181 38.5967)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="278.959" y="26.009" fill="none" width="20.675" height="13.5"/>
+<text transform="matrix(1 0 0 1 285.1836 34.6006)" font-family="'ArialMT'" font-size="12">g</text>
+<text transform="matrix(0.583 0 0 0.583 291.8574 38.5967)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="363.815" y="24.393" fill="none" width="46.262" height="34.246"/>
+<text transform="matrix(1 0 0 1 379.7246 31.5522)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10">All-</tspan><tspan x="-8.901" y="12" font-family="'ArialMT'" font-size="10">Shared</tspan><tspan x="-7.231" y="24" font-family="'ArialMT'" font-size="10">Nodes</tspan></text>
+<rect x="8.045" y="155.245" fill="none" width="93.5" height="24"/>
+<text transform="matrix(1 0 0 1 20.3247 162.4048)" font-family="'ArialMT'" font-size="10">Update Voltage</text>
+<text transform="matrix(1 0 0 1 10.9971 174.4048)" font-family="'ArialMT'" font-size="10">p</text>
+<text transform="matrix(0.583 0 0 0.583 16.5586 177.7349)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 17.854 174.4048)" font-family="'ArialMT'" font-size="10"> : RWE    s</text>
+<text transform="matrix(0.583 0 0 0.583 65.6323 177.7349)" font-family="'ArialMT'" font-size="10">i</text>
+<text transform="matrix(1 0 0 1 66.9277 174.4048)" font-family="'ArialMT'" font-size="10"> : RWE</text>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="102.295" y1="62.195" x2="415.295" y2="62.195"/>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="101.818" y1="84.035" x2="414.818" y2="84.035"/>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="102.295" y1="123.581" x2="415.295" y2="123.581"/>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="102.295" y1="154.938" x2="415.295" y2="154.938"/>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="104.295" y1="179.245" x2="417.295" y2="179.245"/>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="101.759" y1="215.42" x2="414.759" y2="215.42"/>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="101.759" y1="252.196" x2="414.759" y2="252.196"/>
+<rect x="424.162" y="21.792" fill="none" stroke="#000000" stroke-miterlimit="10" width="117.633" height="74.869"/>
+<rect x="456.979" y="22.134" fill="none" width="37.5" height="7.75"/>
+<text transform="matrix(1 0 0 1 467.1133 29.2935)" font-family="'ArialMT'" font-size="10">Key</text>
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="443.795" y1="39.509" x2="429.062" y2="39.509"/>
+		<g>
+			<path d="M426.044,39.509c1.42-0.527,3.182-1.426,4.273-2.378l-0.86,2.378l0.86,2.377
+				C429.226,40.934,427.464,40.035,426.044,39.509z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="6,3" x1="443.795" y1="50.509" x2="429.062" y2="50.509"/>
+		<g>
+			<path d="M426.044,50.509c1.42-0.527,3.182-1.426,4.273-2.378l-0.86,2.378l0.86,2.377
+				C429.226,51.934,427.464,51.035,426.044,50.509z"/>
+		</g>
+	</g>
+</g>
+<rect x="427.206" y="56.509" fill="none" stroke="#000000" stroke-miterlimit="10" width="16.589" height="11"/>
+<rect x="427.206" y="70.285" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-dasharray="6,3" width="16.589" height="11"/>
+<rect x="448.206" y="35.669" fill="none" width="73.5" height="7.679"/>
+<text transform="matrix(1 0 0 1 448.2061 42.8286)" font-family="'ArialMT'" font-size="10">Copy Operation</text>
+<rect x="447.192" y="46.669" fill="none" width="94" height="7.679"/>
+<text transform="matrix(1 0 0 1 447.1924 53.8286)" font-family="'ArialMT'" font-size="10">Reduction Operation</text>
+<rect x="447.479" y="58.169" fill="none" width="94" height="7.679"/>
+<text transform="matrix(1 0 0 1 447.4785 65.3286)" font-family="'ArialMT'" font-size="10">Valid Data Instance</text>
+<rect x="447.192" y="71.945" fill="none" width="94" height="7.679"/>
+<text transform="matrix(1 0 0 1 447.1924 79.105)" font-family="'ArialMT'" font-size="10">Stale Data Instance</text>
+<rect x="242.458" y="94.692" fill="none" width="20.676" height="13.5"/>
+<text transform="matrix(1 0 0 1 247.6572 103.2842)" font-family="'ArialMT'" font-size="12">s</text>
+<text transform="matrix(0.583 0 0 0.583 253.6572 99.2881)" font-family="'ArialMT'" font-size="12">*</text>
+<text transform="matrix(0.583 0 0 0.583 256.3799 107.2803)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="246.214" y="160.495" fill="none" width="20.676" height="13.5"/>
+<text transform="matrix(1 0 0 1 252.7754 169.0869)" font-family="'ArialMT'" font-size="12">s</text>
+<text transform="matrix(0.583 0 0 0.583 258.7754 173.083)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="278.96" y="96.661" fill="none" width="20.675" height="13.5"/>
+<text transform="matrix(1 0 0 1 283.8232 105.2529)" font-family="'ArialMT'" font-size="12">g</text>
+<text transform="matrix(0.583 0 0 0.583 290.4971 101.2568)" font-family="'ArialMT'" font-size="12">*</text>
+<text transform="matrix(0.583 0 0 0.583 293.2197 109.249)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="278.96" y="222.238" fill="none" width="20.675" height="13.5"/>
+<text transform="matrix(1 0 0 1 285.1846 230.8301)" font-family="'ArialMT'" font-size="12">g</text>
+<text transform="matrix(0.583 0 0 0.583 291.8584 234.8262)" font-family="'ArialMT'" font-size="12">i</text>
+<rect x="448.206" y="84.035" fill="none" width="105" height="8.25"/>
+<text transform="matrix(1 0 0 1 448.2061 91.1948)" font-family="'ArialMT'" font-size="10">Reduction Instance</text>
+<rect x="436.295" y="84.535" fill="none" width="15" height="15.5"/>
+<text transform="matrix(1 0 0 1 436.2949 94.5591)" font-family="'ArialMT'" font-size="14">*</text>
+<line fill="#C2B59B" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" stroke-dasharray="12,3" x1="101.797" y1="20.356" x2="414.797" y2="20.356"/>
+</svg>

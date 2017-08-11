@@ -1,0 +1,183 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Legion Programming System">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/design_patterns/Create%20a%20DomainColoring%20for%20an%20uneven%20subdivision">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/design_patterns/Create%20a%20DomainColoring%20for%20an%20uneven%20subdivision">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name"></h1>
+    <div class="article-wrap" itemprop="text">
+      <a href="index.html">design patterns</a><p>
+<a href="../glossary/index.html">glossary</a><p>
+<p>Create a DomainColoring for an uneven subdivision</p>
+<p>This example show how to create a DomainColoring and IndexPartition when the number of elements does not evenly subdivide the domain.</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="cf">if</span> ((num_elements % num_subregions) != <span class="dv">0</span>) {
+    <span class="co">// Not evenly divisible</span>
+    <span class="at">const</span> <span class="dt">int</span> lower_bound = num_elements/num_subregions;
+    <span class="at">const</span> <span class="dt">int</span> upper_bound = lower_bound<span class="dv">+1</span>;
+    <span class="at">const</span> <span class="dt">int</span> number_small = num_subregions - (num_elements % num_subregions);
+    DomainColoring coloring;
+    <span class="dt">int</span> index = <span class="dv">0</span>;
+    <span class="cf">for</span> (<span class="dt">int</span> color = <span class="dv">0</span>; color &lt; num_subregions; color++) {
+      <span class="dt">int</span> num_elmts = color &lt; number_small ? lower_bound : upper_bound;
+      assert((index+num_elmts) &lt;= num_elements);
+      Rect&lt;<span class="dv">1</span>&gt; subrect(Point&lt;<span class="dv">1</span>&gt;(index),Point&lt;<span class="dv">1</span>&gt;(index+num_elmts<span class="dv">-1</span>));
+      coloring[color] = Domain::from_rect&lt;<span class="dv">1</span>&gt;(subrect);
+      index += num_elmts;
+    }
+    ip = runtime-&gt;create_index_partition(ctx, is, color_domain, 
+                                      coloring, <span class="kw">true</span><span class="co">/*disjoint*/</span>);
+  }
+  LogicalPartition input_lp = runtime-&gt;get_logical_partition(ctx, input_lr, ip);</code></pre></div>
+<p> See also:
+<a href="../glossary/Color.html">Color</a>
+<a href="../glossary/Coloring.html">Coloring</a>
+<a href="../glossary/Disjoint.html">Disjoint</a>
+<a href="../glossary/Domain.html">Domain</a>
+<a href="../glossary/DomainColoring.html">DomainColoring</a>
+<a href="../glossary/IndexPartition.html">IndexPartition</a>
+<a href="../glossary/LogicalPartition.html">LogicalPartition</a>
+<a href="../glossary/Point.html">Point</a>
+<a href="../glossary/Rect.html">Rect</a>
+<a href="../glossary/Region.html">Region</a>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

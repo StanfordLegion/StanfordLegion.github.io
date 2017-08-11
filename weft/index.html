@@ -1,0 +1,361 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Verification of Producer-Consumer Synchronization in GPU Programs &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Verification of Producer-Consumer Synchronization in GPU Programs">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/weft/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/weft/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Verification of Producer-Consumer Synchronization in GPU Programs</h1>
+    <div class="article-wrap" itemprop="text">
+      <h4 id="weft">Weft</h4>
+
+<p>This webpage describes the artifact for the following PLDI 2015 paper:</p>
+
+<p><a href="/pdfs/weft.pdf">Verification of Producer-Consumer Synchronization in GPU Programs</a></p>
+
+<p>The artifact (a CDE package) can be downloaded <a href="http://stanford.edu/~sharmar/cde-weft.tar.gz">here</a>.</p>
+
+<h3 id="improvements">Improvements</h3>
+
+<p>The version of Weft documented here is significantly improved from
+the original version presented in our PLDI paper. This version of 
+Weft has the following modifications:</p>
+
+<ul>
+  <li>The functionality of PTXSim originally described in our paper
+has been subsumed entirely by Weft. This version of Weft parses 
+an input PTX file and performs the emulation internally before 
+performing the validation. Consequently, the process of translating 
+from emulation to verification is significantly faster. The original
+files that would have been generated by PTXSim can still be
+generated using the <code class="highlighter-rouge">-p</code>flag.</li>
+  <li>The construction of the barrier dependence graph has been 
+greatly optimized for higher performance.</li>
+  <li>The representation of happens-before/after relationships have
+been optimized for reduced memory usage.</li>
+  <li>Weft is now multi-threaded (see the <code class="highlighter-rouge">-t</code> flag) so that we
+can fully leverage the available memory bandwidth on modern
+processors which is crucial for achieving high performance.</li>
+</ul>
+
+<p>As a result of our improvements, you may notice some differences 
+between the version of PTXSim and Weft described in our original
+paper submission and the current source code.  We assure you that
+this version of Weft has a super-set of the functionality of the
+original Weft and is anywhere from 2-30X faster than the original 
+version depending on the input program and the machine architecture.
+We will document these improvements along with new performance
+results in the camera-ready version of our paper.</p>
+
+<h3 id="instructions">Instructions</h3>
+
+<p>Below we cover how to run Weft using our CDE package.
+The instructions for downloading, compiling, and running Weft
+from source are available at
+the <a href="https://github.com/lightsighter/Weft">github</a> repository. 
+Please consider reading the 
+<a href="https://github.com/lightsighter/Weft/blob/master/README.md">README</a>
+to understand the advanced usage of WEFT.</p>
+
+<p>This page provides instructions to reproduce the experiments described in the
+paper using the artifact. We assume a Linux based system, such as, Ubuntu.</p>
+
+<p>First, unpack the archive</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">tar -zxvf cde-weft.tar.gz </code></pre></figure>
+
+<p>Next, go to the WEFT directory</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>cde-package/cde-root/home/sharmar/Desktop/artifact/Weft-master/ </code></pre></figure>
+
+<p>This folder, referred to as the main directory, contains two sub-directories:</p>
+
+<ul>
+  <li>The directory <code class="highlighter-rouge">src</code> contains the source code of WEFT with a precompiled binary <em>weft</em>.</li>
+  <li>The directory <code class="highlighter-rouge">examples</code> contains the examples described in the paper.</li>
+</ul>
+
+<p>To run WEFT on the examples, run the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>examples/
+./run_examples.sh.cde</code></pre></figure>
+
+<p>This shell file is just a wrapper around <em>run_examples.sh</em> which
+is the script we normally use to run all of our test examples.
+Alternatively, you can execute <em>run_examples.sh</em> directly from 
+the terminal using the following command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">../../../../../../../cde-exec ./run_examples.sh</code></pre></figure>
+
+<p>The ugly looking <em>cde-exec</em> prefix is important. It ensures 
+that the CDE package performs as expected. For more details, 
+please see the CDE <a href="http://www.pgbovine.net/cde/manual/">user manual</a>.</p>
+
+<p>This shell file first compiles WEFT. Since the package contains a 
+precompiled binary of WEFT, you should see the following output.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">make: Nothing to be <span class="k">done for</span> <span class="s1">'all'</span></code></pre></figure>
+
+<p>Next, it generates the PTX file for the SAXPY kernels by compiling 
+the CUDA files. Since, these files have been precompiled, you 
+should again see</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">make: Nothing to be <span class="k">done for</span> <span class="s1">'all'</span></code></pre></figure>
+
+<p>Next WEFT analyzes the SAXPY kernels starting with saxpy_single.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Running saxpy single...
+WEFT INFO: No deadlocks detected!
+WEFT INFO: Barriers properly recycled!
+WEFT INFO: No races detected!
+WEFT STATISTICS <span class="k">for </span>saxpy_single.ptx
+  CTA Thread Count:                      320
+  Shared Memory Locations:               512
+  Physical Named Barriers;                 6
+  Dynamic Barrier Instances:            8192
+  Static Instructions:                   169
+  Dynamic Instructions:              9575616
+  Weft Statements:                   3670016
+  Total Race Tests:               1878392832</code></pre></figure>
+
+<p>The output says that WEFT has proven that the kernel is <em>well-synchronized</em>
+(deadlock free and recycles barriers properly) and <em>race-free</em> followed by
+some statistics (see <a href="/pdfs/weft.pdf">paper</a>). There are 320 threads in the CTA we are
+analyzing and these threads share 512 memory locations amongst them.
+This CTA uses 6 named barriers out of the 16 available. Since named barriers
+are a limited physical resource, they need to be reused and this CTA has
+8192 distinct uses of the barriers. The PTX file (with statically 
+analyzable loops) has 169 statements. After unrolling all loops the kernel 
+has about 9 million instructions (across 320 threads). After translating 
+these to the modeling language, WEFT analyzed about three million statements, 
+that is, about hundred thousand statements per thread on average. WEFT proved 
+that the 1.8 billion memory access pairs that can potentially race are safe 
+(do not race).</p>
+
+<p>The shell script continues to analyze all benchmarks described in the paper.
+Next, consider a kernel with a different output:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Running DME chemistry kepler...
+WEFT WARNING: Program has shuffle instructions but warp-synchronous execution was not assumed!
+Enabling warp-synchronous assumption...
+WEFT INFO: No deadlocks detected!
+WEFT INFO: Barriers properly recycled!
+	Found races between 32 pairs of threads on line 3248 of chem_kepler.cu and line 3115 of chem_kepler.cu
+...
+WEFT INFO: Found 7168 total races!
+           Run with <span class="s1">'-d'</span> flag to see detailed per-thread and per-address races
+WEFT INFO: RACES DETECTED!
+WEFT STATISTICS <span class="k">for </span>chem_kepler.ptx
+...</code></pre></figure>
+
+<p>This kernel has shuffle instructions that require a warp-synchronous execution 
+assumption. In this case, the shell script does not provide the <code class="highlighter-rouge">-s</code> flag which enables
+the warp-synchronous execution assumption. Therefore WEFT emits a warning
+and enables the warp-synchronous assumption. This kernel is <em>well-synchronized</em>,
+but it does have data races and WEFT shows the lines in the CUDA file that race.
+More information can be obtained by running the kernel with <code class="highlighter-rouge">-d</code> flag.</p>
+
+<h3 id="compiling-and-running-weft">Compiling and Running Weft</h3>
+
+<p>If you want to compile WEFT for your machine (and not use the precompiled binary)
+then you can recompile the source using the following (from the main directory):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>src
+../../../../../../../cde-exec make clean
+../../../../../../../cde-exec make</code></pre></figure>
+
+<p>Similarly, if you want to regenerate the SAXPY PTX files from the CUDA files
+then you can do the following (again from the main directory):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>examples/saxpy
+../../../../../../../../cde-exec make clean
+../../../../../../../../cde-exec make</code></pre></figure>
+
+<p>The other examples can also be compiled similarly.</p>
+
+<p>Weft can also be run on individual examples using the <em>cde-exec</em> command.
+We encourage you to use the ‘-i’ flag which instruments the execution of
+Weft and give detailed performance results including the timing and 
+memory usage for each stage of execution. If you also have a multi-core
+machine we encourage you to explore the performance effects of variable
+number of threads using the ‘-t’ flag.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>examples/saxpy
+../../../../../../../../cde-exec ../../src/weft -i -t 4 -n 320 saxpy_single.ptx
+WEFT INFO: No deadlocks detected!
+WEFT INFO: Barriers properly recycled!
+WEFT INFO: No races detected!
+WEFT STATISTICS <span class="k">for </span>saxpy_single.ptx
+  CTA Thread Count:                      320
+  Shared Memory Locations:               512
+  Physical Named Barriers;                 6
+  Dynamic Barrier Instances:            8192
+  Static Instructions:                   177
+  Dynamic Instructions:             11674560
+  Weft Statements:                   3670016
+  Total Race Tests:               1878392832
+WEFT INSTRUMENTATION
+                                   Parse PTX:      1.385 ms            0 MB
+                             Emulate Threads:   3278.410 ms          267 MB
+          Construct Barrier Dependence Graph:    838.145 ms           89 MB
+  Compute Happens-Before/After Relationships:   1558.494 ms         3741 MB
+                   Check <span class="k">for </span>Race Conditions:   1978.978 ms            0 MB
+                                       Total:   7655.412 ms         4099 MB</code></pre></figure>
+
+<h3 id="authors">Authors</h3>
+
+<ul>
+  <li><a href="http://stanford.edu/~sharmar">Rahul Sharma</a></li>
+  <li><a href="https://research.nvidia.com/users/mike-bauer">Mike Bauer</a></li>
+  <li><a href="http://theory.stanford.edu/~aiken/">Alex Aiken</a></li>
+</ul>
+
+<h3 id="license">License</h3>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">APACHE 2.0</a></p>
+
+<h3 id="copyright">Copyright</h3>
+
+<p>Stanford University and NVIDIA</p>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Circuit Simulation &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Circuit Simulation">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/circuit.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/circuit.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Circuit Simulation</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>The first of our full program examples describes some
+of the features used to implement the canonical
+circuit example covered in many of our 
+<a href="/publications/index.html">publications</a>. The source
+code for this example can also be found in <code class="highlighter-rouge">examples/full_circuit</code>
+directory of the Legion repository. The circuit example
+simulates an arbitrary graph of integrated circuit
+components. Components are represented by nodes, and wires
+between components are represented as edges. Our implementation
+partitions the circuit graph into components that are either
+<em>private</em> or <em>shared</em> between circuit pieces. Further partitions
+then refine the <em>private</em>, <em>shared</em>, and <em>ghost</em> nodes for
+each circuit piece. The following figure illustrates the
+partitioning scheme for the node logical region tree.
+<br /><br />
+<img src="/images/circuit_partition.svg" alt="" />
+<br /><br />
+An explicit iterative solver is then used to step through 
+time and solve for the updated voltages and currents on 
+each node and wire. The solver consists of three primary stages:</p>
+
+<ol>
+  <li>Calculate New Currents: examine the voltage differential
+across every wire and compute the new current flowing
+through the wire using an iterative method.</li>
+  <li>Distribute Charge: using the newly computed currents, 
+update the charge flowing into each node.</li>
+  <li>Update Voltages: based on the charge that has flowed into
+each node, compute the new voltage at each node.</li>
+</ol>
+
+<h4 id="reduction-privileges">Reduction Privileges</h4>
+
+<p>One of the interesting features employed by the circuit 
+simulation is reduction privileges. Reduction privileges 
+allow the user to describe a very specific (but
+common) computational paradigm to the runtime. In Legion,
+reduction privileges are used to handle the scenario in
+which tasks will apply values to a location using
+a specific <em>reduction operation</em>, instead of needing to 
+arbitrarily mutate locations in a logical region. We will 
+give a mathematically precise definition of a reduction 
+operation momentarily. In the next section we cover some 
+of the optimizations supported by the Legion runtime 
+for reductions.</p>
+
+<p>A reduction operation in Legion is characterized by an <em>apply</em> function 
+which must be a pure function of the form <code class="highlighter-rouge">T1 -&gt; T2 -&gt; T1</code> 
+where <code class="highlighter-rouge">T1</code> is the type of the field being reduced to and
+<code class="highlighter-rouge">T2</code> is the type of the value being applied as a reduction.
+One simple example of a reduction is a summation, where
+both <code class="highlighter-rouge">T1</code> and <code class="highlighter-rouge">T2</code> are <code class="highlighter-rouge">double</code> values.  A more complex example
+of a reduction might be inserting a particle into a cell where
+<code class="highlighter-rouge">T1</code> is the type of the cell and <code class="highlighter-rouge">T2</code> is the type of the particle.
+In addition to the apply function, reduction operations may also
+support a second operation called a <em>fold</em> which must be a pure
+function of the type <code class="highlighter-rouge">T2 -&gt; T2 -&gt; T2</code> where <code class="highlighter-rouge">T2</code> is again the
+type of the value being reduced. We describe how fold functions
+are used by the runtime in the next section.
+<br />
+Legion assumes that reduction operations are always <em>associative</em>
+and <em>commutative</em> in the mathematical sense. This means that
+regardless of the order in which reductions are issued by tasks
+the runtime is free to actually perform the apply operations in
+any order. As we will see in the next section, this enables
+the runtime to buffer reduction operations locally in a memory
+visible to a task even though the ultimate destination of the
+reductions might be in a remote memory.</p>
+
+<p>In the circuit simulation, reduction operations are used in the
+distribute charge phase to accumulate charge differences from
+various incoming wires to each of the different nodes. Since
+some wires into a node may come from different circuit pieces,
+it is possible that multiple tasks will be applying reductions
+to the same nodes. This illustrates an important aspect of
+reductions: Legion reductions permit tasks applying reductions
+to aliased regions to run in parallel. This is only possible
+because the Legion runtime understands reductions are a special
+operation with associative and commutative properties which can
+be applied lazily.</p>
+
+<p>Reduction operations in Legion must be implemented as a class
+which contains very specific members. The following code block
+shows the example accumulate charge reduction operation from
+the circuit simulation.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">AccumulateCharge</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">typedef</span> <span class="kt">float</span> <span class="n">LHS</span><span class="p">;</span>
+  <span class="k">typedef</span> <span class="kt">float</span> <span class="n">RHS</span><span class="p">;</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">identity</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="o">&gt;</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">apply</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">);</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="o">&gt;</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">fold</span><span class="p">(</span><span class="n">RHS</span> <span class="o">&amp;</span><span class="n">rhs1</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs2</span><span class="p">);</span>
+<span class="p">};</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Every reduction operation must contain <code class="highlighter-rouge">typedef</code> declarations for
+the <code class="highlighter-rouge">LHS</code> and <code class="highlighter-rouge">RHS</code> types representing the left-hand-side and 
+right-hand-side functions of the reduction operation (e.g. <code class="highlighter-rouge">T1</code>
+and <code class="highlighter-rouge">T2</code>). Furthermore, the reduction operation must specify an
+static <code class="highlighter-rouge">apply</code> method. This function will be invoked by the
+runtime whenever a value of the type <code class="highlighter-rouge">RHS</code> will be applied to
+a value of <code class="highlighter-rouge">LHS</code>. The template parameter allows the runtime to
+indicate whether or not parallel reductions might also be occurring
+to the same <code class="highlighter-rouge">lhs</code> element simultaneously. This allows the application
+to employ different operations depending on whether or not it has
+<code class="highlighter-rouge">EXCLUSIVE</code> access to the <code class="highlighter-rouge">lhs</code> element. We use template specialization
+to implement different versions of <code class="highlighter-rouge">apply</code> in the circuit simulation
+as can be seen in the following code example: when we have exclusive
+access we need only do a basic addition, but without exclusive access
+we use an atomic compare-and-swap to perform the summation reduction.</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;&gt;</span>
+<span class="kt">void</span> <span class="n">AccumulateCharge</span><span class="o">::</span><span class="n">apply</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">)</span> 
+<span class="p">{</span>
+  <span class="n">lhs</span> <span class="o">+=</span> <span class="n">rhs</span><span class="p">;</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>In addition to the necessary reduction operation declarations, our
+<code class="highlighter-rouge">AccumulateCharge</code> class also supports an optional <code class="highlighter-rouge">fold</code> function.
+A fold function allows the runtime to combine two values of the 
+<code class="highlighter-rouge">RHS</code> type into a single value. The <code class="highlighter-rouge">fold</code> operation allows the
+runtime to support an optimized layout of data for reductions
+which we describe in the next section. Supplying a <code class="highlighter-rouge">fold</code> function
+also necessitates a declaration of an <code class="highlighter-rouge">identity</code> element which 
+when folded with any other element returns the other element. In
+the case of our <code class="highlighter-rouge">AccumulateCharge</code> class, the identity element is
+simply zero.</p>
+
+<p>Similar to tasks, reduction operations must be registered before
+starting up the Legion runtime. Operations have their own space
+of IDs which the application can use later for naming the reduction
+operation to be performed when requesting reduction privileges.
+Reduction operations are registered with the Legion runtime
+using the static runtime method <code class="highlighter-rouge">register_reduction_op</code> which is
+templated on the reduction operation class and takes as an
+argument the ID to associate with the reduction operation.</p>
+
+<h4 id="reduction-instances">Reduction Instances</h4>
+
+<p>While reduction operations can be directly applied to a normal
+physical instances, Legion also supports the creation of a special
+class of physical instances called reduction instances. Reduction 
+instances enable reduction operations to be buffered up locally 
+and then applied in bulk at a later point in time. This is especially
+useful when the ultimate destination of reduction operations is
+not visible to the processor performing the reductions. Consider
+for example mapping our distribute charge computation from the 
+circuit simulation onto a cluster of GPUs. In this case all the
+reductions will ultimately need to be applied to a physical instance
+residing in the globally visible GASNet memory. However, this memory
+is not visible to individual GPU processors. Instead we create
+reduction instances for the distribute charge tasks running on the
+GPU. After the tasks finish executing, the reduction buffers are
+then applied back to the instance containing all the shared nodes
+residing in GASNet memory. An illustration depicting this scenario
+within the circuit simulation is shown below.
+<br /><br />
+<img src="/images/circuit_mapping.svg" alt="" />
+<br /><br />
+Legion supports the creation of two different kinds of reduction
+instances. First, for basic reduction operations with no <code class="highlighter-rouge">fold</code>
+function, Legion can create <em>reduction list</em> instances. When
+reductions are issued to the physical instance they are buffered
+in a list which records the reduction operation, the destination
+pointer, and the value to be reduced. Later when the reduction
+instance is applied to a normal instance, these reductions are 
+applied in order to the destination instance in bulk.</p>
+
+<p>The second kind of reduction instance is called a <em>reduction fold</em> 
+instance and can only be used when the associated reduction
+operation supports a <code class="highlighter-rouge">fold</code> function. Reduction fold instances
+initialize a physical instance for the given logical region with
+each location initialized with the identity value. As reductions
+are applied to the physical instance they are folded into their
+destination. In the case of the circuit simulation we create
+reduction fold instances for each region requirement of every
+distribute charge task. As charges are applied to individual
+nodes they are folded into the destination buffer. After the
+distribute charge tasks are complete, the fold reduction instances
+are then applied back to the physical instance containing all
+the shared nodes in GASNet memory.</p>
+
+<p>For operations which support both <code class="highlighter-rouge">apply</code> and <code class="highlighter-rouge">fold</code> reduction
+instances, the mapper has the option of selecting which kind of
+instance to create by using the value of the <code class="highlighter-rouge">reduction_list</code>
+flag in the <code class="highlighter-rouge">RegionRequirement</code> for the reduction when mapping
+a task. Reduction list instances perform best when reductions are
+sparse in the target logical region and the resulting list of 
+reductions has fewer elements than the target logical region.
+Alternatively, fold reduction instances perform best for dense
+reductions where more than one reduction operation will be applied
+to each location in the logical region. Locally folding reductions
+saves space and allows reductions to be performed in parallel.
+In our circuit simulation, since more than one reduction is applied
+to each node we consider the reduction to be dense and opt for
+using reduction fold instances.</p>
+
+<h4 id="a-legion-design-pattern">A Legion Design Pattern</h4>
+
+<p>All languages and APIs have common conventions and design patterns
+that are encouraged and Legion is no different. One common
+design pattern in Legion is to employ C++ classes to scope 
+Legion tasks. In this design pattern instances of the class will
+describe launcher objects for launching tasks, while static
+members functions will be used to give the many variant
+implementations of the task. In our circuit example, each of
+the three major tasks leverage this pattern by declaring
+the <code class="highlighter-rouge">CalcNewCurrentsTask</code>, <code class="highlighter-rouge">DistributeChargeTask</code>, and
+<code class="highlighter-rouge">UpdateVoltagesTask</code> classes.</p>
+
+<p>The first step in implementing this pattern is to have each of
+the classes extend the kind of launcher that will be used
+to launch the variants of the task (in the circuit example,
+the classes extend the <code class="highlighter-rouge">IndexLauncher</code> class since we perform
+index space launches for the three major classes). The
+implementation of the constructors for each of these tasks 
+then fill in the <code class="highlighter-rouge">RegionRequirement</code> vectors for each task
+launch. This explicitly co-locates in the description of the
+logical regions and fields to be used by a task improving
+code readability.<br />
+&lt;/br&gt;
+For the implementation of each task, static member functions
+are given for each kind of variant. For all three primary
+tasks in our circuit example, we support both CPU and GPU
+leaf task implementations. Note that all of these static
+methods use the same naming and argument schemes. This allows
+us to use generic templated functions to automatically 
+register, launch, and provide wrapper code for each of the
+different tasks. The <code class="highlighter-rouge">TaskHelper</code> namespace provides 
+template functions for performing these duties for each
+of the main tasks in the circuit simulation. The <code class="highlighter-rouge">dispatch_task</code>
+function is used to launch tasks. The <code class="highlighter-rouge">register_cpu_variants</code>
+and <code class="highlighter-rouge">register_hybrid_variants</code> are used to register either
+the CPU-only or both CPU and GPU variants of tasks
+respectively. Implementing all Legion tasks in this way
+makes it possible to generalize task implementation,
+thereby reducing the verbosity and the complexity of
+Legion runtime code.</p>
+
+<h4 id="in-situ-program-analysis">In-Situ Program Analysis</h4>
+
+<p>Due to the amount of data generated by many scientific
+applications, it is often necessary for applications to 
+analyze this data while in memory. One of the benefits of
+using Legion is that this in-situ analysis can be done
+simply by issuing additional tasks which read (and possibly
+modify) existing logical regions which contain the
+necessary data. For our circuit example, we have included
+a very simple example of performing in-situ analysis:
+checking for <code class="highlighter-rouge">NaN</code> (not-a-number) floating point values.</p>
+
+<p>Our analysis is very simple, after each of the index space
+task launch, we issue a second index space task launch of 
+a checking task to verify that all the fields that were
+written are free of <code class="highlighter-rouge">NaN</code> values. To do this we add a
+<code class="highlighter-rouge">launch_check_fields</code> method to each of our task objects. 
+This method is responsible for launching the checking task
+for each kind of circuit simulation task. Since we use
+the common <code class="highlighter-rouge">dispatch_task</code> template method for launching
+all of our tasks, we simply modify this method to see
+if we are performing the in-situ analysis, and if-so, 
+call the <code class="highlighter-rouge">launch_check_fields</code> method on each launcher
+object. Whether or not we perform the analysis is controlled
+by the <code class="highlighter-rouge">-checks</code> command line flag.</p>
+
+<p>The checking tasks are just like any other task to the
+Legion runtime and it performs the necessary dependency
+analysis to ensure that they check the correct data.
+Since the checking tasks are just like any other task
+they can be off-loaded onto unused processors. In this
+case, all of the checking tasks only use <code class="highlighter-rouge">READ-ONLY</code>
+privileges, which guarantees that the tasks are not on
+the critical path. Note that we only have a CPU variant 
+of the checking task. When running with GPU processors,
+the processor mapping a checking task will indicate that
+data needs to be placed in system memory (or zero-copy
+memory). Legion will automatically issue the necessary
+copies for creating physical instances on the CPU-side
+with the correct data.</p>
+
+<p>Overall this illustrates the flexibility of the Legion
+runtime. In many applications, in-situ analysis must
+be grafted on later, often adding considerable complexity
+to the application. In Legion, in-situ analysis simply
+requires launching additional tasks. Coming soon we
+plan to add support for in-situ visualization tasks
+that will leverage GPUs enabled for graphics to 
+perform real-time visualization as the application is
+executing.</p>
+
+<h4 id="fast-accessors">Fast Accessors</h4>
+
+<p>While the <code class="highlighter-rouge">AccessorType::Generic</code> region accessor is general
+purpose and works for all physical instances, it is very
+slow. Most Legion applications are performance sensitive
+and therefore need fast access to the data contained within
+physical instances (by fast we mean as fast as C pointer
+dereferences). To achieve this, we provide specialized
+accessors for specific data layouts. These accessors are
+templated so that significant amounts of constant folding
+occurs at compile-time, resulting in memory accesses that
+are effectively C pointer dereferences.</p>
+
+<p>In advance we acknowledge that there are two downsides
+to this approach. First, the use of C++ templates
+adds significantly to the verbosity of leaf task code.
+Second, programmers must anticipate all variants of
+specialization that are to occur (dictated by the mapper)
+and therefore must statically guarantee the instantiation
+of all possible variants of tasks at compile-time. This
+is clearly not ideal.</p>
+
+<p>A solution to this problem is in progress. We are currently
+in the process of incorporating the <a href="terralang.org">Terra</a>
+programming system into Legion. Terra is a companion to Lua
+that enables Lua to be used as a meta-programming language
+for generating Terra code which can be JIT-compiled to
+fast x86 and PTX code. Ultimately, Legion applications will
+register a Lua meta-programming generator for tasks. The
+generator will be invoked by the Legion runtime for each
+new combination of processor target and physical instance
+layout to JIT a new task implementation. Consequently only
+those combinations of processor-type and accessor kinds
+that are needed will be generated. The latency of the JIT
+process will be hidden like all other long-latency operations
+in Legion via deferred execution. However, for the moment 
+we are stuck with C++ templates.</p>
+
+<p>In our circuit example, we show an example of using specialized
+accessors in the <code class="highlighter-rouge">CalcNewCurrentsTask</code> which is the most
+computationally expensive task. We add a <code class="highlighter-rouge">dense_calc_new_currents</code>
+method to the class which will attempt to specialize all
+of our region accessors into accessors for struct-of-arrays
+physical instances. Note that it is possible that this
+specialization fails in which case the <code class="highlighter-rouge">dense_calc_new_currents</code>
+method returns <code class="highlighter-rouge">false</code> and we fall back to the slow version
+of the task using generic accessors.</p>
+
+<p>The accessor for struct-of-arrays physical instances is
+<code class="highlighter-rouge">AccessorType::SOA</code>. This type is templated on the size of
+the field being accessed in bytes. The template value
+can also be instantiated with <code class="highlighter-rouge">0</code>, but this will cause
+the accessor to fall back to using a dynamically computed
+field size which will not be as fast C pointer dereferences
+(but will always be correct). For each of our accessors,
+we first call the <code class="highlighter-rouge">can_convert</code> method on the generic accessor
+to confirm that we can convert to new accessor type. If
+any of them fails, then we return <code class="highlighter-rouge">false</code>. If they all
+succeed, then we can invoke <code class="highlighter-rouge">convert</code> method to get
+specialized <code class="highlighter-rouge">SOA</code> accessors.</p>
+
+<p>In addition to <code class="highlighter-rouge">SOA</code> accessors, there are several other
+specialized accessors:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">AOS</code> - array-of-struct accessors</li>
+  <li><code class="highlighter-rouge">HybridSOA</code> - for handling layouts that interleave
+multiple elements for different fields (still in
+progress, inspired by the <a href="https://github.com/ispc/ispc/wiki/Better-in-language-support-for-aosoa-layout">ISPC compiler</a></li>
+  <li><code class="highlighter-rouge">ReductionFold</code> - for reduction instances
+with an explicit fold operation</li>
+  <li><code class="highlighter-rouge">ReductionList</code> - for reduction instances
+without an explicit fold operation</li>
+</ul>
+
+<p>Once we have converted all our accessors to <code class="highlighter-rouge">SOA</code> we
+can then perform our kernel. Specialized accessors like <code class="highlighter-rouge">SOA</code> have
+additional methods <code class="highlighter-rouge">ptr</code> and <code class="highlighter-rouge">ref</code> which enable applications
+to get direct C pointers and C++ references to elements. Using
+the <code class="highlighter-rouge">ptr</code> method we get pointers for the specific elements.
+Since we know the elements for a field are laid out contiguously
+in memory, we can use SSE vectorized loads and stores to move
+data. It is is then a straight-forward
+transformation to vectorize our kernel (note auto-vectorization
+is much easier to do at runtime and will also be
+supported by Lua-Terra for JIT-ing code for different
+vector instruction sets). It is just as easy to write code
+for AVX or FMA instruction extensions.</p>
+
+<p>At this point, the observant reader will notice that we
+have done nothing to actually specify that our
+physical instances should be laid out in struct-of-arrays
+order. To accomplish this we extend the <code class="highlighter-rouge">DefaultMapper</code>
+with a custom <code class="highlighter-rouge">CircuitMapper</code>. In the <code class="highlighter-rouge">map_task</code> method,
+we modify the mapping requests for each <code class="highlighter-rouge">RegionRequirement</code>
+to specify that the <code class="highlighter-rouge">blocking_factor</code> should be set to
+the <code class="highlighter-rouge">max_blocking_factor</code> allowed. This will tell the
+runtime that a struct-of-arrays layout should be used.
+If we had specified <code class="highlighter-rouge">1</code> for the blocking factor, that
+would correspond to an <code class="highlighter-rouge">AOS</code> layout, and any value in
+between would be a <code class="highlighter-rouge">HybridSOA</code> layout.</p>
+
+<h4 id="gpu-execution">GPU Execution</h4>
+
+<p>The circuit example also illustrates how to execute tasks
+on the GPU (see any of the <code class="highlighter-rouge">gpu_base_impl</code> methods on
+the three major circuit tasks). In Legion GPU tasks 
+actually begin running on a CPU thread. Legion guarantees 
+that this CPU thread is already bound to a 
+<a href="http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#context">CUDA device context</a> 
+that is attached to the target GPU which was specified by the mapper
+when the task was mapped. The physical regions for the
+task are also already located in whatever GPU memory the
+mapper requested (framebuffer or zero-copy) and are
+visible within the device context. Therefore, 
+the user simply needs to launch the corresponding GPU
+kernel. Users are still responsible for selecting the
+number of threadblocks and threads per threadblock
+when launching their kernels.</p>
+
+<p>Unlike normal CUDA applications, Legion CUDA tasks do
+not need to synchronize with the GPU when they are done.
+Instead, the Legion runtime automatically intercepts all 
+the kernels launched during a task and defers their 
+execution onto an internal CUDA stream; all kernels launched
+in the same task will be run in order (no guarantees are made
+about kernels from different tasks).  Legion will not
+consider the task complete until all of the CUDA kernels 
+launched during the task have finished. This allows the 
+task to return without needing to synchronize with the GPU.
+Legion tracks kernels by providing its own implementation of 
+the CUDA runtime API declared in <code class="highlighter-rouge">cuda_runtime.h</code> (note the 
+Legion runtime does not need to link against the CUDA runtime 
+library <code class="highlighter-rouge">-lcudart</code>). Legion transparently captures all CUDA runtime 
+API calls and translates them into the appropriate CUDA driver API 
+calls while recording the necessary information to track when 
+tasks have been completed. This approach allows Legion applications 
+to be written using standard CUDA syntax and to have the CUDA 
+compiler <code class="highlighter-rouge">nvcc</code> automatically target the Legion runtime.</p>
+
+<p>By providing its own implementation of the CUDA runtime API
+Legion controls the set of API calls that can be done inside
+of Legion GPU tasks. In general, Legion GPU tasks should only
+need to perform kernel launches with the standard <code class="highlighter-rouge">&lt;&lt;&lt;...&gt;&gt;&gt;</code>
+launch syntax.  However, we do support several CUDA runtime
+API calls for special cases.  Any attempt to use an API call
+that we do not support will result in a link error.  <b>It is
+imperative that all Legion GPU tasks use the CUDA runtime 
+API</b>; use of the CUDA driver API will circumvent the ability 
+of the Legion runtime to track GPU kernels launched in tasks 
+and will result in undefined behavior.</p>
+
+<p>In all of the GPU variants for each of the three
+primary circuit simulation tasks, we create region
+accessors just as before. We again create <code class="highlighter-rouge">SOA</code>
+accessors for our physical instances (we assert if
+we fail to convert right now). <code class="highlighter-rouge">SOA</code> accessors
+guarantee that all global loads and stores in the
+GPU kernels will be coalesced. The one exception is
+in the <code class="highlighter-rouge">distribute_charge</code> task. The shared and ghost
+charge regions are actually reduction-fold instances
+so we create <code class="highlighter-rouge">ReductionFold</code> accessors for these two
+regions. Since we know <code class="highlighter-rouge">ReductionFold</code> regions only
+have a single field, we know that reductions to
+these regions will also be coalesced. To perform
+the reductions we use the <code class="highlighter-rouge">GPUAccumulateCharge</code>
+class. This class serves the same functionality
+as the <code class="highlighter-rouge">AccumulateCharge</code> task on the CPU side, but
+instead uses CUDA <code class="highlighter-rouge">atomicAdd</code> intrinsics to perform
+the reductions.</p>
+
+<p>The GPU <code class="highlighter-rouge">update_voltages</code> task illustrates a pending
+productivity issue in Legion. The <code class="highlighter-rouge">update_voltages</code>
+kernel currently needs to look up the location of 
+the node pointer to see if it is in the private
+or the shared set of nodes. This can lead to
+control divergence within the execution of the
+GPU kernel (it is not a serious concern for
+circuit as <code class="highlighter-rouge">update_voltages</code> is not performance
+critical). Ideally, it would be nice to be
+able to overlay the data for these two logical
+regions on the same physical instance since
+they share are common ancestor logical region.
+We have several other use cases that could also
+benefit for this optimization. If you develop
+an application with similar characteristics
+please alert us. The more demand there is for
+it, the more quickly we will implement it.</p>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

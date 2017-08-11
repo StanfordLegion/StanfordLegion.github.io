@@ -1,0 +1,515 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Debugging &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debugging">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/debugging/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/debugging/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Debugging</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>Legion provides robust support for debugging applications. The tools
+below fall into two categories: those intended for debugging
+applications, and those for debugging the runtime itself.</p>
+
+<p>Generally speaking, users should start by trying these tools
+(typically in this order):</p>
+
+<ul>
+  <li><a href="#debug-mode">Debug Mode</a> (<code class="highlighter-rouge">DEBUG=1 make; ./app</code>)</li>
+  <li><a href="#freeze-on-error">Freeze On Error</a> (<code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR=1 ./app</code>)</li>
+  <li><a href="#privilege-checks">Privilege Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS make; ./app</code>)</li>
+  <li><a href="#bounds-checks">Bounds Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS make; ./app</code>)</li>
+  <li><a href="#disjointness-checks">Disjointness Checks</a> (<code class="highlighter-rouge">./app -lg:disjointness</code>)</li>
+  <li><a href="#legion-spy">Legion Spy</a> (<code class="highlighter-rouge">./app -lg:spy -logfile spy_%.log; ./legion_spy.py -dez spy_*.log</code>)</li>
+</ul>
+
+<p>The following tools are typically used after the initial debugging
+tools have been exhausted or in special circumstances:</p>
+
+<ul>
+  <li><a href="#logging-infrastructure">Logging Infrastructure</a></li>
+  <li><a href="#debug-tasks">Debug Tasks</a></li>
+  <li><a href="#in-order-execution">In-Order Execution</a> (<code class="highlighter-rouge">./app -lg:inorder</code>)</li>
+  <li><a href="#full-size-instances">Full-Size Instances</a></li>
+  <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
+</ul>
+
+<h2 id="try-these-first">Try These First</h2>
+
+<h3 id="debug-mode">Debug Mode</h3>
+
+<p>For any Legion application that is not exhibiting expected
+behavior, the first debugging technique should always be
+to compile Legion in debug mode. If the
+application is being built using our standard Makefile
+infrastructure, this is done simply by setting <code class="highlighter-rouge">DEBUG=1</code> in the environment or
+at the top of the application’s Makefile. Compiling the
+runtime in debug mode will enable many checks which are
+disabled in release mode and may uncover both application
+as well as runtime bugs.</p>
+
+<p>A quick note on error messages: we endeavor to provide useful error
+messages, but Legion is still an experimental system and there may be
+assertions that do not produce useful error messages. If you encounter
+one of these assertions (regardless of whether it is an application or
+runtime bug), please report it on the <a href="/community/">bug tracker</a>.</p>
+
+<h3 id="freeze-on-error">Freeze On Error</h3>
+
+<p>Legion has the ability to freeze the application if it reaches an
+error (such as an assertion failure or a segfault). This capability is
+particularly useful in multi-node runs and in situations where the bug
+might reproduce sporadically. To enable this, set
+<code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR</code> to <code class="highlighter-rouge">1</code> in the environment:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">LEGION_FREEZE_ON_ERROR</span><span class="o">=</span>1 ./app</code></pre></figure>
+
+<p>When using <code class="highlighter-rouge">mpirun</code> as a launcher for the application, remember that a
+<code class="highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mpirun -x <span class="nv">LEGION_FREEZE_ON_ERROR</span><span class="o">=</span>1 ./app</code></pre></figure>
+
+<p>If the application crashes, it will freeze with an message such as the
+following. After logging in to the node, it should then be possible to
+attach to the process with a debugger. For example:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">Process 12345 on node n0123 is frozen!
+
+$ # logged in to n0123
+$ gdb -p 12345
+...
+
+(gdb) info threads
+  12   Thread 0x2b2220e33700 (LWP 2660) "terra" 0x00002b221c15fc6d in poll () at .../syscall-template.S:81
+  ...
+  4    Thread 0x2b2223fed700 (LWP 2668) "terra" 0x00002b221c1339bd in nanosleep () at .../syscall-template.S:81
+  3    Thread 0x2b2223ff5700 (LWP 2669) "terra" pthread_cond_wait@@GLIBC_2.3.2 () at .../pthread_cond_wait.S:185
+  2    Thread 0x2b2223ffd700 (LWP 2670) "terra" pthread_cond_wait@@GLIBC_2.3.2 () at .../pthread_cond_wait.S:185
+* 1    Thread 0x2b221b23c480 (LWP 2651) "terra" pthread_cond_wait@@GLIBC_2.3.2 () at .../pthread_cond_wait.S:185</code></pre></figure>
+
+<p>(As a hint, the offending thread is usually running <code class="highlighter-rouge">nanosleep</code>. Many
+of the other threads are message handers and such and are not useful
+for debugging purposes.)</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">(gdb) thread 4
+(gdb) where
+#0  0x00002b221c1339bd in nanosleep () at .../syscall-template.S:81
+#1  0x00002b221c133854 in __sleep (seconds=0) at .../sleep.c:137
+#2  0x00002b221e2e7246 in Realm::realm_freeze (signal=6) at .../legion/runtime/realm/runtime_impl.cc:85
+#3  &lt;signal handler called&gt;
+#4  0x00002b221c0a8bb9 in __GI_raise (sig=sig@entry=6) at .../raise.c:56
+#5  0x00002b221c0abfc8 in __GI_abort () at abort.c:89
+...</code></pre></figure>
+
+<h3 id="privilege-checks">Privilege Checks</h3>
+
+<p>While Legion does have a <a href="/publications/">type system</a>
+capable of statically verifying that all region accesses
+abide by the stated privileges requested by a task, these
+guarantees are only available for applications written in
+Regent. For applications written in C++ that use the Legion runtime
+interface directly, we provide a way of dynamically verifying
+privileges on all memory accesses.</p>
+
+<p>To enable privilege checks, the <code class="highlighter-rouge">-DPRIVILEGE_CHECKS</code> flag
+should be added to the list of compile time flags specified
+by the <code class="highlighter-rouge">CC_FLAGS</code> environment variable in Legion application
+Makefile. This will enforce a privilege check for every
+memory access done through a region accessor. If any privileges
+violate the originally requested privileges for the task,
+then a runtime error will be raised. Since this check is
+performed on every memory access, it can significantly
+degrade performance, but is very useful at finding privilege
+violations that would traditionally be caught by the
+Legion type system.</p>
+
+<h3 id="bounds-checks">Bounds Checks</h3>
+
+<p>In addition to checking the privileges on all memory
+accesses, we also provide a mechanism for verifying that
+all memory accesses fall within the bounds of the logical
+regions requested by a task. This feature is also used
+to catch application bugs which would normally be caught
+at compile-time by the Legion type system, but which may
+escape detection when writing programs directly to the
+runtime API. To enable these checks, the <code class="highlighter-rouge">-DBOUNDS_CHECKS</code>
+flag should the added to the list of compile time flags
+specified by the <code class="highlighter-rouge">CC_FLAGS</code> environment variable in a
+Legion application Makefile. We again note that because
+these checks are performed on every memory access, they
+can significantly degrade the performance of a Legion
+application.</p>
+
+<h3 id="disjointness-checks">Disjointness Checks</h3>
+
+<p>One of the more commonly occurring bugs in Legion applications
+is creating partitions which an application declares to
+be disjoint, but for which the provided coloring is not
+actually disjoint. For performance reasons, when a call
+to <code class="highlighter-rouge">create_index_partition</code> is made, Legion does <em>NOT</em>
+check the declared disjointness of the coloring. Instead
+the runtime simply trusts the applications to correctly
+specify the disjointness of the partition. As users have
+experimented with more complicated coloring schemes, we’ve
+noticed an increasing number of cases where colorings are
+claimed to be disjoint when they actually are not.</p>
+
+<p>To address this problem, we provide the <code class="highlighter-rouge">-lg:disjointness</code>
+command line flag which instructs the Legion high-level
+runtime to verify the disjointness of all colorings which
+are claimed to be disjoint and report a runtime error if
+they are not. Depending on the size and type of coloring
+as well as the number of colors, these checks can take
+arbitrarily long and may degrade performance. Due to the
+extreme performance cost associated with these checks,
+the <code class="highlighter-rouge">-lg:disjointness</code> flag will only perform the checks
+when the runtime is compiled in debug mode, and will
+result in a runtime warning if it is used with a release
+build of the runtime.</p>
+
+<h3 id="legion-spy">Legion Spy</h3>
+
+<p>Legion Spy is a visualization tool for task dependencies. This is
+useful for two reasons. First, visualizing dependendencies can help as
+a sanity check to confirm that Legion is recording the set of tasks
+and dependencies that the user expects. Second, Legion Spy contains a
+second implementation of the Legion dependence analysis algorithms,
+which it can cross-check against the captured dependencies to verify
+the runtime itself.</p>
+
+<p>These modes have slightly different usage patterns, as a full check of
+the runtime analysis is relatively expensive.</p>
+
+<p>To use visualize dependencies, run the application with <code class="highlighter-rouge">-lg:spy
+-logfile spy_%.log</code>. (No special compile-time flags are necessary.)
+This will produce one log file per node. Then run the post-processing
+script <code class="highlighter-rouge">legion_spy.py</code> on the log files to generate PDF files of the
+various visualizations in the current directory.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app -lg:spy -logfile spy_%.log
+<span class="nv">$LG_RT_DIR</span>/tools/legion_spy.py -dez spy_<span class="k">*</span>.log</code></pre></figure>
+
+<p>(The options used here are <code class="highlighter-rouge">-d</code> for dataflow graph, <code class="highlighter-rouge">-e</code> for event
+graph, and <code class="highlighter-rouge">-z</code> to include more information, such as field names.)</p>
+
+<p>To use Legion Spy’s full checking mode, compile with
+<code class="highlighter-rouge">CC_FLAGS=-DLEGION_SPY</code> in the environment or at the top of the
+application Makefile. Run the application as before, and call the
+script with <code class="highlighter-rouge">-lpa</code> (<code class="highlighter-rouge">-l</code> for logical analysis, <code class="highlighter-rouge">-p</code> for physical, and
+<code class="highlighter-rouge">-a</code> to assert on failure). (The options <code class="highlighter-rouge">-dez</code> will work as well.)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">CC_FLAGS</span><span class="o">=</span>-DLEGION_SPY make
+./app -logfile spy_%.log
+<span class="nv">$LG_RT_DIR</span>/tools/legion_spy.py -lpa spy_<span class="k">*</span>.log
+<span class="nv">$LG_RT_DIR</span>/tools/legion_spy.py -dez spy_<span class="k">*</span>.log</code></pre></figure>
+
+<p>The graph below is an example of the output generated by
+Legion Spy. Boxes correspond to different kinds of operations while
+edges represent explicit event dependences between the different
+operations.</p>
+
+<p><img src="/images/event_graph.jpg" alt="" /></p>
+
+<h2 id="other-debugging-options">Other Debugging Options</h2>
+
+<h3 id="logging-infrastructure">Logging Infrastructure</h3>
+
+<p>Legion has a sophisticated logging infrastructure with support for
+logging levels and categorization of messages. Logging is done using
+static singleton objects called <em>loggers</em>. Each category of message is
+declared as a static singleton object. For example, near the top of
+the default mapper implementation in <code class="highlighter-rouge">default_mapper.cc</code> we create the
+following logger category:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Logger</span><span class="o">::</span><span class="n">Category</span> <span class="n">log_mapper</span><span class="p">(</span><span class="s">"default_mapper"</span><span class="p">);</span></code></pre></figure>
+
+<p>Loggers can be used in either printf style or C++ ostream style. The
+exact invocation depends on the desired logging level. For example:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// printf-style
+</span><span class="n">log_mapper</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="s">"hello printf %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">);</span>
+<span class="c1">// C++ ostream style
+</span><span class="n">log_mapper</span><span class="p">.</span><span class="n">debug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"hello ostream"</span> <span class="o">&lt;&lt;</span> <span class="mf">3.14</span><span class="p">;</span> <span class="o">//</span> <span class="n">no</span> <span class="n">endl</span></code></pre></figure>
+
+<p>Legion supports six levels of logging (in order from lowest priority
+to highest): <code class="highlighter-rouge">spew</code>, <code class="highlighter-rouge">debug</code>, <code class="highlighter-rouge">info</code>, <code class="highlighter-rouge">print</code>, <code class="highlighter-rouge">warning</code>, and <code class="highlighter-rouge">error</code>.</p>
+
+<p>Message filtering of different levels is controlled simultaneously by
+a static and a dynamic switch.  First, the Makefile variable
+<code class="highlighter-rouge">OUTPUT_LEVEL</code> places a static lower bound on which messages can be
+emitted. Any messages below this level are guaranteed to be statically
+elided by the compiler to avoid any runtime overhead. The logging
+level can also be controlled dynamically by a command line
+argument. Passing the <code class="highlighter-rouge">-level [&lt;category&gt;=]&lt;int&gt;</code> flag on the command
+line will dynamically set the minimum (inclusive) logging level for
+the specified category (or if omitted, all categories), with 0
+corresponding to <code class="highlighter-rouge">spew</code> and 5 corresponding to <code class="highlighter-rouge">error</code>.</p>
+
+<p>By default, logging messages are emitted to <code class="highlighter-rouge">stderr</code>. Often it is
+desirable to log output to a file (or a file per node) instead. The
+<code class="highlighter-rouge">-logfile</code> flag can be used to specify a filename for the logs. A <code class="highlighter-rouge">%</code>
+character in the name (if any) will be replaced by the node number
+(resulting in one log file per node).</p>
+
+<p>For example, the command line below sets a logging level of 4 for
+<code class="highlighter-rouge">tasks</code>, 2 for <code class="highlighter-rouge">legion_spy</code>, and 3 for everything else, and directs
+output to a series of files <code class="highlighter-rouge">prof_0.log</code>, <code class="highlighter-rouge">prof_1.log</code>, etc. for each
+node.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app -level <span class="nv">tasks</span><span class="o">=</span>4,legion_spy<span class="o">=</span>2,3 -logfile prof_%.log</code></pre></figure>
+
+<h3 id="debug-tasks">Debug Tasks</h3>
+
+<p>One very useful debugging technique that we have
+found has been the ability to use <em>deubg tasks</em>
+as a means of introspecting Legion applications.
+Due to the out-of-order nature of Legion task
+execution, using a traditional debugger like <code class="highlighter-rouge">gdb</code>
+to debug a single-node Legion application can be
+challenging. To aid in setting break-points and
+checking conditions in association with a debugger
+we commonly inject explicit debug tasks which are
+either empty tasks or tasks which do not impact
+correctness and simply check for certain conditions
+regarding the data in logical regions. One example of
+a kind of debugging task can be seen in our
+<a href="tutorial/circuit.html">full circuit simulation</a>
+example which has optional checking tasks for
+verifying that there are no <code class="highlighter-rouge">NaN</code> or <code class="highlighter-rouge">Inf</code> values
+in our simulation.</p>
+
+<p>Debug tasks are a very useful tool as they can request
+their own privileges and logical regions for introspecting
+all or a subset of an applications data.  Similarly by
+changing privileges and coherence modes, debug tasks
+can control where they are run in the order of execution
+of tasks. We routinely launch debug tasks which declare
+stronger privileges than necessary (e.g. <code class="highlighter-rouge">READ-WRITE</code>
+instead of <code class="highlighter-rouge">READ-ONLY</code>) in order to prevent any later
+tasks from running in parallel.</p>
+
+<p>In practice, the ability to launch debug tasks is one of
+the most useful features of Legion, enabling introspection
+that can be easily enabled and disabled without worrying
+about correctness. Really, debug tasks are just a very
+primitive form of <code class="highlighter-rouge">in-situ</code> analytics.</p>
+
+<h3 id="in-order-execution">In-Order Execution</h3>
+
+<p>While the goal of the Legion runtime is to implicitly
+discover parallelism between tasks and other operations,
+in many cases, when debugging a Legion application, it is
+useful to know that operations are actually executed
+in the order in which they are issued. This can be useful
+both for debugging Legion application code, as well as
+for investigating runtime bugs. To enable this feature,
+execute the application with the command-line flag <code class="highlighter-rouge">-lg:inorder</code>.
+When running
+in this mode sub-tasks and other operations launched
+within a parent task will be issued and run to completion
+before the next operation is issued. This guarantees
+that all operations are performed in program
+order with no parallelism being extracted.</p>
+
+<h3 id="full-size-instances">Full-Size Instances</h3>
+
+<p>Another useful debugging tool available is the ability
+to create <em>full-size</em> physical
+instances. In many cases, the Legion runtime only
+allocates space for the data requested by a task based
+on its logical region usage. If the requested logical
+regions are not the top-level logical regions in the
+region tree, the Legion runtime will trim the physical
+instances to only store the necessary data.</p>
+
+<p>In the past, trimming physical instances has resulted
+in two kinds of bugs. First, applications which do
+not access data within the their logical region bounds
+(e.g. those that fail bounds checks), have caused
+random memory corruption by reading and writing in
+locations not actually intended. Second, trimming has
+in the past been a source of runtime bugs as it is
+difficult to ensure all the Legion copy routines
+properly recognized trimmed physical instances.</p>
+
+<p>To help discover both types of bugs, the Legion
+runtime can be compiled with the <code class="highlighter-rouge">-DFULL_SIZE_INSTANCES</code>
+compile-time flag set in the <code class="highlighter-rouge">CC_FLAGS</code> of a
+Legion application Makefile. This feature forces the
+Legion runtime to always allocated physical instances
+of the size of the top-level logical region in the
+region tree. This prevents out-of-bounds memory accesses
+from corrupting other instances and can aid in finding
+runtime errors. If an application runs correctly
+with <code class="highlighter-rouge">-DFULL_SIZE_INSTANCES</code> and passes all bounds
+checks then it is likely a runtime bug and should
+be reported on the
+<a href="/discussion/">bug tracker</a>.</p>
+
+<h3 id="separate-runtime-instances">Separate Runtime Instances</h3>
+
+<p>When debugging messaging protocols within the
+Legion runtime, it can be challenging to
+attach debuggers to processes on different
+nodes. To make debugging these protocols simpler,
+Legion supports a modified execution setup.
+By default, there is only ever a single Legion
+runtime instance per process (and by default
+per node since we usually only launch a single
+Legion process on each node). To support debugging
+these messaging protocols on a single node, we
+provide an execution setup where an instance
+of the Legion runtime is created for each
+individual processor in the machine. This
+creates multiple instances of the Legion runtime
+within a single process. Under this setting
+messages are then used to communicate between
+the different runtime instances (just as they
+would be in the truly distributed case). This
+allows a single debugger to be attached
+to a process on a single node and observe
+the different runtime instances. This setting
+can be enabled by passing the flags <code class="highlighter-rouge">-lg:separate -ll:util 0</code>
+on the command line. (The <code class="highlighter-rouge">-ll:util 0</code> is required because this mode
+does not support execution with explicit utility processors.)</p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

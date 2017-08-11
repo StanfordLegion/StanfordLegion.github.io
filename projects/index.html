@@ -1,0 +1,298 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Projects &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Projects">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/projects/index.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/projects/index.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Projects</h1>
+    <div class="article-wrap" itemprop="text">
+      <h4 id="infrastructure">Infrastructure</h4>
+
+<ul>
+  <li><strong>Update Sapling</strong>: Finish updating sapling nodes.</li>
+  <li><strong>Testing</strong>: Add testing infrastructure for both
+ high-level and low-level runtimes.</li>
+</ul>
+
+<h4 id="high-level-runtime">High-Level Runtime</h4>
+
+<ul>
+  <li><strong>Composite Instances</strong>: Add support for composite
+ instances so we can avoid close copy operations
+ and instead lazily generate new instances in 
+ different partitions.  Need intersection copies
+ from the low-level runtime.</li>
+  <li><strong>Compound Region Requirements</strong>: Add support for
+ region requirements which can take multiple
+ regions as well as asking for multiple fields
+ on the same region with different privileges.</li>
+  <li><strong>Resiliency</strong>: Implement pathways for handling
+ mis-speculation and reported failures.  Need
+ support from low-level runtime for poison bits.</li>
+  <li><strong>Lua/Terra Support</strong>: Add support for moving 
+ around Terra functions, registering generators,
+ etc.  Need to see low-level interface.</li>
+  <li><strong>Union/Intersection Regions</strong>: Probably a little
+ ways off since we don’t know what the
+ abstractions we really want look like yet.</li>
+  <li><strong>Dependent Partitioning</strong>: Support for doing
+ partitions as functions of existing data inside
+ of logical regions (e.g. image/pre-image operations).</li>
+  <li><strong>Mapper Introspection Interface</strong>: Add support
+ for the mapper to introspect region trees,
+ memory usage, processor usage, etc.</li>
+  <li><strong>Instance Layout Modifications</strong>: Update the
+ high-level runtime to handle the new instance
+ layout API once it exists.</li>
+  <li><strong>Support for Task Fusing</strong>: Add support for
+ mapper controlled dynamic fusing of tasks
+ and other operations.</li>
+  <li><strong>Event Graph Optimization</strong>: Perform optimizations
+ on the low-level event graph after it has been
+ constructed. This could include doing things like
+ copy elimination in a global context or identifying
+ critical paths.</li>
+  <li><strong>Replicated Tasks</strong>: Allow for duplicating tasks
+ to generate multiple instances with the same version
+ number instead of having one task generate the instance
+ and then copying. Draw inspiration from Halide’s
+ approach to avoiding communication by performing
+ extra computation.</li>
+  <li><strong>Aliased Region Requirements</strong>: Give a semantics
+ for what happens when we have aliased region requirements.</li>
+</ul>
+
+<h4 id="low-level-runtime">Low-Level Runtime</h4>
+
+<ul>
+  <li><strong>Lua/Terra Support</strong>: Add support for Lua/Terra
+ processors on every node as well as the ability
+ to JIT Terra functions and give back an event
+ for when the function is actually done JIT-ing
+ and ready to use.</li>
+  <li><strong>Intersection Copies</strong>: Apparently this already
+ exists, but it needs to be exposed for the
+ high-level runtime to use for composite instances.</li>
+  <li><strong>Instance Layout API</strong>: Propose how to describe
+ instance layouts including serialization order,
+ field blocking, etc.  Figure out how this interacts
+ with Lua/Terra and accessors.</li>
+  <li><strong>NUMA Awareness</strong>: Add support for making NUMA
+ domains explicit memories.</li>
+  <li><strong>Processor Groups</strong>: Add support for user directed
+ creation of groups of processor queues.</li>
+  <li><strong>OpenGL Support for Viz</strong>: Create visualization
+ processors that are running OpenGL.  Incorporate
+ support for instances that are OpenGL primitive
+ buffers.</li>
+  <li><strong>Profiling Support</strong>: Figure out the interesting
+ sets of performance primitives that the runtime
+ can capture for a task.  Expose them so we can
+ make them available to the mapper interface.</li>
+  <li><strong>Resiliency Support</strong>: Determine abstractions
+ for capturing error detection signals from
+ both hardware and software.  Figure out interface
+ for telling the high-level runtime.  Add support
+ for poison bits in the event graph.</li>
+  <li><strong>Multi-Hop Copies</strong>: Figure out how to handle
+ copies between memories which aren’t immediately
+ adjacent.</li>
+  <li><strong>Dynamic Phase Barriers</strong>: Fix outstanding bug
+ with phase barriers that doesn’t allow the
+ pending arrival count to fluctuate both up and down.</li>
+  <li><strong>Distributed Instance Allocators</strong>: Be able to 
+ support distributed pointer allocation for index spaces.</li>
+  <li><strong>Composite Accessors</strong>: Support for accessors that
+ know about multiple instances (possible with
+ different layouts), so that we don’t have to
+ build a single instance for every region requirement.</li>
+  <li><strong>Persistent Memories</strong>: Figure out how to encompass
+ disks, solid-state drives, and NVRAM as different
+ kinds of memories.</li>
+  <li><strong>Modular Low-Level Rollout</strong>: Actually roll-out
+ the new modular low-level runtime so we can plug
+ and play different hardware components.</li>
+  <li><strong>Communication Layer</strong>: Get rid of GASNet and
+ build our own communication layer with our own
+ flow control.</li>
+  <li><strong>Library</strong>: Make the Legion runtime an explicit
+ stand-alone library so we don’t have to have
+ our dumb build system.</li>
+  <li><strong>Auto-Discovery</strong>: Make the low-level runtime smart
+ enough to automatically introspect the hardware
+ and create the machine object without programmers
+ needing to specify it through command line flags.</li>
+</ul>
+
+<h4 id="mapper-interface">Mapper Interface</h4>
+
+<ul>
+  <li><strong>Instance Layout Interface</strong>: Update the mapper
+ interface to handle the instance layout API
+ once it exists.</li>
+  <li><strong>Fusing Interface</strong>: Update the mapper interface
+ to have a call for deciding when operations
+ should be dynamically fused together.</li>
+  <li><strong>Update Default Mapper Implementation</strong>: Update
+ default mapper implementation to better reflect
+ how applications should be mapped based on everything
+ we’ve learned about mapping as well as new 
+ runtime features.</li>
+  <li><strong>Mapping Tools Update</strong>: Clean-up the mapping
+ tools interface and internalize common mapping
+ idioms from example mappers.</li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li><strong>Performance Tuning Tutorial</strong>: Write the
+ tutorial on how to go about tuning legion
+ applications for various architectures.</li>
+  <li><strong>Mapper Tutorial</strong>: Write the tutorial on 
+ how to build Legion mappers.  Give examples
+ of all the Legion mapper calls.</li>
+</ul>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

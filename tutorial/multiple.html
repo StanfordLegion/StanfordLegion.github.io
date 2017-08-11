@@ -1,0 +1,885 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Multiple Partitions &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multiple Partitions">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/multiple.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/multiple.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Multiple Partitions</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>We deviate from our running DAXPY application 
+in this example to illustrate how Legion permits 
+applications to create multiple logical partitions 
+of the same logical region, thereby enabling multiple
+views onto the same set of data. To do this, we’ll
+construct a simple program to compute the derivative
+of some data by performing a simple 1-D 5-point stencil
+on a discretized space using the standard formula.
+<br /><br />
+<code class="highlighter-rouge">f'(x) = (-f(x+2) + 8f(x+1) - 8f(x-1) + f(x-2))/12</code>
+<br /><br />
+To perform the stencil computation we create the
+<code class="highlighter-rouge">stencil_lr</code> logical region with two fields: one 
+field containing the input values and a second field 
+to store the computed derivative value at each point 
+(lines 38-48). After creating the logical regions 
+we partition the <code class="highlighter-rouge">stencil_lr</code> logical region in
+two different ways which we cover in the next
+section. After partitioning the logical region
+we initialize the data in our value field using
+the <code class="highlighter-rouge">init_field_task</code> (lines 111-117, identical 
+to the one from our DAXPY example). We then launch 
+an index space of tasks to perform the stencil 
+computation in parallel (lines 119-129). Finally, 
+a single task is launched to check the result of 
+the stencil computation (lines 131-139).</p>
+
+<h4 id="creating-and-using-multiple-partitions">Creating and Using Multiple Partitions</h4>
+
+<p>To be able to compute the stencil computation in
+parallel, we need to create two partitions: one
+disjoint partition with each logical sub-region 
+describing the points that each tasks will write, 
+and a second partition with each logical sub-region
+describing the points that each task will need to 
+read from to perform the stencil computation.
+While the first partition will be disjoint, the
+second partition will be <em>aliased</em> because each
+sub-region will additionally require two <em>ghost</em> cells on
+each side of the set of elements in
+each sub-region in the disjoint partition.
+The need for these ghost cells means that some
+cells will exist in multiple sub-regions and
+therefore the partition will be aliased.</p>
+
+<p>We create two separate <code class="highlighter-rouge">DomainColoring</code> objects
+that are used for storing the colorings for
+each of our two partitions (line 58). We then
+compute the <code class="highlighter-rouge">Rect</code> value each sub-region for both 
+partitions for that we want
+to create (lines 62-101). Note there are two
+different cases to handle for the disjoint
+partition and four for the aliased partition
+(see comments in the code for more details).
+After we’ve computed the two colorings we
+create the two partitions of the index space
+(lines 97-100) and then obtain the corresponding
+logical partitions (lines 103-106). The following
+figure shows the resulting logical region tree
+for the application.</p>
+
+<p><img src="/images/stencil_partition.svg" alt="" />
+<br /><br />
+Legion’s support of multiple partitions for 
+logical regions enables applications to use
+different views of the same data even within
+the same task. Consider the index space task
+launch for performing the stencil computation.
+We pass two projection region requirements
+in the launcher object. The first region
+requirement requests <code class="highlighter-rouge">READ_ONLY</code> privileges
+on the aliased <code class="highlighter-rouge">ghost_lp</code> logical partition
+for the <code class="highlighter-rouge">FID_VAL</code> field (lines 121-124).
+The second region requirement requests
+<code class="highlighter-rouge">READ_WRITE</code> privileges on the <code class="highlighter-rouge">disjoint_lp</code>
+logical partition for the <code class="highlighter-rouge">FID_DERIV</code> field
+(lines 125-128). In the next section we describe
+how Legion proves that all of the stencil
+tasks can be run in parallel.</p>
+
+<h4 id="privilege-non-interference">Privilege Non-Interference</h4>
+
+<p>To prove that all of the stencil tasks can run
+in parallel, the Legion runtime relies on all
+three kinds of non-interference including one
+we have not yet covered: privilege non-interference. 
+First, field non-interference ensures that any
+point task’s first region requirement is disjoint
+from any other point task’s second region requirement
+as the two region requirements use different fields.
+Next, logical region non-interference ensures all 
+tasks are non-interfering with respect to every other
+task’s second region requirement because a disjoint
+partition is used. The last case where non-interference
+must be shown is with regards to the first region
+requirement between any pair of tasks. Neither field-level
+nor logical region non-interference applies. However,
+since all tasks are only requesting <code class="highlighter-rouge">READ_ONLY</code>
+privileges, then the tasks are non-interfering on
+privileges because tasks that are only reading data cannot
+interfere with each other. Consequently, all the
+point tasks in the stencil index space launch
+can be run in parallel.</p>
+
+<p>Next Example: <a href="/tutorial/custom_mappers.html">Custom Mappers</a>
+<br />
+Previous Example: <a href="/tutorial/partitioning.html">Partitioning</a></p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+#include &lt;cassert&gt;
+#include &lt;cstdlib&gt;
+#include "legion.h"
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">Accessor</span><span class="p">;</span>
+
+<span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
+  <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+  <span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span>
+  <span class="n">STENCIL_TASK_ID</span><span class="p">,</span>
+  <span class="n">CHECK_TASK_ID</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="n">FieldIDs</span> <span class="p">{</span>
+  <span class="n">FID_VAL</span><span class="p">,</span>
+  <span class="n">FID_DERIV</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">num_elements</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">num_subregions</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="c1">// Check for any command line arguments
+</span>  <span class="p">{</span>
+    <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">command_args</span><span class="p">.</span><span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s">"-n"</span><span class="p">))</span>
+        <span class="n">num_elements</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s">"-b"</span><span class="p">))</span>
+        <span class="n">num_subregions</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Running stencil computation for %d elements...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_elements</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Partitioning data into %d sub-regions...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_subregions</span><span class="p">);</span>
+
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">elem_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="n">IndexSpace</span> <span class="n">is</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
+                          <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">elem_rect</span><span class="p">));</span>
+  <span class="n">FieldSpace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
+  <span class="p">{</span>
+    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span> 
+      <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_allocator</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">fs</span><span class="p">);</span>
+    <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_VAL</span><span class="p">);</span>
+    <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_DERIV</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">LogicalRegion</span> <span class="n">stencil_lr</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_logical_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">,</span> <span class="n">fs</span><span class="p">);</span>
+  
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">color_bounds</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_subregions</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="n">Domain</span> <span class="n">color_domain</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">color_bounds</span><span class="p">);</span>
+
+  <span class="n">IndexPartition</span> <span class="n">disjoint_ip</span><span class="p">,</span> <span class="n">ghost_ip</span><span class="p">;</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">num_elements</span><span class="o">/</span><span class="n">num_subregions</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">lower_bound</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">number_small</span> <span class="o">=</span> <span class="n">num_subregions</span> <span class="o">-</span> <span class="p">(</span><span class="n">num_elements</span> <span class="o">%</span> <span class="n">num_subregions</span><span class="p">);</span>
+    <span class="n">DomainColoring</span> <span class="n">disjoint_coloring</span><span class="p">,</span> <span class="n">ghost_coloring</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// Iterate over all the colors and compute the entry
+</span>    <span class="c1">// for both partitions for each color.
+</span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">color</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">color</span> <span class="o">&lt;</span> <span class="n">num_subregions</span><span class="p">;</span> <span class="n">color</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">num_elmts</span> <span class="o">=</span> <span class="n">color</span> <span class="o">&lt;</span> <span class="n">number_small</span> <span class="o">?</span> <span class="n">lower_bound</span> <span class="o">:</span> <span class="n">upper_bound</span><span class="p">;</span>
+      <span class="n">assert</span><span class="p">((</span><span class="n">index</span><span class="o">+</span><span class="n">num_elmts</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">num_elements</span><span class="p">);</span>
+      <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">subrect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">index</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="n">num_elmts</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+      <span class="n">disjoint_coloring</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">subrect</span><span class="p">);</span>
+      <span class="c1">// Now compute the points assigned to this color for
+</span>      <span class="c1">// the second partition.  Here we need a superset of the
+</span>      <span class="c1">// points that we just computed including the two additional
+</span>      <span class="c1">// points on each side.  We handle the edge cases by clamping
+</span>      <span class="c1">// values to their minimum and maximum values.  This creates
+</span>      <span class="c1">// four cases of clamping both above and below, clamping below,
+</span>      <span class="c1">// clamping above, and no clamping.
+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">index</span><span class="o">+</span><span class="n">elmts_per_subregion</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_elements</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// Clamp both
+</span>          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">ghost_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+          <span class="n">ghost_coloring</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ghost_rect</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="c1">// Clamp below
+</span>          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">ghost_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="n">elmts_per_subregion</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+          <span class="n">ghost_coloring</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ghost_rect</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">index</span><span class="o">+</span><span class="n">elmts_per_subregion</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_elements</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// Clamp above
+</span>          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">ghost_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">index</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+          <span class="n">ghost_coloring</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ghost_rect</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="c1">// Normal case
+</span>          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">ghost_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">index</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="n">elmts_per_subregion</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+          <span class="n">ghost_coloring</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ghost_rect</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="n">index</span> <span class="o">+=</span> <span class="n">elmts_per_subregion</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">disjoint_ip</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_index_partition</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">,</span> <span class="n">color_domain</span><span class="p">,</span>
+                                    <span class="n">disjoint_coloring</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*disjoint*/</span><span class="p">);</span>
+    <span class="n">ghost_ip</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_index_partition</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">,</span> <span class="n">color_domain</span><span class="p">,</span>
+                                    <span class="n">ghost_coloring</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*disjoint*/</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">LogicalPartition</span> <span class="n">disjoint_lp</span> <span class="o">=</span> 
+    <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_logical_partition</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">,</span> <span class="n">disjoint_ip</span><span class="p">);</span>
+  <span class="n">LogicalPartition</span> <span class="n">ghost_lp</span> <span class="o">=</span> 
+    <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_logical_partition</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">,</span> <span class="n">ghost_ip</span><span class="p">);</span>
+
+  <span class="n">Domain</span> <span class="n">launch_domain</span> <span class="o">=</span> <span class="n">color_domain</span><span class="p">;</span>
+  <span class="n">ArgumentMap</span> <span class="n">arg_map</span><span class="p">;</span>
+
+  <span class="n">IndexLauncher</span> <span class="n">init_launcher</span><span class="p">(</span><span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span> <span class="n">launch_domain</span><span class="p">,</span>
+                              <span class="n">TaskArgument</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">arg_map</span><span class="p">);</span>
+  <span class="n">init_launcher</span><span class="p">.</span><span class="n">add_region_requirement</span><span class="p">(</span>
+      <span class="n">RegionRequirement</span><span class="p">(</span><span class="n">disjoint_lp</span><span class="p">,</span> <span class="mi">0</span><span class="cm">/*projection ID*/</span><span class="p">,</span>
+                        <span class="n">WRITE_DISCARD</span><span class="p">,</span> <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">));</span>
+  <span class="n">init_launcher</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">FID_VAL</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">init_launcher</span><span class="p">);</span>
+
+  <span class="n">IndexLauncher</span> <span class="n">stencil_launcher</span><span class="p">(</span><span class="n">STENCIL_TASK_ID</span><span class="p">,</span> <span class="n">launch_domain</span><span class="p">,</span>
+       <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">num_elements</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">num_elements</span><span class="p">)),</span> <span class="n">arg_map</span><span class="p">);</span>
+  <span class="n">stencil_launcher</span><span class="p">.</span><span class="n">add_region_requirement</span><span class="p">(</span>
+      <span class="n">RegionRequirement</span><span class="p">(</span><span class="n">ghost_lp</span><span class="p">,</span> <span class="mi">0</span><span class="cm">/*projection ID*/</span><span class="p">,</span>
+                        <span class="n">READ_ONLY</span><span class="p">,</span> <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">));</span>
+  <span class="n">stencil_launcher</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">FID_VAL</span><span class="p">);</span>
+  <span class="n">stencil_launcher</span><span class="p">.</span><span class="n">add_region_requirement</span><span class="p">(</span>
+      <span class="n">RegionRequirement</span><span class="p">(</span><span class="n">disjoint_lp</span><span class="p">,</span> <span class="mi">0</span><span class="cm">/*projection ID*/</span><span class="p">,</span>
+                        <span class="n">READ_WRITE</span><span class="p">,</span> <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">));</span>
+  <span class="n">stencil_launcher</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">FID_DERIV</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">stencil_launcher</span><span class="p">);</span>
+
+  <span class="n">TaskLauncher</span> <span class="n">check_launcher</span><span class="p">(</span><span class="n">CHECK_TASK_ID</span><span class="p">,</span> 
+      <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">num_elements</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">num_elements</span><span class="p">)));</span>
+  <span class="n">check_launcher</span><span class="p">.</span><span class="n">add_region_requirement</span><span class="p">(</span>
+      <span class="n">RegionRequirement</span><span class="p">(</span><span class="n">stencil_lr</span><span class="p">,</span> <span class="n">READ_ONLY</span><span class="p">,</span> <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">));</span>
+  <span class="n">check_launcher</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">FID_VAL</span><span class="p">);</span>
+  <span class="n">check_launcher</span><span class="p">.</span><span class="n">add_region_requirement</span><span class="p">(</span>
+      <span class="n">RegionRequirement</span><span class="p">(</span><span class="n">stencil_lr</span><span class="p">,</span> <span class="n">READ_ONLY</span><span class="p">,</span> <span class="n">EXCLUSIVE</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">));</span>
+  <span class="n">check_launcher</span><span class="p">.</span><span class="n">add_field</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">FID_DERIV</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">check_launcher</span><span class="p">);</span>
+
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_logical_region</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">stencil_lr</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">fs</span><span class="p">);</span>
+  <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// The standard initialize field task from earlier examples
+</span><span class="kt">void</span> <span class="nf">init_field_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> 
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="n">FieldID</span> <span class="n">fid</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">point</span> <span class="o">=</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">point_data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Initializing field %d for block %d...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">fid</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc</span> <span class="o">=</span> 
+    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">fid</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="n">Domain</span> <span class="n">dom</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
+      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">dom</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">acc</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">drand48</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">stencil_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                  <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">max_elements</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">args</span><span class="p">);</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">point</span> <span class="o">=</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">point_data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  
+  <span class="n">FieldID</span> <span class="n">read_fid</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+  <span class="n">FieldID</span> <span class="n">write_fid</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">read_acc</span> <span class="o">=</span> 
+    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">read_fid</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">write_acc</span> <span class="o">=</span> 
+    <span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">write_fid</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="n">Domain</span> <span class="n">dom</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">dom</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">const</span> <span class="n">DomainPoint</span> <span class="n">zero</span> <span class="o">=</span> <span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="k">const</span> <span class="n">DomainPoint</span> <span class="n">max</span> <span class="o">=</span> <span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">one</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">two</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="c1">// If we are on the edges of the entire space we are 
+</span>  <span class="c1">// operating over, then we're going to do the slow
+</span>  <span class="c1">// path which checks for clamping when necessary.
+</span>  <span class="c1">// If not, then we can do the fast path without
+</span>  <span class="c1">// any checks.
+</span>  <span class="k">if</span> <span class="p">((</span><span class="n">rect</span><span class="p">.</span><span class="n">lo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">hi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Running slow stencil path for point %d...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+    <span class="c1">// Note in the slow path that there are checks which
+</span>    <span class="c1">// perform clamps when necessary before reading values.
+</span>    <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">double</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">zero</span><span class="p">);</span>
+      <span class="k">else</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">-</span><span class="n">two</span><span class="p">));</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">zero</span><span class="p">);</span>
+      <span class="k">else</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">-</span><span class="n">one</span><span class="p">));</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">max</span><span class="p">);</span>
+      <span class="k">else</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">+</span><span class="n">one</span><span class="p">));</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">max</span><span class="p">);</span>
+      <span class="k">else</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">+</span><span class="n">two</span><span class="p">));</span>
+      
+      <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">l2</span> <span class="o">+</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">l1</span> <span class="o">-</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">;</span>
+      <span class="n">write_acc</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">result</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Running fast stencil path for point %d...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">point</span><span class="p">);</span>
+    <span class="c1">// In the fast path, we don't need any checks
+</span>    <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">double</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">-</span><span class="n">two</span><span class="p">));</span>
+      <span class="kt">double</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">-</span><span class="n">one</span><span class="p">));</span>
+      <span class="kt">double</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">+</span><span class="n">one</span><span class="p">));</span>
+      <span class="kt">double</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">read_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">+</span><span class="n">two</span><span class="p">));</span>
+
+      <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">l2</span> <span class="o">+</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">l1</span> <span class="o">-</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">;</span>
+      <span class="n">write_acc</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">result</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">check_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">max_elements</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">args</span><span class="p">);</span>
+
+  <span class="n">FieldID</span> <span class="n">src_fid</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+  <span class="n">FieldID</span> <span class="n">dst_fid</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
+
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">src_acc</span> <span class="o">=</span> 
+    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">src_fid</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">dst_acc</span> <span class="o">=</span> 
+    <span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">dst_fid</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="n">Domain</span> <span class="n">dom</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">dom</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">const</span> <span class="n">DomainPoint</span> <span class="n">zero</span> <span class="o">=</span> <span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="k">const</span> <span class="n">DomainPoint</span> <span class="n">max</span> <span class="o">=</span> <span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">one</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">two</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+  <span class="c1">// This is the checking task so we can just do the slow path
+</span>  <span class="kt">bool</span> <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
+      <span class="n">l2</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">zero</span><span class="p">);</span>
+    <span class="k">else</span>
+      <span class="n">l2</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">-</span><span class="n">two</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="n">l1</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">zero</span><span class="p">);</span>
+    <span class="k">else</span>
+      <span class="n">l1</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">-</span><span class="n">one</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+      <span class="n">r1</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">max</span><span class="p">);</span>
+    <span class="k">else</span>
+      <span class="n">r1</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">+</span><span class="n">one</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">max_elements</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>
+      <span class="n">r2</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">max</span><span class="p">);</span>
+    <span class="k">else</span>
+      <span class="n">r2</span> <span class="o">=</span> <span class="n">src_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="o">+</span><span class="n">two</span><span class="p">));</span>
+    
+    <span class="kt">double</span> <span class="n">expected</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">l2</span> <span class="o">+</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">l1</span> <span class="o">-</span> <span class="mf">8.0</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">received</span> <span class="o">=</span> <span class="n">dst_acc</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">expected</span> <span class="o">!=</span> <span class="n">received</span><span class="p">)</span>
+      <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">all_passed</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"SUCCESS!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"FAILURE!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">init_field_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">stencil_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">STENCIL_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">check_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CHECK_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

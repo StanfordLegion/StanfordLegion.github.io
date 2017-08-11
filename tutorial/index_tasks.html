@@ -1,0 +1,406 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Index Space Tasks &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Index Space Tasks">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/index_tasks.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/index_tasks.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Index Space Tasks</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>This example illustrates how to launch a large
+number of <em>non-interfering</em> tasks in Legion using
+a single <em>index space</em> task launch. (We discuss
+what it means to be non-interfering in a later example.) 
+It also describes the basic Legion types for arrays, 
+domains, and points and gives examples of how they work.</p>
+
+<h4 id="rectangles-and-domains">Rectangles and Domains</h4>
+
+<p>To aid in describing structured data, Legion supports
+a <code class="highlighter-rouge">Rect</code> type which is used to describe an arbitrary-dimensional
+dense arrays of points. <code class="highlighter-rouge">Rect</code> types are templated on the number
+of dimensions that they describe. To specify a <code class="highlighter-rouge">Rect</code> a
+user gives two <code class="highlighter-rouge">Point</code> objects which specify the lower and
+upper bounds in all dimensions respectively. Similar to
+the <code class="highlighter-rouge">Rect</code> type, a <code class="highlighter-rouge">Point</code> type is templated on the 
+number of dimensions it stores. In this example we create
+a 1-D <code class="highlighter-rouge">Rect</code> for which we’ll launch an array of tasks
+with one task per point (line 23). Note that the 
+bounds on <code class="highlighter-rouge">Rect</code> objects are inclusive.</p>
+
+<p><code class="highlighter-rouge">Rect</code> objects can be converted to <code class="highlighter-rouge">Domain</code> objects.
+<code class="highlighter-rouge">Domain</code> objects are a more general type for representing
+sets of points regardless of whether the sets are
+sparse or dense and independent of the number of dimensions.
+Users can easily convert between <code class="highlighter-rouge">Domain</code> and <code class="highlighter-rouge">Rect</code> types
+using the <code class="highlighter-rouge">from_rect</code> and <code class="highlighter-rouge">get_rect</code> methods (line 24).
+Most Legion runtime calls take <code class="highlighter-rouge">Domain</code> types as arguments,
+but it often helps in application code to have type 
+checking support on the number of dimensions.</p>
+
+<h4 id="argument-and-future-maps">Argument and Future Maps</h4>
+
+<p>When launching a large set of tasks in a single
+call, we may want to pass different arguments to each
+task. <code class="highlighter-rouge">ArgumentMap</code> types allow the user to pass
+different <code class="highlighter-rouge">TaskArgument</code> values to tasks associated
+with different points. <code class="highlighter-rouge">ArgumentMap</code> types do not
+need to specify arguments for all points. Legion
+is intelligent about only passing arguments to tasks
+which have arguments assigned. In this example we
+create an <code class="highlighter-rouge">ArgumentMap</code> (line 26) and then pass in
+different integer arguments associated with each
+point (lines 27-31).</p>
+
+<p>Legion also provides <code class="highlighter-rouge">FutureMap</code> types as a mechanism
+for managing the many return values that are returned 
+from an index space task launch. <code class="highlighter-rouge">FutureMap</code> objects
+store a future value for every point in the index 
+space task launch. Applications can either wait on the 
+<code class="highlighter-rouge">FutureMap</code> for all tasks in the index space launch
+to complete, or it can extract individual <code class="highlighter-rouge">Future</code>
+objects associated with specific points in the
+index space task launch.</p>
+
+<p>In this example we wait for all the point tasks in 
+the index space task launch using the <code class="highlighter-rouge">wait_all_results</code> 
+method (line 39). We then extract individual future
+values for each point and check that each returned
+value matches the expected result (lines 41-51). 
+Even though we use the <code class="highlighter-rouge">get_result</code> method on the
+<code class="highlighter-rouge">Future</code> objects, we know that the values will
+be immediately ready because we already waited
+for all the point tasks to complete.</p>
+
+<h4 id="index-space-launches">Index Space Launches</h4>
+
+<p>Index space tasks are launched in a similar manner to
+individual tasks using a launcher object which has
+the type <code class="highlighter-rouge">IndexLauncher</code> (lines 33-36). <code class="highlighter-rouge">IndexLauncher</code> objects take
+some of the same arguments as <code class="highlighter-rouge">TaskLauncher</code> objects
+such as the ID of the task to launch and a <code class="highlighter-rouge">TaskArgument</code>
+which is passed by value as a global argument to all
+the points in the index space launch. The <code class="highlighter-rouge">IndexLauncher</code>
+objects also take the additional arguments of an
+<code class="highlighter-rouge">ArgumentMap</code> and a <code class="highlighter-rouge">Domain</code> which describes the set
+of tasks to create (one for each point). Index space 
+tasks are launched the same as single tasks, but 
+return a <code class="highlighter-rouge">FutureMap</code> (line 38). Just like individual tasks, 
+index space task launches are performed asynchronously.</p>
+
+<h4 id="index-space-tasks">Index Space Tasks</h4>
+
+<p>Index space tasks are registered the same as single
+tasks but indicate using a boolean that they
+can be launched as an index space task (line 69).
+If an application attempts to launch an index space
+task with a task ID which has not be registered for
+index space task launches then a runtime error will
+be raised.</p>
+
+<p>Additional fields on the <code class="highlighter-rouge">Task</code> object are defined
+when executing as an index space task. First, the 
+<code class="highlighter-rouge">index_space_task</code> field is set to true. Next, 
+index space tasks can find the point they are responsible
+for executing in the <code class="highlighter-rouge">index_point</code> field. The <code class="highlighter-rouge">index_point</code>
+field is a <code class="highlighter-rouge">DomainPoint</code> which is general form of a
+<code class="highlighter-rouge">Point</code> type. Lines 57-58 show how a task can make
+use of the <code class="highlighter-rouge">index_point</code> field. Finally, the <code class="highlighter-rouge">local_arglen</code>
+and <code class="highlighter-rouge">local_arg</code> fields contain the <code class="highlighter-rouge">TaskArgument</code> values
+passed in to the <code class="highlighter-rouge">ArgumentMap</code> for the given task’s
+point (if any existed). In lines 59-61, the application
+does some simple computation on the input value and then
+returns it. The resulting value is set in the <code class="highlighter-rouge">Future</code>
+for the corresponding point in the <code class="highlighter-rouge">FutureMap</code>.</p>
+
+<p><br />
+Next Example: <a href="/tutorial/hybrid.html">Hybrid Model</a>
+<br />
+Previous Example: <a href="/tutorial/tasks_and_futures.html">Tasks and Futures</a></p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+#include &lt;cassert&gt;
+#include &lt;cstdlib&gt;
+#include "legion.h"
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
+
+<span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
+  <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+  <span class="n">HELLO_WORLD_INDEX_ID</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">num_points</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">num_points</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">num_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Running hello world redux for %d points...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_points</span><span class="p">);</span>
+
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">launch_bounds</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_points</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+  <span class="n">Domain</span> <span class="n">launch_domain</span> <span class="o">=</span> <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">launch_bounds</span><span class="p">);</span>
+
+  <span class="n">ArgumentMap</span> <span class="n">arg_map</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_points</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">input</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">arg_map</span><span class="p">.</span><span class="n">set_point</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span>
+        <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">input</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">input</span><span class="p">)));</span>
+  <span class="p">}</span>
+
+  <span class="n">IndexLauncher</span> <span class="n">index_launcher</span><span class="p">(</span><span class="n">HELLO_WORLD_INDEX_ID</span><span class="p">,</span>
+                               <span class="n">launch_domain</span><span class="p">,</span>
+                               <span class="n">TaskArgument</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                               <span class="n">arg_map</span><span class="p">);</span>
+
+  <span class="n">FutureMap</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">index_launcher</span><span class="p">);</span>
+  <span class="n">fm</span><span class="p">.</span><span class="n">wait_all_results</span><span class="p">();</span>
+
+  <span class="kt">bool</span> <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_points</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">10</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">received</span> <span class="o">=</span> <span class="n">fm</span><span class="p">.</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">expected</span> <span class="o">!=</span> <span class="n">received</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"Check failed for point %d: %d != %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">received</span><span class="p">);</span>
+      <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">all_passed</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"All checks passed!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">index_space_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">get_dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> 
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello world from task %d!</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">point_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">local_arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="kt">int</span> <span class="n">input</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">local_args</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">input</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">index_space_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">HELLO_WORLD_INDEX_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

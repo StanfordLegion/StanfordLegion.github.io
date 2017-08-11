@@ -1,0 +1,555 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Tasks and Futures &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tasks and Futures">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/tasks_and_futures.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/tasks_and_futures.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/bootcamp/" >Bootcamp</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <img src="/images/legion_logo.jpg" class="bio-photo" alt="Legion bio photo"></a>
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Tasks and Futures</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>In this example, we’ll introduce task launches and futures
+in Legion. To do so, we’ll implement a simple program to 
+compute the first <code class="highlighter-rouge">N</code> Fibonacci numbers. We note this is
+not the fastest way to compute Fibonacci numbers, but it
+will demonstrate the functional nature of Legion tasks.
+Code for this example is at the bottom of the page and
+can also be found the ‘examples’ directory of the 
+Legion repository.</p>
+
+<h4 id="registering-tasks-redux">Registering Tasks Redux</h4>
+
+<p>For our Fibonacci program we’ll register three different
+tasks: a top-level task, a task for performing the 
+recursive Fibonacci computation, and a helper task for
+summing futures. Both the Fibonacci and sum tasks
+will return an integer value and therefore require a
+slightly modified registration call. Lines 82-86 show
+the <code class="highlighter-rouge">register_legion_task</code> calls for these tasks. For
+tasks which have non-void return types
+the <code class="highlighter-rouge">register_legion_task</code> is templated first on the
+return type (<code class="highlighter-rouge">int</code> in this case) followed by function 
+pointer for the task.</p>
+
+<p>The registration for the summation task on lines 84-86
+also illustrates several new parameters which can be
+passed when registering a task with the Legion runtime.
+First, Legion allows applications to register multiple,
+functionally equivalent <em>variants</em> of a task. The fifth
+optional parameter to <code class="highlighter-rouge">register_legion_task</code> allows the
+application to specify the <code class="highlighter-rouge">VariantID</code> for the task. The
+default value is <code class="highlighter-rouge">AUTO_GENERATE_ID</code> which instructs the
+runtime to pick an un-used <code class="highlighter-rouge">VariantID</code> and return the 
+chosen ID from the registration call.</p>
+
+<p>The sixth optional parameter to the <code class="highlighter-rouge">register_legion_task</code>
+is the <code class="highlighter-rouge">TaskConfigOptions</code> structure. This structure
+allows applications to specify certain static properties
+of tasks. In this example, we register the <code class="highlighter-rouge">sum_task</code>
+as being a <em>leaf</em> task because it makes no Legion runtime
+calls in its implementation. Knowing that the <code class="highlighter-rouge">sum_task</code>
+is a leaf task allows the Legion runtime to optimize the
+execution of the task.</p>
+
+<p>The seventh parameter to the <code class="highlighter-rouge">register_legion_task</code> is an
+optional string to use for naming the task. Legion will use
+the string in all warnings and error messages. If
+no string is specified, tasks are identified by their task ID.</p>
+
+<h4 id="command-line-arguments">Command Line Arguments</h4>
+
+<p>For our Legion implementation of Fibonacci, we want to be
+able to pass a command line argument that specifies
+the number of Fibonacci numbers to compute. The Legion
+runtime makes the command line arguments available
+via a static method <code class="highlighter-rouge">get_input_args</code> on the <code class="highlighter-rouge">HighLevelRuntime</code>
+class. This returns an immutable reference to an
+<code class="highlighter-rouge">InputArgs</code> struct which describes the original command
+line arguments to the application. Even in distributed
+applications, Legion will make the command line arguments
+available on all nodes so they can be accessed in any task 
+at any time. Lines 17-21 show how the the command line arguments 
+are parsed in our Fibonacci program.</p>
+
+<h4 id="launching-tasks">Launching Tasks</h4>
+
+<p>All Legion tasks are spawned using a <em>launcher</em> object (except the
+top-level task which is launched automatically by the runtime as
+was described in the previous example). To
+spawn a single task, we use a <code class="highlighter-rouge">TaskLauncher</code> object. A
+<code class="highlighter-rouge">TaskLauncher</code> is a struct used for specifying the arguments
+necessary for launching a task. Launchers contain many
+fields which we will explore throughout this tutorial. Here
+we look at the first two arguments of <code class="highlighter-rouge">TaskLauncher</code>:</p>
+
+<ul>
+  <li>ID - the registered ID of the task to be launched</li>
+  <li>argument - pass-by-value input to the task</li>
+</ul>
+
+<p>The second field has type <code class="highlighter-rouge">TaskArgument</code> which points to
+a buffer and specifies the size in bytes to copy by value
+from the buffer. This copy does not actually take place until
+the launcher object is passed to the <code class="highlighter-rouge">execute_task</code> call.
+If there is more than one argument it is the responsibility
+of the application to pack the values into a single buffer.</p>
+
+<p>Launching a task simply requires passing a <code class="highlighter-rouge">TaskLauncher</code>
+object and a context to the Legion runtime via the 
+<code class="highlighter-rouge">execute_task</code> call. The context object is an opaque handle
+that is passed to the enclosing parent task.
+Legion task launches (like most Legion API calls) are 
+asynchronous which means that the call returns immediately.
+As a place holder for the return value of the task, the
+Legion runtime returns a <code class="highlighter-rouge">Future</code> which we describe in
+the next section. Note that launcher objects can be re-used
+to launch as many tasks as desired and can be modified for
+the next task launch immediately once the preceding
+<code class="highlighter-rouge">execute_task</code> call returns.</p>
+
+<p>There are several examples of task launches in the Fibonacci
+example. We call attention to the one in the <code class="highlighter-rouge">for</code> loop on
+lines 25-28. We create a launcher in our top-level task
+which launches one sub-task for each Fibonacci number that
+we want to compute. Each launcher is assigned the 
+<code class="highlighter-rouge">FIBONACCI_TASK_ID</code> as the task ID and passes an integer
+describing the Fibonacci number to be computed in the
+<code class="highlighter-rouge">TaskArgument</code> field. We store the resulting <code class="highlighter-rouge">Future</code> value
+that is returned in a vector.</p>
+
+<h4 id="futures">Futures</h4>
+
+<p>Futures are objects which represent a pending return value
+from a task. There are two ways to use future values. First,
+applications can explicitly request the value of the future
+using the <code class="highlighter-rouge">get_result</code> method as can be seen on line 31. The 
+<code class="highlighter-rouge">get_result</code> method is templated on the type of the return
+value which instructs the Legion runtime how to interpret the
+bits being returned. This is a blocking call which will cause 
+the task in which it is executed to pause until the sub-task 
+which is completing the future returns.<br /> 
+<br />
+There is a second way of using futures which does not require
+blocking to wait for future values. In our Fibonacci task,
+rather than waiting for the two Future values, we instead
+launch a sum task which will compute the sum of the two futures.
+Notice that the we can explicitly pass the futures as a special
+kind of argument in the <code class="highlighter-rouge">TaskLauncher</code> object on lines 59-60.
+Legion will ensure that the sum task does not begin until both
+futures are complete and the future values are available
+wherever the sum task is mapped. Future values should always
+be explicitly passed in this manner and should never be 
+passed through a <code class="highlighter-rouge">TaskArgument</code> object.</p>
+
+<h4 id="task-arguments-and-return-values">Task Arguments and Return Values</h4>
+
+<p>Task arguments that are passed in through the <code class="highlighter-rouge">TaskArgument</code> 
+field in a launcher object are available in a Legion task through
+the <code class="highlighter-rouge">args</code> and <code class="highlighter-rouge">arglen</code> fields on the <code class="highlighter-rouge">Task</code> object. The
+<code class="highlighter-rouge">Task</code> type is the common interface that Legion presents to
+both the application and mappers for describing tasks. Lines 41-42
+show the Fibonacci task extracting its arguments from the <code class="highlighter-rouge">Task</code>
+object. Since there is no type checking when using the runtime
+API (a benefit provided by our Legion compiler) we encourage
+applications to explicitly check that they are getting the
+arguments that they expect when unpacking them from the <code class="highlighter-rouge">Task</code>
+object before casting them.</p>
+
+<p>Return values from tasks are returned in the same way as
+standard C functions. The Legion runtime will automatically 
+use the returned value to complete the Future that was 
+created when the task was launched. In most cases the values
+returned are passed by value. However, if the type of the
+return value defines the methods <code class="highlighter-rouge">legion_buffer_size</code>,
+<code class="highlighter-rouge">legion_serialize</code>, and <code class="highlighter-rouge">legion_deserializer</code>, then 
+Legion automatically will invoke them to support deep
+copies of more complex data types (see the <code class="highlighter-rouge">ColoringSerializer</code>
+class in legion.h for an example used by the Legion
+compiler).<br /> 
+<br />
+The <code class="highlighter-rouge">Future</code> type is not permitted as return value
+for a task. Attempting to do so will result in a 
+compile-time assertion failure. Futures are not allowed
+to escape the context in which they are created. Instead
+applications should explicitly get the value of the
+Future and return it directly as is done at the end of
+the Fibonacci task on line 63.</p>
+
+<h4 id="performance-considerations">Performance Considerations</h4>
+
+<p>Legion applications should maximize the number of task 
+launches performed prior to making any blocking calls 
+such as waiting on futures. By doing so applications
+increase the number of tasks visible to the Legion runtime
+allowing the Legion runtime to discover as much task-level
+parallelism as possible. This technique is visible in two
+places in our Fibonacci example. First, in the top-level
+task we launch sub-tasks for computing each Fibonacci
+number and store future values in a vector prior to 
+computing only one Fibonacci number at a time. Second,
+in the implementation of our Fibonacci task, we launch
+both sub-tasks and the sum task prior to waiting on
+the value of the sum task.</p>
+
+<p>While waiting on a future blocks a task’s execution
+and limits the task-level parallelism that Legion can
+discover, it does not block the processor on which 
+the task is executing. If additional tasks have been 
+mapped onto the same processor and are ready to execute, 
+then the Legion runtime will begin executing them
+immediately after a blocking call is made on the 
+future. After each additional task finishes executing
+the runtime tests to see if the future is complete.
+If it is, then the initial task is restarted, otherwise
+a new task (if available) is started. If the additional
+tasks also block on a future, the process is repeatedly
+recursively. This approach keeps the underlying hardware 
+utilized and maximizes overall task throughput (consistent
+with the Cilk work-first principle).</p>
+
+<p>In the sum task we invoke the <code class="highlighter-rouge">get_result</code> method on
+the two futures passed as arguments (lines 71 and 73). 
+Since these futures are passed explicitly, the Legion 
+runtime will not start the sum task until both these 
+futures have completed. Invoking <code class="highlighter-rouge">get_result</code> on futures 
+that are explicitly passed as arguments will never block
+a task’s execution.</p>
+
+<p>Finally, <code class="highlighter-rouge">Future</code> objects are handles for actual
+futures and are therefore inexpensive to pass by value.
+Since futures are used both by the application and the
+runtime we reference count them and automatically 
+delete their resource when there are no longer any
+references. The <code class="highlighter-rouge">Future</code> type is actually a light-weight
+handle which simply contains a pointer to the actual
+future implementation, which makes copying future
+values inexpensive. Line 35 explicitly clears the future
+vector which will invoke the <code class="highlighter-rouge">Future</code> destructor on
+all the future values and remove references. This would
+have occurred automatically when the vector went out of
+scope, but we do so explicitly to show the users have
+control over when references are removed.</p>
+
+<p>Next Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a>
+<br />
+Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+#include &lt;cassert&gt;
+#include &lt;cstdlib&gt;
+#include "legion.h"
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
+
+<span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
+  <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+  <span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span>
+  <span class="n">SUM_TASK_ID</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Default value
+</span>  <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">num_fibonacci</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Computing the first %d Fibonacci numbers...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_fibonacci</span><span class="p">);</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Future</span><span class="o">&gt;</span> <span class="n">fib_results</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_fibonacci</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">TaskLauncher</span> <span class="n">launcher</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">i</span><span class="p">)));</span>
+    <span class="n">fib_results</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">launcher</span><span class="p">));</span>
+  <span class="p">}</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_fibonacci</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fib_results</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span> 
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Fibonacci(%d) = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="n">fib_results</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">fibonacci_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+                   <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="kt">int</span> <span class="n">fib_num</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">args</span><span class="p">;</span> 
+  <span class="k">if</span> <span class="p">(</span><span class="n">fib_num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">fib_num</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// Launch fib-1
+</span>  <span class="k">const</span> <span class="kt">int</span> <span class="n">fib1</span> <span class="o">=</span> <span class="n">fib_num</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n">TaskLauncher</span> <span class="n">t1</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fib1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">fib1</span><span class="p">)));</span>
+  <span class="n">Future</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">t1</span><span class="p">);</span>
+
+  <span class="c1">// Launch fib-2
+</span>  <span class="k">const</span> <span class="kt">int</span> <span class="n">fib2</span> <span class="o">=</span> <span class="n">fib_num</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">TaskLauncher</span> <span class="n">t2</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fib2</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">fib2</span><span class="p">)));</span>
+  <span class="n">Future</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">t2</span><span class="p">);</span>
+
+  <span class="n">TaskLauncher</span> <span class="n">sum</span><span class="p">(</span><span class="n">SUM_TASK_ID</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+  <span class="n">sum</span><span class="p">.</span><span class="n">add_future</span><span class="p">(</span><span class="n">f1</span><span class="p">);</span>
+  <span class="n">sum</span><span class="p">.</span><span class="n">add_future</span><span class="p">(</span><span class="n">f2</span><span class="p">);</span>
+  <span class="n">Future</span> <span class="n">result</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">sum_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
+             <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">futures</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">Future</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">futures</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">f1</span><span class="p">.</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">Future</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">futures</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="kt">int</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">.</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="p">(</span><span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span><span class="p">);</span>
+<span class="p">}</span>
+              
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">fibonacci_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">sum_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SUM_TASK_ID</span><span class="p">,</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">,</span> 
+      <span class="n">AUTO_GENERATE_ID</span><span class="p">,</span> <span class="n">TaskConfigOptions</span><span class="p">(</span><span class="nb">true</span><span class="cm">/*leaf*/</span><span class="p">),</span> <span class="s">"sum_task"</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+          
+
+</body>
+</html>

@@ -175,13 +175,14 @@ your Makefile.</p>
 number of nodes to be profiled. (<code class="highlighter-rouge">N</code> can be less than the total number
 of nodes—this profiles a subset of the nodes.) Use the 
 <code class="highlighter-rouge">-lg:prof_logfile &lt;logfile&gt;</code> flag to save the output from each node to
-a separate file. For example, data from node 0 will be saved in
-<code class="highlighter-rouge">&lt;logfile&gt;0.gz</code>, data from node 1 in <code class="highlighter-rouge">&lt;logfile&gt;1.gz</code>, etc. Finally, pass
+a separate file. The argument to the <code class="highlighter-rouge">-lg:prof_logfile</code> flag follows
+the same format as for <code class="highlighter-rouge">-logfile</code>, except that a <code class="highlighter-rouge">%</code> (to be replaced
+by the node number) is mandatory. Finally, pass
 the resulting log files to <code class="highlighter-rouge">legion_prof.py</code>.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DEBUG</span><span class="o">=</span>0 make
-./app -lg:prof &lt;N&gt; -lg:prof_logfile prof_log
-<span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_log<span class="k">*</span></code></pre></figure>
+./app -lg:prof &lt;N&gt; -lg:prof_logfile prof_%.gz
+<span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_<span class="k">*</span>.gz</code></pre></figure>
 
 <p>This will generate a subdirectory called <code class="highlighter-rouge">legion_prof</code> under the
 current directory, including a file named <code class="highlighter-rouge">index.html</code>. Open this file
@@ -243,8 +244,8 @@ To take advantage of this feature, run your application with both Legion Prof an
 and <a href="/debugging/#legion-spy">Legion Spy</a> traces to <code class="highlighter-rouge">legion_prof.py</code>.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DEBUG</span><span class="o">=</span>0 make
-./app -lg:prof &lt;N&gt; -lg:spy -logfile spy_log% -lg:prof_logfile prof_log
-<span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_log<span class="k">*</span> spy_log<span class="k">*</span></code></pre></figure>
+./app -lg:prof &lt;N&gt; -lg:spy -logfile spy_%.log -lg:prof_logfile prof_%.gz
+<span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_<span class="k">*</span>.gz spy_<span class="k">*</span>.log</code></pre></figure>
 
 <p>After Legion Prof creates the profile, you will be able to click on tasks that
 have dependency data. Left-clicking will draw solid lines to tasks that depend

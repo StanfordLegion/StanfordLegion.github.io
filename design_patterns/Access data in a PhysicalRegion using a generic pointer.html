@@ -116,7 +116,7 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Access data in a PhysicalRegion using a generic pointer</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">  Rect&lt;<span class="dv">1</span>&gt; elem_rect(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_elements<span class="dv">-1</span>));
+<pre class="sourceCode cpp"><code class="sourceCode cpp">  Rect&lt;<span class="dv">1</span>&gt; elem_rect(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_elements<span class="dv">-1</span>));
   IndexSpace is = runtime-&gt;create_index_space(ctx, Domain::from_rect&lt;<span class="dv">1</span>&gt;(elem_rect));
   FieldSpace input_fs = runtime-&gt;create_field_space(ctx);
   LogicalRegion input_lr = runtime-&gt;create_logical_region(ctx, is, input_fs);
@@ -132,10 +132,10 @@
   RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_y = 
     input_region.get_field_accessor(FID_Y).typeify&lt;<span class="dt">double</span>&gt;();
 
-  <span class="cf">for</span> (GenericPointInRectIterator&lt;<span class="dv">1</span>&gt; pir(elem_rect); pir; pir++) {
+  <span class="kw">for</span> (GenericPointInRectIterator&lt;<span class="dv">1</span>&gt; pir(elem_rect); pir; pir++) {
     acc_x.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());
     acc_y.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());
-  }</code></pre></div>
+  }</code></pre>
 <p> See also:
 <a href="../glossary/AccessorType.html">AccessorType</a>
 <a href="../glossary/Domain.html">Domain</a>

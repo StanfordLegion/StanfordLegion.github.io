@@ -179,10 +179,10 @@ make</code>) or at the top of each application’s Makefile.</p>
 dynamic checks which are too expensive for release builds.</li>
   <li><code class="highlighter-rouge">OUTPUT_LEVEL=&lt;level_name&gt;</code>: controls the compile-time <a href="/debugging/#logging-infrastructure">logging
 level</a>.</li>
-  <li><code class="highlighter-rouge">USE_CUDA=&lt;0,1&gt;</code>: enables CUDA support.</li>
-  <li><code class="highlighter-rouge">USE_GASNET=&lt;0,1&gt;</code>: enables GASNet support (see <a href="/gasnet/">installation instructions</a>).</li>
-  <li><code class="highlighter-rouge">USE_LLVM=&lt;0,1&gt;</code>: enables LLVM support.</li>
-  <li><code class="highlighter-rouge">USE_HDF=&lt;0,1&gt;</code>: enables HDF5 support.</li>
+  <li><code class="highlighter-rouge">USE_CUDA=&lt;0,1&gt;</code>: enables CUDA support. If enabled, <code class="highlighter-rouge">CUDA</code> (or <code class="highlighter-rouge">CUDA_TOOLKITHOME</code>) should be set to the CUDA install location (e.g. <code class="highlighter-rouge">/usr/local/cuda</code>).</li>
+  <li><code class="highlighter-rouge">USE_GASNET=&lt;0,1&gt;</code>: enables GASNet support (see <a href="/gasnet/">installation instructions</a>). If enabled, <code class="highlighter-rouge">GASNET</code> (or <code class="highlighter-rouge">GASNET_ROOT</code>) should be set to the GASNet installation location, and <code class="highlighter-rouge">CONDUIT</code> must be set to the desired GASNet conduit (e.g. ibv, gemini, aries).</li>
+  <li><code class="highlighter-rouge">USE_LLVM=&lt;0,1&gt;</code>: enables LLVM support. If enabled, and an <code class="highlighter-rouge">llvm-config</code> binary is not in your path, specify its location with <code class="highlighter-rouge">LLVM_CONFIG</code>.</li>
+  <li><code class="highlighter-rouge">USE_HDF=&lt;0,1&gt;</code>: enables HDF5 support. If enabled, and HDF5 is not installed in the standard include/library directories, specify the install location using <code class="highlighter-rouge">HDF_ROOT</code>.</li>
 </ul>
 
 <h2 id="build-flags">Build Flags</h2>

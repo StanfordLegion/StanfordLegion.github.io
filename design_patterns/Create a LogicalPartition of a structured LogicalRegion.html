@@ -116,7 +116,7 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Create a LogicalPartition of a structured LogicalRegion</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp">      LogicalRegion image = ...;
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">      LogicalRegion image = ...;
       Point&lt;<span class="dv">3</span>&gt; regionSize;
       <span class="co">// HDTV imgae resolution</span>
       regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;
@@ -139,7 +139,7 @@
       numFragments.x[<span class="dv">1</span>] = regionSize.x[<span class="dv">1</span>] / fragmentSize.x[<span class="dv">1</span>];
       numFragments.x[<span class="dv">2</span>] = regionSize.x[<span class="dv">2</span>] / fragmentSize.x[<span class="dv">2</span>];
       Rect&lt;<span class="dv">3</span>&gt; fragmentBounds(Point&lt;<span class="dv">3</span>&gt;::ZEROES(), numFragments - Point&lt;<span class="dv">3</span>&gt;::ONES());
-      Domain fragmentDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(fragmentBounds);</code></pre>
+      Domain fragmentDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(fragmentBounds);</code></pre></div>
 <p> See also:
 <a href="../glossary/Blockify.html">Blockify</a>
 <a href="../glossary/Color.html">Color</a>

@@ -116,10 +116,10 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Get a result from a Future object</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp">TaskLauncher launcher(FIBONACCI_TASK_ID, TaskArgument(&amp;i,<span class="kw">sizeof</span>(i)));
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">TaskLauncher launcher(FIBONACCI_TASK_ID, TaskArgument(&amp;i,<span class="kw">sizeof</span>(i)));
 Future future = runtime-&gt;execute_task(ctx, launcher);
 ...
-<span class="dt">int</span> result = future.get_result&lt;<span class="dt">int</span>&gt;();</code></pre>
+<span class="dt">int</span> result = future.get_result&lt;<span class="dt">int</span>&gt;();</code></pre></div>
 <p> See also:
 <a href="../glossary/Future.html">Future</a>
 <a href="../glossary/Launcher.html">Launcher</a>

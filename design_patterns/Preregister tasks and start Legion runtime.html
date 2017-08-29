@@ -116,7 +116,7 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Preregister tasks and start Legion runtime</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="kw">enum</span> TaskID {
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="kw">enum</span> TaskID {
   HELLO_WORLD_ID,
 };
 
@@ -124,7 +124,7 @@
   HighLevelRuntime::register_legion_task&lt;hello_world_task&gt;(HELLO_WORLD_ID,
       Processor::LOC_PROC, <span class="kw">true</span><span class="co">/*single*/</span>, <span class="kw">false</span><span class="co">/*index*/</span>);
 
-  <span class="kw">return</span> HighLevelRuntime::start(argc, argv);</code></pre>
+  <span class="cf">return</span> HighLevelRuntime::start(argc, argv);</code></pre></div>
 <p> See also:
 <a href="../glossary/HighLevelRuntime.html">HighLevelRuntime</a>
 <a href="../glossary/Task.html">Task</a>

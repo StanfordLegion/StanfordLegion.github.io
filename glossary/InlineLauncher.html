@@ -118,19 +118,6 @@
 <h1 id="inlinelauncher">InlineLauncher</h1>
 <p>Inline mappings provide a mechanism for a task to manifest a physical instance of a LogicalRegion directly inline as part of the task’s execution. Performing an inline mapping will give a task a copy of the data for the specified LogicalRegion consistent with given privileges and coherence.</p>
 <p>To perform an inline mapping, applications create an InlineLauncher object similar to other launcher objects for launching tasks. The argument passed to the InlineLauncher constructor is a RegionRequirement which is used to describe the LogicalRegion requested. Once we have have set up the launcher, we invoke the map_region runtime method and pass the launcher. This call returns a PhysicalRegion handle which represents the physical instance of the data. In keeping with Legion’s deferred execution model, the map_region call is asynchronous, allowing the application to issue many operations in flight and perform other useful work while waiting for the region to be ready.</p>
-<p> See also:
-<a href="Coherence.html">Coherence</a>
-<a href="Inline Mapping.html">Inline Mapping</a>
-<a href="LogicalRegion.html">LogicalRegion</a>
-<a href="Physical Instance.html">Physical Instance</a>
-<a href="PhysicalRegion.html">PhysicalRegion</a>
-<a href="Privilege.html">Privilege</a>
-<a href="Rect.html">Rect</a>
-<a href="Region.html">Region</a>
-<a href="RegionRequirement.html">RegionRequirement</a>
-<a href="Task.html">Task</a>
-<p> Relevant design patterns:
-<a href="../design_patterns/Access data in a PhysicalRegion using a generic pointer.html">Access data in a PhysicalRegion using a generic pointer</a>
 
     </div><!-- /.article-wrap -->
   </article>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['parent',['parent',['../struct_legion_1_1_region_requirement.html#a583b8aa6dd0995b7f2ea7523f520272e',1,'Legion::RegionRequirement']]],
-  ['partition',['partition',['../struct_legion_1_1_region_requirement.html#a8608a9ca1e1619e18e5bfb6c4074b160',1,'Legion::RegionRequirement']]],
+  ['partition',['Partition',['../class_legion_1_1_partition.html',1,'Legion::Partition'],['../struct_legion_1_1_region_requirement.html#a8608a9ca1e1619e18e5bfb6c4074b160',1,'Legion::RegionRequirement::partition()']]],
   ['phasebarrier',['PhaseBarrier',['../class_legion_1_1_phase_barrier.html',1,'Legion']]],
   ['physicalregion',['PhysicalRegion',['../class_legion_1_1_physical_region.html',1,'Legion']]],
   ['predicate',['Predicate',['../class_legion_1_1_predicate.html',1,'Legion']]],

@@ -117,16 +117,6 @@
 <a href="../design_patterns/index.html">design patterns</a><p>
 <h1 id="virtually-mapped">Virtually Mapped</h1>
 <p>In some cases tasks need only pass privileges for accessing a region without needing an explicit physical instance. In these cases, the mapper which maps the task may request that one or more LogicalRegion requirements be virtually mapped. In these cases no physical instance is created, but the task is still granted privileges for the requested LogicalRegion and fields. Tasks can test whether a PhysicalRegion has been virtually mapped by invoking the is_mapped method which will return false if virtually mapped. The Legion default mapper will never virtually map a region, but other mappers may choose to do so and tasks should be implemented to handle such scenarios.</p>
-<p> See also:
-<a href="DefaultMapper.html">DefaultMapper</a>
-<a href="LogicalRegion.html">LogicalRegion</a>
-<a href="Mapper.html">Mapper</a>
-<a href="Physical Instance.html">Physical Instance</a>
-<a href="PhysicalRegion.html">PhysicalRegion</a>
-<a href="Privilege.html">Privilege</a>
-<a href="Region.html">Region</a>
-<a href="RegionRequirement.html">RegionRequirement</a>
-<a href="Task.html">Task</a>
 
     </div><!-- /.article-wrap -->
   </article>

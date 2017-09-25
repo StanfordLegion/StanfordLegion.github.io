@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['intersect_5findex_5fspaces',['intersect_index_spaces',['../class_legion_1_1_runtime.html#a154aaa91bca194c4d4b6118cacda22de',1,'Legion::Runtime']]],
   ['is_5fempty',['is_empty',['../class_legion_1_1_future.html#a75721ea98fd87fc454f657d5651407e0',1,'Legion::Future']]],
   ['is_5fexclusive',['is_exclusive',['../class_legion_1_1_projection_functor.html#a882284d677bc97fba11e93bf6a6fd1e0',1,'Legion::ProjectionFunctor']]],
   ['is_5findex_5fpartition_5fcomplete',['is_index_partition_complete',['../class_legion_1_1_runtime.html#a36af197f72cc33ba83d0ada197002bb5',1,'Legion::Runtime']]],

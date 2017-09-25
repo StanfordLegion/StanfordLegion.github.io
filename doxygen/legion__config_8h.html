@@ -140,9 +140,6 @@ Macros</h2></td></tr>
 <tr class="memitem:ac5184a2f462271e685fbcda61b67eeb1"><td class="memItemLeft" align="right" valign="top"><a id="ac5184a2f462271e685fbcda61b67eeb1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_MIN_TASKS_TO_SCHEDULE</b>&#160;&#160;&#160;32</td></tr>
 <tr class="separator:ac5184a2f462271e685fbcda61b67eeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab29ec46596574c159ff67fb78757c9eb"><td class="memItemLeft" align="right" valign="top"><a id="ab29ec46596574c159ff67fb78757c9eb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_SUPERSCALAR_WIDTH</b>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:ab29ec46596574c159ff67fb78757c9eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f7e328a6ab677b90a3fafca631e5203"><td class="memItemLeft" align="right" valign="top"><a id="a4f7e328a6ab677b90a3fafca631e5203"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_MAX_MESSAGE_SIZE</b>&#160;&#160;&#160;16384</td></tr>
 <tr class="separator:a4f7e328a6ab677b90a3fafca631e5203"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,9 +214,6 @@ typedef enum legion_coherence_property_t&#160;</td><td class="memItemRight" vali
 <tr class="memitem:a02c3a440c66407d695074e933e6e651e"><td class="memItemLeft" align="right" valign="top"><a id="a02c3a440c66407d695074e933e6e651e"></a>
 typedef enum legion_region_flags_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_region_flags_t</b></td></tr>
 <tr class="separator:a02c3a440c66407d695074e933e6e651e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a820ee6b18dc7a853770cce14073bf2e1"><td class="memItemLeft" align="right" valign="top"><a id="a820ee6b18dc7a853770cce14073bf2e1"></a>
-typedef enum legion_index_space_kind_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_index_space_kind_t</b></td></tr>
-<tr class="separator:a820ee6b18dc7a853770cce14073bf2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a961e8c37b37b306d1edbffd560a03d15"><td class="memItemLeft" align="right" valign="top"><a id="a961e8c37b37b306d1edbffd560a03d15"></a>
 typedef enum legion_projection_type_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_projection_type_t</b></td></tr>
 <tr class="separator:a961e8c37b37b306d1edbffd560a03d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -307,6 +301,9 @@ typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>legio
 <tr class="memitem:aec1b4b735854fcb961a8a11140b47a33"><td class="memItemLeft" align="right" valign="top"><a id="aec1b4b735854fcb961a8a11140b47a33"></a>
 typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>legion_instance_id_t</b></td></tr>
 <tr class="separator:aec1b4b735854fcb961a8a11140b47a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2eb6df583474ce0ef41ac1b3eb4d246"><td class="memItemLeft" align="right" valign="top"><a id="af2eb6df583474ce0ef41ac1b3eb4d246"></a>
+typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>legion_type_tag_t</b></td></tr>
+<tr class="separator:af2eb6df583474ce0ef41ac1b3eb4d246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81adf7582e54b389db8ddd33b6d40638"><td class="memItemLeft" align="right" valign="top"><a id="a81adf7582e54b389db8ddd33b6d40638"></a>
 typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>legion_index_space_id_t</b></td></tr>
 <tr class="separator:a81adf7582e54b389db8ddd33b6d40638"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -373,6 +370,9 @@ typedef legion_lowlevel_task_func_id_t&#160;</td><td class="memItemRight" valign
 <tr class="memitem:a8057b2d0880a9e7ef0f7ab506d757064"><td class="memItemLeft" align="right" valign="top"><a id="a8057b2d0880a9e7ef0f7ab506d757064"></a>
 typedef unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>legion_layout_constraint_id_t</b></td></tr>
 <tr class="separator:a8057b2d0880a9e7ef0f7ab506d757064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f480f892ddc43fa99e6b1d864eb2845"><td class="memItemLeft" align="right" valign="top"><a id="a7f480f892ddc43fa99e6b1d864eb2845"></a>
+typedef long long&#160;</td><td class="memItemRight" valign="bottom"><b>legion_internal_color_t</b></td></tr>
+<tr class="separator:a7f480f892ddc43fa99e6b1d864eb2845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -582,7 +582,284 @@ Enumerations</h2></td></tr>
 <b>ERROR_REQUEST_FOR_EMPTY_FUTURE</b> = 162, 
 <b>ERROR_ILLEGAL_REMAP_IN_STATIC_TRACE</b> = 163, 
 <br />
-&#160;&#160;<b>ERROR_MISSING_LOCAL_VARIABLE</b> = 164
+&#160;&#160;<b>ERROR_DYNAMIC_TYPE_MISMATCH</b> = 164, 
+<b>ERROR_MISSING_LOCAL_VARIABLE</b> = 165, 
+<b>ERROR_ACCESSOR_PRIVILEGE_CHECK</b> = 166, 
+<b>ERROR_ACCESSOR_BOUNDS_CHECK</b> = 167, 
+<br />
+&#160;&#160;<b>ERROR_DUPLICATE_MPI_CONFIG</b> = 168, 
+<b>ERROR_UNKNOWN_MAPPABLE</b> = 169, 
+<b>ERROR_DEPRECATED_PROJECTION</b> = 170, 
+<b>ERROR_ILLEGAL_PARTIAL_ACQUIRE</b> = 171, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_INTERFERING_RESTRICTON</b> = 172, 
+<b>ERROR_ILLEGAL_INTERFERING_ACQUIRE</b> = 173, 
+<b>ERROR_ILLEGAL_REDUCTION_REQUEST</b> = 175, 
+<b>ERROR_PROJECTION_REGION_REQUIREMENTS</b> = 180, 
+<br />
+&#160;&#160;<b>ERROR_REQUIREMENTS_INVALID_REGION</b> = 181, 
+<b>ERROR_FIELD_NOT_VALID_FIELD</b> = 182, 
+<b>ERROR_INSTANCE_FIELD_PRIVILEGE</b> = 183, 
+<b>ERROR_ILLEGAL_REQUEST_VIRTUAL_INSTANCE</b> = 185, 
+<br />
+&#160;&#160;<b>ERROR_PARENT_TASK_INLINE</b> = 186, 
+<b>ERROR_REGION_NOT_SUBREGION</b> = 189, 
+<b>ERROR_REGION_REQUIREMENT_INLINE</b> = 190, 
+<b>ERROR_PRIVILEGES_FOR_REGION</b> = 191, 
+<br />
+&#160;&#160;<b>ERROR_MISSING_INSTANCE_FIELD</b> = 195, 
+<b>ERROR_NUMBER_SOURCE_REQUIREMENTS</b> = 204, 
+<b>ERROR_COPY_SOURCE_REQUIREMENTS</b> = 205, 
+<b>ERROR_COPY_DESTINATION_REQUIREMENT</b> = 206, 
+<br />
+&#160;&#160;<b>ERROR_COPY_LAUNCHER_INDEX</b> = 208, 
+<b>ERROR_DESTINATION_INDEX_SPACE</b> = 209, 
+<b>ERROR_ALIASED_REQION_REQUIREMENTS</b> = 210, 
+<b>ERROR_REQUEST_INVALID_REGION</b> = 212, 
+<br />
+&#160;&#160;<b>ERROR_INSTANCE_FIELD_DUPLICATE</b> = 215, 
+<b>ERROR_PARENT_TASK_COPY</b> = 216, 
+<b>ERROR_REGION_REQUIREMENT_COPY</b> = 220, 
+<b>ERROR_SOURCE_REGION_REQUIREMENT</b> = 232, 
+<br />
+&#160;&#160;<b>ERROR_DESTINATION_REGION_REQUIREMENT</b> = 233, 
+<b>ERROR_COPY_SOURCE_REQUIREMENT</b> = 235, 
+<b>ERROR_INDEX_SPACE_COPY</b> = 237, 
+<b>ERROR_DESTINATION_INDEX_SPACE2</b> = 240, 
+<br />
+&#160;&#160;<b>ERROR_MAPPER_FAILED_ACQUIRE</b> = 245, 
+<b>ERROR_FIELD_NOT_VALID</b> = 248, 
+<b>ERROR_PARENT_TASK_ACQUIRE</b> = 249, 
+<b>ERROR_REGION_REQUIREMENT_ACQUIRE</b> = 253, 
+<br />
+&#160;&#160;<b>ERROR_PARENT_TASK_RELEASE</b> = 257, 
+<b>ERROR_REGION_REQUIREMENT_RELEASE</b> = 261, 
+<b>ERROR_ILLEGAL_MUST_EPOCH</b> = 263, 
+<b>ERROR_MUST_EPOCH_DEPENDENCE</b> = 267, 
+<br />
+&#160;&#160;<b>ERROR_PARENT_TASK_PARTITION</b> = 268, 
+<b>ERROR_PARENT_TASK_FILL</b> = 273, 
+<b>ERROR_REGION_REQUIREMENT_FILL</b> = 278, 
+<b>ERROR_PRIVILEGES_REGION_SUBSET</b> = 279, 
+<br />
+&#160;&#160;<b>ERROR_INDEX_SPACE_FILL</b> = 281, 
+<b>ERROR_ILLEGAL_FILE_ATTACHMENT</b> = 284, 
+<b>ERROR_REGION_REQUIREMENT_ATTACH</b> = 293, 
+<b>ERROR_PARENT_TASK_DETACH</b> = 295, 
+<br />
+&#160;&#160;<b>ERROR_PREDICATED_TASK_LAUNCH</b> = 296, 
+<b>ERROR_MAPPER_REQUESTED_EXECUTION</b> = 297, 
+<b>ERROR_PARENT_TASK_TASK</b> = 298, 
+<b>ERROR_INDEX_SPACE_NOTSUBSPACE</b> = 299, 
+<br />
+&#160;&#160;<b>ERROR_PRIVILEGES_INDEX_SPACE</b> = 300, 
+<b>ERROR_PROJECTION_REGION_REQUIREMENT</b> = 303, 
+<b>ERROR_NONDISJOINT_PARTITION_SELECTED</b> = 304, 
+<b>ERROR_PARTITION_NOT_SUBPARTITION</b> = 312, 
+<br />
+&#160;&#160;<b>ERROR_REGION_REQUIREMENT_TASK</b> = 313, 
+<b>ERROR_PRIVILEGES_REGION_NOTSUBSET</b> = 314, 
+<b>ERROR_PRIVILEGES_PARTITION_NOTSUBSET</b> = 315, 
+<b>ERROR_INVALID_LOCATION_CONSTRAINT</b> = 344, 
+<br />
+&#160;&#160;<b>ERROR_ALIASED_INTERFERING_REGION</b> = 356, 
+<b>ERROR_REDUCTION_OPERATION_INDEX</b> = 357, 
+<b>ERROR_PREDICATED_INDEX_TASK</b> = 358, 
+<b>ERROR_INDEX_SPACE_TASK</b> = 359, 
+<br />
+&#160;&#160;<b>ERROR_TRACE_VIOLATION_RECORDED</b> = 363, 
+<b>ERROR_TRACE_VIOLATION_OPERATION</b> = 364, 
+<b>ERROR_INVALID_MAPPER_REQUEST</b> = 366, 
+<b>ERROR_ILLEGAL_RUNTIME_REMAPPING</b> = 377, 
+<br />
+&#160;&#160;<b>ERROR_UNABLE_FIND_TASK_LOCAL</b> = 378, 
+<b>ERROR_INDEXPARTITION_NOT_SAME_INDEX_TREE</b> = 379, 
+<b>ERROR_TASK_ATTEMPTED_ALLOCATE_FILED</b> = 386, 
+<b>ERROR_EXCEEDED_MAXIMUM_NUMBER_LOCAL_FIELDS</b> = 387, 
+<br />
+&#160;&#160;<b>ERROR_UNABLE_ALLOCATE_LOCAL_FIELD</b> = 388, 
+<b>ERROR_TASK_ATTEMPTED_ALLOCATE_FIELD</b> = 389, 
+<b>ERROR_PREDICATED_TASK_LAUNCH_FOR_TASK</b> = 392, 
+<b>ERROR_PREDICATED_INDEX_TASK_LAUNCH</b> = 393, 
+<br />
+&#160;&#160;<b>ERROR_ATTEMPTED_INLINE_MAPPING_REGION</b> = 395, 
+<b>ERROR_ATTEMPTED_ATTACH_HDF5</b> = 397, 
+<b>ERROR_ILLEGAL_PREDICATE_CREATION</b> = 399, 
+<b>ERROR_ILLEGAL_END_TRACE_CALL</b> = 402, 
+<br />
+&#160;&#160;<b>ERROR_UNMATCHED_END_STATIC_TRACE</b> = 403, 
+<b>ERROR_ILLEGAL_END_STATIC_TRACE</b> = 404, 
+<b>ERROR_ILLEGAL_ACQUIRE_OPERATION</b> = 405, 
+<b>ERROR_ILLEGAL_RELEASE_OPERATION</b> = 406, 
+<br />
+&#160;&#160;<b>ERROR_TASK_FAILED_END_TRACE</b> = 408, 
+<b>ERROR_ILLEGAL_INDEX_SPACE_CREATION</b> = 410, 
+<b>ERROR_UMATCHED_END_TRACE</b> = 411, 
+<b>ERROR_ILLEGAL_NESTED_STATIC_TRACE</b> = 412, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_UNION_INDEX_SPACES</b> = 414, 
+<b>ERROR_ILLEGAL_INTERSECT_INDEX_SPACES</b> = 415, 
+<b>ERROR_ILLEGAL_SUBTRACT_INDEX_SPACES</b> = 416, 
+<b>ERROR_ILLEGAL_INDEX_SPACE_DELETION</b> = 417, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_INDEX_PARTITION_DELETION</b> = 418, 
+<b>ERROR_ILLEGAL_EQUAL_PARTITION_CREATION</b> = 419, 
+<b>ERROR_ILLEGAL_UNION_PARTITION_CREATION</b> = 420, 
+<b>ERROR_ILLEGAL_INTERSECTION_PARTITION_CREATION</b> = 421, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_DIFFERENCE_PARTITION_CREATION</b> = 422, 
+<b>ERROR_ILLEGAL_CREATE_CROSS_PRODUCT_PARTITION</b> = 423, 
+<b>ERROR_ILLEGAL_CREATE_ASSOCIATION</b> = 424, 
+<b>ERROR_ILLEGAL_CREATE_RESTRICTED_PARTITION</b> = 425, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_PARTITION_FIELD</b> = 426, 
+<b>ERROR_ILLEGAL_PARTITION_IMAGE</b> = 427, 
+<b>ERROR_ILLEGAL_PARTITION_IMAGE_RANGE</b> = 428, 
+<b>ERROR_ILLEGAL_PARTITION_PREIMAGE</b> = 429, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_PARTITION_PREIMAGE_RANGE</b> = 430, 
+<b>ERROR_ILLEGAL_CREATE_PENDING_PARTITION</b> = 431, 
+<b>ERROR_ILLEGAL_CREATE_INDEX_SPACE_UNION</b> = 432, 
+<b>ERROR_ILLEGAL_CREATE_INDEX_SPACE_INTERSECTION</b> = 434, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_CREATE_INDEX_SPACE_DIFFERENCE</b> = 436, 
+<b>ERROR_ILLEGAL_CREATE_FIELD_SPACE</b> = 437, 
+<b>ERROR_ILLEGAL_DESTROY_FIELD_SPACE</b> = 438, 
+<b>ERROR_ILLEGAL_NONLOCAL_FIELD_ALLOCATION</b> = 439, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_FIELD_DESTRUCTION</b> = 440, 
+<b>ERROR_ILLEGAL_NONLOCAL_FIELD_ALLOCATION2</b> = 441, 
+<b>ERROR_ILLEGAL_FIELD_DESTRUCTION2</b> = 442, 
+<b>ERROR_ILLEGAL_REGION_CREATION</b> = 443, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_REGION_DESTRUCTION</b> = 444, 
+<b>ERROR_ILLEGAL_PARTITION_DESTRUCTION</b> = 445, 
+<b>ERROR_ILLEGAL_CREATE_FIELD_ALLOCATION</b> = 447, 
+<b>ERROR_ILLEGAL_EXECUTE_TASK_CALL</b> = 448, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_EXECUTE_INDEX_SPACE</b> = 449, 
+<b>ERROR_ILLEGAL_MAP_REGION</b> = 451, 
+<b>ERROR_ILLEGAL_REMAP_OPERATION</b> = 452, 
+<b>ERROR_ILLEGAL_UNMAP_OPERATION</b> = 453, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_FILL_OPERATION_CALL</b> = 454, 
+<b>ERROR_ILLEGAL_INDEX_FILL_OPERATION_CALL</b> = 455, 
+<b>ERROR_ILLEGAL_COPY_FILL_OPERATION_CALL</b> = 456, 
+<b>ERROR_ILLEGAL_INDEX_COPY_OPERATION</b> = 457, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_ATTACH_RESOURCE_OPERATION</b> = 460, 
+<b>ERROR_ILLEGAL_DETACH_RESOURCE_OPERATION</b> = 461, 
+<b>ERROR_ILLEGAL_LEGION_EXECUTE_MUST_EPOCH</b> = 462, 
+<b>ERROR_ILLEGAL_TIMING_MEASUREMENT</b> = 463, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_LEGION_MAPPING_FENCE_CALL</b> = 464, 
+<b>ERROR_ILLEGAL_LEGION_EXECUTION_FENCE_CALL</b> = 465, 
+<b>ERROR_ILLEGAL_LEGION_COMPLETE_FRAME_CALL</b> = 466, 
+<b>ERROR_ILLEGAL_GET_PREDICATE_FUTURE</b> = 469, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_LEGION_BEGIN_TRACE</b> = 470, 
+<b>ERROR_ILLEGAL_LEGION_END_TRACE</b> = 471, 
+<b>ERROR_ILLEGAL_LEGION_BEGIN_STATIC_TRACE</b> = 472, 
+<b>ERROR_ILLEGAL_LEGION_END_STATIC_TRACE</b> = 473, 
+<br />
+&#160;&#160;<b>ERROR_PARENT_INDEX_PARTITION_REQUESTED</b> = 477, 
+<b>ERROR_FIELD_SPACE_HAS_NO_FIELD</b> = 478, 
+<b>ERROR_PARENT_LOGICAL_PARTITION_REQUESTED</b> = 480, 
+<b>ERROR_INVALID_REQUEST_FOR_INDEXSPACE</b> = 481, 
+<br />
+&#160;&#160;<b>ERROR_UNABLE_FIND_ENTRY</b> = 482, 
+<b>ERROR_INVALID_REQUEST_INDEXPARTITION</b> = 484, 
+<b>ERROR_INVALID_REQUEST_FIELDSPACE</b> = 487, 
+<b>ERROR_INVALID_REQUEST_LOGICALREGION</b> = 490, 
+<br />
+&#160;&#160;<b>ERROR_INVALID_REQUEST_LOGICALPARTITION</b> = 492, 
+<b>ERROR_INVALID_REQUEST_TREE_ID</b> = 493, 
+<b>ERROR_UNABLE_FIND_TOPLEVEL_TREE</b> = 495, 
+<b>ERROR_ILLEGAL_DUPLICATE_REQUEST_ALLOCATOR</b> = 502, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_DUPLICATE_FIELD_ID</b> = 510, 
+<b>ERROR_EXCEEDED_MAXIMUM_NUMBER_ALLOCATED_FIELDS</b> = 511, 
+<b>ERROR_ILLEGAL_NOT_PREDICATE_CREATION</b> = 533, 
+<b>ERROR_PARENT_TASK_ATTACH</b> = 534, 
+<br />
+&#160;&#160;<b>ERROR_INVALID_REGION_ARGUMENTS</b> = 535, 
+<b>ERROR_INVALID_MAPPER_CONTENT</b> = 536, 
+<b>ERROR_INVALID_DUPLICATE_MAPPER</b> = 537, 
+<b>ERROR_INVALID_UNLOCK_MAPPER</b> = 538, 
+<br />
+&#160;&#160;<b>ERROR_UNKNOWN_PROFILER_OPTION</b> = 539, 
+<b>ERROR_MISSING_PROFILER_OPTION</b> = 540, 
+<b>ERROR_INVALID_PROFILER_SERIALIZER</b> = 541, 
+<b>ERROR_INVALID_PROFILER_FILE</b> = 542, 
+<br />
+&#160;&#160;<b>ERROR_ILLEGAL_LAYOUT_CONSTRAINT</b> = 543, 
+<b>ERROR_UNSUPPORTED_LAYOUT_CONSTRAINT</b> = 544, 
+<b>ERROR_ACCESSOR_FIELD_SIZE_CHECK</b> = 545, 
+<b>LEGION_WARNING_FUTURE_NONLEAF</b> = 1000, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_BLOCKING_EMPTY</b> = 1001, 
+<b>LEGION_WARNING_WAITING_ALL_FUTURES</b> = 1002, 
+<b>LEGION_WARNING_WAITING_REGION</b> = 1003, 
+<b>LEGION_WARNING_MISSING_REGION_WAIT</b> = 1004, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_NONLEAF_ACCESSOR</b> = 1005, 
+<b>LEGION_WARNING_UNMAPPED_ACCESSOR</b> = 1006, 
+<b>LEGION_WARNING_READ_DISCARD</b> = 1007, 
+<b>LEGION_WARNING_MISSING_PROC_CONSTRAINT</b> = 1008, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_DYNAMIC_PROJECTION_REG</b> = 1009, 
+<b>LEGION_WARNING_DUPLICATE_MPI_CONFIG</b> = 1010, 
+<b>LEGION_WARNING_NEW_PROJECTION_FUNCTORS</b> = 1011, 
+<b>LEGION_WARNING_IGNORE_MEMORY_REQUEST</b> = 1012, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_NOT_COPY</b> = 1013, 
+<b>LEGION_WARNING_REGION_REQUIREMENT_INLINE</b> = 1014, 
+<b>LEGION_WARNING_MAPPER_FAILED_ACQUIRE</b> = 1015, 
+<b>LEGION_WARNING_SOURCE_REGION_REQUIREMENT</b> = 1016, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_DESTINATION_REGION_REQUIREMENT</b> = 1017, 
+<b>LEGION_WARNING_REGION_REQUIREMENTS_INDEX</b> = 1019, 
+<b>LEGION_WARNING_PRIVILEGE_FIELDS_ACQUIRE</b> = 1020, 
+<b>LEGION_WARNING_PRIVILEGE_FIELDS_RELEASE</b> = 1021, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_FILE_ATTACH_OPERATION</b> = 1022, 
+<b>LEGION_WARNING_HDF5_ATTACH_OPERATION</b> = 1023, 
+<b>LEGION_WARNING_REGION_REQUIREMENT_TASK</b> = 1024, 
+<b>LEGION_WARNING_EMPTY_OUTPUT_TARGET</b> = 1026, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_IGNORING_SPURIOUS_TARGET</b> = 1027, 
+<b>LEGION_WARNING_IGNORING_PROCESSOR_REQUEST</b> = 1028, 
+<b>LEGION_WARNING_MAPPER_REQUESTED_COMPOSITE</b> = 1030, 
+<b>LEGION_WARNING_MAPPER_REQUESTED_INLINE</b> = 1031, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_REGION_REQUIREMENTS_INDIVIDUAL</b> = 1032, 
+<b>LEGION_WARNING_IGNORING_ACQUIRE_REQUEST</b> = 1035, 
+<b>LEGION_WARNING_WAITING_FUTURE_NONLEAF</b> = 1047, 
+<b>LEGION_WARNING_RUNTIME_UNMAPPING_REMAPPING</b> = 1050, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_IGNORING_EMPTY_INDEX_TASK_LAUNCH</b> = 1058, 
+<b>LEGION_WARNING_REGION_REQUIREMENT_OPERATION_USING</b> = 1071, 
+<b>LEGION_WARNING_MAPPER_REQUESTED_PROFILING</b> = 1082, 
+<b>LEGION_WARNING_REGION_TREE_STATE_LOGGING</b> = 1083, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_DISJOINTNESS_VERIFICATION</b> = 1084, 
+<b>LEGION_WARNING_IGNORING_EMPTY_INDEX_SPACE_FILL</b> = 1085, 
+<b>LEGION_WARNING_IGNORING_EMPTY_INDEX_SPACE_COPY</b> = 1086, 
+<b>LEGION_WARNING_VARIANT_TASK_NOT_MARKED</b> = 1087, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_MAPPER_REQUESTED_POST</b> = 1088, 
+<b>LEGION_WARNING_IGNORING_RELEASE_REQUEST</b> = 1089, 
+<b>LEGION_WARNING_PRUNE_DEPTH_EXCEEDED</b> = 1090, 
+<b>LEGION_WARNING_GENERIC_ACCESSOR</b> = 1091, 
+<br />
+&#160;&#160;<b>LEGION_WARNING_UNUSED_PROFILING_FILE_NAME</b> = 1092, 
+<b>LEGION_FATAL_MUST_EPOCH_NOADDRESS</b> = 2000, 
+<b>LEGION_FATAL_MUST_EPOCH_NOTASKS</b> = 2001, 
+<b>LEGION_FATAL_DEFAULT_MAPPER_ERROR</b> = 2002, 
+<br />
+&#160;&#160;<b>LEGION_FATAL_SHIM_MAPPER_SUPPORT</b> = 2006, 
+<b>LEGION_FATAL_UNKNOWN_FIELD_ID</b> = 2007, 
+<b>LEGION_FATAL_RESTRICTED_SIMULTANEOUS</b> = 2008
 <br />
  }</td></tr>
 <tr class="separator:adcdaf79180040afe53aabd65efa644b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -625,11 +902,6 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a86d17511da434e11344c40733abe9e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae591e7ac977cb8808f20be88397a3be1"><td class="memItemLeft" align="right" valign="top"><a id="ae591e7ac977cb8808f20be88397a3be1"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_index_space_kind_t</b> { <b>UNSTRUCTURED_KIND</b>, 
-<b>SPARSE_ARRAY_KIND</b>, 
-<b>DENSE_ARRAY_KIND</b>
- }</td></tr>
-<tr class="separator:ae591e7ac977cb8808f20be88397a3be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac81d3ded3768ec2d95bb0d25ebfff5cc"><td class="memItemLeft" align="right" valign="top"><a id="ac81d3ded3768ec2d95bb0d25ebfff5cc"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_projection_type_t</b> { <b>SINGULAR</b>, 
 <b>PART_PROJECTION</b>, 
 <b>REG_PROJECTION</b>
@@ -814,7 +1086,7 @@ Enumerations</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 5 2017 09:05:25 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 25 2017 13:15:30 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

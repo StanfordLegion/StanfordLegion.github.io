@@ -121,17 +121,6 @@
 <h2 id="argument---pass-by-value-input-to-the-task">argument - pass-by-value input to the task</h2>
 <p>The second field has type TaskArgument which points to a buffer and specifies the size in bytes to copy by value from the buffer. This copy does not actually take place until the launcher object is passed to the execute_task call. If there is more than one argument it is the responsibility of the application to pack the values into a single buffer.</p>
 <p>Launching a task simply requires passing a TaskLauncher object and a context to the Legion runtime via the execute_task call. The context object is an opaque handle that is passed to the enclosing parent task. Legion task launches (like most Legion API calls) are asynchronous which means that the call returns immediately. As a place holder for the return value of the task, the Legion runtime returns a Future. Note that launcher objects can be re-used to launch as many tasks as desired and can be modified for the next task launch immediately once the preceding execute_task call returns.</p>
-<p> See also:
-<a href="Context.html">Context</a>
-<a href="Future.html">Future</a>
-<a href="Index Space Task Launch.html">Index Space Task Launch</a>
-<a href="Launcher.html">Launcher</a>
-<a href="Point.html">Point</a>
-<a href="Task Launch.html">Task Launch</a>
-<a href="TaskArgument.html">TaskArgument</a>
-<p> Relevant design patterns:
-<a href="../design_patterns/Get a result from a future object.html">Get a result from a future object</a>
-<a href="../design_patterns/Individual task launch.html">Individual task launch</a>
 
     </div><!-- /.article-wrap -->
   </article>

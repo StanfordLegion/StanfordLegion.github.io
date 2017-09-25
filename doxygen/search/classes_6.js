@@ -1,12 +1,10 @@
 var searchData=
 [
   ['layoutconstraintregistrar',['LayoutConstraintRegistrar',['../struct_legion_1_1_layout_constraint_registrar.html',1,'Legion']]],
-  ['legion_5fbyte_5foffset_5ft',['legion_byte_offset_t',['../structlegion__byte__offset__t.html',1,'']]],
   ['legion_5fdomain_5fpoint_5ft',['legion_domain_point_t',['../structlegion__domain__point__t.html',1,'']]],
   ['legion_5fdomain_5ft',['legion_domain_t',['../structlegion__domain__t.html',1,'']]],
   ['legion_5fdynamic_5fcollective_5ft',['legion_dynamic_collective_t',['../structlegion__dynamic__collective__t.html',1,'']]],
   ['legion_5ffield_5fspace_5ft',['legion_field_space_t',['../structlegion__field__space__t.html',1,'']]],
-  ['legion_5findex_5fallocator_5ft',['legion_index_allocator_t',['../structlegion__index__allocator__t.html',1,'']]],
   ['legion_5findex_5fpartition_5ft',['legion_index_partition_t',['../structlegion__index__partition__t.html',1,'']]],
   ['legion_5findex_5fspace_5ft',['legion_index_space_t',['../structlegion__index__space__t.html',1,'']]],
   ['legion_5finput_5fargs_5ft',['legion_input_args_t',['../structlegion__input__args__t.html',1,'']]],
@@ -24,5 +22,7 @@ var searchData=
   ['lock',['Lock',['../class_legion_1_1_lock.html',1,'Legion']]],
   ['lockrequest',['LockRequest',['../struct_legion_1_1_lock_request.html',1,'Legion']]],
   ['logicalpartition',['LogicalPartition',['../class_legion_1_1_logical_partition.html',1,'Legion']]],
-  ['logicalregion',['LogicalRegion',['../class_legion_1_1_logical_region.html',1,'Legion']]]
+  ['logicalpartitiont',['LogicalPartitionT',['../class_legion_1_1_logical_partition_t.html',1,'Legion']]],
+  ['logicalregion',['LogicalRegion',['../class_legion_1_1_logical_region.html',1,'Legion']]],
+  ['logicalregiont',['LogicalRegionT',['../class_legion_1_1_logical_region_t.html',1,'Legion']]]
 ];

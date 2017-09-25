@@ -121,22 +121,6 @@
 <p>The AccessorType::Generic template argument on the RegionAccessor type specifies the kind of accessor. In this example we create a specific kind of accessor called a generic accessor. Generic accessors are the simplest kind of accessors and have the ability to verify many important correctness properties of region tasks (e.g. abiding by their specified privileges), but they also have the worst performance. In practice, we often write two variants of every Legion task, one using generic accessors which we use to validate the application, and second using high-performance accessors. Generic accessors should NEVER be used in production code.</p>
 <p>The generic RegionAccessor provides the read and write methods for accessing data within the region. These methods are overloaded to either work with ptr_t pointers for LogicalRegions created with unstructured index spaces, or with non-dimensionalized DomainPoint objects for LogicalRegions associated with structured index spaces.</p>
 <p>Legion pointers do not directly reference data, but instead name an entry in an IndexSpace. They are used when accessing data within accessors for LogicalRegions. The accessor is specifically associated with the field being accessed and the pointer names the row entry. Since pointers are associated with index spaces they can be used with an accessor for physical instance. In this way Legion pointers are not tied to memory address spaces or physical instances, but instead can be used to access data for any physical instance of a LogicalRegion created with an index space to which the pointer belongs.</p>
-<p> See also:
-<a href="AccessorType.html">AccessorType</a>
-<a href="Domain.html">Domain</a>
-<a href="DomainPoint.html">DomainPoint</a>
-<a href="FieldID.html">FieldID</a>
-<a href="IndexSpace.html">IndexSpace</a>
-<a href="LogicalRegion.html">LogicalRegion</a>
-<a href="Physical Instance.html">Physical Instance</a>
-<a href="PhysicalRegion.html">PhysicalRegion</a>
-<a href="Point.html">Point</a>
-<a href="Privilege.html">Privilege</a>
-<a href="Rect.html">Rect</a>
-<a href="Task.html">Task</a>
-<p> Relevant design patterns:
-<a href="../design_patterns/Access data in a PhysicalRegion using a generic pointer.html">Access data in a PhysicalRegion using a generic pointer</a>
-<a href="../design_patterns/Access data in a PhysicalRegion using a raw pointer.html">Access data in a PhysicalRegion using a raw pointer</a>
 
     </div><!-- /.article-wrap -->
   </article>

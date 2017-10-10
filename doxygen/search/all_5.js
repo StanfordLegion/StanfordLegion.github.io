@@ -12,7 +12,6 @@ var searchData=
   ['find_5flocal_5fmpi_5frank',['find_local_MPI_rank',['../class_legion_1_1_runtime.html#aa2b6769d9ee8de7892f0b5d5c3cc4ab3',1,'Legion::Runtime']]],
   ['find_5freverse_5fmpi_5fmapping',['find_reverse_MPI_mapping',['../class_legion_1_1_runtime.html#ac27b2638c8aa39d366886a678f63749d',1,'Legion::Runtime']]],
   ['flags',['flags',['../struct_legion_1_1_region_requirement.html#ae61db267f7f5cf23f65eebda28a11f4d',1,'Legion::RegionRequirement']]],
-  ['free',['free',['../class_legion_1_1_index_allocator.html#a85187376e85cc3f6717242652a1c4247',1,'Legion::IndexAllocator']]],
   ['free_5ffield',['free_field',['../class_legion_1_1_field_allocator.html#af6ea0d49201686a8c0604837b0a1f1fb',1,'Legion::FieldAllocator']]],
   ['free_5ffields',['free_fields',['../class_legion_1_1_field_allocator.html#a5afe3cb27f1b8da92a1ec68b196186f7',1,'Legion::FieldAllocator']]],
   ['from_5funtyped_5fpointer',['from_untyped_pointer',['../class_legion_1_1_future.html#a748cf065d38332f8d0c77053e77439e0',1,'Legion::Future']]],

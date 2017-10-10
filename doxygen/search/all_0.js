@@ -8,7 +8,6 @@ var searchData=
   ['add_5fregistration_5fcallback',['add_registration_callback',['../class_legion_1_1_runtime.html#a40cc7ecc77420ead98e0505ed97eb8d7',1,'Legion::Runtime']]],
   ['advance_5fdynamic_5fcollective',['advance_dynamic_collective',['../class_legion_1_1_runtime.html#a0d742dec7f16386ecaa85a451766eadf',1,'Legion::Runtime']]],
   ['advance_5fphase_5fbarrier',['advance_phase_barrier',['../class_legion_1_1_runtime.html#a92381209ec4d73bae91236cf77da5fb3',1,'Legion::Runtime']]],
-  ['alloc',['alloc',['../class_legion_1_1_index_allocator.html#accd5c2693803601eace347e9ec15fe13',1,'Legion::IndexAllocator']]],
   ['allocate_5ffield',['allocate_field',['../class_legion_1_1_field_allocator.html#a9ad13f2419c3a71c85870eb5ded1c8d6',1,'Legion::FieldAllocator']]],
   ['allocate_5ffields',['allocate_fields',['../class_legion_1_1_field_allocator.html#a93751e59e9258b221dfa65655ca345c2',1,'Legion::FieldAllocator']]],
   ['allocate_5flocal_5ffield',['allocate_local_field',['../class_legion_1_1_field_allocator.html#a40d4a2698158d9544caf23b7d3d8f383',1,'Legion::FieldAllocator']]],

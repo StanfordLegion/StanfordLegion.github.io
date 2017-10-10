@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['indexallocator',['IndexAllocator',['../class_legion_1_1_index_allocator.html',1,'Legion']]],
+  ['indexallocator',['IndexAllocator',['../class_index_allocator.html',1,'']]],
   ['indexcopylauncher',['IndexCopyLauncher',['../struct_legion_1_1_index_copy_launcher.html',1,'Legion']]],
   ['indexfilllauncher',['IndexFillLauncher',['../struct_legion_1_1_index_fill_launcher.html',1,'Legion']]],
   ['indexiterator',['IndexIterator',['../class_index_iterator.html',1,'']]],

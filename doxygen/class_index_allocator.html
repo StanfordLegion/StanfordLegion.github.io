@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Legion Runtime: Member List</title>
+<title>Legion Runtime: IndexAllocator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,18 +85,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">legion_index_allocator_t Member List</div>  </div>
+<div class="title">IndexAllocator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="structlegion__index__allocator__t.html">legion_index_allocator_t</a>, including all inherited members.</p>
-<table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>allocator</b> (defined in <a class="el" href="structlegion__index__allocator__t.html">legion_index_allocator_t</a>)</td><td class="entry"><a class="el" href="structlegion__index__allocator__t.html">legion_index_allocator_t</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>index_space</b> (defined in <a class="el" href="structlegion__index__allocator__t.html">legion_index_allocator_t</a>)</td><td class="entry"><a class="el" href="structlegion__index__allocator__t.html">legion_index_allocator_t</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p><code>#include &lt;<a class="el" href="legion_8h_source.html">legion.h</a>&gt;</code></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Index allocators provide objects for doing allocation on index spaces. They must be explicitly created by the runtime so that they can be linked back to the runtime. Index allocators can be passed by value to functions and stored in data structures, but should not escape the enclosing context in which they were created.</p>
+<p>Index space allocators operate on a single index space which is immutable. Separate index space allocators must be made to perform allocations on different index spaces.</p>
+<dl class="section see"><dt>See also</dt><dd>Runtime </dd></dl>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>legion/<a class="el" href="legion_8h_source.html">legion.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 29 2017 16:02:55 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 10 2017 16:31:36 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

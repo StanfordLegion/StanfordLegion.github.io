@@ -115,48 +115,6 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
-<p>Create a LogicalRegion with a structured IndexSpace</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">      <span class="kw">typedef</span> <span class="dt">float</span> PixelField;
-      <span class="kw">enum</span> FieldIDs {  
-        FID_FIELD_R = <span class="dv">0</span>,
-        FID_FIELD_G,
-        FID_FIELD_B,
-        FID_FIELD_A,
-        FID_FIELD_Z,
-        FID_FIELD_USERDATA,
-      };
-
-      Point&lt;<span class="dv">3</span>&gt; origin = Point&lt;<span class="dv">3</span>&gt;::ZEROES();
-      Point&lt;<span class="dv">3</span>&gt; regionSize;
-      <span class="co">// HDTV imgae resolution</span>
-      regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;
-      regionSize.x[<span class="dv">1</span>] = <span class="dv">1080</span>;
-      regionSize.x[<span class="dv">2</span>] = numSimulationNodes;
-      Rect&lt;<span class="dv">3</span>&gt; imageBounds(origin, regionSize - Point&lt;<span class="dv">3</span>&gt;::ONES());
-      Domain imageDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(imageBounds);
-      pixels = runtime-&gt;create_index_space(context, imageDomain);
-      runtime-&gt;attach_name(pixels, <span class="st">&quot;image index space&quot;</span>);
-      
-      FieldSpace fields = runtime-&gt;create_field_space(context);
-      runtime-&gt;attach_name(fields, <span class="st">&quot;pixel fields&quot;</span>);
-      {
-        FieldAllocator allocator = runtime-&gt;create_field_allocator(context, fields);
-        FieldID fidr = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_R);
-        assert(fidr == FID_FIELD_R);
-        FieldID fidg = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_G);
-        assert(fidg == FID_FIELD_G);
-        FieldID fidb = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_B);
-        assert(fidb == FID_FIELD_B);
-        FieldID fida = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_A);
-        assert(fida == FID_FIELD_A);
-        FieldID fidz = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_Z);
-        assert(fidz == FID_FIELD_Z);
-        FieldID fidUserdata = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_USERDATA);
-        assert(fidUserdata == FID_FIELD_USERDATA);
-      }
-      
-      region = runtime-&gt;create_logical_region(context, pixels, fields);
-      runtime-&gt;attach_name(region, <span class="st">&quot;image&quot;</span>);</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

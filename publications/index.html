@@ -142,6 +142,11 @@
       <li><a href="#slaughter_thesis">Elliott Slaughter’s Thesis (2017)</a> [<a href="/pdfs/slaughter_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
+  <li>Case Studies:
+    <ul>
+      <li><a href="#isav2017">Visualization (ISAV 2017)</a> [<a href="/pdfs/isav2017.pdf">PDF</a>]</li>
+    </ul>
+  </li>
   <li>DSLs:
     <ul>
       <li><a href="#ppopp2014">Singe (PPoPP 2014)</a> [<a href="/pdfs/singe2014.pdf">PDF</a>]</li>
@@ -380,6 +385,19 @@ important workloads in HPC and a full combustion simulation,
 S3D. We demonstrate that the Iris implementation of S3D
 reduces the external I/O overhead by up to 20x, compared
 to the Legion and the Fortran implementations.</p>
+
+<p><a name="isav2017"></a><strong><em>In Situ</em> Visualization with Task-based Parallelism</strong> <a href="/pdfs/isav2017.pdf">PDF</a> <br />
+<em>Alan Heirich, Elliott Slaughter, Manolis Papadakis, Wonchan Lee, Tim Biedert and Alex Aiken</em> <br />
+To appear in the In Situ Infrastructures for Enabling Extreme-scale Analysis and Visualization (ISAV 2017) <br />
+<strong>Abstract:</strong> This short paper describes an experimental prototype of <em>in situ</em>
+visualization in a task-based parallel programming framework. A
+set of reusable visualization tasks were composed with an existing
+simulation. The visualization tasks include a local OpenGL renderer, a parallel image compositor, and a display task. These tasks
+were added to an existing fluid-particle-radiation simulation and
+weak scaling tests were run on up to 512 nodes of the Piz Daint
+supercomputer. Benchmarks showed that the visualization components scaled and did not reduce the simulation throughput. The
+compositor latency increased logarithmically with increasing node
+count.</p>
 
 <h2 id="theses">Theses</h2>
 

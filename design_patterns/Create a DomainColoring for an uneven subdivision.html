@@ -115,26 +115,6 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
-<p>Create a DomainColoring for an uneven subdivision</p>
-<p>This example show how to create a DomainColoring and IndexPartition when the number of elements does not evenly subdivide the domain.</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">  <span class="cf">if</span> ((num_elements % num_subregions) != <span class="dv">0</span>) {
-    <span class="co">// Not evenly divisible</span>
-    <span class="at">const</span> <span class="dt">int</span> lower_bound = num_elements/num_subregions;
-    <span class="at">const</span> <span class="dt">int</span> upper_bound = lower_bound<span class="dv">+1</span>;
-    <span class="at">const</span> <span class="dt">int</span> number_small = num_subregions - (num_elements % num_subregions);
-    DomainColoring coloring;
-    <span class="dt">int</span> index = <span class="dv">0</span>;
-    <span class="cf">for</span> (<span class="dt">int</span> color = <span class="dv">0</span>; color &lt; num_subregions; color++) {
-      <span class="dt">int</span> num_elmts = color &lt; number_small ? lower_bound : upper_bound;
-      assert((index+num_elmts) &lt;= num_elements);
-      Rect&lt;<span class="dv">1</span>&gt; subrect(Point&lt;<span class="dv">1</span>&gt;(index),Point&lt;<span class="dv">1</span>&gt;(index+num_elmts<span class="dv">-1</span>));
-      coloring[color] = Domain::from_rect&lt;<span class="dv">1</span>&gt;(subrect);
-      index += num_elmts;
-    }
-    ip = runtime-&gt;create_index_partition(ctx, is, color_domain, 
-                                      coloring, <span class="kw">true</span><span class="co">/*disjoint*/</span>);
-  }
-  LogicalPartition input_lp = runtime-&gt;get_logical_partition(ctx, input_lr, ip);</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

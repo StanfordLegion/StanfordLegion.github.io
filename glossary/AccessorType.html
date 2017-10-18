@@ -115,6 +115,15 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">glossary</a><p>
 <a href="../design_patterns/index.html">design patterns</a><p>
+<h1 id="accessortype">AccessorType</h1>
+<p>While the AccessorType::Generic region accessor is general purpose and works for all physical instances, it is very slow. Most Legion applications are performance sensitive and therefore need fast access to the data contained within physical instances (by fast we mean as fast as C pointer dereferences). To achieve this, we provide specialized accessors for specific data layouts. These accessors are templated so that significant amounts of constant folding occurs at compile-time, resulting in memory accesses that are effectively C pointer dereferences.</p>
+<h2 id="soa---struct-of-arrays-accessors">SOA - struct-of-arrays accessors</h2>
+<p>The accessor for struct-of-arrays physical instances is AccessorType::SOA. This type is templated on the size of the field being accessed in bytes. The template value can also be instantiated with 0, but this will cause the accessor to fall back to using a dynamically computed field size which will not be as fast C pointer dereferences (but will always be correct). For each of our accessors, we first call the can_convert method on the generic accessor to confirm that we can convert to new accessor type. If any of them fails, then we return false. If they all succeed, then we can invoke convert method to get specialized SOA accessors.</p>
+<p>In addition to SOA accessors, there are several other specialized accessors:</p>
+<h2 id="aos---array-of-struct-accessors">AOS - array-of-struct accessors</h2>
+<h2 id="hybridsoa---for-handling-layouts-that-interleave-multiple-elements-for-different-fields-still-in-progress-inspired-by-the-ispc-compiler">HybridSOA - for handling layouts that interleave multiple elements for different fields (still in progress, inspired by the ISPC compiler</h2>
+<h2 id="reductionfold---for-reduction-instances-with-an-explicit-fold-operation">ReductionFold - for reduction instances with an explicit fold operation</h2>
+<h2 id="reductionlist---for-reduction-instances-without-an-explicit-fold-operation">ReductionList - for reduction instances without an explicit fold operation</h2>
 
     </div><!-- /.article-wrap -->
   </article>

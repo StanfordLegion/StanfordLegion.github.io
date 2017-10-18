@@ -115,6 +115,13 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
+<p>Individual task launch</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// pass a single integer as argument</span>
+<span class="dt">int</span> i = ...;
+Context ctx;
+HighLevelRuntime *runtime;
+TaskLauncher launcher(FIBONACCI_TASK_ID, TaskArgument(&amp;i,<span class="kw">sizeof</span>(i)));
+Future future = runtime-&gt;execute_task(ctx, launcher);</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

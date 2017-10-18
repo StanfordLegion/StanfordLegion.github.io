@@ -115,6 +115,33 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
+<p>Create a LogicalRegion with an unstructured IndexSpace</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">  IndexSpace unstructured_is = runtime-&gt;create_index_space(ctx, <span class="dv">1024</span>); 
+  printf(<span class="st">&quot;Created unstructured index space </span><span class="sc">%x\n</span><span class="st">&quot;</span>, unstructured_is.id);
+  {
+    IndexAllocator allocator = runtime-&gt;create_index_allocator(ctx, 
+                                                    unstructured_is);
+    <span class="dt">ptr_t</span> begin = allocator.alloc(<span class="dv">1024</span>);
+    assert(!begin.is_null());
+    printf(<span class="st">&quot;Allocated elements in unstructured &quot;</span>
+           <span class="st">&quot;space at ptr_t </span><span class="sc">%d\n</span><span class="st">&quot;</span>, begin.value);
+  } 
+  FieldSpace fs = runtime-&gt;create_field_space(ctx);
+  printf(<span class="st">&quot;Created field space field space </span><span class="sc">%x\n</span><span class="st">&quot;</span>, fs.get_id());
+  {
+    FieldAllocator allocator = runtime-&gt;create_field_allocator(ctx, fs);
+    FieldID fida = allocator.allocate_field(<span class="kw">sizeof</span>(<span class="dt">double</span>), FID_FIELD_A);
+    assert(fida == FID_FIELD_A);
+    FieldID fidb = allocator.allocate_field(<span class="kw">sizeof</span>(<span class="dt">int</span>), FID_FIELD_B);
+    assert(fidb == FID_FIELD_B);
+    printf(<span class="st">&quot;Allocated two fields with Field IDs </span><span class="sc">%d</span><span class="st"> and </span><span class="sc">%d\n</span><span class="st">&quot;</span>, fida, fidb);
+  }
+  LogicalRegion unstructured_lr = 
+    runtime-&gt;create_logical_region(ctx, unstructured_is, fs);
+  printf(<span class="st">&quot;Created unstructured logical region (</span><span class="sc">%x</span><span class="st">,</span><span class="sc">%x</span><span class="st">,</span><span class="sc">%x</span><span class="st">)</span><span class="sc">\n</span><span class="st">&quot;</span>,
+      unstructured_lr.get_index_space().id, 
+      unstructured_lr.get_field_space().get_id(),
+      unstructured_lr.get_tree_id());</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

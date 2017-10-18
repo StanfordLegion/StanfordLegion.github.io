@@ -115,6 +115,27 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
+<p>Access data in a PhysicalRegion using a generic pointer</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">  Rect&lt;<span class="dv">1</span>&gt; elem_rect(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_elements<span class="dv">-1</span>));
+  IndexSpace is = runtime-&gt;create_index_space(ctx, Domain::from_rect&lt;<span class="dv">1</span>&gt;(elem_rect));
+  FieldSpace input_fs = runtime-&gt;create_field_space(ctx);
+  LogicalRegion input_lr = runtime-&gt;create_logical_region(ctx, is, input_fs);
+  RegionRequirement req(input_lr, READ_WRITE, EXCLUSIVE, input_lr);
+  req.add_field(FID_X);
+  req.add_field(FID_Y);  
+  InlineLauncher input_launcher(req);
+  PhysicalRegion input_region = runtime-&gt;map_region(ctx, input_launcher);
+  input_region.wait_until_valid();
+
+  RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_x = 
+    input_region.get_field_accessor(FID_X).typeify&lt;<span class="dt">double</span>&gt;();
+  RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_y = 
+    input_region.get_field_accessor(FID_Y).typeify&lt;<span class="dt">double</span>&gt;();
+
+  <span class="cf">for</span> (GenericPointInRectIterator&lt;<span class="dv">1</span>&gt; pir(elem_rect); pir; pir++) {
+    acc_x.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());
+    acc_y.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());
+  }</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

@@ -19,6 +19,6 @@ var searchData=
   ['legion_5ftask_5fargument_5ft',['legion_task_argument_t',['../legion__c_8h.html#a3561b2390661d478dd75bc3366137203',1,'legion_c.h']]],
   ['legion_5ftask_5fconfig_5foptions_5ft',['legion_task_config_options_t',['../legion__c_8h.html#aafc37b8b8b9acd764bd36f3e2382de5c',1,'legion_c.h']]],
   ['legion_5ftask_5foptions_5ft',['legion_task_options_t',['../legion__c_8h.html#adc1417fdce71ace1ba5f1bf247c06bb1',1,'legion_c.h']]],
-  ['legion_5ftask_5fpointer_5fwrapped_5ft',['legion_task_pointer_wrapped_t',['../legion__c_8h.html#af1ae2acedf6024b61929174c58d5cf6c',1,'legion_c.h']]],
+  ['legion_5ftask_5fpointer_5fwrapped_5ft',['legion_task_pointer_wrapped_t',['../legion__c_8h.html#a655edffb47464db2fcf532de7af18756',1,'legion_c.h']]],
   ['legion_5ftask_5fslice_5ft',['legion_task_slice_t',['../legion__c_8h.html#a16b8c2ae072aec25c590dad136bc2272',1,'legion_c.h']]]
 ];

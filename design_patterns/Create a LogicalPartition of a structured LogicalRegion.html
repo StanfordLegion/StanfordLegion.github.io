@@ -115,31 +115,6 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
-<p>Create a LogicalPartition of a structured LogicalRegion</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">      LogicalRegion image = ...;
-      Point&lt;<span class="dv">3</span>&gt; regionSize;
-      <span class="co">// HDTV imgae resolution</span>
-      regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;
-      regionSize.x[<span class="dv">1</span>] = <span class="dv">1080</span>;
-      regionSize.x[<span class="dv">2</span>] = numSimulationNodes;
-      Point&lt;<span class="dv">3</span>&gt; fragmentSize;
-      <span class="co">// Size of individual subregion 16x1x1</span>
-      fragmentSize.x[<span class="dv">0</span>] = <span class="dv">16</span>;
-      fragmentSize.x[<span class="dv">1</span>] = <span class="dv">1</span>;
-      fragmentSize.x[<span class="dv">2</span>] = <span class="dv">1</span>;
-      Blockify&lt;<span class="dv">3</span>&gt; coloring(fragmentSize);
-      IndexPartition imageFragmentIndexPartition =
-          runtime-&gt;create_index_partition(context, image.get_index_space(), coloring);
-      runtime-&gt;attach_name(imageFragmentIndexPartition, <span class="st">&quot;image fragment index&quot;</span>);
-      LogicalPartition imageFragmentPartition =
-          mRuntime-&gt;get_logical_partition(context, image, imageFragmentIndexPartition);
-      runtime-&gt;attach_name(imageFragmentPartition, <span class="st">&quot;image fragment partition&quot;</span>);
-      Point&lt;<span class="dv">3</span>&gt; numFragments;
-      numFragments.x[<span class="dv">0</span>] = regionSize.x[<span class="dv">0</span>] / fragmentSize.x[<span class="dv">0</span>];
-      numFragments.x[<span class="dv">1</span>] = regionSize.x[<span class="dv">1</span>] / fragmentSize.x[<span class="dv">1</span>];
-      numFragments.x[<span class="dv">2</span>] = regionSize.x[<span class="dv">2</span>] / fragmentSize.x[<span class="dv">2</span>];
-      Rect&lt;<span class="dv">3</span>&gt; fragmentBounds(Point&lt;<span class="dv">3</span>&gt;::ZEROES(), numFragments - Point&lt;<span class="dv">3</span>&gt;::ONES());
-      Domain fragmentDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(fragmentBounds);</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>
@@ -147,7 +122,7 @@
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

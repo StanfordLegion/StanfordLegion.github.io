@@ -208,11 +208,11 @@ GASNet on the <a href="http://keeneland.gatech.edu/">Keeneland supercomputer</a>
 recent GASNet release if possible, and keep in mind scripts or options may now
 be named differently than what is shown below.)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./configure --prefix<span class="o">=</span>/nics/d/home/sequoia/gasnet-1.22.0/ --enable-ibv <span class="se">\</span>
---enable-mpi --disable-portals --disable-mxm --enable-pthreads <span class="se">\</span>
---enable-segment-fast --with-segment-mmap-max<span class="o">=</span>4GB --enable-par <span class="se">\</span>
---disable-seq --disable-parsync --enable-mpi-compat --with-ibv-spawner<span class="o">=</span>mpi <span class="se">\</span>
---disable-ibv-rcv-thread --disable-aligned-segments --disable-pshm --disable-fca</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./configure <span class="nt">--prefix</span><span class="o">=</span>/nics/d/home/sequoia/gasnet-1.22.0/ <span class="nt">--enable-ibv</span> <span class="se">\</span>
+<span class="nt">--enable-mpi</span> <span class="nt">--disable-portals</span> <span class="nt">--disable-mxm</span> <span class="nt">--enable-pthreads</span> <span class="se">\</span>
+<span class="nt">--enable-segment-fast</span> <span class="nt">--with-segment-mmap-max</span><span class="o">=</span>4GB <span class="nt">--enable-par</span> <span class="se">\</span>
+<span class="nt">--disable-seq</span> <span class="nt">--disable-parsync</span> <span class="nt">--enable-mpi-compat</span> <span class="nt">--with-ibv-spawner</span><span class="o">=</span>mpi <span class="se">\</span>
+<span class="nt">--disable-ibv-rcv-thread</span> <span class="nt">--disable-aligned-segments</span> <span class="nt">--disable-pshm</span> <span class="nt">--disable-fca</span></code></pre></figure>
 
 <p>We describe each of the flags in turn. The <code class="highlighter-rouge">--prefix</code> flag specifies
 the target installation location for GASNet in our user space
@@ -255,12 +255,12 @@ cross-configure script for the Cray XE architecture. Below are the two
 command lines for first building a symbolic link to the correct
 cross-configure script, and then invoking it.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ln -s other/contrib/cross-configure-crayxe-linux cross-configure
-./cross-configure --prefix<span class="o">=</span>/ccs/home/mebauer/gasnet/ --enable-gemini <span class="se">\</span>
---disable-portals --enable-pthreads --enable-segment-fast <span class="se">\</span>
---with-segment-mmap-max<span class="o">=</span>4GB --enable-par --disable-seq <span class="se">\</span>
---disable-parsync --disable-mpi --enable-mpi-compat <span class="se">\</span>
---with-target-cxx<span class="o">=</span>/opt/cray/xt-asyncpe/5.24/CC</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ln <span class="nt">-s</span> other/contrib/cross-configure-crayxe-linux cross-configure
+./cross-configure <span class="nt">--prefix</span><span class="o">=</span>/ccs/home/mebauer/gasnet/ <span class="nt">--enable-gemini</span> <span class="se">\</span>
+<span class="nt">--disable-portals</span> <span class="nt">--enable-pthreads</span> <span class="nt">--enable-segment-fast</span> <span class="se">\</span>
+<span class="nt">--with-segment-mmap-max</span><span class="o">=</span>4GB <span class="nt">--enable-par</span> <span class="nt">--disable-seq</span> <span class="se">\</span>
+<span class="nt">--disable-parsync</span> <span class="nt">--disable-mpi</span> <span class="nt">--enable-mpi-compat</span> <span class="se">\</span>
+<span class="nt">--with-target-cxx</span><span class="o">=</span>/opt/cray/xt-asyncpe/5.24/CC</code></pre></figure>
 
 <p>Many of the flags are the same as previous example. We note that we
 include the <code class="highlighter-rouge">--enable-gemini</code> flag in order to ensure that the conduit
@@ -338,7 +338,7 @@ applications, and then reports the best configuration to use.</p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

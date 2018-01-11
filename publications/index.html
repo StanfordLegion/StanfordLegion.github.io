@@ -145,6 +145,7 @@
   <li>Case Studies:
     <ul>
       <li><a href="#isav2017">Visualization (ISAV 2017)</a> [<a href="/pdfs/isav2017.pdf">PDF</a>]</li>
+      <li><a href="#vldb2018">Graph Processesing (VLDB 2018)</a> [<a href="/pdfs/vldb2018.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>DSLs:
@@ -365,7 +366,7 @@ codes.</p>
 
 <p><a name="hipc2017"></a><strong>Integrating External Resources with a Task-Based Programming Model</strong> <a href="/pdfs/hipc2017.pdf">PDF</a> <br />
 <em>Zhihao Jia, Sean Treichler, Galen Shipman, Michael Bauer, Noah Watkins, Carlos Maltzahn, Patrick McCormick and Alex Aiken</em> <br />
-To appear in the International Conference on High Performance Computing, Data, and Analytics (HiPC 2017) <br />
+In the International Conference on High Performance Computing, Data, and Analytics (HiPC 2017) <br />
 <strong>Abstract:</strong> Accessing external resources (e.g., loading input
 data, checkpointing snapshots, and out-of-core processing) can
 have a significant impact on the performance of applications. However, no existing programming systems for high-performance computing directly manage and optimize external
@@ -388,7 +389,7 @@ to the Legion and the Fortran implementations.</p>
 
 <p><a name="isav2017"></a><strong><em>In Situ</em> Visualization with Task-based Parallelism</strong> <a href="/pdfs/isav2017.pdf">PDF</a> <br />
 <em>Alan Heirich, Elliott Slaughter, Manolis Papadakis, Wonchan Lee, Tim Biedert and Alex Aiken</em> <br />
-To appear in the In Situ Infrastructures for Enabling Extreme-scale Analysis and Visualization (ISAV 2017) <br />
+In the Workshop on In Situ Infrastructures for Enabling Extreme-scale Analysis and Visualization (ISAV 2017) <br />
 <strong>Abstract:</strong> This short paper describes an experimental prototype of <em>in situ</em>
 visualization in a task-based parallel programming framework. A
 set of reusable visualization tasks were composed with an existing
@@ -398,6 +399,22 @@ weak scaling tests were run on up to 512 nodes of the Piz Daint
 supercomputer. Benchmarks showed that the visualization components scaled and did not reduce the simulation throughput. The
 compositor latency increased logarithmically with increasing node
 count.</p>
+
+<p><a name="vldb2018"></a><strong>A Distributed Multi-GPU System for Fast Graph Processing</strong> <a href="/pdfs/vldb2018.pdf">PDF</a> <br />
+<em>Zhihao Jia, Yongkee Kwon, Galen Shipman, Pat McCormick, Mattan Erez and Alex Aiken</em> <br />
+To appear in the International Conference on Very Large Data Bases (VLDB 2018) <br />
+<strong>Abstract:</strong> We present Lux, a distributed multi-GPU system that
+achieves fast graph processing by exploiting the aggregate memory
+bandwidth of multiple GPUs and taking advantage of locality in the
+memory hierarchy of multi-GPU clusters. Lux provides two execution
+models that optimize algorithmic efficiency and enable important GPU
+optimizations, respec- tively. Lux also uses a novel dynamic load
+balancing strategy that is cheap and achieves good load balance across
+GPUs. In addition, we present a performance model that quantitatively
+predicts the execution times and automatically selects the runtime
+configurations for Lux applications. Experiments show that Lux
+achieves up to 20× speedup over state-of-the-art shared memory systems
+and up to two orders of magnitude speedup over distributed systems.</p>
 
 <h2 id="theses">Theses</h2>
 
@@ -563,7 +580,7 @@ programs.</p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

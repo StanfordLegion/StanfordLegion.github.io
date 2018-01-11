@@ -115,37 +115,6 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
-<p>IndexSpace task launch</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> num_points = ...;
-Rect&lt;<span class="dv">1</span>&gt; launch_bounds(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_points<span class="dv">-1</span>));
-  Domain launch_domain = Domain::from_rect&lt;<span class="dv">1</span>&gt;(launch_bounds);
-
-  ArgumentMap arg_map;
-  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; num_points; i++) {
-    <span class="dt">int</span> input = i + <span class="dv">10</span>;
-    arg_map.set_point(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(Point&lt;<span class="dv">1</span>&gt;(i)),
-        TaskArgument(&amp;input,<span class="kw">sizeof</span>(input)));
-  }
-
-  IndexLauncher index_launcher(HELLO_WORLD_INDEX_ID,
-                               launch_domain,
-                               TaskArgument(NULL, <span class="dv">0</span>),
-                               arg_map);
-
-  FutureMap fm = runtime-&gt;execute_index_space(ctx, index_launcher);
-  fm.wait_all_results();
-  
-  <span class="dt">bool</span> all_passed = <span class="kw">true</span>;
-  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; num_points; i++) {
-    <span class="dt">int</span> expected = <span class="dv">2</span>*(i<span class="dv">+10</span>);
-    <span class="dt">int</span> received = fm.get_result&lt;<span class="dt">int</span>&gt;(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(Point&lt;<span class="dv">1</span>&gt;(i)));
-    <span class="cf">if</span> (expected != received) {
-      printf(<span class="st">&quot;Check failed for point </span><span class="sc">%d</span><span class="st">: </span><span class="sc">%d</span><span class="st"> != </span><span class="sc">%d\n</span><span class="st">&quot;</span>, i, expected, received);
-      all_passed = <span class="kw">false</span>;
-    }
-  }
-  <span class="cf">if</span> (all_passed)
-    printf(<span class="st">&quot;All checks passed!</span><span class="sc">\n</span><span class="st">&quot;</span>);</code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>
@@ -153,7 +122,7 @@ Rect&lt;<span class="dv">1</span>&gt; launch_bounds(Point&lt;<span class="dv">1<
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

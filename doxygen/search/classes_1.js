@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['close',['Close',['../class_legion_1_1_close.html',1,'Legion']]],
-  ['collective',['Collective',['../class_collective.html',1,'']]],
-  ['coloredpoints',['ColoredPoints',['../struct_legion_1_1_colored_points.html',1,'Legion']]],
-  ['coloringserializer',['ColoringSerializer',['../class_legion_1_1_coloring_serializer.html',1,'Legion']]],
-  ['contextinterface',['ContextInterface',['../class_legion_1_1_internal_1_1_context_interface.html',1,'Legion::Internal']]],
-  ['copy',['Copy',['../class_legion_1_1_copy.html',1,'Legion']]],
-  ['copylauncher',['CopyLauncher',['../struct_legion_1_1_copy_launcher.html',1,'Legion']]]
+  ['legion_5fdomain_5fpoint_5ft',['legion_domain_point_t',['../structlegion__domain__point__t.html',1,'']]],
+  ['legion_5fdomain_5ft',['legion_domain_t',['../structlegion__domain__t.html',1,'']]],
+  ['legion_5fdynamic_5fcollective_5ft',['legion_dynamic_collective_t',['../structlegion__dynamic__collective__t.html',1,'']]],
+  ['legion_5ffield_5fspace_5ft',['legion_field_space_t',['../structlegion__field__space__t.html',1,'']]],
+  ['legion_5findex_5fpartition_5ft',['legion_index_partition_t',['../structlegion__index__partition__t.html',1,'']]],
+  ['legion_5findex_5fspace_5ft',['legion_index_space_t',['../structlegion__index__space__t.html',1,'']]],
+  ['legion_5finput_5fargs_5ft',['legion_input_args_t',['../structlegion__input__args__t.html',1,'']]],
+  ['legion_5flogical_5fpartition_5ft',['legion_logical_partition_t',['../structlegion__logical__partition__t.html',1,'']]],
+  ['legion_5flogical_5fregion_5ft',['legion_logical_region_t',['../structlegion__logical__region__t.html',1,'']]],
+  ['legion_5fmemory_5ft',['legion_memory_t',['../structlegion__memory__t.html',1,'']]],
+  ['legion_5fphase_5fbarrier_5ft',['legion_phase_barrier_t',['../structlegion__phase__barrier__t.html',1,'']]],
+  ['legion_5fprocessor_5ft',['legion_processor_t',['../structlegion__processor__t.html',1,'']]],
+  ['legion_5fptr_5ft',['legion_ptr_t',['../structlegion__ptr__t.html',1,'']]],
+  ['legion_5ftask_5fargument_5ft',['legion_task_argument_t',['../structlegion__task__argument__t.html',1,'']]],
+  ['legion_5ftask_5fconfig_5foptions_5ft',['legion_task_config_options_t',['../structlegion__task__config__options__t.html',1,'']]],
+  ['legion_5ftask_5foptions_5ft',['legion_task_options_t',['../structlegion__task__options__t.html',1,'']]],
+  ['legion_5ftask_5fslice_5ft',['legion_task_slice_t',['../structlegion__task__slice__t.html',1,'']]],
+  ['lgtaskargs',['LgTaskArgs',['../struct_legion_1_1_internal_1_1_lg_task_args.html',1,'Legion::Internal']]]
 ];

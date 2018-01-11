@@ -115,12 +115,6 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">glossary</a><p>
 <a href="../design_patterns/index.html">design patterns</a><p>
-<h1 id="mapper">Mapper</h1>
-<p>Legion makes no implicit decisions concerning how applications are mapped onto target hardware. Instead mapping decisions regarding how tasks are assigned to processors and how physical instances of LogicalRegions are assigned to memories are made entirely by mappers. Mappers are part of application code and implement a mapping interface. Mappers are queried by the Legion runtime whenever any mapping decision needs to be made. Legion guarantees that mapping decisions only impact performance and are orthogonal to correctness which simplifies tuning of Legion applications and enables easy porting to different architectures.</p>
-<h2 id="most-mapper-calls-have-three-arguments">Most mapper calls have three arguments</h2>
-<h3 id="reference-to-the-operation-task-copy-inline-mapping-etc">Reference to the operation (task, copy, inline mapping, etc)</h3>
-<h3 id="input-argument-struct">Input argument struct</h3>
-<h3 id="output-argument-struct">Output argument struct</h3>
 
     </div><!-- /.article-wrap -->
   </article>
@@ -128,7 +122,7 @@
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

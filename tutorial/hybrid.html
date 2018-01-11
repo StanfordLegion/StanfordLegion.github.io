@@ -218,7 +218,7 @@ of C and C++ within Legion tasks.</p>
 <br />
 Previous Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a></p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -255,7 +255,8 @@ Previous Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a></p>
 35
 36
 37
-38</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+38
+</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
 #include "legion.h"
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
@@ -292,8 +293,7 @@ Previous Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a></p>
   <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
       <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
   <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
     </div><!-- /.article-wrap -->
@@ -302,7 +302,7 @@ Previous Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a></p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2017 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

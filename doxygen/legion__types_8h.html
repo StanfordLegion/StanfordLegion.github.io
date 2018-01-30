@@ -728,13 +728,20 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a928c5b7b28b86b1f429d930c75921f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6cdbd1f986d6bda446c0a658112535c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6cdbd1f986d6bda446c0a658112535c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>LgPriority</b> { <br />
-&#160;&#160;<b>LG_LOW_PRIORITY</b> = -1, 
-<b>LG_THROUGHPUT_PRIORITY</b> = 0, 
-<b>LG_DEFERRED_THROUGHPUT_PRIORITY</b> = 1, 
-<b>LG_LATENCY_PRIORITY</b> = 2, 
+&#160;&#160;<b>LG_MIN_PRIORITY</b> = INT_MIN, 
+<b>LG_LOW_PRIORITY</b> = -1, 
+<b>LG_THROUGHPUT_WORK_PRIORITY</b> = 0, 
+<b>LG_THROUGHPUT_DEFERRED_PRIORITY</b> = 1, 
 <br />
-&#160;&#160;<b>LG_RESPONSE_PRIORITY</b> = 3, 
-<b>LG_RESOURCE_PRIORITY</b> = 4
+&#160;&#160;<b>LG_THROUGHPUT_MESSAGE_PRIORITY</b> = 2, 
+<b>LG_THROUGHPUT_RESPONSE_PRIORITY</b> = 3, 
+<b>LG_LATENCY_WORK_PRIORITY</b> = 4, 
+<b>LG_LATENCY_DEFERRED_PRIORITY</b> = 5, 
+<br />
+&#160;&#160;<b>LG_LATENCY_MESSAGE_PRIORITY</b> = 6, 
+<b>LG_LATENCY_RESPONSE_PRIORITY</b> = 7, 
+<b>LG_RESOURCE_PRIORITY</b> = 8, 
+<b>LG_RUNNING_PRIORITY</b> = 9
 <br />
  }</td></tr>
 <tr class="separator:ae6cdbd1f986d6bda446c0a658112535c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1160,7 +1167,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 11 2018 15:11:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 29 2018 16:45:09 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

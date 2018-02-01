@@ -116,8 +116,8 @@
       <p>This example illustrates how to launch a large
 number of <em>non-interfering</em> tasks in Legion using
 a single <em>index space</em> task launch. (We discuss
-what it means to be non-interfering in a later example.) 
-It also describes the basic Legion types for arrays, 
+what it means to be non-interfering in a later example.)
+It also describes the basic Legion types for arrays,
 domains, and points and gives examples of how they work.</p>
 
 <h4 id="rectangles-and-domains">Rectangles and Domains</h4>
@@ -128,21 +128,17 @@ dense arrays of points. <code class="highlighter-rouge">Rect</code> types are te
 of dimensions that they describe. To specify a <code class="highlighter-rouge">Rect</code> a
 user gives two <code class="highlighter-rouge">Point</code> objects which specify the lower and
 upper bounds in all dimensions respectively. Similar to
-the <code class="highlighter-rouge">Rect</code> type, a <code class="highlighter-rouge">Point</code> type is templated on the 
+the <code class="highlighter-rouge">Rect</code> type, a <code class="highlighter-rouge">Point</code> type is templated on the
 number of dimensions it stores. In this example we create
 a 1-D <code class="highlighter-rouge">Rect</code> for which we’ll launch an array of tasks
-with one task per point (line 23). Note that the 
+with one task per point (line 29). Note that the
 bounds on <code class="highlighter-rouge">Rect</code> objects are inclusive.</p>
 
-<p><code class="highlighter-rouge">Rect</code> objects can be converted to <code class="highlighter-rouge">Domain</code> objects.
-<code class="highlighter-rouge">Domain</code> objects are a more general type for representing
-sets of points regardless of whether the sets are
-sparse or dense and independent of the number of dimensions.
-Users can easily convert between <code class="highlighter-rouge">Domain</code> and <code class="highlighter-rouge">Rect</code> types
-using the <code class="highlighter-rouge">from_rect</code> and <code class="highlighter-rouge">get_rect</code> methods (line 24).
-Most Legion runtime calls take <code class="highlighter-rouge">Domain</code> types as arguments,
-but it often helps in application code to have type 
-checking support on the number of dimensions.</p>
+<p>It can be useful to be able to refer to a rectangle where the number
+of dimensions is not known at compile time. The <code class="highlighter-rouge">Domain</code> class is used
+for this purpose. While we do not use <code class="highlighter-rouge">Domain</code> in this example, and
+Legion runtime calls almost always accept <code class="highlighter-rouge">Rect</code>, you may see this
+in Legion code in the wild.</p>
 
 <h4 id="argument-and-future-maps">Argument and Future Maps</h4>
 
@@ -154,25 +150,25 @@ with different points. <code class="highlighter-rouge">ArgumentMap</code> types 
 need to specify arguments for all points. Legion
 is intelligent about only passing arguments to tasks
 which have arguments assigned. In this example we
-create an <code class="highlighter-rouge">ArgumentMap</code> (line 26) and then pass in
+create an <code class="highlighter-rouge">ArgumentMap</code> (line 31) and then pass in
 different integer arguments associated with each
-point (lines 27-31).</p>
+point (lines 32-35).</p>
 
 <p>Legion also provides <code class="highlighter-rouge">FutureMap</code> types as a mechanism
-for managing the many return values that are returned 
+for managing the many return values that are returned
 from an index space task launch. <code class="highlighter-rouge">FutureMap</code> objects
-store a future value for every point in the index 
-space task launch. Applications can either wait on the 
+store a future value for every point in the index
+space task launch. Applications can either wait on the
 <code class="highlighter-rouge">FutureMap</code> for all tasks in the index space launch
 to complete, or it can extract individual <code class="highlighter-rouge">Future</code>
 objects associated with specific points in the
 index space task launch.</p>
 
-<p>In this example we wait for all the point tasks in 
-the index space task launch using the <code class="highlighter-rouge">wait_all_results</code> 
-method (line 39). We then extract individual future
+<p>In this example we wait for all the point tasks in
+the index space task launch using the <code class="highlighter-rouge">wait_all_results</code>
+method (line 43). We then extract individual future
 values for each point and check that each returned
-value matches the expected result (lines 41-51). 
+value matches the expected result (lines 45-55).
 Even though we use the <code class="highlighter-rouge">get_result</code> method on the
 <code class="highlighter-rouge">Future</code> objects, we know that the values will
 be immediately ready because we already waited
@@ -182,46 +178,39 @@ for all the point tasks to complete.</p>
 
 <p>Index space tasks are launched in a similar manner to
 individual tasks using a launcher object which has
-the type <code class="highlighter-rouge">IndexLauncher</code> (lines 33-36). <code class="highlighter-rouge">IndexLauncher</code> objects take
+the type <code class="highlighter-rouge">IndexLauncher</code> (lines 37-40). <code class="highlighter-rouge">IndexLauncher</code> objects take
 some of the same arguments as <code class="highlighter-rouge">TaskLauncher</code> objects
 such as the ID of the task to launch and a <code class="highlighter-rouge">TaskArgument</code>
 which is passed by value as a global argument to all
 the points in the index space launch. The <code class="highlighter-rouge">IndexLauncher</code>
 objects also take the additional arguments of an
-<code class="highlighter-rouge">ArgumentMap</code> and a <code class="highlighter-rouge">Domain</code> which describes the set
-of tasks to create (one for each point). Index space 
-tasks are launched the same as single tasks, but 
-return a <code class="highlighter-rouge">FutureMap</code> (line 38). Just like individual tasks, 
+<code class="highlighter-rouge">ArgumentMap</code> and a <code class="highlighter-rouge">Rect</code> which describes the set
+of tasks to create (one for each point). Index space
+tasks are launched the same as single tasks, but
+return a <code class="highlighter-rouge">FutureMap</code> (line 42). Just like individual tasks,
 index space task launches are performed asynchronously.</p>
 
 <h4 id="index-space-tasks">Index Space Tasks</h4>
 
 <p>Index space tasks are registered the same as single
-tasks but indicate using a boolean that they
-can be launched as an index space task (line 69).
-If an application attempts to launch an index space
-task with a task ID which has not be registered for
-index space task launches then a runtime error will
-be raised.</p>
+tasks.</p>
 
 <p>Additional fields on the <code class="highlighter-rouge">Task</code> object are defined
-when executing as an index space task. First, the 
-<code class="highlighter-rouge">index_space_task</code> field is set to true. Next, 
+when executing as an index space task. First, the
+<code class="highlighter-rouge">index_space_task</code> field is set to true. Next,
 index space tasks can find the point they are responsible
 for executing in the <code class="highlighter-rouge">index_point</code> field. The <code class="highlighter-rouge">index_point</code>
-field is a <code class="highlighter-rouge">DomainPoint</code> which is general form of a
-<code class="highlighter-rouge">Point</code> type. Lines 57-58 show how a task can make
+field is a <code class="highlighter-rouge">DomainPoint</code> which is the general form of a
+<code class="highlighter-rouge">Point</code> type. Lines 61-62 show how a task can make
 use of the <code class="highlighter-rouge">index_point</code> field. Finally, the <code class="highlighter-rouge">local_arglen</code>
 and <code class="highlighter-rouge">local_arg</code> fields contain the <code class="highlighter-rouge">TaskArgument</code> values
 passed in to the <code class="highlighter-rouge">ArgumentMap</code> for the given task’s
-point (if any existed). In lines 59-61, the application
+point (if any existed). In lines 63-65, the application
 does some simple computation on the input value and then
 returns it. The resulting value is set in the <code class="highlighter-rouge">Future</code>
 for the corresponding point in the <code class="highlighter-rouge">FutureMap</code>.</p>
 
-<p><br />
-Next Example: <a href="/tutorial/hybrid.html">Hybrid Model</a>
-<br />
+<p>Next Example: <a href="/tutorial/hybrid.html">Hybrid Model</a> \
 Previous Example: <a href="/tutorial/tasks_and_futures.html">Tasks and Futures</a></p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
@@ -369,7 +358,7 @@ Previous Example: <a href="/tutorial/tasks_and_futures.html">Tasks and Futures</
 <span class="kt">int</span> <span class="nf">index_space_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                      <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                      <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">get_dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> 
+  <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">get_dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"Hello world from task %lld!</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">index_point</span><span class="p">.</span><span class="n">point_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">local_arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
   <span class="kt">int</span> <span class="n">input</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">local_args</span><span class="p">);</span>

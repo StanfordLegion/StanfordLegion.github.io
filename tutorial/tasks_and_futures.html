@@ -428,11 +428,30 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 87
 88
 89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
 </pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
 #include &lt;cassert&gt;
 #include &lt;cstdlib&gt;
 #include "legion.h"
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
 
 <span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
   <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
@@ -442,12 +461,19 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 
 <span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Default value
-</span>  <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span>  <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">command_args</span><span class="p">.</span><span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Skip any legion runtime configuration parameters
+</span>    <span class="k">if</span> <span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'-'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
     <span class="n">assert</span><span class="p">(</span><span class="n">num_fibonacci</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"Computing the first %d Fibonacci numbers...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_fibonacci</span><span class="p">);</span>
 
@@ -461,13 +487,13 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
     <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fib_results</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span> 
     <span class="n">printf</span><span class="p">(</span><span class="s">"Fibonacci(%d) = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
   <span class="p">}</span>
-  
+
   <span class="n">fib_results</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">fibonacci_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-                   <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+                   <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
   <span class="kt">int</span> <span class="n">fib_num</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">args</span><span class="p">;</span> 
   <span class="k">if</span> <span class="p">(</span><span class="n">fib_num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -495,7 +521,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 
 <span class="kt">int</span> <span class="nf">sum_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
              <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-             <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+             <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">futures</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
   <span class="n">Future</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">futures</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
   <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">f1</span><span class="p">.</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
@@ -506,16 +532,28 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 <span class="p">}</span>
               
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">fibonacci_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">sum_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">SUM_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">,</span> 
-      <span class="n">AUTO_GENERATE_ID</span><span class="p">,</span> <span class="n">TaskConfigOptions</span><span class="p">(</span><span class="nb">true</span><span class="cm">/*leaf*/</span><span class="p">),</span> <span class="s">"sum_task"</span><span class="p">);</span>
+  <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span> <span class="s">"top_level"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"top_level"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span> <span class="s">"fibonacci"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">fibonacci_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"fibonacci"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">SUM_TASK_ID</span><span class="p">,</span> <span class="s">"sum"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">sum_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"sum"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
 <span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 

@@ -158,7 +158,7 @@ partitioning is covered in a subsequent tutorial.</p>
 
 <p>Legion provides a number of API calls that can be used to retrieve
 information about an index space, such as the <code class="highlighter-rouge">Domain</code> or <code class="highlighter-rouge">Rect</code> that
-was used to create the index space. Lines 28 and 31 show examples of
+was used to create it. Lines 28 and 31 show examples of
 such calls.</p>
 
 <h4 id="field-spaces">Field Spaces</h4>
@@ -242,13 +242,12 @@ index or field space), it will implicitly flow up to the parent task
 that called it. Thus, it will not be automatically deleted when the
 task finishes.</p>
 
-<p><code class="highlighter-rouge">IndexAllocator</code> and <code class="highlighter-rouge">FieldAllocator</code> objects are also
+<p><code class="highlighter-rouge">FieldAllocator</code> objects are also
 resources, but, are similar to <code class="highlighter-rouge">Future</code> objects, in that they
 are reference counted. When the objects go out of the scope
-the destructor is invoked and references are removed. This is
-why allocators are placed in explicit C++ scopes so that
-the resources are reclaimed as soon as they are done being
-used (lines 26-33 and 42-49).</p>
+the destructor is invoked and references are removed. The use of the
+explicit C++ scope at line 36 is to ensure that the allocator is
+reclaimed as soon as it is done being used.</p>
 
 <p>Next Example: <a href="/tutorial/physical_regions.html">Physical Regions</a><br />
 Previous Example: <a href="/tutorial/hybrid.html">Hybrid Model</a></p>

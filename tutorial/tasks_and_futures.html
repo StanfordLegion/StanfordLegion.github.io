@@ -117,9 +117,10 @@
 in Legion. To do so, we’ll implement a simple program to 
 compute the first <code class="highlighter-rouge">N</code> Fibonacci numbers. We note this is
 not the fastest way to compute Fibonacci numbers, but it
-will demonstrate the functional nature of Legion tasks.
+will demonstrate the functional nature of Legion tasks 
+as well as the ability to recursively spawn tasks.
 Code for this example is at the bottom of the page and
-can also be found the ‘examples’ directory of the 
+can also be found in the <code class="highlighter-rouge">tutorial</code> directory of the 
 Legion repository.</p>
 
 <h4 id="registering-tasks-redux">Registering Tasks Redux</h4>
@@ -129,12 +130,12 @@ tasks: a top-level task, a task for performing the
 recursive Fibonacci computation, and a helper task for
 summing futures. Both the Fibonacci and sum tasks
 will return an integer value and therefore require a
-slightly modified registration call. Lines 97 and 104 show
-the <code class="highlighter-rouge">preregister_task_variant</code> calls for these tasks. For
+slightly modified registration call. For
 tasks which have non-<code class="highlighter-rouge">void</code> return types
 the <code class="highlighter-rouge">preregister_task_variant</code> is templated first on the
 return type (<code class="highlighter-rouge">int</code> in this case) followed by function 
-pointer for the task.</p>
+pointer for the task. Lines 97 and 104 show
+the <code class="highlighter-rouge">preregister_task_variant</code> calls for these tasks.</p>
 
 <p>The registration for the summation task on lines 101-104
 also illustrates several new parameters which can be
@@ -149,10 +150,10 @@ chosen ID from the registration call.</p>
 
 <p>A number of additional methods of <code class="highlighter-rouge">TaskVariantRegistrar</code> allow further
 customization of the task. In this example, we use <code class="highlighter-rouge">set_leaf(true)</code> to
-mark <code class="highlighter-rouge">sum_task</code> as being a <em>leaf</em> task that makes no Legion runtime
-calls in its implementation. Knowing that the <code class="highlighter-rouge">sum_task</code>
-is a leaf task allows the Legion runtime to optimize the
-execution of the task.</p>
+mark <code class="highlighter-rouge">sum_task</code> as being a <em>leaf</em> task that launches no sub-tasks
+or other Legion operations in its implementation. Knowing that 
+the <code class="highlighter-rouge">sum_task</code> is a leaf task allows the Legion runtime to 
+optimize the execution of the task.</p>
 
 <h4 id="command-line-arguments">Command Line Arguments</h4>
 
@@ -173,8 +174,8 @@ are parsed in our Fibonacci program.</p>
 
 <p>All Legion tasks are spawned using a <em>launcher</em> object (except the
 top-level task which is launched automatically by the runtime as
-was described in the previous example). To
-spawn a single task, we use a <code class="highlighter-rouge">TaskLauncher</code> object. A
+was described in the <a href="/tutorial/hello_world.html">previous example</a> ).
+To spawn a single task, we use a <code class="highlighter-rouge">TaskLauncher</code> object. A
 <code class="highlighter-rouge">TaskLauncher</code> is a struct used for specifying the arguments
 necessary for launching a task. Launchers contain many
 fields which we will explore throughout this tutorial. Here
@@ -187,15 +188,16 @@ we look at the first two arguments of <code class="highlighter-rouge">TaskLaunch
 
 <p>The second field has type <code class="highlighter-rouge">TaskArgument</code> which points to
 a buffer and specifies the size in bytes to copy by value
-from the buffer. This copy does not actually take place until
-the launcher object is passed to the <code class="highlighter-rouge">execute_task</code> call.
-If there is more than one argument it is the responsibility
-of the application to pack the values into a single buffer.</p>
+from the buffer. This copy of this buffer does not actually 
+take place until the launcher object is passed to the 
+<code class="highlighter-rouge">execute_task</code> call. If there is more than one argument it 
+is the responsibility of the application to pack the values 
+into a single buffer.</p>
 
 <p>Launching a task simply requires passing a <code class="highlighter-rouge">TaskLauncher</code>
 object and a context to the Legion runtime via the 
 <code class="highlighter-rouge">execute_task</code> call. The context object is an opaque handle
-that is passed to the enclosing parent task.
+that is passed by the runtime as an argument to the enclosing parent task.
 Legion task launches (like most Legion API calls) are 
 asynchronous which means that the call returns immediately.
 As a place holder for the return value of the task, the
@@ -225,7 +227,9 @@ using the <code class="highlighter-rouge">get_result</code> method as can be see
 value which instructs the Legion runtime how to interpret the
 bits being returned. This is a blocking call which will cause 
 the task in which it is executed to pause until the sub-task 
-which is completing the future returns.</p>
+which is completing the future returns. We discourage users
+from using futures in this way for reasons described in the
+section on <a href="tutorial01.md#performance-considerations">performance considerations</a>.</p>
 
 <p>There is a second way of using futures which does not require
 blocking to wait for future values. In our Fibonacci task,
@@ -270,7 +274,8 @@ compile-time assertion failure. Futures are not allowed
 to escape the context in which they are created. Instead
 applications should explicitly get the value of the
 Future and return it directly as is done at the end of
-the Fibonacci task on line 70.</p>
+the Fibonacci task on line 70. There virtually no
+performance penalty for blocking at the very end of a task.</p>
 
 <h4 id="performance-considerations">Performance Considerations</h4>
 
@@ -301,8 +306,7 @@ If it is, then the initial task is restarted, otherwise
 a new task (if available) is started. If the additional
 tasks also block on a future, the process is repeatedly
 recursively. This approach keeps the underlying hardware 
-utilized and maximizes overall task throughput (consistent
-with the Cilk work-first principle).</p>
+utilized and maximizes overall task throughput.</p>
 
 <p>In the sum task we invoke the <code class="highlighter-rouge">get_result</code> method on
 the two futures passed as arguments (lines 78 and 80).
@@ -327,7 +331,7 @@ have occurred automatically when the vector went out of
 scope, but we do so explicitly to show the users have
 control over when references are removed.</p>
 
-<p>Next Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a><br />
+<p>Next Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a>
 Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
@@ -521,7 +525,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 
   <span class="k">return</span> <span class="p">(</span><span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span><span class="p">);</span>
 <span class="p">}</span>
-              
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 

@@ -116,23 +116,25 @@
       <p>This example illustrates how to launch a large
 number of <em>non-interfering</em> tasks in Legion using
 a single <em>index space</em> task launch. (We discuss
-what it means to be non-interfering in a later example.)
+what it means to be non-interfering in a 
+<a href="/tutorial/privileges.html">later example</a>.)
 It also describes the basic Legion types for arrays,
-domains, and points and gives examples of how they work.</p>
+domains, and points and give examples of how they work.</p>
 
 <h4 id="rectangles-and-domains">Rectangles and Domains</h4>
 
 <p>To aid in describing structured data, Legion supports
 a <code class="highlighter-rouge">Rect</code> type which is used to describe an arbitrary-dimensional
 dense arrays of points. <code class="highlighter-rouge">Rect</code> types are templated on the number
-of dimensions that they describe. To specify a <code class="highlighter-rouge">Rect</code> a
+of dimensions that they describe as well as a coordinate type
+which defaults to 64 bit signed integers. To specify a <code class="highlighter-rouge">Rect</code> a
 user gives two <code class="highlighter-rouge">Point</code> objects which specify the lower and
 upper bounds in all dimensions respectively. Similar to
 the <code class="highlighter-rouge">Rect</code> type, a <code class="highlighter-rouge">Point</code> type is templated on the
-number of dimensions it stores. In this example we create
-a 1-D <code class="highlighter-rouge">Rect</code> for which we’ll launch an array of tasks
-with one task per point (line 29). Note that the
-bounds on <code class="highlighter-rouge">Rect</code> objects are inclusive.</p>
+number of dimensions it stores and the coordinate type. 
+In this example we create a 1-D <code class="highlighter-rouge">Rect</code> for which we’ll 
+launch an array of tasks with one task per point (line 29). 
+Note that the bounds on <code class="highlighter-rouge">Rect</code> objects are inclusive.</p>
 
 <p>It can be useful to be able to refer to a rectangle where the number
 of dimensions is not known at compile time. The <code class="highlighter-rouge">Domain</code> class is used
@@ -152,7 +154,12 @@ is intelligent about only passing arguments to tasks
 which have arguments assigned. In this example we
 create an <code class="highlighter-rouge">ArgumentMap</code> (line 31) and then pass in
 different integer arguments associated with each
-point (lines 32-35).</p>
+point (lines 32-35). <code class="highlighter-rouge">ArgumentMap</code> objects copy 
+their values on calls to <code class="highlighter-rouge">set_point</code>, but the actual
+<code class="highlighter-rouge">ArgumentMap</code> itself will not be copied until the
+task is launched. Legion is smart about copying
+<code class="highlighter-rouge">ArgumentMap</code> values so that data is not copied
+unnecessarily.</p>
 
 <p>Legion also provides <code class="highlighter-rouge">FutureMap</code> types as a mechanism
 for managing the many return values that are returned
@@ -178,11 +185,11 @@ for all the point tasks to complete.</p>
 
 <p>Index space tasks are launched in a similar manner to
 individual tasks using a launcher object which has
-the type <code class="highlighter-rouge">IndexLauncher</code> (lines 37-40). <code class="highlighter-rouge">IndexLauncher</code> objects take
+the type <code class="highlighter-rouge">IndexTaskLauncher</code> (lines 37-40). <code class="highlighter-rouge">IndexTaskLauncher</code> objects take
 some of the same arguments as <code class="highlighter-rouge">TaskLauncher</code> objects
 such as the ID of the task to launch and a <code class="highlighter-rouge">TaskArgument</code>
 which is passed by value as a global argument to all
-the points in the index space launch. The <code class="highlighter-rouge">IndexLauncher</code>
+the points in the index space launch. The <code class="highlighter-rouge">IndexTaskLauncher</code>
 objects also take the additional arguments of an
 <code class="highlighter-rouge">ArgumentMap</code> and a <code class="highlighter-rouge">Rect</code> which describes the set
 of tasks to create (one for each point). Index space
@@ -192,7 +199,7 @@ index space task launches are performed asynchronously.</p>
 
 <h4 id="index-space-tasks">Index Space Tasks</h4>
 
-<p>Index space tasks are registered the same as single
+<p>Index space task variants are registered the same as single
 tasks.</p>
 
 <p>Additional fields on the <code class="highlighter-rouge">Task</code> object are defined
@@ -200,7 +207,7 @@ when executing as an index space task. First, the
 <code class="highlighter-rouge">index_space_task</code> field is set to true. Next,
 index space tasks can find the point they are responsible
 for executing in the <code class="highlighter-rouge">index_point</code> field. The <code class="highlighter-rouge">index_point</code>
-field is a <code class="highlighter-rouge">DomainPoint</code> which is the general form of a
+field is a <code class="highlighter-rouge">DomainPoint</code> which is a type-erased form of a
 <code class="highlighter-rouge">Point</code> type. Lines 61-62 show how a task can make
 use of the <code class="highlighter-rouge">index_point</code> field. Finally, the <code class="highlighter-rouge">local_arglen</code>
 and <code class="highlighter-rouge">local_arg</code> fields contain the <code class="highlighter-rouge">TaskArgument</code> values
@@ -334,7 +341,7 @@ Previous Example: <a href="/tutorial/tasks_and_futures.html">Tasks and Futures</
     <span class="n">arg_map</span><span class="p">.</span><span class="n">set_point</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">input</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">input</span><span class="p">)));</span>
   <span class="p">}</span>
 
-  <span class="n">IndexLauncher</span> <span class="n">index_launcher</span><span class="p">(</span><span class="n">INDEX_SPACE_TASK_ID</span><span class="p">,</span>
+  <span class="n">IndexTaskLauncher</span> <span class="n">index_launcher</span><span class="p">(</span><span class="n">INDEX_SPACE_TASK_ID</span><span class="p">,</span>
                                <span class="n">launch_bounds</span><span class="p">,</span>
                                <span class="n">TaskArgument</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
                                <span class="n">arg_map</span><span class="p">);</span>

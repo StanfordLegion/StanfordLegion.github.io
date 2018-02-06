@@ -124,7 +124,7 @@
   <li><em>Optional</em>: CUDA 5.0 or newer (for NVIDIA GPUs)</li>
   <li><em>Optional</em>: <a href="https://gasnet.lbl.gov/">GASNet</a> (for networking, see
  <a href="/gasnet/">installation instructions</a>)</li>
-  <li><em>Optional</em>: LLVM 3.5 (for dynamic code generation)</li>
+  <li><em>Optional</em>: LLVM 3.5-3.9 (for dynamic code generation)</li>
   <li><em>Optional</em>: HDF5 (for file I/O)</li>
 </ul>
 
@@ -209,7 +209,7 @@ sets <a href="/debugging/#logging-infrastructure">logging level</a> for <code cl
 directs <a href="/debugging/#logging-infrastructure">logging output</a> to <code class="highlighter-rouge">filename</code></li>
   <li><code class="highlighter-rouge">-ll:cpu &lt;int&gt;</code>: CPU processors to create per process</li>
   <li><code class="highlighter-rouge">-ll:gpu &lt;int&gt;</code>: GPU processors to create per process</li>
-  <li><code class="highlighter-rouge">-ll:cpu &lt;int&gt;</code>: utility processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:util &lt;int&gt;</code>: utility processors to create per process</li>
   <li><code class="highlighter-rouge">-ll:csize &lt;int&gt;</code>: size of CPU DRAM memory per process (in MB)</li>
   <li><code class="highlighter-rouge">-ll:gsize &lt;int&gt;</code>: size of GASNet global memory available per process (in MB)</li>
   <li><code class="highlighter-rouge">-ll:rsize &lt;int&gt;</code>: size of GASNet registered RDMA memory available per process (in MB)</li>

@@ -116,9 +116,10 @@
       <p>No tutorial would be complete without a Hello World example. 
 Below is the source code for writing Hello World using
 the Legion C++ runtime interface. The source code can also
-be found in the ‘examples’ directory of the repository. We
-now cover the details of the various Legion runtime API
-calls in this example.</p>
+be found in the <code class="highlighter-rouge">tutorial</code> directory of the repository, along
+with a <code class="highlighter-rouge">Makefile</code> for building and running the application. 
+By walking through these tutorial programs in detail we
+will demonstrate how to use the Legion C++ runtime API.</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
@@ -167,9 +168,9 @@ calls in this example.</p>
   <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">HELLO_WORLD_ID</span><span class="p">);</span>
 
   <span class="p">{</span>
-    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">HELLO_WORLD_ID</span><span class="p">,</span> <span class="s">"hello_world"</span><span class="p">);</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">HELLO_WORLD_ID</span><span class="p">,</span> <span class="s">"hello_world variant"</span><span class="p">);</span>
     <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
-    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">hello_world_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"hello_world"</span><span class="p">);</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">hello_world_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"hello_world task"</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
@@ -178,7 +179,7 @@ calls in this example.</p>
 <h4 id="legion-namespaces">Legion Namespaces</h4>
 
 <p>All Legion programs begin by including the <code class="highlighter-rouge">legion.h</code> header 
-file (line 2). This file defines the entire Legion C++ runtime 
+file (line 2). This file includes the entire Legion C++ runtime 
 API.  Line 4 imports the <code class="highlighter-rouge">Legion</code>
 namespace into the current program making most of the necessary
 types for writing Legion programs available.  There are other
@@ -190,8 +191,8 @@ found <a href="/doxygen/annotated.html">here</a>.</p>
 
 <p>On lines 6-8 we define an enumeration for storing the IDs that
 we will direct the Legion runtime to associate with each task.  In this example
-we only need the single ID which we will associate with our task
-that will print ‘Hello World’.  Lines 20-24 show how to register 
+we only need a single ID which we will associate with our ‘Hello World’ task.
+Lines 21-23 show how to register 
 a Legion task with a <code class="highlighter-rouge">void</code> return type with the Legion runtime.
 In the <a href="/tutorial/tasks_and_futures.html">next example</a> we’ll see how
 to register tasks with non-void return types.  The static method 
@@ -200,9 +201,9 @@ is templated on the function pointer to
 be called to run the task (allowing the API to handle polymorphic return
 types elegantly).  In this case it is templated on the function pointer to 
 the <code class="highlighter-rouge">hello_world_task</code> on lines 10-14.  Note that all Legion tasks must have 
-the same function type (with the exception of different return types).<br />
+the same function type (with the exception of different return types). 
 We’ll look in detail at the arguments passed to Legion tasks in later 
-examples.  There <code class="highlighter-rouge">preregister_task_variant</code> call takes several parameters:</p>
+examples.  The <code class="highlighter-rouge">preregister_task_variant</code> call takes several parameters:</p>
 
 <ul>
   <li>Task registrar - this object describes the task to be registered</li>
@@ -210,9 +211,9 @@ examples.  There <code class="highlighter-rouge">preregister_task_variant</code>
 </ul>
 
 <p>The task registrar itself records the ID of the task, a variant name
-(tasks can include different versions of code, called <em>variants</em>, to
-be used in differed circumstances), and the constraints that apply to
-the variant. In this case, the variant is constrained to run on a CPU
+and the constraints that apply to the variant (we cover the distinction
+between tasks and variants more in the <a href="/tutorial/tasks_and_futures.html">next tutorial</a> ).
+In this case, the variant is constrained to run on a CPU
 processor (LOC, or <em>latency optimized core</em>).</p>
 
 <p>There are additional parameters that can be passed to <code class="highlighter-rouge">preregister_task_variant</code>
@@ -223,8 +224,7 @@ We’ll examine some of these additional parameters in later examples.</p>
 a Legion program.  The Legion runtime must be told which task to 
 use as the top-level task using the <code class="highlighter-rouge">set_top_level_task_id</code> static 
 method.  Line 17 invokes this method to register the ID we associate
-with the <code class="highlighter-rouge">hello_world_task</code> as being the ID of the top-level task.
-The top-level task must always be capable of being run as a single task.</p>
+with the <code class="highlighter-rouge">hello_world_task</code> as being the ID of the top-level task.</p>
 
 <h4 id="legion-runtime-start-up">Legion Runtime Start-Up</h4>
 
@@ -232,12 +232,12 @@ The top-level task must always be capable of being run as a single task.</p>
 invocations on the <code class="highlighter-rouge">Runtime</code> class must be performed
 before the static method <code class="highlighter-rouge">start</code> is called.  It is imperative that 
 this standard be followed for all Legion programs to ensure that 
-they operate properly when running as MPI or GASNet programs.  While 
-this restriction currently mandates that all Legion tasks be statically 
-registered before starting the Legion runtime, forthcoming versions 
-of Legion will support dynamically registering JIT-compiled 
-<a href="http://terralang.org">Terra</a> functions as
-Legion tasks.  After the runtime has been setup to run, the program
+they operate properly when running as MPI or GASNet programs. Legion
+also supports dynamic registrations of task variants using the
+<code class="highlighter-rouge">register_task_variant</code> method after the <code class="highlighter-rouge">start</code> method is called
+for programs that dynamically generate JIT-compiled tasks such
+as ones built on <a href="http://terralang.org">Terra</a>. After the runtime 
+has been setup to run, the program
 invokes the <code class="highlighter-rouge">start</code> static method on the <code class="highlighter-rouge">Runtime</code> class.
 This call starts the Legion runtime and only returns an error code
 if a problem is encountered during execution.</p>
@@ -246,7 +246,7 @@ if a problem is encountered during execution.</p>
 setup operations and will then invoke the top-level task.  In this
 program the top-level task prints “Hello World” and then returns.  After
 the top-level task completes, the Legion runtime will tear itself down
-gracefully (abiding by GASNet or MPI conventions when necessary) and exit.</p>
+(abiding by GASNet or MPI conventions when necessary) and exit.</p>
 
 <p>Next Example: <a href="/tutorial/tasks_and_futures.html">Tasks and Futures</a></p>
 

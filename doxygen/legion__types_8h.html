@@ -377,9 +377,6 @@ typedef ::legion_tunable_id_t&#160;</td><td class="memItemRight" valign="bottom"
 <tr class="memitem:ab3dd540b779b5284b446f5ed40677fc4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3dd540b779b5284b446f5ed40677fc4"></a>
 typedef ::legion_local_variable_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::LocalVariableID</b></td></tr>
 <tr class="separator:ab3dd540b779b5284b446f5ed40677fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0100ea1c2b9be67ec0af9617dd2197da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0100ea1c2b9be67ec0af9617dd2197da"></a>
-typedef ::legion_generator_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::GeneratorID</b></td></tr>
-<tr class="separator:a0100ea1c2b9be67ec0af9617dd2197da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a794be6ec1b0c6200820d3b28cd0e2977"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a794be6ec1b0c6200820d3b28cd0e2977"></a>
 typedef ::legion_mapping_tag_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::MappingTagID</b></td></tr>
 <tr class="separator:a794be6ec1b0c6200820d3b28cd0e2977"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -431,12 +428,6 @@ typedef Internal::TaskContext *&#160;</td><td class="memItemRight" valign="botto
 <tr class="memitem:ab0837f04e5d8d405ababba270621f8ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0837f04e5d8d405ababba270621f8ea"></a>
 typedef Internal::ContextInterface *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::InternalContext</b></td></tr>
 <tr class="separator:ab0837f04e5d8d405ababba270621f8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c78e6d4716c4cc9f3ee89a9e7cb0b99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c78e6d4716c4cc9f3ee89a9e7cb0b99"></a>
-typedef Internal::GeneratorImpl *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::GeneratorContext</b></td></tr>
-<tr class="separator:a4c78e6d4716c4cc9f3ee89a9e7cb0b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a51523801ac6bbbf86ba47b5266f95c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a51523801ac6bbbf86ba47b5266f95c"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::GeneratorFnptr</b>) (GeneratorContext, const TaskGeneratorArguments &amp;, Runtime *)</td></tr>
-<tr class="separator:a7a51523801ac6bbbf86ba47b5266f95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb46225c082893df5214bf6aefc65541"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb46225c082893df5214bf6aefc65541"></a>
 typedef Internal::MappingCallInfo *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Mapping::MapperContext</b></td></tr>
 <tr class="separator:adb46225c082893df5214bf6aefc65541"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -599,67 +590,61 @@ Enumerations</h2></td></tr>
 <b>LG_SPACE_INDEPENDENCE_TASK_ID</b>, 
 <br />
 &#160;&#160;<b>LG_PENDING_CHILD_TASK_ID</b>, 
-<b>LG_DECREMENT_PENDING_TASK_ID</b>, 
 <b>LG_POST_DECREMENT_TASK_ID</b>, 
 <b>LG_SEND_VERSION_STATE_UPDATE_TASK_ID</b>, 
+<b>LG_UPDATE_VERSION_STATE_REDUCE_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_UPDATE_VERSION_STATE_REDUCE_TASK_ID</b>, 
-<b>LG_ADD_TO_DEP_QUEUE_TASK_ID</b>, 
-<b>LG_WINDOW_WAIT_TASK_ID</b>, 
-<b>LG_ISSUE_FRAME_TASK_ID</b>, 
-<br />
-&#160;&#160;<b>LG_CONTINUATION_TASK_ID</b>, 
+&#160;&#160;<b>LG_ISSUE_FRAME_TASK_ID</b>, 
 <b>LG_MAPPER_CONTINUATION_TASK_ID</b>, 
-<b>LG_FINISH_MAPPER_CONTINUATION_TASK_ID</b>, 
 <b>LG_TASK_IMPL_SEMANTIC_INFO_REQ_TASK_ID</b>, 
+<b>LG_INDEX_SPACE_SEMANTIC_INFO_REQ_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_INDEX_SPACE_SEMANTIC_INFO_REQ_TASK_ID</b>, 
-<b>LG_INDEX_PART_SEMANTIC_INFO_REQ_TASK_ID</b>, 
+&#160;&#160;<b>LG_INDEX_PART_SEMANTIC_INFO_REQ_TASK_ID</b>, 
 <b>LG_FIELD_SPACE_SEMANTIC_INFO_REQ_TASK_ID</b>, 
 <b>LG_FIELD_SEMANTIC_INFO_REQ_TASK_ID</b>, 
+<b>LG_REGION_SEMANTIC_INFO_REQ_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_REGION_SEMANTIC_INFO_REQ_TASK_ID</b>, 
-<b>LG_PARTITION_SEMANTIC_INFO_REQ_TASK_ID</b>, 
+&#160;&#160;<b>LG_PARTITION_SEMANTIC_INFO_REQ_TASK_ID</b>, 
 <b>LG_INDEX_SPACE_DEFER_CHILD_TASK_ID</b>, 
 <b>LG_INDEX_PART_DEFER_CHILD_TASK_ID</b>, 
+<b>LG_SELECT_TUNABLE_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_SELECT_TUNABLE_TASK_ID</b>, 
-<b>LG_DEFERRED_ENQUEUE_OP_ID</b>, 
+&#160;&#160;<b>LG_DEFERRED_ENQUEUE_OP_ID</b>, 
 <b>LG_DEFERRED_ENQUEUE_TASK_ID</b>, 
 <b>LG_DEFER_MAPPER_MESSAGE_TASK_ID</b>, 
+<b>LG_DEFER_COMPOSITE_VIEW_REF_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_DEFER_COMPOSITE_VIEW_REF_TASK_ID</b>, 
-<b>LG_DEFER_COMPOSITE_VIEW_REGISTRATION_TASK_ID</b>, 
+&#160;&#160;<b>LG_DEFER_COMPOSITE_VIEW_REGISTRATION_TASK_ID</b>, 
 <b>LG_DEFER_COMPOSITE_NODE_REF_TASK_ID</b>, 
 <b>LG_DEFER_COMPOSITE_NODE_CAPTURE_TASK_ID</b>, 
+<b>LG_CONVERT_VIEW_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_CONVERT_VIEW_TASK_ID</b>, 
-<b>LG_UPDATE_VIEW_REFERENCES_TASK_ID</b>, 
+&#160;&#160;<b>LG_UPDATE_VIEW_REFERENCES_TASK_ID</b>, 
 <b>LG_REMOVE_VERSION_STATE_REF_TASK_ID</b>, 
 <b>LG_DEFER_RESTRICTED_MANAGER_TASK_ID</b>, 
+<b>LG_REMOTE_VIEW_CREATION_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_REMOTE_VIEW_CREATION_TASK_ID</b>, 
-<b>LG_DEFER_DISTRIBUTE_TASK_ID</b>, 
+&#160;&#160;<b>LG_DEFER_DISTRIBUTE_TASK_ID</b>, 
 <b>LG_DEFER_PERFORM_MAPPING_TASK_ID</b>, 
 <b>LG_DEFER_LAUNCH_TASK_ID</b>, 
+<b>LG_DEFER_MAP_AND_LAUNCH_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_DEFER_MAP_AND_LAUNCH_TASK_ID</b>, 
-<b>LG_ADD_VERSIONING_SET_REF_TASK_ID</b>, 
+&#160;&#160;<b>LG_ADD_VERSIONING_SET_REF_TASK_ID</b>, 
 <b>LG_VERSION_STATE_CAPTURE_DIRTY_TASK_ID</b>, 
 <b>LG_VERSION_STATE_PENDING_ADVANCE_TASK_ID</b>, 
+<b>LG_DISJOINT_CLOSE_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_DISJOINT_CLOSE_TASK_ID</b>, 
-<b>LG_DEFER_MATERIALIZED_VIEW_TASK_ID</b>, 
+&#160;&#160;<b>LG_DEFER_MATERIALIZED_VIEW_TASK_ID</b>, 
 <b>LG_MISSPECULATE_TASK_ID</b>, 
 <b>LG_DEFER_PHI_VIEW_REF_TASK_ID</b>, 
+<b>LG_DEFER_PHI_VIEW_REGISTRATION_TASK_ID</b>, 
 <br />
-&#160;&#160;<b>LG_DEFER_PHI_VIEW_REGISTRATION_TASK_ID</b>, 
-<b>LG_TIGHTEN_INDEX_SPACE_TASK_ID</b>, 
+&#160;&#160;<b>LG_TIGHTEN_INDEX_SPACE_TASK_ID</b>, 
 <b>LG_REMOTE_PHYSICAL_REQUEST_TASK_ID</b>, 
 <b>LG_REMOTE_PHYSICAL_RESPONSE_TASK_ID</b>, 
+<b>LG_MESSAGE_ID</b>, 
 <br />
-&#160;&#160;<b>LG_MESSAGE_ID</b>, 
-<b>LG_RETRY_SHUTDOWN_TASK_ID</b>, 
+&#160;&#160;<b>LG_RETRY_SHUTDOWN_TASK_ID</b>, 
 <b>LG_LAST_TASK_ID</b>
 <br />
  }</td></tr>
@@ -1147,6 +1132,12 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a6509a24e680b910feeabf65a009ec016"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6509a24e680b910feeabf65a009ec016"></a>
+__thread TaskContext *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_context</b></td></tr>
+<tr class="separator:a6509a24e680b910feeabf65a009ec016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae5f84718d35eb399545baba13cdd31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ae5f84718d35eb399545baba13cdd31"></a>
+__thread AutoLock *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::local_lock_list</b></td></tr>
+<tr class="separator:a1ae5f84718d35eb399545baba13cdd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00791b815b40df4cde86a44d0df2f463"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00791b815b40df4cde86a44d0df2f463"></a>
 const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::INVALID_COLOR</b> = LLONG_MAX</td></tr>
 <tr class="separator:a00791b815b40df4cde86a44d0df2f463"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1167,7 +1158,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 2 2018 14:07:45 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 5 2018 16:14:21 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

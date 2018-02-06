@@ -108,6 +108,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlegion__domain__transform__t.html">legion_domain_transform_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a></td></tr>
@@ -154,6 +158,9 @@ Macros</h2></td></tr>
 <tr class="memitem:af7a1fc95e6233e72cf3030dce62f64ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7a1fc95e6233e72cf3030dce62f64ec"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_DOMAIN_DIM</b>&#160;&#160;&#160;6</td></tr>
 <tr class="separator:af7a1fc95e6233e72cf3030dce62f64ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a40965e61e1c1d8fca7f09d40c11b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4a40965e61e1c1d8fca7f09d40c11b0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_MATRIX_DIM</b>&#160;&#160;&#160;9</td></tr>
+<tr class="separator:af4a40965e61e1c1d8fca7f09d40c11b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -166,6 +173,10 @@ typedef legion_coord_t&#160;</td><td class="memItemRight" valign="bottom"><b>coo
 <tr class="separator:ad8f88bfb882c2a6632ebd754a8fd146a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a7beb6d6326bf7695a9348bd2bee719"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a2a7beb6d6326bf7695a9348bd2bee719">legion_domain_point_t</a></td></tr>
 <tr class="separator:a2a7beb6d6326bf7695a9348bd2bee719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6e4703f57217da4bc4ddcb3ef7661c1"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structlegion__domain__transform__t.html">legion_domain_transform_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#af6e4703f57217da4bc4ddcb3ef7661c1">legion_domain_transform_t</a></td></tr>
+<tr class="separator:af6e4703f57217da4bc4ddcb3ef7661c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70640cfb1a289975b7fa2814a4a6df07"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a70640cfb1a289975b7fa2814a4a6df07">legion_domain_affine_transform_t</a></td></tr>
+<tr class="separator:a70640cfb1a289975b7fa2814a4a6df07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afebdf2143770dc64e0cdffedfe8a98ed"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#afebdf2143770dc64e0cdffedfe8a98ed">legion_index_space_t</a></td></tr>
 <tr class="separator:afebdf2143770dc64e0cdffedfe8a98ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaa3ee5415e92ca710b6cac01b0451f1"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#abaa3ee5415e92ca710b6cac01b0451f1">legion_index_partition_t</a></td></tr>
@@ -202,8 +213,6 @@ typedef struct legion_slice_task_input_t&#160;</td><td class="memItemRight" vali
 <tr class="separator:acdbfedf405d87345195dc6604be6d292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed7a3f77d138ad279487df3a1b56d6d8"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#aed7a3f77d138ad279487df3a1b56d6d8">legion_registration_callback_pointer_t</a>) (legion_machine_t, legion_runtime_t, const <a class="el" href="structlegion__processor__t.html">legion_processor_t</a> *, unsigned)</td></tr>
 <tr class="separator:aed7a3f77d138ad279487df3a1b56d6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab461afefc864b1bd88411bf96879a131"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ab461afefc864b1bd88411bf96879a131">legion_generator_pointer_t</a>) (legion_generator_context_t, legion_task_generator_arguments_t, legion_runtime_t)</td></tr>
-<tr class="separator:ab461afefc864b1bd88411bf96879a131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a655edffb47464db2fcf532de7af18756"><td class="memItemLeft" align="right" valign="top">typedef realm_task_pointer_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a655edffb47464db2fcf532de7af18756">legion_task_pointer_wrapped_t</a></td></tr>
 <tr class="separator:a655edffb47464db2fcf532de7af18756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4302c09ada593665a572d3b15ec11f87"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a4302c09ada593665a572d3b15ec11f87">legion_projection_functor_logical_region_t</a>) (legion_runtime_t, legion_context_t, legion_task_t, unsigned, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a>, <a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a>)</td></tr>
@@ -219,9 +228,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a791af0d4489bc85f04e7ba0ef485a654"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a791af0d4489bc85f04e7ba0ef485a654"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>NEW_OPAQUE_TYPE</b> (legion_context_t)</td></tr>
 <tr class="separator:a791af0d4489bc85f04e7ba0ef485a654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9f43a4bb33267fe432bfd2b150938e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9f43a4bb33267fe432bfd2b150938e3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_OPAQUE_TYPE</b> (legion_generator_context_t)</td></tr>
-<tr class="separator:ac9f43a4bb33267fe432bfd2b150938e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeeb03a9298bde3870b7b9f8a112c741"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afeeb03a9298bde3870b7b9f8a112c741"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>NEW_OPAQUE_TYPE</b> (legion_domain_point_iterator_t)</td></tr>
 <tr class="separator:afeeb03a9298bde3870b7b9f8a112c741"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -282,9 +288,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a199fccb6e65d8122c360fae417e6b36b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a199fccb6e65d8122c360fae417e6b36b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>NEW_OPAQUE_TYPE</b> (legion_must_epoch_launcher_t)</td></tr>
 <tr class="separator:a199fccb6e65d8122c360fae417e6b36b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7d57240b0faefa9c16cfcc18ef4a96a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7d57240b0faefa9c16cfcc18ef4a96a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_OPAQUE_TYPE</b> (legion_task_generator_arguments_t)</td></tr>
-<tr class="separator:aa7d57240b0faefa9c16cfcc18ef4a96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7b4d914d968d9c55421531b0ac63a9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7b4d914d968d9c55421531b0ac63a9a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>NEW_OPAQUE_TYPE</b> (legion_physical_region_t)</td></tr>
 <tr class="separator:ad7b4d914d968d9c55421531b0ac63a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -543,6 +546,8 @@ legion_rect_3d_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_do
 <tr class="separator:ad50ccd71bb38f27c8688fa812c6d627a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af580f263dc1f1fe9fe8e5fe2c06b50af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#af580f263dc1f1fe9fe8e5fe2c06b50af">legion_index_partition_create_by_preimage_range</a> (legion_runtime_t runtime, legion_context_t ctx, <a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a> projection, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> handle, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> parent, legion_field_id_t fid, <a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a> color_space, legion_partition_kind_t part_kind, int color)</td></tr>
 <tr class="separator:af580f263dc1f1fe9fe8e5fe2c06b50af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c1117e3d4af3a5618fb83895f78d0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ac6c1117e3d4af3a5618fb83895f78d0c">legion_index_partition_create_by_restriction</a> (legion_runtime_t runtime, legion_context_t ctx, <a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a> parent, <a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a> color_space, <a class="el" href="structlegion__domain__transform__t.html">legion_domain_transform_t</a> transform, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> extent, legion_partition_kind_t part_kind, int color)</td></tr>
+<tr class="separator:ac6c1117e3d4af3a5618fb83895f78d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f725b0b648a539b6e78f7ddd2e3f3e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a2f725b0b648a539b6e78f7ddd2e3f3e1">legion_index_partition_is_disjoint</a> (legion_runtime_t runtime, <a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a> handle)</td></tr>
 <tr class="separator:a2f725b0b648a539b6e78f7ddd2e3f3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab58b5d2ae4060fa67846a43793e4ba28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ab58b5d2ae4060fa67846a43793e4ba28">legion_index_partition_is_complete</a> (legion_runtime_t runtime, <a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a> handle)</td></tr>
@@ -1081,10 +1086,6 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>legion_accessor_arr
 <tr class="separator:a5956193ca5a4c4f6bb3365574714b629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86ff176d954f70ca77c5ec423a10f190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a86ff176d954f70ca77c5ec423a10f190">legion_task_postamble</a> (legion_runtime_t runtime, legion_context_t ctx, const void *retval, size_t retsize)</td></tr>
 <tr class="separator:a86ff176d954f70ca77c5ec423a10f190"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adab1a42af73296f13043226433bd0731"><td class="memItemLeft" align="right" valign="top">legion_task_id_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#adab1a42af73296f13043226433bd0731">legion_runtime_register_task_generator_fnptr</a> (legion_runtime_t runtime, legion_generator_id_t id, legion_task_id_t task_id, const char *task_name, bool global, legion_execution_constraint_set_t execution_constraints, legion_task_layout_constraint_set_t layout_constraints, <a class="el" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options, <a class="el" href="legion__c_8h.html#ab461afefc864b1bd88411bf96879a131">legion_generator_pointer_t</a> generator_pointer, const void *userdata, size_t userlen)</td></tr>
-<tr class="separator:adab1a42af73296f13043226433bd0731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee86662d707db94805d51ed8260f5c9b"><td class="memItemLeft" align="right" valign="top">legion_task_id_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#aee86662d707db94805d51ed8260f5c9b">legion_runtime_preregister_task_generator_fnptr</a> (legion_generator_id_t id, legion_task_id_t task_id, const char *task_name, legion_execution_constraint_set_t execution_constraints, legion_task_layout_constraint_set_t layout_constraints, <a class="el" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options, <a class="el" href="legion__c_8h.html#ab461afefc864b1bd88411bf96879a131">legion_generator_pointer_t</a> generator_pointer, const void *userdata, size_t userlen)</td></tr>
-<tr class="separator:aee86662d707db94805d51ed8260f5c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a520969117564a7914b0f3df2aa790640"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a520969117564a7914b0f3df2aa790640">legion_get_current_time_in_micros</a> (void)</td></tr>
 <tr class="separator:a520969117564a7914b0f3df2aa790640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb8cb1317b7d1fdcf6a7f7bf86c67849"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#adb8cb1317b7d1fdcf6a7f7bf86c67849">legion_get_current_time_in_nanos</a> (void)</td></tr>
@@ -1208,6 +1209,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Legion C API </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a70640cfb1a289975b7fa2814a4a6df07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a>  <a class="el" href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See also</dt><dd>Legion::DomainAffineTransform </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a2a7beb6d6326bf7695a9348bd2bee719"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1234,6 +1248,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 
 </div>
 </div>
+<a class="anchor" id="af6e4703f57217da4bc4ddcb3ef7661c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structlegion__domain__transform__t.html">legion_domain_transform_t</a>  <a class="el" href="structlegion__domain__transform__t.html">legion_domain_transform_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See also</dt><dd>Legion::Transform </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aa21cf5fec6cde12c0cc1a202411828ff"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1257,19 +1284,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
       </table>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd>Legion::FieldSpace </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ab461afefc864b1bd88411bf96879a131"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void(* legion_generator_pointer_t) (legion_generator_context_t, legion_task_generator_arguments_t, legion_runtime_t)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Interface for a Legion C task generator. </p>
 
 </div>
 </div>
@@ -5756,6 +5770,70 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd>Legion::Runtime::create_partition_by_preimage() </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac6c1117e3d4af3a5618fb83895f78d0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlegion__index__partition__t.html">legion_index_partition_t</a> legion_index_partition_create_by_restriction </td>
+          <td>(</td>
+          <td class="paramtype">legion_runtime_t&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_context_t&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlegion__index__space__t.html">legion_index_space_t</a>&#160;</td>
+          <td class="paramname"><em>color_space</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlegion__domain__transform__t.html">legion_domain_transform_t</a>&#160;</td>
+          <td class="paramname"><em>transform</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlegion__domain__t.html">legion_domain_t</a>&#160;</td>
+          <td class="paramname"><em>extent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_partition_kind_t&#160;</td>
+          <td class="paramname"><em>part_kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Legion::Runtime::create_partition_by_restriction() </dd></dl>
 
 </div>
 </div>
@@ -11647,75 +11725,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 
 </div>
 </div>
-<a class="anchor" id="aee86662d707db94805d51ed8260f5c9b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">legion_task_id_t legion_runtime_preregister_task_generator_fnptr </td>
-          <td>(</td>
-          <td class="paramtype">legion_generator_id_t&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_task_id_t&#160;</td>
-          <td class="paramname"><em>task_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>task_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_execution_constraint_set_t&#160;</td>
-          <td class="paramname"><em>execution_constraints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_task_layout_constraint_set_t&#160;</td>
-          <td class="paramname"><em>layout_constraints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a>&#160;</td>
-          <td class="paramname"><em>options</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="legion__c_8h.html#ab461afefc864b1bd88411bf96879a131">legion_generator_pointer_t</a>&#160;</td>
-          <td class="paramname"><em>generator_pointer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>userdata</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>userlen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd>Legion::Runtime::preregister_task_generator() </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a51d263f477c1568ce3cecc688ab87905"></a>
 <div class="memitem">
 <div class="memproto">
@@ -11947,87 +11956,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
       </table>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd>Legion::Runtime::register_projection_functor() </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="adab1a42af73296f13043226433bd0731"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">legion_task_id_t legion_runtime_register_task_generator_fnptr </td>
-          <td>(</td>
-          <td class="paramtype">legion_runtime_t&#160;</td>
-          <td class="paramname"><em>runtime</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_generator_id_t&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_task_id_t&#160;</td>
-          <td class="paramname"><em>task_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>task_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>global</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_execution_constraint_set_t&#160;</td>
-          <td class="paramname"><em>execution_constraints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">legion_task_layout_constraint_set_t&#160;</td>
-          <td class="paramname"><em>layout_constraints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a>&#160;</td>
-          <td class="paramname"><em>options</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="legion__c_8h.html#ab461afefc864b1bd88411bf96879a131">legion_generator_pointer_t</a>&#160;</td>
-          <td class="paramname"><em>generator_pointer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>userdata</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>userlen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd>Legion::Runtime::register_task_generator() </dd></dl>
 
 </div>
 </div>
@@ -13570,7 +13498,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 2 2018 14:07:45 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 5 2018 16:14:21 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

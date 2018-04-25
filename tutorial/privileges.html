@@ -114,19 +114,19 @@
     <h1 itemprop="name">Privileges</h1>
     <div class="article-wrap" itemprop="text">
       <p>In this example we again implement DAXPY
-but use a different approach that uses sub-tasks 
-to perform each of the different operations on 
+but use a different approach that uses sub-tasks
+to perform each of the different operations on
 logical regions. We implement three different
-sub-tasks: one for initializing a field of a 
-logical region with random data (lines 95-112), 
-one for performing the DAXPY computation 
-(lines 114-137), and one for checking the 
-results (lines 139-168). We show how to launch
+sub-tasks: one for initializing a field of a
+logical region with random data (lines 93-107),
+one for performing the DAXPY computation
+(lines 109-126), and one for checking the
+results (lines 128-153). We show how to launch
 sub-tasks that request access to logical regions,
 how sub-tasks manage physical instances, and how
 privileges are passed. We also discuss how operations
-can be executed in parallel based on field 
-non-interference and further illustrate how 
+can be executed in parallel based on field
+non-interference and further illustrate how
 deferred execution works in Legion.</p>
 
 <h4 id="task-region-requirements">Task Region Requirements</h4>
@@ -134,16 +134,16 @@ deferred execution works in Legion.</p>
 <p>In this example we launch sub-tasks to perform
 all aspects of the DAXPY computation. The top-level
 task begins by implementing the same region scheme
-as was used in the previous example (lines 34-51).
+as was used in the previous example (lines 33-49).
 The top-level task then launches sub-tasks for
-initializing the two fields (lines 53-63), performing
-the DAXPY computation (lines 66-75), and finally
-for checking the result (lines 77-86). All task
+initializing the two fields (lines 51-61), performing
+the DAXPY computation (lines 64-73), and finally
+for checking the result (lines 75-84). All task
 launches are performing using <code class="highlighter-rouge">TaskLauncher</code>
 objects which were introduced earlier in the tutorial
 for launching a single sub-task. However, when
 launching sub-tasks in this example, we also
-pass <code class="highlighter-rouge">RegionRequirement</code> objects as part of the 
+pass <code class="highlighter-rouge">RegionRequirement</code> objects as part of the
 task launches in order to specify the logical
 regions on which the sub-tasks will operate.</p>
 
@@ -154,7 +154,7 @@ that are stored in an STL vector inside of the launcher
 under the <code class="highlighter-rouge">region_requirements</code> field. <code class="highlighter-rouge">RegionRequirement</code>
 objects can be added directly to the launcher or
 by calling the <code class="highlighter-rouge">add_region_requirement</code> method on
-the <code class="highlighter-rouge">TaskLauncher</code> (lines 54-55). For each of the
+the <code class="highlighter-rouge">TaskLauncher</code> (lines 52-53). For each of the
 <code class="highlighter-rouge">RegionRequirement</code> objects requested by a sub-task
 the Legion runtime will grant the sub-task the
 requested <em>privileges</em> on the specified logical
@@ -169,14 +169,14 @@ is that sub-tasks are only allowed to request privileges
 which are a subset of their parent task’s privileges.
 To enforce this invariant, privileges can only be passed
 in a functional manner through sub-tasks calls. An astute
-reader will notice that there is no mechanism either in 
-Legion or Regent for 
-naming privileges or storing them anywhere. Instead 
+reader will notice that there is no mechanism either in
+Legion or Regent for
+naming privileges or storing them anywhere. Instead
 privileges are only passed through <code class="highlighter-rouge">RegionRequirement</code>
 objects used for launching sub-tasks. To reinforce the
 functional nature of privileges <code class="highlighter-rouge">RegionRequirement</code>
-objects require applications to name the parent task’s 
-logical region from which the sub-task (or inline 
+objects require applications to name the parent task’s
+logical region from which the sub-task (or inline
 mapping or other operation) is obtaining privileges.</p>
 
 <p>We now describe one instance of how privileges are
@@ -186,11 +186,11 @@ read-write privileges for the created logical region.
 When the top-level task create the <code class="highlighter-rouge">input_lr</code> and
 <code class="highlighter-rouge">output_lr</code> logical regions it obtains full read-write
 privileges on those regions. When the DAXPY sub-task
-is invoked on lines 66-73, the sub-task is passed 
+is invoked on lines 64-71, the sub-task is passed
 <code class="highlighter-rouge">READ_ONLY</code> privileges on the <code class="highlighter-rouge">input_lr</code> for fields
 <code class="highlighter-rouge">FID_X</code> and <code class="highlighter-rouge">FID_Y</code> and <code class="highlighter-rouge">WRITE_DISCARD</code> on field
-<code class="highlighter-rouge">FID_Z</code>. The sub-task’s request for those privileges 
-is valid since they are a subset of the privileges 
+<code class="highlighter-rouge">FID_Z</code>. The sub-task’s request for those privileges
+is valid since they are a subset of the privileges
 owned by the parent task. If a task that created a
 logical region fails to delete it, the privileges
 for the region implicitly escape into the parent
@@ -198,20 +198,20 @@ task’s context. If the privileges escape the top-level
 task Legion will issue a warning noting that the
 logical region was leaked.</p>
 
-<p>There are four kinds of privileges: <code class="highlighter-rouge">READ_WRITE</code>, 
-<code class="highlighter-rouge">READ_ONLY</code>, <code class="highlighter-rouge">REDUCE</code>, and <code class="highlighter-rouge">WRITE_DISCARD</code>. <code class="highlighter-rouge">READ_WRITE</code> 
-privileges give the task full permission to mutate 
+<p>There are four kinds of privileges: <code class="highlighter-rouge">READ_WRITE</code>,
+<code class="highlighter-rouge">READ_ONLY</code>, <code class="highlighter-rouge">REDUCE</code>, and <code class="highlighter-rouge">WRITE_DISCARD</code>. <code class="highlighter-rouge">READ_WRITE</code>
+privileges give the task full permission to mutate
 the specified fields of the logical region using any
 kind of operation (read, write, reduction). <code class="highlighter-rouge">READ_ONLY</code>
 restricts the task to only be able to perform reads
-and <code class="highlighter-rouge">REDUCE</code> restricts the task to only be able to 
+and <code class="highlighter-rouge">REDUCE</code> restricts the task to only be able to
 perform reductions. <code class="highlighter-rouge">WRITE_DISCARD</code> is a special form
 of <code class="highlighter-rouge">READ_WRITE</code> that still permits the task to perform
-any kind of operation, but informs the runtime that 
+any kind of operation, but informs the runtime that
 the task intends to overwrite all previous data stored
 in the logical region without reading it. This enables
 the runtime to perform several performance optimizations
-associated with removing unnecessary data movement 
+associated with removing unnecessary data movement
 operations. The various kinds of privileges form a
 semi-lattice with <code class="highlighter-rouge">READ_WRITE</code> and <code class="highlighter-rouge">WRITE_DISCARD</code>
 privileges occupying the top position and <code class="highlighter-rouge">READ_ONLY</code>
@@ -223,12 +223,12 @@ having no privileges.</p>
 is essential to both the correctness and performance
 of Legion applications. Privilege passing is
 checked by the Legion runtime and will result in
-runtime errors if violated. In Regent, privilege passing is checked statically 
+runtime errors if violated. In Regent, privilege passing is checked statically
 by the type system resulting in easier to diagnose
 compile-time errors. The enforcement of functional
 privilege passing makes possible Legion’s hierarchical
 and distributed scheduling algorithm. For more details
-on this we refer you to our 
+on this we refer you to our
 <a href="/publications/">publications</a>.</p>
 
 <h4 id="task-physical-regions">Task Physical Regions</h4>
@@ -240,11 +240,11 @@ of these requested regions. If a task was launched
 with N region requirements, then it will be passed
 back N <code class="highlighter-rouge">PhysicalRegion</code> objects in the <code class="highlighter-rouge">region</code>
 STL vector that is an argument to all Legion tasks
-(line 96). The <code class="highlighter-rouge">PhysicalRegion</code> objects are identical
+(line 94). The <code class="highlighter-rouge">PhysicalRegion</code> objects are identical
 to the ones described in the previous example that
-are used to name physical instances. The only 
-difference in this case is that the Legion runtime 
-is intelligent about starting tasks that need 
+are used to name physical instances. The only
+difference in this case is that the Legion runtime
+is intelligent about starting tasks that need
 <code class="highlighter-rouge">PhysicalRegion</code> objects, and will not begin
 execution of the task until all of the <code class="highlighter-rouge">PhysicalRegion</code>
 objects are valid.</p>
@@ -271,18 +271,18 @@ scenarios.</p>
 <p>The original <code class="highlighter-rouge">RegionRequirement</code> objects that were
 used to launch a task are available to the task
 implementation via the <code class="highlighter-rouge">Task</code> object. The <code class="highlighter-rouge">regions</code>
-field of the <code class="highlighter-rouge">Task</code> object is an STL vector 
+field of the <code class="highlighter-rouge">Task</code> object is an STL vector
 containing the passed <code class="highlighter-rouge">RegionRequirement</code> objects.
 Having access to these arguments is very powerful
-as it even permits the implementation of 
+as it even permits the implementation of
 <em>field-polymorphic</em> tasks which can perform the
 same operation on a dynamically determined set
-of fields. For example, in our DAXPY example, 
+of fields. For example, in our DAXPY example,
 the <code class="highlighter-rouge">init_field_task</code> is a field-polymorphic
 function as it examines the <code class="highlighter-rouge">RegionRequirement</code>
 passed to it to see which field to initialize
-(line 101). We can therefore use the same task
-to initialize both the ‘X’ and ‘Y’ fields. 
+(line 99). We can therefore use the same task
+to initialize both the <code class="highlighter-rouge">X</code> and <code class="highlighter-rouge">Y</code> fields.
 Field-polymorphic tasks occur regularly in Legion
 as it is common for many applications to want
 to perform the same operation over many different
@@ -291,15 +291,15 @@ fields using a single task implementation.</p>
 <h4 id="deferred-execution-revisited">Deferred Execution Revisited</h4>
 
 <p>The top-level task in this implementation of DAXPY
-has a very interesting property: it never records 
-any <code class="highlighter-rouge">Future</code> objects as part of its sub-task 
-launches (lines 57,63,75,86). As a result there is
+has a very interesting property: it never records
+any <code class="highlighter-rouge">Future</code> objects as part of its sub-task
+launches (lines 55,61,73,84). As a result there is
 no way for it to explicitly block execution or chain
 dependences between sub-tasks. Furthermore, because
 all task launches are deferred, it’s possible for
 the top-level task to launch all its sub-tasks and
 finish executing even before the first sub-task begins
-running. So how is it possible that this application 
+running. So how is it possible that this application
 computes the correct answer?</p>
 
 <p>The crucial insight is that Legion understands the
@@ -316,23 +316,23 @@ execution semantics for all operations, even though
 operations may ultimately execute in parallel. By
 maintaining sequential execution semantics, Legion
 significantly simplifies reasoning about operations
-within a task. The following figure shows the computed 
-TDG for this DAXPY example:
-<br /><br />
-<img src="/images/daxpy_sequential.svg" alt="" />
-<br /><br />
-In this figure we see that the DAXPY task has data
+within a task. The following figure shows the computed
+TDG for this DAXPY example:</p>
+
+<p><img src="/images/daxpy_sequential.svg" alt="" /></p>
+
+<p>In this figure we see that the DAXPY task has data
 dependences on the two field initialization tasks
-(one on field ‘X’ and one on field ‘Y’ of the <code class="highlighter-rouge">input_lr</code>
+(one on field <code class="highlighter-rouge">X</code> and one on field <code class="highlighter-rouge">Y</code> of the <code class="highlighter-rouge">input_lr</code>
 logical region). The checking
 task then has a data dependence on the DAXPY task
-(on field ‘Z’ of the <code class="highlighter-rouge">output_lr</code> region). (There are
+(on field <code class="highlighter-rouge">Z</code> of the <code class="highlighter-rouge">output_lr</code> region). (There are
 also transitive data dependences from the initialization
 tasks to the checking task on the two fields of <code class="highlighter-rouge">input_lr</code>
 but we omit them for simplicity.) Finally, the deletions
 of the two logical regions must wait until the last task
 using the regions finishes executing. Legion is able to
-efficiently compute this graph because it knows about 
+efficiently compute this graph because it knows about
 the structure of program data in the form of logical
 regions as well as how tasks use logical regions.</p>
 
@@ -346,13 +346,13 @@ have been satisfied. On the other hand, in a deferred
 execution model such as Legion’s, sub-tasks and other
 operations can be issued even before dependences have
 been satisfied. Doing so ensures as many operations
-as possible are in flight, allowing the runtime to 
+as possible are in flight, allowing the runtime to
 discover the full parallelism available in applications,
 make maximal use of machine resources, and hide long
 latency operations with parallel work.</p>
 
 <p>While all the sub-tasks executed within a task’s context
-are deferred, a task is not permitted to <em>complete</em> until
+are deferred, a task is not permitted to be considered <em>complete</em> until
 all of its sub-tasks have completed. In our DAXPY example,
 this prevents the top-level task from completing until
 all the sub-tasks and deletion operations are complete.
@@ -360,7 +360,7 @@ Legion automatically manages this phase of a task’s execution.</p>
 
 <h4 id="field-level-non-interference">Field-Level Non-Interference</h4>
 
-<p>Determining that two sub-tasks have <em>non-interfering</em> 
+<p>Determining that two sub-tasks have <em>non-interfering</em>
 <code class="highlighter-rouge">RegionRequirement</code> objects is how Legion implicitly
 extracts parallelism from applications. There are three
 forms of non-interference:</p>
@@ -374,7 +374,7 @@ regions in the same tree.</li>
 objects are non-interfering on fields if they access
 disjoint sets of fields within the same logical region.</li>
   <li><strong>Privileges non-interference</strong>: two <code class="highlighter-rouge">RegionRequirement</code>
-objects are non-interfering on privileges if they 
+objects are non-interfering on privileges if they
 are both request <code class="highlighter-rouge">READ_ONLY</code> privileges, or they
 both request <code class="highlighter-rouge">REDUCE</code> privileges with the same
 reduction operator.</li>
@@ -383,7 +383,7 @@ reduction operator.</li>
 <p>We’ll see examples of region and privilege non-interference
 in the next two examples. In this DAXPY example we have
 an example of field-level non-interference. Both
-of the <code class="highlighter-rouge">init_field_task</code> launches both request the same
+of the <code class="highlighter-rouge">init_field_task</code> launches request the same
 logical region with <code class="highlighter-rouge">WRITE_DISCARD</code> privilege and therefore
 neither region nor privilege non-interference applies. However,
 because the <code class="highlighter-rouge">RegionRequirement</code> objects request privileges
@@ -397,15 +397,14 @@ the two tasks.</p>
 <p>It is important to note that even though Legion has
 determined that these two tasks may be run in parallel,
 it is up to the mapper to assign them to different processors.
-If they are assigned to the same processor, Legion will 
+If they are assigned to the same processor, Legion will
 serialize their execution, resulting in correct but
 sequential behavior. This is just one example of how
 mapping decisions can influence the performance of applications.
 We’ll investigate the mapping process in more detail in
 a later example.</p>
 
-<p>Next Example: <a href="/tutorial/partitioning.html">Partitioning</a>
-<br />
+<p>Next Example: <a href="/tutorial/partitioning.html">Partitioning</a><br />
 Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a></p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
@@ -590,12 +589,16 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
 180
 181
 182
+183
+184
+185
+186
+187
 </pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
 #include &lt;cassert&gt;
 #include &lt;cstdlib&gt;
 #include "legion.h"
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">LegionRuntime</span><span class="o">::</span><span class="n">Accessor</span><span class="p">;</span>
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
 
 <span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
   <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
@@ -612,10 +615,10 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
 
 <span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">num_elements</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span> 
+                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">num_elements</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
   <span class="p">{</span>
-    <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+    <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">command_args</span><span class="p">.</span><span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s">"-n"</span><span class="p">))</span>
         <span class="n">num_elements</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="o">++</span><span class="n">i</span><span class="p">]);</span>
@@ -623,19 +626,18 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
   <span class="p">}</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"Running daxpy for %d elements...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">num_elements</span><span class="p">);</span>
 
-  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">elem_rect</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">num_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
-  <span class="n">IndexSpace</span> <span class="n">is</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
-                          <span class="n">Domain</span><span class="o">::</span><span class="n">from_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">elem_rect</span><span class="p">));</span>
+  <span class="k">const</span> <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">elem_rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_elements</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">IndexSpace</span> <span class="n">is</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">elem_rect</span><span class="p">);</span>
   <span class="n">FieldSpace</span> <span class="n">input_fs</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
   <span class="p">{</span>
-    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span> 
+    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span>
       <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_allocator</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">input_fs</span><span class="p">);</span>
     <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_X</span><span class="p">);</span>
     <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_Y</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="n">FieldSpace</span> <span class="n">output_fs</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">);</span>
   <span class="p">{</span>
-    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span> 
+    <span class="n">FieldAllocator</span> <span class="n">allocator</span> <span class="o">=</span>
       <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">create_field_allocator</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">output_fs</span><span class="p">);</span>
     <span class="n">allocator</span><span class="p">.</span><span class="n">allocate_field</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">),</span><span class="n">FID_Z</span><span class="p">);</span>
   <span class="p">}</span>
@@ -686,70 +688,57 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
 
 <span class="kt">void</span> <span class="nf">init_field_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                      <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span> 
+                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
   <span class="n">FieldID</span> <span class="n">fid</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">privilege_fields</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"Initializing field %d...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">fid</span><span class="p">);</span>
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">fid</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">WRITE_DISCARD</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fid</span><span class="p">);</span>
 
-  <span class="n">Domain</span> <span class="n">dom</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
-      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
-  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">dom</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">acc</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">drand48</span><span class="p">());</span>
-  <span class="p">}</span>
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">();</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">acc</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">=</span> <span class="n">drand48</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">daxpy_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-                <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
   <span class="k">const</span> <span class="kt">double</span> <span class="n">alpha</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="k">const</span> <span class="kt">double</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">args</span><span class="p">);</span>
 
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_x</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_X</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_y</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Y</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_z</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Z</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">READ_ONLY</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc_x</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">FID_X</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">READ_ONLY</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc_y</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">FID_Y</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">WRITE_DISCARD</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc_z</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">FID_Z</span><span class="p">);</span>
+
   <span class="n">printf</span><span class="p">(</span><span class="s">"Running daxpy computation with alpha %.8g...</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">);</span>
-  <span class="n">Domain</span> <span class="n">dom</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
-      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
-  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">dom</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">))</span> <span class="o">+</span> 
-                           <span class="n">acc_y</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
-    <span class="n">acc_z</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">();</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">acc_z</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">+</span> <span class="n">acc_y</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">];</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">check_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
-                <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">));</span>
   <span class="k">const</span> <span class="kt">double</span> <span class="n">alpha</span> <span class="o">=</span> <span class="o">*</span><span class="p">((</span><span class="k">const</span> <span class="kt">double</span><span class="o">*</span><span class="p">)</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">args</span><span class="p">);</span>
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_x</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_X</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_y</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Y</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
-  <span class="n">RegionAccessor</span><span class="o">&lt;</span><span class="n">AccessorType</span><span class="o">::</span><span class="n">Generic</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">acc_z</span> <span class="o">=</span> 
-    <span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">get_field_accessor</span><span class="p">(</span><span class="n">FID_Z</span><span class="p">).</span><span class="n">typeify</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">READ_ONLY</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc_x</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">FID_X</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">READ_ONLY</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc_y</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">FID_Y</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">FieldAccessor</span><span class="o">&lt;</span><span class="n">READ_ONLY</span><span class="p">,</span><span class="kt">double</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">acc_z</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">FID_Z</span><span class="p">);</span>
+
   <span class="n">printf</span><span class="p">(</span><span class="s">"Checking results..."</span><span class="p">);</span>
-  <span class="n">Domain</span> <span class="n">dom</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> 
-      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
-  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">dom</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_index_space_domain</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+                  <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">region</span><span class="p">.</span><span class="n">get_index_space</span><span class="p">());</span>
   <span class="kt">bool</span> <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">GenericPointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">;</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">))</span> <span class="o">+</span> 
-                           <span class="n">acc_y</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
-    <span class="kt">double</span> <span class="n">received</span> <span class="o">=</span> <span class="n">acc_z</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">DomainPoint</span><span class="o">::</span><span class="n">from_point</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pir</span><span class="p">.</span><span class="n">p</span><span class="p">));</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">();</span> <span class="n">pir</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">+</span> <span class="n">acc_y</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">];</span>
+    <span class="kt">double</span> <span class="n">received</span> <span class="o">=</span> <span class="n">acc_z</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">];</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">expected</span> <span class="o">!=</span> <span class="n">received</span><span class="p">)</span>
       <span class="n">all_passed</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
@@ -759,18 +748,38 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
     <span class="n">printf</span><span class="p">(</span><span class="s">"FAILURE!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">init_field_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">daxpy_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DAXPY_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">check_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CHECK_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span> <span class="s">"top_level"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"top_level"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span> <span class="s">"init_field"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">();</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">init_field_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"init_field"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">DAXPY_TASK_ID</span><span class="p">,</span> <span class="s">"daxpy"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">();</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">daxpy_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"daxpy"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">CHECK_TASK_ID</span><span class="p">,</span> <span class="s">"check"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">();</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">check_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"check"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
 <span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 

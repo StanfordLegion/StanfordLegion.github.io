@@ -110,10 +110,40 @@ Macros</h2></td></tr>
 <tr class="separator:af08af4cb6bde9aff20112bd10f873b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af91ef780037e34e8720a957b2290d28e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_BLOCKIFY_WRAPPER</b>(T_,  T)</td></tr>
 <tr class="separator:af91ef780037e34e8720a957b2290d28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c8ef342c5bbcff9592510ff9953005"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_TRANSFORM_WRAPPER</b>(T_,  T,  X,  Y)</td></tr>
+<tr class="separator:a59c8ef342c5bbcff9592510ff9953005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196d09283c142ca866330b6af8d2ddd0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_AFFINE_TRANSFORM_WRAPPER</b>(T_,  T)</td></tr>
+<tr class="separator:a196d09283c142ca866330b6af8d2ddd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Legion C API: C++ Conversion Utilities </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a196d09283c142ca866330b6af8d2ddd0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NEW_AFFINE_TRANSFORM_WRAPPER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T_, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> T_ wrap(T t) {                               \</div><div class="line">      T_ t_;                                            \</div><div class="line">      t_.transform = wrap(t.transform);                 \</div><div class="line">      t_.offset = wrap(t.offset);                       \</div><div class="line">      return t_;                                        \</div><div class="line">    }                                                   \</div><div class="line">    static T unwrap(T_ t_) {                            \</div><div class="line">      T t;                                              \</div><div class="line">      t.transform = unwrap(t_.transform);               \</div><div class="line">      t.offset = unwrap(t_.offset);                     \</div><div class="line">      return t;                                         \</div><div class="line">    }</div></div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="af91ef780037e34e8720a957b2290d28e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -230,10 +260,48 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> T_ wrap(T t) {                             \</div><div class="line">        T_ t_;                                          \</div><div class="line">        t_.lo = wrap(PT(t.lo));                         \</div><div class="line">        t_.hi = wrap(PT(t.hi));                         \</div><div class="line">        return t_;                                      \</div><div class="line">      }                                                 \</div><div class="line">      static T unwrap(T_ t_) {                          \</div><div class="line">        T t(unwrap(t_.lo), unwrap(t_.hi));              \</div><div class="line">        return t;                                       \</div><div class="line">      }</div></div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="a59c8ef342c5bbcff9592510ff9953005"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NEW_TRANSFORM_WRAPPER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T_, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">T, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">X, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Y&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> T_ wrap(T t) {                             \</div><div class="line">        T_ t_;                                          \</div><div class="line">        for (<span class="keywordtype">int</span> i = 0; i &lt; X; i++)                     \</div><div class="line">          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; Y; j++)                   \</div><div class="line">            t_.trans[i][j] = t[i][j];                   \</div><div class="line">        <span class="keywordflow">return</span> t_;                                      \</div><div class="line">      }                                                 \</div><div class="line">      static T unwrap(T_ t_) {                          \</div><div class="line">        T t;                                            \</div><div class="line">        for (<span class="keywordtype">int</span> i = 0; i &lt; X; i++)                     \</div><div class="line">          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; Y; j++)                   \</div><div class="line">            t[i][j] = t_.trans[i][j];                   \</div><div class="line">        <span class="keywordflow">return</span> t;                                       \</div><div class="line">      }</div></div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 5 2018 16:14:21 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 25 2018 15:07:19 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

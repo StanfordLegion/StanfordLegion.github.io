@@ -116,9 +116,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_lg_task_args.html">Legion::Internal::LgTaskArgs&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_context_interface.html">Legion::Internal::ContextInterface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_lg_task_args.html">Legion::Internal::LgTaskArgs&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -368,9 +368,9 @@ typedef ::legion_region_tree_id_t&#160;</td><td class="memItemRight" valign="bot
 <tr class="memitem:a52c5ec0a73d867e9e6aba53679862aa3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52c5ec0a73d867e9e6aba53679862aa3"></a>
 typedef ::legion_distributed_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::DistributedID</b></td></tr>
 <tr class="separator:a52c5ec0a73d867e9e6aba53679862aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abea5f34b6cf253c19ca0d87b6f71f0f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abea5f34b6cf253c19ca0d87b6f71f0f6"></a>
-typedef ::legion_address_space_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::AddressSpaceID</b></td></tr>
-<tr class="separator:abea5f34b6cf253c19ca0d87b6f71f0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfdc16ecff242e1de0cb0239d722ae88"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfdc16ecff242e1de0cb0239d722ae88"></a>
+typedef ::legion_address_space_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::AddressSpaceID</b></td></tr>
+<tr class="separator:adfdc16ecff242e1de0cb0239d722ae88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786d2b1312d9135ab0f689e02125f938"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a786d2b1312d9135ab0f689e02125f938"></a>
 typedef ::legion_tunable_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::TunableID</b></td></tr>
 <tr class="separator:a786d2b1312d9135ab0f689e02125f938"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -512,17 +512,13 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a815e76359562e001214b78fb72a10413"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cd60e7ced9059d65d418dda8a6fa94e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cd60e7ced9059d65d418dda8a6fa94e"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<b>LG_DUMMY_BARRIER_ID</b> = Realm::Processor::TASK_ID_PROCESSOR_NOP, 
-<b>INIT_TASK_ID</b> = Realm::Processor::TASK_ID_PROCESSOR_INIT, 
-<b>SHUTDOWN_TASK_ID</b> = Realm::Processor::TASK_ID_PROCESSOR_SHUTDOWN, 
+&#160;&#160;<b>LG_INITIALIZE_TASK_ID</b> = Realm::Processor::TASK_ID_PROCESSOR_INIT, 
+<b>LG_SHUTDOWN_TASK_ID</b> = Realm::Processor::TASK_ID_PROCESSOR_SHUTDOWN, 
 <b>LG_TASK_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE, 
+<b>LG_LEGION_PROFILING_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+1, 
 <br />
-&#160;&#160;<b>LG_LEGION_PROFILING_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+1, 
-<b>LG_LAUNCH_TOP_LEVEL_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+2, 
-<b>LG_MPI_INTEROP_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+3, 
-<b>LG_STARTUP_SYNC_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+4, 
-<br />
-&#160;&#160;<b>TASK_ID_AVAILABLE</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+5
+&#160;&#160;<b>LG_STARTUP_TASK_ID</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+2, 
+<b>LG_TASK_ID_AVAILABLE</b> = Realm::Processor::TASK_ID_FIRST_AVAILABLE+3
 <br />
  }</td></tr>
 <tr class="separator:a2cd60e7ced9059d65d418dda8a6fa94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -897,27 +893,35 @@ Enumerations</h2></td></tr>
 <b>SEND_INSTANCE_REQUEST</b>, 
 <b>SEND_INSTANCE_RESPONSE</b>, 
 <br />
-&#160;&#160;<b>SEND_GC_PRIORITY_UPDATE</b>, 
+&#160;&#160;<b>SEND_EXTERNAL_DETACH</b>, 
+<b>SEND_GC_PRIORITY_UPDATE</b>, 
 <b>SEND_NEVER_GC_RESPONSE</b>, 
 <b>SEND_ACQUIRE_REQUEST</b>, 
-<b>SEND_ACQUIRE_RESPONSE</b>, 
 <br />
-&#160;&#160;<b>SEND_VARIANT_REQUEST</b>, 
+&#160;&#160;<b>SEND_ACQUIRE_RESPONSE</b>, 
+<b>SEND_VARIANT_REQUEST</b>, 
 <b>SEND_VARIANT_RESPONSE</b>, 
 <b>SEND_VARIANT_BROADCAST</b>, 
-<b>SEND_CONSTRAINT_REQUEST</b>, 
 <br />
-&#160;&#160;<b>SEND_CONSTRAINT_RESPONSE</b>, 
+&#160;&#160;<b>SEND_CONSTRAINT_REQUEST</b>, 
+<b>SEND_CONSTRAINT_RESPONSE</b>, 
 <b>SEND_CONSTRAINT_RELEASE</b>, 
 <b>SEND_CONSTRAINT_REMOVAL</b>, 
-<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
 <br />
-&#160;&#160;<b>SEND_TOP_LEVEL_TASK_COMPLETE</b>, 
+&#160;&#160;<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
+<b>SEND_TOP_LEVEL_TASK_COMPLETE</b>, 
 <b>SEND_MPI_RANK_EXCHANGE</b>, 
+<b>SEND_LIBRARY_MAPPER_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
+<b>SEND_LIBRARY_PROJECTION_REQUEST</b>, 
+<b>SEND_LIBRARY_PROJECTION_RESPONSE</b>, 
+<b>SEND_LIBRARY_TASK_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_LIBRARY_TASK_RESPONSE</b>, 
 <b>SEND_SHUTDOWN_NOTIFICATION</b>, 
 <b>SEND_SHUTDOWN_RESPONSE</b>, 
-<br />
-&#160;&#160;<b>LAST_SEND_KIND</b>
+<b>LAST_SEND_KIND</b>
 <br />
  }</td></tr>
 <tr class="separator:a8e0c16368be14df1436eb87f08dd4f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1135,9 +1139,15 @@ Variables</h2></td></tr>
 <tr class="memitem:a6509a24e680b910feeabf65a009ec016"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6509a24e680b910feeabf65a009ec016"></a>
 __thread TaskContext *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_context</b></td></tr>
 <tr class="separator:a6509a24e680b910feeabf65a009ec016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f3ec0676a644122e050fe2cd1039d9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f3ec0676a644122e050fe2cd1039d9d"></a>
+__thread Runtime *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_runtime</b></td></tr>
+<tr class="separator:a6f3ec0676a644122e050fe2cd1039d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae5f84718d35eb399545baba13cdd31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ae5f84718d35eb399545baba13cdd31"></a>
 __thread AutoLock *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::local_lock_list</b></td></tr>
 <tr class="separator:a1ae5f84718d35eb399545baba13cdd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08aff23b098273052015f378c139167f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08aff23b098273052015f378c139167f"></a>
+__thread::legion_unique_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::task_profiling_provenance</b></td></tr>
+<tr class="separator:a08aff23b098273052015f378c139167f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00791b815b40df4cde86a44d0df2f463"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00791b815b40df4cde86a44d0df2f463"></a>
 const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::INVALID_COLOR</b> = LLONG_MAX</td></tr>
 <tr class="separator:a00791b815b40df4cde86a44d0df2f463"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1158,7 +1168,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 5 2018 16:14:21 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 25 2018 15:07:19 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

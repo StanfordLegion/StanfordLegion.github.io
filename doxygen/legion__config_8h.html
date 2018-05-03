@@ -915,12 +915,17 @@ Enumerations</h2></td></tr>
 <tr class="separator:adcdaf79180040afe53aabd65efa644b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa59acdc0abfe2ab09241aa71d39f47d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa59acdc0abfe2ab09241aa71d39f47d3"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_privilege_mode_t</b> { <br />
 &#160;&#160;<b>NO_ACCESS</b> = 0x00000000, 
+<b>READ_PRIV</b> = 0x00000001, 
 <b>READ_ONLY</b> = 0x00000001, 
-<b>READ_WRITE</b> = 0x00000007, 
-<b>WRITE_ONLY</b> = 0x00000002, 
+<b>WRITE_PRIV</b> = 0x00000002, 
 <br />
-&#160;&#160;<b>WRITE_DISCARD</b> = 0x00000002, 
-<b>REDUCE</b> = 0x00000004
+&#160;&#160;<b>REDUCE_PRIV</b> = 0x00000004, 
+<b>REDUCE</b> = 0x00000004, 
+<b>READ_WRITE</b> = 0x00000007, 
+<b>DISCARD_MASK</b> = 0x10000000, 
+<br />
+&#160;&#160;<b>WRITE_ONLY</b> = 0x10000002, 
+<b>WRITE_DISCARD</b> = 0x10000007
 <br />
  }</td></tr>
 <tr class="separator:aa59acdc0abfe2ab09241aa71d39f47d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -957,9 +962,19 @@ Enumerations</h2></td></tr>
 <b>REG_PROJECTION</b>
  }</td></tr>
 <tr class="separator:ac81d3ded3768ec2d95bb0d25ebfff5cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeff4cf232fde4813b4ab11176ca70b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afeff4cf232fde4813b4ab11176ca70b9"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_partition_kind_t</b> { <b>DISJOINT_KIND</b>, 
+<tr class="memitem:afeff4cf232fde4813b4ab11176ca70b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afeff4cf232fde4813b4ab11176ca70b9"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_partition_kind_t</b> { <br />
+&#160;&#160;<b>DISJOINT_KIND</b>, 
 <b>ALIASED_KIND</b>, 
-<b>COMPUTE_KIND</b>
+<b>COMPUTE_KIND</b>, 
+<b>DISJOINT_COMPLETE_KIND</b>, 
+<br />
+&#160;&#160;<b>ALIASED_COMPLETE_KIND</b>, 
+<b>COMPUTE_COMPLETE_KIND</b>, 
+<b>DISJOINT_INCOMPLETE_KIND</b>, 
+<b>ALIASED_INCOMPLETE_KIND</b>, 
+<br />
+&#160;&#160;<b>COMPUTE_INCOMPLETE_KIND</b>
+<br />
  }</td></tr>
 <tr class="separator:afeff4cf232fde4813b4ab11176ca70b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be7cbc5acaeca6c7f24cfc846b6e883"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5be7cbc5acaeca6c7f24cfc846b6e883"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_external_resource_t</b> { <b>EXTERNAL_POSIX_FILE</b>, 
@@ -1137,7 +1152,7 @@ Enumerations</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 25 2018 15:56:16 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 3 2018 16:42:10 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

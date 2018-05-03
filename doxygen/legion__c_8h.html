@@ -1242,6 +1242,12 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>legion_accessor_arr
 <tr class="separator:a520969117564a7914b0f3df2aa790640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb8cb1317b7d1fdcf6a7f7bf86c67849"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#adb8cb1317b7d1fdcf6a7f7bf86c67849">legion_get_current_time_in_nanos</a> (void)</td></tr>
 <tr class="separator:adb8cb1317b7d1fdcf6a7f7bf86c67849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a4e61fc3ae755d403b40c4f2101c52"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ac8a4e61fc3ae755d403b40c4f2101c52">legion_issue_timing_op_seconds</a> (legion_runtime_t runtime, legion_context_t ctx)</td></tr>
+<tr class="separator:ac8a4e61fc3ae755d403b40c4f2101c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d26194c3815c32928fbb4328c9f389"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#af7d26194c3815c32928fbb4328c9f389">legion_issue_timing_op_microseconds</a> (legion_runtime_t runtime, legion_context_t ctx)</td></tr>
+<tr class="separator:af7d26194c3815c32928fbb4328c9f389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3eb18e160aac2eb6fe9d45bc3da8bf"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#adf3eb18e160aac2eb6fe9d45bc3da8bf">legion_issue_timing_op_nanoseconds</a> (legion_runtime_t runtime, legion_context_t ctx)</td></tr>
+<tr class="separator:adf3eb18e160aac2eb6fe9d45bc3da8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee983c93a767eb151cdf3fa5d60e5227"><td class="memItemLeft" align="right" valign="top">legion_machine_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#aee983c93a767eb151cdf3fa5d60e5227">legion_machine_create</a> ()</td></tr>
 <tr class="separator:aee983c93a767eb151cdf3fa5d60e5227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d706a96bc560908d36823e64fb38a27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a4d706a96bc560908d36823e64fb38a27">legion_machine_destroy</a> (legion_machine_t handle)</td></tr>
@@ -7898,6 +7904,87 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 
 </div>
 </div>
+<a class="anchor" id="af7d26194c3815c32928fbb4328c9f389"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">legion_future_t legion_issue_timing_op_microseconds </td>
+          <td>(</td>
+          <td class="paramtype">legion_runtime_t&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_context_t&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See also</dt><dd>Legion::Runtime::get_current_time_in_microseconds() </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adf3eb18e160aac2eb6fe9d45bc3da8bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">legion_future_t legion_issue_timing_op_nanoseconds </td>
+          <td>(</td>
+          <td class="paramtype">legion_runtime_t&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_context_t&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See also</dt><dd>Legion::Runtime::get_current_time_in_nanoseconds() </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac8a4e61fc3ae755d403b40c4f2101c52"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">legion_future_t legion_issue_timing_op_seconds </td>
+          <td>(</td>
+          <td class="paramtype">legion_runtime_t&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_context_t&#160;</td>
+          <td class="paramname"><em>ctx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See also</dt><dd>Legion::Runtime::get_current_time() </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ac585b186ae21c4619941b9ae3e4fd7b6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -14413,7 +14500,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 25 2018 15:56:16 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 3 2018 16:42:10 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

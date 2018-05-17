@@ -130,33 +130,27 @@ code, allowing the same Legion applications
 to be targeted at different architectures without
 having to modify the application source code.</p>
 
-<p>A common problem encountered when writing code 
-for large distributed and heterogeneous machines 
-is how mapping impacts correctness. In Legion all
-mapping decisions are orthogonal to correctness.
-Legion will always perform the necessary operations
-to ensure that data is accessed safely with regards
-to the specific privilege and coherence constraints
-specified in the application. In cases where
-mappers generate invalid responses to mapping
-queries (e.g. a mapper maps a physical region for
-a task into a memory not visible from the target
-processor), then the Legion runtime will notify the
-mapper that it tried to perform an illegal mapping
-and allow it to retry.</p>
+<p>A common problem encountered when writing code
+for large distributed and heterogeneous machines
+is how mapping impacts correctness. In Legion, any valid set of
+mapping decisions will result in the same answer being computed, and
+therefore, if an application produces the correct answer on one
+machine, it will produce the same answer regardless of the machine or
+mapping strategy used. Mapping can therefore be considered orthogonal
+to the correct execution of the program.</p>
 
 <p>To introduce how to write a custom mapper we’ll
 implement two custom mappers. The first will be
-an adversarial mapper that makes random mapping 
+an adversarial mapper that makes random mapping
 decisions designed to stress-test the Legion runtime.
 We’ll also have the adversarial mapper report the chosen
 mapping decisions (which will change with each run
 of the application) to further emphasize the orthogonality
 of mapping decisions from correctness. The second mapper
 that we’ll create will be used for partitioning to decide
-how many sub-regions to create using <em>tunable</em> 
-variables. The application code for DAXPY is nearly 
-identical to the code from 
+how many sub-regions to create using <em>tunable</em>
+variables. The application code for DAXPY is
+identical to the code from
 an <a href="/tutorial/partitioning.html">earlier example</a>
 and is therefore omitted. We only show the new
 code required for creating and implementing the
@@ -164,24 +158,22 @@ custom mappers.</p>
 
 <h4 id="mapper-objects-and-registration">Mapper Objects and Registration</h4>
 
-<p>Mappers are classes that implement the mapping interface
-declared in the abstract <code class="highlighter-rouge">Mapper</code> objection in the
-legion.h header file. Legion provides a default
-implementation of this interface defined by the 
-<code class="highlighter-rouge">DefaultMapper</code> class (from the default_mapper.h
-header file on line 2). The default mapper allows
+<p>Mappers are classes that implement the interface
+declared in the abstract class <code class="highlighter-rouge">Mapper</code>. Legion provides a default
+implementation of this interface defined by the
+<code class="highlighter-rouge">DefaultMapper</code> class. The default mapper allows
 applications to be developed without being
 concerned with mapping decisions. Once correctness
 has been established, programmers can implement
-custom mappers to achieve higher performance. 
+custom mappers to achieve higher performance.
 Custom mappers can either extend the <code class="highlighter-rouge">DefaultMapper</code>
 class or implement the <code class="highlighter-rouge">Mapper</code> interface from
-scratch. In this example, we extend the 
+scratch. In this example, we extend the
 <code class="highlighter-rouge">DefaultMapper</code> to create both our <code class="highlighter-rouge">AdversarialMapper</code>
-(line 13) and <code class="highlighter-rouge">PartitioningMapper</code> (line 25). We then override 
+(line 20) and <code class="highlighter-rouge">PartitioningMapper</code> (line 41). We then override
 four of the mapping interface calls in the <code class="highlighter-rouge">AdversarialMapper</code>
-(lines 18-22) and one in the <code class="highlighter-rouge">PartitioningMapper</code> (lines 30-32)
-to show how they work. We’ll detail the semantics and our implementation
+(lines 25-38) and one in the <code class="highlighter-rouge">PartitioningMapper</code> (lines 46-49)
+to show how they work. We’ll describe the semantics of these calls and our implementations
 of them in the coming sections.</p>
 
 <p>Mappers objects are instantiated after the
@@ -190,52 +182,41 @@ begins executing. To instantiate mappers, the application
 registers a callback function for the runtime to
 invoke prior to beginning execution of the application. In this
 example we create the <code class="highlighter-rouge">mapper_registration</code>
-function (lines 35-45) and register the function
-with runtime using the static method <code class="highlighter-rouge">set_registration_callback</code>
-on the <code class="highlighter-rouge">HighLevelRuntime</code> (line 279). All callback
+function (lines 52-62) and register the function
+with runtime using the static method <code class="highlighter-rouge">add_registration_callback</code>
+of <code class="highlighter-rouge">Runtime</code> (line 469). All callback
 functions must have the same type as the <code class="highlighter-rouge">mapper_registration</code>
-function which allows the runtime to pass the 
+function so that the runtime can pass the
 necessary parameters for creating new mappers.</p>
 
-<p>The model for Legion is that a specific kind of
-mapper is identified by a <code class="highlighter-rouge">MapperID</code> (unsigned integer)
-and there should be a single instance of each kind of mapper
+<p>In Legion, each kind of
+mapper is identified by a <code class="highlighter-rouge">MapperID</code> (an unsigned integer).
+There should be one instance of each kind of mapper
 for every processor in the system. Having a single
 instance for each processor guarantees that processors
 can map tasks in parallel without needing to be
-concerned about contention for a single mapper object.
-For mappers that are stateful, this can sometimes
-lead to mapper instances having incomplete information,
-but this would occur naturally in a distributed system
-anyway as there would at least have to be different
-mapper instances for processes on different nodes.
-In practice, we find that having one mapper of each
-kind for every processor is a straight-forward model.</p>
+concerned about contention for a single mapper object. Note that in
+general, mappers are permitted to be stateful, and users of the
+mapping API can choose what state to track and how to manage that
+state.</p>
 
-<p>When the callback function is invoked, it can
-instantiate an arbitrary number of kinds of mappers.
+<p>When <code class="highlighter-rouge">mapper_registration</code> callback function is invoked, it can
+instantiate an arbitrary number of mappers and kinds of mappers.
 For each kind, it should create one instance for
 every processor in the set <code class="highlighter-rouge">local_procs</code> which
-describes the set of processors on the local node
-(the callback is invoked in parallel by the
-instance of the Legion runtime in every process
-with the correct set of processors local to the process).
-Zero is reserved as a special <code class="highlighter-rouge">MapperID</code> for
-the <code class="highlighter-rouge">DefaultMapper</code>, but applications can replace
-the default mapper using the <code class="highlighter-rouge">replace_default_mapper</code>
-method on the <code class="highlighter-rouge">HighLevelRuntime</code> (lines 40-41).
-By replacing the default mapper, our tasks will
-automatically use the new <code class="highlighter-rouge">AdversarialMapper</code>
-to handle mapping queries. We register the 
-instances of the <code class="highlighter-rouge">PartitioningMapper</code> with 
-the <code class="highlighter-rouge">add_mapper</code> method and pass
-<code class="highlighter-rouge">PARTITIONING_MAPPER_ID</code> as the <code class="highlighter-rouge">MapperID</code>
-which is set to be <code class="highlighter-rouge">1</code>. We’ll show how to use
+describes the set of processors on the local node. Note that in a
+multi-node execution of Legion, this callback will be issued once on
+every node in the system. The <code class="highlighter-rouge">MapperID</code> 0 is reserved for
+the <code class="highlighter-rouge">DefaultMapper</code>, but applications can replace the default with their own mapper
+by calling <code class="highlighter-rouge">replace_default_mapper</code> (lines 57-58). By replacing the default mapper, any tasks in the application will
+automatically use the new <code class="highlighter-rouge">AdversarialMapper</code>. We register <code class="highlighter-rouge">PartitioningMapper</code> with
+the <code class="highlighter-rouge">add_mapper</code> method and assign it a non-zero ID
+<code class="highlighter-rouge">PARTITIONING_MAPPER_ID</code>. We’ll show how to use
 mapper IDs to determine which mapper is invoked
 momentarily. Finally, notice that we iterate over
 all the processors in the set of <code class="highlighter-rouge">local_procs</code>
-to create a separate instance of both the <code class="highlighter-rouge">AdversarialMapper</code>
-and the <code class="highlighter-rouge">PartitioningMapper</code> for each processor (lines 40-43).</p>
+to create a distinct instances of both <code class="highlighter-rouge">AdversarialMapper</code>
+and <code class="highlighter-rouge">PartitioningMapper</code> for each processor (lines 57-60).</p>
 
 <h4 id="legion-machine-model">Legion Machine Model</h4>
 
@@ -245,304 +226,283 @@ Legion provides a static singleton <code class="highlighter-rouge">Machine</code
 that can be used to make queries concerning the
 underlying hardware. We show how to make some of these
 queries as part of the constructor for our <code class="highlighter-rouge">AdversarialMapper</code>
-object (lines 47-173).</p>
+object (lines 64-218).</p>
 
-<p>A pointer to the <code class="highlighter-rouge">Machine</code> singleton is passed as part
+<p>The <code class="highlighter-rouge">Machine</code> object is passed as part
 of the arguments to any mapper constructor, but it
 can also always be obtained by calling the static method
-<code class="highlighter-rouge">get_machine</code> of the <code class="highlighter-rouge">Machine</code> type from anywhere in the
-application. The <code class="highlighter-rouge">Machine</code> type
-actually comes from the Legion low-level runtime, but
-typedefs are used to ensure the proper types are all
-available for application use as well. In our constructor
-we begin by obtaining a reference to the STL set of
-all the processors in the machine (line 51). The
+<code class="highlighter-rouge">Machine::get_machine</code> from anywhere in the
+application. In our constructor
+we begin by obtaining the set of
+all the processors in the machine (line 69). The
 <code class="highlighter-rouge">Processor</code> objects are simply light-weight handles
-for naming all of the processors in the machine. The
-set of all processors can depend on which version of
-the low-level runtime as well as command line arguments
-such as the <code class="highlighter-rouge">-ll:cpu &lt;#&gt;</code> flag which specifies the
-number of CPU processors to create. (It is on our
-TODO list to have the low-level runtime inspect the 
-hardware to automatically discover the underlying
-machine architecture. More details on how to 
-configure the Legion low-level runtime can be 
-found <a href="/profiling/index.html#machine">here</a>.)</p>
+that name the various processors (CPUs, GPUs, etc.) in the
+machine. Generally speaking, the number and kind of processors
+available in the Legion runtime are configured by passsing
+command-line flags such as <code class="highlighter-rouge">-ll:cpu &lt;C&gt;</code> and <code class="highlighter-rouge">-ll:gpu &lt;G&gt;</code> (which
+would create <code class="highlighter-rouge">C</code> CPU and <code class="highlighter-rouge">G</code> GPU processors). Note that certain flags
+are only available when the appropriate module has been compiled into
+Legion (e.g. the use of GPUs depends on <code class="highlighter-rouge">USE_CUDA</code> at
+compile-time). More details on the available flags can be found at the
+<a href="/profiling/index.html#machine-configuration">machine configuration
+page</a>.</p>
 
-<p>We now want to print out information about the
-underlying processors and memories for our machine.
-To do this we first add the conditional on line 31
-to ensure that only one mapper performs the output.
-Recall a separate instance of the <code class="highlighter-rouge">AdversarialMapper</code>
-will be made for every processor. We only have the 
-mapper whose local processor is the first one in
-the set of all processors do the printing. We then
+<p>For illustration, we print the list of processors and memories for our
+machine (lines 71-201). Note that in order to avoid seeing multiple
+copies of this output, we only run this code on the first mapper (line
+70). Recall a separate instance of the <code class="highlighter-rouge">AdversarialMapper</code>
+will be made for every processor. We then
 iterate over the set of all processors and print out
-their ID and type (lines 54-83). Most objects
+their ID and type (lines 75-104). Most objects
 obtained from the <code class="highlighter-rouge">Machine</code> object have an associated
-<code class="highlighter-rouge">id</code> field that can uniquely identify them (it is
-useful to print these IDs in hexadecimal format).
-There are currently three types of processors supported
+<code class="highlighter-rouge">id</code> field that can uniquely identify them (the special constant
+<code class="highlighter-rouge">IDFMT</code> contains the appropriate format code for printing an ID).
+There are a variety of processor types supported
 by the Legion runtime: latency-optimized processors
 (<code class="highlighter-rouge">LOC_PROC</code>) are CPU processors, throughput-optimized
 processors (<code class="highlighter-rouge">TOC_PROC</code>) are GPUs, and utility processors
-are special CPU processors used for performing Legion
-runtime tasks. (Utility processors can also be used
-for running Legion tasks, but may suffer from longer
-latencies as they will be interleaved with runtime-level
-operations.)</p>
+are special CPU processors used for performing Legion runtime
+tasks. Legion also supports special-purpose processors for I/O,
+OpenMP, and Python (not shown in this tutorial).</p>
 
-<p>We also obtain and print the list of
-memories as well as their kinds and sizes (lines 84-158).
-Note memory sizes are controlled by command line
-values and may not accurately reflect the actual
-underlying hardware (e.g. the L1-cache values in
-our shared-memory-only low-level runtime). Different
-architectures should use different command line
-arguments to properly set these values until
-Legion learns to discover the underlying hardware.
-More information on configuring the Legion low-level
-runtime parameters with command line flags can
-be found <a href="/profiling/index.html#machine">here</a>.</p>
+<p>We then print the list of memories (lines 113-201).
+Note that memory sizes are controlled by command-line
+flags as well and may not accurately reflect the actual
+underlying hardware. Again, the list of supported flags can be found
+on the <a href="/profiling/index.html#machine-configuration">machine configuration
+page</a>.</p>
 
-<p>A useful way to think about the Legion machine
-model encapsulated by the <code class="highlighter-rouge">Machine</code> objects is as a
-graph with processors and memories as two kinds
-of nodes. There are two kinds of edges in this graph:
-processor-memory edges and memory-memory edges. An
-edge between a processor and a memory indicates that
-the processor can directly perform load and store
-operations to that memory. Memory-memory edges indicate
-that data movement can be directly performed between
-the two memories (either by a processor or by a
-DMA engine). 
-<!-- 
-Below is an example graph for the
-shared-memory-only low-level runtime with four
-processors (default values). We model separate
-L1 caches to give the illusion of blocking for
-per-processor caches, but still allow all processors
-to access any memory because of cache coherence.
- -->
-Edges between nodes are called affinities in the
-machine model. Affinities are currently dimensionless
-and are approximate indications of the latency
-and bandwidth between two nodes (again, having the
-low-level runtime automatically discover the
-actual values is a long-term goal). Line 160 uses
+<p>A useful way to think about the Legion machine model is that the
+machine is a graph between processors and memories. Processors and
+memories can have different affinities that describe the relative
+speeds at which the various processors can access the available
+memories. A processor can only access the contents of memories for
+which it has an affinity. And similar, edges between memories describe
+the paths along which data can be copied around the system. Note that
+the exact affinity values are only approximations and do not reflect
+the actual transfer bandwidth of the machine.</p>
+
+<p>Line 205 uses
 the <code class="highlighter-rouge">get_visible_memories</code> method to obtain the
-set of memories visible from the local processor.
+set of memories that are visible from the local processor.
 We then print out the affinities between the local
 processor and each of these memories using the
-<code class="highlighter-rouge">get_proc_mem_affinity</code> method (line 167).</p>
+<code class="highlighter-rouge">get_proc_mem_affinity</code> method (line 212).</p>
 
-<h4 id="assigning-tasks-to-processors">Assigning Tasks to Processors</h4>
+<h4 id="selecting-task-options">Selecting Task Options</h4>
 
-<p>The first mapper call that we override is the 
-<code class="highlighter-rouge">select_task_options</code> call (lines 175-284). This
+<p>The first mapper call that we override is the
+<code class="highlighter-rouge">select_task_options</code> call (lines 220-228). This
 mapper call is performed on every task launch
-immediately after it is made. The call asks the
-mapper to specify some of the important properties
-for the task by setting fields on the <code class="highlighter-rouge">Task</code>
-object. (Most mapper queries are answered by 
-mutating the mapping fields of the <code class="highlighter-rouge">Task</code> object.)</p>
+immediately after it is made, and is used to configure certain
+important aspects of task execution that the runtime needs to know up
+front.</p>
+
+<p>In general, mapper calls in Legion use a well-defined set of inputs
+and outputs. The inputs are provided by one or more <code class="highlighter-rouge">const</code>
+references, while the output is provided in a single non-<code class="highlighter-rouge">const</code>
+reference struct. In this way, it is possible to determine what fields
+a mapper is expected to set simply by looking at the signature of the
+mapper call.</p>
+
+<p>In the case of the <code class="highlighter-rouge">select_task_options</code> call, the following output
+fields are provided to the mapper:</p>
 
 <ul>
-  <li><strong>inline_task</strong>: whether the task should be
-inlined directly into the parent task’s context
-by using the parent task’s physical regions.</li>
-  <li><strong>spawn_task</strong>: whether the task is eligible
-for stealing (based on Cilk-style semantics).</li>
-  <li><strong>map_locally</strong>: whether the task should be
-mapped by the processor on which it was launched 
-or whether it should be mapped by the processor
-where it will run.</li>
-  <li><strong>profile_task</strong>: should the runtime collect
-profiling information about the task while
-it is executing to provide feedback to the 
-mapper.</li>
-  <li><strong>target_proc</strong>: which processor should the task
-be sent to once all of its mapping dependences
-have been satisfied and it is ready to map.</li>
+  <li><code class="highlighter-rouge">inline_task</code> determines whether the child task should be executed
+directly in the parent tasks’s context, using the parent task’s
+physical regions. (This is option is usually left to <code class="highlighter-rouge">false</code> as it
+is desirable for the child to execute asynchronously with the
+parent.)</li>
+  <li><code class="highlighter-rouge">stealable</code> is used for work-stealing load balancing and controls
+whether the task is available to be stolen by another</li>
+  <li><code class="highlighter-rouge">map_locally</code> determines whether subsequent mapper calls (such as
+<code class="highlighter-rouge">map_task</code>) should be processed by the current mapper, or the
+mapper for the processor to which the task is to be assigned.</li>
+  <li><code class="highlighter-rouge">initial_proc</code> is used to send the task to be mapped on another
+processor. Note that the task may not necessarily execute on
+<code class="highlighter-rouge">initial_proc</code>, since the mapper can still use the <code class="highlighter-rouge">map_task</code> call
+to send it to a different final destination.</li>
 </ul>
 
-<p>For our adversarial mapper, we perform the default
-choice for all options except the last one. When
-we set the <code class="highlighter-rouge">target_proc</code> field we select a random
-processor to which the task will be sent. This
-is done using a static utility method from <code class="highlighter-rouge">DefaultMapper</code>
-which will pick a random processor from a given
-STL set (lines 182-183).</p>
+<p>For our adversarial mapper, to demonstrate that Legion can handle any
+possible mapping strategy, we just choose a random processor for the
+<code class="highlighter-rouge">initial_proc</code>. We use two <code class="highlighter-rouge">DefaultMapper</code> utility methods,
+<code class="highlighter-rouge">select_random_processor</code> and <code class="highlighter-rouge">select_random_processor_kind</code> to do
+this (lines 226-227).</p>
 
 <h4 id="slicing-index-task-spaces">Slicing Index Task Spaces</h4>
 
-<p>The second call that we override is the <code class="highlighter-rouge">slice_domain</code>
-method (lines 186-205). The <code class="highlighter-rouge">slice_domain</code> method is
-used by the runtime to query the mapper about the 
-best way to distribute the point tasks from an index
-space task launch through the machine. The mapper is
-given the domain to slice and then asked to generate
-sub-domains to be sent to different processors in the
-form of <code class="highlighter-rouge">DomainSplit</code> objects which we also refer
-to as <em>slices</em>. <code class="highlighter-rouge">DomainSplit</code> objects describe the 
-sub-domain, the target processor, whether the slice
-can be stolen, and finally whether <code class="highlighter-rouge">slice_domain</code> should
-be recursively invoked on the slice when it arrives
-at its destination. Using this call mappers can choose
-both the granularity at which index space tasks are
-handled and distributed. Furthermore, it also gives
-the mapper the ability to hierarchically decompose
-an index space by recursively calling <code class="highlighter-rouge">slice_domain</code>
-when distributing domains across very large machines.</p>
+<p>The second call that we override is the <code class="highlighter-rouge">slice_task</code>
+method (lines 230-277). The <code class="highlighter-rouge">slice_task</code> method is used to determine
+how to distribute the tasks within an index space launch around the</p>
 
-<p>For our <code class="highlighter-rouge">AdversarialMapper</code> implementation we again use 
-another utility method from 
-the <code class="highlighter-rouge">DefaultMapper</code> called <code class="highlighter-rouge">decompose_index_space</code>
-to decompose our domain into two slices and send the
-two slices to two random processors. We continue
-recursively dividing domains in half until there
-is only one point in each domain. Lines 188-183 choose
-the two random processors and lines 195-196 perform
-the slicing. We then check to see how many points
-are left in each slice and mark that <code class="highlighter-rouge">domain_split</code>
-should recursively be called unless there is only
-one point left (line 197-204). Overall, this creates a
-tree of slices of depth log(N) in the number of
-points in the domain with each slice in the tree being
-sent to a random processor.</p>
+<p>machine. The mapper is given as input a set of slices (which initially
+contains a single element representing the entire launch), and is
+expected to produce as output a set of slices. In this case, since we
+are attempting to stress the runtime, we create a slice for each point
+task and assign it to another processor. In more typical usage, the
+slices would be chosen to maximize locality in the application.</p>
 
-<h4 id="selecting-memories-for-physical-instances">Selecting Memories for Physical Instances</h4>
+<p>The <code class="highlighter-rouge">slice_task</code> method can optionally be called recursively until the
+index space launch has been decomposed down to slices of the desired
+size. In this case we disable this feature and only perform one level
+of slicing.</p>
 
-<p>The next mapping call that we override is the <code class="highlighter-rouge">map_task</code>
-method (lines 207-229). Once a task has been assigned
-to map on a specific processor (the <code class="highlighter-rouge">target_proc</code> field
-in the <code class="highlighter-rouge">Task</code> object), then this method is called by
-the runtime to select the memories in which to create
-the physical instances of the logical regions requested
-by the task’s <code class="highlighter-rouge">RegionRequirement</code> objects. The mapper
-specifies the target memories by modifying the mapping
-fields on the <code class="highlighter-rouge">RegionRequirement</code> objects (lines 219,
-222-225). The memories containing currently valid physical
-instances for each <code class="highlighter-rouge">RegionRequirement</code> are provided
-by the runtime to the mapper in the <code class="highlighter-rouge">current_instances</code>
-field. The mapper specifies an ordered list of memories
-for the runtime to try when searching for either an 
-existing physical instance or creating a new instance
-in the <code class="highlighter-rouge">target_ranking</code> field of each <code class="highlighter-rouge">RegionRequirement</code>.
-If the runtime fails to find or make a physical instance
-in any of the memories, then the mapping fails and
-the mapper will be notified that the task failed to map
-using the <code class="highlighter-rouge">notify_mapping_failed</code> mapper call. If the
-mapper does nothing in the <code class="highlighter-rouge">notify_mapping_failed</code> call
-then the task is placed back on the list of tasks eligible
-to be selected for mapping by the <code class="highlighter-rouge">select_tasks_to_schedule</code>
-mapper call. In addition to the <code class="highlighter-rouge">target_ranking</code> field
-there are other fields which the mapper can set which
-we do not cover here (lines 222-225).</p>
+<h4 id="task-mapping">Task Mapping</h4>
 
-<p>For our <code class="highlighter-rouge">AdversarialMapper</code> implementation, the mapper
-finds the set of all memories visible from the target
-processor and then puts them in a random order as the
-target ranking for the runtime to use, thereby challenging
-the Legion runtime to maintain correctness of data
-that will need to be moved through random sets of memories
-as each task runs. Note finally that we return true
-as the result of the <code class="highlighter-rouge">map_task</code> method. This instructs
-the runtime to call the <code class="highlighter-rouge">notify_mapping_result</code>
-method if the mapping of the task succeeds.</p>
+<p>The next mapping call, <code class="highlighter-rouge">map_task</code> (lines 279-338) is one of the most
+important methods. The call has a number of responsibilities:</p>
+
+<ul>
+  <li>Select the final (set of) processor(s) that the task will be executed on.</li>
+  <li>Select the variant of the task to execute.</li>
+  <li>Select the physical instances to hold the data for each logical region.</li>
+  <li>Optionally select the task priority.</li>
+  <li>Optionally select profiling information to collect.</li>
+</ul>
+
+<p>On line 298, we select the final processor that the task will execute
+on. In this case, we simply keep the processor that was chosen by
+<code class="highlighter-rouge">select_task_options</code>, which is stored in the <code class="highlighter-rouge">task.target_proc</code>
+field. Note that <code class="highlighter-rouge">output.target_procs</code> is a set and if multiple
+processors, task will be load balanced between the selected
+processors. It is a common pattern to select all of the processors on
+the local node that have the appropriate type. For the adversarial
+example, we only choose a single processor.</p>
+
+<p>In general, a task can have multiple variants (e.g. for CPU or GPU, or
+for a CPU that supports AVX instructions, or that assumes a specific
+memory layout for its physical instances). Lines 283-297 select the
+task variant to execute. It is important to choose a variant that is
+capable of executing on the selected kind of processor. First we find
+the list of available variants (lines 283-284). Then we filter this
+down to those that are compatible with the kind of processor we intend
+to map on (lines 286-290). Finally, since this is an adversarial
+example, we select a random variant from among the valid choices. A
+more typical example might use application-specific knowledge to
+choose the appropriate variant to use.</p>
+
+<p>Having chosen the target processor and variant, we map all the logical
+regions of the task to specific physical instances (lines
+299-337).</p>
+
+<p>Note in certain cases, regions may already be mapped. Such regions are
+said to be <em>premapped</em>. We find a list of such regions on lines
+299-304; we’ll just skip them in the code below.</p>
+
+<p>Certain variants of tasks may assume that the data has a specific
+layout. In order to ensure that the mapping is correct for the given
+variant, we use <code class="highlighter-rouge">find_task_layout_constraints</code> to look up the <em>layout
+constraints</em> for the given variant (lines 305-307). Layout constraints
+describe the layout that the variant expects to receive.</p>
+
+<p>Legion is very flexible with respect to data layout and provide the
+data in C or Fortran array order, in array-of-structs (AOS) or
+struct-of-arrays (SOA), or in arbitrary hybrid combinations of those
+layouts. Legion will transpose the data as necessary to ensure that it
+always provided in the correct layout. The mapper is simply
+responsible for choosing the layout that it wants for the data.</p>
+
+<p>To simplify the process of choosing an appropriate layout, we use two
+helper methods <code class="highlighter-rouge">map_constrained_requirement</code> (lines 322-323) and
+<code class="highlighter-rouge">map_random_requirement</code> (lines 326-328) that handle the cases where
+the variant specifies constraints on the layout, or leaves the layout
+unconstrained, respectively. In an application-specific mapper, the
+mapper might have more knowledge of the desired layout and might
+include additional code here to choose a specific data layout for the
+task.</p>
+
+<p>Note that there are two special cases. First, as noted above, if a
+task is premapped we need not (and cannot) map it (lines
+309-310). Second, if the instance is <em>restricted</em> then we know a valid
+instance already exists and we can simply use this (lines
+311-314). Restricted instances occur primarily as a result of
+simultaneous coherence, which is an advanced feature of Legion that is
+not commonly used. Since this adversarial mapper is striving to be
+general-purpose, we must handle all these cases, but an
+application-specific mapper could potentially skip them.</p>
+
+<p>On line 330 we assign the task with a random prioritiy. In more
+typical usage, the mapper would assign higher priority to tasks along
+the critical path of the application, to ensure that those tasks
+execute as soon as they are ready.</p>
+
+<p>Finally, <code class="highlighter-rouge">map_task</code> can request various profiling information about a
+task, such as the status (success or failure) of a task, the execution
+time, and the overhead incurred (lines 332-337). These results are
+then passed back to the mapper via the <code class="highlighter-rouge">report_profiling</code> callback
+once the task completed.</p>
 
 <h4 id="reporting-results">Reporting Results</h4>
 
-<p>The last mapper call that we override for our
-<code class="highlighter-rouge">AdversarialMapper</code> is the 
-<code class="highlighter-rouge">notify_mapping_result</code> method (lines 231-242).
-We use this method to report the chosen mapping
-for each task, but it is also useful for memoizing
-mapping results and for knowing the result of mapping
-decisions when profiling tasks. Before invoking
-this method, the runtime sets the <code class="highlighter-rouge">selected_memory</code>
-field on each <code class="highlighter-rouge">RegionRequirement</code> object in the
-vector for each <code class="highlighter-rouge">Task</code>. The mapper can then see
-in which memory a physical instance for each 
-<code class="highlighter-rouge">RegionRequirement</code> resides. For our <code class="highlighter-rouge">AdversarialMapper</code>
-implementation we print the mapping for each logical
-region of every task to show that the assignment
-of regions to memories is truly random. Every run
-of the application should report a different
-mapping, but will always report that the correct
-answer is computed illustrating the Legion mapping
-decisions are orthogonal to correctness.</p>
+<p>The last mapper call that we override for our <code class="highlighter-rouge">AdversarialMapper</code> is
+the <code class="highlighter-rouge">report_profiling</code> method (lines 340-410). This method prints out
+the profiling information obtained from the task execution that was
+requested in <code class="highlighter-rouge">map_task</code>.</p>
 
 <h4 id="handling-tunable-variables">Handling Tunable Variables</h4>
 
 <p>When writing tasks, there are often many cases where
-variables depend on the underlying nature of the 
+variables depend on the underlying nature of the
 machine. In Legion we refer to these variables as
-<em>tunable variables</em> because they often need
-to be specifically tuned to different architectures.
+<em>tunable</em> because they often need
+to be specifically tuned for different architectures.
 Since these variables are machine dependent and likely
 to affect performance, we prefer to make these variables
 explicit. To do this we provide a separate mapping call
-<code class="highlighter-rouge">get_tunable_value</code> to explicitly request that the
+<code class="highlighter-rouge">select_tunable_value</code> to explicitly request that the
 mapper pick the value for this variable. We override
-this call in our <code class="highlighter-rouge">PartitioningMapper</code> on lines 30-32.</p>
+this call in our <code class="highlighter-rouge">PartitioningMapper</code> on lines 410-430.</p>
 
 <p>We make a slight modification to our DAXPY code to
-make the number of sub-regions to create a tunable 
-variable so that the mapper can pick a value based 
+make the number of sub-regions to create a tunable
+variable so that the mapper can pick a value based
 on the number of processors on the target machine. Note that the
-<code class="highlighter-rouge">top_level_task</code> explicitly invokes the <code class="highlighter-rouge">get_tunable_value</code>
-to find the number of sub-regions to create (see
-the code sample below). When this call is made, we
+<code class="highlighter-rouge">top_level_task</code> explicitly invokes the <code class="highlighter-rouge">select_tunable_value</code>
+to find the number of sub-regions to create. (Instead of showing the
+full example again, we show only the relevant snippet below.) When
+this call is made, we
 pass the <code class="highlighter-rouge">PARTITIONING_MAPPER_ID</code> as the value to the
 <code class="highlighter-rouge">MapperID</code> field, indicating that an instance of
-our <code class="highlighter-rouge">PartitioningMapper</code> should be used to handle 
+our <code class="highlighter-rouge">PartitioningMapper</code> should be used to handle
 the request and not an instance of the <code class="highlighter-rouge">AdversarialMapper</code>.
 When we make the call we also pass in a <code class="highlighter-rouge">TunableID</code>
 which is used to identify the name of the tunable
-variable that should be set. This value can by
-static or dynamic, so long as the mapper that it
-is being sent to knows how to determine it. In
+variable that should be set. The <code class="highlighter-rouge">TunableID</code>
+can be arbitrary, so long as the mapper that it
+is being sent to knows what to do with it. In
 this case we pass <code class="highlighter-rouge">SUBREGION_TUNABLE</code> as the
-integer name for tunable variable. On lines
-251-264 we can see the implementation of the
-<code class="highlighter-rouge">get_tunable_value</code> method for the <code class="highlighter-rouge">PartitioningMapper</code>.
-We see that this mapper class knows how handle
-queries for values of the <code class="highlighter-rouge">SUBREGION_TUNABLE</code>
-tunable variable only. The <code class="highlighter-rouge">PartitioningMapper</code>
+integer name for tunable variable. The <code class="highlighter-rouge">PartitioningMapper</code>
 instance looks up the total number of processors
-in the machine and specifies that as the number
+in the machine and returns that as the number
 of sub-regions to create.</p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">num_subregions</span> <span class="o">=</span> 
-        <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_tunable_value</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">SUBREGION_TUNABLE</span><span class="p">,</span> 
-                                   <span class="n">PARTITIONING_MAPPER_ID</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">num_subregions</span> <span class="o">=</span>
+        <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">get_tunable_value</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">SUBREGION_TUNABLE</span><span class="p">,</span>
+                                   <span class="n">PARTITIONING_MAPPER_ID</span><span class="p">).</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">();</span></code></pre></figure>
 
-<p>For the moment tunable variables must be unsigned
-integers, but this is primarily a side effect of
-C++ not supporting templated virtual methods.
-If users have compelling examples of code that
-needs other types of tunable variables then 
-please let us know.</p>
+<p>Tunable variables are returned as a future, so if the application code
+needs to use the result it must call <code class="highlighter-rouge">get_result&lt;T&gt;</code> to get the value.</p>
 
 <h4 id="what-next">What Next?</h4>
 
 <p>Congratulations! You’ve reached the end of the
 Legion tutorial as it currently exists. There
-are many features already implemented in Legion 
+are many features already implemented in Legion
 which are not covered by this tutorial including:</p>
 
 <ul>
   <li>reduction operations, reduction privileges,
 and reduction instances</li>
-  <li>high performance region accessors</li>
+  <li>special accessors to obtain raw pointers and strides from physical instances</li>
   <li>runtime debugging modes and flags</li>
   <li>runtime performance tuning knobs</li>
   <li>unmapping and remapping optimizations</li>
   <li>explicit cross-region copy operations</li>
   <li>additional mapping calls and settings</li>
   <li>close operations and composite instances (pending)</li>
-  <li>mapper profiling tools</li>
+  <li>profiling and debugging tools</li>
   <li>relaxed coherence modes</li>
   <li>acquire and release operations for simultaneous coherence</li>
   <li>reservations and phase barriers for synchronization
@@ -556,9 +516,9 @@ in a deferred execution model</li>
 <p>If you are interested in learning more about how to
 use these features of Legion or you have questions
 regarding how to use them, please post to the
-<a href="http://legion.stanford.edu/forum">discussion board</a>.
-<br /><br />
-Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
+<a href="http://legion.stanford.edu/resources">mailing list</a>.</p>
+
+<p>Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
@@ -842,9 +802,207 @@ Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
 280
 281
 282
-</pre></td><td class="code"><pre><span class="cp">#include "legion.h"
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+#include &lt;cassert&gt;
+#include &lt;cstdlib&gt;
+#include "legion.h"
+</span>
+<span class="cp">#include "test_mapper.h"
 #include "default_mapper.h"
 </span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="o">::</span><span class="n">Mapping</span><span class="p">;</span>
+
 <span class="k">enum</span> <span class="p">{</span>
   <span class="n">SUBREGION_TUNABLE</span><span class="p">,</span>
 <span class="p">};</span>
@@ -853,30 +1011,39 @@ Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
   <span class="n">PARTITIONING_MAPPER_ID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">};</span>
 
-
-<span class="k">class</span> <span class="nc">AdversarialMapper</span> <span class="o">:</span> <span class="k">public</span> <span class="n">DefaultMapper</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">AdversarialMapper</span> <span class="o">:</span> <span class="k">public</span> <span class="n">TestMapper</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">AdversarialMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="o">*</span><span class="n">machine</span><span class="p">,</span> 
-      <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">local</span><span class="p">);</span>
+  <span class="n">AdversarialMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="n">machine</span><span class="p">,</span>
+      <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">local</span><span class="p">);</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">select_task_options</span><span class="p">(</span><span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">);</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">slice_domain</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span> <span class="k">const</span> <span class="n">Domain</span> <span class="o">&amp;</span><span class="n">domain</span><span class="p">,</span>
-                            <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DomainSplit</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">slices</span><span class="p">);</span>
-  <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">map_task</span><span class="p">(</span><span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">);</span> 
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">notify_mapping_result</span><span class="p">(</span><span class="k">const</span> <span class="n">Mappable</span> <span class="o">*</span><span class="n">mappable</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">select_task_options</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span>    <span class="n">ctx</span><span class="p">,</span>
+				   <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>            <span class="n">task</span><span class="p">,</span>
+				         <span class="n">TaskOptions</span><span class="o">&amp;</span>     <span class="n">output</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">slice_task</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span> <span class="n">task</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">SliceTaskInput</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span>
+                                <span class="n">SliceTaskOutput</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">map_task</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span> <span class="n">task</span><span class="p">,</span>
+                        <span class="k">const</span> <span class="n">MapTaskInput</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span>
+                              <span class="n">MapTaskOutput</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">report_profiling</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span>      <span class="n">ctx</span><span class="p">,</span>
+				<span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>              <span class="n">task</span><span class="p">,</span>
+				<span class="k">const</span> <span class="n">TaskProfilingInfo</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">PartitioningMapper</span> <span class="o">:</span> <span class="k">public</span> <span class="n">DefaultMapper</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">PartitioningMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="o">*</span><span class="n">machine</span><span class="p">,</span>
-      <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">local</span><span class="p">);</span>
+  <span class="n">PartitioningMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="n">machine</span><span class="p">,</span>
+      <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">local</span><span class="p">);</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">virtual</span> <span class="kt">int</span> <span class="n">get_tunable_value</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
-                                <span class="n">TunableID</span> <span class="n">tid</span><span class="p">,</span>
-                                <span class="n">MappingTagID</span> <span class="n">tag</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">select_tunable_value</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span> <span class="n">task</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="n">SelectTunableInput</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span>
+                                          <span class="n">SelectTunableOutput</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">mapper_registration</span><span class="p">(</span><span class="n">Machine</span> <span class="o">*</span><span class="n">machine</span><span class="p">,</span> <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span>
+<span class="kt">void</span> <span class="nf">mapper_registration</span><span class="p">(</span><span class="n">Machine</span> <span class="n">machine</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span>
                           <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">local_procs</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">local_procs</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
         <span class="n">it</span> <span class="o">!=</span> <span class="n">local_procs</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span>
@@ -888,75 +1055,81 @@ Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">AdversarialMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="o">*</span><span class="n">m</span><span class="p">,</span> 
-                                     <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">p</span><span class="p">)</span>
-  <span class="o">:</span> <span class="n">DefaultMapper</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">rt</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1">// pass arguments through to DefaultMapper
-</span><span class="p">{</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">all_procs</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_all_processors</span><span class="p">();</span>
-  <span class="k">if</span> <span class="p">((</span><span class="o">*</span><span class="p">(</span><span class="n">all_procs</span><span class="p">.</span><span class="n">begin</span><span class="p">()))</span> <span class="o">==</span> <span class="n">local_proc</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"There are %ld processors:</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">all_procs</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">AdversarialMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="n">m</span><span class="p">,</span>
+                                     <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">p</span><span class="p">)</span>
+  <span class="o">:</span> <span class="n">TestMapper</span><span class="p">(</span><span class="n">rt</span><span class="o">-&gt;</span><span class="n">get_mapper_runtime</span><span class="p">(),</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="n">all_procs</span><span class="p">;</span>
+  <span class="n">machine</span><span class="p">.</span><span class="n">get_all_processors</span><span class="p">(</span><span class="n">all_procs</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">all_procs</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">id</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">local_proc</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"There are %zd processors:</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">all_procs</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">all_procs</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-          <span class="n">it</span> <span class="o">!=</span> <span class="n">all_procs</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="c1">// For every processor there is an associated kind
-</span>      <span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_processor_kind</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">);</span>
+          <span class="n">it</span> <span class="o">!=</span> <span class="n">all_procs</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">();</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Latency-optimized cores (LOCs) are CPUs
 </span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">LOC_PROC</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID %x is CPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span> 
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is CPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Throughput-optimized cores (TOCs) are GPUs
 </span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">TOC_PROC</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID %x is GPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is GPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="c1">// Processor for doing I/O
+</span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">IO_PROC</span><span class="o">:</span>
+          <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is I/O Proc</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Utility processors are helper processors for
-</span>        <span class="c1">// running Legion runtime meta-level tasks and 
+</span>        <span class="c1">// running Legion runtime meta-level tasks and
 </span>        <span class="c1">// should not be used for running application tasks
 </span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">UTIL_PROC</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID %x is utility</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is utility</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="k">default</span><span class="o">:</span>
           <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">all_mems</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_all_memories</span><span class="p">();</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"There are %ld memories:</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">all_mems</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;</span> <span class="n">all_mems</span><span class="p">;</span>
+    <span class="n">machine</span><span class="p">.</span><span class="n">get_all_memories</span><span class="p">(</span><span class="n">all_mems</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"There are %zd memories:</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">all_mems</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">all_mems</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
           <span class="n">it</span> <span class="o">!=</span> <span class="n">all_mems</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">Memory</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_memory_kind</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">);</span>
-      <span class="kt">size_t</span> <span class="n">memory_size_in_kb</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_memory_size</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="n">Memory</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">();</span>
+      <span class="kt">size_t</span> <span class="n">memory_size_in_kb</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">10</span><span class="p">;</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// RDMA addressable memory when running with GASNet
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GLOBAL_MEM</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  GASNet Global Memory ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> 
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  GASNet Global Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// DRAM on a single node
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SYSTEM_MEM</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  System Memory ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  System Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Pinned memory on a single node
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">REGDMA_MEM</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Pinned Memory ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Pinned Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// A memory associated with a single socket
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SOCKET_MEM</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Socket Memory ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Socket Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
@@ -964,35 +1137,56 @@ Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
 </span>        <span class="c1">// all GPUs on a single node
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">Z_COPY_MEM</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Zero-Copy Memory ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Zero-Copy Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// GPU framebuffer memory for a single GPU
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GPU_FB_MEM</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  GPU Frame Buffer Memory ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  GPU Frame Buffer Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+                    <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="c1">// Disk memory on a single node
+</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">DISK_MEM</span><span class="o">:</span>
+          <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Disk Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+                    <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="c1">// HDF framebuffer memory for a single GPU
+</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">HDF_MEM</span><span class="o">:</span>
+          <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  HDF Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+                    <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="c1">// File memory on a single node
+</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">FILE_MEM</span><span class="o">:</span>
+          <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  File Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Block of memory sized for L3 cache
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL3_CACHE</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 3 Cache ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 3 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Block of memory sized for L2 cache
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL2_CACHE</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 2 Cache ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 2 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Block of memory sized for L1 cache
 </span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL1_CACHE</span><span class="o">:</span>
           <span class="p">{</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 1 Cache ID %x has %ld KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 1 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
@@ -1001,128 +1195,274 @@ Previous Example: <a href="/tutorial/multiple.html">Multiple Partitions</a></p>
       <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;</span> <span class="n">vis_mems</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_visible_memories</span><span class="p">(</span><span class="n">local_proc</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"There are %ld memories visible from processor %x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;</span> <span class="n">vis_mems</span><span class="p">;</span>
+    <span class="n">machine</span><span class="p">.</span><span class="n">get_visible_memories</span><span class="p">(</span><span class="n">local_proc</span><span class="p">,</span> <span class="n">vis_mems</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"There are %zd memories visible from processor "</span> <span class="n">IDFMT</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
             <span class="n">vis_mems</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">local_proc</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">vis_mems</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
           <span class="n">it</span> <span class="o">!=</span> <span class="n">vis_mems</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ProcessorMemoryAffinity</span><span class="o">&gt;</span> <span class="n">affinities</span><span class="p">;</span>
-      <span class="kt">int</span> <span class="n">results</span> <span class="o">=</span> 
-        <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_proc_mem_affinity</span><span class="p">(</span><span class="n">affinities</span><span class="p">,</span> <span class="n">local_proc</span><span class="p">,</span> <span class="o">*</span><span class="n">it</span><span class="p">);</span>
+      <span class="kt">int</span> <span class="n">results</span> <span class="o">=</span>
+        <span class="n">machine</span><span class="p">.</span><span class="n">get_proc_mem_affinity</span><span class="p">(</span><span class="n">affinities</span><span class="p">,</span> <span class="n">local_proc</span><span class="p">,</span> <span class="o">*</span><span class="n">it</span><span class="p">);</span>
       <span class="n">assert</span><span class="p">(</span><span class="n">results</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">"  Memory %x has bandwidth %d and latency %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"  Memory "</span> <span class="n">IDFMT</span> <span class="s">" has bandwidth %d and latency %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
               <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">affinities</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">bandwidth</span><span class="p">,</span> <span class="n">affinities</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">latency</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">select_task_options</span><span class="p">(</span><span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">task</span><span class="o">-&gt;</span><span class="n">inline_task</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="n">task</span><span class="o">-&gt;</span><span class="n">spawn_task</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="n">task</span><span class="o">-&gt;</span><span class="n">map_locally</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="n">task</span><span class="o">-&gt;</span><span class="n">profile_task</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-  <span class="n">task</span><span class="o">-&gt;</span><span class="n">task_priority</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">all_procs</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_all_processors</span><span class="p">();</span>
-  <span class="n">task</span><span class="o">-&gt;</span><span class="n">target_proc</span> <span class="o">=</span> 
-    <span class="n">DefaultMapper</span><span class="o">::</span><span class="n">select_random_processor</span><span class="p">(</span><span class="n">all_procs</span><span class="p">,</span> <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="n">machine</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">select_task_options</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span>
+                                            <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span> <span class="n">task</span><span class="p">,</span>
+                                                  <span class="n">TaskOptions</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">inline_task</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">stealable</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">map_locally</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">select_random_processor_kind</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">task_id</span><span class="p">);</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">initial_proc</span> <span class="o">=</span> <span class="n">select_random_processor</span><span class="p">(</span><span class="n">kind</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">slice_domain</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span> <span class="k">const</span> <span class="n">Domain</span> <span class="o">&amp;</span><span class="n">domain</span><span class="p">,</span>
-                                     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DomainSplit</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">slices</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">all_procs</span> <span class="o">=</span> <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_all_processors</span><span class="p">();</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="n">split_set</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">split_set</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">DefaultMapper</span><span class="o">::</span><span class="n">select_random_processor</span><span class="p">(</span>
-                        <span class="n">all_procs</span><span class="p">,</span> <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="n">machine</span><span class="p">));</span>
+<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">slice_task</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span>      <span class="n">ctx</span><span class="p">,</span>
+                                   <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>              <span class="n">task</span><span class="p">,</span>
+                                   <span class="k">const</span> <span class="n">SliceTaskInput</span><span class="o">&amp;</span>    <span class="n">input</span><span class="p">,</span>
+                                         <span class="n">SliceTaskOutput</span><span class="o">&amp;</span>   <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Iterate over all the points and send them all over the world
+</span>  <span class="n">output</span><span class="p">.</span><span class="n">slices</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">get_volume</span><span class="p">());</span>
+  <span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">get_dim</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="p">{</span>
+        <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">();</span> <span class="n">pir</span><span class="o">++</span><span class="p">,</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">slice</span><span class="p">(</span><span class="o">*</span><span class="n">pir</span><span class="p">,</span> <span class="o">*</span><span class="n">pir</span><span class="p">);</span>
+          <span class="n">output</span><span class="p">.</span><span class="n">slices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">TaskSlice</span><span class="p">(</span><span class="n">slice</span><span class="p">,</span>
+              <span class="n">select_random_processor</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">.</span><span class="n">kind</span><span class="p">()),</span>
+              <span class="nb">false</span><span class="cm">/*recurse*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*stealable*/</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+      <span class="p">{</span>
+        <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">();</span> <span class="n">pir</span><span class="o">++</span><span class="p">,</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">slice</span><span class="p">(</span><span class="o">*</span><span class="n">pir</span><span class="p">,</span> <span class="o">*</span><span class="n">pir</span><span class="p">);</span>
+          <span class="n">output</span><span class="p">.</span><span class="n">slices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">TaskSlice</span><span class="p">(</span><span class="n">slice</span><span class="p">,</span>
+              <span class="n">select_random_processor</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">.</span><span class="n">kind</span><span class="p">()),</span>
+              <span class="nb">false</span><span class="cm">/*recurse*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*stealable*/</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+      <span class="p">{</span>
+        <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">pir</span><span class="p">(</span><span class="n">rect</span><span class="p">);</span> <span class="n">pir</span><span class="p">();</span> <span class="n">pir</span><span class="o">++</span><span class="p">,</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">slice</span><span class="p">(</span><span class="o">*</span><span class="n">pir</span><span class="p">,</span> <span class="o">*</span><span class="n">pir</span><span class="p">);</span>
+          <span class="n">output</span><span class="p">.</span><span class="n">slices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">TaskSlice</span><span class="p">(</span><span class="n">slice</span><span class="p">,</span>
+              <span class="n">select_random_processor</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">.</span><span class="n">kind</span><span class="p">()),</span>
+              <span class="nb">false</span><span class="cm">/*recurse*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*stealable*/</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
   <span class="p">}</span>
+<span class="p">}</span>
 
-  <span class="n">DefaultMapper</span><span class="o">::</span><span class="n">decompose_index_space</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">split_set</span><span class="p">,</span> 
-                                        <span class="mi">1</span><span class="cm">/*splitting factor*/</span><span class="p">,</span> <span class="n">slices</span><span class="p">);</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">DomainSplit</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">slices</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-        <span class="n">it</span> <span class="o">!=</span> <span class="n">slices</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">Rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">domain</span><span class="p">.</span><span class="n">get_rect</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">volume</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-      <span class="n">it</span><span class="o">-&gt;</span><span class="n">recurse</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">map_task</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span>         <span class="n">ctx</span><span class="p">,</span>
+                                 <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>                 <span class="n">task</span><span class="p">,</span>
+                                 <span class="k">const</span> <span class="n">MapTaskInput</span><span class="o">&amp;</span>         <span class="n">input</span><span class="p">,</span>
+                                       <span class="n">MapTaskOutput</span><span class="o">&amp;</span>        <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">VariantID</span><span class="p">,</span><span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">variant_kinds</span> <span class="o">=</span>
+    <span class="n">find_task_variants</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">task_id</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">VariantID</span><span class="o">&gt;</span> <span class="n">variants</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">VariantID</span><span class="p">,</span><span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span>
+        <span class="n">variant_kinds</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">variant_kinds</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">.</span><span class="n">kind</span><span class="p">()</span> <span class="o">==</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">)</span>
+      <span class="n">variants</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">variants</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">variants</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">chosen</span> <span class="o">=</span> <span class="n">default_generate_random_integer</span><span class="p">()</span> <span class="o">%</span> <span class="n">variants</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">chosen_variant</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="n">chosen</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">chosen_variant</span> <span class="o">=</span> <span class="n">variants</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">target_procs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">premapped</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="nb">false</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">input</span><span class="p">.</span><span class="n">premapped_regions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="n">index</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">premapped_regions</span><span class="p">[</span><span class="n">idx</span><span class="p">];</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">chosen_instances</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">valid_instances</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+    <span class="n">premapped</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">const</span> <span class="n">TaskLayoutConstraintSet</span> <span class="o">&amp;</span><span class="n">layout_constraints</span> <span class="o">=</span>
+    <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">find_task_layout_constraints</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">task_id</span><span class="p">,</span>
+                                          <span class="n">output</span><span class="p">.</span><span class="n">chosen_variant</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">task</span><span class="p">.</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">premapped</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">is_restricted</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">output</span><span class="p">.</span><span class="n">chosen_instances</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">valid_instances</span><span class="p">[</span><span class="n">idx</span><span class="p">];</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">layout_constraints</span><span class="p">.</span><span class="n">layouts</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="o">!=</span>
+          <span class="n">layout_constraints</span><span class="p">.</span><span class="n">layouts</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">LayoutConstraintID</span><span class="o">&gt;</span> <span class="n">constraints</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">multimap</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="p">,</span><span class="n">LayoutConstraintID</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span>
+            <span class="n">layout_constraints</span><span class="p">.</span><span class="n">layouts</span><span class="p">.</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span> <span class="n">it</span> <span class="o">!=</span>
+            <span class="n">layout_constraints</span><span class="p">.</span><span class="n">layouts</span><span class="p">.</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">constraints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">);</span>
+      <span class="n">map_constrained_requirement</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">TASK_MAPPING</span><span class="p">,</span>
+          <span class="n">constraints</span><span class="p">,</span> <span class="n">output</span><span class="p">.</span><span class="n">chosen_instances</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">);</span>
+    <span class="p">}</span>
     <span class="k">else</span>
-      <span class="n">it</span><span class="o">-&gt;</span><span class="n">recurse</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="n">map_random_requirement</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                             <span class="n">output</span><span class="p">.</span><span class="n">chosen_instances</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                             <span class="n">task</span><span class="p">.</span><span class="n">target_proc</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">task_priority</span> <span class="o">=</span> <span class="n">default_generate_random_integer</span><span class="p">();</span>
 
-<span class="kt">bool</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">map_task</span><span class="p">(</span><span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">)</span> <span class="p">{</span> 
-  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">vis_mems</span> <span class="o">=</span> 
-      <span class="n">machine</span><span class="o">-&gt;</span><span class="n">get_visible_memories</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">target_proc</span><span class="p">);</span>  
-  <span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">vis_mems</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">regionssize</span><span class="p">();</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;</span> <span class="n">mems_copy</span> <span class="o">=</span> <span class="n">vis_mems</span><span class="p">;</span>  
-    <span class="c1">// Assign memories in a random order
-</span>    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">mems_copy</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-      <span class="kt">unsigned</span> <span class="n">mem_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">lrand48</span><span class="p">()</span> <span class="o">%</span> <span class="n">mems_copy</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Memory</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">mems_copy</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
-      <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">mem_idx</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">it</span><span class="o">++</span><span class="p">;</span>
-      <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">target_ranking</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">);</span>
-      <span class="n">mems_copy</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">virtual_map</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">enable_WAR_optimization</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">reduction_list</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">blocking_factor</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="c1">// Report successful mapping results
-</span>  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">notify_mapping_result</span><span class="p">(</span><span class="k">const</span> <span class="n">Mappable</span> <span class="o">*</span><span class="n">mappable</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">mappable</span><span class="o">-&gt;</span><span class="n">get_mappable_kind</span><span class="p">()</span> <span class="o">==</span> <span class="n">Mappable</span><span class="o">::</span><span class="n">TASK_MAPPABLE</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="n">mappable</span><span class="o">-&gt;</span><span class="n">as_mappable_task</span><span class="p">();</span>
-    <span class="n">assert</span><span class="p">(</span><span class="n">task</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">idx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">"Mapped region %d of task %s (ID %lld) to memory %x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
-              <span class="n">idx</span><span class="p">,</span> <span class="n">task</span><span class="o">-&gt;</span><span class="n">variants</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> 
-              <span class="n">task</span><span class="o">-&gt;</span><span class="n">get_unique_task_id</span><span class="p">(),</span>
-              <span class="n">task</span><span class="o">-&gt;</span><span class="n">regions</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">selected_memory</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">PartitioningMapper</span><span class="o">::</span><span class="n">PartitioningMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="o">*</span><span class="n">m</span><span class="p">,</span>
-                                       <span class="n">HighLevelRuntime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span>
-                                       <span class="n">Processor</span> <span class="n">p</span><span class="p">)</span>
-  <span class="o">:</span> <span class="n">DefaultMapper</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">rt</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">PartitioningMapper</span><span class="o">::</span><span class="n">get_tunable_value</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
-                                          <span class="n">TunableID</span> <span class="n">tid</span><span class="p">,</span>
-                                          <span class="n">MappingTagID</span> <span class="n">tag</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">tid</span> <span class="o">==</span> <span class="n">SUBREGION_TUNABLE</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">cpu_procs</span> <span class="o">=</span> 
-      <span class="n">machine_interface</span><span class="p">.</span><span class="n">filter_processors</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">cpu_procs</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">ProfilingMeasurements</span><span class="p">;</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">task_prof_requests</span><span class="p">.</span><span class="n">add_measurement</span><span class="o">&lt;</span><span class="n">OperationStatus</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">task_prof_requests</span><span class="p">.</span><span class="n">add_measurement</span><span class="o">&lt;</span><span class="n">OperationTimeline</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n">output</span><span class="p">.</span><span class="n">task_prof_requests</span><span class="p">.</span><span class="n">add_measurement</span><span class="o">&lt;</span><span class="n">RuntimeOverhead</span><span class="o">&gt;</span><span class="p">();</span>
   <span class="p">}</span>
-  <span class="c1">// Should never get here
-</span>  <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">AdversarialMapper</span><span class="o">::</span><span class="n">report_profiling</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span>      <span class="n">ctx</span><span class="p">,</span>
+					 <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>              <span class="n">task</span><span class="p">,</span>
+					 <span class="k">const</span> <span class="n">TaskProfilingInfo</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="k">namespace</span> <span class="n">ProfilingMeasurements</span><span class="p">;</span>
+
+  <span class="n">OperationStatus</span> <span class="o">*</span><span class="n">status</span> <span class="o">=</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">profiling_responses</span><span class="p">.</span><span class="n">get_measurement</span><span class="o">&lt;</span><span class="n">OperationStatus</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">COMPLETED_SUCCESSFULLY</span><span class="o">:</span>
+        <span class="p">{</span>
+          <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s COMPLETED SUCCESSFULLY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">COMPLETED_WITH_ERRORS</span><span class="o">:</span>
+        <span class="p">{</span>
+          <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s COMPLETED WITH ERRORS</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">INTERRUPT_REQUESTED</span><span class="o">:</span>
+        <span class="p">{</span>
+          <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s was INTERRUPTED</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">TERMINATED_EARLY</span><span class="o">:</span>
+        <span class="p">{</span>
+          <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s TERMINATED EARLY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">CANCELLED</span><span class="o">:</span>
+        <span class="p">{</span>
+          <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s was CANCELLED</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="k">default</span><span class="o">:</span>
+        <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// shouldn't get any of the rest currently
+</span>    <span class="p">}</span>
+    <span class="k">delete</span> <span class="n">status</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No operation status for task %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+
+  <span class="n">OperationTimeline</span> <span class="o">*</span><span class="n">timeline</span> <span class="o">=</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">profiling_responses</span><span class="p">.</span><span class="n">get_measurement</span><span class="o">&lt;</span><span class="n">OperationTimeline</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">timeline</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Operation timeline for task %s: ready=%lld start=%lld stop=%lld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+	   <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">(),</span>
+	   <span class="n">timeline</span><span class="o">-&gt;</span><span class="n">ready_time</span><span class="p">,</span>
+	   <span class="n">timeline</span><span class="o">-&gt;</span><span class="n">start_time</span><span class="p">,</span>
+	   <span class="n">timeline</span><span class="o">-&gt;</span><span class="n">end_time</span><span class="p">);</span>
+    <span class="k">delete</span> <span class="n">timeline</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No operation timeline for task %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+
+  <span class="n">RuntimeOverhead</span> <span class="o">*</span><span class="n">overhead</span> <span class="o">=</span>
+    <span class="n">input</span><span class="p">.</span><span class="n">profiling_responses</span><span class="p">.</span><span class="n">get_measurement</span><span class="o">&lt;</span><span class="n">RuntimeOverhead</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">overhead</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="n">overhead</span><span class="o">-&gt;</span><span class="n">application_time</span> <span class="o">+</span>
+		       <span class="n">overhead</span><span class="o">-&gt;</span><span class="n">runtime_time</span> <span class="o">+</span>
+		       <span class="n">overhead</span><span class="o">-&gt;</span><span class="n">wait_time</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">total</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Runtime overhead for task %s: runtime=%.1f%% wait=%.1f%%</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+	   <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">(),</span>
+	   <span class="p">(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">overhead</span><span class="o">-&gt;</span><span class="n">runtime_time</span> <span class="o">/</span> <span class="n">total</span><span class="p">),</span>
+	   <span class="p">(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">overhead</span><span class="o">-&gt;</span><span class="n">wait_time</span> <span class="o">/</span> <span class="n">total</span><span class="p">));</span>
+    <span class="k">delete</span> <span class="n">overhead</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No runtime overhead data for task %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">PartitioningMapper</span><span class="o">::</span><span class="n">PartitioningMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="n">m</span><span class="p">,</span>
+                                       <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span>
+                                       <span class="n">Processor</span> <span class="n">p</span><span class="p">)</span>
+  <span class="o">:</span> <span class="n">DefaultMapper</span><span class="p">(</span><span class="n">rt</span><span class="o">-&gt;</span><span class="n">get_mapper_runtime</span><span class="p">(),</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">PartitioningMapper</span><span class="o">::</span><span class="n">select_tunable_value</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span>
+                                              <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span> <span class="n">task</span><span class="p">,</span>
+                                              <span class="k">const</span> <span class="n">SelectTunableInput</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span>
+                                                    <span class="n">SelectTunableOutput</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">tunable_id</span> <span class="o">==</span> <span class="n">SUBREGION_TUNABLE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Machine</span><span class="o">::</span><span class="n">ProcessorQuery</span> <span class="n">all_procs</span><span class="p">(</span><span class="n">machine</span><span class="p">);</span>
+    <span class="n">all_procs</span><span class="p">.</span><span class="n">only_kind</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">);</span>
+    <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">pack_tunable</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">all_procs</span><span class="p">.</span><span class="n">count</span><span class="p">(),</span> <span class="n">output</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+ * Everything below here except main is the standard daxpy example and
+ * is elided for brevity....
+ */</span>
 
 <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">false</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">init_field_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">daxpy_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">DAXPY_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
-  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">register_legion_task</span><span class="o">&lt;</span><span class="n">check_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CHECK_TASK_ID</span><span class="p">,</span>
-      <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*single*/</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*index*/</span><span class="p">);</span>
+  <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
-  <span class="c1">// Here is where we register the callback function for 
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span> <span class="s">"top_level"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">top_level_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"top_level"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">INIT_FIELD_TASK_ID</span><span class="p">,</span> <span class="s">"init_field"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">();</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">init_field_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"init_field"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">DAXPY_TASK_ID</span><span class="p">,</span> <span class="s">"daxpy"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">();</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">daxpy_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"daxpy"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="n">TaskVariantRegistrar</span> <span class="n">registrar</span><span class="p">(</span><span class="n">CHECK_TASK_ID</span><span class="p">,</span> <span class="s">"check"</span><span class="p">);</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">add_constraint</span><span class="p">(</span><span class="n">ProcessorConstraint</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">));</span>
+    <span class="n">registrar</span><span class="p">.</span><span class="n">set_leaf</span><span class="p">();</span>
+    <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">check_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"check"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Here is where we register the callback function for
 </span>  <span class="c1">// creating custom mappers.
-</span>  <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">set_registration_callback</span><span class="p">(</span><span class="n">mapper_registration</span><span class="p">);</span>
+</span>  <span class="n">Runtime</span><span class="o">::</span><span class="n">add_registration_callback</span><span class="p">(</span><span class="n">mapper_registration</span><span class="p">);</span>
 
-  <span class="k">return</span> <span class="n">HighLevelRuntime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
 <span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]]
+  ['legion_20runtime_20documentation',['Legion Runtime Documentation',['../index.html',1,'']]]
 ];

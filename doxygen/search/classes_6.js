@@ -1,8 +1,10 @@
 var searchData=
 [
   ['layoutconstraintregistrar',['LayoutConstraintRegistrar',['../struct_legion_1_1_layout_constraint_registrar.html',1,'Legion']]],
+  ['legion_5fdomain_5faffine_5ftransform_5ft',['legion_domain_affine_transform_t',['../structlegion__domain__affine__transform__t.html',1,'']]],
   ['legion_5fdomain_5fpoint_5ft',['legion_domain_point_t',['../structlegion__domain__point__t.html',1,'']]],
   ['legion_5fdomain_5ft',['legion_domain_t',['../structlegion__domain__t.html',1,'']]],
+  ['legion_5fdomain_5ftransform_5ft',['legion_domain_transform_t',['../structlegion__domain__transform__t.html',1,'']]],
   ['legion_5fdynamic_5fcollective_5ft',['legion_dynamic_collective_t',['../structlegion__dynamic__collective__t.html',1,'']]],
   ['legion_5ffield_5fspace_5ft',['legion_field_space_t',['../structlegion__field__space__t.html',1,'']]],
   ['legion_5findex_5fpartition_5ft',['legion_index_partition_t',['../structlegion__index__partition__t.html',1,'']]],

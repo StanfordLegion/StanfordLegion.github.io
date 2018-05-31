@@ -116,6 +116,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_src_field</b> (un
 <tr class="memitem:a4f4365c907c09842559ad0400d2f9a08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f4365c907c09842559ad0400d2f9a08"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_dst_field</b> (unsigned idx, FieldID fid, bool inst=true)</td></tr>
 <tr class="separator:a4f4365c907c09842559ad0400d2f9a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b3a8defb56b4b9c770affd05ee2a86c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b3a8defb56b4b9c770affd05ee2a86c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_gather_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;gather_req, FieldID gather_fid, bool inst=true)</td></tr>
+<tr class="separator:a6b3a8defb56b4b9c770affd05ee2a86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5ceeac360605ddbd9f8d391b2df302"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd5ceeac360605ddbd9f8d391b2df302"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_scatter_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;scatter_req, FieldID scatter_fid, bool inst=true)</td></tr>
+<tr class="separator:abd5ceeac360605ddbd9f8d391b2df302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57115a4facf91acf9e75b39b02cd0468"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57115a4facf91acf9e75b39b02cd0468"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_grant</b> (<a class="el" href="class_legion_1_1_grant.html">Grant</a> g)</td></tr>
 <tr class="separator:a57115a4facf91acf9e75b39b02cd0468"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +146,12 @@ std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">R
 <tr class="memitem:a0ed690979075a32637d3ab35c16f2e8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ed690979075a32637d3ab35c16f2e8b"></a>
 std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dst_requirements</b></td></tr>
 <tr class="separator:a0ed690979075a32637d3ab35c16f2e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b2f196c7c2b6bf30463684c2902c9c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38b2f196c7c2b6bf30463684c2902c9c"></a>
+std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>gather_requirements</b></td></tr>
+<tr class="separator:a38b2f196c7c2b6bf30463684c2902c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca7956ec888ee0b6dae155d3e1a096d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ca7956ec888ee0b6dae155d3e1a096d"></a>
+std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>scatter_requirements</b></td></tr>
+<tr class="separator:a1ca7956ec888ee0b6dae155d3e1a096d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb1071f65295cb880343616712e552c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb1071f65295cb880343616712e552c6"></a>
 std::vector&lt; <a class="el" href="class_legion_1_1_grant.html">Grant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>grants</b></td></tr>
 <tr class="separator:adb1071f65295cb880343616712e552c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,12 +188,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>silence_warnings</b><
 <dd>
 <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> </dd></dl>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>legion/<a class="el" href="legion_8h_source.html">legion.h</a></li>
+<li><a class="el" href="legion_8h_source.html">legion.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 16 2017 11:27:34 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 31 2018 15:32:56 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -128,14 +128,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac9fb1f23b38022cb924fb5df0a529ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60129618f2c2d4c0045031d87bedf026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a60129618f2c2d4c0045031d87bedf026">destroy_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle)</td></tr>
 <tr class="separator:a60129618f2c2d4c0045031d87bedf026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplParams" colspan="2">template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aaa3f86bc2ebe41c8c31844b6b13e6ef5">create_partition_by_restriction</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COORD_T &gt; color_space, Transform&lt; DIM, COLOR_DIM, COORD_T &gt; transform, Rect&lt; DIM, COORD_T &gt; extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="memitem:ac6bc87a964db41d64ac3e3e497384975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac6bc87a964db41d64ac3e3e497384975">create_partition_by_restriction</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, DomainTransform transform, Domain extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:ac6bc87a964db41d64ac3e3e497384975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplParams" colspan="2"><a class="anchor" id="aaa3f86bc2ebe41c8c31844b6b13e6ef5"></a>
+template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </td></tr>
+<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_restriction</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COORD_T &gt; color_space, Transform&lt; DIM, COLOR_DIM, COORD_T &gt; transform, Rect&lt; DIM, COORD_T &gt; extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplParams" colspan="2">template&lt;int DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac380123f610874e4fcf506e6b6c9f66d">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, Point&lt; DIM, COORD_T &gt; blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="memitem:af89c276ffe6f5fe509c410679b1aec60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af89c276ffe6f5fe509c410679b1aec60">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, DomainPoint blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:af89c276ffe6f5fe509c410679b1aec60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac380123f610874e4fcf506e6b6c9f66d"></a>
+template&lt;int DIM, typename COORD_T &gt; </td></tr>
+<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_blockify</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, Point&lt; DIM, COORD_T &gt; blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:ac380123f610874e4fcf506e6b6c9f66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplParams" colspan="2">template&lt;int DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1631c638b858cd75da929a4f71ac2594">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, Point&lt; DIM, COORD_T &gt; blocking_factor, Point&lt; DIM, COORD_T &gt; origin, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="memitem:ac0c1751da10a0bc409e9665489204e89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac0c1751da10a0bc409e9665489204e89">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, DomainPoint blockify_factor, DomainPoint origin, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:ac0c1751da10a0bc409e9665489204e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1631c638b858cd75da929a4f71ac2594"></a>
+template&lt;int DIM, typename COORD_T &gt; </td></tr>
+<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_blockify</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, Point&lt; DIM, COORD_T &gt; blocking_factor, Point&lt; DIM, COORD_T &gt; origin, Color color=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:a1631c638b858cd75da929a4f71ac2594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memTemplParams" colspan="2">template&lt;unsigned DIM&gt; </td></tr>
 <tr class="memitem:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab69648bdfc893258e57b6d0e75cab8d4">get_index_subspace</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> p, LegionRuntime::Arrays::Point&lt; DIM &gt; color_point)</td></tr>
@@ -151,12 +160,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8dba2a6b42ec4a382d48c1358044435c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdbd1d027fcc040d66a3f7e3f46b32f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#afdbd1d027fcc040d66a3f7e3f46b32f0">destroy_field_space</a> (Context ctx, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> handle)</td></tr>
 <tr class="separator:afdbd1d027fcc040d66a3f7e3f46b32f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00b481d7e37f43ca176a45352dfb391f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a00b481d7e37f43ca176a45352dfb391f">create_logical_region</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> index, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> fields)</td></tr>
-<tr class="separator:a00b481d7e37f43ca176a45352dfb391f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49ebda3d55f33809c9f145cb917c57e1"><td class="memTemplParams" colspan="2"><a class="anchor" id="a49ebda3d55f33809c9f145cb917c57e1"></a>
+<tr class="memitem:a9331b028f0bef85b0a4c5af6ca87e712"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a9331b028f0bef85b0a4c5af6ca87e712">create_logical_region</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> index, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> fields, bool task_local=false)</td></tr>
+<tr class="separator:a9331b028f0bef85b0a4c5af6ca87e712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36cb2ba937e6b22354dcb3750622e549"><td class="memTemplParams" colspan="2"><a class="anchor" id="a36cb2ba937e6b22354dcb3750622e549"></a>
 template&lt;int DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:a49ebda3d55f33809c9f145cb917c57e1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_logical_region</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; index, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> fields)</td></tr>
-<tr class="separator:a49ebda3d55f33809c9f145cb917c57e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36cb2ba937e6b22354dcb3750622e549"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_logical_region</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; index, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> fields, bool task_local=false)</td></tr>
+<tr class="separator:a36cb2ba937e6b22354dcb3750622e549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a570eabf56c1ddc59ae63a374b465f4f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a570eabf56c1ddc59ae63a374b465f4f3">destroy_logical_region</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle)</td></tr>
 <tr class="separator:a570eabf56c1ddc59ae63a374b465f4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cd474b9a166cd37204f35438ace8dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4cd474b9a166cd37204f35438ace8dff">destroy_logical_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> handle)</td></tr>
@@ -211,8 +220,8 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a92453823db486b1a23ff6e1017da2bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf0b11fbbbd98d975ae1472ea1d25cec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abf0b11fbbbd98d975ae1472ea1d25cec">attach_external_resource</a> (Context ctx, const <a class="el" href="struct_legion_1_1_attach_launcher.html">AttachLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:abf0b11fbbbd98d975ae1472ea1d25cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc504b956a4499d28947cd511514f38b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#afc504b956a4499d28947cd511514f38b">detach_external_resource</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region)</td></tr>
-<tr class="separator:afc504b956a4499d28947cd511514f38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9d3ab3f568a1937c99013cf82b0897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6d9d3ab3f568a1937c99013cf82b0897">detach_external_resource</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region)</td></tr>
+<tr class="separator:a6d9d3ab3f568a1937c99013cf82b0897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c4e668957bff35c01d056b807d46002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4c4e668957bff35c01d056b807d46002">LEGION_DEPRECATED</a> (&quot;Attaching specific HDF5 file type is deprecated &quot;&quot;in favor of generic attach launcher interface.&quot;) PhysicalRegion attach_hdf5(Context ctx</td></tr>
 <tr class="separator:a4c4e668957bff35c01d056b807d46002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af360b72bd6f490e0115d0642e0a23c7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af360b72bd6f490e0115d0642e0a23c7e">LEGION_DEPRECATED</a> (&quot;Detaching specific HDF5 file type is deprecated &quot;&quot;in favor of generic detach interface.&quot;) void detach_hdf5(Context ctx</td></tr>
@@ -381,12 +390,16 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:ad899e01c313c6ef26865f873e9232887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a710dd7fbc03f776789c4b0ee538a50f9"><td class="memItemLeft" align="right" valign="top">MapperID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a710dd7fbc03f776789c4b0ee538a50f9">generate_dynamic_mapper_id</a> (void)</td></tr>
 <tr class="separator:a710dd7fbc03f776789c4b0ee538a50f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cfa9087b19781f3a645e7dba9d45557"><td class="memItemLeft" align="right" valign="top">MapperID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1cfa9087b19781f3a645e7dba9d45557">generate_library_mapper_ids</a> (const char *name, size_t count)</td></tr>
+<tr class="separator:a1cfa9087b19781f3a645e7dba9d45557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a099c2cb81609323acebc086f0da983ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a099c2cb81609323acebc086f0da983ee">add_mapper</a> (MapperID map_id, Mapping::Mapper *mapper, Processor proc=Processor::NO_PROC)</td></tr>
 <tr class="separator:a099c2cb81609323acebc086f0da983ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c7d346beb15757301ecd5bc51395361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6c7d346beb15757301ecd5bc51395361">replace_default_mapper</a> (Mapping::Mapper *mapper, Processor proc=Processor::NO_PROC)</td></tr>
 <tr class="separator:a6c7d346beb15757301ecd5bc51395361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff251c3730c6ef38345121889807c879"><td class="memItemLeft" align="right" valign="top">ProjectionID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aff251c3730c6ef38345121889807c879">generate_dynamic_projection_id</a> (void)</td></tr>
 <tr class="separator:aff251c3730c6ef38345121889807c879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8752180deb9b0547d2eaab51e78a45f"><td class="memItemLeft" align="right" valign="top">ProjectionID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa8752180deb9b0547d2eaab51e78a45f">generate_library_projection_ids</a> (const char *name, size_t count)</td></tr>
+<tr class="separator:aa8752180deb9b0547d2eaab51e78a45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a341d8d95e1bcc160f933014435f11b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a341d8d95e1bcc160f933014435f11b8e">register_projection_functor</a> (ProjectionID pid, <a class="el" href="class_legion_1_1_projection_functor.html">ProjectionFunctor</a> *functor)</td></tr>
 <tr class="separator:a341d8d95e1bcc160f933014435f11b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d51c845e4d52a338cb133a2392ca536"><td class="memTemplParams" colspan="2">template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </td></tr>
@@ -409,6 +422,8 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:ac365a5387d02cedee6a70d89d883f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a249a6a1cd0c1a87157a916681b0c6a21"><td class="memItemLeft" align="right" valign="top">TaskID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a249a6a1cd0c1a87157a916681b0c6a21">generate_dynamic_task_id</a> (void)</td></tr>
 <tr class="separator:a249a6a1cd0c1a87157a916681b0c6a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc9e3ca9a0efc36d04bc2bd7e2c8ae4"><td class="memItemLeft" align="right" valign="top">TaskID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8cc9e3ca9a0efc36d04bc2bd7e2c8ae4">generate_library_task_ids</a> (const char *name, size_t count)</td></tr>
+<tr class="separator:a8cc9e3ca9a0efc36d04bc2bd7e2c8ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97d283c5399d8871c844fa93998ded4a"><td class="memTemplParams" colspan="2">template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
 <tr class="memitem:a97d283c5399d8871c844fa93998ded4a"><td class="memTemplItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a97d283c5399d8871c844fa93998ded4a">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar)</td></tr>
 <tr class="separator:a97d283c5399d8871c844fa93998ded4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -423,10 +438,6 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:adc395905f650eb4eaca7f3c7639f77c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa92c53a34717328d74828a4fd2d29075"><td class="memItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa92c53a34717328d74828a4fd2d29075">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0)</td></tr>
 <tr class="separator:aa92c53a34717328d74828a4fd2d29075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a7064c6b9a9872b59f84a5b02e6cd92"><td class="memItemLeft" align="right" valign="top">GeneratorID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6a7064c6b9a9872b59f84a5b02e6cd92">generate_dynamic_generator_id</a> (void)</td></tr>
-<tr class="separator:a6a7064c6b9a9872b59f84a5b02e6cd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a844fca3d06cdd8aae789426285427382"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a844fca3d06cdd8aae789426285427382">register_task_generator</a> (const <a class="el" href="struct_legion_1_1_task_generator_registrar.html">TaskGeneratorRegistrar</a> &amp;registrar)</td></tr>
-<tr class="separator:a844fca3d06cdd8aae789426285427382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80c14a71347a05e9350bbd263df301c"><td class="memTemplParams" colspan="2">template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
 <tr class="memitem:ab80c14a71347a05e9350bbd263df301c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab80c14a71347a05e9350bbd263df301c">LEGION_DEPRECATED</a> (&quot;Task registration should be done with &quot;&quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;) static TaskID register_legion_task(TaskID id</td></tr>
 <tr class="separator:ab80c14a71347a05e9350bbd263df301c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1014,14 +1025,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1bdd1f8e20d43236c869fa7d40e17f02"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
 <tr class="memitem:a1bdd1f8e20d43236c869fa7d40e17f02"><td class="memTemplItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1bdd1f8e20d43236c869fa7d40e17f02">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const UDT &amp;user_data, const char *task_name=NULL, VariantID vid=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:a1bdd1f8e20d43236c869fa7d40e17f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9e3612c1f098c375ea06687198ad6d"><td class="memItemLeft" align="right" valign="top">static GeneratorID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0f9e3612c1f098c375ea06687198ad6d">generate_static_generator_id</a> (void)</td></tr>
-<tr class="separator:a0f9e3612c1f098c375ea06687198ad6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2414a43443899519c91aa0d86fa0d408"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a2414a43443899519c91aa0d86fa0d408">preregister_task_generator</a> (const <a class="el" href="struct_legion_1_1_task_generator_registrar.html">TaskGeneratorRegistrar</a> &amp;registrar)</td></tr>
-<tr class="separator:a2414a43443899519c91aa0d86fa0d408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67c0c4111ae0066e818fa61072c31ac8"><td class="memItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a67c0c4111ae0066e818fa61072c31ac8">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL)</td></tr>
 <tr class="separator:a67c0c4111ae0066e818fa61072c31ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75cae296df9a998053907a268f907c9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a75cae296df9a998053907a268f907c9e">legion_task_preamble</a> (const void *data, size_t datalen, Processor p, const <a class="el" href="class_legion_1_1_task.html">Task</a> *&amp;task, const std::vector&lt; <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &gt; *&amp;reg, Context &amp;ctx, <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&amp;runtime)</td></tr>
+<tr class="separator:a75cae296df9a998053907a268f907c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08905fb94d7112d3c632036a65f3a3fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a08905fb94d7112d3c632036a65f3a3fa">legion_task_postamble</a> (<a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *runtime, Context ctx, const void *retvalptr=NULL, size_t retvalsize=0)</td></tr>
+<tr class="separator:a08905fb94d7112d3c632036a65f3a3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ae746205378b10cd898824b719ee8a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a61ae746205378b10cd898824b719ee8a">get_runtime</a> (Processor p=Processor::NO_PROC)</td></tr>
 <tr class="separator:a61ae746205378b10cd898824b719ee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae1696024e39fb7afc5ed87797ad8ff"><td class="memItemLeft" align="right" valign="top">static Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">get_context</a> (void)</td></tr>
+<tr class="separator:a0ae1696024e39fb7afc5ed87797ad8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -3471,7 +3484,7 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a00b481d7e37f43ca176a45352dfb391f"></a>
+<a class="anchor" id="a9331b028f0bef85b0a4c5af6ca87e712"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3491,7 +3504,13 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a>&#160;</td>
-          <td class="paramname"><em>fields</em>&#160;</td>
+          <td class="paramname"><em>fields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>task_local</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3512,14 +3531,12 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac380123f610874e4fcf506e6b6c9f66d"></a>
+<a class="anchor" id="af89c276ffe6f5fe509c410679b1aec60"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int DIM, typename COORD_T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt;DIM,COORD_T&gt; Legion::Runtime::create_partition_by_blockify </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_partition_by_blockify </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -3527,13 +3544,13 @@ template&lt;int DIM, typename COORD_T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
           <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Point&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype">DomainPoint&#160;</td>
           <td class="paramname"><em>blocking_factor</em>, </td>
         </tr>
         <tr>
@@ -3562,14 +3579,12 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1631c638b858cd75da929a4f71ac2594"></a>
+<a class="anchor" id="ac0c1751da10a0bc409e9665489204e89"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int DIM, typename COORD_T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt;DIM,COORD_T&gt; Legion::Runtime::create_partition_by_blockify </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_partition_by_blockify </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -3577,19 +3592,19 @@ template&lt;int DIM, typename COORD_T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
           <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Point&lt; DIM, COORD_T &gt;&#160;</td>
-          <td class="paramname"><em>blocking_factor</em>, </td>
+          <td class="paramtype">DomainPoint&#160;</td>
+          <td class="paramname"><em>blockify_factor</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Point&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype">DomainPoint&#160;</td>
           <td class="paramname"><em>origin</em>, </td>
         </tr>
         <tr>
@@ -4013,14 +4028,12 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aaa3f86bc2ebe41c8c31844b6b13e6ef5"></a>
+<a class="anchor" id="ac6bc87a964db41d64ac3e3e497384975"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt;DIM,COORD_T&gt; Legion::Runtime::create_partition_by_restriction </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_partition_by_restriction </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -4028,25 +4041,25 @@ template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
           <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
           <td class="paramname"><em>color_space</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Transform&lt; DIM, COLOR_DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype">DomainTransform&#160;</td>
           <td class="paramname"><em>transform</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Rect&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramtype">Domain&#160;</td>
           <td class="paramname"><em>extent</em>, </td>
         </tr>
         <tr>
@@ -4625,12 +4638,12 @@ template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="afc504b956a4499d28947cd511514f38b"></a>
+<a class="anchor" id="a6d9d3ab3f568a1937c99013cf82b0897"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Legion::Runtime::detach_external_resource </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Runtime::detach_external_resource </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -4655,6 +4668,7 @@ template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>an empty future indicating when the resource is detached </dd></dl>
 
 </div>
 </div>
@@ -5423,23 +5437,6 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a6a7064c6b9a9872b59f84a5b02e6cd92"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GeneratorID Legion::Runtime::generate_dynamic_generator_id </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Dynamically generate a unique generator ID for use across the machine. </p><dl class="section return"><dt>Returns</dt><dd>a Generator ID that is globally unique across the machine </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a710dd7fbc03f776789c4b0ee538a50f9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5491,28 +5488,105 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a0f9e3612c1f098c375ea06687198ad6d"></a>
+<a class="anchor" id="a1cfa9087b19781f3a645e7dba9d45557"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static GeneratorID Legion::Runtime::generate_static_generator_id </td>
+          <td class="memname">MapperID Legion::Runtime::generate_library_mapper_ids </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>Statically generate a unique Generator ID for use across the machine. This can only be called prior to the runtime starting. It must be invoked symmetrically across all nodes in the machine prior to starting the runtime. </p><dl class="section return"><dt>Returns</dt><dd>a Generator ID that is globally unique across the machine </dd></dl>
+<p>Generate a contiguous set of MapperIDs for use by a library. This call will always generate the same answer for the same library name no many how many times it is called or on how many nodes it is called. If the count passed in to this method differs for the same library name the runtime will raise an error. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>a unique null-terminated string that names the library </td></tr>
+    <tr><td class="paramname">count</td><td>the number of mapper IDs that should be generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the first mapper ID that is allocated to the library </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa8752180deb9b0547d2eaab51e78a45f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ProjectionID Legion::Runtime::generate_library_projection_ids </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generate a contiguous set of ProjectionIDs for use by a library. This call will always generate the same answer for the same library name no many how many times it is called or on how many nodes it is called. If the count passed in to this method differs for the same library name the runtime will raise an error. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>a unique null-terminated string that names the library </td></tr>
+    <tr><td class="paramname">count</td><td>the number of projection IDs that should be generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the first projection ID that is allocated to the library </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8cc9e3ca9a0efc36d04bc2bd7e2c8ae4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskID Legion::Runtime::generate_library_task_ids </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Generate a contiguous set of TaskIDs for use by a library. This call will always generate the same answer for the same library name no many how many times it is called or on how many nodes it is called. If the count passed in to this method differs for the same library name the runtime will raise an error. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>a unique null-terminated string that names the library </td></tr>
+    <tr><td class="paramname">count</td><td>the number of task IDs that should be generated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the first task ID that is allocated to the library </dd></dl>
 
 </div>
 </div>
@@ -5588,6 +5662,31 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Statically generate a unique <a class="el" href="class_legion_1_1_task.html">Task</a> ID for use across the machine. This can only be called prior to the runtime starting. It must be invoked symmetrically across all nodes in the machine prior to starting the runtime. </p><dl class="section return"><dt>Returns</dt><dd>a TaskID that is globally unique across the machine </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0ae1696024e39fb7afc5ed87797ad8ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Context Legion::Runtime::get_context </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the context for the currently executing task this must be called inside of an actual <a class="el" href="namespace_legion.html">Legion</a> task. Calling it outside of a <a class="el" href="namespace_legion.html">Legion</a> task will result in undefined behavior </p><dl class="section return"><dt>Returns</dt><dd>the context for the enclosing task in which we are executing </dd></dl>
 
 </div>
 </div>
@@ -8142,6 +8241,137 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
 
 </div>
 </div>
+<a class="anchor" id="a08905fb94d7112d3c632036a65f3a3fa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Legion::Runtime::legion_task_postamble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>retvalptr</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>retvalsize</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is the necessary postamble call to use when registering a task variant with an explicit CodeDescriptor. It passes back the task return value and completes the task. It should be the last thing called before the task finishes. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">runtime</td><td>the runtime pointer </td></tr>
+    <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
+    <tr><td class="paramname">retvalptr</td><td>pointer to the return value </td></tr>
+    <tr><td class="paramname">retvalsize</td><td>the size of the return value in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a75cae296df9a998053907a268f907c9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Legion::Runtime::legion_task_preamble </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>datalen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_task.html">Task</a> *&amp;&#160;</td>
+          <td class="paramname"><em>task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Context &amp;&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&amp;&#160;</td>
+          <td class="paramname"><em>runtime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is the necessary preamble call to use when registering a task variant with an explicit CodeDescriptor. It takes the base Realm task arguments and will return the equivalent <a class="el" href="namespace_legion.html">Legion</a> task arguments from the runtime. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>pointer to the Realm task data </td></tr>
+    <tr><td class="paramname">datalen</td><td>size of the Realm task data in bytes </td></tr>
+    <tr><td class="paramname">p</td><td>Realm processor on which the task is running </td></tr>
+    <tr><td class="paramname">task</td><td>reference to the <a class="el" href="class_legion_1_1_task.html">Task</a> pointer to be set </td></tr>
+    <tr><td class="paramname">regionsptr</td><td>pointer to the vector of regions reference to set </td></tr>
+    <tr><td class="paramname">ctx</td><td>the context to set </td></tr>
+    <tr><td class="paramname">runtime</td><td>the runtime pointer to set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a72a56d287882bf9d1b937dd9a909b409"></a>
 <div class="memitem">
 <div class="memproto">
@@ -8466,36 +8696,6 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
   <table class="params">
     <tr><td class="paramname">pid</td><td>the projection ID to use for the registration </td></tr>
     <tr><td class="paramname">functor</td><td>the objecto register for handling projections </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a2414a43443899519c91aa0d86fa0d408"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Legion::Runtime::preregister_task_generator </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_legion_1_1_task_generator_registrar.html">TaskGeneratorRegistrar</a> &amp;&#160;</td>
-          <td class="paramname"><em>registrar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Statically register a new task generator function with the runtime. This call must be made on all nodes and it will fail if done after the runtime has been started. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">registrar</td><td>the task generator registrar </td></tr>
   </table>
   </dd>
 </dl>
@@ -8931,28 +9131,6 @@ template&lt;typename REDOP &gt; </div>
 <p>Register a reduction operation with the runtime. Note that the reduction operation template type must conform to the specification for a reduction operation outlined in the low-level runtime interface. Reduction operations can be used either for reduction privileges on a region or for performing reduction of values across index space task launches. The reduction operation ID zero is reserved for runtime use. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">redop_id</td><td>ID at which to register the reduction operation </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a844fca3d06cdd8aae789426285427382"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Legion::Runtime::register_task_generator </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_legion_1_1_task_generator_registrar.html">TaskGeneratorRegistrar</a> &amp;&#160;</td>
-          <td class="paramname"><em>registrar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Dynamically register a new task generator function with the runtime </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">registrar</td><td>the task generator registrar </td></tr>
   </table>
   </dd>
 </dl>
@@ -10212,7 +10390,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
  <h2>Stealing </h2>
 <p>-lg:nosteal Disable any stealing in the runtime. The runtime </p><h2>will never query any mapper about stealing. </h2>
 <h2>Out-of-order Execution </h2>
-<p>-lg:window &lt;int&gt; Specify the maximum number of child tasks allowed in a given task context at a time. A call to launch more tasks than the allotted window will stall the parent task until child tasks begin completing. The default is 1024. -lg:sched &lt;int&gt; The run-ahead factor for the runtime. How many outstanding tasks ready to run should be on each processor before backing off the mapping procedure. -lg:inorder Execute operations in strict propgram order. This flag will actually run the entire operation through the pipeline and wait for it to complete before </p><h2>permitting the next operation to start. </h2>
+<p>-lg:window &lt;int&gt; Specify the maximum number of child tasks allowed in a given task context at a time. A call to launch more tasks than the allotted window will stall the parent task until child tasks begin completing. The default is 1024. -lg:sched &lt;int&gt; The run-ahead factor for the runtime. How many outstanding tasks ready to run should be on each processor before backing off the mapping procedure. -lg:vector &lt;int&gt; Set the initial vectorization option for fusing together important runtime meta tasks in the mapper. The default is 16. -lg:inorder Execute operations in strict propgram order. This flag will actually run the entire operation through the pipeline and wait for it to complete before </p><h2>permitting the next operation to start. </h2>
 <h2>Messaging </h2>
 <p>-lg:message &lt;int&gt; Maximum size in bytes of the active messages to be sent between instances of the <a class="el" href="namespace_legion.html">Legion</a> runtime. This can help avoid the use of expensive per-pair-of-node RDMA buffers in the low-level runtime. Default value is 4K which should guarantee </p><h2>medium sized active messages on Infiniband clusters. </h2>
 <h2>Configuration Flags </h2>
@@ -10383,12 +10561,12 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>legion/<a class="el" href="legion_8h_source.html">legion.h</a></li>
+<li><a class="el" href="legion_8h_source.html">legion.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 16 2017 11:27:34 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 31 2018 15:32:56 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -6,6 +6,7 @@ var searchData=
   ['is_5findex_5fpartition_5fcomplete',['is_index_partition_complete',['../class_legion_1_1_runtime.html#a36af197f72cc33ba83d0ada197002bb5',1,'Legion::Runtime']]],
   ['is_5findex_5fpartition_5fdisjoint',['is_index_partition_disjoint',['../class_legion_1_1_runtime.html#a2d5acf558aa75f074a816c9e897a9777',1,'Legion::Runtime']]],
   ['is_5fmapped',['is_mapped',['../class_legion_1_1_physical_region.html#a64e75c87cfcede6ab921f4e05582a89c',1,'Legion::PhysicalRegion']]],
+  ['is_5fready',['is_ready',['../class_legion_1_1_future.html#a7a5c5ade7de4a6b6f9e606b83cdced5c',1,'Legion::Future']]],
   ['is_5fvalid',['is_valid',['../class_legion_1_1_physical_region.html#a7f760ac53aa8535bf2bf1cf03eab14de',1,'Legion::PhysicalRegion']]],
   ['issue_5facquire',['issue_acquire',['../class_legion_1_1_runtime.html#a1d1a34f794934fda97473fcbd8de8c8c',1,'Legion::Runtime']]],
   ['issue_5fcopy_5foperation',['issue_copy_operation',['../class_legion_1_1_runtime.html#a44776b6543dac1f165b5148831e341b8',1,'Legion::Runtime::issue_copy_operation(Context ctx, const CopyLauncher &amp;launcher)'],['../class_legion_1_1_runtime.html#a986853cf7b7747c747f664d04e05a4dd',1,'Legion::Runtime::issue_copy_operation(Context ctx, const IndexCopyLauncher &amp;launcher)']]],

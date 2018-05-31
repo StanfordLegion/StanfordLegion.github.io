@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['generate_5fdynamic_5fgenerator_5fid',['generate_dynamic_generator_id',['../class_legion_1_1_runtime.html#a6a7064c6b9a9872b59f84a5b02e6cd92',1,'Legion::Runtime']]],
   ['generate_5fdynamic_5fmapper_5fid',['generate_dynamic_mapper_id',['../class_legion_1_1_runtime.html#a710dd7fbc03f776789c4b0ee538a50f9',1,'Legion::Runtime']]],
   ['generate_5fdynamic_5fprojection_5fid',['generate_dynamic_projection_id',['../class_legion_1_1_runtime.html#aff251c3730c6ef38345121889807c879',1,'Legion::Runtime']]],
   ['generate_5fdynamic_5ftask_5fid',['generate_dynamic_task_id',['../class_legion_1_1_runtime.html#a249a6a1cd0c1a87157a916681b0c6a21',1,'Legion::Runtime']]],
-  ['generate_5fstatic_5fgenerator_5fid',['generate_static_generator_id',['../class_legion_1_1_runtime.html#a0f9e3612c1f098c375ea06687198ad6d',1,'Legion::Runtime']]],
+  ['generate_5flibrary_5fmapper_5fids',['generate_library_mapper_ids',['../class_legion_1_1_runtime.html#a1cfa9087b19781f3a645e7dba9d45557',1,'Legion::Runtime']]],
+  ['generate_5flibrary_5fprojection_5fids',['generate_library_projection_ids',['../class_legion_1_1_runtime.html#aa8752180deb9b0547d2eaab51e78a45f',1,'Legion::Runtime']]],
+  ['generate_5flibrary_5ftask_5fids',['generate_library_task_ids',['../class_legion_1_1_runtime.html#a8cc9e3ca9a0efc36d04bc2bd7e2c8ae4',1,'Legion::Runtime']]],
   ['generate_5fstatic_5fmapper_5fid',['generate_static_mapper_id',['../class_legion_1_1_runtime.html#ae9bdb63597d855c08e6bc37ffeaec90d',1,'Legion::Runtime']]],
   ['generate_5fstatic_5fprojection_5fid',['generate_static_projection_id',['../class_legion_1_1_runtime.html#afa9313599c62c1c03089d4b4fea19463',1,'Legion::Runtime']]],
   ['generate_5fstatic_5ftask_5fid',['generate_static_task_id',['../class_legion_1_1_runtime.html#a0807fe3cf812682fcbdb29e1ebaa0918',1,'Legion::Runtime']]],
+  ['get_5fcontext',['get_context',['../class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff',1,'Legion::Runtime']]],
   ['get_5fcurrent_5ftime',['get_current_time',['../class_legion_1_1_runtime.html#ac1c740ac313e5a6bb1e986d334a345ac',1,'Legion::Runtime']]],
   ['get_5fcurrent_5ftime_5fin_5fmicroseconds',['get_current_time_in_microseconds',['../class_legion_1_1_runtime.html#af81ff08366d6e945735015c228595f52',1,'Legion::Runtime']]],
   ['get_5fcurrent_5ftime_5fin_5fnanoseconds',['get_current_time_in_nanoseconds',['../class_legion_1_1_runtime.html#a08a4e3e7621d3f8bc12b4c54e2c13001',1,'Legion::Runtime']]],

@@ -115,6 +115,13 @@
     <div class="article-wrap" itemprop="text">
       <a href="index.html">glossary</a><p>
 <a href="../design_patterns/index.html">design patterns</a><p>
+<h1 id="relaxed-coherence">Relaxed Coherence</h1>
+<p>When a task issues a stream of sub-task launches to Legion, Legion goes about analyzing these sub-tasks for data dependences based on their region requirements in program order (e.g. the order they were issued to the Legion runtime). Normally RegionRequirements are annotated with EXCLUSIVE coherence, which tells Legion that if there is a dependence between two tasks, it must be obeyed in keeping with program order execution.</p>
+<p>However, there are often cases where this is too restrictive of a constraint. In some applications, tasks might have a data dependence, but only need serializability and not explicit program order execution. In others, the application might not want Legion to enforce any ordering, and instead will handle its own synchronization to data in a common logical region. To support these cases, Legion provides two relaxed coherence modes: ATOMIC and SIMULTANEOUS.</p>
+<h2 id="atomic-coherence-allows-legion-to-re-order-tasks-as-long-as-access-to-a-particular-logicalregion">ATOMIC coherence allows Legion to re-order tasks as long as access to a particular LogicalRegion</h2>
+<p>is guaranteed to be serializable.</p>
+<h2 id="simultaneous-coherence-instructs-legion-to-ignore-any-data-dependences-on-logicalregions-with-the">SIMULTANEOUS coherence instructs Legion to ignore any data dependences on LogicalRegions with the</h2>
+<p>guarantee that the application will manage access to the shared logical regions using its own synchronization primitives. The use of SIMULTANEOUS coherence allows tasks to run in parallel despite data dependences.</p>
 
     </div><!-- /.article-wrap -->
   </article>

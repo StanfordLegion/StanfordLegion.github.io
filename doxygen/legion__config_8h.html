@@ -167,6 +167,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a76457b2f9ffd9112b3b6c823afe40c9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76457b2f9ffd9112b3b6c823afe40c9a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_META_TASK_VECTOR_WIDTH</b>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a76457b2f9ffd9112b3b6c823afe40c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ed05068d2a91db5e648edbae8d1aed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65ed05068d2a91db5e648edbae8d1aed"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_MAX_REPLAY_PARALLELISM</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a65ed05068d2a91db5e648edbae8d1aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f7e328a6ab677b90a3fafca631e5203"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f7e328a6ab677b90a3fafca631e5203"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_MAX_MESSAGE_SIZE</b>&#160;&#160;&#160;16384</td></tr>
 <tr class="separator:a4f7e328a6ab677b90a3fafca631e5203"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +200,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a87227296fc1313e17ebba0648a56e6d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87227296fc1313e17ebba0648a56e6d8"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LEGION_PRUNE_DEPTH_WARNING</b>&#160;&#160;&#160;8</td></tr>
 <tr class="separator:a87227296fc1313e17ebba0648a56e6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd5829373decdd27d50165e46551d35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcd5829373decdd27d50165e46551d35"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEGION_NON_REPLAYABLE_WARNING</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:abcd5829373decdd27d50165e46551d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2d9891bf7967302f1fb3989aac0a8ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2d9891bf7967302f1fb3989aac0a8ee"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LEGION_INITIAL_LIBRARY_ID_OFFSET</b>&#160;&#160;&#160;(1 &lt;&lt; 30)</td></tr>
 <tr class="separator:af2d9891bf7967302f1fb3989aac0a8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -801,8 +807,13 @@ Enumerations</h2></td></tr>
 <b>ERROR_ILLEGAL_LEGION_BEGIN_STATIC_TRACE</b> = 472, 
 <b>ERROR_ILLEGAL_LEGION_END_STATIC_TRACE</b> = 473, 
 <br />
-&#160;&#160;<b>ERROR_PARENT_INDEX_PARTITION_REQUESTED</b> = 477, 
-<b>ERROR_FIELD_SPACE_HAS_NO_FIELD</b> = 478, 
+&#160;&#160;<b>ERROR_INVALID_PHYSICAL_TRACING</b> = 474, 
+<b>ERROR_INCOMPLETE_PHYSICAL_TRACING</b> = 475, 
+<b>ERROR_PHYSICAL_TRACING_UNSUPPORTED_OP</b> = 476, 
+<b>ERROR_PHYSICAL_TRACING_REMOTE_MAPPING</b> = 477, 
+<br />
+&#160;&#160;<b>ERROR_PARENT_INDEX_PARTITION_REQUESTED</b> = 478, 
+<b>ERROR_FIELD_SPACE_HAS_NO_FIELD</b> = 479, 
 <b>ERROR_PARENT_LOGICAL_PARTITION_REQUESTED</b> = 480, 
 <b>ERROR_INVALID_REQUEST_FOR_INDEXSPACE</b> = 481, 
 <br />
@@ -840,6 +851,11 @@ Enumerations</h2></td></tr>
 <b>ERROR_NON_DENSE_RECTANGLE</b> = 548, 
 <b>ERROR_LIBRARY_COUNT_MISMATCH</b> = 549, 
 <b>ERROR_MPI_INTEROP_MISCONFIGURATION</b> = 550, 
+<br />
+&#160;&#160;<b>ERROR_NUMBER_SRC_INDIRECT_REQUIREMENTS</b> = 551, 
+<b>ERROR_NUMBER_DST_INDIRECT_REQUIREMENTS</b> = 552, 
+<b>ERROR_COPY_GATHER_REQUIREMENT</b> = 553, 
+<b>ERROR_COPY_SCATTER_REQUIREMENT</b> = 554, 
 <br />
 &#160;&#160;<b>LEGION_WARNING_FUTURE_NONLEAF</b> = 1000, 
 <b>LEGION_WARNING_BLOCKING_EMPTY</b> = 1001, 
@@ -903,15 +919,16 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<b>LEGION_WARNING_EXTERNAL_GARBAGE_PRIORITY</b> = 1095, 
 <b>LEGION_WARNING_MAPPER_INVALID_INSTANCE</b> = 1096, 
+<b>LEGION_WARNING_NON_REPLAYABLE_COUNT_EXCEEDED</b> = 1097, 
 <b>LEGION_FATAL_MUST_EPOCH_NOADDRESS</b> = 2000, 
-<b>LEGION_FATAL_MUST_EPOCH_NOTASKS</b> = 2001, 
 <br />
-&#160;&#160;<b>LEGION_FATAL_DEFAULT_MAPPER_ERROR</b> = 2002, 
+&#160;&#160;<b>LEGION_FATAL_MUST_EPOCH_NOTASKS</b> = 2001, 
+<b>LEGION_FATAL_DEFAULT_MAPPER_ERROR</b> = 2002, 
 <b>LEGION_FATAL_SHIM_MAPPER_SUPPORT</b> = 2006, 
 <b>LEGION_FATAL_UNKNOWN_FIELD_ID</b> = 2007, 
-<b>LEGION_FATAL_RESTRICTED_SIMULTANEOUS</b> = 2008, 
 <br />
-&#160;&#160;<b>LEGION_FATAL_EXCEEDED_LIBRARY_ID_OFFSET</b> = 2009
+&#160;&#160;<b>LEGION_FATAL_RESTRICTED_SIMULTANEOUS</b> = 2008, 
+<b>LEGION_FATAL_EXCEEDED_LIBRARY_ID_OFFSET</b> = 2009
 <br />
  }</td></tr>
 <tr class="separator:adcdaf79180040afe53aabd65efa644b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -955,7 +972,8 @@ Enumerations</h2></td></tr>
 <b>NO_ACCESS_FLAG</b> = 0x00000002, 
 <b>RESTRICTED_FLAG</b> = 0x00000004, 
 <br />
-&#160;&#160;<b>MUST_PREMAP_FLAG</b> = 0x00000008
+&#160;&#160;<b>MUST_PREMAP_FLAG</b> = 0x00000008, 
+<b>COMPLETE_PROJECTION_WRITE_FLAG</b> = 0x00000010
 <br />
  }</td></tr>
 <tr class="separator:a86d17511da434e11344c40733abe9e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1154,7 +1172,7 @@ Enumerations</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 31 2018 15:45:03 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 15 2018 16:32:58 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

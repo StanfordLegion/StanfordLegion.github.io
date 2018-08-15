@@ -10,6 +10,7 @@ var searchData=
   ['indexspacerequirement',['IndexSpaceRequirement',['../struct_legion_1_1_index_space_requirement.html',1,'Legion']]],
   ['indexspacet',['IndexSpaceT',['../class_legion_1_1_index_space_t.html',1,'Legion']]],
   ['indextasklauncher',['IndexTaskLauncher',['../struct_legion_1_1_index_task_launcher.html',1,'Legion']]],
+  ['initialize',['initialize',['../class_legion_1_1_runtime.html#adf47320c377a1b7dbb6ad24b8d8b0784',1,'Legion::Runtime']]],
   ['inlinelauncher',['InlineLauncher',['../struct_legion_1_1_inline_launcher.html',1,'Legion']]],
   ['inlinemapping',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
   ['inputargs',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],

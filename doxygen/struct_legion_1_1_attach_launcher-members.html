@@ -95,8 +95,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>attach_array_aos</b>(void *base, bool column_major, const std::vector&lt; FieldID &gt; &amp;fields, Memory mem, size_t alignment=16) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>attach_array_soa</b>(void *base, bool column_major, const std::vector&lt; FieldID &gt; &amp;fields, Memory mem, size_t alignment=16) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>attach_array_aos</b>(void *base, bool column_major, const std::vector&lt; FieldID &gt; &amp;fields, Memory mem, const std::map&lt; FieldID, size_t &gt; *alignments=NULL) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>attach_array_soa</b>(void *base, bool column_major, const std::vector&lt; FieldID &gt; &amp;fields, Memory mem, const std::map&lt; FieldID, size_t &gt; *alignments=NULL) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>attach_file</b>(const char *file_name, const std::vector&lt; FieldID &gt; &amp;fields, LegionFileMode mode) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>attach_hdf5</b>(const char *file_name, const std::map&lt; FieldID, const char * &gt; &amp;field_map, LegionFileMode mode) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>AttachLauncher</b>(ExternalResource resource, LogicalRegion handle, LogicalRegion parent) (defined in <a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a>)</td><td class="entry"><a class="el" href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></td><td class="entry"></td></tr>
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu May 31 2018 15:45:03 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 15 2018 16:32:58 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

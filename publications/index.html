@@ -120,6 +120,8 @@
     <ul>
       <li><a href="#sc2012">Overview (SC 2012)</a> [<a href="/pdfs/sc2012.pdf">PDF</a>]</li>
       <li><a href="#sc2014">Structure Slicing (SC 2014)</a> [<a href="/pdfs/legion-fields.pdf">PDF</a>]</li>
+      <li><a href="#trace2018">Tracing (SC 2018)</a> [<a href="/pdfs/trace2018.pdf">PDF</a>]</li>
+      <li><a href="#dep2018">Correctness of Dependence Analysis (SC 2018)</a> [<a href="/pdfs/dep2018.pdf">PDF</a>]</li>
       <li><a href="#bauer_thesis">Michael Bauer’s Thesis (2014)</a> [<a href="/pdfs/bauer_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
@@ -402,7 +404,7 @@ count.</p>
 
 <p><a name="vldb2018"></a><strong>A Distributed Multi-GPU System for Fast Graph Processing</strong> <a href="/pdfs/vldb2018.pdf">PDF</a>, <a href="https://github.com/LuxGraph/Lux">Software Release</a> <br />
 <em>Zhihao Jia, Yongkee Kwon, Galen Shipman, Pat McCormick, Mattan Erez and Alex Aiken</em> <br />
-To appear in the International Conference on Very Large Data Bases (VLDB 2018) <br />
+In the International Conference on Very Large Data Bases (VLDB 2018) <br />
 <strong>Abstract:</strong> We present Lux, a distributed multi-GPU system that
 achieves fast graph processing by exploiting the aggregate memory
 bandwidth of multiple GPUs and taking advantage of locality in the
@@ -415,6 +417,46 @@ predicts the execution times and automatically selects the runtime
 configurations for Lux applications. Experiments show that Lux
 achieves up to 20× speedup over state-of-the-art shared memory systems
 and up to two orders of magnitude speedup over distributed systems.</p>
+
+<p><a name="trace2018"></a><strong>Dynamic Tracing: Memoization of Task Graphs for Dynamic Task-Based Runtimes</strong> <a href="/pdfs/trace2018.pdf">PDF</a> <br />
+<em>Wonchan Lee, Elliott Slaughter, Michael Bauer, Sean Treichler, Todd Warszawski, Michael Garland and Alex Aiken</em> <br />
+In the International Conference on Supercomputing (<a href="https://sc18.supercomputing.org/presentation/?id=pap490&amp;sess=sess183">SC 2018</a>) <br />
+<strong>Abstract:</strong> Many recent programming systems for both supercomputing
+and data center workloads generate task graphs to express computations
+that run on parallel and distributed machines. Due to the overhead
+associated with constructing these graphs the dependence analysis that
+generates them is often statically computed and memoized, and the
+resulting graph executed repeatedly at runtime. However, many
+applications require a dynamic dependence analysis due to data
+dependent behavior, but there are new challenges in capturing and
+re-executing task graphs at runtime. In this work, we introduce
+dynamic tracing, a technique to capture a dynamic dependence analysis
+of a trace that generates a task graph, and replay it. We show that an
+implementation of dynamic tracing improves strong scaling by an
+average of 4.9X and up to 7.0X on a suite of already optimized
+benchmarks.</p>
+
+<p><a name="dep2018"></a><strong>Correctness of Dynamic Dependence Analysis for Implicitly Parallel Tasking Systems</strong> <a href="/pdfs/dep2018.pdf">PDF</a> <br />
+<em>Wonchan Lee, George Stelle, Patrick McCormick and Alex Aiken</em> <br />
+In the International Workshop on Software Correctness for HPC Applications (<a href="https://correctness-workshop.github.io/2018/">Correctness 2018</a>) <br />
+<strong>Abstract:</strong> In this paper, we rigorously verify the correctness of
+dynamic dependence analysis, a key algorithm for parallelizing
+programs in implicitly parallel tasking systems. A dynamic dependence
+analysis of a program results in a task graph, a DAG of tasks
+constraining the order of task execution. Because a program is
+automatically parallelized based on its task graph, the analysis
+algorithm must generate a graph with all the dependencies that are
+necessary to preserve the program’s original semantics for any
+non-deterministic parallel execution of tasks. However, this
+correctness is not straightforward to verify as implicitly parallel
+tasking systems often use an optimized dependence analysis
+algorithm. To study the correctness of dynamic dependence analysis in
+a realistic setting, we design a model algorithm that captures the
+essence of realistic analysis algorithms. We prove that this algorithm
+constructs task graphs that soundly and completely express correct
+parallel executions of programs. We also show that the generated task
+graph is the most succinct one for a program when the program
+satisfies certain conditions.</p>
 
 <h2 id="theses">Theses</h2>
 

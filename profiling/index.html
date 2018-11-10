@@ -181,7 +181,7 @@ by the node number) is mandatory. Finally, pass
 the resulting log files to <code class="highlighter-rouge">legion_prof.py</code>.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DEBUG</span><span class="o">=</span>0 make
-./app <span class="nt">-lg</span>:prof &lt;N&gt; <span class="nt">-lg</span>:prof_logfile prof_%.gz
+./app -lg:prof &lt;N&gt; -lg:prof_logfile prof_%.gz
 <span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_<span class="k">*</span>.gz</code></pre></figure>
 
 <p>This will generate a subdirectory called <code class="highlighter-rouge">legion_prof</code> under the
@@ -244,7 +244,7 @@ To take advantage of this feature, run your application with both Legion Prof an
 and <a href="/debugging/#legion-spy">Legion Spy</a> traces to <code class="highlighter-rouge">legion_prof.py</code>.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DEBUG</span><span class="o">=</span>0 make
-./app <span class="nt">-lg</span>:prof &lt;N&gt; <span class="nt">-lg</span>:spy <span class="nt">-logfile</span> spy_%.log <span class="nt">-lg</span>:prof_logfile prof_%.gz
+./app -lg:prof &lt;N&gt; -lg:spy -logfile spy_%.log -lg:prof_logfile prof_%.gz
 <span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_<span class="k">*</span>.gz spy_<span class="k">*</span>.log</code></pre></figure>
 
 <p>After Legion Prof creates the profile, you will be able to click on tasks that
@@ -281,7 +281,7 @@ over a remote web server. Alternately, you can spin up a simple web server
 locally:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>legion_prof
-python <span class="nt">-m</span> SimpleHTTPServer</code></pre></figure>
+python -m SimpleHTTPServer</code></pre></figure>
 
 <p>and then open <code class="highlighter-rouge">localhost:80000</code> from Chrome. One final option if you want
 to use Chrome on local profiles is to launch Chrome with 

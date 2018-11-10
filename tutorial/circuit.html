@@ -199,7 +199,7 @@ which contains very specific members. The following code block
 shows the example accumulate charge reduction operation from
 the circuit simulation.</p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
@@ -208,8 +208,7 @@ the circuit simulation.</p>
 7
 8
 9
-10
-</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">AccumulateCharge</span> <span class="p">{</span>
+10</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">AccumulateCharge</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="k">typedef</span> <span class="kt">float</span> <span class="n">LHS</span><span class="p">;</span>
   <span class="k">typedef</span> <span class="kt">float</span> <span class="n">RHS</span><span class="p">;</span>
@@ -218,7 +217,8 @@ the circuit simulation.</p>
   <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="o">&gt;</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">apply</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">);</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="o">&gt;</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">fold</span><span class="p">(</span><span class="n">RHS</span> <span class="o">&amp;</span><span class="n">rhs1</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs2</span><span class="p">);</span>
-<span class="p">};</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">};</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Every reduction operation must contain <code class="highlighter-rouge">typedef</code> declarations for
 the <code class="highlighter-rouge">LHS</code> and <code class="highlighter-rouge">RHS</code> types representing the left-hand-side and 
@@ -236,16 +236,16 @@ as can be seen in the following code example: when we have exclusive
 access we need only do a basic addition, but without exclusive access
 we use an atomic compare-and-swap to perform the summation reduction.</p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5
-</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;&gt;</span>
+5</pre></td><td class="code"><pre><span class="k">template</span> <span class="o">&lt;&gt;</span>
 <span class="kt">void</span> <span class="n">AccumulateCharge</span><span class="o">::</span><span class="n">apply</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">)</span> 
 <span class="p">{</span>
   <span class="n">lhs</span> <span class="o">+=</span> <span class="n">rhs</span><span class="p">;</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>In addition to the necessary reduction operation declarations, our
 <code class="highlighter-rouge">AccumulateCharge</code> class also supports an optional <code class="highlighter-rouge">fold</code> function.

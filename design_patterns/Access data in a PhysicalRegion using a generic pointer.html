@@ -116,26 +116,26 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Access data in a PhysicalRegion using a generic pointer</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">  Rect&lt;<span class="dv">1</span>&gt; elem_rect(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_elements-<span class="dv">1</span>));</a>
-<a class="sourceLine" id="cb1-2" title="2">  IndexSpace is = runtime-&gt;create_index_space(ctx, Domain::from_rect&lt;<span class="dv">1</span>&gt;(elem_rect));</a>
-<a class="sourceLine" id="cb1-3" title="3">  FieldSpace input_fs = runtime-&gt;create_field_space(ctx);</a>
-<a class="sourceLine" id="cb1-4" title="4">  LogicalRegion input_lr = runtime-&gt;create_logical_region(ctx, is, input_fs);</a>
-<a class="sourceLine" id="cb1-5" title="5">  RegionRequirement req(input_lr, READ_WRITE, EXCLUSIVE, input_lr);</a>
-<a class="sourceLine" id="cb1-6" title="6">  req.add_field(FID_X);</a>
-<a class="sourceLine" id="cb1-7" title="7">  req.add_field(FID_Y);  </a>
-<a class="sourceLine" id="cb1-8" title="8">  InlineLauncher input_launcher(req);</a>
-<a class="sourceLine" id="cb1-9" title="9">  PhysicalRegion input_region = runtime-&gt;map_region(ctx, input_launcher);</a>
-<a class="sourceLine" id="cb1-10" title="10">  input_region.wait_until_valid();</a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12">  RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_x = </a>
-<a class="sourceLine" id="cb1-13" title="13">    input_region.get_field_accessor(FID_X).typeify&lt;<span class="dt">double</span>&gt;();</a>
-<a class="sourceLine" id="cb1-14" title="14">  RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_y = </a>
-<a class="sourceLine" id="cb1-15" title="15">    input_region.get_field_accessor(FID_Y).typeify&lt;<span class="dt">double</span>&gt;();</a>
-<a class="sourceLine" id="cb1-16" title="16"></a>
-<a class="sourceLine" id="cb1-17" title="17">  <span class="cf">for</span> (GenericPointInRectIterator&lt;<span class="dv">1</span>&gt; pir(elem_rect); pir; pir++) {</a>
-<a class="sourceLine" id="cb1-18" title="18">    acc_x.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());</a>
-<a class="sourceLine" id="cb1-19" title="19">    acc_y.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());</a>
-<a class="sourceLine" id="cb1-20" title="20">  }</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">  Rect&lt;<span class="dv">1</span>&gt; elem_rect(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_elements<span class="dv">-1</span>));</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  IndexSpace is = runtime-&gt;create_index_space(ctx, Domain::from_rect&lt;<span class="dv">1</span>&gt;(elem_rect));</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  FieldSpace input_fs = runtime-&gt;create_field_space(ctx);</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  LogicalRegion input_lr = runtime-&gt;create_logical_region(ctx, is, input_fs);</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  RegionRequirement req(input_lr, READ_WRITE, EXCLUSIVE, input_lr);</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  req.add_field(FID_X);</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  req.add_field(FID_Y);  </a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  InlineLauncher input_launcher(req);</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  PhysicalRegion input_region = runtime-&gt;map_region(ctx, input_launcher);</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  input_region.wait_until_valid();</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_x = </a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    input_region.get_field_accessor(FID_X).typeify&lt;<span class="dt">double</span>&gt;();</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">  RegionAccessor&lt;AccessorType::Generic, <span class="dt">double</span>&gt; acc_y = </a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    input_region.get_field_accessor(FID_Y).typeify&lt;<span class="dt">double</span>&gt;();</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">  <span class="cf">for</span> (GenericPointInRectIterator&lt;<span class="dv">1</span>&gt; pir(elem_rect); pir; pir++) {</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    acc_x.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">    acc_y.write(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(pir.p), drand48());</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  }</a></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

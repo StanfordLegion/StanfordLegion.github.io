@@ -117,24 +117,24 @@
 <a href="../glossary/index.html">glossary</a><p>
 <p>Create a DomainColoring for an uneven subdivision</p>
 <p>This example show how to create a DomainColoring and IndexPartition when the number of elements does not evenly subdivide the domain.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1">  <span class="cf">if</span> ((num_elements % num_subregions) != <span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="co">// Not evenly divisible</span></a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="at">const</span> <span class="dt">int</span> lower_bound = num_elements/num_subregions;</a>
-<a class="sourceLine" id="cb1-4" title="4">    <span class="at">const</span> <span class="dt">int</span> upper_bound = lower_bound+<span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb1-5" title="5">    <span class="at">const</span> <span class="dt">int</span> number_small = num_subregions - (num_elements % num_subregions);</a>
-<a class="sourceLine" id="cb1-6" title="6">    DomainColoring coloring;</a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">int</span> index = <span class="dv">0</span>;</a>
-<a class="sourceLine" id="cb1-8" title="8">    <span class="cf">for</span> (<span class="dt">int</span> color = <span class="dv">0</span>; color &lt; num_subregions; color++) {</a>
-<a class="sourceLine" id="cb1-9" title="9">      <span class="dt">int</span> num_elmts = color &lt; number_small ? lower_bound : upper_bound;</a>
-<a class="sourceLine" id="cb1-10" title="10">      <span class="ot">assert</span>((index+num_elmts) &lt;= num_elements);</a>
-<a class="sourceLine" id="cb1-11" title="11">      Rect&lt;<span class="dv">1</span>&gt; subrect(Point&lt;<span class="dv">1</span>&gt;(index),Point&lt;<span class="dv">1</span>&gt;(index+num_elmts-<span class="dv">1</span>));</a>
-<a class="sourceLine" id="cb1-12" title="12">      coloring[color] = Domain::from_rect&lt;<span class="dv">1</span>&gt;(subrect);</a>
-<a class="sourceLine" id="cb1-13" title="13">      index += num_elmts;</a>
-<a class="sourceLine" id="cb1-14" title="14">    }</a>
-<a class="sourceLine" id="cb1-15" title="15">    ip = runtime-&gt;create_index_partition(ctx, is, color_domain, </a>
-<a class="sourceLine" id="cb1-16" title="16">                                      coloring, <span class="kw">true</span><span class="co">/*disjoint*/</span>);</a>
-<a class="sourceLine" id="cb1-17" title="17">  }</a>
-<a class="sourceLine" id="cb1-18" title="18">  LogicalPartition input_lp = runtime-&gt;get_logical_partition(ctx, input_lr, ip);</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">  <span class="cf">if</span> ((num_elements % num_subregions) != <span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">// Not evenly divisible</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="at">const</span> <span class="dt">int</span> lower_bound = num_elements/num_subregions;</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="at">const</span> <span class="dt">int</span> upper_bound = lower_bound<span class="dv">+1</span>;</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="at">const</span> <span class="dt">int</span> number_small = num_subregions - (num_elements % num_subregions);</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    DomainColoring coloring;</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="dt">int</span> index = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="cf">for</span> (<span class="dt">int</span> color = <span class="dv">0</span>; color &lt; num_subregions; color++) {</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">      <span class="dt">int</span> num_elmts = color &lt; number_small ? lower_bound : upper_bound;</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">      assert((index+num_elmts) &lt;= num_elements);</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">      Rect&lt;<span class="dv">1</span>&gt; subrect(Point&lt;<span class="dv">1</span>&gt;(index),Point&lt;<span class="dv">1</span>&gt;(index+num_elmts<span class="dv">-1</span>));</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">      coloring[color] = Domain::from_rect&lt;<span class="dv">1</span>&gt;(subrect);</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      index += num_elmts;</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    }</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    ip = runtime-&gt;create_index_partition(ctx, is, color_domain, </a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">                                      coloring, <span class="kw">true</span><span class="co">/*disjoint*/</span>);</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">  }</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">  LogicalPartition input_lp = runtime-&gt;get_logical_partition(ctx, input_lr, ip);</a></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

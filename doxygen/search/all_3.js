@@ -14,7 +14,16 @@ var searchData=
   ['destroy_5flogical_5fregion',['destroy_logical_region',['../class_legion_1_1_runtime.html#a570eabf56c1ddc59ae63a374b465f4f3',1,'Legion::Runtime']]],
   ['destroy_5fphase_5fbarrier',['destroy_phase_barrier',['../class_legion_1_1_runtime.html#a7fb709efc503d8500f9710cb892b45a7',1,'Legion::Runtime']]],
   ['detach_5fexternal_5fresource',['detach_external_resource',['../class_legion_1_1_runtime.html#a6d9d3ab3f568a1937c99013cf82b0897',1,'Legion::Runtime']]],
+  ['dimhelper',['DimHelper',['../struct_legion_1_1_internal_1_1_n_t___template_helper_1_1_dim_helper.html',1,'Legion::Internal::NT_TemplateHelper']]],
   ['disable_5fprofiling',['disable_profiling',['../class_legion_1_1_runtime.html#a3b1338247926eef76421390573c82cc3',1,'Legion::Runtime']]],
+  ['domain',['Domain',['../class_legion_1_1_domain.html',1,'Legion']]],
+  ['domainaffinetransform',['DomainAffineTransform',['../class_legion_1_1_domain_affine_transform.html',1,'Legion']]],
   ['domaincoloringserializer',['DomainColoringSerializer',['../class_legion_1_1_domain_coloring_serializer.html',1,'Legion']]],
-  ['dump_5fprofiling',['dump_profiling',['../class_legion_1_1_runtime.html#ae3959f5e3dcedc969475d839dfb3a573',1,'Legion::Runtime']]]
+  ['domainpoint',['DomainPoint',['../class_legion_1_1_domain_point.html',1,'Legion']]],
+  ['domainpointiterator',['DomainPointIterator',['../class_legion_1_1_domain_1_1_domain_point_iterator.html',1,'Legion::Domain']]],
+  ['domainscaletransform',['DomainScaleTransform',['../class_legion_1_1_domain_scale_transform.html',1,'Legion']]],
+  ['domaint',['DomainT',['../struct_legion_1_1_domain_t.html',1,'Legion']]],
+  ['domaintransform',['DomainTransform',['../class_legion_1_1_domain_transform.html',1,'Legion']]],
+  ['dump_5fprofiling',['dump_profiling',['../class_legion_1_1_runtime.html#ae3959f5e3dcedc969475d839dfb3a573',1,'Legion::Runtime']]],
+  ['dynamiccollective',['DynamicCollective',['../class_legion_1_1_dynamic_collective.html',1,'Legion']]]
 ];

@@ -5,6 +5,7 @@ var searchData=
   ['add_5fmapper',['add_mapper',['../class_legion_1_1_runtime.html#a099c2cb81609323acebc086f0da983ee',1,'Legion::Runtime']]],
   ['add_5fregistration_5fcallback',['add_registration_callback',['../class_legion_1_1_runtime.html#a40cc7ecc77420ead98e0505ed97eb8d7',1,'Legion::Runtime']]],
   ['advance_5fdynamic_5fcollective',['advance_dynamic_collective',['../class_legion_1_1_runtime.html#a0d742dec7f16386ecaa85a451766eadf',1,'Legion::Runtime']]],
+  ['advance_5flegion_5fhandshake',['advance_legion_handshake',['../class_legion_1_1_m_p_i_legion_handshake.html#ae005dac7a930c15801f5ad49f1bf1a59',1,'Legion::MPILegionHandshake']]],
   ['advance_5fphase_5fbarrier',['advance_phase_barrier',['../class_legion_1_1_runtime.html#a92381209ec4d73bae91236cf77da5fb3',1,'Legion::Runtime']]],
   ['allocate_5ffield',['allocate_field',['../class_legion_1_1_field_allocator.html#a9ad13f2419c3a71c85870eb5ded1c8d6',1,'Legion::FieldAllocator']]],
   ['allocate_5ffields',['allocate_fields',['../class_legion_1_1_field_allocator.html#a93751e59e9258b221dfa65655ca345c2',1,'Legion::FieldAllocator']]],

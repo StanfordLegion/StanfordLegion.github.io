@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['accessor_5farray',['ACCESSOR_ARRAY',['../legion__c_8h.html#ac456143edca3648144bea7899e03a38e',1,'ACCESSOR_ARRAY():&#160;legion_c.h'],['../legion__c_8h.html#ac456143edca3648144bea7899e03a38e',1,'ACCESSOR_ARRAY():&#160;legion_c.h']]],
   ['acquire',['Acquire',['../class_legion_1_1_acquire.html',1,'Legion']]],
   ['acquire_5fgrant',['acquire_grant',['../class_legion_1_1_runtime.html#ae96cf3328e9b69c7df53c25982286b13',1,'Legion::Runtime']]],
   ['acquirelauncher',['AcquireLauncher',['../struct_legion_1_1_acquire_launcher.html',1,'Legion']]],
@@ -7,7 +8,7 @@ var searchData=
   ['add_5fmapper',['add_mapper',['../class_legion_1_1_runtime.html#a099c2cb81609323acebc086f0da983ee',1,'Legion::Runtime']]],
   ['add_5fregistration_5fcallback',['add_registration_callback',['../class_legion_1_1_runtime.html#a40cc7ecc77420ead98e0505ed97eb8d7',1,'Legion::Runtime']]],
   ['advance_5fdynamic_5fcollective',['advance_dynamic_collective',['../class_legion_1_1_runtime.html#a0d742dec7f16386ecaa85a451766eadf',1,'Legion::Runtime']]],
-  ['advance_5flegion_5fhandshake',['advance_legion_handshake',['../class_legion_1_1_m_p_i_legion_handshake.html#ae005dac7a930c15801f5ad49f1bf1a59',1,'Legion::MPILegionHandshake']]],
+  ['advance_5flegion_5fhandshake',['advance_legion_handshake',['../class_legion_1_1_m_p_i_legion_handshake.html#a0419cb0095c2e00b8c260ec359474e30',1,'Legion::MPILegionHandshake']]],
   ['advance_5fphase_5fbarrier',['advance_phase_barrier',['../class_legion_1_1_runtime.html#a92381209ec4d73bae91236cf77da5fb3',1,'Legion::Runtime']]],
   ['affinetransform',['AffineTransform',['../struct_legion_1_1_affine_transform.html',1,'Legion']]],
   ['allocate_5ffield',['allocate_field',['../class_legion_1_1_field_allocator.html#a9ad13f2419c3a71c85870eb5ded1c8d6',1,'Legion::FieldAllocator']]],

@@ -13,6 +13,7 @@ var searchData=
   ['copylauncher',['CopyLauncher',['../struct_legion_1_1_copy_launcher.html',1,'Legion']]],
   ['create_5fargument_5fmap',['create_argument_map',['../class_legion_1_1_runtime.html#a387ad10ef63b243e9edbb1c1622fc4e7',1,'Legion::Runtime']]],
   ['create_5fassociation',['create_association',['../class_legion_1_1_runtime.html#a4c5013ca175fd970291bd373254c376c',1,'Legion::Runtime']]],
+  ['create_5fblockify',['CREATE_BLOCKIFY',['../legion__c_8h.html#af32ffd6df81b28648c6ae74b901d54c1',1,'legion_c.h']]],
   ['create_5fcross_5fproduct_5fpartitions',['create_cross_product_partitions',['../class_legion_1_1_runtime.html#a25e302bfac8772cefb2671bc4d544ef9',1,'Legion::Runtime']]],
   ['create_5fdynamic_5fcollective',['create_dynamic_collective',['../class_legion_1_1_runtime.html#ab0c9f25e047233fefbf75ab200e42af0',1,'Legion::Runtime']]],
   ['create_5fequal_5fpartition',['create_equal_partition',['../class_legion_1_1_runtime.html#aad1ea4356ec0ad00031e9139d0cf71f1',1,'Legion::Runtime']]],

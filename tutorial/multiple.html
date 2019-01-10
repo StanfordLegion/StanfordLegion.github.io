@@ -122,8 +122,9 @@ construct a simple program to compute the derivative
 of some data by performing a simple 1-D 5-point stencil
 on a discretized space using the standard formula.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f'(x) = (-f(x+2) + 8f(x+1) - 8f(x-1) + f(x-2))/12
-</code></pre></div></div>
+<div class="highlighter-rouge"><pre class="highlight"><code>f'(x) = (-f(x+2) + 8f(x+1) - 8f(x-1) + f(x-2))/12
+</code></pre>
+</div>
 
 <p>To perform the stencil computation we create the
 <code class="highlighter-rouge">stencil_lr</code> logical region with two fields: one
@@ -218,7 +219,7 @@ can be run in parallel.</p>
 <p>Next Example: <a href="/tutorial/custom_mappers.html">Custom Mappers</a><br />
 Previous Example: <a href="/tutorial/partitioning.html">Partitioning</a></p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
@@ -477,8 +478,7 @@ Previous Example: <a href="/tutorial/partitioning.html">Partitioning</a></p>
 257
 258
 259
-260
-</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+260</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
 #include &lt;cassert&gt;
 #include &lt;cstdlib&gt;
 #include "legion.h"
@@ -737,7 +737,8 @@ Previous Example: <a href="/tutorial/partitioning.html">Partitioning</a></p>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
     </div><!-- /.article-wrap -->
@@ -746,7 +747,7 @@ Previous Example: <a href="/tutorial/partitioning.html">Partitioning</a></p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2019 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

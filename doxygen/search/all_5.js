@@ -15,6 +15,8 @@ var searchData=
   ['fraction',['Fraction',['../class_legion_1_1_internal_1_1_fraction.html',1,'Legion::Internal']]],
   ['free_5ffield',['free_field',['../class_legion_1_1_field_allocator.html#af6ea0d49201686a8c0604837b0a1f1fb',1,'Legion::FieldAllocator']]],
   ['free_5ffields',['free_fields',['../class_legion_1_1_field_allocator.html#a5afe3cb27f1b8da92a1ec68b196186f7',1,'Legion::FieldAllocator']]],
+  ['from_5fpoint',['FROM_POINT',['../legion__c_8h.html#ac0a3792b844a8adced04345bcf0c42e8',1,'legion_c.h']]],
+  ['from_5frect',['FROM_RECT',['../legion__c_8h.html#aa3a28bbcf75e7c708c1e45f1efdfba28',1,'legion_c.h']]],
   ['from_5funtyped_5fpointer',['from_untyped_pointer',['../class_legion_1_1_future.html#a748cf065d38332f8d0c77053e77439e0',1,'Legion::Future']]],
   ['from_5fvalue',['from_value',['../class_legion_1_1_future.html#a8a5f95c981e5e2ed8f5119c037f93290',1,'Legion::Future']]],
   ['future',['Future',['../class_legion_1_1_future.html',1,'Legion']]],

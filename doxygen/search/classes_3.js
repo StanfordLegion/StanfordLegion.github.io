@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['deferredbuffer',['DeferredBuffer',['../class_legion_1_1_deferred_buffer.html',1,'Legion']]],
   ['deferredreduction',['DeferredReduction',['../class_legion_1_1_deferred_reduction.html',1,'Legion']]],
   ['deferredvalue',['DeferredValue',['../class_legion_1_1_deferred_value.html',1,'Legion']]],
   ['deferredvalue_3c_20redop_3a_3arhs_20_3e',['DeferredValue&lt; REDOP::RHS &gt;',['../class_legion_1_1_deferred_value.html',1,'Legion']]],

@@ -121,7 +121,7 @@ with a <code class="highlighter-rouge">Makefile</code> for building and running 
 By walking through these tutorial programs in detail we
 will demonstrate how to use the Legion C++ runtime API.</p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
@@ -147,8 +147,7 @@ will demonstrate how to use the Legion C++ runtime API.</p>
 24
 25
 26
-27
-</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
+27</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
 #include "legion.h"
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
@@ -174,7 +173,8 @@ will demonstrate how to use the Legion C++ runtime API.</p>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h4 id="legion-namespaces">Legion Namespaces</h4>
 
@@ -256,7 +256,7 @@ the top-level task completes, the Legion runtime will tear itself down
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2019 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

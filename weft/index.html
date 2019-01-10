@@ -168,7 +168,7 @@ paper using the artifact. We assume a Linux based system, such as, Ubuntu.</p>
 
 <p>First, unpack the archive</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">tar</span> <span class="nt">-zxvf</span> cde-weft.tar.gz </code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">tar -zxvf cde-weft.tar.gz </code></pre></figure>
 
 <p>Next, go to the WEFT directory</p>
 
@@ -217,7 +217,7 @@ WEFT INFO: No races detected!
 WEFT STATISTICS <span class="k">for </span>saxpy_single.ptx
   CTA Thread Count:                      320
   Shared Memory Locations:               512
-  Physical Named Barriers<span class="p">;</span>                 6
+  Physical Named Barriers;                 6
   Dynamic Barrier Instances:            8192
   Static Instructions:                   169
   Dynamic Instructions:              9575616
@@ -287,14 +287,14 @@ machine we encourage you to explore the performance effects of variable
 number of threads using the ‘-t’ flag.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>examples/saxpy
-../../../../../../../../cde-exec ../../src/weft <span class="nt">-i</span> <span class="nt">-t</span> 4 <span class="nt">-n</span> 320 saxpy_single.ptx
+../../../../../../../../cde-exec ../../src/weft -i -t 4 -n 320 saxpy_single.ptx
 WEFT INFO: No deadlocks detected!
 WEFT INFO: Barriers properly recycled!
 WEFT INFO: No races detected!
 WEFT STATISTICS <span class="k">for </span>saxpy_single.ptx
   CTA Thread Count:                      320
   Shared Memory Locations:               512
-  Physical Named Barriers<span class="p">;</span>                 6
+  Physical Named Barriers;                 6
   Dynamic Barrier Instances:            8192
   Static Instructions:                   177
   Dynamic Instructions:             11674560
@@ -331,7 +331,7 @@ WEFT INSTRUMENTATION
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2018 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2019 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

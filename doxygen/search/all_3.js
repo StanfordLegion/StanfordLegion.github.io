@@ -1,10 +1,12 @@
 var searchData=
 [
   ['defer_5fdynamic_5fcollective_5farrival',['defer_dynamic_collective_arrival',['../class_legion_1_1_runtime.html#a714e67a25827ba66bc3b58cd6748edce',1,'Legion::Runtime']]],
+  ['deferredbuffer',['DeferredBuffer',['../class_legion_1_1_deferred_buffer.html',1,'Legion']]],
   ['deferredreduction',['DeferredReduction',['../class_legion_1_1_deferred_reduction.html',1,'Legion']]],
   ['deferredvalue',['DeferredValue',['../class_legion_1_1_deferred_value.html',1,'Legion']]],
   ['deferredvalue_3c_20redop_3a_3arhs_20_3e',['DeferredValue&lt; REDOP::RHS &gt;',['../class_legion_1_1_deferred_value.html',1,'Legion']]],
   ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
+  ['destroy_5farray',['DESTROY_ARRAY',['../legion__c_8h.html#a1fcbc6fb0ca5a73a75254f7e63f0d149',1,'legion_c.h']]],
   ['destroy_5fdynamic_5fcollective',['destroy_dynamic_collective',['../class_legion_1_1_runtime.html#a7a37a1dbbbfafef022fc55463d807b9c',1,'Legion::Runtime']]],
   ['destroy_5ffield_5fspace',['destroy_field_space',['../class_legion_1_1_runtime.html#afdbd1d027fcc040d66a3f7e3f46b32f0',1,'Legion::Runtime']]],
   ['destroy_5findex_5fpartition',['destroy_index_partition',['../class_legion_1_1_runtime.html#a60129618f2c2d4c0045031d87bedf026',1,'Legion::Runtime']]],

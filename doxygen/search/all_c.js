@@ -1,12 +1,11 @@
 var searchData=
 [
   ['parent',['parent',['../struct_legion_1_1_region_requirement.html#a583b8aa6dd0995b7f2ea7523f520272e',1,'Legion::RegionRequirement']]],
-  ['partition',['partition',['../struct_legion_1_1_region_requirement.html#a8608a9ca1e1619e18e5bfb6c4074b160',1,'Legion::RegionRequirement']]],
-  ['partition',['Partition',['../class_legion_1_1_partition.html',1,'Legion']]],
+  ['partition',['Partition',['../class_legion_1_1_partition.html',1,'Legion::Partition'],['../struct_legion_1_1_region_requirement.html#a8608a9ca1e1619e18e5bfb6c4074b160',1,'Legion::RegionRequirement::partition()']]],
   ['phasebarrier',['PhaseBarrier',['../class_legion_1_1_phase_barrier.html',1,'Legion']]],
   ['physicalregion',['PhysicalRegion',['../class_legion_1_1_physical_region.html',1,'Legion']]],
   ['point',['Point',['../struct_legion_1_1_point.html',1,'Legion']]],
-  ['point_3c_20dim_2c_20coord_5ft_20_3e',['Point&lt; DIM, coord_t &gt;',['../struct_legion_1_1_point.html',1,'Legion::Point&lt; DIM, coord_t &gt;'],['../struct_legion_1_1_point.html',1,'Legion::Point&lt; DIM, COORD_T &gt;']]],
+  ['point_3c_20dim_2c_20coord_5ft_20_3e',['Point&lt; DIM, COORD_T &gt;',['../struct_legion_1_1_point.html',1,'Legion::Point&lt; DIM, COORD_T &gt;'],['../struct_legion_1_1_point.html',1,'Legion::Point&lt; DIM, coord_t &gt;']]],
   ['point_3c_20m_2c_20t_20_3e',['Point&lt; M, T &gt;',['../struct_legion_1_1_point.html',1,'Legion']]],
   ['pointindomainiterator',['PointInDomainIterator',['../class_legion_1_1_point_in_domain_iterator.html',1,'Legion']]],
   ['pointinrectiterator',['PointInRectIterator',['../class_legion_1_1_point_in_rect_iterator.html',1,'Legion']]],

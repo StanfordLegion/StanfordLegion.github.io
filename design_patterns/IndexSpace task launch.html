@@ -116,36 +116,36 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>IndexSpace task launch</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> num_points = ...;</a>
-<a class="sourceLine" id="cb1-2" title="2">Rect&lt;<span class="dv">1</span>&gt; launch_bounds(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_points-<span class="dv">1</span>));</a>
-<a class="sourceLine" id="cb1-3" title="3">  Domain launch_domain = Domain::from_rect&lt;<span class="dv">1</span>&gt;(launch_bounds);</a>
-<a class="sourceLine" id="cb1-4" title="4"></a>
-<a class="sourceLine" id="cb1-5" title="5">  ArgumentMap arg_map;</a>
-<a class="sourceLine" id="cb1-6" title="6">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; num_points; i++) {</a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">int</span> input = i + <span class="dv">10</span>;</a>
-<a class="sourceLine" id="cb1-8" title="8">    arg_map.set_point(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(Point&lt;<span class="dv">1</span>&gt;(i)),</a>
-<a class="sourceLine" id="cb1-9" title="9">        TaskArgument(&amp;input,<span class="kw">sizeof</span>(input)));</a>
-<a class="sourceLine" id="cb1-10" title="10">  }</a>
-<a class="sourceLine" id="cb1-11" title="11"></a>
-<a class="sourceLine" id="cb1-12" title="12">  IndexLauncher index_launcher(HELLO_WORLD_INDEX_ID,</a>
-<a class="sourceLine" id="cb1-13" title="13">                               launch_domain,</a>
-<a class="sourceLine" id="cb1-14" title="14">                               TaskArgument(NULL, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb1-15" title="15">                               arg_map);</a>
-<a class="sourceLine" id="cb1-16" title="16"></a>
-<a class="sourceLine" id="cb1-17" title="17">  FutureMap fm = runtime-&gt;execute_index_space(ctx, index_launcher);</a>
-<a class="sourceLine" id="cb1-18" title="18">  fm.wait_all_results();</a>
-<a class="sourceLine" id="cb1-19" title="19">  </a>
-<a class="sourceLine" id="cb1-20" title="20">  <span class="dt">bool</span> all_passed = <span class="kw">true</span>;</a>
-<a class="sourceLine" id="cb1-21" title="21">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; num_points; i++) {</a>
-<a class="sourceLine" id="cb1-22" title="22">    <span class="dt">int</span> expected = <span class="dv">2</span>*(i+<span class="dv">10</span>);</a>
-<a class="sourceLine" id="cb1-23" title="23">    <span class="dt">int</span> received = fm.get_result&lt;<span class="dt">int</span>&gt;(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(Point&lt;<span class="dv">1</span>&gt;(i)));</a>
-<a class="sourceLine" id="cb1-24" title="24">    <span class="cf">if</span> (expected != received) {</a>
-<a class="sourceLine" id="cb1-25" title="25">      printf(<span class="st">&quot;Check failed for point </span><span class="sc">%d</span><span class="st">: </span><span class="sc">%d</span><span class="st"> != </span><span class="sc">%d\n</span><span class="st">&quot;</span>, i, expected, received);</a>
-<a class="sourceLine" id="cb1-26" title="26">      all_passed = <span class="kw">false</span>;</a>
-<a class="sourceLine" id="cb1-27" title="27">    }</a>
-<a class="sourceLine" id="cb1-28" title="28">  }</a>
-<a class="sourceLine" id="cb1-29" title="29">  <span class="cf">if</span> (all_passed)</a>
-<a class="sourceLine" id="cb1-30" title="30">    printf(<span class="st">&quot;All checks passed!</span><span class="sc">\n</span><span class="st">&quot;</span>);</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">int</span> num_points = ...;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">Rect&lt;<span class="dv">1</span>&gt; launch_bounds(Point&lt;<span class="dv">1</span>&gt;(<span class="dv">0</span>),Point&lt;<span class="dv">1</span>&gt;(num_points<span class="dv">-1</span>));</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  Domain launch_domain = Domain::from_rect&lt;<span class="dv">1</span>&gt;(launch_bounds);</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  ArgumentMap arg_map;</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; num_points; i++) {</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="dt">int</span> input = i + <span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    arg_map.set_point(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(Point&lt;<span class="dv">1</span>&gt;(i)),</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">        TaskArgument(&amp;input,<span class="kw">sizeof</span>(input)));</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  IndexLauncher index_launcher(HELLO_WORLD_INDEX_ID,</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">                               launch_domain,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">                               TaskArgument(NULL, <span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">                               arg_map);</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">  FutureMap fm = runtime-&gt;execute_index_space(ctx, index_launcher);</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">  fm.wait_all_results();</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">  </a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  <span class="dt">bool</span> all_passed = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">  <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; num_points; i++) {</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    <span class="dt">int</span> expected = <span class="dv">2</span>*(i<span class="dv">+10</span>);</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="dt">int</span> received = fm.get_result&lt;<span class="dt">int</span>&gt;(DomainPoint::from_point&lt;<span class="dv">1</span>&gt;(Point&lt;<span class="dv">1</span>&gt;(i)));</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">    <span class="cf">if</span> (expected != received) {</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">      printf(<span class="st">&quot;Check failed for point </span><span class="sc">%d</span><span class="st">: </span><span class="sc">%d</span><span class="st"> != </span><span class="sc">%d\n</span><span class="st">&quot;</span>, i, expected, received);</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">      all_passed = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">    }</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">  }</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">  <span class="cf">if</span> (all_passed)</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">    printf(<span class="st">&quot;All checks passed!</span><span class="sc">\n</span><span class="st">&quot;</span>);</a></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

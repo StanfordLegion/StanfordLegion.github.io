@@ -91,6 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="struct_legion_1_1_region_requirement-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Legion::RegionRequirement Struct Reference</div>  </div>
@@ -131,6 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a04560a0bd674646d77b40224d7a85618"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04560a0bd674646d77b40224d7a85618"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>RegionRequirement</b> (<a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> _handle, ProjectionID _proj, ReductionOpID op, CoherenceProperty _prop, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> _parent, MappingTagID _tag=0, bool _verified=false)</td></tr>
 <tr class="separator:a04560a0bd674646d77b40224d7a85618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eac5aef6cd2f2cc650a5e5493986105"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0eac5aef6cd2f2cc650a5e5493986105"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>RegionRequirement</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;rhs)</td></tr>
+<tr class="separator:a0eac5aef6cd2f2cc650a5e5493986105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7dcedddea07ca118bc7fbc32f0b4a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a7dcedddea07ca118bc7fbc32f0b4a9"></a>
+<a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;req)</td></tr>
+<tr class="separator:a9a7dcedddea07ca118bc7fbc32f0b4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a665f160582961c8d46a8c4f6dcfd2726"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a665f160582961c8d46a8c4f6dcfd2726"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;req) const </td></tr>
 <tr class="separator:a665f160582961c8d46a8c4f6dcfd2726"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +164,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_restricted</b> (vo
 <tr class="memitem:af4a1048a4d94b493f445c2de9970b1c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4a1048a4d94b493f445c2de9970b1c6"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>must_premap</b> (void) const </td></tr>
 <tr class="separator:af4a1048a4d94b493f445c2de9970b1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b2523413ba8feeda560c615614fb3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04b2523413ba8feeda560c615614fb3c"></a>
+const void *&#160;</td><td class="memItemRight" valign="bottom"><b>get_projection_args</b> (size_t *size) const </td></tr>
+<tr class="separator:a04b2523413ba8feeda560c615614fb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9397386d11684901f625dead5869b42d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9397386d11684901f625dead5869b42d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_projection_args</b> (const void *args, size_t size, bool own=false)</td></tr>
+<tr class="separator:a9397386d11684901f625dead5869b42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a75917d64e90b1d28c1a3d51aaa3bc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a75917d64e90b1d28c1a3d51aaa3bc2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_field_privilege</b> (FieldID fid) const </td></tr>
 <tr class="separator:a6a75917d64e90b1d28c1a3d51aaa3bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +200,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a0e8c14b4df54cd748fac18e732b353e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b3a378954322f007859c6f16cdb96a4"><td class="memItemLeft" align="right" valign="top">ProjectionID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_region_requirement.html#a3b3a378954322f007859c6f16cdb96a4">projection</a></td></tr>
 <tr class="separator:a3b3a378954322f007859c6f16cdb96a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a66453c74d1ea81b44b6b4e941461e932"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_region_requirement.html#a66453c74d1ea81b44b6b4e941461e932">projection_args</a></td></tr>
+<tr class="separator:a66453c74d1ea81b44b6b4e941461e932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae276e4b5df8bfc6fd459c7f393c19b54"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_region_requirement.html#ae276e4b5df8bfc6fd459c7f393c19b54">projection_args_size</a></td></tr>
+<tr class="separator:ae276e4b5df8bfc6fd459c7f393c19b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Region requirements are the objects used to name the logical regions that are used by tasks, copies, and inline mapping operations. Region requirements can name either logical regions or logical partitions in for index space launches. In addition to placing logical upper bounds on the privileges required for an operation, region requirements also specify the privileges and coherence modes associated with the needed logical region/partition. Region requirements have a series of constructors for different scenarios. All fields in region requirements are publicly visible so applications can mutate them freely including configuring region requirements in ways not supported with the default set of constructors. </p>
@@ -740,6 +760,48 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a66453c74d1ea81b44b6b4e941461e932"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* Legion::RegionRequirement::projection_args</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>projection arguments buffer </p>
+
+</div>
+</div>
+<a class="anchor" id="ae276e4b5df8bfc6fd459c7f393c19b54"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Legion::RegionRequirement::projection_args_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>projection arguments buffer size </p>
+
+</div>
+</div>
 <a class="anchor" id="a9d2e1f75e6e34c7ea4b0d00dfe36f259"></a>
 <div class="memitem">
 <div class="memproto">
@@ -798,7 +860,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 22 2019 13:15:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 19 2019 10:24:41 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

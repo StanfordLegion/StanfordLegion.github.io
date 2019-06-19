@@ -7,6 +7,5 @@ var searchData=
   ['tasklauncher',['TaskLauncher',['../struct_legion_1_1_task_launcher.html',1,'Legion']]],
   ['taskvariantregistrar',['TaskVariantRegistrar',['../struct_legion_1_1_task_variant_registrar.html',1,'Legion']]],
   ['timinglauncher',['TimingLauncher',['../struct_legion_1_1_timing_launcher.html',1,'Legion']]],
-  ['tlbitmask',['TLBitMask',['../class_legion_1_1_internal_1_1_t_l_bit_mask.html',1,'Legion::Internal']]],
   ['transform',['Transform',['../struct_legion_1_1_transform.html',1,'Legion']]]
 ];

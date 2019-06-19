@@ -2,7 +2,7 @@ var searchData=
 [
   ['initialize',['initialize',['../class_legion_1_1_runtime.html#adf47320c377a1b7dbb6ad24b8d8b0784',1,'Legion::Runtime']]],
   ['intersect_5findex_5fspaces',['intersect_index_spaces',['../class_legion_1_1_runtime.html#a154aaa91bca194c4d4b6118cacda22de',1,'Legion::Runtime']]],
-  ['is_5fempty',['is_empty',['../class_legion_1_1_future.html#a1a686a2469666cab55ee3f52848952ee',1,'Legion::Future']]],
+  ['is_5fempty',['is_empty',['../class_legion_1_1_future.html#adafa0ef32944aa91f88b3b94d1a889be',1,'Legion::Future']]],
   ['is_5fexclusive',['is_exclusive',['../class_legion_1_1_projection_functor.html#a841eefa7a1a992b491dd7b6564a18ed5',1,'Legion::ProjectionFunctor']]],
   ['is_5findex_5fpartition_5fcomplete',['is_index_partition_complete',['../class_legion_1_1_runtime.html#a36af197f72cc33ba83d0ada197002bb5',1,'Legion::Runtime']]],
   ['is_5findex_5fpartition_5fdisjoint',['is_index_partition_disjoint',['../class_legion_1_1_runtime.html#a2d5acf558aa75f074a816c9e897a9777',1,'Legion::Runtime']]],

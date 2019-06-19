@@ -109,6 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;deque&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;typeinfo&gt;</code><br />
+<code>#include &quot;bitmask.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="legion__config_8h_source.html">legion/legion_config.h</a>&quot;</code><br />
 <code>#include &quot;legion/legion_template_help.h&quot;</code><br />
 <code>#include &quot;realm.h&quot;</code><br />
@@ -137,13 +138,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_fraction.html">Legion::Internal::Fraction&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_bit_mask.html">Legion::Internal::BitMask&lt; T, MAX, SHIFT, MASK &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_t_l_bit_mask.html">Legion::Internal::TLBitMask&lt; T, MAX, SHIFT, MASK &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_bit_permutation.html">Legion::Internal::BitPermutation&lt; T, LOG2MAX &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_integer_set.html">Legion::Internal::IntegerSet&lt; IT, DT, BIDIR &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_profiling_response_handler.html">Legion::Internal::ProfilingResponseHandler</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,6 +151,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_index_space_node_t.html">Legion::Internal::IndexSpaceNodeT&lt; DIM, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_index_part_node_t.html">Legion::Internal::IndexPartNodeT&lt; DIM, T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_color_space_iterator_t.html">Legion::Internal::ColorSpaceIteratorT&lt; DIM, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_n_t___template_helper.html">Legion::Internal::NT_TemplateHelper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1256,7 +1253,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 22 2019 13:15:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 19 2019 10:24:41 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

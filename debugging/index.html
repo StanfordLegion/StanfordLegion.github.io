@@ -179,6 +179,9 @@ further debugging efforts. To enable backtraces, set
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">mpirun <span class="nt">-x</span> <span class="nv">LEGION_BACKTRACE</span><span class="o">=</span>1 ./app</code></pre></figure>
 
+<p>(Note: <code class="highlighter-rouge">LEGION_BACKTRACE</code> can also be spelled <code class="highlighter-rouge">REALM_BACKTRACE</code>. Both
+spellings are identical.)</p>
+
 <h3 id="freeze-on-error">Freeze On Error</h3>
 
 <p>Legion has the ability to freeze the application if it reaches an
@@ -193,6 +196,9 @@ might reproduce sporadically. To enable this, set
 <code class="highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">mpirun <span class="nt">-x</span> <span class="nv">LEGION_FREEZE_ON_ERROR</span><span class="o">=</span>1 ./app</code></pre></figure>
+
+<p>(Note: <code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR</code> can also be spelled
+<code class="highlighter-rouge">REALM_FREEZE_ON_ERROR</code>. Both spellings are identical.)</p>
 
 <p>If the application crashes, it will freeze with an message such as the
 following. After logging in to the node, it should then be possible to
@@ -386,7 +392,7 @@ node.</p>
 <h3 id="debug-tasks">Debug Tasks</h3>
 
 <p>One very useful debugging technique that we have
-found has been the ability to use <em>deubg tasks</em>
+found has been the ability to use <em>debug tasks</em>
 as a means of introspecting Legion applications.
 Due to the out-of-order nature of Legion task
 execution, using a traditional debugger like <code class="highlighter-rouge">gdb</code>
@@ -421,7 +427,7 @@ primitive form of <code class="highlighter-rouge">in-situ</code> analytics.</p>
 
 <h3 id="delay-start">Delay Start</h3>
 
-<p>In some cases I can be useful to attach a debugger to a program prior
+<p>In some cases it can be useful to attach a debugger to a program prior
 to the point where it actually fails. This can be challenging
 particularly in multi-node executions where the user cannot simply run
 <code class="highlighter-rouge">gdb --args ./app ...</code>. To assist in such cases, Legion provides an

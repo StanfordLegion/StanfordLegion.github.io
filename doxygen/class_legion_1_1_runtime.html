@@ -450,8 +450,8 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:adc395905f650eb4eaca7f3c7639f77c5"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
 <tr class="memitem:adc395905f650eb4eaca7f3c7639f77c5"><td class="memTemplItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#adc395905f650eb4eaca7f3c7639f77c5">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const UDT &amp;user_data)</td></tr>
 <tr class="separator:adc395905f650eb4eaca7f3c7639f77c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa92c53a34717328d74828a4fd2d29075"><td class="memItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa92c53a34717328d74828a4fd2d29075">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0)</td></tr>
-<tr class="separator:aa92c53a34717328d74828a4fd2d29075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452354a8d5df16553d9338a1827220d5"><td class="memItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a452354a8d5df16553d9338a1827220d5">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, bool has_return_type=false)</td></tr>
+<tr class="separator:a452354a8d5df16553d9338a1827220d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80c14a71347a05e9350bbd263df301c"><td class="memTemplParams" colspan="2">template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
 <tr class="memitem:ab80c14a71347a05e9350bbd263df301c"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab80c14a71347a05e9350bbd263df301c">LEGION_DEPRECATED</a> (&quot;Task registration should be done with &quot;&quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;) static TaskID register_legion_task(TaskID id</td></tr>
 <tr class="separator:ab80c14a71347a05e9350bbd263df301c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1010,6 +1010,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:adf47320c377a1b7dbb6ad24b8d8b0784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c6d29724fa7b7e3679b94b19a20c37c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3c6d29724fa7b7e3679b94b19a20c37c">wait_for_shutdown</a> (void)</td></tr>
 <tr class="separator:a3c6d29724fa7b7e3679b94b19a20c37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad410053e46f711e0cd756d437e72ec73"><td class="memItemLeft" align="right" valign="top">static Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad410053e46f711e0cd756d437e72ec73">start_implicit</a> (int argc, char **argv, TaskID top_task_id, Processor::Kind proc_kind, const char *task_name=NULL, bool control_replicable=false)</td></tr>
+<tr class="separator:ad410053e46f711e0cd756d437e72ec73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69accd5cf18e2093b4957e9b34c8b6a5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a69accd5cf18e2093b4957e9b34c8b6a5">finish_implicit</a> (Context ctx)</td></tr>
+<tr class="separator:a69accd5cf18e2093b4957e9b34c8b6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63bc41e96b5b10f3435b15ef6d5f090b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a63bc41e96b5b10f3435b15ef6d5f090b">set_top_level_task_id</a> (TaskID top_id)</td></tr>
 <tr class="separator:a63bc41e96b5b10f3435b15ef6d5f090b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0f5f4c6e37c8bc225de4b1851d87a2a"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae0f5f4c6e37c8bc225de4b1851d87a2a">get_maximum_dimension</a> (void)</td></tr>
@@ -1056,8 +1060,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1bdd1f8e20d43236c869fa7d40e17f02"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
 <tr class="memitem:a1bdd1f8e20d43236c869fa7d40e17f02"><td class="memTemplItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1bdd1f8e20d43236c869fa7d40e17f02">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const UDT &amp;user_data, const char *task_name=NULL, VariantID vid=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:a1bdd1f8e20d43236c869fa7d40e17f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2c24ed1528f726a64f98a5b7ea844d9"><td class="memItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af2c24ed1528f726a64f98a5b7ea844d9">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:af2c24ed1528f726a64f98a5b7ea844d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac45a5913963e38e7b684ea9df015bcff"><td class="memItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac45a5913963e38e7b684ea9df015bcff">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=AUTO_GENERATE_ID, bool has_return_type=false, bool check_task_id=true)</td></tr>
+<tr class="separator:ac45a5913963e38e7b684ea9df015bcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75cae296df9a998053907a268f907c9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a75cae296df9a998053907a268f907c9e">legion_task_preamble</a> (const void *data, size_t datalen, Processor p, const <a class="el" href="class_legion_1_1_task.html">Task</a> *&amp;task, const std::vector&lt; <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &gt; *&amp;reg, Context &amp;ctx, <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&amp;runtime)</td></tr>
 <tr class="separator:a75cae296df9a998053907a268f907c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08905fb94d7112d3c632036a65f3a3fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a08905fb94d7112d3c632036a65f3a3fa">legion_task_postamble</a> (<a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *runtime, Context ctx, const void *retvalptr=NULL, size_t retvalsize=0)</td></tr>
@@ -5542,6 +5546,31 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a69accd5cf18e2093b4957e9b34c8b6a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Legion::Runtime::finish_implicit </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is the final method for marking the end of an implicit top-level task. Note that it executes asychronously and it is still the responsibility of the user to wait for the runtime to shutdown when all of it's effects are done. The Context object is no longer valid after this call. </p>
+
+</div>
+</div>
 <a class="anchor" id="a710dd7fbc03f776789c4b0ee538a50f9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -9275,7 +9304,7 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
 
 </div>
 </div>
-<a class="anchor" id="af2c24ed1528f726a64f98a5b7ea844d9"></a>
+<a class="anchor" id="ac45a5913963e38e7b684ea9df015bcff"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -9316,7 +9345,19 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VariantID&#160;</td>
-          <td class="paramname"><em>vid</em> = <code>AUTO_GENERATE_ID</code>&#160;</td>
+          <td class="paramname"><em>vid</em> = <code>AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>has_return_type</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>check_task_id</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -9336,6 +9377,8 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
     <tr><td class="paramname">codedesc</td><td>the code descriptor for the pre-wrapped task </td></tr>
     <tr><td class="paramname">user_data</td><td>pointer to optional user data to associate with the task variant </td></tr>
     <tr><td class="paramname">user_len</td><td>size of optional user_data in bytes </td></tr>
+    <tr><td class="paramname">has_return_type</td><td>boolean indicating a non-void return type </td></tr>
+    <tr><td class="paramname">check_task_id</td><td>verify validity of the task ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -9801,7 +9844,7 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
 
 </div>
 </div>
-<a class="anchor" id="aa92c53a34717328d74828a4fd2d29075"></a>
+<a class="anchor" id="a452354a8d5df16553d9338a1827220d5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -9827,7 +9870,13 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>user_len</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>user_len</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>has_return_type</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -9842,6 +9891,7 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
     <tr><td class="paramname">codedesc</td><td>the code descriptor for the pre-wrapped task </td></tr>
     <tr><td class="paramname">user_data</td><td>pointer to optional user data to associate with the task variant </td></tr>
     <tr><td class="paramname">user_len</td><td>size of optional user_data in bytes </td></tr>
+    <tr><td class="paramname">has_return_type</td><td>boolean if this has a non-void return type </td></tr>
   </table>
   </dd>
 </dl>
@@ -10952,7 +11002,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 <h2>Resiliency </h2>
 <p>-lg:resilient Enable features that make the runtime resilient including deferred commit that can be controlled by the next two flags. By default this is off for performance reasons. Once resiliency mode is enabled, then the user can control when </p><h2>operations commit using the next two flags. </h2>
 <h2>Debugging </h2>
-<p>-lg:warn Enable all verbose runtime warnings -lg:ldb &lt;replay_file&gt; Replay the execution of the application with the associated replay file generted by LegionSpy. This will run the application in the <a class="el" href="namespace_legion.html">Legion</a> debugger. -lg:replay &lt;replay_file&gt; Rerun the execution of the application with the associated replay file generated by LegionSpy. -lg:tree Dump intermediate physical region tree states before and after every operation. The runtime must be compiled in debug mode with the DEBUG_LEGION macro defined. -lg:disjointness Verify the specified disjointness of partitioning operations. The runtime must be compiled with the DEBUG_LEGION macro defined. -lg:separate Indicate that separate instances of the high level runtime should be made for each processor. The default is one runtime instance per node. This is primarily useful for debugging purposes to force messages to be sent between runtime instances on the same node. -lg:registration Record the mapping from low-level task IDs to task variant names for debugging low-level runtime error messages. -lg:test Replace the default mapper with the test mapper which will generate sound but random mapping decision in order to stress-test the runtime. -lg:delay &lt;sec&gt; Delay the start of the runtime by 'sec' seconds. This is often useful for attaching debuggers on </p><h2>one or more nodes prior to an application beginning. </h2>
+<p>-lg:warn Enable all verbose runtime warnings -lg:warn_backtrace Print a backtrace for each warning -lg:ldb &lt;replay_file&gt; Replay the execution of the application with the associated replay file generted by LegionSpy. This will run the application in the <a class="el" href="namespace_legion.html">Legion</a> debugger. -lg:replay &lt;replay_file&gt; Rerun the execution of the application with the associated replay file generated by LegionSpy. -lg:tree Dump intermediate physical region tree states before and after every operation. The runtime must be compiled in debug mode with the DEBUG_LEGION macro defined. -lg:disjointness Verify the specified disjointness of partitioning operations. The runtime must be compiled with the DEBUG_LEGION macro defined. -lg:separate Indicate that separate instances of the high level runtime should be made for each processor. The default is one runtime instance per node. This is primarily useful for debugging purposes to force messages to be sent between runtime instances on the same node. -lg:registration Record the mapping from low-level task IDs to task variant names for debugging low-level runtime error messages. -lg:test Replace the default mapper with the test mapper which will generate sound but random mapping decision in order to stress-test the runtime. -lg:delay &lt;sec&gt; Delay the start of the runtime by 'sec' seconds. This is often useful for attaching debuggers on </p><h2>one or more nodes prior to an application beginning. </h2>
 <h2>Profiling </h2>
 <p>-lg:spy Enable light-weight logging for <a class="el" href="namespace_legion.html">Legion</a> Spy which is valuable for understanding properties of an application such as the shapes of region trees and the kinds of tasks/operations that are created. Checking of the runtime with <a class="el" href="namespace_legion.html">Legion</a> Spy will still require the runtime to be compiled with -DLEGION_SPY. -lg:prof &lt;int&gt; Specify the number of nodes on which to enable profiling information to be collected. By default all nodes are disabled. Zero will disable all profiling while each number greater than zero will profile on that number of nodes. -lg:serializer &lt;string&gt; Specify the kind of serializer to use: 'ascii' or 'binary'. The default is 'binary'. -lg:prof_logfile &lt;filename&gt; If using a binary serializer the name of the output file to write to. -lg:prof_footprint &lt;int&gt; The maximum goal size of <a class="el" href="namespace_legion.html">Legion</a> Prof footprint during runtime in MBs. If the total data captured by the profiler exceeds this footprint, the runtime will begin dumping data out to the output file in a minimally invasive way while the application is still running. The default is 512 (MB). -lg:prof_latency &lt;int&gt; The goal latency in microseconds of intermediate profiling tasks to be writing to output files if the maximum footprint size is exceeded. This allows control over the granularity so they can be made small enough to interleave with other runtime work. The default is 100 (us).</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -10964,6 +11014,65 @@ template&lt;int DIM, typename COORD_T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>only if running in background, otherwise never </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad410053e46f711e0cd756d437e72ec73"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Context Legion::Runtime::start_implicit </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>top_task_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor::Kind&#160;</td>
+          <td class="paramname"><em>proc_kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>task_name</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>control_replicable</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>An alternative way to start the runtime to create an implicit top-level task in the main thread. After this call the main thread will be treated as though it is the top-level task running on a specific kind of processor. Users can also mark that this implicit top-level task is control replicable for supporting implicit top-level tasks for multi-node runs. </p>
 
 </div>
 </div>
@@ -11120,7 +11229,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 19 2019 10:24:41 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 24 2019 15:07:35 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -9,6 +9,7 @@ var searchData=
   ['set_5ftop_5flevel_5ftask_5fid',['set_top_level_task_id',['../class_legion_1_1_runtime.html#a63bc41e96b5b10f3435b15ef6d5f090b',1,'Legion::Runtime']]],
   ['shardingfunctor',['ShardingFunctor',['../class_legion_1_1_sharding_functor.html',1,'Legion']]],
   ['start',['start',['../class_legion_1_1_runtime.html#a24cca1fc29f38d7b8d00f0d377ee19f8',1,'Legion::Runtime']]],
+  ['start_5fimplicit',['start_implicit',['../class_legion_1_1_runtime.html#ad410053e46f711e0cd756d437e72ec73',1,'Legion::Runtime']]],
   ['staticdependence',['StaticDependence',['../struct_legion_1_1_static_dependence.html',1,'Legion']]],
   ['stlcomparator',['STLComparator',['../struct_legion_1_1_domain_point_1_1_s_t_l_comparator.html',1,'Legion::DomainPoint']]],
   ['subtract_5findex_5fspaces',['subtract_index_spaces',['../class_legion_1_1_runtime.html#a0ee59b347d6a4b7c8c12b8b2f63ea6f3',1,'Legion::Runtime']]]

@@ -122,6 +122,7 @@ applications, and those for debugging the runtime itself.</p>
 
 <ul>
   <li><a href="#debug-mode">Debug Mode</a> (<code class="highlighter-rouge">DEBUG=1 make; ./app</code>)</li>
+  <li><a href="#backtrace">Backtrace</a> (<code class="highlighter-rouge">LEGION_BACKTRACE=1 ./app</code>)</li>
   <li><a href="#freeze-on-error">Freeze On Error</a> (<code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR=1 ./app</code>)</li>
   <li><a href="#privilege-checks">Privilege Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS make; ./app</code>)</li>
   <li><a href="#bounds-checks">Bounds Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS make; ./app</code>)</li>
@@ -135,6 +136,7 @@ tools have been exhausted or in special circumstances:</p>
 <ul>
   <li><a href="#logging-infrastructure">Logging Infrastructure</a></li>
   <li><a href="#debug-tasks">Debug Tasks</a></li>
+  <li><a href="#delay-start">Delay Start</a> (<code class="highlighter-rouge">./app -lg:delay N</code> where <code class="highlighter-rouge">N</code> is in seconds)</li>
   <li><a href="#in-order-execution">In-Order Execution</a> (<code class="highlighter-rouge">./app -lg:inorder</code>)</li>
   <li><a href="#full-size-instances">Full-Size Instances</a></li>
   <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
@@ -159,6 +161,23 @@ messages, but Legion is still an experimental system and there may be
 assertions that do not produce useful error messages. If you encounter
 one of these assertions (regardless of whether it is an application or
 runtime bug), please report it on the <a href="/community/">bug tracker</a>.</p>
+
+<h3 id="backtrace">Backtrace</h3>
+
+<p>Legion can automatically print a backtrace when an error occurs (such
+as an assertion failure or a segfault). This capability has a
+negligible performance impact and is therefore recommended in settings
+where crashes occur in production applications. Backtraces often
+provide initial clues as to where a bug may be hiding, and can direct
+further debugging efforts. To enable backtraces, set
+<code class="highlighter-rouge">LEGION_BACKTRACE</code> to <code class="highlighter-rouge">1</code> in the environment:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">LEGION_BACKTRACE</span><span class="o">=</span>1 ./app</code></pre></figure>
+
+<p>When using <code class="highlighter-rouge">mpirun</code> as a launcher for the application, remember that a
+<code class="highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mpirun <span class="nt">-x</span> <span class="nv">LEGION_BACKTRACE</span><span class="o">=</span>1 ./app</code></pre></figure>
 
 <h3 id="freeze-on-error">Freeze On Error</h3>
 
@@ -399,6 +418,31 @@ the most useful features of Legion, enabling introspection
 that can be easily enabled and disabled without worrying
 about correctness. Really, debug tasks are just a very
 primitive form of <code class="highlighter-rouge">in-situ</code> analytics.</p>
+
+<h3 id="delay-start">Delay Start</h3>
+
+<p>In some cases I can be useful to attach a debugger to a program prior
+to the point where it actually fails. This can be challenging
+particularly in multi-node executions where the user cannot simply run
+<code class="highlighter-rouge">gdb --args ./app ...</code>. To assist in such cases, Legion provides an
+option to pause at the beginning of an application run. The user can
+then use the delay to manually attach to the process with a debugger.</p>
+
+<p>The following command will cause Legion to pause for 30 seconds prior
+to starting the top-level task:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-lg</span>:delay 30</code></pre></figure>
+
+<p>The user can use this opportunity to find the appropriate PID and
+attach with a debugger. For example, assuming that <code class="highlighter-rouge">ps</code> reports that
+the PID is <code class="highlighter-rouge">12345</code>:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ps <span class="nt">-u</span> <span class="k">$(</span>whoami<span class="k">)</span>
+gdb <span class="nt">-p</span> 12345</code></pre></figure>
+
+<p>After entering the debugger, the user can set breakpoints or configure
+settings as appropriate, and then when ready can issue the command
+<code class="highlighter-rouge">continue</code> to resume execution of the application.</p>
 
 <h3 id="in-order-execution">In-Order Execution</h3>
 

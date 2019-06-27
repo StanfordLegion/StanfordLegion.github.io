@@ -17,6 +17,7 @@ var searchData=
   ['inlinemapping',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
   ['inputargs',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],
   ['instance_5ffields',['instance_fields',['../struct_legion_1_1_region_requirement.html#a8557780a79b6e633a5fb985b85fdf150',1,'Legion::RegionRequirement']]],
+  ['integerset',['IntegerSet',['../class_integer_set.html',1,'']]],
   ['intersect_5findex_5fspaces',['intersect_index_spaces',['../class_legion_1_1_runtime.html#a154aaa91bca194c4d4b6118cacda22de',1,'Legion::Runtime']]],
   ['is_5fempty',['is_empty',['../class_legion_1_1_future.html#adafa0ef32944aa91f88b3b94d1a889be',1,'Legion::Future']]],
   ['is_5fexclusive',['is_exclusive',['../class_legion_1_1_projection_functor.html#a841eefa7a1a992b491dd7b6564a18ed5',1,'Legion::ProjectionFunctor']]],

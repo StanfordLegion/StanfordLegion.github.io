@@ -109,7 +109,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;deque&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;typeinfo&gt;</code><br />
-<code>#include &quot;bitmask.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="legion__config_8h_source.html">legion/legion_config.h</a>&quot;</code><br />
 <code>#include &quot;legion/legion_template_help.h&quot;</code><br />
 <code>#include &quot;realm.h&quot;</code><br />
@@ -120,6 +119,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bit_mask.html">BitMask&lt; T, MAX, SHIFT, MASK &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_l_bit_mask.html">TLBitMask&lt; T, MAX, SHIFT, MASK &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_set.html">IntegerSet&lt; IT, DT, BIDIR &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_index_space_t.html">Legion::IndexSpaceT&lt; DIM, COORD_T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_index_partition_t.html">Legion::IndexPartitionT&lt; DIM, COORD_T &gt;</a></td></tr>
@@ -518,7 +523,7 @@ typedef Mapping::Mapper&#160;</td><td class="memItemRight" valign="bottom"><b>Le
 typedef Mapping::PhysicalInstance&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::MappingInstance</b></td></tr>
 <tr class="separator:aa1299557cc0213c0212c3d407659a879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8089ad46d54ceb41f641a44efe672a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8089ad46d54ceb41f641a44efe672a5"></a>
-typedef BitMask&lt; LEGION_FIELD_MASK_FIELD_TYPE, LEGION_MAX_FIELDS, LEGION_FIELD_MASK_FIELD_SHIFT, LEGION_FIELD_MASK_FIELD_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::FieldMask</b></td></tr>
+typedef <a class="el" href="class_bit_mask.html">BitMask</a>&lt; LEGION_FIELD_MASK_FIELD_TYPE, LEGION_MAX_FIELDS, LEGION_FIELD_MASK_FIELD_SHIFT, LEGION_FIELD_MASK_FIELD_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::FieldMask</b></td></tr>
 <tr class="separator:ac8089ad46d54ceb41f641a44efe672a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0810945a07d9e50caea40ea39f315aff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0810945a07d9e50caea40ea39f315aff"></a>
 typedef BitPermutation&lt; FieldMask, LEGION_FIELD_LOG2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::FieldPermutation</b></td></tr>
@@ -527,13 +532,13 @@ typedef BitPermutation&lt; FieldMask, LEGION_FIELD_LOG2 &gt;&#160;</td><td class
 typedef Fraction&lt; unsigned long &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::InstFrac</b></td></tr>
 <tr class="separator:a9aa02d6df11efddec7f813428fa242e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae02ab60d4bd03585255c835f109c0a61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae02ab60d4bd03585255c835f109c0a61"></a>
-typedef BitMask&lt; LEGION_NODE_MASK_NODE_TYPE, LEGION_MAX_NUM_NODES, LEGION_NODE_MASK_NODE_SHIFT, LEGION_NODE_MASK_NODE_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::NodeMask</b></td></tr>
+typedef <a class="el" href="class_bit_mask.html">BitMask</a>&lt; LEGION_NODE_MASK_NODE_TYPE, LEGION_MAX_NUM_NODES, LEGION_NODE_MASK_NODE_SHIFT, LEGION_NODE_MASK_NODE_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::NodeMask</b></td></tr>
 <tr class="separator:ae02ab60d4bd03585255c835f109c0a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa0e2cec7117349462e87df75b3224c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa0e2cec7117349462e87df75b3224c6"></a>
-typedef IntegerSet&lt; AddressSpaceID, NodeMask &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::NodeSet</b></td></tr>
-<tr class="separator:afa0e2cec7117349462e87df75b3224c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10164ad4cc748f086bd87ee456555869"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10164ad4cc748f086bd87ee456555869"></a>
+typedef <a class="el" href="class_integer_set.html">IntegerSet</a>&lt; AddressSpaceID, NodeMask, false &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::NodeSet</b></td></tr>
+<tr class="separator:a10164ad4cc748f086bd87ee456555869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8792f8cdd4cf52d76c153c65f32fe875"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8792f8cdd4cf52d76c153c65f32fe875"></a>
-typedef BitMask&lt; LEGION_PROC_MASK_PROC_TYPE, LEGION_MAX_NUM_PROCS, LEGION_PROC_MASK_PROC_SHIFT, LEGION_PROC_MASK_PROC_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::ProcessorMask</b></td></tr>
+typedef <a class="el" href="class_bit_mask.html">BitMask</a>&lt; LEGION_PROC_MASK_PROC_TYPE, LEGION_MAX_NUM_PROCS, LEGION_PROC_MASK_PROC_SHIFT, LEGION_PROC_MASK_PROC_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::ProcessorMask</b></td></tr>
 <tr class="separator:a8792f8cdd4cf52d76c153c65f32fe875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20fc7c73e8cd132a797295302f93e0a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20fc7c73e8cd132a797295302f93e0a4"></a>
 typedef Realm::CopySrcDstField&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::CopySrcDstField</b></td></tr>
@@ -986,27 +991,30 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<b>SEND_ACQUIRE_REQUEST</b>, 
 <b>SEND_ACQUIRE_RESPONSE</b>, 
-<b>SEND_VARIANT_REQUEST</b>, 
-<b>SEND_VARIANT_RESPONSE</b>, 
-<br />
-&#160;&#160;<b>SEND_VARIANT_BROADCAST</b>, 
+<b>SEND_VARIANT_BROADCAST</b>, 
 <b>SEND_CONSTRAINT_REQUEST</b>, 
-<b>SEND_CONSTRAINT_RESPONSE</b>, 
+<br />
+&#160;&#160;<b>SEND_CONSTRAINT_RESPONSE</b>, 
 <b>SEND_CONSTRAINT_RELEASE</b>, 
-<br />
-&#160;&#160;<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
+<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
 <b>SEND_TOP_LEVEL_TASK_COMPLETE</b>, 
-<b>SEND_MPI_RANK_EXCHANGE</b>, 
+<br />
+&#160;&#160;<b>SEND_MPI_RANK_EXCHANGE</b>, 
 <b>SEND_LIBRARY_MAPPER_REQUEST</b>, 
-<br />
-&#160;&#160;<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
+<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
 <b>SEND_LIBRARY_PROJECTION_REQUEST</b>, 
-<b>SEND_LIBRARY_PROJECTION_RESPONSE</b>, 
-<b>SEND_LIBRARY_TASK_REQUEST</b>, 
 <br />
-&#160;&#160;<b>SEND_LIBRARY_TASK_RESPONSE</b>, 
+&#160;&#160;<b>SEND_LIBRARY_PROJECTION_RESPONSE</b>, 
+<b>SEND_LIBRARY_TASK_REQUEST</b>, 
+<b>SEND_LIBRARY_TASK_RESPONSE</b>, 
+<b>SEND_LIBRARY_REDOP_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_LIBRARY_REDOP_RESPONSE</b>, 
+<b>SEND_LIBRARY_SERDEZ_REQUEST</b>, 
+<b>SEND_LIBRARY_SERDEZ_RESPONSE</b>, 
 <b>SEND_SHUTDOWN_NOTIFICATION</b>, 
-<b>SEND_SHUTDOWN_RESPONSE</b>, 
+<br />
+&#160;&#160;<b>SEND_SHUTDOWN_RESPONSE</b>, 
 <b>LAST_SEND_KIND</b>
 <br />
  }</td></tr>
@@ -1261,7 +1269,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 24 2019 15:14:34 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 27 2019 14:08:43 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

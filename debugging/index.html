@@ -140,6 +140,8 @@ tools have been exhausted or in special circumstances:</p>
   <li><a href="#in-order-execution">In-Order Execution</a> (<code class="highlighter-rouge">./app -lg:inorder</code>)</li>
   <li><a href="#full-size-instances">Full-Size Instances</a></li>
   <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
+  <li><a href="#dump-backtraces">Dump Backtraces</a> (<code class="highlighter-rouge">./app -ll:force_kthreads</code>)</li>
+  <li><a href="#dump-events">Dump Events</a></li>
 </ul>
 
 <h2 id="try-these-first">Try These First</h2>
@@ -528,6 +530,53 @@ the different runtime instances. This setting
 can be enabled by passing the flags <code class="highlighter-rouge">-lg:separate -ll:util 0</code>
 on the command line. (The <code class="highlighter-rouge">-ll:util 0</code> is required because this mode
 does not support execution with explicit utility processors.)</p>
+
+<h3 id="dump-backtraces">Dump Backtraces</h3>
+
+<p>When debugging a freeze in Legion, the first step should always be to
+dump backtraces on all nodes. This will help determine (a) if the
+application is truly frozen or simply executing slowly, and (b)
+whether there are any obvious or unusual functions on the stack traces
+that may point to a possible cause.</p>
+
+<p>One complicating factor is that Legion employs user-level threads by
+default. Therefore, in order to get useful backtraces, it is necessary
+to use the flag <code class="highlighter-rouge">-ll:force_kthreads</code> to disable user-level threads:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-ll</span>:force_kthreads
+<span class="c"># wait for the application to freeze</span>
+gdb <span class="nt">-p</span> 12345
+apply thread all bt <span class="c"># inside gdb, dump backtraces</span></code></pre></figure>
+
+<p>Note also that it is important to compile with debug symbols or else
+line numbers will not appear in the resulting backtraces. This can be
+accomplished by running in <a href="#debug-mode">debug mode</a> (which is
+recommended anyway), or if the freeze does not reproduce in debug
+mode, Legion can be compiled with <code class="highlighter-rouge">-Og -ggdb</code> or similar to ensure
+that debug symbols are available.</p>
+
+<h3 id="dump-events">Dump Events</h3>
+
+<p>When debugging a freeze, if dumping backtraces fails to provide
+insight, then it can be helpful to dump the Realm event graph to
+determine if a cycle has formed. Note in order for this to work,
+Legion <em>must</em> be compiled with debug symbols (<code class="highlighter-rouge">-Og -ggdb</code> or
+similar). <a href="#debug-mode">Debug mode</a> is not required.</p>
+
+<p>To dump the events, run the application and wait for it to
+freeze. Then attach with a debugger and call the function
+<code class="highlighter-rouge">Realm::realm_show_events(0)</code>. The environment variable
+<code class="highlighter-rouge">REALM_SHOW_EVENT_FILENAME</code> controls where the resulting log files are
+stored.</p>
+
+<p>Using gdb, this might look like:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">REALM_SHOW_EVENT_FILENAME</span><span class="o">=</span><span class="nv">$PWD</span>/events.txt
+./app
+<span class="c"># wait for the application to freeze</span>
+gdb <span class="nt">-p</span> 12345
+call Realm::realm_show_events<span class="o">(</span>0<span class="o">)</span></code></pre></figure>
+
 
     </div><!-- /.article-wrap -->
   </article>

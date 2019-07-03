@@ -577,6 +577,14 @@ stored.</p>
 gdb <span class="nt">-p</span> 12345
 call Realm::realm_show_events<span class="o">(</span>0<span class="o">)</span></code></pre></figure>
 
+<p>This should result in a file called <code class="highlighter-rouge">events.txt</code>. This file can be
+processed by a Legion tool called <code class="highlighter-rouge">detect_loops</code> to look for cycles in
+the event graph:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">make <span class="nt">-C</span> legion/tools detect_loops
+legion/tools/detect_loops event.txt</code></pre></figure>
+
+<p>If a cycle is found it will be displayed on stdout.</p>
 
     </div><!-- /.article-wrap -->
   </article>

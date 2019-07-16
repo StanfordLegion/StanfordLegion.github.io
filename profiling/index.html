@@ -186,7 +186,8 @@ the resulting log files to <code class="highlighter-rouge">legion_prof.py</code>
 
 <p>This will generate a subdirectory called <code class="highlighter-rouge">legion_prof</code> under the
 current directory, including a file named <code class="highlighter-rouge">index.html</code>. Open this file
-in a browser.</p>
+in a browser. If you are not able to view the profile, follow the steps described
+in <a href="#legion-prof-troubleshooting">Legion Prof Troubleshooting</a>.</p>
 
 <p>A sample of Legion Prof’s output is shown below.</p>
 
@@ -275,16 +276,19 @@ critical path line, simply press <code class="highlighter-rouge">a</code> again.
 <h3 id="legion-prof-troubleshooting">Legion Prof Troubleshooting</h3>
 
 <p>If you try to access <code class="highlighter-rouge">index.html</code> locally (by opening 
-<code class="highlighter-rouge">file:///.../index.html</code>), you may run into issues if you use Google
-Chrome. We recommend using Firefox or Safari, or accessing your profile
+<code class="highlighter-rouge">file:///.../index.html</code>), you may run into issues and may not be able to view
+the profile output. We recommend accessing your profile
 over a remote web server. Alternately, you can spin up a simple web server
 locally:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>legion_prof
-python <span class="nt">-m</span> SimpleHTTPServer</code></pre></figure>
+python <span class="nt">-m</span> SimpleHTTPServer
+<span class="c"># or</span>
+python3 <span class="nt">-m</span> http.server</code></pre></figure>
 
-<p>and then open <code class="highlighter-rouge">localhost:80000</code> from Chrome. One final option if you want
-to use Chrome on local profiles is to launch Chrome with 
+<p>and load your page on <code class="highlighter-rouge">localhost:8000</code> from your browser.</p>
+
+<p>Alternatively, if you want to use Chrome on local profiles, launch Chrome with
 <code class="highlighter-rouge">chrome --allow-file-access-from-files</code> from the terminal. Note that you will
 need to completely close Chrome before doing this.</p>
 

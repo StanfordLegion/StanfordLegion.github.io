@@ -116,12 +116,12 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Individual task launch</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// pass a single integer as argument</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="dt">int</span> i = ...;</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">Context ctx;</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">HighLevelRuntime *runtime;</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">TaskLauncher launcher(FIBONACCI_TASK_ID, TaskArgument(&amp;i,<span class="kw">sizeof</span>(i)));</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">Future future = runtime-&gt;execute_task(ctx, launcher);</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">// pass a single integer as argument</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="dt">int</span> i = ...;</span>
+<span id="cb1-3"><a href="#cb1-3"></a>Context ctx;</span>
+<span id="cb1-4"><a href="#cb1-4"></a>HighLevelRuntime *runtime;</span>
+<span id="cb1-5"><a href="#cb1-5"></a>TaskLauncher launcher(FIBONACCI_TASK_ID, TaskArgument(&amp;i,<span class="kw">sizeof</span>(i)));</span>
+<span id="cb1-6"><a href="#cb1-6"></a>Future future = runtime-&gt;execute_task(ctx, launcher);</span></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

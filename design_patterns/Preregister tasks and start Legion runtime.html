@@ -116,15 +116,15 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Preregister tasks and start Legion runtime</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">enum</span> TaskID {</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  HELLO_WORLD_ID,</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">};</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"> HighLevelRuntime::set_top_level_task_id(HELLO_WORLD_ID);</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  HighLevelRuntime::register_legion_task&lt;hello_world_task&gt;(HELLO_WORLD_ID,</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">      Processor::LOC_PROC, <span class="kw">true</span><span class="co">/*single*/</span>, <span class="kw">false</span><span class="co">/*index*/</span>);</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="cf">return</span> HighLevelRuntime::start(argc, argv);</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">enum</span> TaskID {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  HELLO_WORLD_ID,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>};</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a> HighLevelRuntime::set_top_level_task_id(HELLO_WORLD_ID);</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  HighLevelRuntime::register_legion_task&lt;hello_world_task&gt;(HELLO_WORLD_ID,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>      Processor::LOC_PROC, <span class="kw">true</span><span class="co">/*single*/</span>, <span class="kw">false</span><span class="co">/*index*/</span>);</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="cf">return</span> HighLevelRuntime::start(argc, argv);</span></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

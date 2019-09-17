@@ -8,5 +8,6 @@ var searchData=
   ['apuserevent',['ApUserEvent',['../class_legion_1_1_internal_1_1_ap_user_event.html',1,'Legion::Internal']]],
   ['argumentmap',['ArgumentMap',['../class_legion_1_1_argument_map.html',1,'Legion']]],
   ['attachlauncher',['AttachLauncher',['../struct_legion_1_1_attach_launcher.html',1,'Legion']]],
-  ['autolock',['AutoLock',['../class_legion_1_1_internal_1_1_auto_lock.html',1,'Legion::Internal']]]
+  ['autolock',['AutoLock',['../class_legion_1_1_internal_1_1_auto_lock.html',1,'Legion::Internal']]],
+  ['autotrylock',['AutoTryLock',['../class_legion_1_1_internal_1_1_auto_try_lock.html',1,'Legion::Internal']]]
 ];

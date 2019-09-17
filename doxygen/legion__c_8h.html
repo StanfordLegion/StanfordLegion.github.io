@@ -932,6 +932,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_field_map_inse
 <tr class="separator:ac9e22deb4be6333d58f6226908708d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a7bc272450725a751eda2f64fdde89"><td class="memItemLeft" align="right" valign="top">legion_attach_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a14a7bc272450725a751eda2f64fdde89">legion_attach_launcher_create</a> (<a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> logical_region, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> parent_region, legion_external_resource_t resource)</td></tr>
 <tr class="separator:a14a7bc272450725a751eda2f64fdde89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3bc2a891ac02080facb330202e9e8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a2a3bc2a891ac02080facb330202e9e8c">legion_attach_launcher_set_restricted</a> (legion_attach_launcher_t handle, bool restricted)</td></tr>
+<tr class="separator:a2a3bc2a891ac02080facb330202e9e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a2dfba9ce7d59bafe157bc0b69fd258"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a8a2dfba9ce7d59bafe157bc0b69fd258">legion_attach_launcher_set_mapped</a> (legion_attach_launcher_t handle, bool mapped)</td></tr>
 <tr class="separator:a8a2dfba9ce7d59bafe157bc0b69fd258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf05e96189c5ab49f5febf2988c41ec2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#abf05e96189c5ab49f5febf2988c41ec2">legion_attach_launcher_destroy</a> (legion_attach_launcher_t handle)</td></tr>
@@ -942,6 +944,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_field_map_inse
 <tr class="separator:a636027f5f7c68c307e96fc6946776a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bd8de4a5cca38e70b226e022f94fdc8"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a7bd8de4a5cca38e70b226e022f94fdc8">legion_detach_external_resource</a> (legion_runtime_t runtime, legion_context_t ctx, legion_physical_region_t handle)</td></tr>
 <tr class="separator:a7bd8de4a5cca38e70b226e022f94fdc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a790b0e2d2e500a958d2288c41b084e82"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a790b0e2d2e500a958d2288c41b084e82">legion_flush_detach_external_resource</a> (legion_runtime_t runtime, legion_context_t ctx, legion_physical_region_t handle, bool flush)</td></tr>
+<tr class="separator:a790b0e2d2e500a958d2288c41b084e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f3731f12da371da781d191d30ba976d"><td class="memItemLeft" align="right" valign="top">legion_must_epoch_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a7f3731f12da371da781d191d30ba976d">legion_must_epoch_launcher_create</a> (legion_mapper_id_t id, legion_mapping_tag_id_t launcher_tag)</td></tr>
 <tr class="separator:a7f3731f12da371da781d191d30ba976d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe7818e70ee6091d3c1d83ee930a0e6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#abe7818e70ee6091d3c1d83ee930a0e6e">legion_must_epoch_launcher_destroy</a> (legion_must_epoch_launcher_t handle)</td></tr>
@@ -2616,6 +2620,35 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 
 </div>
 </div>
+<a id="a2a3bc2a891ac02080facb330202e9e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a3bc2a891ac02080facb330202e9e8c">&#9670;&nbsp;</a></span>legion_attach_launcher_set_restricted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void legion_attach_launcher_set_restricted </td>
+          <td>(</td>
+          <td class="paramtype">legion_attach_launcher_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>restricted</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See also</dt><dd>Legion::AttachLauncher::AttachLauncher() </dd></dl>
+
+</div>
+</div>
 <a id="af4e0df45646c85593bacab8b09ef1938"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4e0df45646c85593bacab8b09ef1938">&#9670;&nbsp;</a></span>legion_coloring_add_point()</h2>
 
@@ -3307,7 +3340,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#a6d9d3ab3f568a1937c99013cf82b0897">Legion::Runtime::detach_external_resource()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#ae59b8685ebfc5e759a5f539f8b4eea18">Legion::Runtime::detach_external_resource()</a> </dd></dl>
 
 </div>
 </div>
@@ -4334,7 +4367,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_field_allocator.html#a9ad13f2419c3a71c85870eb5ded1c8d6">Legion::FieldAllocator::allocate_field()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_field_allocator.html#a6877fd3f7e31c4d40a9e2f68b1460bad">Legion::FieldAllocator::allocate_field()</a> </dd></dl>
 
 </div>
 </div>
@@ -5067,6 +5100,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
       </table>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#a83a16b950fc9fb7893ca5b5dfc001e8f">Legion::Runtime::retrieve_semantic_information()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a790b0e2d2e500a958d2288c41b084e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790b0e2d2e500a958d2288c41b084e82">&#9670;&nbsp;</a></span>legion_flush_detach_external_resource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">legion_future_t legion_flush_detach_external_resource </td>
+          <td>(</td>
+          <td class="paramtype">legion_runtime_t&#160;</td>
+          <td class="paramname"><em>runtime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_context_t&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">legion_physical_region_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flush</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#ae59b8685ebfc5e759a5f539f8b4eea18">Legion::Runtime::detach_external_resource()</a> </dd></dl>
 
 </div>
 </div>
@@ -18150,7 +18225,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_physical_insta
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 25 2019 21:37:31 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 17 2019 07:56:49 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

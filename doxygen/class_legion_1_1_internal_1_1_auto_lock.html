@@ -67,11 +67,22 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_legion_1_1_internal_1_1_auto_lock-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Legion::Internal::AutoLock Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for Legion::Internal::AutoLock:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_legion_1_1_internal_1_1_auto_lock.png" usemap="#Legion::Internal::AutoLock_map" alt=""/>
+  <map id="Legion::Internal::AutoLock_map" name="Legion::Internal::AutoLock_map">
+<area href="class_legion_1_1_internal_1_1_auto_try_lock.html" alt="Legion::Internal::AutoTryLock" shape="rect" coords="0,56,176,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -96,6 +107,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>advise_sleep_entry</b
 <tr class="memitem:a6eb7753c9d63853d6a9c697586cae7b9"><td class="memItemLeft" align="right" valign="top"><a id="a6eb7753c9d63853d6a9c697586cae7b9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>advise_sleep_exit</b> (void) const</td></tr>
 <tr class="separator:a6eb7753c9d63853d6a9c697586cae7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a09c4aa8ba3c5a3fd46de4264a2649ecf"><td class="memItemLeft" align="right" valign="top"><a id="a09c4aa8ba3c5a3fd46de4264a2649ecf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AutoLock</b> (int mode, bool excl, <a class="el" href="class_legion_1_1_internal_1_1_local_lock.html">LocalLock</a> &amp;r)</td></tr>
+<tr class="separator:a09c4aa8ba3c5a3fd46de4264a2649ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a88b7efd68adca398e812399708622183"><td class="memItemLeft" align="right" valign="top"><a id="a88b7efd68adca398e812399708622183"></a>
+<a class="el" href="class_legion_1_1_internal_1_1_local_lock.html">LocalLock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>local_lock</b></td></tr>
+<tr class="separator:a88b7efd68adca398e812399708622183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad33f2247f2a3bf5f60a79ba417d4f7ac"><td class="memItemLeft" align="right" valign="top"><a id="ad33f2247f2a3bf5f60a79ba417d4f7ac"></a>
+<a class="el" href="class_legion_1_1_internal_1_1_auto_lock.html">AutoLock</a> *const&#160;</td><td class="memItemRight" valign="bottom"><b>previous</b></td></tr>
+<tr class="separator:ad33f2247f2a3bf5f60a79ba417d4f7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f005e0c5255c45b050af4594d4ded50"><td class="memItemLeft" align="right" valign="top"><a id="a0f005e0c5255c45b050af4594d4ded50"></a>
+const bool&#160;</td><td class="memItemRight" valign="bottom"><b>exclusive</b></td></tr>
+<tr class="separator:a0f005e0c5255c45b050af4594d4ded50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16acd5fcaec6ca0ec6aa3494cb994e0c"><td class="memItemLeft" align="right" valign="top"><a id="a16acd5fcaec6ca0ec6aa3494cb994e0c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>held</b></td></tr>
+<tr class="separator:a16acd5fcaec6ca0ec6aa3494cb994e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>legion/<a class="el" href="legion__types_8h_source.html">legion_types.h</a></li>
@@ -103,7 +135,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>advise_sleep_exit</b>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 25 2019 21:37:31 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 17 2019 07:56:49 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

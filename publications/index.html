@@ -140,6 +140,7 @@
   </li>
   <li><a href="#sc2015">Regent (SC 2015)</a> [<a href="/pdfs/regent2015.pdf">PDF</a>]
     <ul>
+      <li><a href="#parallel2019">Auto-Parallelizer (SC 2019)</a> [<a href="/pdfs/parallelizer2019.pdf">PDF</a>]</li>
       <li><a href="#cr2017">Control Replication (SC 2017)</a> [<a href="/pdfs/cr2017.pdf">PDF</a>]</li>
       <li><a href="#slaughter_thesis">Elliott Slaughter’s Thesis (2017)</a> [<a href="/pdfs/slaughter_thesis.pdf">PDF</a>]</li>
     </ul>
@@ -481,6 +482,28 @@ significantly larger machines. Furthermore, we demonstrate that Legate
 can achieve between one and two orders of magnitude better performance
 than the popular Python library Dask when running comparable programs
 at scale.</p>
+
+<p><a name="parallel2019"></a><strong>A Constraint-Based Approach to Automatic Data Partitioning for Distributed Memory Execution</strong> <a href="/pdfs/parallelizer2019.pdf">PDF</a> <br />
+<em>Wonchan Lee, Manolis Papadakis, Elliott Slaughter and Alex Aiken</em> <br />
+To appear in the International Conference on Supercomputing (<a href="http://sc19.supercomputing.org">SC 2019</a>) <br />
+<strong>Abstract:</strong> Although data partitioning is required to enable
+parallelism on distributed memory systems, data partitions are not
+first class objects in most distributed programming models. As a
+result, automatic parallelizers and application writers encode a
+particular partitioning strategy in the parallelized program, leading
+to a program not easily configured or composed with other parallel
+programs.</p>
+
+<p>We present a constraint-based approach to automatic data
+partitioning. By introducing abstractions for first-class data
+partitions, we express a space of correct partitioning
+strategies. Candidate partitions are characterized by partitioning
+constraints, which can be automatically inferred from data accesses in
+parallelizable loops. Constraints can be satisfied by synthesized
+partitioning code or user-provided partitions. We demonstrate that
+programs auto-parallelized in our approach are easily composed with
+manually parallelized parts and have scalability comparable to
+hand-optimized counterparts.</p>
 
 <h2 id="theses">Theses</h2>
 

@@ -99,14 +99,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="memitem:a97aa2a28428f58d67bae2f99b1327210"><td class="memItemLeft" align="right" valign="top"><a id="a97aa2a28428f58d67bae2f99b1327210"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_legion_1_1_field_allocator.html">FieldAllocator</a> &amp;rhs) const</td></tr>
 <tr class="separator:a97aa2a28428f58d67bae2f99b1327210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ad13f2419c3a71c85870eb5ded1c8d6"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a9ad13f2419c3a71c85870eb5ded1c8d6">allocate_field</a> (size_t field_size, FieldID desired_fieldid=AUTO_GENERATE_ID, CustomSerdezID serdez_id=0)</td></tr>
-<tr class="separator:a9ad13f2419c3a71c85870eb5ded1c8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6877fd3f7e31c4d40a9e2f68b1460bad"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a6877fd3f7e31c4d40a9e2f68b1460bad">allocate_field</a> (size_t field_size, FieldID desired_fieldid=AUTO_GENERATE_ID, CustomSerdezID serdez_id=0, bool local_field=false)</td></tr>
+<tr class="separator:a6877fd3f7e31c4d40a9e2f68b1460bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6ea0d49201686a8c0604837b0a1f1fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#af6ea0d49201686a8c0604837b0a1f1fb">free_field</a> (FieldID fid)</td></tr>
 <tr class="separator:af6ea0d49201686a8c0604837b0a1f1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d4a2698158d9544caf23b7d3d8f383"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a40d4a2698158d9544caf23b7d3d8f383">allocate_local_field</a> (size_t field_size, FieldID desired_fieldid=AUTO_GENERATE_ID, CustomSerdezID serdez_id=0)</td></tr>
 <tr class="separator:a40d4a2698158d9544caf23b7d3d8f383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93751e59e9258b221dfa65655ca345c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a93751e59e9258b221dfa65655ca345c2">allocate_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0)</td></tr>
-<tr class="separator:a93751e59e9258b221dfa65655ca345c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae99572f248042867938efffc6bf5d814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#ae99572f248042867938efffc6bf5d814">allocate_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0, bool local_fields=false)</td></tr>
+<tr class="separator:ae99572f248042867938efffc6bf5d814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afe3cb27f1b8da92a1ec68b196186f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a5afe3cb27f1b8da92a1ec68b196186f7">free_fields</a> (const std::set&lt; FieldID &gt; &amp;to_free)</td></tr>
 <tr class="separator:a5afe3cb27f1b8da92a1ec68b196186f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41404760cb480a1a40dea27b68dafdf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a41404760cb480a1a40dea27b68dafdf3">allocate_local_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0)</td></tr>
@@ -126,9 +126,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_deserialize<
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:afaac5d97093cd61bfcf217aebb7e8724"><td class="memItemLeft" align="right" valign="top"><a id="afaac5d97093cd61bfcf217aebb7e8724"></a>
-FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b>FieldAllocator</b> (<a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> f, Context p, <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *rt)</td></tr>
-<tr class="separator:afaac5d97093cd61bfcf217aebb7e8724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad052fc98dee64068467cd73553201591"><td class="memItemLeft" align="right" valign="top"><a id="ad052fc98dee64068467cd73553201591"></a>
+FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b>FieldAllocator</b> (Internal::FieldAllocatorImpl *impl)</td></tr>
+<tr class="separator:ad052fc98dee64068467cd73553201591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Field allocators provide objects for performing allocation on field spaces. They must be explicitly created by the runtime so that they can be linked back to the runtime. Field allocators can be passed by value to functions and stored in data structures, but they should never escape the enclosing context in which they were created.</p>
@@ -137,14 +137,11 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 <dd>
 <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9ad13f2419c3a71c85870eb5ded1c8d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ad13f2419c3a71c85870eb5ded1c8d6">&#9670;&nbsp;</a></span>allocate_field()</h2>
+<a id="a6877fd3f7e31c4d40a9e2f68b1460bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6877fd3f7e31c4d40a9e2f68b1460bad">&#9670;&nbsp;</a></span>allocate_field()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">FieldID Legion::FieldAllocator::allocate_field </td>
@@ -162,7 +159,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">CustomSerdezID&#160;</td>
-          <td class="paramname"><em>serdez_id</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>serdez_id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>local_field</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -170,17 +173,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Allocate a field with a given size. Optionally specify the field ID to be assigned. Note if you use AUTO_GENERATE_ID, then all fields for the field space should be generated this way or field names may be deduplicated as the runtime will not check against user assigned field names when generating its own. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field_size</td><td>size of the field to be allocated </td></tr>
     <tr><td class="paramname">desired_fieldid</td><td>field ID to be assigned to the field or AUTO_GENERATE_ID to specify that the runtime should assign a fresh field ID </td></tr>
     <tr><td class="paramname">serdez_id</td><td>optional parameter for specifying a custom serdez object for serializing and deserializing a field when it is moved. </td></tr>
+    <tr><td class="paramname">local_field</td><td>whether this is a local field or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -188,14 +187,11 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a id="a93751e59e9258b221dfa65655ca345c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93751e59e9258b221dfa65655ca345c2">&#9670;&nbsp;</a></span>allocate_fields()</h2>
+<a id="ae99572f248042867938efffc6bf5d814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae99572f248042867938efffc6bf5d814">&#9670;&nbsp;</a></span>allocate_fields()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Legion::FieldAllocator::allocate_fields </td>
@@ -213,7 +209,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">CustomSerdezID&#160;</td>
-          <td class="paramname"><em>serdez_id</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>serdez_id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>local_fields</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -221,16 +223,12 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Allocate a collection of fields with the specified sizes. Optionally pass in a set of field IDs to use when allocating the fields otherwise the vector should be empty or the same size as field_sizes with AUTO_GENERATE_ID set as the value for each of the resulting_field IDs. The length of the resulting_fields vector must be less than or equal to the length of field_sizes. Upon return it will be the same size with field IDs specified for all the allocated fields </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field_sizes</td><td>size in bytes of the fields to be allocated </td></tr>
     <tr><td class="paramname">resulting_fields</td><td>optional field names for allocated fields </td></tr>
+    <tr><td class="paramname">local_fields</td><td>whether these should be local fields or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -243,9 +241,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">FieldID Legion::FieldAllocator::allocate_local_field </td>
@@ -271,11 +266,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Same as allocate field, but this field will only be available locally on the node on which it is created and not on remote nodes. It will then be implicitly destroyed once the task in which it is allocated completes. </p>
 
@@ -286,9 +276,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Legion::FieldAllocator::allocate_local_fields </td>
@@ -314,11 +301,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Same as allocate_fields but the fields that are allocated will only be available locally on the node on which this call is made and not on remote nodes. The fields will be implicitly destroyed once the task in which they were created completes. </p>
 
@@ -329,9 +311,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Legion::FieldAllocator::free_field </td>
@@ -341,11 +320,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Deallocate the specified field from the field space. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -361,9 +335,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Legion::FieldAllocator::free_fields </td>
@@ -373,11 +344,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Free a collection of field IDs </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -393,9 +359,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> Legion::FieldAllocator::get_field_space </td>
@@ -405,11 +368,6 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>field space associated with this allocator </dd></dl>
 
@@ -421,7 +379,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 25 2019 21:37:31 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 17 2019 07:56:49 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

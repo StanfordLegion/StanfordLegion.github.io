@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['union_5findex_5fspaces_1649',['union_index_spaces',['../class_legion_1_1_runtime.html#a3828d551aed78d374e8eebbfe8ea9235',1,'Legion::Runtime']]],
-  ['unmap_5fall_5fregions_1650',['unmap_all_regions',['../class_legion_1_1_runtime.html#ab27b33e7667fa68655141d7bdc68965e',1,'Legion::Runtime']]],
-  ['unmap_5fregion_1651',['unmap_region',['../class_legion_1_1_runtime.html#a4d36874abe2077cd4ea544a357c336b4',1,'Legion::Runtime']]]
+  ['safe_5fcast_1702',['safe_cast',['../class_legion_1_1_runtime.html#a103e10f383ee4ec5d3f04ffcc4cc6ac1',1,'Legion::Runtime::safe_cast(Context ctx, ptr_t pointer, LogicalRegion region)'],['../class_legion_1_1_runtime.html#a9158340668c0d8becc481ca648cc9782',1,'Legion::Runtime::safe_cast(Context ctx, DomainPoint point, LogicalRegion region)'],['../class_legion_1_1_runtime.html#a4184bff14eff459b500fc356da61a63c',1,'Legion::Runtime::safe_cast(Context ctx, Point&lt; DIM, COORD_T &gt; point, LogicalRegionT&lt; DIM, COORD_T &gt; region)']]],
+  ['select_5ftunable_5fvalue_1703',['select_tunable_value',['../class_legion_1_1_runtime.html#a63c1d9bbfcccc42d178f51ff2da2da94',1,'Legion::Runtime']]],
+  ['set_5flocal_5ftask_5fvariable_5funtyped_1704',['set_local_task_variable_untyped',['../class_legion_1_1_runtime.html#adb95bedd55d53c83b9117f4ac31dca09',1,'Legion::Runtime']]],
+  ['set_5fpoint_1705',['set_point',['../class_legion_1_1_argument_map.html#a415388701184b7a6c4212be85125243a',1,'Legion::ArgumentMap']]],
+  ['set_5fpoint_5farg_1706',['set_point_arg',['../class_legion_1_1_argument_map.html#abfd7ceb045cb1fb846eb98cb002a530f',1,'Legion::ArgumentMap']]],
+  ['set_5fregistration_5fcallback_1707',['set_registration_callback',['../class_legion_1_1_runtime.html#a7ae93947622a78e885a5a8b36811bb79',1,'Legion::Runtime']]],
+  ['set_5ftop_5flevel_5ftask_5fid_1708',['set_top_level_task_id',['../class_legion_1_1_runtime.html#a63bc41e96b5b10f3435b15ef6d5f090b',1,'Legion::Runtime']]],
+  ['set_5ftop_5flevel_5ftask_5fmapper_5fid_1709',['set_top_level_task_mapper_id',['../class_legion_1_1_runtime.html#aa64b2a328c162ba26386019fffc5dc21',1,'Legion::Runtime']]],
+  ['start_1710',['start',['../class_legion_1_1_runtime.html#a24cca1fc29f38d7b8d00f0d377ee19f8',1,'Legion::Runtime']]],
+  ['start_5fimplicit_1711',['start_implicit',['../class_legion_1_1_runtime.html#ad410053e46f711e0cd756d437e72ec73',1,'Legion::Runtime']]],
+  ['subtract_5findex_5fspaces_1712',['subtract_index_spaces',['../class_legion_1_1_runtime.html#a0ee59b347d6a4b7c8c12b8b2f63ea6f3',1,'Legion::Runtime']]]
 ];

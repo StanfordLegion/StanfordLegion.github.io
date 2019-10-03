@@ -68,7 +68,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_legion_1_1_runtime-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -80,10 +79,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e2d843d50b971b033181ce7cefb80dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3e2d843d50b971b033181ce7cefb80dc">LEGION_DEPRECATED</a> (&quot;Use the new index space creation routines with a &quot; &quot;single domain or rectangle.&quot;) IndexSpace <a class="el" href="class_legion_1_1_runtime.html#a8ffa5fe0cf5be1d9c425a30628bf5a9a">create_index_space</a>(Context ctx</td></tr>
-<tr class="separator:a3e2d843d50b971b033181ce7cefb80dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e2d843d50b971b033181ce7cefb80dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3e2d843d50b971b033181ce7cefb80dc">LEGION_DEPRECATED</a> (&quot;Use the new index space creation routines with a &quot; &quot;single domain or rectangle.&quot;) IndexSpace <a class="el" href="class_legion_1_1_runtime.html#a8ffa5fe0cf5be1d9c425a30628bf5a9a">create_index_space</a>(Context ctx</td></tr>
-<tr class="separator:a3e2d843d50b971b033181ce7cefb80dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bfb413efd2de89152ad9e930769e46f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4bfb413efd2de89152ad9e930769e46f">create_index_space</a> (Context ctx, size_t max_num_elmts)</td></tr>
+<tr class="separator:a4bfb413efd2de89152ad9e930769e46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ccb642113a2bad26c3b4ec900633d24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0ccb642113a2bad26c3b4ec900633d24">create_index_space</a> (Context ctx, const std::set&lt; <a class="el" href="class_legion_1_1_domain.html">Domain</a> &gt; &amp;domains)</td></tr>
+<tr class="separator:a0ccb642113a2bad26c3b4ec900633d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe9a2c5deecd941fa6e474474be91c72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#afe9a2c5deecd941fa6e474474be91c72">destroy_index_space</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle)</td></tr>
 <tr class="separator:afe9a2c5deecd941fa6e474474be91c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ebf3adf3e64c5a9bd7a8902e16b5f82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7ebf3adf3e64c5a9bd7a8902e16b5f82">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;color_space, const PointColoring &amp;coloring, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID, bool allocable=false)</td></tr>
@@ -147,7 +146,7 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a570eabf56c1ddc59ae63a374b465f4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cd474b9a166cd37204f35438ace8dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4cd474b9a166cd37204f35438ace8dff">destroy_logical_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> handle)</td></tr>
 <tr class="separator:a4cd474b9a166cd37204f35438ace8dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1550f7305763dadb37ce5a42572425b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_index_allocator.html">IndexAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1550f7305763dadb37ce5a42572425b9">create_index_allocator</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle)</td></tr>
+<tr class="memitem:a1550f7305763dadb37ce5a42572425b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_allocator.html">IndexAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1550f7305763dadb37ce5a42572425b9">create_index_allocator</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle)</td></tr>
 <tr class="separator:a1550f7305763dadb37ce5a42572425b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3819fe6203528d2e753f3a09325eec8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_field_allocator.html">FieldAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3819fe6203528d2e753f3a09325eec8c">create_field_allocator</a> (Context ctx, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> handle)</td></tr>
 <tr class="separator:a3819fe6203528d2e753f3a09325eec8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,12 +158,12 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a0e8d31f02a06b0b63824d1eb9f79b4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6f07a1164d549f044af6db3f0830008"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa6f07a1164d549f044af6db3f0830008">execute_index_space</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;launcher, ReductionOpID redop, bool deterministic=false)</td></tr>
 <tr class="separator:aa6f07a1164d549f044af6db3f0830008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ebcdcfb6565d74c14560edd60b6b296"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0ebcdcfb6565d74c14560edd60b6b296">LEGION_DEPRECATED</a> (&quot;Launching tasks should be done with the new task &quot; &quot;launcher interface.&quot;) Future <a class="el" href="class_legion_1_1_runtime.html#a7b7d00659246b245b91410987e65eea0">execute_task</a>(Context ctx</td></tr>
-<tr class="separator:a0ebcdcfb6565d74c14560edd60b6b296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa15a281728ecff48a82c14f3314a5ed1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa15a281728ecff48a82c14f3314a5ed1">LEGION_DEPRECATED</a> (&quot;Launching tasks should be done with the new task &quot; &quot;launcher interface.&quot;) FutureMap <a class="el" href="class_legion_1_1_runtime.html#a0e8d31f02a06b0b63824d1eb9f79b4eb">execute_index_space</a>(Context ctx</td></tr>
-<tr class="separator:aa15a281728ecff48a82c14f3314a5ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6db427e1ff2798f2d838ff7d9d1d7dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa6db427e1ff2798f2d838ff7d9d1d7dd">LEGION_DEPRECATED</a> (&quot;Launching tasks should be done with the new task &quot; &quot;launcher interface.&quot;) Future <a class="el" href="class_legion_1_1_runtime.html#a0e8d31f02a06b0b63824d1eb9f79b4eb">execute_index_space</a>(Context ctx</td></tr>
-<tr class="separator:aa6db427e1ff2798f2d838ff7d9d1d7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44cce1cf3ee372290521e61abacafc21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a44cce1cf3ee372290521e61abacafc21">execute_task</a> (Context ctx, TaskID task_id, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;arg, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0)</td></tr>
+<tr class="separator:a44cce1cf3ee372290521e61abacafc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ece93773965049ca5f025fe9c70a52b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5ece93773965049ca5f025fe9c70a52b">execute_index_space</a> (Context ctx, TaskID task_id, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> domain, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;global_arg, const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;arg_map, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, bool must_paralleism=false, MapperID id=0, MappingTagID tag=0)</td></tr>
+<tr class="separator:a5ece93773965049ca5f025fe9c70a52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe61be1d1112821634f79d0d2bbc239"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abfe61be1d1112821634f79d0d2bbc239">execute_index_space</a> (Context ctx, TaskID task_id, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> domain, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;global_arg, const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;arg_map, ReductionOpID reduction, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;initial_value, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, bool must_parallelism=false, MapperID id=0, MappingTagID tag=0)</td></tr>
+<tr class="separator:abfe61be1d1112821634f79d0d2bbc239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72a56d287882bf9d1b937dd9a909b409"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a72a56d287882bf9d1b937dd9a909b409">map_region</a> (Context ctx, const <a class="el" href="struct_legion_1_1_inline_launcher.html">InlineLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:a72a56d287882bf9d1b937dd9a909b409"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a5a691242caa8dc111204aa401ac761"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8a5a691242caa8dc111204aa401ac761">map_region</a> (Context ctx, const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;req, MapperID id=0, MappingTagID tag=0)</td></tr>
@@ -199,14 +198,14 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:abf0b11fbbbd98d975ae1472ea1d25cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae59b8685ebfc5e759a5f539f8b4eea18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae59b8685ebfc5e759a5f539f8b4eea18">detach_external_resource</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region, const bool flush=true)</td></tr>
 <tr class="separator:ae59b8685ebfc5e759a5f539f8b4eea18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1423792130dce82ff02746af65a31832"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1423792130dce82ff02746af65a31832">LEGION_DEPRECATED</a> (&quot;Attaching specific HDF5 file type is deprecated &quot; &quot;in favor of generic attach launcher interface.&quot;) PhysicalRegion attach_hdf5(Context ctx</td></tr>
-<tr class="separator:a1423792130dce82ff02746af65a31832"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6b5306159ab0dbc6e6f0cedd2ebb7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a2c6b5306159ab0dbc6e6f0cedd2ebb7c">LEGION_DEPRECATED</a> (&quot;Detaching specific HDF5 file type is deprecated &quot; &quot;in favor of generic detach interface.&quot;) void detach_hdf5(Context ctx</td></tr>
-<tr class="separator:a2c6b5306159ab0dbc6e6f0cedd2ebb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a76f50e068a4cfb706e3f992466294c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4a76f50e068a4cfb706e3f992466294c">LEGION_DEPRECATED</a> (&quot;Attaching generic file type is deprecated &quot; &quot;in favor of generic attach launcher interface.&quot;) PhysicalRegion attach_file(Context ctx</td></tr>
-<tr class="separator:a4a76f50e068a4cfb706e3f992466294c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a184676a52a496fa0644a4ffc0375e7ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a184676a52a496fa0644a4ffc0375e7ed">LEGION_DEPRECATED</a> (&quot;Detaching generic file type is deprecated &quot; &quot;in favor of generic detach interface.&quot;) void detach_file(Context ctx</td></tr>
-<tr class="separator:a184676a52a496fa0644a4ffc0375e7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a9db6622557604ab9687729cfa89b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a18a9db6622557604ab9687729cfa89b6">attach_hdf5</a> (Context ctx, const char *file_name, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, const std::map&lt; FieldID, const char * &gt; &amp;field_map, LegionFileMode mode)</td></tr>
+<tr class="separator:a18a9db6622557604ab9687729cfa89b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93bf3b151012fb90aac52137eaf652f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad93bf3b151012fb90aac52137eaf652f">detach_hdf5</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region)</td></tr>
+<tr class="separator:ad93bf3b151012fb90aac52137eaf652f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f4f7c08d42f4607e79df8a20a55146"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a80f4f7c08d42f4607e79df8a20a55146">attach_file</a> (Context ctx, const char *file_name, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, const std::vector&lt; FieldID &gt; &amp;field_vec, LegionFileMode mode)</td></tr>
+<tr class="separator:a80f4f7c08d42f4607e79df8a20a55146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af840cc317084b2faccf5321557755c8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af840cc317084b2faccf5321557755c8e">detach_file</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region)</td></tr>
+<tr class="separator:af840cc317084b2faccf5321557755c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44776b6543dac1f165b5148831e341b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a44776b6543dac1f165b5148831e341b8">issue_copy_operation</a> (Context ctx, const <a class="el" href="struct_legion_1_1_copy_launcher.html">CopyLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:a44776b6543dac1f165b5148831e341b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a986853cf7b7747c747f664d04e05a4dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a986853cf7b7747c747f664d04e05a4dd">issue_copy_operation</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_copy_launcher.html">IndexCopyLauncher</a> &amp;launcher)</td></tr>
@@ -271,8 +270,8 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a4f219e544094fa61ddea088645482e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63c1d9bbfcccc42d178f51ff2da2da94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a63c1d9bbfcccc42d178f51ff2da2da94">select_tunable_value</a> (Context ctx, TunableID tid, MapperID mapper=0, MappingTagID tag=0, const void *args=NULL, size_t argsize=0)</td></tr>
 <tr class="separator:a63c1d9bbfcccc42d178f51ff2da2da94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a546b77d4ee61d98d255fe95a4f7d1e17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a546b77d4ee61d98d255fe95a4f7d1e17">LEGION_DEPRECATED</a> (&quot;Tunable values should now be obtained via the &quot; &quot;generic interface that returns a future result.&quot;) int get_tunable_value(Context ctx</td></tr>
-<tr class="separator:a546b77d4ee61d98d255fe95a4f7d1e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a183d30f63de89ea1f1becf1b3a36fda1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a183d30f63de89ea1f1becf1b3a36fda1">get_tunable_value</a> (Context ctx, TunableID tid, MapperID mapper=0, MappingTagID tag=0)</td></tr>
+<tr class="separator:a183d30f63de89ea1f1becf1b3a36fda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a580d2097717587b6843d2a3bd7edbef1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a580d2097717587b6843d2a3bd7edbef1">get_local_task</a> (Context ctx)</td></tr>
 <tr class="separator:a580d2097717587b6843d2a3bd7edbef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9f1b71c70eaaa525ecf6dd54e6690a7"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab9f1b71c70eaaa525ecf6dd54e6690a7">get_local_task_variable_untyped</a> (Context ctx, LocalVariableID id)</td></tr>
@@ -401,14 +400,6 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:a4c70f76c03a26412e89206df8103e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2e4e8576f3b6408824b643b79f79b2"><td class="memItemLeft" align="right" valign="top">CustomSerdezID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8d2e4e8576f3b6408824b643b79f79b2">generate_library_serdez_ids</a> (const char *name, size_t count)</td></tr>
 <tr class="separator:a8d2e4e8576f3b6408824b643b79f79b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d3a55c8df68e0ed2155da1532c20908"><td class="memTemplParams" colspan="2">template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </td></tr>
-<tr class="memitem:a6d3a55c8df68e0ed2155da1532c20908"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6d3a55c8df68e0ed2155da1532c20908">LEGION_DEPRECATED</a> (&quot;Projection functions should now be specified &quot; &quot;using projection functor objects&quot;) static ProjectionID register_region_function(ProjectionID handle)</td></tr>
-<tr class="separator:a6d3a55c8df68e0ed2155da1532c20908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6771fdbb807332154e3899494269abaf"><td class="memTemplParams" colspan="2">template&lt;LogicalRegion(*)(LogicalPartition, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </td></tr>
-<tr class="memitem:a6771fdbb807332154e3899494269abaf"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6771fdbb807332154e3899494269abaf">LEGION_DEPRECATED</a> (&quot;Projection functions should now be specified &quot; &quot;using projection functor objects&quot;) static ProjectionID register_partition_function(ProjectionID handle)</td></tr>
-<tr class="separator:a6771fdbb807332154e3899494269abaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb0b75cb20b59b06c9ef5eee6401d0ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#adb0b75cb20b59b06c9ef5eee6401d0ac">LEGION_DEPRECATED</a> (&quot;Legion now supports multiple registration callbacks &quot; &quot;added via the <a class="el" href="class_legion_1_1_runtime.html#a40cc7ecc77420ead98e0505ed97eb8d7">add_registration_callback</a> method.&quot;) static void set_registration_callback(RegistrationCallbackFnptr callback)</td></tr>
-<tr class="separator:adb0b75cb20b59b06c9ef5eee6401d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc6acec0e7ede9fd3e052b3c3e2df6b"><td class="memItemLeft" align="right" valign="top">LayoutConstraintID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aadc6acec0e7ede9fd3e052b3c3e2df6b">register_layout</a> (const <a class="el" href="struct_legion_1_1_layout_constraint_registrar.html">LayoutConstraintRegistrar</a> &amp;registrar)</td></tr>
 <tr class="separator:aadc6acec0e7ede9fd3e052b3c3e2df6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae495979ba6641b365c2c0b9ee4be7818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae495979ba6641b365c2c0b9ee4be7818">release_layout</a> (LayoutConstraintID layout_id)</td></tr>
@@ -437,18 +428,6 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:aba58350bbd5fa0279960fcae7e99b5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6259cf85ba207bbd5df1b48db087e48"><td class="memItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab6259cf85ba207bbd5df1b48db087e48">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, bool has_return_type=false, VariantID vid=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:ab6259cf85ba207bbd5df1b48db087e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6b03e562d660bef561a6e5f2ab6be78"><td class="memTemplParams" colspan="2">template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
-<tr class="memitem:ae6b03e562d660bef561a6e5f2ab6be78"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae6b03e562d660bef561a6e5f2ab6be78">LEGION_DEPRECATED</a> (&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;) static TaskID register_legion_task(TaskID id</td></tr>
-<tr class="separator:ae6b03e562d660bef561a6e5f2ab6be78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0417bdbe3476e2fd46cfa62c1151ade"><td class="memTemplParams" colspan="2">template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
-<tr class="memitem:ad0417bdbe3476e2fd46cfa62c1151ade"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad0417bdbe3476e2fd46cfa62c1151ade">LEGION_DEPRECATED</a> (&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;) static TaskID register_legion_task(TaskID id</td></tr>
-<tr class="separator:ad0417bdbe3476e2fd46cfa62c1151ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757416e1fee14db2dba44a6615c51524"><td class="memTemplParams" colspan="2">template&lt;typename T , typename UDT , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
-<tr class="memitem:a757416e1fee14db2dba44a6615c51524"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a757416e1fee14db2dba44a6615c51524">LEGION_DEPRECATED</a> (&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;) static TaskID register_legion_task(TaskID id</td></tr>
-<tr class="separator:a757416e1fee14db2dba44a6615c51524"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6b03e562d660bef561a6e5f2ab6be78"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
-<tr class="memitem:ae6b03e562d660bef561a6e5f2ab6be78"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae6b03e562d660bef561a6e5f2ab6be78">LEGION_DEPRECATED</a> (&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;) static TaskID register_legion_task(TaskID id</td></tr>
-<tr class="separator:ae6b03e562d660bef561a6e5f2ab6be78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a8ffa5fe0cf5be1d9c425a30628bf5a9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8ffa5fe0cf5be1d9c425a30628bf5a9a">create_index_space</a> (Context ctx, <a class="el" href="class_legion_1_1_domain.html">Domain</a> bounds)</td></tr>
 <tr class="separator:a8ffa5fe0cf5be1d9c425a30628bf5a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1027,8 +1006,16 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a5fd293aa87d221487f044562a81bddb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3d61b0337c401f877ec94bc55d87bf0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_m_p_i_legion_handshake.html">MPILegionHandshake</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac3d61b0337c401f877ec94bc55d87bf0">create_handshake</a> (bool init_in_MPI=true, int mpi_participants=1, int legion_participants=1)</td></tr>
 <tr class="separator:ac3d61b0337c401f877ec94bc55d87bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a152e69794766a5565eec12eefca80c"><td class="memTemplParams" colspan="2">template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </td></tr>
+<tr class="memitem:a9a152e69794766a5565eec12eefca80c"><td class="memTemplItemLeft" align="right" valign="top">static ProjectionID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a9a152e69794766a5565eec12eefca80c">register_region_function</a> (ProjectionID handle)</td></tr>
+<tr class="separator:a9a152e69794766a5565eec12eefca80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01797f8368215038e3ace3a5e84a277"><td class="memTemplParams" colspan="2">template&lt;LogicalRegion(*)(LogicalPartition, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </td></tr>
+<tr class="memitem:aa01797f8368215038e3ace3a5e84a277"><td class="memTemplItemLeft" align="right" valign="top">static ProjectionID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa01797f8368215038e3ace3a5e84a277">register_partition_function</a> (ProjectionID handle)</td></tr>
+<tr class="separator:aa01797f8368215038e3ace3a5e84a277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40cc7ecc77420ead98e0505ed97eb8d7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a40cc7ecc77420ead98e0505ed97eb8d7">add_registration_callback</a> (RegistrationCallbackFnptr callback)</td></tr>
 <tr class="separator:a40cc7ecc77420ead98e0505ed97eb8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ae93947622a78e885a5a8b36811bb79"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7ae93947622a78e885a5a8b36811bb79">set_registration_callback</a> (RegistrationCallbackFnptr callback)</td></tr>
+<tr class="separator:a7ae93947622a78e885a5a8b36811bb79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86706aed4463173286cfdacd8a5c9c23"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="struct_legion_1_1_input_args.html">InputArgs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a86706aed4463173286cfdacd8a5c9c23">get_input_args</a> (void)</td></tr>
 <tr class="separator:a86706aed4463173286cfdacd8a5c9c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a357602aa4f54f88fe361861fa50e20a9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a357602aa4f54f88fe361861fa50e20a9">enable_profiling</a> (void)</td></tr>
@@ -1059,154 +1046,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a75cae296df9a998053907a268f907c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08905fb94d7112d3c632036a65f3a3fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a08905fb94d7112d3c632036a65f3a3fa">legion_task_postamble</a> (<a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *runtime, Context ctx, const void *retvalptr=NULL, size_t retvalsize=0)</td></tr>
 <tr class="separator:a08905fb94d7112d3c632036a65f3a3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181ea8d2ea80a67550ffdf5e62514885"><td class="memTemplParams" colspan="2">template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
+<tr class="memitem:a181ea8d2ea80a67550ffdf5e62514885"><td class="memTemplItemLeft" align="right" valign="top">static TaskID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a181ea8d2ea80a67550ffdf5e62514885">register_legion_task</a> (TaskID id, Processor::Kind proc_kind, bool single, bool index, VariantID vid=AUTO_GENERATE_ID, <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options=<a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(), const char *task_name=NULL)</td></tr>
+<tr class="separator:a181ea8d2ea80a67550ffdf5e62514885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1827ce08f2be24c164e0f24368684ef3"><td class="memTemplParams" colspan="2">template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
+<tr class="memitem:a1827ce08f2be24c164e0f24368684ef3"><td class="memTemplItemLeft" align="right" valign="top">static TaskID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1827ce08f2be24c164e0f24368684ef3">register_legion_task</a> (TaskID id, Processor::Kind proc_kind, bool single, bool index, VariantID vid=AUTO_GENERATE_ID, <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options=<a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(), const char *task_name=NULL)</td></tr>
+<tr class="separator:a1827ce08f2be24c164e0f24368684ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1f4d556fbce53d33dc464b96b6dc2cf"><td class="memTemplParams" colspan="2">template&lt;typename T , typename UDT , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
+<tr class="memitem:ab1f4d556fbce53d33dc464b96b6dc2cf"><td class="memTemplItemLeft" align="right" valign="top">static TaskID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab1f4d556fbce53d33dc464b96b6dc2cf">register_legion_task</a> (TaskID id, Processor::Kind proc_kind, bool single, bool index, const UDT &amp;user_data, VariantID vid=AUTO_GENERATE_ID, <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options=<a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(), const char *task_name=NULL)</td></tr>
+<tr class="separator:ab1f4d556fbce53d33dc464b96b6dc2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369dfbcfe5913749a7f019c19db65eae"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
+<tr class="memitem:a369dfbcfe5913749a7f019c19db65eae"><td class="memTemplItemLeft" align="right" valign="top">static TaskID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a369dfbcfe5913749a7f019c19db65eae">register_legion_task</a> (TaskID id, Processor::Kind proc_kind, bool single, bool index, const UDT &amp;user_data, VariantID vid=AUTO_GENERATE_ID, <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options=<a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(), const char *task_name=NULL)</td></tr>
+<tr class="separator:a369dfbcfe5913749a7f019c19db65eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ae746205378b10cd898824b719ee8a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a61ae746205378b10cd898824b719ee8a">get_runtime</a> (Processor p=Processor::NO_PROC)</td></tr>
 <tr class="separator:a61ae746205378b10cd898824b719ee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ae1696024e39fb7afc5ed87797ad8ff"><td class="memItemLeft" align="right" valign="top">static Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">get_context</a> (void)</td></tr>
 <tr class="separator:a0ae1696024e39fb7afc5ed87797ad8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a2d14ec5d9d54b08b829ad1e36c14bf8d"><td class="memItemLeft" align="right" valign="top"><a id="a2d14ec5d9d54b08b829ad1e36c14bf8d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>max_num_elmts</b></td></tr>
-<tr class="separator:a2d14ec5d9d54b08b829ad1e36c14bf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782ba24d5b546fbdb618ab39c753e24b"><td class="memItemLeft" align="right" valign="top"><a id="a782ba24d5b546fbdb618ab39c753e24b"></a>
-const std::set&lt; <a class="el" href="class_legion_1_1_domain.html">Domain</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>domains</b></td></tr>
-<tr class="separator:a782ba24d5b546fbdb618ab39c753e24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80d9549086f8bbaa75cfc0ab9d40a462"><td class="memItemLeft" align="right" valign="top"><a id="a80d9549086f8bbaa75cfc0ab9d40a462"></a>
-TaskID&#160;</td><td class="memItemRight" valign="bottom"><b>task_id</b></td></tr>
-<tr class="separator:a80d9549086f8bbaa75cfc0ab9d40a462"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3bc32f11ba79aadc592d65a692992b2"><td class="memItemLeft" align="right" valign="top"><a id="af3bc32f11ba79aadc592d65a692992b2"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>indexes</b></td></tr>
-<tr class="separator:af3bc32f11ba79aadc592d65a692992b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b16af03747e76881b668ec0b67b8870"><td class="memItemLeft" align="right" valign="top"><a id="a5b16af03747e76881b668ec0b67b8870"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fields</b></td></tr>
-<tr class="separator:a5b16af03747e76881b668ec0b67b8870"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45a38aa003edf293ef5bd56da1e2865b"><td class="memItemLeft" align="right" valign="top"><a id="a45a38aa003edf293ef5bd56da1e2865b"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>regions</b></td></tr>
-<tr class="separator:a45a38aa003edf293ef5bd56da1e2865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88fa423e6ae5e4c5a85f2271ba05f6e0"><td class="memItemLeft" align="right" valign="top"><a id="a88fa423e6ae5e4c5a85f2271ba05f6e0"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>arg</b></td></tr>
-<tr class="separator:a88fa423e6ae5e4c5a85f2271ba05f6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeedb16c823a59762382cb93d6ee942d4"><td class="memItemLeft" align="right" valign="top"><a id="aeedb16c823a59762382cb93d6ee942d4"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>predicate</b> = Predicate::TRUE_PRED</td></tr>
-<tr class="separator:aeedb16c823a59762382cb93d6ee942d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad609742ac60554c49ae550871ee1e2d1"><td class="memItemLeft" align="right" valign="top"><a id="ad609742ac60554c49ae550871ee1e2d1"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> MapperID&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> = 0</td></tr>
-<tr class="separator:ad609742ac60554c49ae550871ee1e2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06f8cb2dd474bb70d11ef6cabf4caec8"><td class="memItemLeft" align="right" valign="top"><a id="a06f8cb2dd474bb70d11ef6cabf4caec8"></a>
-TaskID const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> MapperID MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b> = 0)</td></tr>
-<tr class="separator:a06f8cb2dd474bb70d11ef6cabf4caec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08dedda56ba05e94cf4212b735dc45d0"><td class="memItemLeft" align="right" valign="top"><a id="a08dedda56ba05e94cf4212b735dc45d0"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>domain</b></td></tr>
-<tr class="separator:a08dedda56ba05e94cf4212b735dc45d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41e1823c02046bd65573e6f75774f6a8"><td class="memItemLeft" align="right" valign="top"><a id="a41e1823c02046bd65573e6f75774f6a8"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>indexes</b></td></tr>
-<tr class="separator:a41e1823c02046bd65573e6f75774f6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab90a031a1ed4d13a69e57d69fb4618e6"><td class="memItemLeft" align="right" valign="top"><a id="ab90a031a1ed4d13a69e57d69fb4618e6"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fields</b></td></tr>
-<tr class="separator:ab90a031a1ed4d13a69e57d69fb4618e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a085ee5f5d7fec2854e7e12c771881"><td class="memItemLeft" align="right" valign="top"><a id="a93a085ee5f5d7fec2854e7e12c771881"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>regions</b></td></tr>
-<tr class="separator:a93a085ee5f5d7fec2854e7e12c771881"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d4928f49273a75462df960db501bab9"><td class="memItemLeft" align="right" valign="top"><a id="a9d4928f49273a75462df960db501bab9"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>global_arg</b></td></tr>
-<tr class="separator:a9d4928f49273a75462df960db501bab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b9a67753fd9d283a5337e84f6d7836e"><td class="memItemLeft" align="right" valign="top"><a id="a8b9a67753fd9d283a5337e84f6d7836e"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>arg_map</b></td></tr>
-<tr class="separator:a8b9a67753fd9d283a5337e84f6d7836e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c65197da9a7d92e0b6e789589fdd234"><td class="memItemLeft" align="right" valign="top"><a id="a7c65197da9a7d92e0b6e789589fdd234"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>predicate</b> = Predicate::TRUE_PRED</td></tr>
-<tr class="separator:a7c65197da9a7d92e0b6e789589fdd234"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefdf94dd4c80dd14f99de346d7f96370"><td class="memItemLeft" align="right" valign="top"><a id="aefdf94dd4c80dd14f99de346d7f96370"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> bool&#160;</td><td class="memItemRight" valign="bottom"><b>must_paralleism</b> = false</td></tr>
-<tr class="separator:aefdf94dd4c80dd14f99de346d7f96370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f932dd569d6eb9147083a2f0b3d1b39"><td class="memItemLeft" align="right" valign="top"><a id="a0f932dd569d6eb9147083a2f0b3d1b39"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> bool MapperID&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> = 0</td></tr>
-<tr class="separator:a0f932dd569d6eb9147083a2f0b3d1b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e1f12943904d01787a6b1528302691"><td class="memItemLeft" align="right" valign="top"><a id="ad9e1f12943904d01787a6b1528302691"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> bool MapperID MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b> = 0)</td></tr>
-<tr class="separator:ad9e1f12943904d01787a6b1528302691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a919dede563d38e8f05fc7ec18aaf8f7f"><td class="memItemLeft" align="right" valign="top"><a id="a919dede563d38e8f05fc7ec18aaf8f7f"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> ReductionOpID&#160;</td><td class="memItemRight" valign="bottom"><b>reduction</b></td></tr>
-<tr class="separator:a919dede563d38e8f05fc7ec18aaf8f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b82609b848d2e3a0ef91187f9f2722"><td class="memItemLeft" align="right" valign="top"><a id="aa0b82609b848d2e3a0ef91187f9f2722"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> ReductionOpID const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>initial_value</b></td></tr>
-<tr class="separator:aa0b82609b848d2e3a0ef91187f9f2722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65a087191092843ec7b7224f5571c33"><td class="memItemLeft" align="right" valign="top"><a id="aa65a087191092843ec7b7224f5571c33"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> ReductionOpID const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>predicate</b> = Predicate::TRUE_PRED</td></tr>
-<tr class="separator:aa65a087191092843ec7b7224f5571c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3ceb6c275a389287b13ee0a7d27417"><td class="memItemLeft" align="right" valign="top"><a id="abe3ceb6c275a389287b13ee0a7d27417"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> ReductionOpID const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> bool&#160;</td><td class="memItemRight" valign="bottom"><b>must_parallelism</b> = false</td></tr>
-<tr class="separator:abe3ceb6c275a389287b13ee0a7d27417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a649423ce1405fcfc9b66a078e1ef28b8"><td class="memItemLeft" align="right" valign="top"><a id="a649423ce1405fcfc9b66a078e1ef28b8"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> ReductionOpID const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> bool MapperID&#160;</td><td class="memItemRight" valign="bottom"><b>id</b> = 0</td></tr>
-<tr class="separator:a649423ce1405fcfc9b66a078e1ef28b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0715cfb0eb5a846c923a72df8899c354"><td class="memItemLeft" align="right" valign="top"><a id="a0715cfb0eb5a846c923a72df8899c354"></a>
-TaskID const <a class="el" href="class_legion_1_1_domain.html">Domain</a> const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> ReductionOpID const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> bool MapperID MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b> = 0)</td></tr>
-<tr class="separator:a0715cfb0eb5a846c923a72df8899c354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f7f631c32c6fbff8a10bb6eab1771d1"><td class="memItemLeft" align="right" valign="top"><a id="a2f7f631c32c6fbff8a10bb6eab1771d1"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>file_name</b></td></tr>
-<tr class="separator:a2f7f631c32c6fbff8a10bb6eab1771d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac74a29f27b96745dd983583cdbde3c82"><td class="memItemLeft" align="right" valign="top"><a id="ac74a29f27b96745dd983583cdbde3c82"></a>
-const char <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b></td></tr>
-<tr class="separator:ac74a29f27b96745dd983583cdbde3c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a40a985878e4d2477faf47e2c870c4e"><td class="memItemLeft" align="right" valign="top"><a id="a3a40a985878e4d2477faf47e2c870c4e"></a>
-const char <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
-<tr class="separator:a3a40a985878e4d2477faf47e2c870c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33f8c2269803d1b81dcf688b11bc7830"><td class="memItemLeft" align="right" valign="top"><a id="a33f8c2269803d1b81dcf688b11bc7830"></a>
-const char <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> const std::map&lt; FieldID, const char * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>field_map</b></td></tr>
-<tr class="separator:a33f8c2269803d1b81dcf688b11bc7830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa233c70ee2c71b6d4bce41d9624405c4"><td class="memItemLeft" align="right" valign="top"><a id="aa233c70ee2c71b6d4bce41d9624405c4"></a>
-const char <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> const std::map&lt; FieldID, const char * &gt; LegionFileMode&#160;</td><td class="memItemRight" valign="bottom"><b>mode</b></td></tr>
-<tr class="separator:aa233c70ee2c71b6d4bce41d9624405c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72ae6bd88521cdb97ce4e541e44ffd3a"><td class="memItemLeft" align="right" valign="top"><a id="a72ae6bd88521cdb97ce4e541e44ffd3a"></a>
-<a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>region</b></td></tr>
-<tr class="separator:a72ae6bd88521cdb97ce4e541e44ffd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fb75ac4873b61d85c274a0f9db34590"><td class="memItemLeft" align="right" valign="top"><a id="a1fb75ac4873b61d85c274a0f9db34590"></a>
-const char <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> const std::vector&lt; FieldID &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>field_vec</b></td></tr>
-<tr class="separator:a1fb75ac4873b61d85c274a0f9db34590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff877aae019114e05289b6e6c06d1861"><td class="memItemLeft" align="right" valign="top"><a id="aff877aae019114e05289b6e6c06d1861"></a>
-const char <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> const std::vector&lt; FieldID &gt; LegionFileMode&#160;</td><td class="memItemRight" valign="bottom"><b>mode</b></td></tr>
-<tr class="separator:aff877aae019114e05289b6e6c06d1861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73fa789a1132f84e386c38a8f2c41458"><td class="memItemLeft" align="right" valign="top"><a id="a73fa789a1132f84e386c38a8f2c41458"></a>
-TunableID&#160;</td><td class="memItemRight" valign="bottom"><b>tid</b></td></tr>
-<tr class="separator:a73fa789a1132f84e386c38a8f2c41458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6884ff9e13cf6224f5936acbb97801b6"><td class="memItemLeft" align="right" valign="top"><a id="a6884ff9e13cf6224f5936acbb97801b6"></a>
-TunableID MapperID&#160;</td><td class="memItemRight" valign="bottom"><b>mapper</b> = 0</td></tr>
-<tr class="separator:a6884ff9e13cf6224f5936acbb97801b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fcbc744db97f27502f997bc61b7fb33"><td class="memItemLeft" align="right" valign="top"><a id="a7fcbc744db97f27502f997bc61b7fb33"></a>
-TunableID MapperID MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b> = 0)</td></tr>
-<tr class="separator:a7fcbc744db97f27502f997bc61b7fb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae47b7be07a95b93097d506fec5a68d2c"><td class="memItemLeft" align="right" valign="top"><a id="ae47b7be07a95b93097d506fec5a68d2c"></a>
-Processor::Kind&#160;</td><td class="memItemRight" valign="bottom"><b>proc_kind</b></td></tr>
-<tr class="separator:ae47b7be07a95b93097d506fec5a68d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b7159b3d541a9da9419752d0f0eae51"><td class="memItemLeft" align="right" valign="top"><a id="a3b7159b3d541a9da9419752d0f0eae51"></a>
-Processor::Kind bool&#160;</td><td class="memItemRight" valign="bottom"><b>single</b></td></tr>
-<tr class="separator:a3b7159b3d541a9da9419752d0f0eae51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b36424fb8de239e74d399bc92e957b"><td class="memItemLeft" align="right" valign="top"><a id="a70b36424fb8de239e74d399bc92e957b"></a>
-Processor::Kind bool bool&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
-<tr class="separator:a70b36424fb8de239e74d399bc92e957b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af863c4e3e72f80d6d2638969f6cc5a09"><td class="memItemLeft" align="right" valign="top"><a id="af863c4e3e72f80d6d2638969f6cc5a09"></a>
-Processor::Kind bool bool VariantID&#160;</td><td class="memItemRight" valign="bottom"><b>vid</b> = AUTO_GENERATE_ID</td></tr>
-<tr class="separator:af863c4e3e72f80d6d2638969f6cc5a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadd8ca98f9f7d26acfc5ad701d3f88fb"><td class="memItemLeft" align="right" valign="top"><a id="aadd8ca98f9f7d26acfc5ad701d3f88fb"></a>
-Processor::Kind bool bool VariantID <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><b>options</b> = <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>()</td></tr>
-<tr class="separator:aadd8ca98f9f7d26acfc5ad701d3f88fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ee44562730f6da59cc2afe53088cd97"><td class="memItemLeft" align="right" valign="top"><a id="a1ee44562730f6da59cc2afe53088cd97"></a>
-Processor::Kind bool bool VariantID <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> const char *&#160;</td><td class="memItemRight" valign="bottom"><b>task_name</b> = NULL)</td></tr>
-<tr class="separator:a1ee44562730f6da59cc2afe53088cd97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68961051eadd3ad01f338f450fdd1dbe"><td class="memItemLeft" align="right" valign="top"><a id="a68961051eadd3ad01f338f450fdd1dbe"></a>
-Processor::Kind bool bool const UDT &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>user_data</b></td></tr>
-<tr class="separator:a68961051eadd3ad01f338f450fdd1dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af863c4e3e72f80d6d2638969f6cc5a09"><td class="memItemLeft" align="right" valign="top"><a id="af863c4e3e72f80d6d2638969f6cc5a09"></a>
-Processor::Kind bool bool const UDT VariantID&#160;</td><td class="memItemRight" valign="bottom"><b>vid</b> = AUTO_GENERATE_ID</td></tr>
-<tr class="separator:af863c4e3e72f80d6d2638969f6cc5a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadd8ca98f9f7d26acfc5ad701d3f88fb"><td class="memItemLeft" align="right" valign="top"><a id="aadd8ca98f9f7d26acfc5ad701d3f88fb"></a>
-Processor::Kind bool bool const UDT VariantID <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>&#160;</td><td class="memItemRight" valign="bottom"><b>options</b> = <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>()</td></tr>
-<tr class="separator:aadd8ca98f9f7d26acfc5ad701d3f88fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52da6aeb09f49e87f8b71295cbe465ab"><td class="memItemLeft" align="right" valign="top"><a id="a52da6aeb09f49e87f8b71295cbe465ab"></a>
-Processor::Kind bool bool const UDT VariantID <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> const char *&#160;</td><td class="memItemRight" valign="bottom"><b>task_name</b> = NULL)</td></tr>
-<tr class="separator:a52da6aeb09f49e87f8b71295cbe465ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -1489,6 +1344,124 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the physical region for the external resource </dd></dl>
+
+</div>
+</div>
+<a id="a80f4f7c08d42f4607e79df8a20a55146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80f4f7c08d42f4607e79df8a20a55146">&#9670;&nbsp;</a></span>attach_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> Legion::Runtime::attach_file </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; FieldID &gt; &amp;&#160;</td>
+          <td class="paramname"><em>field_vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LegionFileMode&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000027">Deprecated:</a></b></dt><dd>Attach an normal file as a physical region. This attach is similar to attach_hdf5 operation, except that the file has exact same data format as in-memory physical region. Data lays out as SOA in file. </dd></dl>
+
+</div>
+</div>
+<a id="a18a9db6622557604ab9687729cfa89b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a9db6622557604ab9687729cfa89b6">&#9670;&nbsp;</a></span>attach_hdf5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> Legion::Runtime::attach_hdf5 </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::map&lt; FieldID, const char * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>field_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LegionFileMode&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000025">Deprecated:</a></b></dt><dd>Attach an HDF5 file as a physical region. The file must already exist. <a class="el" href="namespace_legion.html">Legion</a> will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">file_name</td><td>the path to an existing HDF5 file </td></tr>
+    <tr><td class="paramname">handle</td><td>the logical region with which to associate the file </td></tr>
+    <tr><td class="paramname">parent</td><td>the parent logical region containing privileges </td></tr>
+    <tr><td class="paramname">field_map</td><td>mapping for field IDs to HDF5 dataset names </td></tr>
+    <tr><td class="paramname">mode</td><td>the access mode for attaching the file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new physical instance corresponding to the HDF5 file </dd></dl>
 
 </div>
 </div>
@@ -2719,7 +2692,7 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_index_allocator.html">IndexAllocator</a> Legion::Runtime::create_index_allocator </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_allocator.html">IndexAllocator</a> Legion::Runtime::create_index_allocator </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
@@ -3244,8 +3217,45 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a0ccb642113a2bad26c3b4ec900633d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ccb642113a2bad26c3b4ec900633d24">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> Legion::Runtime::create_index_space </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::set&lt; <a class="el" href="class_legion_1_1_domain.html">Domain</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>domains</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>Create a new top-level index space based on a set of domains </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">domains</td><td>the set of domains </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the handle for the new index space </dd></dl>
+
+</div>
+</div>
 <a id="a1b4bfc2d8d1ab819b74d37252c2ba8f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b4bfc2d8d1ab819b74d37252c2ba8f2">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b4bfc2d8d1ab819b74d37252c2ba8f2">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3281,7 +3291,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ad1e1a6c1e58cf832169ce93913f676f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1e1a6c1e58cf832169ce93913f676f6">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e1a6c1e58cf832169ce93913f676f6">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3317,7 +3327,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a8ffa5fe0cf5be1d9c425a30628bf5a9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ffa5fe0cf5be1d9c425a30628bf5a9a">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffa5fe0cf5be1d9c425a30628bf5a9a">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3345,6 +3355,43 @@ template&lt;typename T &gt; </div>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
     <tr><td class="paramname">bounds</td><td>the bounds for the new index space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the handle for the new index space </dd></dl>
+
+</div>
+</div>
+<a id="a4bfb413efd2de89152ad9e930769e46f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bfb413efd2de89152ad9e930769e46f">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> Legion::Runtime::create_index_space </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_num_elmts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>Create a new top-level index space with the maximum number of elements </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">max_num_elmts</td><td>maximum number of elements in the index space </td></tr>
   </table>
   </dd>
 </dl>
@@ -4941,6 +4988,71 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="af840cc317084b2faccf5321557755c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af840cc317084b2faccf5321557755c8e">&#9670;&nbsp;</a></span>detach_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::detach_file </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td>
+          <td class="paramname"><em>region</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000028">Deprecated:</a></b></dt><dd>Detach an normal file. THis detach operation is similar to detach_hdf5 </dd></dl>
+
+</div>
+</div>
+<a id="ad93bf3b151012fb90aac52137eaf652f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93bf3b151012fb90aac52137eaf652f">&#9670;&nbsp;</a></span>detach_hdf5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::detach_hdf5 </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td>
+          <td class="paramname"><em>region</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000026">Deprecated:</a></b></dt><dd>Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to <a class="el" href="namespace_legion.html">Legion</a>'s deferred execution model. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">region</td><td>the physical region for an HDF5 file to detach </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3b1338247926eef76421390573c82cc3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b1338247926eef76421390573c82cc3">&#9670;&nbsp;</a></span>disable_profiling()</h2>
 
@@ -5076,7 +5188,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a0e8d31f02a06b0b63824d1eb9f79b4eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e8d31f02a06b0b63824d1eb9f79b4eb">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e8d31f02a06b0b63824d1eb9f79b4eb">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5113,7 +5225,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="aa6f07a1164d549f044af6db3f0830008"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6f07a1164d549f044af6db3f0830008">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f07a1164d549f044af6db3f0830008">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5163,6 +5275,233 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a5ece93773965049ca5f025fe9c70a52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ece93773965049ca5f025fe9c70a52b">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> Legion::Runtime::execute_index_space </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>task_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>indexes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>regions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td>
+          <td class="paramname"><em>global_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td>
+          <td class="paramname"><em>predicate</em> = <code>Predicate::TRUE_PRED</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>must_paralleism</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapperID&#160;</td>
+          <td class="paramname"><em>id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MappingTagID&#160;</td>
+          <td class="paramname"><em>tag</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000023">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">task_id</td><td>the ID of the task to launch </td></tr>
+    <tr><td class="paramname">domain</td><td>for the set of points in the index space to create </td></tr>
+    <tr><td class="paramname">indexes</td><td>the index space requirements for the tasks </td></tr>
+    <tr><td class="paramname">fields</td><td>the field space requirements for the tasks </td></tr>
+    <tr><td class="paramname">regions</td><td>the region requirements for the tasks </td></tr>
+    <tr><td class="paramname">global_arg</td><td>untyped arguments passed by value to all tasks </td></tr>
+    <tr><td class="paramname">arg_map</td><td>argument map containing point arguments for tasks </td></tr>
+    <tr><td class="paramname">predicate</td><td>for controlling speculation </td></tr>
+    <tr><td class="paramname">must_parallelism</td><td>are tasks required to be run concurrently </td></tr>
+    <tr><td class="paramname">id</td><td>of the mapper to associate with the task </td></tr>
+    <tr><td class="paramname">tag</td><td>mapping tag to be passed to any mapping calls </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>future map containing results for all tasks </dd></dl>
+
+</div>
+</div>
+<a id="abfe61be1d1112821634f79d0d2bbc239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe61be1d1112821634f79d0d2bbc239">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Runtime::execute_index_space </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>task_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td>
+          <td class="paramname"><em>domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>indexes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>regions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td>
+          <td class="paramname"><em>global_arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ReductionOpID&#160;</td>
+          <td class="paramname"><em>reduction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td>
+          <td class="paramname"><em>initial_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td>
+          <td class="paramname"><em>predicate</em> = <code>Predicate::TRUE_PRED</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>must_parallelism</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapperID&#160;</td>
+          <td class="paramname"><em>id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MappingTagID&#160;</td>
+          <td class="paramname"><em>tag</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000024">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">task_id</td><td>the ID of the task to launch </td></tr>
+    <tr><td class="paramname">domain</td><td>for the set of points in the index space to create </td></tr>
+    <tr><td class="paramname">indexes</td><td>the index space requirements for the tasks </td></tr>
+    <tr><td class="paramname">fields</td><td>the field space requirements for the tasks </td></tr>
+    <tr><td class="paramname">regions</td><td>the region requirements for the tasks </td></tr>
+    <tr><td class="paramname">global_arg</td><td>untyped arguments passed by value to all tasks </td></tr>
+    <tr><td class="paramname">arg_map</td><td>argument map containing point arguments for tasks </td></tr>
+    <tr><td class="paramname">reduction</td><td>operation to be used for reducing return values </td></tr>
+    <tr><td class="paramname">predicate</td><td>for controlling speculation </td></tr>
+    <tr><td class="paramname">must_parallelism</td><td>are tasks required to be run concurrently </td></tr>
+    <tr><td class="paramname">id</td><td>of the mapper to associate with the task </td></tr>
+    <tr><td class="paramname">tag</td><td>mapping tag to be passed to any mapping calls </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>future containing reduced return value of all tasks </dd></dl>
+
+</div>
+</div>
 <a id="a4f219e544094fa61ddea088645482e98"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f219e544094fa61ddea088645482e98">&#9670;&nbsp;</a></span>execute_must_epoch()</h2>
 
@@ -5194,7 +5533,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a7b7d00659246b245b91410987e65eea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b7d00659246b245b91410987e65eea0">&#9670;&nbsp;</a></span>execute_task()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7d00659246b245b91410987e65eea0">&#9670;&nbsp;</a></span>execute_task() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5227,6 +5566,93 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a future for the return value of the task </dd></dl>
+
+</div>
+</div>
+<a id="a44cce1cf3ee372290521e61abacafc21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44cce1cf3ee372290521e61abacafc21">&#9670;&nbsp;</a></span>execute_task() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Runtime::execute_task </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>task_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>indexes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>regions</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;&#160;</td>
+          <td class="paramname"><em>arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td>
+          <td class="paramname"><em>predicate</em> = <code>Predicate::TRUE_PRED</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapperID&#160;</td>
+          <td class="paramname"><em>id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MappingTagID&#160;</td>
+          <td class="paramname"><em>tag</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000022">Deprecated:</a></b></dt><dd>An older method for launching a single task maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. <br  />
+ </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">task_id</td><td>the ID of the task to launch </td></tr>
+    <tr><td class="paramname">indexes</td><td>the index space requirements for the task </td></tr>
+    <tr><td class="paramname">fields</td><td>the field space requirements for the task </td></tr>
+    <tr><td class="paramname">regions</td><td>the region requirements for the task </td></tr>
+    <tr><td class="paramname">arg</td><td>untyped arguments passed by value to the task </td></tr>
+    <tr><td class="paramname">predicate</td><td>for controlling speculation </td></tr>
+    <tr><td class="paramname">id</td><td>of the mapper to associate with the task </td></tr>
+    <tr><td class="paramname">tag</td><td>mapping tag to be passed to any mapping calls </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>future representing return value of the task </dd></dl>
 
 </div>
 </div>
@@ -7954,6 +8380,47 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
+<a id="a183d30f63de89ea1f1becf1b3a36fda1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a183d30f63de89ea1f1becf1b3a36fda1">&#9670;&nbsp;</a></span>get_tunable_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Legion::Runtime::get_tunable_value </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TunableID&#160;</td>
+          <td class="paramname"><em>tid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapperID&#160;</td>
+          <td class="paramname"><em>mapper</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MappingTagID&#160;</td>
+          <td class="paramname"><em>tag</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000029">Deprecated:</a></b></dt><dd>This is the old method for asking the mapper to specify a tunable value. It will assume that the resulting tunable future can be interpreted as an integer. </dd></dl>
+
+</div>
+</div>
 <a id="ae6291e578160b1d11704361cc2fe5953"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6291e578160b1d11704361cc2fe5953">&#9670;&nbsp;</a></span>get_zero_time()</h2>
 
@@ -8626,501 +9093,6 @@ template&lt;unsigned DIM&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Issue a timing measurement operation configured with a launcher. The above methods are just common special cases. This allows for the general case of an arbitrary measurement with an arbitrary number of preconditions. </p>
-
-</div>
-</div>
-<a id="a4a76f50e068a4cfb706e3f992466294c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a76f50e068a4cfb706e3f992466294c">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[1/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Attaching generic file type is deprecated &quot; &quot;in favor of generic attach launcher interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000027">Deprecated:</a></b></dt><dd>Attach an normal file as a physical region. This attach is similar to attach_hdf5 operation, except that the file has exact same data format as in-memory physical region. Data lays out as SOA in file. </dd></dl>
-
-</div>
-</div>
-<a id="a1423792130dce82ff02746af65a31832"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1423792130dce82ff02746af65a31832">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[2/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Attaching specific HDF5 file type is deprecated &quot; &quot;in favor of generic attach launcher interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000025">Deprecated:</a></b></dt><dd>Attach an HDF5 file as a physical region. The file must already exist. <a class="el" href="namespace_legion.html">Legion</a> will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">file_name</td><td>the path to an existing HDF5 file </td></tr>
-    <tr><td class="paramname">handle</td><td>the logical region with which to associate the file </td></tr>
-    <tr><td class="paramname">parent</td><td>the parent logical region containing privileges </td></tr>
-    <tr><td class="paramname">field_map</td><td>mapping for field IDs to HDF5 dataset names </td></tr>
-    <tr><td class="paramname">mode</td><td>the access mode for attaching the file </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a new physical instance corresponding to the HDF5 file </dd></dl>
-
-</div>
-</div>
-<a id="a184676a52a496fa0644a4ffc0375e7ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a184676a52a496fa0644a4ffc0375e7ed">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[3/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Detaching generic file type is deprecated &quot; &quot;in favor of generic detach interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000028">Deprecated:</a></b></dt><dd>Detach an normal file. THis detach operation is similar to detach_hdf5 </dd></dl>
-
-</div>
-</div>
-<a id="a2c6b5306159ab0dbc6e6f0cedd2ebb7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c6b5306159ab0dbc6e6f0cedd2ebb7c">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[4/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Detaching specific HDF5 file type is deprecated &quot; &quot;in favor of generic detach interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000026">Deprecated:</a></b></dt><dd>Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to <a class="el" href="namespace_legion.html">Legion</a>'s deferred execution model. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">region</td><td>the physical region for an HDF5 file to detach </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa6db427e1ff2798f2d838ff7d9d1d7dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6db427e1ff2798f2d838ff7d9d1d7dd">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[5/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Launching tasks should be done with the new task &quot; &quot;launcher interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000024">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">task_id</td><td>the ID of the task to launch </td></tr>
-    <tr><td class="paramname">domain</td><td>for the set of points in the index space to create </td></tr>
-    <tr><td class="paramname">indexes</td><td>the index space requirements for the tasks </td></tr>
-    <tr><td class="paramname">fields</td><td>the field space requirements for the tasks </td></tr>
-    <tr><td class="paramname">regions</td><td>the region requirements for the tasks </td></tr>
-    <tr><td class="paramname">global_arg</td><td>untyped arguments passed by value to all tasks </td></tr>
-    <tr><td class="paramname">arg_map</td><td>argument map containing point arguments for tasks </td></tr>
-    <tr><td class="paramname">reduction</td><td>operation to be used for reducing return values </td></tr>
-    <tr><td class="paramname">predicate</td><td>for controlling speculation </td></tr>
-    <tr><td class="paramname">must_parallelism</td><td>are tasks required to be run concurrently </td></tr>
-    <tr><td class="paramname">id</td><td>of the mapper to associate with the task </td></tr>
-    <tr><td class="paramname">tag</td><td>mapping tag to be passed to any mapping calls </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>future containing reduced return value of all tasks </dd></dl>
-
-</div>
-</div>
-<a id="a0ebcdcfb6565d74c14560edd60b6b296"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ebcdcfb6565d74c14560edd60b6b296">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[6/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Launching tasks should be done with the new task &quot; &quot;launcher interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000022">Deprecated:</a></b></dt><dd>An older method for launching a single task maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">task_id</td><td>the ID of the task to launch </td></tr>
-    <tr><td class="paramname">indexes</td><td>the index space requirements for the task </td></tr>
-    <tr><td class="paramname">fields</td><td>the field space requirements for the task </td></tr>
-    <tr><td class="paramname">regions</td><td>the region requirements for the task </td></tr>
-    <tr><td class="paramname">arg</td><td>untyped arguments passed by value to the task </td></tr>
-    <tr><td class="paramname">predicate</td><td>for controlling speculation </td></tr>
-    <tr><td class="paramname">id</td><td>of the mapper to associate with the task </td></tr>
-    <tr><td class="paramname">tag</td><td>mapping tag to be passed to any mapping calls </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>future representing return value of the task </dd></dl>
-
-</div>
-</div>
-<a id="aa15a281728ecff48a82c14f3314a5ed1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa15a281728ecff48a82c14f3314a5ed1">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[7/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Launching tasks should be done with the new task &quot; &quot;launcher interface.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000023">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">task_id</td><td>the ID of the task to launch </td></tr>
-    <tr><td class="paramname">domain</td><td>for the set of points in the index space to create </td></tr>
-    <tr><td class="paramname">indexes</td><td>the index space requirements for the tasks </td></tr>
-    <tr><td class="paramname">fields</td><td>the field space requirements for the tasks </td></tr>
-    <tr><td class="paramname">regions</td><td>the region requirements for the tasks </td></tr>
-    <tr><td class="paramname">global_arg</td><td>untyped arguments passed by value to all tasks </td></tr>
-    <tr><td class="paramname">arg_map</td><td>argument map containing point arguments for tasks </td></tr>
-    <tr><td class="paramname">predicate</td><td>for controlling speculation </td></tr>
-    <tr><td class="paramname">must_parallelism</td><td>are tasks required to be run concurrently </td></tr>
-    <tr><td class="paramname">id</td><td>of the mapper to associate with the task </td></tr>
-    <tr><td class="paramname">tag</td><td>mapping tag to be passed to any mapping calls </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>future map containing results for all tasks </dd></dl>
-
-</div>
-</div>
-<a id="adb0b75cb20b59b06c9ef5eee6401d0ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb0b75cb20b59b06c9ef5eee6401d0ac">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[8/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Legion now supports multiple registration callbacks &quot; &quot;added via the <a class="el" href="class_legion_1_1_runtime.html#a40cc7ecc77420ead98e0505ed97eb8d7">add_registration_callback</a> method.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000030">Deprecated:</a></b></dt><dd>This call allows the application to register a callback function that will be run prior to beginning any task execution on every runtime in the system. It can be used to register or update the mapping between mapper IDs and mappers, register reductions, register projection function, register coloring functions, or configure any other static runtime variables prior to beginning the application. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>function pointer to the callback function to be run </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6771fdbb807332154e3899494269abaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6771fdbb807332154e3899494269abaf">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[9/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;LogicalRegion(*)(LogicalPartition, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Projection functions should now be specified &quot; &quot;using projection functor objects&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Register a partition projection function that can be used to map from an upper bound of a logical partition down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>the projection ID to register the function at </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>ID where the function was registered </dd></dl>
-
-</div>
-</div>
-<a id="a6d3a55c8df68e0ed2155da1532c20908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d3a55c8df68e0ed2155da1532c20908">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[10/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Projection functions should now be specified &quot; &quot;using projection functor objects&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Register a region projection function that can be used to map from an upper bound of a logical region down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>the projection ID to register the function at </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>ID where the function was registered </dd></dl>
-
-</div>
-</div>
-<a id="ae6b03e562d660bef561a6e5f2ab6be78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6b03e562d660bef561a6e5f2ab6be78">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[11/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000031">Deprecated:</a></b></dt><dd>Register a task with a template return type for the given kind of processor. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>the ID to assign to the task </td></tr>
-    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
-    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
-    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
-    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
-    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
-    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
-
-</div>
-</div>
-<a id="ad0417bdbe3476e2fd46cfa62c1151ade"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0417bdbe3476e2fd46cfa62c1151ade">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[12/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000032">Deprecated:</a></b></dt><dd>Register a task with a void return type for the given kind of processor. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>the ID to assign to the task </td></tr>
-    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
-    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
-    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
-    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
-    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
-    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
-
-</div>
-</div>
-<a id="a757416e1fee14db2dba44a6615c51524"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a757416e1fee14db2dba44a6615c51524">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[13/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename UDT , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000033">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>the ID at which to assign the task </td></tr>
-    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
-    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
-    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
-    <tr><td class="paramname">user_data</td><td>user data type to pass to all invocations of the task </td></tr>
-    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
-    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
-    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
-
-</div>
-</div>
-<a id="ae6b03e562d660bef561a6e5f2ab6be78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6b03e562d660bef561a6e5f2ab6be78">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[14/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Task registration should be done with &quot; &quot;a <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a>&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000034">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>the ID at which to assign the task </td></tr>
-    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
-    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
-    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
-    <tr><td class="paramname">user_data</td><td>user data type to pass to all invocations of the task </td></tr>
-    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
-    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
-    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
-
-</div>
-</div>
-<a id="a546b77d4ee61d98d255fe95a4f7d1e17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a546b77d4ee61d98d255fe95a4f7d1e17">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[15/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Tunable values should now be obtained via the &quot; &quot;generic interface that returns a future result.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000029">Deprecated:</a></b></dt><dd>This is the old method for asking the mapper to specify a tunable value. It will assume that the resulting tunable future can be interpreted as an integer. </dd></dl>
-
-</div>
-</div>
-<a id="a3e2d843d50b971b033181ce7cefb80dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e2d843d50b971b033181ce7cefb80dc">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[16/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Use the new index space creation routines with a &quot; &quot;single domain or rectangle.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>Create a new top-level index space with the maximum number of elements </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">max_num_elmts</td><td>maximum number of elements in the index space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the handle for the new index space </dd></dl>
-
-</div>
-</div>
-<a id="a3e2d843d50b971b033181ce7cefb80dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e2d843d50b971b033181ce7cefb80dc">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[17/17]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::Runtime::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Use the new index space creation routines with a &quot; &quot;single domain or rectangle.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>Create a new top-level index space based on a set of domains </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">domains</td><td>the set of domains </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the handle for the new index space </dd></dl>
 
 </div>
 </div>
@@ -10191,6 +10163,383 @@ template&lt;typename SERDEZ &gt; </div>
 
 </div>
 </div>
+<a id="ab1f4d556fbce53d33dc464b96b6dc2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1f4d556fbce53d33dc464b96b6dc2cf">&#9670;&nbsp;</a></span>register_legion_task() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename UDT , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TaskID Legion::Runtime::register_legion_task </td>
+          <td>(</td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor::Kind&#160;</td>
+          <td class="paramname"><em>proc_kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>single</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const UDT &amp;&#160;</td>
+          <td class="paramname"><em>user_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VariantID&#160;</td>
+          <td class="paramname"><em>vid</em> = <code>AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>&#160;</td>
+          <td class="paramname"><em>options</em> = <code><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>task_name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000033">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID at which to assign the task </td></tr>
+    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
+    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
+    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
+    <tr><td class="paramname">user_data</td><td>user data type to pass to all invocations of the task </td></tr>
+    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
+    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
+    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
+
+</div>
+</div>
+<a id="a369dfbcfe5913749a7f019c19db65eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369dfbcfe5913749a7f019c19db65eae">&#9670;&nbsp;</a></span>register_legion_task() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TaskID Legion::Runtime::register_legion_task </td>
+          <td>(</td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor::Kind&#160;</td>
+          <td class="paramname"><em>proc_kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>single</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const UDT &amp;&#160;</td>
+          <td class="paramname"><em>user_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VariantID&#160;</td>
+          <td class="paramname"><em>vid</em> = <code>AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>&#160;</td>
+          <td class="paramname"><em>options</em> = <code><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>task_name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000034">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID at which to assign the task </td></tr>
+    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
+    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
+    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
+    <tr><td class="paramname">user_data</td><td>user data type to pass to all invocations of the task </td></tr>
+    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
+    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
+    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
+
+</div>
+</div>
+<a id="a181ea8d2ea80a67550ffdf5e62514885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181ea8d2ea80a67550ffdf5e62514885">&#9670;&nbsp;</a></span>register_legion_task() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TaskID Legion::Runtime::register_legion_task </td>
+          <td>(</td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor::Kind&#160;</td>
+          <td class="paramname"><em>proc_kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>single</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VariantID&#160;</td>
+          <td class="paramname"><em>vid</em> = <code>AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>&#160;</td>
+          <td class="paramname"><em>options</em> = <code><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>task_name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000031">Deprecated:</a></b></dt><dd>Register a task with a template return type for the given kind of processor. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID to assign to the task </td></tr>
+    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
+    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
+    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
+    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
+    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
+    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
+
+</div>
+</div>
+<a id="a1827ce08f2be24c164e0f24368684ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1827ce08f2be24c164e0f24368684ef3">&#9670;&nbsp;</a></span>register_legion_task() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TaskID Legion::Runtime::register_legion_task </td>
+          <td>(</td>
+          <td class="paramtype">TaskID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor::Kind&#160;</td>
+          <td class="paramname"><em>proc_kind</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>single</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VariantID&#160;</td>
+          <td class="paramname"><em>vid</em> = <code>AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>&#160;</td>
+          <td class="paramname"><em>options</em> = <code><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>task_name</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000032">Deprecated:</a></b></dt><dd>Register a task with a void return type for the given kind of processor. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the ID to assign to the task </td></tr>
+    <tr><td class="paramname">proc_kind</td><td>the processor kind on which the task can run </td></tr>
+    <tr><td class="paramname">single</td><td>whether the task can be run as a single task </td></tr>
+    <tr><td class="paramname">index</td><td>whether the task can be run as an index space task </td></tr>
+    <tr><td class="paramname">vid</td><td>the variant ID to assign to the task </td></tr>
+    <tr><td class="paramname">options</td><td>the task configuration options </td></tr>
+    <tr><td class="paramname">task_name</td><td>string name for the task </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the ID the task was assigned </dd></dl>
+
+</div>
+</div>
+<a id="aa01797f8368215038e3ace3a5e84a277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01797f8368215038e3ace3a5e84a277">&#9670;&nbsp;</a></span>register_partition_function()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;LogicalRegion(*)(LogicalPartition, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ProjectionID Legion::Runtime::register_partition_function </td>
+          <td>(</td>
+          <td class="paramtype">ProjectionID&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Register a partition projection function that can be used to map from an upper bound of a logical partition down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>the projection ID to register the function at </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ID where the function was registered </dd></dl>
+
+</div>
+</div>
 <a id="aed570eb66ecffb1772de58c122d521dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aed570eb66ecffb1772de58c122d521dd">&#9670;&nbsp;</a></span>register_projection_functor()</h2>
 
@@ -10345,6 +10694,41 @@ template&lt;typename REDOP &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a9a152e69794766a5565eec12eefca80c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a152e69794766a5565eec12eefca80c">&#9670;&nbsp;</a></span>register_region_function()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ProjectionID Legion::Runtime::register_region_function </td>
+          <td>(</td>
+          <td class="paramtype">ProjectionID&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Register a region projection function that can be used to map from an upper bound of a logical region down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>the projection ID to register the function at </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ID where the function was registered </dd></dl>
 
 </div>
 </div>
@@ -11688,6 +12072,39 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 
 </div>
 </div>
+<a id="a7ae93947622a78e885a5a8b36811bb79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ae93947622a78e885a5a8b36811bb79">&#9670;&nbsp;</a></span>set_registration_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Legion::Runtime::set_registration_callback </td>
+          <td>(</td>
+          <td class="paramtype">RegistrationCallbackFnptr&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000030">Deprecated:</a></b></dt><dd>This call allows the application to register a callback function that will be run prior to beginning any task execution on every runtime in the system. It can be used to register or update the mapping between mapper IDs and mappers, register reductions, register projection function, register coloring functions, or configure any other static runtime variables prior to beginning the application. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>function pointer to the callback function to be run </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a63bc41e96b5b10f3435b15ef6d5f090b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63bc41e96b5b10f3435b15ef6d5f090b">&#9670;&nbsp;</a></span>set_top_level_task_id()</h2>
 
@@ -12058,7 +12475,7 @@ Profiling</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 17 2019 16:40:11 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2019 09:46:22 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

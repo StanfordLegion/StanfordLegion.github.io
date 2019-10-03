@@ -67,7 +67,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_legion_1_1_projection_functor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -90,10 +89,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7b503af9f572fc947840548140a3df96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeea7ac12235f069e148298b159ce4cb6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#aeea7ac12235f069e148298b159ce4cb6">project</a> (<a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> upper_bound, const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;launch_domain)</td></tr>
 <tr class="separator:aeea7ac12235f069e148298b159ce4cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a784fd374d6d99338907d4e9de1985614"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a784fd374d6d99338907d4e9de1985614">LEGION_DEPRECATED</a> (&quot;The interface for projection functors has been &quot; &quot;updated. Please use the new '<a class="el" href="class_legion_1_1_projection_functor.html#a70322da3b14cc1012237b82933c0f7be">project</a>' methods.&quot;) virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_projection_functor.html#a70322da3b14cc1012237b82933c0f7be">project</a>(Context ctx</td></tr>
-<tr class="separator:a784fd374d6d99338907d4e9de1985614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a784fd374d6d99338907d4e9de1985614"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a784fd374d6d99338907d4e9de1985614">LEGION_DEPRECATED</a> (&quot;The interface for projection functors has been &quot; &quot;updated. Please use the new '<a class="el" href="class_legion_1_1_projection_functor.html#a70322da3b14cc1012237b82933c0f7be">project</a>' methods.&quot;) virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> <a class="el" href="class_legion_1_1_projection_functor.html#a70322da3b14cc1012237b82933c0f7be">project</a>(Context ctx</td></tr>
-<tr class="separator:a784fd374d6d99338907d4e9de1985614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35eba1e956eb8773b18cc693dd066c98"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a35eba1e956eb8773b18cc693dd066c98">project</a> (Context ctx, <a class="el" href="class_legion_1_1_task.html">Task</a> *task, unsigned index, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> upper_bound, const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point)</td></tr>
+<tr class="separator:a35eba1e956eb8773b18cc693dd066c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665df65ed06932056e098162fed6787d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a665df65ed06932056e098162fed6787d">project</a> (Context ctx, <a class="el" href="class_legion_1_1_task.html">Task</a> *task, unsigned index, <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> upper_bound, const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point)</td></tr>
+<tr class="separator:a665df65ed06932056e098162fed6787d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a882284d677bc97fba11e93bf6a6fd1e0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a882284d677bc97fba11e93bf6a6fd1e0">is_exclusive</a> (void) const</td></tr>
 <tr class="separator:a882284d677bc97fba11e93bf6a6fd1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e1cd6da29f3d6781ff003b807d26c1f"><td class="memItemLeft" align="right" valign="top"><a id="a9e1cd6da29f3d6781ff003b807d26c1f"></a>
@@ -101,27 +100,6 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_functional
 <tr class="separator:a9e1cd6da29f3d6781ff003b807d26c1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe71b856e92397cd7c5c07de670158c"><td class="memItemLeft" align="right" valign="top">virtual unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a1fe71b856e92397cd7c5c07de670158c">get_depth</a> (void) const =0</td></tr>
 <tr class="separator:a1fe71b856e92397cd7c5c07de670158c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a077cc50440b9aeff0adff4e366b2ec6a"><td class="memItemLeft" align="right" valign="top"><a id="a077cc50440b9aeff0adff4e366b2ec6a"></a>
-<a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>task</b></td></tr>
-<tr class="separator:a077cc50440b9aeff0adff4e366b2ec6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1e8a92420db70f54293c86f39df8df2"><td class="memItemLeft" align="right" valign="top"><a id="ad1e8a92420db70f54293c86f39df8df2"></a>
-<a class="el" href="class_legion_1_1_task.html">Task</a> unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
-<tr class="separator:ad1e8a92420db70f54293c86f39df8df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8648dda21b2bb222852b2ad15c856e0f"><td class="memItemLeft" align="right" valign="top"><a id="a8648dda21b2bb222852b2ad15c856e0f"></a>
-<a class="el" href="class_legion_1_1_task.html">Task</a> unsigned <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>upper_bound</b></td></tr>
-<tr class="separator:a8648dda21b2bb222852b2ad15c856e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30208ad6aa90fe00481e39007de9968d"><td class="memItemLeft" align="right" valign="top"><a id="a30208ad6aa90fe00481e39007de9968d"></a>
-<a class="el" href="class_legion_1_1_task.html">Task</a> unsigned <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>point</b></td></tr>
-<tr class="separator:a30208ad6aa90fe00481e39007de9968d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72087e813fca576b46f082410adefb6d"><td class="memItemLeft" align="right" valign="top"><a id="a72087e813fca576b46f082410adefb6d"></a>
-<a class="el" href="class_legion_1_1_task.html">Task</a> unsigned <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>upper_bound</b></td></tr>
-<tr class="separator:a72087e813fca576b46f082410adefb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a707a29d56637518a6a026b77be6d5a3f"><td class="memItemLeft" align="right" valign="top"><a id="a707a29d56637518a6a026b77be6d5a3f"></a>
-<a class="el" href="class_legion_1_1_task.html">Task</a> unsigned <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>point</b></td></tr>
-<tr class="separator:a707a29d56637518a6a026b77be6d5a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -187,68 +165,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a784fd374d6d99338907d4e9de1985614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a784fd374d6d99338907d4e9de1985614">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::ProjectionFunctor::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;The interface for projection functors has been &quot; &quot;updated. Please use the new '<a class="el" href="class_legion_1_1_projection_functor.html#a70322da3b14cc1012237b82933c0f7be">project</a>' methods.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Compute the projection for a logical region projection requirement down to a specific logical region. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the context for this projection </td></tr>
-    <tr><td class="paramname">task</td><td>the task for the requested projection </td></tr>
-    <tr><td class="paramname">index</td><td>which region requirement we are projecting </td></tr>
-    <tr><td class="paramname">upper_bound</td><td>the upper bound logical region </td></tr>
-    <tr><td class="paramname">point</td><td>the point of the task in the index space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>logical region to be used by the child task </dd></dl>
-
-</div>
-</div>
-<a id="a784fd374d6d99338907d4e9de1985614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a784fd374d6d99338907d4e9de1985614">&#9670;&nbsp;</a></span>LEGION_DEPRECATED() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Legion::ProjectionFunctor::LEGION_DEPRECATED </td>
-          <td>(</td>
-          <td class="paramtype">&quot;The interface for projection functors has been &quot; &quot;updated. Please use the new '<a class="el" href="class_legion_1_1_projection_functor.html#a70322da3b14cc1012237b82933c0f7be">project</a>' methods.&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>Compute the projection for a logical partition projection requirement down to a specific logical region. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the context for this projection </td></tr>
-    <tr><td class="paramname">task</td><td>the task for the requested projection </td></tr>
-    <tr><td class="paramname">index</td><td>which region requirement we are projecting </td></tr>
-    <tr><td class="paramname">upper_bound</td><td>the upper bound logical partition </td></tr>
-    <tr><td class="paramname">point</td><td>the point of the task in the index space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>logical region to be used by the child task </dd></dl>
-
-</div>
-</div>
 <a id="a3a0e064d3048778f124b178e6d9b832d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a0e064d3048778f124b178e6d9b832d">&#9670;&nbsp;</a></span>project() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0e064d3048778f124b178e6d9b832d">&#9670;&nbsp;</a></span>project() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +224,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a70322da3b14cc1012237b82933c0f7be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70322da3b14cc1012237b82933c0f7be">&#9670;&nbsp;</a></span>project() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a70322da3b14cc1012237b82933c0f7be">&#9670;&nbsp;</a></span>project() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,8 +281,140 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a665df65ed06932056e098162fed6787d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665df65ed06932056e098162fed6787d">&#9670;&nbsp;</a></span>project() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> Legion::ProjectionFunctor::project </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td>
+          <td class="paramname"><em>task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a>&#160;</td>
+          <td class="paramname"><em>upper_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>Compute the projection for a logical partition projection requirement down to a specific logical region. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the context for this projection </td></tr>
+    <tr><td class="paramname">task</td><td>the task for the requested projection </td></tr>
+    <tr><td class="paramname">index</td><td>which region requirement we are projecting </td></tr>
+    <tr><td class="paramname">upper_bound</td><td>the upper bound logical partition </td></tr>
+    <tr><td class="paramname">point</td><td>the point of the task in the index space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>logical region to be used by the child task </dd></dl>
+
+</div>
+</div>
+<a id="a35eba1e956eb8773b18cc693dd066c98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35eba1e956eb8773b18cc693dd066c98">&#9670;&nbsp;</a></span>project() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> Legion::ProjectionFunctor::project </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td>
+          <td class="paramname"><em>task</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>upper_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Compute the projection for a logical region projection requirement down to a specific logical region. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the context for this projection </td></tr>
+    <tr><td class="paramname">task</td><td>the task for the requested projection </td></tr>
+    <tr><td class="paramname">index</td><td>which region requirement we are projecting </td></tr>
+    <tr><td class="paramname">upper_bound</td><td>the upper bound logical region </td></tr>
+    <tr><td class="paramname">point</td><td>the point of the task in the index space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>logical region to be used by the child task </dd></dl>
+
+</div>
+</div>
 <a id="aeea7ac12235f069e148298b159ce4cb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeea7ac12235f069e148298b159ce4cb6">&#9670;&nbsp;</a></span>project() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeea7ac12235f069e148298b159ce4cb6">&#9670;&nbsp;</a></span>project() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -415,7 +465,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a7b503af9f572fc947840548140a3df96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b503af9f572fc947840548140a3df96">&#9670;&nbsp;</a></span>project() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b503af9f572fc947840548140a3df96">&#9670;&nbsp;</a></span>project() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,7 +521,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 17 2019 16:40:10 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2019 09:46:22 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -133,11 +133,17 @@ $(function() {
 <li>legion_context_get_unique_id()
 : <a class="el" href="legion__c_8h.html#ad02b5da191989f3b19de6b26177847b1">legion_c.h</a>
 </li>
+<li>legion_copy_get_requirement()
+: <a class="el" href="legion__c_8h.html#a951f1498a465f9d6efbef470b01c9da0">legion_c.h</a>
+</li>
 <li>legion_copy_launcher_add_arrival_barrier()
 : <a class="el" href="legion__c_8h.html#aa4bceb8d6bbd405ed0fe39ea764ea3a4">legion_c.h</a>
 </li>
 <li>legion_copy_launcher_add_dst_field()
 : <a class="el" href="legion__c_8h.html#a5c5262d3b438218de449a322d0a776ee">legion_c.h</a>
+</li>
+<li>legion_copy_launcher_add_dst_indirect_region_requirement_logical_region()
+: <a class="el" href="legion__c_8h.html#ab8aa1d93e73bec88339022a033239d62">legion_c.h</a>
 </li>
 <li>legion_copy_launcher_add_dst_region_requirement_logical_region()
 : <a class="el" href="legion__c_8h.html#a3e0a3b39032eff8d2992f9b98be71f5d">legion_c.h</a>
@@ -147,6 +153,9 @@ $(function() {
 </li>
 <li>legion_copy_launcher_add_src_field()
 : <a class="el" href="legion__c_8h.html#a9db084dd0cc2c787e3577492255cab54">legion_c.h</a>
+</li>
+<li>legion_copy_launcher_add_src_indirect_region_requirement_logical_region()
+: <a class="el" href="legion__c_8h.html#ad8eb77f98cd3d9f1a9ae3cb64631fcaf">legion_c.h</a>
 </li>
 <li>legion_copy_launcher_add_src_region_requirement_logical_region()
 : <a class="el" href="legion__c_8h.html#aaae3583785bc15ff04bd4307432d0eeb">legion_c.h</a>
@@ -337,6 +346,9 @@ $(function() {
 <li>legion_field_space_t
 : <a class="el" href="legion__c_8h.html#ae72b9f33af44b6da269ffe4bb2621aa0">legion_c.h</a>
 </li>
+<li>legion_fill_get_requirement()
+: <a class="el" href="legion__c_8h.html#aa1d58457df61b542b32b915c780a567f">legion_c.h</a>
+</li>
 <li>legion_flush_detach_external_resource()
 : <a class="el" href="legion__c_8h.html#a790b0e2d2e500a958d2288c41b084e82">legion_c.h</a>
 </li>
@@ -388,6 +400,12 @@ $(function() {
 <li>legion_index_copy_launcher_add_dst_field()
 : <a class="el" href="legion__c_8h.html#a6b7feba8de1c8ea5fa95747cbe9c87fd">legion_c.h</a>
 </li>
+<li>legion_index_copy_launcher_add_dst_indirect_region_requirement_logical_partition()
+: <a class="el" href="legion__c_8h.html#a82fea8cbde1e61d8489a149ba48b955c">legion_c.h</a>
+</li>
+<li>legion_index_copy_launcher_add_dst_indirect_region_requirement_logical_region()
+: <a class="el" href="legion__c_8h.html#a980aa2b21aee2bdf0a38b802feae1068">legion_c.h</a>
+</li>
 <li>legion_index_copy_launcher_add_dst_region_requirement_logical_partition()
 : <a class="el" href="legion__c_8h.html#a17c0759b8f2d2c1512cce5c6e7fb9448">legion_c.h</a>
 </li>
@@ -402,6 +420,12 @@ $(function() {
 </li>
 <li>legion_index_copy_launcher_add_src_field()
 : <a class="el" href="legion__c_8h.html#a5032880eda31b4b86a74ae3e3d3484b0">legion_c.h</a>
+</li>
+<li>legion_index_copy_launcher_add_src_indirect_region_requirement_logical_partition()
+: <a class="el" href="legion__c_8h.html#acdd2b500f13819a1550182b9dc8ba971">legion_c.h</a>
+</li>
+<li>legion_index_copy_launcher_add_src_indirect_region_requirement_logical_region()
+: <a class="el" href="legion__c_8h.html#a084c7b7e87037c25bd0a14b1ce90612a">legion_c.h</a>
 </li>
 <li>legion_index_copy_launcher_add_src_region_requirement_logical_partition()
 : <a class="el" href="legion__c_8h.html#a9ded3be6027b95a82e7f19792e6f7b46">legion_c.h</a>
@@ -481,8 +505,14 @@ $(function() {
 <li>legion_index_launcher_execute_reduction()
 : <a class="el" href="legion__c_8h.html#ae87dd53f8152416583f27a5d56ce9d82">legion_c.h</a>
 </li>
+<li>legion_index_launcher_get_projection_args()
+: <a class="el" href="legion__c_8h.html#a3e8b508b14435e7cfb151e4423680efb">legion_c.h</a>
+</li>
 <li>legion_index_launcher_intersect_flags()
 : <a class="el" href="legion__c_8h.html#a6e0372a88963127129b4011de0be94df">legion_c.h</a>
+</li>
+<li>legion_index_launcher_set_projection_args()
+: <a class="el" href="legion__c_8h.html#ad2f42ef52ddde67a32e98e18a5e0d80a">legion_c.h</a>
 </li>
 <li>legion_index_launcher_set_region_requirement_logical_partition()
 : <a class="el" href="legion__c_8h.html#ab09f3cdac6cc0900442d9676db5d29fd">legion_c.h</a>
@@ -840,6 +870,21 @@ $(function() {
 </li>
 <li>legion_map_task_output_task_priority_set()
 : <a class="el" href="legion__c_8h.html#aac3842c770c2eb738dd884b29bfb2b3c">legion_c.h</a>
+</li>
+<li>legion_mappable_as_copy()
+: <a class="el" href="legion__c_8h.html#a9698f5150d4e8d0e0241c4d949259d88">legion_c.h</a>
+</li>
+<li>legion_mappable_as_fill()
+: <a class="el" href="legion__c_8h.html#a640c2e368f7e73ac2f402b57553ed84d">legion_c.h</a>
+</li>
+<li>legion_mappable_as_inline_mapping()
+: <a class="el" href="legion__c_8h.html#add6ef6a4035ba69c751c8773dadb7471">legion_c.h</a>
+</li>
+<li>legion_mappable_as_task()
+: <a class="el" href="legion__c_8h.html#a9fc49c1aa3bfd851378a58b7c9768969">legion_c.h</a>
+</li>
+<li>legion_mappable_get_type()
+: <a class="el" href="legion__c_8h.html#a51b414af8c6455ea9cf118fc0a5bd7d8">legion_c.h</a>
 </li>
 <li>legion_mapper_runtime_acquire_instance()
 : <a class="el" href="legion__c_8h.html#ab366fc3a3bc425d5c4f8e717c28354c4">legion_c.h</a>
@@ -1324,11 +1369,11 @@ $(function() {
 <li>legion_task_get_name()
 : <a class="el" href="legion__c_8h.html#a2b8fc70ff2aa336ca052279de303bbd4">legion_c.h</a>
 </li>
-<li>legion_task_get_region()
-: <a class="el" href="legion__c_8h.html#acd9fa5885fca4ed5d979f5b510b5c44e">legion_c.h</a>
-</li>
 <li>legion_task_get_regions_size()
 : <a class="el" href="legion__c_8h.html#abe5c9e63a047a85d5642d15d05c8cc01">legion_c.h</a>
+</li>
+<li>legion_task_get_requirement()
+: <a class="el" href="legion__c_8h.html#a5a4cdc93143d65fce2184864d14e428b">legion_c.h</a>
 </li>
 <li>legion_task_get_tag()
 : <a class="el" href="legion__c_8h.html#aaad8603c72acf19284b36ec3c2604bf0">legion_c.h</a>
@@ -1430,7 +1475,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 17 2019 16:40:11 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 3 2019 09:46:23 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

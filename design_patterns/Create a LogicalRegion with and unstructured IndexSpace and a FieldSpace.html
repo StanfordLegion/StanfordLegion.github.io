@@ -116,32 +116,32 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Create a LogicalRegion with an unstructured IndexSpace</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a>  IndexSpace unstructured_is = runtime-&gt;create_index_space(ctx, <span class="dv">1024</span>); </span>
-<span id="cb1-2"><a href="#cb1-2"></a>  printf(<span class="st">&quot;Created unstructured index space </span><span class="sc">%x\n</span><span class="st">&quot;</span>, unstructured_is.id);</span>
-<span id="cb1-3"><a href="#cb1-3"></a>  {</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    IndexAllocator allocator = runtime-&gt;create_index_allocator(ctx, </span>
-<span id="cb1-5"><a href="#cb1-5"></a>                                                    unstructured_is);</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="dt">ptr_t</span> begin = allocator.alloc(<span class="dv">1024</span>);</span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="ot">assert</span>(!begin.is_null());</span>
-<span id="cb1-8"><a href="#cb1-8"></a>    printf(<span class="st">&quot;Allocated elements in unstructured &quot;</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>           <span class="st">&quot;space at ptr_t </span><span class="sc">%d\n</span><span class="st">&quot;</span>, begin.value);</span>
-<span id="cb1-10"><a href="#cb1-10"></a>  } </span>
-<span id="cb1-11"><a href="#cb1-11"></a>  FieldSpace fs = runtime-&gt;create_field_space(ctx);</span>
-<span id="cb1-12"><a href="#cb1-12"></a>  printf(<span class="st">&quot;Created field space field space </span><span class="sc">%x\n</span><span class="st">&quot;</span>, fs.get_id());</span>
-<span id="cb1-13"><a href="#cb1-13"></a>  {</span>
-<span id="cb1-14"><a href="#cb1-14"></a>    FieldAllocator allocator = runtime-&gt;create_field_allocator(ctx, fs);</span>
-<span id="cb1-15"><a href="#cb1-15"></a>    FieldID fida = allocator.allocate_field(<span class="kw">sizeof</span>(<span class="dt">double</span>), FID_FIELD_A);</span>
-<span id="cb1-16"><a href="#cb1-16"></a>    <span class="ot">assert</span>(fida == FID_FIELD_A);</span>
-<span id="cb1-17"><a href="#cb1-17"></a>    FieldID fidb = allocator.allocate_field(<span class="kw">sizeof</span>(<span class="dt">int</span>), FID_FIELD_B);</span>
-<span id="cb1-18"><a href="#cb1-18"></a>    <span class="ot">assert</span>(fidb == FID_FIELD_B);</span>
-<span id="cb1-19"><a href="#cb1-19"></a>    printf(<span class="st">&quot;Allocated two fields with Field IDs </span><span class="sc">%d</span><span class="st"> and </span><span class="sc">%d\n</span><span class="st">&quot;</span>, fida, fidb);</span>
-<span id="cb1-20"><a href="#cb1-20"></a>  }</span>
-<span id="cb1-21"><a href="#cb1-21"></a>  LogicalRegion unstructured_lr = </span>
-<span id="cb1-22"><a href="#cb1-22"></a>    runtime-&gt;create_logical_region(ctx, unstructured_is, fs);</span>
-<span id="cb1-23"><a href="#cb1-23"></a>  printf(<span class="st">&quot;Created unstructured logical region (</span><span class="sc">%x</span><span class="st">,</span><span class="sc">%x</span><span class="st">,</span><span class="sc">%x</span><span class="st">)</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb1-24"><a href="#cb1-24"></a>      unstructured_lr.get_index_space().id, </span>
-<span id="cb1-25"><a href="#cb1-25"></a>      unstructured_lr.get_field_space().get_id(),</span>
-<span id="cb1-26"><a href="#cb1-26"></a>      unstructured_lr.get_tree_id());</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">  IndexSpace unstructured_is = runtime-&gt;create_index_space(ctx, <span class="dv">1024</span>); </a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  printf(<span class="st">&quot;Created unstructured index space </span><span class="sc">%x\n</span><span class="st">&quot;</span>, unstructured_is.id);</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  {</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    IndexAllocator allocator = runtime-&gt;create_index_allocator(ctx, </a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">                                                    unstructured_is);</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="dt">ptr_t</span> begin = allocator.alloc(<span class="dv">1024</span>);</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    assert(!begin.is_null());</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    printf(<span class="st">&quot;Allocated elements in unstructured &quot;</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">           <span class="st">&quot;space at ptr_t </span><span class="sc">%d\n</span><span class="st">&quot;</span>, begin.value);</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  } </a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  FieldSpace fs = runtime-&gt;create_field_space(ctx);</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  printf(<span class="st">&quot;Created field space field space </span><span class="sc">%x\n</span><span class="st">&quot;</span>, fs.get_id());</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">  {</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    FieldAllocator allocator = runtime-&gt;create_field_allocator(ctx, fs);</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    FieldID fida = allocator.allocate_field(<span class="kw">sizeof</span>(<span class="dt">double</span>), FID_FIELD_A);</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    assert(fida == FID_FIELD_A);</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    FieldID fidb = allocator.allocate_field(<span class="kw">sizeof</span>(<span class="dt">int</span>), FID_FIELD_B);</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    assert(fidb == FID_FIELD_B);</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">    printf(<span class="st">&quot;Allocated two fields with Field IDs </span><span class="sc">%d</span><span class="st"> and </span><span class="sc">%d\n</span><span class="st">&quot;</span>, fida, fidb);</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  }</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">  LogicalRegion unstructured_lr = </a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    runtime-&gt;create_logical_region(ctx, unstructured_is, fs);</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">  printf(<span class="st">&quot;Created unstructured logical region (</span><span class="sc">%x</span><span class="st">,</span><span class="sc">%x</span><span class="st">,</span><span class="sc">%x</span><span class="st">)</span><span class="sc">\n</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">      unstructured_lr.get_index_space().id, </a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">      unstructured_lr.get_field_space().get_id(),</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">      unstructured_lr.get_tree_id());</a></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

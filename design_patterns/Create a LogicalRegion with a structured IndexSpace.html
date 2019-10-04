@@ -116,47 +116,47 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Create a LogicalRegion with a structured IndexSpace</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a>      <span class="kw">typedef</span> <span class="dt">float</span> PixelField;</span>
-<span id="cb1-2"><a href="#cb1-2"></a>      <span class="kw">enum</span> FieldIDs {  </span>
-<span id="cb1-3"><a href="#cb1-3"></a>        FID_FIELD_R = <span class="dv">0</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>        FID_FIELD_G,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>        FID_FIELD_B,</span>
-<span id="cb1-6"><a href="#cb1-6"></a>        FID_FIELD_A,</span>
-<span id="cb1-7"><a href="#cb1-7"></a>        FID_FIELD_Z,</span>
-<span id="cb1-8"><a href="#cb1-8"></a>        FID_FIELD_USERDATA,</span>
-<span id="cb1-9"><a href="#cb1-9"></a>      };</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>      Point&lt;<span class="dv">3</span>&gt; origin = Point&lt;<span class="dv">3</span>&gt;::ZEROES();</span>
-<span id="cb1-12"><a href="#cb1-12"></a>      Point&lt;<span class="dv">3</span>&gt; regionSize;</span>
-<span id="cb1-13"><a href="#cb1-13"></a>      <span class="co">// HDTV imgae resolution</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>      regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;</span>
-<span id="cb1-15"><a href="#cb1-15"></a>      regionSize.x[<span class="dv">1</span>] = <span class="dv">1080</span>;</span>
-<span id="cb1-16"><a href="#cb1-16"></a>      regionSize.x[<span class="dv">2</span>] = numSimulationNodes;</span>
-<span id="cb1-17"><a href="#cb1-17"></a>      Rect&lt;<span class="dv">3</span>&gt; imageBounds(origin, regionSize - Point&lt;<span class="dv">3</span>&gt;::ONES());</span>
-<span id="cb1-18"><a href="#cb1-18"></a>      Domain imageDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(imageBounds);</span>
-<span id="cb1-19"><a href="#cb1-19"></a>      pixels = runtime-&gt;create_index_space(context, imageDomain);</span>
-<span id="cb1-20"><a href="#cb1-20"></a>      runtime-&gt;attach_name(pixels, <span class="st">&quot;image index space&quot;</span>);</span>
-<span id="cb1-21"><a href="#cb1-21"></a>      </span>
-<span id="cb1-22"><a href="#cb1-22"></a>      FieldSpace fields = runtime-&gt;create_field_space(context);</span>
-<span id="cb1-23"><a href="#cb1-23"></a>      runtime-&gt;attach_name(fields, <span class="st">&quot;pixel fields&quot;</span>);</span>
-<span id="cb1-24"><a href="#cb1-24"></a>      {</span>
-<span id="cb1-25"><a href="#cb1-25"></a>        FieldAllocator allocator = runtime-&gt;create_field_allocator(context, fields);</span>
-<span id="cb1-26"><a href="#cb1-26"></a>        FieldID fidr = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_R);</span>
-<span id="cb1-27"><a href="#cb1-27"></a>        <span class="ot">assert</span>(fidr == FID_FIELD_R);</span>
-<span id="cb1-28"><a href="#cb1-28"></a>        FieldID fidg = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_G);</span>
-<span id="cb1-29"><a href="#cb1-29"></a>        <span class="ot">assert</span>(fidg == FID_FIELD_G);</span>
-<span id="cb1-30"><a href="#cb1-30"></a>        FieldID fidb = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_B);</span>
-<span id="cb1-31"><a href="#cb1-31"></a>        <span class="ot">assert</span>(fidb == FID_FIELD_B);</span>
-<span id="cb1-32"><a href="#cb1-32"></a>        FieldID fida = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_A);</span>
-<span id="cb1-33"><a href="#cb1-33"></a>        <span class="ot">assert</span>(fida == FID_FIELD_A);</span>
-<span id="cb1-34"><a href="#cb1-34"></a>        FieldID fidz = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_Z);</span>
-<span id="cb1-35"><a href="#cb1-35"></a>        <span class="ot">assert</span>(fidz == FID_FIELD_Z);</span>
-<span id="cb1-36"><a href="#cb1-36"></a>        FieldID fidUserdata = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_USERDATA);</span>
-<span id="cb1-37"><a href="#cb1-37"></a>        <span class="ot">assert</span>(fidUserdata == FID_FIELD_USERDATA);</span>
-<span id="cb1-38"><a href="#cb1-38"></a>      }</span>
-<span id="cb1-39"><a href="#cb1-39"></a>      </span>
-<span id="cb1-40"><a href="#cb1-40"></a>      region = runtime-&gt;create_logical_region(context, pixels, fields);</span>
-<span id="cb1-41"><a href="#cb1-41"></a>      runtime-&gt;attach_name(region, <span class="st">&quot;image&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">      <span class="kw">typedef</span> <span class="dt">float</span> PixelField;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">      <span class="kw">enum</span> FieldIDs {  </a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">        FID_FIELD_R = <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        FID_FIELD_G,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">        FID_FIELD_B,</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">        FID_FIELD_A,</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">        FID_FIELD_Z,</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">        FID_FIELD_USERDATA,</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">      };</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">      Point&lt;<span class="dv">3</span>&gt; origin = Point&lt;<span class="dv">3</span>&gt;::ZEROES();</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">      Point&lt;<span class="dv">3</span>&gt; regionSize;</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="co">// HDTV imgae resolution</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">      regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">      regionSize.x[<span class="dv">1</span>] = <span class="dv">1080</span>;</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">      regionSize.x[<span class="dv">2</span>] = numSimulationNodes;</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">      Rect&lt;<span class="dv">3</span>&gt; imageBounds(origin, regionSize - Point&lt;<span class="dv">3</span>&gt;::ONES());</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">      Domain imageDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(imageBounds);</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">      pixels = runtime-&gt;create_index_space(context, imageDomain);</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">      runtime-&gt;attach_name(pixels, <span class="st">&quot;image index space&quot;</span>);</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">      </a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">      FieldSpace fields = runtime-&gt;create_field_space(context);</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">      runtime-&gt;attach_name(fields, <span class="st">&quot;pixel fields&quot;</span>);</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">      {</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">        FieldAllocator allocator = runtime-&gt;create_field_allocator(context, fields);</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">        FieldID fidr = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_R);</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">        assert(fidr == FID_FIELD_R);</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">        FieldID fidg = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_G);</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">        assert(fidg == FID_FIELD_G);</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">        FieldID fidb = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_B);</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">        assert(fidb == FID_FIELD_B);</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">        FieldID fida = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_A);</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">        assert(fida == FID_FIELD_A);</a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">        FieldID fidz = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_Z);</a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">        assert(fidz == FID_FIELD_Z);</a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">        FieldID fidUserdata = allocator.allocate_field(<span class="kw">sizeof</span>(PixelField), FID_FIELD_USERDATA);</a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">        assert(fidUserdata == FID_FIELD_USERDATA);</a>
+<a class="sourceLine" id="cb1-38" data-line-number="38">      }</a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">      </a>
+<a class="sourceLine" id="cb1-40" data-line-number="40">      region = runtime-&gt;create_logical_region(context, pixels, fields);</a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">      runtime-&gt;attach_name(region, <span class="st">&quot;image&quot;</span>);</a></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

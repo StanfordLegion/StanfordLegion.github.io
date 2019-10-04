@@ -116,30 +116,30 @@
       <a href="index.html">design patterns</a><p>
 <a href="../glossary/index.html">glossary</a><p>
 <p>Create a LogicalPartition of a structured LogicalRegion</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a>      LogicalRegion image = ...;</span>
-<span id="cb1-2"><a href="#cb1-2"></a>      Point&lt;<span class="dv">3</span>&gt; regionSize;</span>
-<span id="cb1-3"><a href="#cb1-3"></a>      <span class="co">// HDTV imgae resolution</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>      regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;</span>
-<span id="cb1-5"><a href="#cb1-5"></a>      regionSize.x[<span class="dv">1</span>] = <span class="dv">1080</span>;</span>
-<span id="cb1-6"><a href="#cb1-6"></a>      regionSize.x[<span class="dv">2</span>] = numSimulationNodes;</span>
-<span id="cb1-7"><a href="#cb1-7"></a>      Point&lt;<span class="dv">3</span>&gt; fragmentSize;</span>
-<span id="cb1-8"><a href="#cb1-8"></a>      <span class="co">// Size of individual subregion 16x1x1</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>      fragmentSize.x[<span class="dv">0</span>] = <span class="dv">16</span>;</span>
-<span id="cb1-10"><a href="#cb1-10"></a>      fragmentSize.x[<span class="dv">1</span>] = <span class="dv">1</span>;</span>
-<span id="cb1-11"><a href="#cb1-11"></a>      fragmentSize.x[<span class="dv">2</span>] = <span class="dv">1</span>;</span>
-<span id="cb1-12"><a href="#cb1-12"></a>      Blockify&lt;<span class="dv">3</span>&gt; coloring(fragmentSize);</span>
-<span id="cb1-13"><a href="#cb1-13"></a>      IndexPartition imageFragmentIndexPartition =</span>
-<span id="cb1-14"><a href="#cb1-14"></a>          runtime-&gt;create_index_partition(context, image.get_index_space(), coloring);</span>
-<span id="cb1-15"><a href="#cb1-15"></a>      runtime-&gt;attach_name(imageFragmentIndexPartition, <span class="st">&quot;image fragment index&quot;</span>);</span>
-<span id="cb1-16"><a href="#cb1-16"></a>      LogicalPartition imageFragmentPartition =</span>
-<span id="cb1-17"><a href="#cb1-17"></a>          mRuntime-&gt;get_logical_partition(context, image, imageFragmentIndexPartition);</span>
-<span id="cb1-18"><a href="#cb1-18"></a>      runtime-&gt;attach_name(imageFragmentPartition, <span class="st">&quot;image fragment partition&quot;</span>);</span>
-<span id="cb1-19"><a href="#cb1-19"></a>      Point&lt;<span class="dv">3</span>&gt; numFragments;</span>
-<span id="cb1-20"><a href="#cb1-20"></a>      numFragments.x[<span class="dv">0</span>] = regionSize.x[<span class="dv">0</span>] / fragmentSize.x[<span class="dv">0</span>];</span>
-<span id="cb1-21"><a href="#cb1-21"></a>      numFragments.x[<span class="dv">1</span>] = regionSize.x[<span class="dv">1</span>] / fragmentSize.x[<span class="dv">1</span>];</span>
-<span id="cb1-22"><a href="#cb1-22"></a>      numFragments.x[<span class="dv">2</span>] = regionSize.x[<span class="dv">2</span>] / fragmentSize.x[<span class="dv">2</span>];</span>
-<span id="cb1-23"><a href="#cb1-23"></a>      Rect&lt;<span class="dv">3</span>&gt; fragmentBounds(Point&lt;<span class="dv">3</span>&gt;::ZEROES(), numFragments - Point&lt;<span class="dv">3</span>&gt;::ONES());</span>
-<span id="cb1-24"><a href="#cb1-24"></a>      Domain fragmentDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(fragmentBounds);</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1">      LogicalRegion image = ...;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">      Point&lt;<span class="dv">3</span>&gt; regionSize;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">      <span class="co">// HDTV imgae resolution</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">      regionSize.x[<span class="dv">0</span>] = <span class="dv">1920</span>;</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">      regionSize.x[<span class="dv">1</span>] = <span class="dv">1080</span>;</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">      regionSize.x[<span class="dv">2</span>] = numSimulationNodes;</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">      Point&lt;<span class="dv">3</span>&gt; fragmentSize;</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">      <span class="co">// Size of individual subregion 16x1x1</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">      fragmentSize.x[<span class="dv">0</span>] = <span class="dv">16</span>;</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">      fragmentSize.x[<span class="dv">1</span>] = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">      fragmentSize.x[<span class="dv">2</span>] = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">      Blockify&lt;<span class="dv">3</span>&gt; coloring(fragmentSize);</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      IndexPartition imageFragmentIndexPartition =</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">          runtime-&gt;create_index_partition(context, image.get_index_space(), coloring);</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">      runtime-&gt;attach_name(imageFragmentIndexPartition, <span class="st">&quot;image fragment index&quot;</span>);</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">      LogicalPartition imageFragmentPartition =</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">          mRuntime-&gt;get_logical_partition(context, image, imageFragmentIndexPartition);</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">      runtime-&gt;attach_name(imageFragmentPartition, <span class="st">&quot;image fragment partition&quot;</span>);</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">      Point&lt;<span class="dv">3</span>&gt; numFragments;</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">      numFragments.x[<span class="dv">0</span>] = regionSize.x[<span class="dv">0</span>] / fragmentSize.x[<span class="dv">0</span>];</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">      numFragments.x[<span class="dv">1</span>] = regionSize.x[<span class="dv">1</span>] / fragmentSize.x[<span class="dv">1</span>];</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">      numFragments.x[<span class="dv">2</span>] = regionSize.x[<span class="dv">2</span>] / fragmentSize.x[<span class="dv">2</span>];</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">      Rect&lt;<span class="dv">3</span>&gt; fragmentBounds(Point&lt;<span class="dv">3</span>&gt;::ZEROES(), numFragments - Point&lt;<span class="dv">3</span>&gt;::ONES());</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">      Domain fragmentDomain = Domain::from_rect&lt;<span class="dv">3</span>&gt;(fragmentBounds);</a></code></pre></div>
 
     </div><!-- /.article-wrap -->
   </article>

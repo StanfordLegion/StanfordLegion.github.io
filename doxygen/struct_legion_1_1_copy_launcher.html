@@ -113,12 +113,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_src_field</b> (un
 <tr class="memitem:a1494a316c4aea770df7ff633cb298f93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1494a316c4aea770df7ff633cb298f93"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_dst_field</b> (unsigned idx, FieldID fid, bool inst=true)</td></tr>
 <tr class="separator:a1494a316c4aea770df7ff633cb298f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9172ab0a8a8df6190cf80302c386dc72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9172ab0a8a8df6190cf80302c386dc72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_src_indirect_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;src_idx_req, FieldID src_idx_fid, bool inst=true)</td></tr>
-<tr class="separator:a9172ab0a8a8df6190cf80302c386dc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40d0296088de27046524c952a5a8fecd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40d0296088de27046524c952a5a8fecd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_dst_indirect_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;dst_idx_req, FieldID dst_idx_fid, bool inst=true)</td></tr>
-<tr class="separator:a40d0296088de27046524c952a5a8fecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addde5551a5859084656af759fae7ecb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addde5551a5859084656af759fae7ecb2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_src_indirect_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;src_idx_req, FieldID src_idx_fid, bool inst=true, bool is_range_indirection=false)</td></tr>
+<tr class="separator:addde5551a5859084656af759fae7ecb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a6ea09aec14e11dc061bfedfcb6f1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46a6ea09aec14e11dc061bfedfcb6f1b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_dst_indirect_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;dst_idx_req, FieldID dst_idx_fid, bool inst=true, bool is_range_indirection=false)</td></tr>
+<tr class="separator:a46a6ea09aec14e11dc061bfedfcb6f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedac3d301deeaa8c22d63d372b4b1b2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedac3d301deeaa8c22d63d372b4b1b2e"></a>
+<a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>add_src_indirect_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;src_idx_req, bool is_range_indirection=false)</td></tr>
+<tr class="separator:aedac3d301deeaa8c22d63d372b4b1b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9317e55766250fd24b31b9d17b7e0a97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9317e55766250fd24b31b9d17b7e0a97"></a>
+<a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>add_dst_indirect_field</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;dst_idx_req, bool is_range_indirection=false)</td></tr>
+<tr class="separator:a9317e55766250fd24b31b9d17b7e0a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3417ae890f6c8371993a8aeeff1530f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3417ae890f6c8371993a8aeeff1530f1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add_grant</b> (<a class="el" href="class_legion_1_1_grant.html">Grant</a> g)</td></tr>
 <tr class="separator:a3417ae890f6c8371993a8aeeff1530f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +155,12 @@ std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">R
 <tr class="memitem:a52589771be1295effd93947a513fcac9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52589771be1295effd93947a513fcac9"></a>
 std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dst_indirect_requirements</b></td></tr>
 <tr class="separator:a52589771be1295effd93947a513fcac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8594a470e52761ac365404e72074c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad8594a470e52761ac365404e72074c7"></a>
+std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>src_indirect_is_range</b></td></tr>
+<tr class="separator:aad8594a470e52761ac365404e72074c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36005833e09f821308b9e50db6788417"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36005833e09f821308b9e50db6788417"></a>
+std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dst_indirect_is_range</b></td></tr>
+<tr class="separator:a36005833e09f821308b9e50db6788417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5da0a596d40245587f370a0e4a0bc5ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5da0a596d40245587f370a0e4a0bc5ae"></a>
 std::vector&lt; <a class="el" href="class_legion_1_1_grant.html">Grant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>grants</b></td></tr>
 <tr class="separator:a5da0a596d40245587f370a0e4a0bc5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +204,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>silence_warnings</b><
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 4 2019 11:39:18 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 5 2019 16:00:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

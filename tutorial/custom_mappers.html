@@ -1012,10 +1012,10 @@ regarding how to use them, please post to the
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">AdversarialMapper</span> <span class="o">:</span> <span class="k">public</span> <span class="n">TestMapper</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
   <span class="n">AdversarialMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="n">machine</span><span class="p">,</span>
       <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">local</span><span class="p">);</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
   <span class="k">virtual</span> <span class="kt">void</span> <span class="n">select_task_options</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span>    <span class="n">ctx</span><span class="p">,</span>
 				   <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>            <span class="n">task</span><span class="p">,</span>
 				         <span class="n">TaskOptions</span><span class="o">&amp;</span>     <span class="n">output</span><span class="p">);</span>
@@ -1033,10 +1033,10 @@ regarding how to use them, please post to the
 <span class="p">};</span>
 
 <span class="k">class</span> <span class="nc">PartitioningMapper</span> <span class="o">:</span> <span class="k">public</span> <span class="n">DefaultMapper</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
   <span class="n">PartitioningMapper</span><span class="p">(</span><span class="n">Machine</span> <span class="n">machine</span><span class="p">,</span>
       <span class="n">Runtime</span> <span class="o">*</span><span class="n">rt</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">local</span><span class="p">);</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
   <span class="k">virtual</span> <span class="kt">void</span> <span class="n">select_tunable_value</span><span class="p">(</span><span class="k">const</span> <span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span>
                                     <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span> <span class="n">task</span><span class="p">,</span>
                                     <span class="k">const</span> <span class="n">SelectTunableInput</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span>
@@ -1067,33 +1067,33 @@ regarding how to use them, please post to the
           <span class="n">it</span> <span class="o">!=</span> <span class="n">all_procs</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">();</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Latency-optimized cores (LOCs) are CPUs
-</span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">LOC_PROC</span><span class="o">:</span>
+        <span class="c1">// Latency-optimized cores (LOCs) are CPUs</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">LOC_PROC</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is CPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Throughput-optimized cores (TOCs) are GPUs
-</span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">TOC_PROC</span><span class="o">:</span>
+        <span class="c1">// Throughput-optimized cores (TOCs) are GPUs</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">TOC_PROC</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is GPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Processor for doing I/O
-</span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">IO_PROC</span><span class="o">:</span>
+        <span class="c1">// Processor for doing I/O</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">IO_PROC</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is I/O Proc</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Utility processors are helper processors for
-</span>        <span class="c1">// running Legion runtime meta-level tasks and
-</span>        <span class="c1">// should not be used for running application tasks
-</span>        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">UTIL_PROC</span><span class="o">:</span>
+        <span class="c1">// Utility processors are helper processors for</span>
+        <span class="c1">// running Legion runtime meta-level tasks and</span>
+        <span class="c1">// should not be used for running application tasks</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">UTIL_PROC</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is utility</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="k">default</span><span class="o">:</span>
+        <span class="nl">default:</span>
           <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -1105,92 +1105,92 @@ regarding how to use them, please post to the
       <span class="n">Memory</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">();</span>
       <span class="kt">size_t</span> <span class="n">memory_size_in_kb</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">10</span><span class="p">;</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// RDMA addressable memory when running with GASNet
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GLOBAL_MEM</span><span class="o">:</span>
+        <span class="c1">// RDMA addressable memory when running with GASNet</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GLOBAL_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  GASNet Global Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// DRAM on a single node
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SYSTEM_MEM</span><span class="o">:</span>
+        <span class="c1">// DRAM on a single node</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SYSTEM_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  System Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Pinned memory on a single node
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">REGDMA_MEM</span><span class="o">:</span>
+        <span class="c1">// Pinned memory on a single node</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">REGDMA_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Pinned Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// A memory associated with a single socket
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SOCKET_MEM</span><span class="o">:</span>
+        <span class="c1">// A memory associated with a single socket</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SOCKET_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Socket Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Zero-copy memory betweeen CPU DRAM and
-</span>        <span class="c1">// all GPUs on a single node
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">Z_COPY_MEM</span><span class="o">:</span>
+        <span class="c1">// Zero-copy memory betweeen CPU DRAM and</span>
+        <span class="c1">// all GPUs on a single node</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">Z_COPY_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Zero-Copy Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// GPU framebuffer memory for a single GPU
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GPU_FB_MEM</span><span class="o">:</span>
+        <span class="c1">// GPU framebuffer memory for a single GPU</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GPU_FB_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  GPU Frame Buffer Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Disk memory on a single node
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">DISK_MEM</span><span class="o">:</span>
+        <span class="c1">// Disk memory on a single node</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">DISK_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Disk Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// HDF framebuffer memory for a single GPU
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">HDF_MEM</span><span class="o">:</span>
+        <span class="c1">// HDF framebuffer memory for a single GPU</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">HDF_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  HDF Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// File memory on a single node
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">FILE_MEM</span><span class="o">:</span>
+        <span class="c1">// File memory on a single node</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">FILE_MEM</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  File Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Block of memory sized for L3 cache
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL3_CACHE</span><span class="o">:</span>
+        <span class="c1">// Block of memory sized for L3 cache</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL3_CACHE</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 3 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Block of memory sized for L2 cache
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL2_CACHE</span><span class="o">:</span>
+        <span class="c1">// Block of memory sized for L2 cache</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL2_CACHE</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 2 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="c1">// Block of memory sized for L1 cache
-</span>        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL1_CACHE</span><span class="o">:</span>
+        <span class="c1">// Block of memory sized for L1 cache</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL1_CACHE</span><span class="o">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 1 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
-        <span class="k">default</span><span class="o">:</span>
+        <span class="nl">default:</span>
           <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
       <span class="p">}</span>
     <span class="p">}</span>
@@ -1225,8 +1225,8 @@ regarding how to use them, please post to the
                                    <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>              <span class="n">task</span><span class="p">,</span>
                                    <span class="k">const</span> <span class="n">SliceTaskInput</span><span class="o">&amp;</span>    <span class="n">input</span><span class="p">,</span>
                                          <span class="n">SliceTaskOutput</span><span class="o">&amp;</span>   <span class="n">output</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Iterate over all the points and send them all over the world
-</span>  <span class="n">output</span><span class="p">.</span><span class="n">slices</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">get_volume</span><span class="p">());</span>
+  <span class="c1">// Iterate over all the points and send them all over the world</span>
+  <span class="n">output</span><span class="p">.</span><span class="n">slices</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">get_volume</span><span class="p">());</span>
   <span class="kt">unsigned</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="k">switch</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">domain</span><span class="p">.</span><span class="n">get_dim</span><span class="p">())</span> <span class="p">{</span>
     <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
@@ -1265,7 +1265,7 @@ regarding how to use them, please post to the
         <span class="p">}</span>
         <span class="k">break</span><span class="p">;</span>
       <span class="p">}</span>
-    <span class="k">default</span><span class="o">:</span>
+    <span class="nl">default:</span>
       <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1365,9 +1365,9 @@ regarding how to use them, please post to the
           <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s was CANCELLED</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
-      <span class="k">default</span><span class="o">:</span>
-        <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// shouldn't get any of the rest currently
-</span>    <span class="p">}</span>
+      <span class="nl">default:</span>
+        <span class="n">assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// shouldn't get any of the rest currently</span>
+    <span class="p">}</span>
     <span class="k">delete</span> <span class="n">status</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">else</span>
@@ -1428,7 +1428,7 @@ regarding how to use them, please post to the
  * is elided for brevity....
  */</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
   <span class="p">{</span>
@@ -1458,12 +1458,13 @@ regarding how to use them, please post to the
     <span class="n">Runtime</span><span class="o">::</span><span class="n">preregister_task_variant</span><span class="o">&lt;</span><span class="n">check_task</span><span class="o">&gt;</span><span class="p">(</span><span class="n">registrar</span><span class="p">,</span> <span class="s">"check"</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="c1">// Here is where we register the callback function for
-</span>  <span class="c1">// creating custom mappers.
-</span>  <span class="n">Runtime</span><span class="o">::</span><span class="n">add_registration_callback</span><span class="p">(</span><span class="n">mapper_registration</span><span class="p">);</span>
+  <span class="c1">// Here is where we register the callback function for</span>
+  <span class="c1">// creating custom mappers.</span>
+  <span class="n">Runtime</span><span class="o">::</span><span class="n">add_registration_callback</span><span class="p">(</span><span class="n">mapper_registration</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 
     </div><!-- /.article-wrap -->

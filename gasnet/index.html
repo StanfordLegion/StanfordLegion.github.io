@@ -255,7 +255,7 @@ cross-configure script for the Cray XE architecture. Below are the two
 command lines for first building a symbolic link to the correct
 cross-configure script, and then invoking it.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ln <span class="nt">-s</span> other/contrib/cross-configure-crayxe-linux cross-configure
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">ln</span> <span class="nt">-s</span> other/contrib/cross-configure-crayxe-linux cross-configure
 ./cross-configure <span class="nt">--prefix</span><span class="o">=</span>/ccs/home/mebauer/gasnet/ <span class="nt">--enable-gemini</span> <span class="se">\</span>
 <span class="nt">--disable-portals</span> <span class="nt">--enable-pthreads</span> <span class="nt">--enable-segment-fast</span> <span class="se">\</span>
 <span class="nt">--with-segment-mmap-max</span><span class="o">=</span>4GB <span class="nt">--enable-par</span> <span class="nt">--disable-seq</span> <span class="se">\</span>

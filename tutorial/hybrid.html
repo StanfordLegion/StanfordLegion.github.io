@@ -287,14 +287,14 @@ Previous Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a></p>
   <span class="n">TOP_LEVEL_TASK_ID</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="c1">// ILLEGAL
-</span><span class="kt">int</span> <span class="n">global_var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// ILLEGAL</span>
+<span class="kt">int</span> <span class="n">global_var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="c1">// LEGAL
-</span><span class="k">const</span> <span class="kt">int</span> <span class="n">global_constant</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="c1">// LEGAL</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">global_constant</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-<span class="c1">// ILLEGAL
-</span><span class="kr">__thread</span> <span class="kt">int</span> <span class="n">thread_local_global_var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// ILLEGAL</span>
+<span class="kr">__thread</span> <span class="kt">int</span> <span class="n">thread_local_global_var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -326,7 +326,8 @@ Previous Example: <a href="/tutorial/index_tasks.html">Index Space Tasks</a></p>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 
     </div><!-- /.article-wrap -->

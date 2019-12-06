@@ -121,8 +121,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af634a558ce42a1cc50d7a840412865a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af634a558ce42a1cc50d7a840412865a8"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_functional</b> (void) const </td></tr>
 <tr class="separator:af634a558ce42a1cc50d7a840412865a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc768d8806977f06186f72d68b6337c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#abbc768d8806977f06186f72d68b6337c">is_invertible</a> (void) const </td></tr>
+<tr class="separator:abbc768d8806977f06186f72d68b6337c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fe71b856e92397cd7c5c07de670158c"><td class="memItemLeft" align="right" valign="top">virtual unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a1fe71b856e92397cd7c5c07de670158c">get_depth</a> (void) const =0</td></tr>
 <tr class="separator:a1fe71b856e92397cd7c5c07de670158c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a40dc657a124365b318b6f1c26cbb4f5d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html#a40dc657a124365b318b6f1c26cbb4f5d">invert</a> (<a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> upper_bound, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;launch_domain, std::vector&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &gt; &amp;ordered_points)</td></tr>
+<tr class="separator:a40dc657a124365b318b6f1c26cbb4f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a79fe08fa9c5ed76c566160419f4bd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a79fe08fa9c5ed76c566160419f4bd8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>invert</b> (<a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region, <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> upper_bound, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;launch_domain, std::vector&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &gt; &amp;ordered_points)</td></tr>
+<tr class="separator:a4a79fe08fa9c5ed76c566160419f4bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -159,6 +167,53 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a40dc657a124365b318b6f1c26cbb4f5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Legion::ProjectionFunctor::invert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>upper_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;&#160;</td>
+          <td class="paramname"><em>launch_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ordered_points</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Invert the projection function. Given a logical region for this operation return all of the points that alias with it. Dependences will be resolved in the order that they are returned to the runtime. The returned result must not be empty because it must contain at least the point for the given operation. </p>
+
+</div>
+</div>
 <a class="anchor" id="a841eefa7a1a992b491dd7b6564a18ed5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -181,6 +236,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Indicate whether calls to this projection functor must be serialized or can be performed in parallel. Usually they must be exclusive if this functor contains state for memoizing results. </p>
+
+</div>
+</div>
+<a class="anchor" id="abbc768d8806977f06186f72d68b6337c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Legion::ProjectionFunctor::is_invertible </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Indicate whether this is an invertible projection functor which can be used to handle dependences between point tasks in the same index space launch. </p>
 
 </div>
 </div>
@@ -443,7 +523,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Compute the projection for a logical region projection requirement down to a specific logical region. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>Compute the projection for a logical region projection requirement down to a specific logical region. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the context for this projection </td></tr>
@@ -507,7 +587,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>Compute the projection for a logical partition projection requirement down to a specific logical region. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>Compute the projection for a logical partition projection requirement down to a specific logical region. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the context for this projection </td></tr>
@@ -528,7 +608,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 4 2019 11:39:18 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 5 2019 16:00:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

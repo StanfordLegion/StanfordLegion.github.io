@@ -89,7 +89,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="class_legion_1_1_reduction_accessor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Legion::ReductionAccessor&lt; REDOP, EXCLUSIVE, N, COORD_T, A, CHECK_BOUNDS &gt; Class Template Reference</div>  </div>
@@ -98,6 +100,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="legion_8h_source.html">legion.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae4ce0b00055c2b6056b041995da729d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4ce0b00055c2b6056b041995da729d6"></a>
+typedef REDOP::RHS&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b></td></tr>
+<tr class="separator:ae4ce0b00055c2b6056b041995da729d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea969feb6d4058ac5e73116e3bd29ea8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea969feb6d4058ac5e73116e3bd29ea8"></a>
+typedef REDOP::RHS &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b></td></tr>
+<tr class="separator:aea969feb6d4058ac5e73116e3bd29ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55e261f208b78beec17c162f6968034"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad55e261f208b78beec17c162f6968034"></a>
+typedef const REDOP::RHS &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>const_reference</b></td></tr>
+<tr class="separator:ad55e261f208b78beec17c162f6968034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a63dfd671473fe48b0e41b4c7686f5c04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63dfd671473fe48b0e41b4c7686f5c04"></a>
@@ -114,6 +128,12 @@ template&lt;int M&gt; </td></tr>
 template&lt;int M&gt; </td></tr>
 <tr class="memitem:af9d6ca73a63a03027d48c1da38f3bb0f"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; transform, const <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; N, COORD_T &gt; bounds, bool silence_warnings=false, const char *warning_string=NULL)</td></tr>
 <tr class="separator:af9d6ca73a63a03027d48c1da38f3bb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a83434b802a3ef174888bb65c27e7f63e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83434b802a3ef174888bb65c27e7f63e"></a>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>dim</b> = N</td></tr>
+<tr class="separator:a83434b802a3ef174888bb65c27e7f63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename REDOP, bool EXCLUSIVE, int N, typename COORD_T = coord_t, typename A = Realm::GenericAccessor&lt;typename REDOP::RHS,N,COORD_T&gt;, bool CHECK_BOUNDS = false&gt;<br />
@@ -126,7 +146,7 @@ class Legion::ReductionAccessor&lt; REDOP, EXCLUSIVE, N, COORD_T, A, CHECK_BOUND
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 4 2019 11:39:18 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 5 2019 16:00:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

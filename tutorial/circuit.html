@@ -210,7 +210,7 @@ the circuit simulation.</p>
 9
 10
 </pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">AccumulateCharge</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
   <span class="k">typedef</span> <span class="kt">float</span> <span class="n">LHS</span><span class="p">;</span>
   <span class="k">typedef</span> <span class="kt">float</span> <span class="n">RHS</span><span class="p">;</span>
   <span class="k">static</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">identity</span><span class="p">;</span>
@@ -218,7 +218,8 @@ the circuit simulation.</p>
   <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="o">&gt;</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">apply</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">);</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="o">&gt;</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">fold</span><span class="p">(</span><span class="n">RHS</span> <span class="o">&amp;</span><span class="n">rhs1</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs2</span><span class="p">);</span>
-<span class="p">};</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Every reduction operation must contain <code class="highlighter-rouge">typedef</code> declarations for
 the <code class="highlighter-rouge">LHS</code> and <code class="highlighter-rouge">RHS</code> types representing the left-hand-side and 
@@ -245,7 +246,8 @@ we use an atomic compare-and-swap to perform the summation reduction.</p>
 <span class="kt">void</span> <span class="n">AccumulateCharge</span><span class="o">::</span><span class="n">apply</span><span class="o">&lt;</span><span class="nb">true</span><span class="o">&gt;</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">)</span> 
 <span class="p">{</span>
   <span class="n">lhs</span> <span class="o">+=</span> <span class="n">rhs</span><span class="p">;</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <p>In addition to the necessary reduction operation declarations, our
 <code class="highlighter-rouge">AccumulateCharge</code> class also supports an optional <code class="highlighter-rouge">fold</code> function.

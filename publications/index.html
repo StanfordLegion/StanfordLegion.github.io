@@ -122,7 +122,6 @@
       <li><a href="#sc2014">Structure Slicing (SC 2014)</a> [<a href="/pdfs/legion-fields.pdf">PDF</a>]</li>
       <li><a href="#trace2018">Tracing (SC 2018)</a> [<a href="/pdfs/trace2018.pdf">PDF</a>]</li>
       <li><a href="#dep2018">Correctness of Dependence Analysis (SC 2018)</a> [<a href="/pdfs/dep2018.pdf">PDF</a>]</li>
-      <li><a href="#bauer_thesis">Michael Bauer’s Thesis (2014)</a> [<a href="/pdfs/bauer_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Programming Model:
@@ -135,14 +134,12 @@
     <ul>
       <li><a href="#pact2014">Overview (PACT 2014)</a> [<a href="/pdfs/realm2014.pdf">PDF</a>]</li>
       <li><a href="#hipc2017">I/O Subsystem (HiPC 2017)</a> [<a href="/pdfs/hipc2017.pdf">PDF</a>]</li>
-      <li><a href="#treichler_thesis">Sean Treichler’s Thesis (2016)</a> [<a href="/pdfs/treichler_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li><a href="#sc2015">Regent (SC 2015)</a> [<a href="/pdfs/regent2015.pdf">PDF</a>]
     <ul>
       <li><a href="#cr2017">Control Replication (SC 2017)</a> [<a href="/pdfs/cr2017.pdf">PDF</a>]</li>
       <li><a href="#parallel2019">Auto-Parallelizer (SC 2019)</a> [<a href="/pdfs/parallelizer2019.pdf">PDF</a>]</li>
-      <li><a href="#slaughter_thesis">Elliott Slaughter’s Thesis (2017)</a> [<a href="/pdfs/slaughter_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Bindings:
@@ -161,6 +158,14 @@
     <ul>
       <li><a href="#ppopp2014">Singe (PPoPP 2014)</a> [<a href="/pdfs/singe2014.pdf">PDF</a>]</li>
       <li><a href="#wolfhpc2014">Scout (WOLFHPC 2014)</a> [<a href="/pdfs/scout2014.pdf">PDF</a>]</li>
+    </ul>
+  </li>
+  <li>Theses:
+    <ul>
+      <li><a href="#bauer_thesis">Michael Bauer’s Thesis (2014)</a> [<a href="/pdfs/bauer_thesis.pdf">PDF</a>]</li>
+      <li><a href="#treichler_thesis">Sean Treichler’s Thesis (2016)</a> [<a href="/pdfs/treichler_thesis.pdf">PDF</a>]</li>
+      <li><a href="#slaughter_thesis">Elliott Slaughter’s Thesis (2017)</a> [<a href="/pdfs/slaughter_thesis.pdf">PDF</a>]</li>
+      <li><a href="#lee_thesis">Wonchan Lee’s Thesis (2019)</a> [<a href="/pdfs/lee_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
 </ul>
@@ -688,6 +693,58 @@ machines. We measure the performance and scalability of several Regent
 programs on large supercomputers and demonstrate that optimized Regent
 programs perform comparably to manually optimized explicitly parallel
 programs.</p>
+
+<p><a name="lee_thesis"></a><strong>A Hybrid Approach to Automatic Program Parallelization via Efficient Tasking with Composable Data Partitioning</strong> <a href="/pdfs/lee_thesis.pdf">PDF</a><br />
+<em>Wonchan Lee</em><br />
+December 2019<br />
+<strong>Abstract:</strong> Despite the decades of research, distributed programming
+is still a painful task and programming systems designed to improve
+productivity fall short in practice. Auto-parallelizing compilers
+simplify distributed programming by parallelizing sequential programs
+automatically for distributed execution. However, their applicability
+is severely limited due to the fundamental undecidability of their
+static analysis problem.  Runtime systems for implicit parallelism can
+handle a broader class of programs via an expressive programming
+model, but their runtime overhead often becomes a performance
+bottleneck. To design a practical system for productive distributed
+programming, one must combine the strengths of different
+parallelization paradigms to overcome their weaknesses when used in
+isolation.</p>
+
+<p>This dissertation presents a hybrid approach to automatic program
+parallelization, which combines an auto-parallelizing compiler with an
+implicitly parallel tasking system. Our approach parallelizes programs
+in two steps. First, the auto-parallelizer materializes data
+parallelism in a program into task parallelism. Next, the tasking
+system dynamically analyzes dependencies between tasks and executes
+independent tasks in parallel. This two-stage process gives
+programmers a second chance when the auto-parallelizer “fails”: When a
+part of a program is not amenable to the compiler
+auto-parallelization, the programmer can gracefully fall back to the
+runtime parallelization by writing that part directly with task
+parallelism. Furthermore, hand-written tasks can be seamlessly
+integrated with the auto-parallelized part via composable data
+partitioning enabled by our auto-parallelizer, which allows them to
+share the partitioning strategy and thereby avoid excessive
+communication.</p>
+
+<p>Key to the success of this hybrid approach is to minimize the overhead
+of the tasking system. To achieve this goal, we introduce dynamic
+tracing, a runtime mechanism for efficient tasking. The most expensive
+component in the tasking system is dynamic dependence
+analysis. Although this dynamic analysis is necessary when
+applications exhibit true dynamic behavior, the analysis is redundant
+for common cases where dependencies are (mostly) unchanging. Dynamic
+tracing eliminates this redundancy in dynamic dependence analysis by
+recording the dependence analysis of an execution trace and then
+replaying the recording for the subsequent occurrences of the same
+trace. To guarantee that a recording of a trace correctly replaces the
+trace’s original analysis, dynamic tracing also records memory
+locations that hold valid data when it records a trace and replays the
+recording only when those locations are still valid. Dynamic tracing
+significantly improves the efficiency of tasking, and thereby brings
+the strong scalability of explicit parallelism to implicit task
+parallelism.</p>
 
     </div><!-- /.article-wrap -->
   </article>

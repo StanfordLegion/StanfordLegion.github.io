@@ -457,11 +457,11 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 <span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Default value
-</span>  <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Default value</span>
+  <span class="k">const</span> <span class="n">InputArgs</span> <span class="o">&amp;</span><span class="n">command_args</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">get_input_args</span><span class="p">();</span>
   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">command_args</span><span class="p">.</span><span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Skip any legion runtime configuration parameters
-</span>    <span class="k">if</span> <span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'-'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Skip any legion runtime configuration parameters</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">command_args</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="sc">'-'</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">i</span><span class="o">++</span><span class="p">;</span>
       <span class="k">continue</span><span class="p">;</span>
     <span class="p">}</span>
@@ -496,13 +496,13 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
   <span class="k">if</span> <span class="p">(</span><span class="n">fib_num</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
 
-  <span class="c1">// Launch fib-1
-</span>  <span class="k">const</span> <span class="kt">int</span> <span class="n">fib1</span> <span class="o">=</span> <span class="n">fib_num</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// Launch fib-1</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">fib1</span> <span class="o">=</span> <span class="n">fib_num</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
   <span class="n">TaskLauncher</span> <span class="n">t1</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fib1</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">fib1</span><span class="p">)));</span>
   <span class="n">Future</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">t1</span><span class="p">);</span>
 
-  <span class="c1">// Launch fib-2
-</span>  <span class="k">const</span> <span class="kt">int</span> <span class="n">fib2</span> <span class="o">=</span> <span class="n">fib_num</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+  <span class="c1">// Launch fib-2</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">fib2</span> <span class="o">=</span> <span class="n">fib_num</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">TaskLauncher</span> <span class="n">t2</span><span class="p">(</span><span class="n">FIBONACCI_TASK_ID</span><span class="p">,</span> <span class="n">TaskArgument</span><span class="p">(</span><span class="o">&amp;</span><span class="n">fib2</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">fib2</span><span class="p">)));</span>
   <span class="n">Future</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">execute_task</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">t2</span><span class="p">);</span>
 
@@ -549,7 +549,8 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="n">Runtime</span><span class="o">::</span><span class="n">start</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
 
 
     </div><!-- /.article-wrap -->

@@ -349,6 +349,9 @@ typedef Realm::CodeDescriptor&#160;</td><td class="memItemRight" valign="bottom"
 <tr class="memitem:a17cb756a7098ea151d8ba9c21b3a1906"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17cb756a7098ea151d8ba9c21b3a1906"></a>
 typedef Realm::Reservation&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Reservation</b></td></tr>
 <tr class="separator:a17cb756a7098ea151d8ba9c21b3a1906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ec1331ed9e36a6e46043057cbf33443"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ec1331ed9e36a6e46043057cbf33443"></a>
+typedef Realm::CompletionQueue&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::CompletionQueue</b></td></tr>
+<tr class="separator:a2ec1331ed9e36a6e46043057cbf33443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b4ca9bdbfc35a3e46df06a447a4b399"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b4ca9bdbfc35a3e46df06a447a4b399"></a>
 typedef ::legion_reduction_op_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::ReductionOpID</b></td></tr>
 <tr class="separator:a2b4ca9bdbfc35a3e46df06a447a4b399"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -914,120 +917,125 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<b>SLICE_REMOTE_COMPLETE</b>, 
 <b>SLICE_REMOTE_COMMIT</b>, 
-<b>DISTRIBUTED_REMOTE_REGISTRATION</b>, 
+<b>SLICE_FIND_INTRA_DEP</b>, 
+<b>SLICE_RECORD_INTRA_DEP</b>, 
+<br />
+&#160;&#160;<b>DISTRIBUTED_REMOTE_REGISTRATION</b>, 
 <b>DISTRIBUTED_VALID_UPDATE</b>, 
-<br />
-&#160;&#160;<b>DISTRIBUTED_GC_UPDATE</b>, 
+<b>DISTRIBUTED_GC_UPDATE</b>, 
 <b>DISTRIBUTED_CREATE_ADD</b>, 
-<b>DISTRIBUTED_CREATE_REMOVE</b>, 
+<br />
+&#160;&#160;<b>DISTRIBUTED_CREATE_REMOVE</b>, 
 <b>DISTRIBUTED_UNREGISTER</b>, 
-<br />
-&#160;&#160;<b>SEND_ATOMIC_RESERVATION_REQUEST</b>, 
+<b>SEND_ATOMIC_RESERVATION_REQUEST</b>, 
 <b>SEND_ATOMIC_RESERVATION_RESPONSE</b>, 
-<b>SEND_BACK_LOGICAL_STATE</b>, 
+<br />
+&#160;&#160;<b>SEND_BACK_LOGICAL_STATE</b>, 
 <b>SEND_MATERIALIZED_VIEW</b>, 
-<br />
-&#160;&#160;<b>SEND_FILL_VIEW</b>, 
+<b>SEND_FILL_VIEW</b>, 
 <b>SEND_PHI_VIEW</b>, 
-<b>SEND_REDUCTION_VIEW</b>, 
+<br />
+&#160;&#160;<b>SEND_REDUCTION_VIEW</b>, 
 <b>SEND_INSTANCE_MANAGER</b>, 
-<br />
-&#160;&#160;<b>SEND_REDUCTION_MANAGER</b>, 
+<b>SEND_REDUCTION_MANAGER</b>, 
 <b>SEND_CREATE_TOP_VIEW_REQUEST</b>, 
-<b>SEND_CREATE_TOP_VIEW_RESPONSE</b>, 
+<br />
+&#160;&#160;<b>SEND_CREATE_TOP_VIEW_RESPONSE</b>, 
 <b>SEND_VIEW_REQUEST</b>, 
-<br />
-&#160;&#160;<b>SEND_VIEW_REGISTER_USER</b>, 
+<b>SEND_VIEW_REGISTER_USER</b>, 
 <b>SEND_VIEW_FIND_COPY_PRE_REQUEST</b>, 
-<b>SEND_VIEW_FIND_COPY_PRE_RESPONSE</b>, 
+<br />
+&#160;&#160;<b>SEND_VIEW_FIND_COPY_PRE_RESPONSE</b>, 
 <b>SEND_VIEW_ADD_COPY_USER</b>, 
-<br />
-&#160;&#160;<b>SEND_VIEW_REPLICATION_REQUEST</b>, 
+<b>SEND_VIEW_REPLICATION_REQUEST</b>, 
 <b>SEND_VIEW_REPLICATION_RESPONSE</b>, 
-<b>SEND_VIEW_REPLICATION_REMOVAL</b>, 
+<br />
+&#160;&#160;<b>SEND_VIEW_REPLICATION_REMOVAL</b>, 
 <b>SEND_MANAGER_REQUEST</b>, 
-<br />
-&#160;&#160;<b>SEND_FUTURE_RESULT</b>, 
+<b>SEND_FUTURE_RESULT</b>, 
 <b>SEND_FUTURE_SUBSCRIPTION</b>, 
-<b>SEND_FUTURE_MAP_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_FUTURE_MAP_REQUEST</b>, 
 <b>SEND_FUTURE_MAP_RESPONSE</b>, 
-<br />
-&#160;&#160;<b>SEND_MAPPER_MESSAGE</b>, 
+<b>SEND_MAPPER_MESSAGE</b>, 
 <b>SEND_MAPPER_BROADCAST</b>, 
-<b>SEND_TASK_IMPL_SEMANTIC_REQ</b>, 
+<br />
+&#160;&#160;<b>SEND_TASK_IMPL_SEMANTIC_REQ</b>, 
 <b>SEND_INDEX_SPACE_SEMANTIC_REQ</b>, 
-<br />
-&#160;&#160;<b>SEND_INDEX_PARTITION_SEMANTIC_REQ</b>, 
+<b>SEND_INDEX_PARTITION_SEMANTIC_REQ</b>, 
 <b>SEND_FIELD_SPACE_SEMANTIC_REQ</b>, 
-<b>SEND_FIELD_SEMANTIC_REQ</b>, 
+<br />
+&#160;&#160;<b>SEND_FIELD_SEMANTIC_REQ</b>, 
 <b>SEND_LOGICAL_REGION_SEMANTIC_REQ</b>, 
-<br />
-&#160;&#160;<b>SEND_LOGICAL_PARTITION_SEMANTIC_REQ</b>, 
+<b>SEND_LOGICAL_PARTITION_SEMANTIC_REQ</b>, 
 <b>SEND_TASK_IMPL_SEMANTIC_INFO</b>, 
-<b>SEND_INDEX_SPACE_SEMANTIC_INFO</b>, 
+<br />
+&#160;&#160;<b>SEND_INDEX_SPACE_SEMANTIC_INFO</b>, 
 <b>SEND_INDEX_PARTITION_SEMANTIC_INFO</b>, 
-<br />
-&#160;&#160;<b>SEND_FIELD_SPACE_SEMANTIC_INFO</b>, 
+<b>SEND_FIELD_SPACE_SEMANTIC_INFO</b>, 
 <b>SEND_FIELD_SEMANTIC_INFO</b>, 
-<b>SEND_LOGICAL_REGION_SEMANTIC_INFO</b>, 
+<br />
+&#160;&#160;<b>SEND_LOGICAL_REGION_SEMANTIC_INFO</b>, 
 <b>SEND_LOGICAL_PARTITION_SEMANTIC_INFO</b>, 
-<br />
-&#160;&#160;<b>SEND_REMOTE_CONTEXT_REQUEST</b>, 
+<b>SEND_REMOTE_CONTEXT_REQUEST</b>, 
 <b>SEND_REMOTE_CONTEXT_RESPONSE</b>, 
-<b>SEND_REMOTE_CONTEXT_RELEASE</b>, 
+<br />
+&#160;&#160;<b>SEND_REMOTE_CONTEXT_RELEASE</b>, 
 <b>SEND_REMOTE_CONTEXT_FREE</b>, 
-<br />
-&#160;&#160;<b>SEND_REMOTE_CONTEXT_PHYSICAL_REQUEST</b>, 
+<b>SEND_REMOTE_CONTEXT_PHYSICAL_REQUEST</b>, 
 <b>SEND_REMOTE_CONTEXT_PHYSICAL_RESPONSE</b>, 
-<b>SEND_COMPUTE_EQUIVALENCE_SETS_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_COMPUTE_EQUIVALENCE_SETS_REQUEST</b>, 
 <b>SEND_EQUIVALENCE_SET_REQUEST</b>, 
-<br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_RESPONSE</b>, 
+<b>SEND_EQUIVALENCE_SET_RESPONSE</b>, 
 <b>SEND_EQUIVALENCE_SET_SUBSET_REQUEST</b>, 
-<b>SEND_EQUIVALENCE_SET_SUBSET_RESPONSE</b>, 
+<br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_SUBSET_RESPONSE</b>, 
 <b>SEND_EQUIVALENCE_SET_SUBSET_UPDATE</b>, 
-<br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_RAY_TRACE_REQUEST</b>, 
+<b>SEND_EQUIVALENCE_SET_RAY_TRACE_REQUEST</b>, 
 <b>SEND_EQUIVALENCE_SET_RAY_TRACE_RESPONSE</b>, 
-<b>SEND_EQUIVALENCE_SET_MIGRATION</b>, 
+<br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_MIGRATION</b>, 
 <b>SEND_EQUIVALENCE_SET_OWNER_UPDATE</b>, 
-<br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_REFINEMENT</b>, 
+<b>SEND_EQUIVALENCE_SET_REMOTE_REFINEMENT</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INSTANCES</b>, 
-<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INVALID</b>, 
+<br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INVALID</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_UPDATES</b>, 
-<br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_ACQUIRES</b>, 
+<b>SEND_EQUIVALENCE_SET_REMOTE_ACQUIRES</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_RELEASES</b>, 
-<b>SEND_EQUIVALENCE_SET_REMOTE_COPIES_ACROSS</b>, 
+<br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_COPIES_ACROSS</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_OVERWRITES</b>, 
-<br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_FILTERS</b>, 
+<b>SEND_EQUIVALENCE_SET_REMOTE_FILTERS</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_INSTANCES</b>, 
-<b>SEND_INSTANCE_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_INSTANCE_REQUEST</b>, 
 <b>SEND_INSTANCE_RESPONSE</b>, 
-<br />
-&#160;&#160;<b>SEND_EXTERNAL_CREATE_REQUEST</b>, 
+<b>SEND_EXTERNAL_CREATE_REQUEST</b>, 
 <b>SEND_EXTERNAL_CREATE_RESPONSE</b>, 
-<b>SEND_EXTERNAL_ATTACH</b>, 
+<br />
+&#160;&#160;<b>SEND_EXTERNAL_ATTACH</b>, 
 <b>SEND_EXTERNAL_DETACH</b>, 
-<br />
-&#160;&#160;<b>SEND_GC_PRIORITY_UPDATE</b>, 
+<b>SEND_GC_PRIORITY_UPDATE</b>, 
 <b>SEND_NEVER_GC_RESPONSE</b>, 
-<b>SEND_ACQUIRE_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_ACQUIRE_REQUEST</b>, 
 <b>SEND_ACQUIRE_RESPONSE</b>, 
-<br />
-&#160;&#160;<b>SEND_VARIANT_BROADCAST</b>, 
+<b>SEND_VARIANT_BROADCAST</b>, 
 <b>SEND_CONSTRAINT_REQUEST</b>, 
-<b>SEND_CONSTRAINT_RESPONSE</b>, 
+<br />
+&#160;&#160;<b>SEND_CONSTRAINT_RESPONSE</b>, 
 <b>SEND_CONSTRAINT_RELEASE</b>, 
-<br />
-&#160;&#160;<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
+<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
 <b>SEND_TOP_LEVEL_TASK_COMPLETE</b>, 
-<b>SEND_MPI_RANK_EXCHANGE</b>, 
-<b>SEND_LIBRARY_MAPPER_REQUEST</b>, 
 <br />
-&#160;&#160;<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
+&#160;&#160;<b>SEND_MPI_RANK_EXCHANGE</b>, 
+<b>SEND_LIBRARY_MAPPER_REQUEST</b>, 
+<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
+<b>SEND_LIBRARY_TRACE_REQUEST</b>, 
+<br />
+&#160;&#160;<b>SEND_LIBRARY_TRACE_RESPONSE</b>, 
 <b>SEND_LIBRARY_PROJECTION_REQUEST</b>, 
 <b>SEND_LIBRARY_PROJECTION_RESPONSE</b>, 
 <b>SEND_LIBRARY_TASK_REQUEST</b>, 
@@ -1264,9 +1272,9 @@ __thread AutoLock *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion
 <tr class="memitem:a369db03696215f24efc7a147db426b64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a369db03696215f24efc7a147db426b64"></a>
 __thread::legion_unique_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_provenance</b></td></tr>
 <tr class="separator:a369db03696215f24efc7a147db426b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328188d3facb2e676db06ac83bdcab8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a328188d3facb2e676db06ac83bdcab8c"></a>
-__thread bool&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_top_level_task</b></td></tr>
-<tr class="separator:a328188d3facb2e676db06ac83bdcab8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad695326c23aaeb085667f14567cfec5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad695326c23aaeb085667f14567cfec5f"></a>
+__thread bool&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::external_implicit_task</b></td></tr>
+<tr class="separator:ad695326c23aaeb085667f14567cfec5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00791b815b40df4cde86a44d0df2f463"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00791b815b40df4cde86a44d0df2f463"></a>
 const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::INVALID_COLOR</b> = LLONG_MAX</td></tr>
 <tr class="separator:a00791b815b40df4cde86a44d0df2f463"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1281,13 +1289,13 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">extern</span> Realm::Logger log_run;              \</div><div class="line">    extern Realm::Logger log_task;             \</div><div class="line">    extern Realm::Logger log_index;            \</div><div class="line">    extern Realm::Logger log_field;            \</div><div class="line">    extern Realm::Logger log_region;           \</div><div class="line">    extern Realm::Logger log_inst;             \</div><div class="line">    extern Realm::Logger log_variant;          \</div><div class="line">    extern Realm::Logger log_allocation;       \</div><div class="line">    extern Realm::Logger log_migration;        \</div><div class="line">    extern Realm::Logger log_prof;             \</div><div class="line">    extern Realm::Logger log_garbage;          \</div><div class="line">    extern Realm::Logger log_spy;              \</div><div class="line">    extern Realm::Logger log_shutdown;</div></div><!-- fragment -->
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">extern</span> Realm::Logger log_run;              \</div><div class="line">    extern Realm::Logger log_task;             \</div><div class="line">    extern Realm::Logger log_index;            \</div><div class="line">    extern Realm::Logger log_field;            \</div><div class="line">    extern Realm::Logger log_region;           \</div><div class="line">    extern Realm::Logger log_inst;             \</div><div class="line">    extern Realm::Logger log_variant;          \</div><div class="line">    extern Realm::Logger log_allocation;       \</div><div class="line">    extern Realm::Logger log_migration;        \</div><div class="line">    extern Realm::Logger log_prof;             \</div><div class="line">    extern Realm::Logger log_garbage;          \</div><div class="line">    extern Realm::Logger log_spy;              \</div><div class="line">    extern Realm::Logger log_shutdown;         \</div><div class="line">    extern Realm::Logger log_tracing;</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 4 2019 11:39:18 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 5 2019 16:00:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

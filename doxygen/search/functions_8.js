@@ -2,10 +2,12 @@ var searchData=
 [
   ['initialize',['initialize',['../class_legion_1_1_runtime.html#adf47320c377a1b7dbb6ad24b8d8b0784',1,'Legion::Runtime']]],
   ['intersect_5findex_5fspaces',['intersect_index_spaces',['../class_legion_1_1_runtime.html#a154aaa91bca194c4d4b6118cacda22de',1,'Legion::Runtime']]],
+  ['invert',['invert',['../class_legion_1_1_projection_functor.html#a40dc657a124365b318b6f1c26cbb4f5d',1,'Legion::ProjectionFunctor']]],
   ['is_5fempty',['is_empty',['../class_legion_1_1_future.html#adafa0ef32944aa91f88b3b94d1a889be',1,'Legion::Future']]],
   ['is_5fexclusive',['is_exclusive',['../class_legion_1_1_projection_functor.html#a841eefa7a1a992b491dd7b6564a18ed5',1,'Legion::ProjectionFunctor']]],
   ['is_5findex_5fpartition_5fcomplete',['is_index_partition_complete',['../class_legion_1_1_runtime.html#a36af197f72cc33ba83d0ada197002bb5',1,'Legion::Runtime']]],
   ['is_5findex_5fpartition_5fdisjoint',['is_index_partition_disjoint',['../class_legion_1_1_runtime.html#a2d5acf558aa75f074a816c9e897a9777',1,'Legion::Runtime']]],
+  ['is_5finvertible',['is_invertible',['../class_legion_1_1_projection_functor.html#abbc768d8806977f06186f72d68b6337c',1,'Legion::ProjectionFunctor']]],
   ['is_5fmapped',['is_mapped',['../class_legion_1_1_physical_region.html#a64e75c87cfcede6ab921f4e05582a89c',1,'Legion::PhysicalRegion']]],
   ['is_5fmpi_5finterop_5fconfigured',['is_MPI_interop_configured',['../class_legion_1_1_runtime.html#a9d7065b4e925dd6a6f7402840e7bde2c',1,'Legion::Runtime']]],
   ['is_5fready',['is_ready',['../class_legion_1_1_future.html#a7a5c5ade7de4a6b6f9e606b83cdced5c',1,'Legion::Future']]],

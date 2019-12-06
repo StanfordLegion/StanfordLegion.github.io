@@ -354,15 +354,15 @@ declared as a static singleton object. For example, near the top of
 the default mapper implementation in <code class="highlighter-rouge">default_mapper.cc</code> we create the
 following logger category:</p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Logger</span><span class="o">::</span><span class="n">Category</span> <span class="n">log_mapper</span><span class="p">(</span><span class="s">"default_mapper"</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Logger</span><span class="o">::</span><span class="n">Category</span> <span class="nf">log_mapper</span><span class="p">(</span><span class="s">"default_mapper"</span><span class="p">);</span></code></pre></figure>
 
 <p>Loggers can be used in either printf style or C++ ostream style. The
 exact invocation depends on the desired logging level. For example:</p>
 
-<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// printf-style
-</span><span class="n">log_mapper</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="s">"hello printf %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">);</span>
-<span class="c1">// C++ ostream style
-</span><span class="n">log_mapper</span><span class="p">.</span><span class="n">debug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"hello ostream"</span> <span class="o">&lt;&lt;</span> <span class="mf">3.14</span><span class="p">;</span> <span class="o">//</span> <span class="n">no</span> <span class="n">endl</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// printf-style</span>
+<span class="n">log_mapper</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="s">"hello printf %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">);</span>
+<span class="c1">// C++ ostream style</span>
+<span class="n">log_mapper</span><span class="p">.</span><span class="n">debug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"hello ostream"</span> <span class="o">&lt;&lt;</span> <span class="mf">3.14</span><span class="p">;</span> <span class="c1">// no endl</span></code></pre></figure>
 
 <p>Legion supports six levels of logging (in order from lowest priority
 to highest): <code class="highlighter-rouge">spew</code>, <code class="highlighter-rouge">debug</code>, <code class="highlighter-rouge">info</code>, <code class="highlighter-rouge">print</code>, <code class="highlighter-rouge">warning</code>, and <code class="highlighter-rouge">error</code>.</p>
@@ -445,7 +445,7 @@ to starting the top-level task:</p>
 attach with a debugger. For example, assuming that <code class="highlighter-rouge">ps</code> reports that
 the PID is <code class="highlighter-rouge">12345</code>:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ps <span class="nt">-u</span> <span class="k">$(</span>whoami<span class="k">)</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">ps <span class="nt">-u</span> <span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span>
 gdb <span class="nt">-p</span> 12345</code></pre></figure>
 
 <p>After entering the debugger, the user can set breakpoints or configure

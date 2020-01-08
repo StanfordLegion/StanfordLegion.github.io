@@ -4,7 +4,7 @@ var searchData=
   ['scaletransform',['ScaleTransform',['../struct_legion_1_1_scale_transform.html',1,'Legion']]],
   ['select_5ftunable_5fvalue',['select_tunable_value',['../class_legion_1_1_runtime.html#a63c1d9bbfcccc42d178f51ff2da2da94',1,'Legion::Runtime']]],
   ['set_5flocal_5ftask_5fvariable_5funtyped',['set_local_task_variable_untyped',['../class_legion_1_1_runtime.html#adb95bedd55d53c83b9117f4ac31dca09',1,'Legion::Runtime']]],
-  ['set_5fpoint',['set_point',['../class_legion_1_1_argument_map.html#a415388701184b7a6c4212be85125243a',1,'Legion::ArgumentMap']]],
+  ['set_5fpoint',['set_point',['../class_legion_1_1_argument_map.html#a415388701184b7a6c4212be85125243a',1,'Legion::ArgumentMap::set_point(const DomainPoint &amp;point, const TaskArgument &amp;arg, bool replace=true)'],['../class_legion_1_1_argument_map.html#ac9ab54d8d8cdb8b83d557a55de260c61',1,'Legion::ArgumentMap::set_point(const DomainPoint &amp;point, const Future &amp;f, bool replace=true)']]],
   ['set_5fpoint_5farg',['set_point_arg',['../class_legion_1_1_argument_map.html#abfd7ceb045cb1fb846eb98cb002a530f',1,'Legion::ArgumentMap']]],
   ['set_5fregistration_5fcallback',['set_registration_callback',['../class_legion_1_1_runtime.html#a7ae93947622a78e885a5a8b36811bb79',1,'Legion::Runtime']]],
   ['set_5ftop_5flevel_5ftask_5fid',['set_top_level_task_id',['../class_legion_1_1_runtime.html#a63bc41e96b5b10f3435b15ef6d5f090b',1,'Legion::Runtime']]],

@@ -277,10 +277,10 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a1d1a34f794934fda97473fcbd8de8c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1ceedaee7b9e3be8cd045b30a98212d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa1ceedaee7b9e3be8cd045b30a98212d">issue_release</a> (Context ctx, const <a class="el" href="struct_legion_1_1_release_launcher.html">ReleaseLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:aa1ceedaee7b9e3be8cd045b30a98212d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad6d696aa137b7b47305495d027ed7ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aad6d696aa137b7b47305495d027ed7ce">issue_mapping_fence</a> (Context ctx)</td></tr>
-<tr class="separator:aad6d696aa137b7b47305495d027ed7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeea56eeac33caa8b05c1e82cb36c3159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aeea56eeac33caa8b05c1e82cb36c3159">issue_execution_fence</a> (Context ctx)</td></tr>
-<tr class="separator:aeea56eeac33caa8b05c1e82cb36c3159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a764afe41f18fac3eec8511d60ef231cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a764afe41f18fac3eec8511d60ef231cf">issue_mapping_fence</a> (Context ctx)</td></tr>
+<tr class="separator:a764afe41f18fac3eec8511d60ef231cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab577e093c4b870239624991e7d9c430e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab577e093c4b870239624991e7d9c430e">issue_execution_fence</a> (Context ctx)</td></tr>
+<tr class="separator:ab577e093c4b870239624991e7d9c430e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a027a9d8ffe51271d33effb254ee8f3af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a027a9d8ffe51271d33effb254ee8f3af">begin_trace</a> (Context ctx, TraceID tid, bool logical_only=false)</td></tr>
 <tr class="separator:a027a9d8ffe51271d33effb254ee8f3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8ac09dd81911b31e0569f41b9ef9668"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab8ac09dd81911b31e0569f41b9ef9668">end_trace</a> (Context ctx, TraceID tid)</td></tr>
@@ -331,6 +331,8 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:a74371677d9d67f800329ac5c770c54c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae436d1051bfac794d153ea776aca9f93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae436d1051bfac794d153ea776aca9f93">raise_region_exception</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region, bool nuclear)</td></tr>
 <tr class="separator:ae436d1051bfac794d153ea776aca9f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ef2dd2dff921f5ad8dd208aac18333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad7ef2dd2dff921f5ad8dd208aac18333">yield</a> (Context ctx)</td></tr>
+<tr class="separator:ad7ef2dd2dff921f5ad8dd208aac18333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51590b28041537778aab81d790ebdbe2"><td class="memItemLeft" align="right" valign="top">const std::map&lt; int, AddressSpace &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a51590b28041537778aab81d790ebdbe2">find_forward_MPI_mapping</a> (void)</td></tr>
 <tr class="separator:a51590b28041537778aab81d790ebdbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac27b2638c8aa39d366886a678f63749d"><td class="memItemLeft" align="right" valign="top">const std::map&lt; AddressSpace, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac27b2638c8aa39d366886a678f63749d">find_reverse_MPI_mapping</a> (void)</td></tr>
@@ -8821,12 +8823,12 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aeea56eeac33caa8b05c1e82cb36c3159"></a>
+<a class="anchor" id="ab577e093c4b870239624991e7d9c430e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Legion::Runtime::issue_execution_fence </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Runtime::issue_execution_fence </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em></td><td>)</td>
@@ -8838,12 +8840,12 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aad6d696aa137b7b47305495d027ed7ce"></a>
+<a class="anchor" id="a764afe41f18fac3eec8511d60ef231cf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Legion::Runtime::issue_mapping_fence </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Runtime::issue_mapping_fence </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em></td><td>)</td>
@@ -12104,13 +12106,30 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ad7ef2dd2dff921f5ad8dd208aac18333"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::yield </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Yield the task to allow other tasks on the processor. In most <a class="el" href="namespace_legion.html">Legion</a> programs calling this should never be necessary. However, sometimes an application may want to put its own polling loop inside a task. If it does it may need to yield the processor that it is running on to allow other tasks to run on that processor. This can be accomplished by invoking this method. The task will be pre-empted and other eligible tasks will be permitted to run on this processor. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="legion_8h_source.html">legion.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 5 2019 16:00:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 8 2020 10:44:15 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

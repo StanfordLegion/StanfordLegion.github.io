@@ -131,6 +131,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="separator:a8e179b26a4afe09d035095bf34243ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a415388701184b7a6c4212be85125243a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_argument_map.html#a415388701184b7a6c4212be85125243a">set_point</a> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;arg, bool replace=true)</td></tr>
 <tr class="separator:a415388701184b7a6c4212be85125243a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ab54d8d8cdb8b83d557a55de260c61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_argument_map.html#ac9ab54d8d8cdb8b83d557a55de260c61">set_point</a> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point, const <a class="el" href="class_legion_1_1_future.html">Future</a> &amp;f, bool replace=true)</td></tr>
+<tr class="separator:ac9ab54d8d8cdb8b83d557a55de260c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3974b36a0e15c6ccd0893413847b9563"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_argument_map.html#a3974b36a0e15c6ccd0893413847b9563">remove_point</a> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point)</td></tr>
 <tr class="separator:a3974b36a0e15c6ccd0893413847b9563"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabe2cd1880bec426870e8899c15f74b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_argument_map.html#aabe2cd1880bec426870e8899c15f74b1">get_point</a> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point) const </td></tr>
@@ -296,6 +298,46 @@ template&lt;typename PT , unsigned DIM&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ac9ab54d8d8cdb8b83d557a55de260c61"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::ArgumentMap::set_point </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_future.html">Future</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>replace</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Associate a future with a domain point </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>the point to associate with the task argument </td></tr>
+    <tr><td class="paramname">future</td><td>the future argument </td></tr>
+    <tr><td class="paramname">replace</td><td>specify whether to overwrite an existing value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="abfd7ceb045cb1fb846eb98cb002a530f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -352,7 +394,7 @@ template&lt;typename PT , unsigned DIM&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 5 2019 16:00:06 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 8 2020 10:44:15 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

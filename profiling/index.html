@@ -124,7 +124,7 @@ techniques to achieving high performance in Legion applications.</p>
       <li><a href="#generating-a-profile">Generating a Profile</a></li>
       <li><a href="#interacting-with-a-profile">Interacting with a Profile</a></li>
       <li><a href="#advanced-features">Advanced Features</a></li>
-      <li><a href="#legion-prof-troubleshooting">Legion Prof Troubleshooting</a></li>
+      <li><a href="#using-legion-prof-locally">Using Legion Prof Locally</a></li>
     </ul>
   </li>
   <li><a href="#general-optimization-techniques">General Optimization Techniques</a></li>
@@ -186,8 +186,10 @@ the resulting log files to <code class="highlighter-rouge">legion_prof.py</code>
 
 <p>This will generate a subdirectory called <code class="highlighter-rouge">legion_prof</code> under the
 current directory, including a file named <code class="highlighter-rouge">index.html</code>. Open this file
-in a browser. If you are not able to view the profile, follow the steps described
-in <a href="#legion-prof-troubleshooting">Legion Prof Troubleshooting</a>.</p>
+in a browser. Note that, if you are attempting to view this file on
+your local computer, modern browser security settings prevent Legion
+Prof from working properly. Please see the instructions for <a href="#using-legion-prof-locally">Using
+Legion Prof Locally</a>.</p>
 
 <p>A sample of Legion Prof’s output is shown below.</p>
 
@@ -273,7 +275,7 @@ critical path line, simply press <code class="highlighter-rouge">a</code> again.
 
 <p><img src="/images/profiling/critical_path_profile.gif" alt="" /></p>
 
-<h3 id="legion-prof-troubleshooting">Legion Prof Troubleshooting</h3>
+<h3 id="using-legion-prof-locally">Using Legion Prof Locally</h3>
 
 <p>If you try to access <code class="highlighter-rouge">index.html</code> locally (by opening 
 <code class="highlighter-rouge">file:///.../index.html</code>), you may run into issues and may not be able to view
@@ -529,7 +531,7 @@ are prefixed by <code class="highlighter-rouge">-lg:</code>.</p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2019 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2020 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

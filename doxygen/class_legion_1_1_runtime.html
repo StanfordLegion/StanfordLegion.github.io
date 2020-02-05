@@ -564,12 +564,12 @@ template&lt;int DIM1, typename COORD_T1 , int DIM2, typename COORD_T2 &gt; </td>
 <tr class="memitem:a8749a3aa6662b70e43db6454955a8851"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_bidirectional_association</b> (Context ctx, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM1, COORD_T1 &gt; domain, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM1, COORD_T1 &gt; domain_parent, FieldID domain_fid, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM2, COORD_T2 &gt; range, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM2, COORD_T2 &gt; range_parent, FieldID range_fid, MapperID id=0, MappingTagID tag=0)</td></tr>
 <tr class="separator:a8749a3aa6662b70e43db6454955a8851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a769144ddd22587a4659a762a91f8cee3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a769144ddd22587a4659a762a91f8cee3">create_partition_by_field</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, Color color=AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0)</td></tr>
-<tr class="separator:a769144ddd22587a4659a762a91f8cee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad03e1c87be0dd132614a8bcc20db723"><td class="memTemplParams" colspan="2"><a class="anchor" id="aad03e1c87be0dd132614a8bcc20db723"></a>
+<tr class="memitem:a18428ce476d6707c4dc46bc6866c2885"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a18428ce476d6707c4dc46bc6866c2885">create_partition_by_field</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, Color color=AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0, PartitionKind part_kind=DISJOINT_KIND)</td></tr>
+<tr class="separator:a18428ce476d6707c4dc46bc6866c2885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288bcb4fb12b26c86533c1bc7fba92d4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a288bcb4fb12b26c86533c1bc7fba92d4"></a>
 template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
-<tr class="memitem:aad03e1c87be0dd132614a8bcc20db723"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_field</b> (Context ctx, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM, COORD_T &gt; handle, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM, COORD_T &gt; parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, Color color=AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0)</td></tr>
-<tr class="separator:aad03e1c87be0dd132614a8bcc20db723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288bcb4fb12b26c86533c1bc7fba92d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_field</b> (Context ctx, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM, COORD_T &gt; handle, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM, COORD_T &gt; parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, Color color=AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0, PartitionKind part_kind=DISJOINT_KIND)</td></tr>
+<tr class="separator:a288bcb4fb12b26c86533c1bc7fba92d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a04811e4800804d00acd9176996b6982c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a04811e4800804d00acd9176996b6982c">create_partition_by_image</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle, <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> projection, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0)</td></tr>
 <tr class="separator:a04811e4800804d00acd9176996b6982c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1039,6 +1039,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ae0f5f4c6e37c8bc225de4b1851d87a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd293aa87d221487f044562a81bddb4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5fd293aa87d221487f044562a81bddb4">configure_MPI_interoperability</a> (int rank)</td></tr>
 <tr class="separator:a5fd293aa87d221487f044562a81bddb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5347e1e4e56e5b687f63c65179aeaed9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_legion_handshake.html">LegionHandshake</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5347e1e4e56e5b687f63c65179aeaed9">create_external_handshake</a> (bool init_in_ext=true, int ext_participants=1, int legion_participants=1)</td></tr>
+<tr class="separator:a5347e1e4e56e5b687f63c65179aeaed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3d61b0337c401f877ec94bc55d87bf0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_m_p_i_legion_handshake.html">MPILegionHandshake</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac3d61b0337c401f877ec94bc55d87bf0">create_handshake</a> (bool init_in_MPI=true, int mpi_participants=1, int legion_participants=1)</td></tr>
 <tr class="separator:ac3d61b0337c401f877ec94bc55d87bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a152e69794766a5565eec12eefca80c"><td class="memTemplParams" colspan="2">template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) PROJ_PTR&gt; </td></tr>
@@ -2602,6 +2604,54 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5347e1e4e56e5b687f63c65179aeaed9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_legion_1_1_legion_handshake.html">LegionHandshake</a> Legion::Runtime::create_external_handshake </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>init_in_ext</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ext_participants</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>legion_participants</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Create a handshake object for exchanging control between an external application and <a class="el" href="namespace_legion.html">Legion</a>. We make this a static method so that it can be created before the <a class="el" href="namespace_legion.html">Legion</a> runtime is initialized. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">init_in_ext</td><td>who owns initial control of the handshake, by default it is the external application </td></tr>
+    <tr><td class="paramname">ext_participants</td><td>number of calls that need to be made to the handshake to pass control from the external application to <a class="el" href="namespace_legion.html">Legion</a> </td></tr>
+    <tr><td class="paramname">legion_participants</td><td>number of calls that need to be made to the handshake to pass control from <a class="el" href="namespace_legion.html">Legion</a> to the external application </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a3819fe6203528d2e753f3a09325eec8c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -3207,7 +3257,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000021">Deprecated:</a></b></dt><dd></dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#a769144ddd22587a4659a762a91f8cee3">create_partition_by_field</a> instead Create an index partitioning from an existing field in a physical instance. This requires that the field accessor be valid for the entire parent index space. By definition colors are always non-negative. The runtime will iterate over the field accessor and interpret values as signed integers. Any locations less than zero will be ignored. Values greater than or equal to zero will be colored and placed in the appropriate subregion. By definition this partitioning mechanism has to disjoint since each pointer value has at most one color. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#a18428ce476d6707c4dc46bc6866c2885">create_partition_by_field</a> instead Create an index partitioning from an existing field in a physical instance. This requires that the field accessor be valid for the entire parent index space. By definition colors are always non-negative. The runtime will iterate over the field accessor and interpret values as signed integers. Any locations less than zero will be ignored. Values greater than or equal to zero will be colored and placed in the appropriate subregion. By definition this partitioning mechanism has to disjoint since each pointer value has at most one color. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
@@ -3882,7 +3932,7 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a769144ddd22587a4659a762a91f8cee3"></a>
+<a class="anchor" id="a18428ce476d6707c4dc46bc6866c2885"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -3932,7 +3982,13 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">MappingTagID&#160;</td>
-          <td class="paramname"><em>tag</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>tag</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PartitionKind&#160;</td>
+          <td class="paramname"><em>part_kind</em> = <code>DISJOINT_KIND</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3951,6 +4007,7 @@ template&lt;typename T &gt; </div>
     <tr><td class="paramname">color</td><td>optional new color for the index partition </td></tr>
     <tr><td class="paramname">id</td><td>the ID of the mapper to use for mapping the fields </td></tr>
     <tr><td class="paramname">tag</td><td>the context tag to pass to the mapper </td></tr>
+    <tr><td class="paramname">part_kind</td><td>the kind of the partition </td></tr>
   </table>
   </dd>
 </dl>
@@ -12129,7 +12186,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 8 2020 10:44:15 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Feb 5 2020 14:29:32 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -22,6 +22,7 @@ var searchData=
   ['legion_5ftask_5fconfig_5foptions_5ft',['legion_task_config_options_t',['../structlegion__task__config__options__t.html',1,'']]],
   ['legion_5ftask_5foptions_5ft',['legion_task_options_t',['../structlegion__task__options__t.html',1,'']]],
   ['legion_5ftask_5fslice_5ft',['legion_task_slice_t',['../structlegion__task__slice__t.html',1,'']]],
+  ['legionhandshake',['LegionHandshake',['../class_legion_1_1_legion_handshake.html',1,'Legion']]],
   ['lgevent',['LgEvent',['../class_legion_1_1_internal_1_1_lg_event.html',1,'Legion::Internal']]],
   ['lgtaskargs',['LgTaskArgs',['../struct_legion_1_1_internal_1_1_lg_task_args.html',1,'Legion::Internal']]],
   ['locallock',['LocalLock',['../class_legion_1_1_internal_1_1_local_lock.html',1,'Legion::Internal']]],

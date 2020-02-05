@@ -10,7 +10,7 @@ var searchData=
   ['unserializable_3c_20future_20_3e',['Unserializable&lt; Future &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20futuremap_20_3e',['Unserializable&lt; FutureMap &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20indexallocator_20_3e',['Unserializable&lt; IndexAllocator &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20mpilegionhandshake_20_3e',['Unserializable&lt; MPILegionHandshake &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
+  ['unserializable_3c_20legionhandshake_20_3e',['Unserializable&lt; LegionHandshake &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20physicalregion_20_3e',['Unserializable&lt; PhysicalRegion &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20predicate_20_3e',['Unserializable&lt; Predicate &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20staticdependence_20_3e',['Unserializable&lt; StaticDependence &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],

@@ -109,12 +109,12 @@ Inheritance diagram for Legion::DeferredReduction&lt; REDOP, EXCLUSIVE &gt;:</di
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a80c874f4b512ed55562bb3ea0c467c17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80c874f4b512ed55562bb3ea0c467c17"></a>
-__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>reduce</b> (typename REDOP::RHS val)</td></tr>
-<tr class="separator:a80c874f4b512ed55562bb3ea0c467c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab817a44f5584b4d36fb0eda423fda57b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab817a44f5584b4d36fb0eda423fda57b"></a>
-__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;=</b> (typename REDOP::RHS val)</td></tr>
-<tr class="separator:ab817a44f5584b4d36fb0eda423fda57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab30aef8217a538763cc6649c9e79ff9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab30aef8217a538763cc6649c9e79ff9e"></a>
+__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>reduce</b> (typename REDOP::RHS val) const </td></tr>
+<tr class="separator:ab30aef8217a538763cc6649c9e79ff9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d9fc4787092e9bb068682607a04e95d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d9fc4787092e9bb068682607a04e95d"></a>
+__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;=</b> (typename REDOP::RHS val) const </td></tr>
+<tr class="separator:a8d9fc4787092e9bb068682607a04e95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_legion_1_1_deferred_value"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_legion_1_1_deferred_value')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_legion_1_1_deferred_value.html">Legion::DeferredValue&lt; REDOP::RHS &gt;</a></td></tr>
 <tr class="memitem:aa50e2c595f8fd2654d35dbf25194d94e inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa50e2c595f8fd2654d35dbf25194d94e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DeferredValue</b> (REDOP::RHSinitial_value)</td></tr>
@@ -122,15 +122,15 @@ __CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator&
 <tr class="memitem:a3cd98f07339eb0d01afa847e849ad835 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cd98f07339eb0d01afa847e849ad835"></a>
 __CUDA_HD__ REDOP::RHS&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (void) const</td></tr>
 <tr class="separator:a3cd98f07339eb0d01afa847e849ad835 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1176808f1fb6871168e14bfcc957aee inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1176808f1fb6871168e14bfcc957aee"></a>
-__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (REDOP::RHSvalue)</td></tr>
-<tr class="separator:ae1176808f1fb6871168e14bfcc957aee inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e1dc8544b2b0cb9bda5d27de47ec2e7 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e1dc8544b2b0cb9bda5d27de47ec2e7"></a>
-__CUDA_HD__ REDOP::RHS *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (void)</td></tr>
-<tr class="separator:a8e1dc8544b2b0cb9bda5d27de47ec2e7 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f87adb57da7a5a5cbef28368d6756f inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2f87adb57da7a5a5cbef28368d6756f"></a>
-__CUDA_HD__ REDOP::RHS &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ref</b> (void)</td></tr>
-<tr class="separator:af2f87adb57da7a5a5cbef28368d6756f inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf82ef05f64a69f803ecc85a8d29cfa inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bf82ef05f64a69f803ecc85a8d29cfa"></a>
+__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (REDOP::RHSvalue) const</td></tr>
+<tr class="separator:a7bf82ef05f64a69f803ecc85a8d29cfa inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de998549435f977361a064d8aa5d99e inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2de998549435f977361a064d8aa5d99e"></a>
+__CUDA_HD__ REDOP::RHS *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (void) const</td></tr>
+<tr class="separator:a2de998549435f977361a064d8aa5d99e inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b8e4b4e1cfdce898ded5308821002d inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7b8e4b4e1cfdce898ded5308821002d"></a>
+__CUDA_HD__ REDOP::RHS &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ref</b> (void) const</td></tr>
+<tr class="separator:ac7b8e4b4e1cfdce898ded5308821002d inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe14db8b6f196078c3d0ade4e0404d55 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe14db8b6f196078c3d0ade4e0404d55"></a>
 __CUDA_HD__&#160;</td><td class="memItemRight" valign="bottom"><b>operator REDOP::RHS</b> (void) const</td></tr>
 <tr class="separator:afe14db8b6f196078c3d0ade4e0404d55 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +165,7 @@ class Legion::DeferredReduction&lt; REDOP, EXCLUSIVE &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 5 2020 15:00:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 9 2020 13:26:57 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

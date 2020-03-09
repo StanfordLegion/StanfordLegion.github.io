@@ -127,24 +127,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac9fb1f23b38022cb924fb5df0a529ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54811f450843dd239d1b98f9aa121bf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a54811f450843dd239d1b98f9aa121bf0">destroy_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle, const bool unordered=false)</td></tr>
 <tr class="separator:a54811f450843dd239d1b98f9aa121bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6bc87a964db41d64ac3e3e497384975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac6bc87a964db41d64ac3e3e497384975">create_partition_by_restriction</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a> transform, <a class="el" href="class_legion_1_1_domain.html">Domain</a> extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:ac6bc87a964db41d64ac3e3e497384975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplParams" colspan="2"><a class="anchor" id="aaa3f86bc2ebe41c8c31844b6b13e6ef5"></a>
-template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_restriction</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COORD_T &gt; color_space, <a class="el" href="struct_legion_1_1_transform.html">Transform</a>&lt; DIM, COLOR_DIM, COORD_T &gt; transform, <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; DIM, COORD_T &gt; extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af89c276ffe6f5fe509c410679b1aec60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af89c276ffe6f5fe509c410679b1aec60">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:af89c276ffe6f5fe509c410679b1aec60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac380123f610874e4fcf506e6b6c9f66d"></a>
-template&lt;int DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_blockify</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:ac380123f610874e4fcf506e6b6c9f66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0c1751da10a0bc409e9665489204e89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac0c1751da10a0bc409e9665489204e89">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> blockify_factor, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> origin, Color color=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:ac0c1751da10a0bc409e9665489204e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1631c638b858cd75da929a4f71ac2594"></a>
-template&lt;int DIM, typename COORD_T &gt; </td></tr>
-<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_blockify</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; blocking_factor, <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; origin, Color color=AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a1631c638b858cd75da929a4f71ac2594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memTemplParams" colspan="2">template&lt;unsigned DIM&gt; </td></tr>
 <tr class="memitem:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab69648bdfc893258e57b6d0e75cab8d4">get_index_subspace</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> p, LegionRuntime::Arrays::Point&lt; DIM &gt; color_point)</td></tr>
 <tr class="separator:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,6 +163,8 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a0e8d31f02a06b0b63824d1eb9f79b4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6f07a1164d549f044af6db3f0830008"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa6f07a1164d549f044af6db3f0830008">execute_index_space</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;launcher, ReductionOpID redop, bool deterministic=false)</td></tr>
 <tr class="separator:aa6f07a1164d549f044af6db3f0830008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae65c1e27876a8f1a285999be9fbe7368"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae65c1e27876a8f1a285999be9fbe7368">reduce_future_map</a> (Context ctx, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;future_map, ReductionOpID redop, bool deterministic=false)</td></tr>
+<tr class="separator:ae65c1e27876a8f1a285999be9fbe7368"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44cce1cf3ee372290521e61abacafc21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a44cce1cf3ee372290521e61abacafc21">execute_task</a> (Context ctx, TaskID task_id, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;arg, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0)</td></tr>
 <tr class="separator:a44cce1cf3ee372290521e61abacafc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ece93773965049ca5f025fe9c70a52b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5ece93773965049ca5f025fe9c70a52b">execute_index_space</a> (Context ctx, TaskID task_id, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> domain, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> &amp;global_arg, const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;arg_map, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, bool must_paralleism=false, MapperID id=0, MappingTagID tag=0)</td></tr>
@@ -515,6 +499,20 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
 <tr class="memitem:a2c1a35b2e03bfd316909c9c2af8644df"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_equal_partition</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, size_t granularity=1, Color color=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:a2c1a35b2e03bfd316909c9c2af8644df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ae5c0e4e0dbdc9061f9abc2d74b27993e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae5c0e4e0dbdc9061f9abc2d74b27993e">create_partition_by_weights</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, int &gt; &amp;weights, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, size_t granularity=1, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:ae5c0e4e0dbdc9061f9abc2d74b27993e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f15204567fed18fcb8f76761b8445be"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7f15204567fed18fcb8f76761b8445be"></a>
+template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
+<tr class="memitem:a7f15204567fed18fcb8f76761b8445be"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_weights</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const std::map&lt; <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; COLOR_DIM, COLOR_COORD_T &gt;, int &gt; &amp;weights, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, size_t granularity=1, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:a7f15204567fed18fcb8f76761b8445be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5369608ef562ab170b49e972586afd2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5369608ef562ab170b49e972586afd2a"></a>
+<a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><b>create_partition_by_weights</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;weights, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, size_t granularity=1, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:a5369608ef562ab170b49e972586afd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a98231e2e515ad3f93a332a1c3cc32d"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3a98231e2e515ad3f93a332a1c3cc32d"></a>
+template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
+<tr class="memitem:a3a98231e2e515ad3f93a332a1c3cc32d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_weights</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;weights, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, size_t granularity=1, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:a3a98231e2e515ad3f93a332a1c3cc32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:acb4bbb8a9fae9317713e2f4634636a12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#acb4bbb8a9fae9317713e2f4634636a12">create_partition_by_union</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle1, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle2, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:acb4bbb8a9fae9317713e2f4634636a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4549a740947ffaa6565467f6ad55404c"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4549a740947ffaa6565467f6ad55404c"></a>
@@ -563,6 +561,39 @@ template&lt;int DIM1, typename COORD_T1 , int DIM2, typename COORD_T2 &gt; </td>
 template&lt;int DIM1, typename COORD_T1 , int DIM2, typename COORD_T2 &gt; </td></tr>
 <tr class="memitem:a8749a3aa6662b70e43db6454955a8851"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_bidirectional_association</b> (Context ctx, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM1, COORD_T1 &gt; domain, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM1, COORD_T1 &gt; domain_parent, FieldID domain_fid, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM2, COORD_T2 &gt; range, <a class="el" href="class_legion_1_1_logical_region_t.html">LogicalRegionT</a>&lt; DIM2, COORD_T2 &gt; range_parent, FieldID range_fid, MapperID id=0, MappingTagID tag=0)</td></tr>
 <tr class="separator:a8749a3aa6662b70e43db6454955a8851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:ac6bc87a964db41d64ac3e3e497384975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac6bc87a964db41d64ac3e3e497384975">create_partition_by_restriction</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a> transform, <a class="el" href="class_legion_1_1_domain.html">Domain</a> extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:ac6bc87a964db41d64ac3e3e497384975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplParams" colspan="2"><a class="anchor" id="aaa3f86bc2ebe41c8c31844b6b13e6ef5"></a>
+template&lt;int DIM, int COLOR_DIM, typename COORD_T &gt; </td></tr>
+<tr class="memitem:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_restriction</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COORD_T &gt; color_space, <a class="el" href="struct_legion_1_1_transform.html">Transform</a>&lt; DIM, COLOR_DIM, COORD_T &gt; transform, <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; DIM, COORD_T &gt; extent, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:aaa3f86bc2ebe41c8c31844b6b13e6ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:af89c276ffe6f5fe509c410679b1aec60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af89c276ffe6f5fe509c410679b1aec60">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:af89c276ffe6f5fe509c410679b1aec60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac380123f610874e4fcf506e6b6c9f66d"></a>
+template&lt;int DIM, typename COORD_T &gt; </td></tr>
+<tr class="memitem:ac380123f610874e4fcf506e6b6c9f66d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_blockify</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; blocking_factor, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:ac380123f610874e4fcf506e6b6c9f66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c1751da10a0bc409e9665489204e89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac0c1751da10a0bc409e9665489204e89">create_partition_by_blockify</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> blockify_factor, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> origin, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:ac0c1751da10a0bc409e9665489204e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1631c638b858cd75da929a4f71ac2594"></a>
+template&lt;int DIM, typename COORD_T &gt; </td></tr>
+<tr class="memitem:a1631c638b858cd75da929a4f71ac2594"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_blockify</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; blocking_factor, <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; origin, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:a1631c638b858cd75da929a4f71ac2594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:af06e27d3487304e6be819904fae65add"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af06e27d3487304e6be819904fae65add">create_partition_by_domain</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <a class="el" href="class_legion_1_1_domain.html">Domain</a> &gt; &amp;domains, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, bool perform_intersections=true, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:af06e27d3487304e6be819904fae65add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6db47fd8c965c981e75f0a8fd26463"><td class="memTemplParams" colspan="2"><a class="anchor" id="aef6db47fd8c965c981e75f0a8fd26463"></a>
+template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
+<tr class="memitem:aef6db47fd8c965c981e75f0a8fd26463"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_domain</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const std::map&lt; <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; COLOR_DIM, COLOR_COORD_T &gt;, <a class="el" href="struct_legion_1_1_domain_t.html">DomainT</a>&lt; DIM, COORD_T &gt; &gt; &amp;domains, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:aef6db47fd8c965c981e75f0a8fd26463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7f7f3c200faab07266dad7e878d81b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3b7f7f3c200faab07266dad7e878d81b">create_partition_by_domain</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;domain_future_map, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, bool perform_intersections=true, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:a3b7f7f3c200faab07266dad7e878d81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cebefd3306e4bd28c5a58be04acfd09"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6cebefd3306e4bd28c5a58be04acfd09"></a>
+template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
+<tr class="memitem:a6cebefd3306e4bd28c5a58be04acfd09"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_domain</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;domain_future_map, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=COMPUTE_KIND, Color color=AUTO_GENERATE_ID)</td></tr>
+<tr class="separator:a6cebefd3306e4bd28c5a58be04acfd09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a18428ce476d6707c4dc46bc6866c2885"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a18428ce476d6707c4dc46bc6866c2885">create_partition_by_field</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, Color color=AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0, PartitionKind part_kind=DISJOINT_KIND)</td></tr>
 <tr class="separator:a18428ce476d6707c4dc46bc6866c2885"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1027,8 +1058,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a5e5c849820b8b363331fea7345707aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24cca1fc29f38d7b8d00f0d377ee19f8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a24cca1fc29f38d7b8d00f0d377ee19f8">start</a> (int argc, char **argv, bool background=false)</td></tr>
 <tr class="separator:a24cca1fc29f38d7b8d00f0d377ee19f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf47320c377a1b7dbb6ad24b8d8b0784"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#adf47320c377a1b7dbb6ad24b8d8b0784">initialize</a> (int *argc, char ***argv)</td></tr>
-<tr class="separator:adf47320c377a1b7dbb6ad24b8d8b0784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7604218afb83fecd6d9e47a1852b6219"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7604218afb83fecd6d9e47a1852b6219">initialize</a> (int *argc, char ***argv, bool filter=false)</td></tr>
+<tr class="separator:a7604218afb83fecd6d9e47a1852b6219"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c6d29724fa7b7e3679b94b19a20c37c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3c6d29724fa7b7e3679b94b19a20c37c">wait_for_shutdown</a> (void)</td></tr>
 <tr class="separator:a3c6d29724fa7b7e3679b94b19a20c37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63bc41e96b5b10f3435b15ef6d5f090b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a63bc41e96b5b10f3435b15ef6d5f090b">set_top_level_task_id</a> (TaskID top_id)</td></tr>
@@ -3932,6 +3963,144 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="af06e27d3487304e6be819904fae65add"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_partition_by_domain </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <a class="el" href="class_legion_1_1_domain.html">Domain</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>domains</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>color_space</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>perform_intersections</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PartitionKind&#160;</td>
+          <td class="paramname"><em>part_kind</em> = <code>COMPUTE_KIND</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color&#160;</td>
+          <td class="paramname"><em>color</em> = <code>AUTO_GENERATE_ID</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create partition by domain allows users to specify an explicit <a class="el" href="class_legion_1_1_domain.html">Domain</a> object to use for one or more subregions directly. This is similar to the old (deprecated) coloring APIs. However, instead of specifying colors for each element, we encourage users to create domains that express as few dense rectangles in them as necessary for expressing the index space. The runtime will not attempt to coalesce the rectangles in each domain further. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">parent</td><td>the parent index space to be partitioned </td></tr>
+    <tr><td class="paramname">domains</td><td>map of points in the color space points to domains </td></tr>
+    <tr><td class="paramname">color_space</td><td>the color space for the partition </td></tr>
+    <tr><td class="paramname">perform_intersections</td><td>intersect domains with parent space </td></tr>
+    <tr><td class="paramname">part_kind</td><td>specify the partition kind or ask to compute it </td></tr>
+    <tr><td class="paramname">color</td><td>the color of the result of the partition </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new index partition of the parent index space </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b7f7f3c200faab07266dad7e878d81b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_partition_by_domain </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;&#160;</td>
+          <td class="paramname"><em>domain_future_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>color_space</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>perform_intersections</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PartitionKind&#160;</td>
+          <td class="paramname"><em>part_kind</em> = <code>COMPUTE_KIND</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color&#160;</td>
+          <td class="paramname"><em>color</em> = <code>AUTO_GENERATE_ID</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is an alternate version of create_partition_by_domain that instead takes a future map for the list of domains to be used. The runtime will automatically interpret the results in the individual futures as domains for creating the partition. This allows users to create this partition without blocking. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">parent</td><td>the parent index space to be partitioned </td></tr>
+    <tr><td class="paramname">domains</td><td>future map of points to domains </td></tr>
+    <tr><td class="paramname">color_space</td><td>the color space for the partition </td></tr>
+    <tr><td class="paramname">perform_intersections</td><td>intersect domains with parent space </td></tr>
+    <tr><td class="paramname">part_kind</td><td>specify the partition kind or ask to compute it </td></tr>
+    <tr><td class="paramname">color</td><td>the color of the result of the partition </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new index partition of the parent index space </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a18428ce476d6707c4dc46bc6866c2885"></a>
 <div class="memitem">
 <div class="memproto">
@@ -4456,6 +4625,68 @@ template&lt;typename T &gt; </div>
     <tr><td class="paramname">color_space</td><td>space of colors to zip over </td></tr>
     <tr><td class="paramname">part_kind</td><td>indicate the kind of partition </td></tr>
     <tr><td class="paramname">color</td><td>the new color for the index partition </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>name of the created index partition </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae5c0e4e0dbdc9061f9abc2d74b27993e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_partition_by_weights </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>weights</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>color_space</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>granularity</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color&#160;</td>
+          <td class="paramname"><em>color</em> = <code>AUTO_GENERATE_ID</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create 'color_space' index spaces (one for each point) to partition the parent 'parent' index space using the 'weights' to proportionally size the resulting subspaces. By definition the resulting partition will be disjoint. Users can also specify a minimum 'granularity' for the size of the index subspaces. Users can specify an optional 'color' for the name of the created index partition. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">parent</td><td>index space of the partition to be made </td></tr>
+    <tr><td class="paramname">weights</td><td>per-color weights for sizing output regions </td></tr>
+    <tr><td class="paramname">color_space</td><td>space of the colors to create </td></tr>
+    <tr><td class="paramname">granularity</td><td>the minimum size of the index subspaces </td></tr>
+    <tr><td class="paramname">color</td><td>optional color parameter for the partition </td></tr>
   </table>
   </dd>
 </dl>
@@ -8625,7 +8856,7 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="adf47320c377a1b7dbb6ad24b8d8b0784"></a>
+<a class="anchor" id="a7604218afb83fecd6d9e47a1852b6219"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -8642,7 +8873,13 @@ template&lt;unsigned DIM&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char ***&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>filter</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -8660,6 +8897,7 @@ template&lt;unsigned DIM&gt; </div>
   <table class="params">
     <tr><td class="paramname">argc</td><td>pointer to an integer in which to store the argument count </td></tr>
     <tr><td class="paramname">argv</td><td>pointer to array of strings for storing command line args </td></tr>
+    <tr><td class="paramname">filter</td><td>remove any runtime command line arguments </td></tr>
   </table>
   </dd>
 </dl>
@@ -9913,6 +10151,54 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ae65c1e27876a8f1a285999be9fbe7368"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Runtime::reduce_future_map </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;&#160;</td>
+          <td class="paramname"><em>future_map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ReductionOpID&#160;</td>
+          <td class="paramname"><em>redop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>deterministic</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Reduce a future map down to a single future value using a specified reduction operator. This assumes that all the values in the future map are instance of the reduction operator's RHS type and the resulting future will also be an RHS type. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">future_map</td><td>the future map to reduct the value </td></tr>
+    <tr><td class="paramname">redop</td><td>ID for the reduction op to use for reducing values </td></tr>
+    <tr><td class="paramname">deterministic</td><td>request that the reduced future be computed in a deterministic way (more expensive than non-deterministic) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a future result representing the the reduction of all the values in the future map </dd></dl>
 
 </div>
 </div>
@@ -12186,7 +12472,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 5 2020 15:00:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 9 2020 13:26:58 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

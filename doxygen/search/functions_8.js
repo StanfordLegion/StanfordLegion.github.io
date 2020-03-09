@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['initialize',['initialize',['../class_legion_1_1_runtime.html#adf47320c377a1b7dbb6ad24b8d8b0784',1,'Legion::Runtime']]],
+  ['initialize',['initialize',['../class_legion_1_1_runtime.html#a7604218afb83fecd6d9e47a1852b6219',1,'Legion::Runtime']]],
   ['intersect_5findex_5fspaces',['intersect_index_spaces',['../class_legion_1_1_runtime.html#a154aaa91bca194c4d4b6118cacda22de',1,'Legion::Runtime']]],
   ['invert',['invert',['../class_legion_1_1_projection_functor.html#a40dc657a124365b318b6f1c26cbb4f5d',1,'Legion::ProjectionFunctor']]],
   ['is_5fempty',['is_empty',['../class_legion_1_1_future.html#adafa0ef32944aa91f88b3b94d1a889be',1,'Legion::Future']]],

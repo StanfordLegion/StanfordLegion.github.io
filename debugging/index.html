@@ -126,8 +126,8 @@ applications, and those for debugging the runtime itself.</p>
   <li><a href="#freeze-on-error">Freeze On Error</a> (<code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR=1 ./app</code>)</li>
   <li><a href="#privilege-checks">Privilege Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS make; ./app</code>)</li>
   <li><a href="#bounds-checks">Bounds Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS make; ./app</code>)</li>
-  <li><a href="#disjointness-checks">Disjointness Checks</a> (<code class="highlighter-rouge">./app -lg:disjointness</code>)</li>
-  <li><a href="#legion-spy">Legion Spy</a> (<code class="highlighter-rouge">./app -lg:spy -logfile spy_%.log; ./legion_spy.py -dez spy_*.log</code>)</li>
+  <li><a href="#partition-checks">Partition Checks</a> (<code class="highlighter-rouge">./app -lg:partcheck</code>)</li>
+  <li><a href="#legion-spy">Legion Spy</a> (<code class="highlighter-rouge">./app -lg:spy -logfile spy_%.log; ./tools/legion_spy.py -dez spy_*.log</code>)</li>
 </ul>
 
 <p>The following tools are typically used after the initial debugging
@@ -142,6 +142,8 @@ tools have been exhausted or in special circumstances:</p>
   <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
   <li><a href="#dump-backtraces">Dump Backtraces</a> (<code class="highlighter-rouge">./app -ll:force_kthreads</code>)</li>
   <li><a href="#dump-events">Dump Events</a></li>
+  <li><a href="#trace-memory-allocations">Trace Memory Allocations</a> (<code class="highlighter-rouge">CC_FLAGS=-DTRACE_ALLOCATION make; ./app -level allocation=2</code>)</li>
+  <li><a href="#legion-gc">Legion GC</a> (<code class="highlighter-rouge">CC_FLAGS=-DLEGION_GC make; ./app -level legion_gc=2 -logfile gc_%.log; ./tools/legion_gc.py -l gc_*.log</code>)</li>
 </ul>
 
 <h2 id="try-these-first">Try These First</h2>
@@ -273,7 +275,7 @@ these checks are performed on every memory access, they
 can significantly degrade the performance of a Legion
 application.</p>
 
-<h3 id="disjointness-checks">Disjointness Checks</h3>
+<h3 id="partition-checks">Partition Checks</h3>
 
 <p>One of the more commonly occurring bugs in Legion applications
 is creating partitions which an application declares to
@@ -287,18 +289,16 @@ experimented with more complicated coloring schemes, we’ve
 noticed an increasing number of cases where colorings are
 claimed to be disjoint when they actually are not.</p>
 
-<p>To address this problem, we provide the <code class="highlighter-rouge">-lg:disjointness</code>
+<p>To address this problem, we provide the <code class="highlighter-rouge">-lg:partcheck</code>
 command line flag which instructs the Legion high-level
 runtime to verify the disjointness of all colorings which
 are claimed to be disjoint and report a runtime error if
 they are not. Depending on the size and type of coloring
 as well as the number of colors, these checks can take
 arbitrarily long and may degrade performance. Due to the
-extreme performance cost associated with these checks,
-the <code class="highlighter-rouge">-lg:disjointness</code> flag will only perform the checks
-when the runtime is compiled in debug mode, and will
-result in a runtime warning if it is used with a release
-build of the runtime.</p>
+extreme performance cost associated with these checks, the
+<code class="highlighter-rouge">-lg:partcheck</code> flag will issue a warning if it is used in conjuction
+with profiling.</p>
 
 <h3 id="legion-spy">Legion Spy</h3>
 
@@ -585,6 +585,30 @@ the event graph:</p>
 legion/tools/detect_loops event.txt</code></pre></figure>
 
 <p>If a cycle is found it will be displayed on stdout.</p>
+
+<h3 id="trace-memory-allocations">Trace Memory Allocations</h3>
+
+<p>This is a tool for checking the number of internal Legion objects
+allocated over time, and their total memory usage.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">CC_FLAGS</span><span class="o">=</span><span class="nt">-DTRACE_ALLOCATION</span> make
+./app <span class="nt">-level</span> <span class="nv">allocation</span><span class="o">=</span>2</code></pre></figure>
+
+<p>Legion will periodically print the total number of internal Legion
+objects that have been allocated, their total memory usage, and the
+difference (in number and size) compared to the last snapshot.</p>
+
+<h3 id="legion-gc">Legion GC</h3>
+
+<p>This is a tool for checking for application leaks of Legion API
+objects or handles.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">CC_FLAGS</span><span class="o">=</span><span class="nt">-DLEGION_GC</span> make
+./app <span class="nt">-level</span> <span class="nv">legion_gc</span><span class="o">=</span>2 <span class="nt">-logfile</span> gc_%.log
+./tools/legion_gc.py <span class="nt">-l</span> gc_<span class="k">*</span>.log</code></pre></figure>
+
+<p>This tool will print a message if any objects are leaked by the
+application.</p>
 
     </div><!-- /.article-wrap -->
   </article>

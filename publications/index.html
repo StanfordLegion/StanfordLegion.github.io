@@ -163,7 +163,9 @@
   </li>
   <li>Applications:
     <ul>
+      <li><a href="#s3d2017">S3D-Legion (2017)</a> [<a href="https://www.taylorfrancis.com/books/e/9781315277400/chapters/10.1201/b21930-12">PDF</a>]</li>
       <li><a href="#soleilx2018">Soleil-X (2018)</a> [<a href="/pdfs/soleilx2018.pdf">PDF</a>]</li>
+      <li><a href="#htr2020">HTR Solver (2020)</a> [<a href="https://doi.org/10.1016/j.cpc.2020.107262">PDF</a>]</li>
     </ul>
   </li>
   <li>Theses:
@@ -420,6 +422,10 @@ supercomputer. Benchmarks showed that the visualization components scaled and di
 compositor latency increased logarithmically with increasing node
 count.</p>
 
+<p><a name="s3d2017"></a><strong>S3D-Legion: An Exascale Software for Direct Numerical Simulation of Turbulent Combustion with Complex Multicomponent Chemistry</strong> <a href="https://www.taylorfrancis.com/books/e/9781315277400/chapters/10.1201/b21930-12">PDF</a> <br />
+<em>Sean Treichler, Michael Bauer, Ankit Bhagatwala, Giulio Borghesi, Ramanan Sankaran, Hemanth Kolla, Patrick S. McCormick, Elliott Slaughter, Wonchan Lee, Alex Aiken and Jacqueline Chen</em> <br />
+In <a href="https://www.crcpress.com/p/book/9781138197541">Exascale Scientific Applications: Scalability and Performance Portability</a> (CRC Press, 2017)</p>
+
 <p><a name="vldb2018"></a><strong>A Distributed Multi-GPU System for Fast Graph Processing</strong> <a href="/pdfs/vldb2018.pdf">PDF</a>, <a href="https://github.com/LuxGraph/Lux">Software Release</a> <br />
 <em>Zhihao Jia, Yongkee Kwon, Galen Shipman, Pat McCormick, Mattan Erez and Alex Aiken</em> <br />
 In the International Conference on Very Large Data Bases (VLDB 2018) <br />
@@ -571,6 +577,25 @@ GPU kernel implementations. We show that, in combination with
 high-performance kernels written in Regent, Pygion is able to achieve
 efficient, scalable execution on up to 512 nodes of the heterogeneous
 supercomputer Piz Daint.</p>
+
+<p><a name="htr2020"></a><strong>HTR Solver: An Open-Source Exascale-Oriented Task-Based Multi-GPU High-Order Code for Hypersonic Aerothermodynamics</strong> <a href="https://doi.org/10.1016/j.cpc.2020.107262">PDF</a> <br />
+<em>Mario Di Renzo, Lin Fu and Javier Urzay</em> <br />
+In Computer Physics Communications (2020) <br />
+<strong>Abstract:</strong> In this study, the open-source Hypersonics Task-based
+Research (HTR) solver for hypersonic aerothermodynamics is
+described. The physical formulation of the code includes
+thermochemical effects induced by high temperatures (vibrational
+excitation and chemical dissociation). The HTR solver uses high-order
+TENO-based spatial discretization on structured grids and efficient
+time integrators for stiff systems, is highly scalable in GPU-based
+supercomputers as a result of its implementation in the Regent/Legion
+stack, and is designed for direct numerical simulations of canonical
+hypersonic flows at high Reynolds numbers. The performance of the HTR
+solver is tested with benchmark cases including inviscid vortex
+advection, low- and high-speed laminar boundary layers, inviscid
+one-dimensional compressible flows in shock tubes, supersonic
+turbulent channel flows, and hypersonic transitional boundary layers
+of both calorically perfect gases and dissociating air.</p>
 
 <h2 id="theses">Theses</h2>
 

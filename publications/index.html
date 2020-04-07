@@ -160,6 +160,11 @@
       <li><a href="#wolfhpc2014">Scout (WOLFHPC 2014)</a> [<a href="/pdfs/scout2014.pdf">PDF</a>]</li>
     </ul>
   </li>
+  <li>Applications:
+    <ul>
+      <li><a href="#soleilx2018">Soleil-X</a> [<a href="/pdfs/soleilx2018.pdf">PDF</a>]</li>
+    </ul>
+  </li>
   <li>Theses:
     <ul>
       <li><a href="#bauer_thesis">Michael Bauer’s Thesis (2014)</a> [<a href="/pdfs/bauer_thesis.pdf">PDF</a>]</li>
@@ -470,9 +475,39 @@ parallel executions of programs. We also show that the generated task
 graph is the most succinct one for a program when the program
 satisfies certain conditions.</p>
 
+<p><a name="soleil2018"></a><strong>Soleil-X: Turbulence, Particles, and Radiation in the Regent Programming Language</strong> <a href="/pdfs/soleil2018.pdf">PDF</a> <br />
+<em>Hilario Torres and Manolis Papadakis and Lluís Jofre and Wonchan Lee and Alex Aiken and Gianluca Iaccarino</em> <br />
+In Bulletin of the American Physical Society <br />
+<strong>Abstract:</strong> The Predictive Science Academic Alliance Program (PSAAP)
+II at Stanford University is developing an Exascale-ready
+multi-physics solver to investigate particle-laden turbulent flows in
+a radiation environment for solar energy receiver applications. To
+simulate the proposed concentrated particle-based receiver design
+three distinct but coupled physical phenomena must be modeled: fluid
+flows, Lagrangian particle dynamics, and the transport of thermal
+radiation.  Therefore, three different physics solvers (fluid,
+particles, and radiation) must run concurrently with significant
+cross-communication in an integrated multi-physics
+simulation. However, each solver uses substantially different
+algorithms and data access patterns.  Coordinating the overall data
+communication, computational load balancing, and scaling these
+different physics solvers together on modern massively parallel,
+heterogeneous high performance computing systems presents several
+major challenges.  We have adopted the Legion programming system, via
+the Regent programming language, and its task parallel programming
+model to address these challenges.  Our multi-physics solver Soleil-X
+is written entirely in the high level Regent programming language and
+is one of the largest and most complex applications written in Regent
+to date. At this workshop we will give an overview of the software
+architecture of Soleil-X as well as discuss how our multi-physics
+solver was designed to use the task parallel programming model
+provided by Legion. We will also discuss the developmentexperience,
+scaling, performance, portability, and multi-physics simulation
+results.</p>
+
 <p><a name="legate2019"></a><strong>Legate NumPy: Accelerated and Distributed Array Computing</strong> <a href="/pdfs/legate-preprint.pdf">PDF</a> <br />
 <em>Michael Bauer and Michael Garland</em> <br />
-To appear in the International Conference on Supercomputing (<a href="http://sc19.supercomputing.org">SC 2019</a>) <br />
+In the International Conference on Supercomputing (<a href="http://sc19.supercomputing.org">SC 2019</a>) <br />
 <strong>Abstract:</strong> NumPy is a popular Python library used for performing
 array-based numerical computations. The canonical implementation of
 NumPy used by most programmers runs on a single CPU core and only a
@@ -495,7 +530,7 @@ at scale.</p>
 
 <p><a name="parallel2019"></a><strong>A Constraint-Based Approach to Automatic Data Partitioning for Distributed Memory Execution</strong> <a href="/pdfs/parallelizer2019.pdf">PDF</a> <br />
 <em>Wonchan Lee, Manolis Papadakis, Elliott Slaughter and Alex Aiken</em> <br />
-To appear in the International Conference on Supercomputing (<a href="http://sc19.supercomputing.org">SC 2019</a>) <br />
+In the International Conference on Supercomputing (<a href="http://sc19.supercomputing.org">SC 2019</a>) <br />
 <strong>Abstract:</strong> Although data partitioning is required to enable
 parallelism on distributed memory systems, data partitions are not
 first class objects in most distributed programming models. As a
@@ -517,7 +552,7 @@ hand-optimized counterparts.</p>
 
 <p><a name="pygion2019"></a><strong>Pygion: Flexible, Scalable Task-Based Parallelism with Python</strong> <a href="/pdfs/pygion2019.pdf">PDF</a> <br />
 <em>Elliott Slaughter and Alex Aiken</em> <br />
-To appear in the Parallel Applications Workshop, Alternatives To MPI+X (<a href="https://sourceryinstitute.github.io/PAW/">PAW-ATM 2019</a>) <br />
+In the Parallel Applications Workshop, Alternatives To MPI+X (<a href="https://sourceryinstitute.github.io/PAW/">PAW-ATM 2019</a>) <br />
 <strong>Abstract:</strong> Dynamic languages provide the flexibility needed to
 implement expressive support for task-based parallel programming
 constructs. We present Pygion, a Python interface for the Legion

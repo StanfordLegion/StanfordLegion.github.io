@@ -19,5 +19,6 @@ var searchData=
   ['inlinelauncher',['InlineLauncher',['../struct_legion_1_1_inline_launcher.html',1,'Legion']]],
   ['inlinemapping',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
   ['inputargs',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],
-  ['integerset',['IntegerSet',['../class_integer_set.html',1,'']]]
+  ['integerset',['IntegerSet',['../class_integer_set.html',1,'']]],
+  ['iterator',['iterator',['../class_legion_1_1_span_1_1iterator.html',1,'Legion::Span']]]
 ];

@@ -115,12 +115,12 @@
     <div class="article-wrap" itemprop="text">
       <p>In this example, we’ll introduce task launches and futures
 in Legion. To do so, we’ll implement a simple program to 
-compute the first <code class="highlighter-rouge">N</code> Fibonacci numbers. We note this is
+compute the first <code class="language-plaintext highlighter-rouge">N</code> Fibonacci numbers. We note this is
 not the fastest way to compute Fibonacci numbers, but it
 will demonstrate the functional nature of Legion tasks 
 as well as the ability to recursively spawn tasks.
 Code for this example is at the bottom of the page and
-can also be found in the <code class="highlighter-rouge">tutorial</code> directory of the 
+can also be found in the <code class="language-plaintext highlighter-rouge">tutorial</code> directory of the 
 Legion repository.</p>
 
 <h4 id="registering-tasks-redux">Registering Tasks Redux</h4>
@@ -131,28 +131,28 @@ recursive Fibonacci computation, and a helper task for
 summing futures. Both the Fibonacci and sum tasks
 will return an integer value and therefore require a
 slightly modified registration call. For
-tasks which have non-<code class="highlighter-rouge">void</code> return types
-the <code class="highlighter-rouge">preregister_task_variant</code> is templated first on the
-return type (<code class="highlighter-rouge">int</code> in this case) followed by function 
+tasks which have non-<code class="language-plaintext highlighter-rouge">void</code> return types
+the <code class="language-plaintext highlighter-rouge">preregister_task_variant</code> is templated first on the
+return type (<code class="language-plaintext highlighter-rouge">int</code> in this case) followed by function 
 pointer for the task. Lines 97 and 104 show
-the <code class="highlighter-rouge">preregister_task_variant</code> calls for these tasks.</p>
+the <code class="language-plaintext highlighter-rouge">preregister_task_variant</code> calls for these tasks.</p>
 
 <p>The registration for the summation task on lines 101-104
 also illustrates several new parameters which can be
 passed when registering a task with the Legion runtime.
 First, Legion allows applications to register multiple,
 functionally equivalent <em>variants</em> of a task. The optional
-third parameter to <code class="highlighter-rouge">preregister_task_variant</code> allows the
-application to specify the <code class="highlighter-rouge">VariantID</code> for the task. The
-default value is <code class="highlighter-rouge">AUTO_GENERATE_ID</code> which instructs the
-runtime to pick an un-used <code class="highlighter-rouge">VariantID</code> and return the 
+third parameter to <code class="language-plaintext highlighter-rouge">preregister_task_variant</code> allows the
+application to specify the <code class="language-plaintext highlighter-rouge">VariantID</code> for the task. The
+default value is <code class="language-plaintext highlighter-rouge">AUTO_GENERATE_ID</code> which instructs the
+runtime to pick an un-used <code class="language-plaintext highlighter-rouge">VariantID</code> and return the 
 chosen ID from the registration call.</p>
 
-<p>A number of additional methods of <code class="highlighter-rouge">TaskVariantRegistrar</code> allow further
-customization of the task. In this example, we use <code class="highlighter-rouge">set_leaf(true)</code> to
-mark <code class="highlighter-rouge">sum_task</code> as being a <em>leaf</em> task that launches no sub-tasks
+<p>A number of additional methods of <code class="language-plaintext highlighter-rouge">TaskVariantRegistrar</code> allow further
+customization of the task. In this example, we use <code class="language-plaintext highlighter-rouge">set_leaf(true)</code> to
+mark <code class="language-plaintext highlighter-rouge">sum_task</code> as being a <em>leaf</em> task that launches no sub-tasks
 or other Legion operations in its implementation. Knowing that 
-the <code class="highlighter-rouge">sum_task</code> is a leaf task allows the Legion runtime to 
+the <code class="language-plaintext highlighter-rouge">sum_task</code> is a leaf task allows the Legion runtime to 
 optimize the execution of the task.</p>
 
 <h4 id="command-line-arguments">Command Line Arguments</h4>
@@ -161,9 +161,9 @@ optimize the execution of the task.</p>
 able to pass a command line argument that specifies
 the number of Fibonacci numbers to compute. The Legion
 runtime makes the command line arguments available
-via a static method <code class="highlighter-rouge">get_input_args</code> on the <code class="highlighter-rouge">Runtime</code>
+via a static method <code class="language-plaintext highlighter-rouge">get_input_args</code> on the <code class="language-plaintext highlighter-rouge">Runtime</code>
 class. This returns an immutable reference to an
-<code class="highlighter-rouge">InputArgs</code> struct which describes the original command
+<code class="language-plaintext highlighter-rouge">InputArgs</code> struct which describes the original command
 line arguments to the application. Even in distributed
 applications, Legion will make the command line arguments
 available on all nodes so they can be accessed in any task 
@@ -175,46 +175,46 @@ are parsed in our Fibonacci program.</p>
 <p>All Legion tasks are spawned using a <em>launcher</em> object (except the
 top-level task which is launched automatically by the runtime as
 was described in the <a href="/tutorial/hello_world.html">previous example</a> ).
-To spawn a single task, we use a <code class="highlighter-rouge">TaskLauncher</code> object. A
-<code class="highlighter-rouge">TaskLauncher</code> is a struct used for specifying the arguments
+To spawn a single task, we use a <code class="language-plaintext highlighter-rouge">TaskLauncher</code> object. A
+<code class="language-plaintext highlighter-rouge">TaskLauncher</code> is a struct used for specifying the arguments
 necessary for launching a task. Launchers contain many
 fields which we will explore throughout this tutorial. Here
-we look at the first two arguments of <code class="highlighter-rouge">TaskLauncher</code>:</p>
+we look at the first two arguments of <code class="language-plaintext highlighter-rouge">TaskLauncher</code>:</p>
 
 <ul>
   <li>ID - the registered ID of the task to be launched</li>
   <li>argument - pass-by-value input to the task</li>
 </ul>
 
-<p>The second field has type <code class="highlighter-rouge">TaskArgument</code> which points to
+<p>The second field has type <code class="language-plaintext highlighter-rouge">TaskArgument</code> which points to
 a buffer and specifies the size in bytes to copy by value
 from the buffer. This copy of this buffer does not actually 
 take place until the launcher object is passed to the 
-<code class="highlighter-rouge">execute_task</code> call. If there is more than one argument it 
+<code class="language-plaintext highlighter-rouge">execute_task</code> call. If there is more than one argument it 
 is the responsibility of the application to pack the values 
 into a single buffer.</p>
 
-<p>Launching a task simply requires passing a <code class="highlighter-rouge">TaskLauncher</code>
+<p>Launching a task simply requires passing a <code class="language-plaintext highlighter-rouge">TaskLauncher</code>
 object and a context to the Legion runtime via the 
-<code class="highlighter-rouge">execute_task</code> call. The context object is an opaque handle
+<code class="language-plaintext highlighter-rouge">execute_task</code> call. The context object is an opaque handle
 that is passed by the runtime as an argument to the enclosing parent task.
 Legion task launches (like most Legion API calls) are 
 asynchronous which means that the call returns immediately.
 As a place holder for the return value of the task, the
-Legion runtime returns a <code class="highlighter-rouge">Future</code> which we describe in
+Legion runtime returns a <code class="language-plaintext highlighter-rouge">Future</code> which we describe in
 the next section. Note that launcher objects can be re-used
 to launch as many tasks as desired and can be modified for
 the next task launch immediately once the preceding
-<code class="highlighter-rouge">execute_task</code> call returns.</p>
+<code class="language-plaintext highlighter-rouge">execute_task</code> call returns.</p>
 
 <p>There are several examples of task launches in the Fibonacci
-example. We call attention to the one in the <code class="highlighter-rouge">for</code> loop on
+example. We call attention to the one in the <code class="language-plaintext highlighter-rouge">for</code> loop on
 lines 32-35. We create a launcher in our top-level task
 which launches one sub-task for each Fibonacci number that
 we want to compute. Each launcher is assigned the 
-<code class="highlighter-rouge">FIBONACCI_TASK_ID</code> as the task ID and passes an integer
+<code class="language-plaintext highlighter-rouge">FIBONACCI_TASK_ID</code> as the task ID and passes an integer
 describing the Fibonacci number to be computed in the
-<code class="highlighter-rouge">TaskArgument</code> field. We store the resulting <code class="highlighter-rouge">Future</code> value
+<code class="language-plaintext highlighter-rouge">TaskArgument</code> field. We store the resulting <code class="language-plaintext highlighter-rouge">Future</code> value
 that is returned in a vector.</p>
 
 <h4 id="futures">Futures</h4>
@@ -222,8 +222,8 @@ that is returned in a vector.</p>
 <p>Futures are objects which represent a pending return value
 from a task. There are two ways to use future values. First,
 applications can explicitly request the value of the future
-using the <code class="highlighter-rouge">get_result</code> method as can be seen on line 38. The
-<code class="highlighter-rouge">get_result</code> method is templated on the type of the return
+using the <code class="language-plaintext highlighter-rouge">get_result</code> method as can be seen on line 38. The
+<code class="language-plaintext highlighter-rouge">get_result</code> method is templated on the type of the return
 value which instructs the Legion runtime how to interpret the
 bits being returned. This is a blocking call which will cause 
 the task in which it is executed to pause until the sub-task 
@@ -236,25 +236,25 @@ blocking to wait for future values. In our Fibonacci task,
 rather than waiting for the two Future values, we instead
 launch a sum task which will compute the sum of the two futures.
 Notice that the we can explicitly pass the futures as a special
-kind of argument in the <code class="highlighter-rouge">TaskLauncher</code> object on lines 66-67.
+kind of argument in the <code class="language-plaintext highlighter-rouge">TaskLauncher</code> object on lines 66-67.
 Legion will ensure that the sum task does not begin until both
 futures are complete and the future values are available
 wherever the sum task is mapped. Future values should always
 be explicitly passed in this manner and should never be 
-passed through a <code class="highlighter-rouge">TaskArgument</code> object.</p>
+passed through a <code class="language-plaintext highlighter-rouge">TaskArgument</code> object.</p>
 
 <h4 id="task-arguments-and-return-values">Task Arguments and Return Values</h4>
 
-<p>Task arguments that are passed in through the <code class="highlighter-rouge">TaskArgument</code> 
+<p>Task arguments that are passed in through the <code class="language-plaintext highlighter-rouge">TaskArgument</code> 
 field in a launcher object are available in a Legion task through
-the <code class="highlighter-rouge">args</code> and <code class="highlighter-rouge">arglen</code> fields on the <code class="highlighter-rouge">Task</code> object. The
-<code class="highlighter-rouge">Task</code> type is the common interface that Legion presents to
+the <code class="language-plaintext highlighter-rouge">args</code> and <code class="language-plaintext highlighter-rouge">arglen</code> fields on the <code class="language-plaintext highlighter-rouge">Task</code> object. The
+<code class="language-plaintext highlighter-rouge">Task</code> type is the common interface that Legion presents to
 both the application and mappers for describing tasks. Lines 48-49
-show the Fibonacci task extracting its arguments from the <code class="highlighter-rouge">Task</code>
+show the Fibonacci task extracting its arguments from the <code class="language-plaintext highlighter-rouge">Task</code>
 object. Since there is no type checking when using the runtime
 API (a benefit provided by the Regent compiler) we encourage
 applications to explicitly check that they are getting the
-arguments that they expect when unpacking them from the <code class="highlighter-rouge">Task</code>
+arguments that they expect when unpacking them from the <code class="language-plaintext highlighter-rouge">Task</code>
 object before casting them.</p>
 
 <p>Return values from tasks are returned in the same way as
@@ -262,13 +262,13 @@ standard C functions. The Legion runtime will automatically
 use the returned value to complete the Future that was 
 created when the task was launched. In most cases the values
 returned are passed by value. However, if the type of the
-return value defines the methods <code class="highlighter-rouge">legion_buffer_size</code>,
-<code class="highlighter-rouge">legion_serialize</code>, and <code class="highlighter-rouge">legion_deserializer</code>, then 
+return value defines the methods <code class="language-plaintext highlighter-rouge">legion_buffer_size</code>,
+<code class="language-plaintext highlighter-rouge">legion_serialize</code>, and <code class="language-plaintext highlighter-rouge">legion_deserializer</code>, then 
 Legion automatically will invoke them to support deep
-copies of more complex data types (see the <code class="highlighter-rouge">ColoringSerializer</code>
-class in <code class="highlighter-rouge">legion.h</code> for an example).</p>
+copies of more complex data types (see the <code class="language-plaintext highlighter-rouge">ColoringSerializer</code>
+class in <code class="language-plaintext highlighter-rouge">legion.h</code> for an example).</p>
 
-<p>The <code class="highlighter-rouge">Future</code> type is not permitted as return value
+<p>The <code class="language-plaintext highlighter-rouge">Future</code> type is not permitted as return value
 for a task. Attempting to do so will result in a 
 compile-time assertion failure. Futures are not allowed
 to escape the context in which they are created. Instead
@@ -308,24 +308,24 @@ tasks also block on a future, the process is repeatedly
 recursively. This approach keeps the underlying hardware 
 utilized and maximizes overall task throughput.</p>
 
-<p>In the sum task we invoke the <code class="highlighter-rouge">get_result</code> method on
+<p>In the sum task we invoke the <code class="language-plaintext highlighter-rouge">get_result</code> method on
 the two futures passed as arguments (lines 78 and 80).
 Since these futures are passed explicitly, the Legion 
 runtime will not start the sum task until both these 
-futures have completed. Invoking <code class="highlighter-rouge">get_result</code> on futures 
+futures have completed. Invoking <code class="language-plaintext highlighter-rouge">get_result</code> on futures 
 that are explicitly passed as arguments will never block
 a task’s execution.</p>
 
-<p>Finally, <code class="highlighter-rouge">Future</code> objects are handles for actual
+<p>Finally, <code class="language-plaintext highlighter-rouge">Future</code> objects are handles for actual
 futures and are therefore inexpensive to pass by value.
 Since futures are used both by the application and the
 runtime we reference count them and automatically 
 delete their resource when there are no longer any
-references. The <code class="highlighter-rouge">Future</code> type is actually a light-weight
+references. The <code class="language-plaintext highlighter-rouge">Future</code> type is actually a light-weight
 handle which simply contains a pointer to the actual
 future implementation, which makes copying future
 values inexpensive. Line 42 explicitly clears the future
-vector which will invoke the <code class="highlighter-rouge">Future</code> destructor on
+vector which will invoke the <code class="language-plaintext highlighter-rouge">Future</code> destructor on
 all the future values and remove references. This would
 have occurred automatically when the vector went out of
 scope, but we do so explicitly to show the users have

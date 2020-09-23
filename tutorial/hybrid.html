@@ -188,7 +188,7 @@ that have the lifetime of a single task.</p>
 writing Legion applications is that function
 pointers are another form of global variable.
 Function pointer values, such as the pointer
-to the function <code class="highlighter-rouge">foo</code> (line 19), can have
+to the function <code class="language-plaintext highlighter-rouge">foo</code> (line 19), can have
 different values in different processes
 executing in a distributed system. Therefore
 passing function pointers around Legion
@@ -196,7 +196,7 @@ applications is strongly discouraged. Instead
 Legion provides method calls for registering
 tasks and other useful functions (e.g. reduction
 functions) statically with the runtime before
-the <code class="highlighter-rouge">start</code> method is invoked in the <code class="highlighter-rouge">main</code>
+the <code class="language-plaintext highlighter-rouge">start</code> method is invoked in the <code class="language-plaintext highlighter-rouge">main</code>
 function.</p>
 
 <h4 id="other-c-restrictions">Other C++ Restrictions</h4>

@@ -321,12 +321,12 @@
                         <span class="k">const</span> <span class="n">SliceTaskInput</span><span class="o">&amp;</span>    <span class="n">input</span><span class="p">,</span>
                         <span class="n">SliceTaskOutput</span><span class="o">&amp;</span>         <span class="n">output</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">SliceTaskInput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">SliceTaskInput</span> <span class="p">{</span>
   <span class="n">IndexSpace</span>                             <span class="n">domain_is</span><span class="p">;</span>
   <span class="n">Domain</span>                                 <span class="n">domain</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">SliceTaskOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">SliceTaskOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TaskSlice</span><span class="o">&gt;</span>                 <span class="n">slices</span><span class="p">;</span>
   <span class="kt">bool</span>                                   <span class="n">verify_correctness</span><span class="p">;</span> <span class="c1">// = false</span>
 <span class="p">};</span>
@@ -371,11 +371,11 @@
                                  <span class="k">const</span> <span class="n">SelectMappingInput</span><span class="o">&amp;</span>    <span class="n">input</span><span class="p">,</span>
                                  <span class="n">SelectMappingOutput</span><span class="o">&amp;</span>         <span class="n">output</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">SelectMappingInput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">SelectMappingInput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*&gt;</span>                  <span class="n">ready_tasks</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">SelectMappingOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">SelectMappingOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*&gt;</span>                   <span class="n">map_tasks</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*</span><span class="p">,</span><span class="n">Processor</span><span class="o">&gt;</span>         <span class="n">relocate_tasks</span><span class="p">;</span>
   <span class="n">MapperEvent</span>                             <span class="n">deferral_event</span><span class="p">;</span>
@@ -437,12 +437,12 @@
                       <span class="k">const</span> <span class="n">Task</span><span class="o">&amp;</span>              <span class="n">task</span><span class="p">,</span>
                       <span class="k">const</span> <span class="n">MapTaskInput</span><span class="o">&amp;</span>      <span class="n">input</span><span class="p">,</span>
                       <span class="n">MapTaskOutput</span><span class="o">&amp;</span>           <span class="n">output</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">MapTaskInput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">MapTaskInput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalInstance</span><span class="o">&gt;</span> <span class="o">&gt;</span>     <span class="n">valid_instances</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="o">&gt;</span>                           <span class="n">premapped_regions</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">MapTaskOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">MapTaskOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalInstance</span><span class="o">&gt;</span> <span class="o">&gt;</span>     <span class="n">chosen_instances</span><span class="p">;</span> 
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span>                          <span class="n">target_procs</span><span class="p">;</span>
   <span class="n">VariantID</span>                                       <span class="n">chosen_variant</span><span class="p">;</span> <span class="c1">// = 0 </span>
@@ -479,12 +479,12 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="k">struct</span> <span class="n">PostMapInput</span> <span class="p">{</span>
+</pre></td><td class="code"><pre><span class="k">struct</span> <span class="nc">PostMapInput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalInstance</span><span class="o">&gt;</span> <span class="o">&gt;</span>     <span class="n">mapped_regions</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalInstance</span><span class="o">&gt;</span> <span class="o">&gt;</span>     <span class="n">valid_instances</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">PostMapOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">PostMapOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalInstance</span><span class="o">&gt;</span> <span class="o">&gt;</span>     <span class="n">chosen_instances</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -509,11 +509,11 @@
 9
 10
 11
-</pre></td><td class="code"><pre><span class="k">struct</span> <span class="n">SelectStealingInput</span> <span class="p">{</span>
+</pre></td><td class="code"><pre><span class="k">struct</span> <span class="nc">SelectStealingInput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span>                     <span class="n">blacklist</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">SelectStealingOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">SelectStealingOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span>                     <span class="n">targets</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -536,12 +536,12 @@
 10
 11
 12
-</pre></td><td class="code"><pre><span class="k">struct</span> <span class="n">StealRequestInput</span> <span class="p">{</span>
+</pre></td><td class="code"><pre><span class="k">struct</span> <span class="nc">StealRequestInput</span> <span class="p">{</span>
   <span class="n">Processor</span>                               <span class="n">thief_proc</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*&gt;</span>                <span class="n">stealable_tasks</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="k">struct</span> <span class="n">StealRequestOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">StealRequestOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*&gt;</span>                   <span class="n">stolen_tasks</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -576,7 +576,7 @@
 <span class="kt">void</span> <span class="n">broadcast</span><span class="p">(</span><span class="n">MapperContext</span> <span class="n">ctx</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span>
                <span class="kt">size_t</span> <span class="n">message_size</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="n">message_kind</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">radix</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">MapperMessage</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">MapperMessage</span> <span class="p">{</span>
   <span class="n">Processor</span>                               <span class="n">sender</span><span class="p">;</span>
   <span class="kt">unsigned</span>                                <span class="n">kind</span><span class="p">;</span>
   <span class="k">const</span> <span class="kt">void</span><span class="o">*</span>                             <span class="n">message</span><span class="p">;</span>
@@ -609,16 +609,16 @@
 15
 16
 17
-</pre></td><td class="code"><pre><span class="k">struct</span> <span class="n">MappingConstraint</span> <span class="p">{</span>
+</pre></td><td class="code"><pre><span class="k">struct</span> <span class="nc">MappingConstraint</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*&gt;</span>                    <span class="n">constrained_tasks</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="o">&gt;</span>                       <span class="n">requirement_indexes</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="n">MapMustEpochInput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">MapMustEpochInput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Task</span><span class="o">*&gt;</span>                    <span class="n">tasks</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MappingConstraint</span><span class="o">&gt;</span>              <span class="n">constraints</span><span class="p">;</span>
   <span class="n">MappingTagID</span>                                <span class="n">mapping_tag</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="k">struct</span> <span class="n">MapMustEpochOutput</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">MapMustEpochOutput</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;</span>                      <span class="n">task_processors</span><span class="p">;</span>
   <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalInstance</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">constraint_mappings</span><span class="p">;</span>
 <span class="p">};</span>
@@ -642,7 +642,7 @@
 <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">update_mappable_data</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">taskId</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">taskId</span><span class="p">));</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p>You would normally do this in two places: in select_task_options for newly created tasks; and in map_task for point tasks that are generated from index task launches in slice_task. In the second case it is necessary to distinguish between point tasks and individual tasks using <code class="highlighter-rouge">task.is_index_space == true</code> to identify the point tasks. Note that point tasks will enter map_task with mappable data that is copied from the parent index task launch. So you can record the parent task before overwriting the mappable data with the new identifier.</p>
+<p>You would normally do this in two places: in select_task_options for newly created tasks; and in map_task for point tasks that are generated from index task launches in slice_task. In the second case it is necessary to distinguish between point tasks and individual tasks using <code class="language-plaintext highlighter-rouge">task.is_index_space == true</code> to identify the point tasks. Note that point tasks will enter map_task with mappable data that is copied from the parent index task launch. So you can record the parent task before overwriting the mappable data with the new identifier.</p>
 
 
     </div><!-- /.article-wrap -->

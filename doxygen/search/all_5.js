@@ -22,5 +22,6 @@ var searchData=
   ['from_5funtyped_5fpointer',['from_untyped_pointer',['../class_legion_1_1_future.html#a748cf065d38332f8d0c77053e77439e0',1,'Legion::Future']]],
   ['from_5fvalue',['from_value',['../class_legion_1_1_future.html#a8a5f95c981e5e2ed8f5119c037f93290',1,'Legion::Future']]],
   ['future',['Future',['../class_legion_1_1_future.html',1,'Legion']]],
+  ['futurefunctor',['FutureFunctor',['../class_legion_1_1_future_functor.html',1,'Legion']]],
   ['futuremap',['FutureMap',['../class_legion_1_1_future_map.html',1,'Legion']]]
 ];

@@ -39,6 +39,7 @@ var searchData=
   ['issue_5fmapping_5ffence',['issue_mapping_fence',['../class_legion_1_1_runtime.html#a764afe41f18fac3eec8511d60ef231cf',1,'Legion::Runtime']]],
   ['issue_5frelease',['issue_release',['../class_legion_1_1_runtime.html#aa1ceedaee7b9e3be8cd045b30a98212d',1,'Legion::Runtime']]],
   ['issue_5ftiming_5fmeasurement',['issue_timing_measurement',['../class_legion_1_1_runtime.html#aa08079d49f5ca63e3254864c3c91827b',1,'Legion::Runtime']]],
+  ['iterator',['iterator',['../class_legion_1_1_span_1_1iterator.html',1,'Legion::Span']]],
   ['iterator_5fcreate',['ITERATOR_CREATE',['../legion__c_8h.html#a86aa2b37f3459531f0be41f96a8978f0',1,'legion_c.h']]],
   ['iterator_5fdestroy',['ITERATOR_DESTROY',['../legion__c_8h.html#a40cacef0d013c395711ecd6d79806943',1,'legion_c.h']]],
   ['iterator_5fop',['ITERATOR_OP',['../legion__c_8h.html#a90fa3397a5c57a13e277f19e2f840eaf',1,'legion_c.h']]],

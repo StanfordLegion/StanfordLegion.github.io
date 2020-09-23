@@ -146,24 +146,24 @@ conduits. <strong>BE SURE THE CONFIGURE SCRIPT BUILDS THE CORRECT CONDUIT</stron
 machines ranging from our own personal Infiniband cluster to the Titan
 supercomputer with a Gemini interconnect to a collection of Amazon AWS
 nodes in the cloud using ethernet. The full list of flags for GASNet
-configuration can be obtained via <code class="highlighter-rouge">configure --help</code>, but below are some
+configuration can be obtained via <code class="language-plaintext highlighter-rouge">configure --help</code>, but below are some
 useful ones we use when building our own versions of GASNet.  (Some of these
 are actually the defaults, but we specify them explicitly in case the GASNet
 defaults ever change.)</p>
 
 <ul>
-  <li><code class="highlighter-rouge">--enable-gemini</code>: force GASNet to build the Gemini conduit for Cray interconnects.</li>
-  <li><code class="highlighter-rouge">--enable-ibv</code>: force GASNet to build the Infiniband conduit.</li>
-  <li><code class="highlighter-rouge">--enable-udp</code>: force GASNet to build the UDP conduit for ethernet interconnects.</li>
-  <li><code class="highlighter-rouge">--disable-mpi</code>: prevent GASNet from building the MPI conduit. It is very slow.</li>
-  <li><code class="highlighter-rouge">--prefix</code>: specify the destination for the GASNet installation.</li>
-  <li><code class="highlighter-rouge">--enable-par</code>: enable calling GASNet from multiple threads. Required for Legion.</li>
-  <li><code class="highlighter-rouge">--enable-mpi-compat</code>: allow GASNet to interoperate with MPI. Necessary
+  <li><code class="language-plaintext highlighter-rouge">--enable-gemini</code>: force GASNet to build the Gemini conduit for Cray interconnects.</li>
+  <li><code class="language-plaintext highlighter-rouge">--enable-ibv</code>: force GASNet to build the Infiniband conduit.</li>
+  <li><code class="language-plaintext highlighter-rouge">--enable-udp</code>: force GASNet to build the UDP conduit for ethernet interconnects.</li>
+  <li><code class="language-plaintext highlighter-rouge">--disable-mpi</code>: prevent GASNet from building the MPI conduit. It is very slow.</li>
+  <li><code class="language-plaintext highlighter-rouge">--prefix</code>: specify the destination for the GASNet installation.</li>
+  <li><code class="language-plaintext highlighter-rouge">--enable-par</code>: enable calling GASNet from multiple threads. Required for Legion.</li>
+  <li><code class="language-plaintext highlighter-rouge">--enable-mpi-compat</code>: allow GASNet to interoperate with MPI. Necessary
   for Legion applications which interact with MPI applications.</li>
-  <li><code class="highlighter-rouge">--enable-segment-fast</code>: necessary for supporting one-sided RDMA operations.</li>
-  <li><code class="highlighter-rouge">--disable-aligned-segments</code>: remove the requirement for aligned pinned memory.</li>
-  <li><code class="highlighter-rouge">--disable-pshm</code>: there should normally only be one GASNet process per node
-  in a Legion application.  (Use <code class="highlighter-rouge">--enable-pshm</code> only when Legion GASNet
+  <li><code class="language-plaintext highlighter-rouge">--enable-segment-fast</code>: necessary for supporting one-sided RDMA operations.</li>
+  <li><code class="language-plaintext highlighter-rouge">--disable-aligned-segments</code>: remove the requirement for aligned pinned memory.</li>
+  <li><code class="language-plaintext highlighter-rouge">--disable-pshm</code>: there should normally only be one GASNet process per node
+  in a Legion application.  (Use <code class="language-plaintext highlighter-rouge">--enable-pshm</code> only when Legion GASNet
   applications will interoperate
   with MPI applications with more than one process per node.)</li>
 </ul>
@@ -173,11 +173,11 @@ will be a GASNet library and a binary used for running
 applications. All applications using GASNet will need to link against
 the GASNet library (we describe how this is handled by the Legion
 build system below). Similar to running an MPI application with
-<code class="highlighter-rouge">mpirun</code>, a GASNet application must be launched by a wrapper
-script. This script is installed in the <code class="highlighter-rouge">bin</code> directory wherever
-GASNet was installed and usually takes the form <code class="highlighter-rouge">gasnetrun_&lt;conduit&gt;</code>
+<code class="language-plaintext highlighter-rouge">mpirun</code>, a GASNet application must be launched by a wrapper
+script. This script is installed in the <code class="language-plaintext highlighter-rouge">bin</code> directory wherever
+GASNet was installed and usually takes the form <code class="language-plaintext highlighter-rouge">gasnetrun_&lt;conduit&gt;</code>
 where ‘conduit’ names the conduit that should be used
-(e.g. <code class="highlighter-rouge">gasnetrun_ibv</code>). When Legion applications are built with
+(e.g. <code class="language-plaintext highlighter-rouge">gasnetrun_ibv</code>). When Legion applications are built with
 GASNet, they must be launched using this script. This script has a
 number of parameters and we refer users to the GASNet documentation
 regarding it.</p>
@@ -214,33 +214,33 @@ be named differently than what is shown below.)</p>
 <span class="nt">--disable-seq</span> <span class="nt">--disable-parsync</span> <span class="nt">--enable-mpi-compat</span> <span class="nt">--with-ibv-spawner</span><span class="o">=</span>mpi <span class="se">\</span>
 <span class="nt">--disable-ibv-rcv-thread</span> <span class="nt">--disable-aligned-segments</span> <span class="nt">--disable-pshm</span> <span class="nt">--disable-fca</span></code></pre></figure>
 
-<p>We describe each of the flags in turn. The <code class="highlighter-rouge">--prefix</code> flag specifies
+<p>We describe each of the flags in turn. The <code class="language-plaintext highlighter-rouge">--prefix</code> flag specifies
 the target installation location for GASNet in our user space
 directory (because we do not have administrative privilege on
 Keeneland). We then specify the target conduits to build with the
-<code class="highlighter-rouge">--enable-ibv</code> and <code class="highlighter-rouge">--enable-mpi</code> flags indicating that GASNet should
-build the Infiniband and MPI conduits. The <code class="highlighter-rouge">--disable-portals</code> and
-<code class="highlighter-rouge">--disable-mxm</code> tell GASNet to avoid using any available
+<code class="language-plaintext highlighter-rouge">--enable-ibv</code> and <code class="language-plaintext highlighter-rouge">--enable-mpi</code> flags indicating that GASNet should
+build the Infiniband and MPI conduits. The <code class="language-plaintext highlighter-rouge">--disable-portals</code> and
+<code class="language-plaintext highlighter-rouge">--disable-mxm</code> tell GASNet to avoid using any available
 <a href="http://www.cs.sandia.gov/Portals/">Portals</a> or Mellanox APIs when
-building our conduits respectively. The <code class="highlighter-rouge">--enable-pthreads</code> flag
+building our conduits respectively. The <code class="language-plaintext highlighter-rouge">--enable-pthreads</code> flag
 instructs GASNet that it can use the Posix threads API as part of its
 implementation. We instruct GASNet that it should pin 4 GB of memory
 on each node to be used for its fast active message segment using the
-<code class="highlighter-rouge">--enable-segment-fast --with-segment-mmap-max=4GB</code> flags. Legion is
+<code class="language-plaintext highlighter-rouge">--enable-segment-fast --with-segment-mmap-max=4GB</code> flags. Legion is
 multi-threaded and we therefore need the thread safe version of GASNet
-which we specify with the <code class="highlighter-rouge">--enable-par</code> flag. We do not require the
+which we specify with the <code class="language-plaintext highlighter-rouge">--enable-par</code> flag. We do not require the
 sequential, or thread-unsafe multi-threaded GASNet versions so we
-disable them with the <code class="highlighter-rouge">--disable-seq</code> and <code class="highlighter-rouge">--disable_parsync</code> flags.
+disable them with the <code class="language-plaintext highlighter-rouge">--disable-seq</code> and <code class="language-plaintext highlighter-rouge">--disable_parsync</code> flags.
 We enable our GASNet implementation to inter-operate with MPI by
-passing the <code class="highlighter-rouge">--enable-mpi-compat</code> flag. Since we usually use <code class="highlighter-rouge">mpirun</code>
-for spawning our applications instead of the <code class="highlighter-rouge">gasnet*_run</code> utilities,
-we set the spawner to MPI with the <code class="highlighter-rouge">--with-ibv-spawner</code> flag. By
+passing the <code class="language-plaintext highlighter-rouge">--enable-mpi-compat</code> flag. Since we usually use <code class="language-plaintext highlighter-rouge">mpirun</code>
+for spawning our applications instead of the <code class="language-plaintext highlighter-rouge">gasnet*_run</code> utilities,
+we set the spawner to MPI with the <code class="language-plaintext highlighter-rouge">--with-ibv-spawner</code> flag. By
 default, GASNet enables a thread for receiving active messages. Legion
 performs the same operation so we disable the GASNet thread with the
-<code class="highlighter-rouge">--disable-ibv-rcv-thread</code>.  Since Keeneland is operated by an
+<code class="language-plaintext highlighter-rouge">--disable-ibv-rcv-thread</code>.  Since Keeneland is operated by an
 installation of Linux with memory layout randomization we pass the
-<code class="highlighter-rouge">--disable-aligned-segments</code> flag to guarantee correct execution by
-GASNet. The <code class="highlighter-rouge">--disable-pshm</code> and <code class="highlighter-rouge">--disable-fca</code> flags disable shared
+<code class="language-plaintext highlighter-rouge">--disable-aligned-segments</code> flag to guarantee correct execution by
+GASNet. The <code class="language-plaintext highlighter-rouge">--disable-pshm</code> and <code class="language-plaintext highlighter-rouge">--disable-fca</code> flags disable shared
 memory and fast atomic operations which are unnecessary for Legion.</p>
 
 <p>While our installation for Keeneland is fairly straight-forward, some
@@ -263,9 +263,9 @@ cross-configure script, and then invoking it.</p>
 <span class="nt">--with-target-cxx</span><span class="o">=</span>/opt/cray/xt-asyncpe/5.24/CC</code></pre></figure>
 
 <p>Many of the flags are the same as previous example. We note that we
-include the <code class="highlighter-rouge">--enable-gemini</code> flag in order to ensure that the conduit
+include the <code class="language-plaintext highlighter-rouge">--enable-gemini</code> flag in order to ensure that the conduit
 for the Gemini interconnect is built. We also specify the correct MPI
-cross-compiler with the <code class="highlighter-rouge">--with-target-cxx</code> flag. These two examples
+cross-compiler with the <code class="language-plaintext highlighter-rouge">--with-target-cxx</code> flag. These two examples
 should provide a useful illustration of the kinds of flags that can
 influence the performance of GASNet installation and should be
 considered when building an installation of GASNet to be used with
@@ -280,7 +280,7 @@ these variables should be properly set to match the communication
 patterns of the target application. There are many environment
 variables that can be set.  They are documented in the main and per-conduit
 GASNet README files, and can be listed at run time by setting
-<code class="highlighter-rouge">GASNET_VERBOSEENV=1</code>.  We cover some of the more important
+<code class="language-plaintext highlighter-rouge">GASNET_VERBOSEENV=1</code>.  We cover some of the more important
 performance ones here, looking first at the environment variables for
 the Infiniband conduit, and then the ones for a Cray Gemini
 conduit.</p>
@@ -291,20 +291,20 @@ applications that use the Infiniband conduit we tune the following
 environment variables.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH_PP</code> - Specifies the total number of operations
+  <li><code class="language-plaintext highlighter-rouge">GASNET_NETWORKDEPTH_PP</code> - Specifies the total number of operations
 (active messages and RDMA) operations that can be in flight
 between any pair of nodes.</li>
-  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH_TOTAL</code> - Specifies the total number of operations
+  <li><code class="language-plaintext highlighter-rouge">GASNET_NETWORKDEPTH_TOTAL</code> - Specifies the total number of operations
 that can be in flight from any one node to all the others.</li>
-  <li><code class="highlighter-rouge">GASNET_AM_CREDITS_PP</code> - Set the total number of active messages
+  <li><code class="language-plaintext highlighter-rouge">GASNET_AM_CREDITS_PP</code> - Set the total number of active messages
 that can be in flight between any pair of nodes.</li>
-  <li><code class="highlighter-rouge">GASNET_AM_CREDITS_TOTAL</code> - Set the total number of active messages
+  <li><code class="language-plaintext highlighter-rouge">GASNET_AM_CREDITS_TOTAL</code> - Set the total number of active messages
 that can be in flight from any one node at a time.</li>
-  <li><code class="highlighter-rouge">GASNET_AM_CREDITS_SLACK</code> - Control how quickly active message
+  <li><code class="language-plaintext highlighter-rouge">GASNET_AM_CREDITS_SLACK</code> - Control how quickly active message
 credits are sent back to the node that sent them.</li>
-  <li><code class="highlighter-rouge">GASNET_AMRDMA_MAX_PEERS</code> - Control the number of nodes which
+  <li><code class="language-plaintext highlighter-rouge">GASNET_AMRDMA_MAX_PEERS</code> - Control the number of nodes which
 support the faster path for active messages by using RDMA.
-We usually set this to <code class="highlighter-rouge">0</code> as the heuristics used within GASNet to
+We usually set this to <code class="language-plaintext highlighter-rouge">0</code> as the heuristics used within GASNet to
 guess which peers to switch to the faster path are often confused by
 Legion’s message passing behavior.</li>
 </ul>
@@ -315,14 +315,14 @@ tune the following variables when optimizing an application for the
 Gemini conduit.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH</code> - Maximum number of network operations
+  <li><code class="language-plaintext highlighter-rouge">GASNET_NETWORKDEPTH</code> - Maximum number of network operations
 which can be in flight between any pair of nodes.</li>
-  <li><code class="highlighter-rouge">GASNET_NETWORKDEPTH_TOTAL</code> - Maximum number of network
+  <li><code class="language-plaintext highlighter-rouge">GASNET_NETWORKDEPTH_TOTAL</code> - Maximum number of network
 operations which can be in flight from an individual
 node at a time.</li>
-  <li><code class="highlighter-rouge">GASNET_GNI_NUM_PD</code> - Control the number of UGNI post
+  <li><code class="language-plaintext highlighter-rouge">GASNET_GNI_NUM_PD</code> - Control the number of UGNI post
 descriptors available for performing network operations.</li>
-  <li><code class="highlighter-rouge">GASNET_GNI_MEMREG</code> - Specify the number of pinned memory
+  <li><code class="language-plaintext highlighter-rouge">GASNET_GNI_MEMREG</code> - Specify the number of pinned memory
 allocations available for GASNet to use.  Most often
 needed when running applications without the -ll:rsize
 flag (see <a href="/starting/#command-line-flags">here</a>).</li>

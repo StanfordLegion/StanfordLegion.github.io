@@ -642,7 +642,7 @@
 <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">update_mappable_data</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">taskId</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">taskId</span><span class="p">));</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p>You would normally do this in two places: in select_task_options for newly created tasks; and in map_task for point tasks that are generated from index task launches in slice_task. In the second case it is necessary to distinguish between point tasks and individual tasks using <code class="language-plaintext highlighter-rouge">task.is_index_space == true</code> to identify the point tasks. Note that point tasks will enter map_task with mappable data that is copied from the parent index task launch. So you can record the parent task before overwriting the mappable data with the new identifier.</p>
+<p>You would normally do this in two places: in select_task_options for newly created tasks; and in map_task for point tasks that are generated from index task launches in slice_task. In the second case it is necessary to distinguish between point tasks and individual tasks using <code class="highlighter-rouge">task.is_index_space == true</code> to identify the point tasks. Note that point tasks will enter map_task with mappable data that is copied from the parent index task launch. So you can record the parent task before overwriting the mappable data with the new identifier.</p>
 
 
     </div><!-- /.article-wrap -->

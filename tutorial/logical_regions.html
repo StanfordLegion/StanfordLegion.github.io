@@ -130,18 +130,18 @@ space is the set of these indices.</p>
 
 <p>Indices can be plain numbers, or they can be multi-dimensional (2-D,
 3-D, etc.). Thus the set of points in an index space are bounded by
-a <code class="language-plaintext highlighter-rouge">Rect</code> templated on the dimensionality of the space.</p>
+a <code class="highlighter-rouge">Rect</code> templated on the dimensionality of the space.</p>
 
-<p>As with <code class="language-plaintext highlighter-rouge">Rect</code> and <code class="language-plaintext highlighter-rouge">Domain</code>, which were introduced in the <a href="/tutorial/index_tasks.html">index space
+<p>As with <code class="highlighter-rouge">Rect</code> and <code class="highlighter-rouge">Domain</code>, which were introduced in the <a href="/tutorial/index_tasks.html">index space
 example</a>, it can be useful to describe an
 index space where the number of dimensions is not known at compile
-time. This is simply called <code class="language-plaintext highlighter-rouge">IndexSpace</code>. The templated variant is
-called <code class="language-plaintext highlighter-rouge">IndexSpaceT</code>.</p>
+time. This is simply called <code class="highlighter-rouge">IndexSpace</code>. The templated variant is
+called <code class="highlighter-rouge">IndexSpaceT</code>.</p>
 
 <p>Index spaces are created by invoking one of several overloaded
-variants of the <code class="language-plaintext highlighter-rouge">create_index_space</code> method of <code class="language-plaintext highlighter-rouge">Runtime</code>. This returns
-an <code class="language-plaintext highlighter-rouge">IndexSpace</code> or <code class="language-plaintext highlighter-rouge">IndexSpaceT</code> depending on whether the provided
-argument is a <code class="language-plaintext highlighter-rouge">Domain</code> or <code class="language-plaintext highlighter-rouge">Rect</code>. Examples of these calls can be seen
+variants of the <code class="highlighter-rouge">create_index_space</code> method of <code class="highlighter-rouge">Runtime</code>. This returns
+an <code class="highlighter-rouge">IndexSpace</code> or <code class="highlighter-rouge">IndexSpaceT</code> depending on whether the provided
+argument is a <code class="highlighter-rouge">Domain</code> or <code class="highlighter-rouge">Rect</code>. Examples of these calls can be seen
 on lines 20 and 24.</p>
 
 <p>Index spaces are immutable. The set of points contained in an index
@@ -160,7 +160,7 @@ partition index spaces into subspaces in a
 <a href="/tutorial/partitioning.html">subsequent tutorial</a>.</p>
 
 <p>Legion provides a number of API calls that can be used to retrieve
-information about an index space, such as the <code class="language-plaintext highlighter-rouge">Domain</code> or <code class="language-plaintext highlighter-rouge">Rect</code> that
+information about an index space, such as the <code class="highlighter-rouge">Domain</code> or <code class="highlighter-rouge">Rect</code> that
 was used to create it. Lines 28 and 31 show examples of
 such calls.</p>
 
@@ -169,51 +169,51 @@ such calls.</p>
 <p>If index spaces describe the rows in a logical region, then field
 spaces describe the columns.</p>
 
-<p>Field spaces are created using the <code class="language-plaintext highlighter-rouge">create_field_space</code> method of
-<code class="language-plaintext highlighter-rouge">Runtime</code> (line 34).</p>
+<p>Field spaces are created using the <code class="highlighter-rouge">create_field_space</code> method of
+<code class="highlighter-rouge">Runtime</code> (line 34).</p>
 
 <p>Field spaces are created empty. Fields in a field space are
-dynamically allocated and freed using a <code class="language-plaintext highlighter-rouge">FieldAllocator</code> object (line
+dynamically allocated and freed using a <code class="highlighter-rouge">FieldAllocator</code> object (line
 37). For performance reasons there is a compile-time upper bound
 placed on the maximum number of fields that can be allocated in a
 single field space. The user has access to this compile-time limit and
-can modify it by changing the value assigned to <code class="language-plaintext highlighter-rouge">MAX_FIELDS</code> in the
-<code class="language-plaintext highlighter-rouge">legion_config.h</code> header file (the default is 512). If a program attempts 
+can modify it by changing the value assigned to <code class="highlighter-rouge">MAX_FIELDS</code> in the
+<code class="highlighter-rouge">legion_config.h</code> header file (the default is 512). If a program attempts 
 to exceed this maximum then the Legion runtime will report an error and 
 exit. There is no limit on the number of field spaces that can be created 
 in a Legion program and therefore the total number of fields in an
 application is unbounded.</p>
 
-<p>Fields are allocated by invoking the <code class="language-plaintext highlighter-rouge">allocate_field</code>
-method of <code class="language-plaintext highlighter-rouge">FieldAllocator</code> (lines 38 and 40). When a
+<p>Fields are allocated by invoking the <code class="highlighter-rouge">allocate_field</code>
+method of <code class="highlighter-rouge">FieldAllocator</code> (lines 38 and 40). When a
 field is allocated the application must specify
 the size of the field in bytes.
-The <code class="language-plaintext highlighter-rouge">allocate_field</code> method will return a <code class="language-plaintext highlighter-rouge">FieldID</code>
+The <code class="highlighter-rouge">allocate_field</code> method will return a <code class="highlighter-rouge">FieldID</code>
 which is used to name the field. Users may optionally
 specify the ID to be associated with the field being
-allocated using the second parameter to <code class="language-plaintext highlighter-rouge">allocate_field</code>.
+allocated using the second parameter to <code class="highlighter-rouge">allocate_field</code>.
 If this is done, then it is the responsibility of the
-user to ensure that each <code class="language-plaintext highlighter-rouge">FieldID</code> is used only once
+user to ensure that each <code class="highlighter-rouge">FieldID</code> is used only once
 for a each field space. Legion supports parallel field
 allocation in the same field space by different tasks,
-but undefined behavior will result if the same <code class="language-plaintext highlighter-rouge">FieldID</code>
+but undefined behavior will result if the same <code class="highlighter-rouge">FieldID</code>
 is allocated in the same field space by two different tasks.</p>
 
 <p>Currently Legion assumes that the data stored by fields is
 trivially copyable. If this is not the case, users can also
 register custom serialize/deserialize or <em>serdez</em> functors
 with the runtime to aid in copying data in certain fields.
-The <code class="language-plaintext highlighter-rouge">allocate_field</code> method allows users to specify the ID
+The <code class="highlighter-rouge">allocate_field</code> method allows users to specify the ID
 for one of these functors if the data stored in the field
 is not trivally copyable.</p>
 
 <h4 id="logical-regions">Logical Regions</h4>
 
 <p>Logical regions are created by passing an index space and a field
-space to the <code class="language-plaintext highlighter-rouge">create_logical_region</code> method of <code class="language-plaintext highlighter-rouge">Runtime</code> (lines 46 and
+space to the <code class="highlighter-rouge">create_logical_region</code> method of <code class="highlighter-rouge">Runtime</code> (lines 46 and
 53). As with index spaces, logical regions can either contain a
-dynamic number of dimensions (<code class="language-plaintext highlighter-rouge">LogicalRegion</code>) or a templated number
-(<code class="language-plaintext highlighter-rouge">LogicalRegionT</code>).</p>
+dynamic number of dimensions (<code class="highlighter-rouge">LogicalRegion</code>) or a templated number
+(<code class="highlighter-rouge">LogicalRegionT</code>).</p>
 
 <p>Note that, in the example, because both logical regions are created
 using the same field space, any fields allocated in that field space
@@ -221,13 +221,13 @@ will be available on both logical regions. Similarly, any logical
 regions allocated with the same index space will have the same set of
 points associated with entries in the region.</p>
 
-<p>Every call to <code class="language-plaintext highlighter-rouge">create_logical_region</code> will create a new logical region
+<p>Every call to <code class="highlighter-rouge">create_logical_region</code> will create a new logical region
 even when the same index space and field space are passed as arguments
 (as seen in lines 60-61). Logical regions are uniquely defined by a
 triple consisting of the index space, field space, and <em>region tree
 ID</em>. These three values for every logical region can be obtained using
-the methods <code class="language-plaintext highlighter-rouge">get_index_space</code> (line 48), <code class="language-plaintext highlighter-rouge">get_field_space</code> (line 49),
-and <code class="language-plaintext highlighter-rouge">get_tree_id</code> (line 50). Line 61 demonstrates that the two logical
+the methods <code class="highlighter-rouge">get_index_space</code> (line 48), <code class="highlighter-rouge">get_field_space</code> (line 49),
+and <code class="highlighter-rouge">get_tree_id</code> (line 50). Line 61 demonstrates that the two logical
 regions have different region tree IDs.</p>
 
 <h4 id="resource-reclamation">Resource Reclamation</h4>
@@ -237,8 +237,8 @@ use memory. (Although index spaces and field spaces have no memory
 directly associated with them, there is still a cost to the metadata
 that is allocated.) When applications are done using
 resources they should be returned to the runtime.
-The <code class="language-plaintext highlighter-rouge">destroy_logical_region</code> (line 63-65), <code class="language-plaintext highlighter-rouge">destroy_field_space</code>
-(line 66), and <code class="language-plaintext highlighter-rouge">destroy_index_space</code> (line 67-68) methods
+The <code class="highlighter-rouge">destroy_logical_region</code> (line 63-65), <code class="highlighter-rouge">destroy_field_space</code>
+(line 66), and <code class="highlighter-rouge">destroy_index_space</code> (line 67-68) methods
 are used to return logical regions, field spaces,
 and index spaces to the runtime respectively. Since
 Legion operates with a deferred execution model, the
@@ -253,8 +253,8 @@ index or field space), it will implicitly flow up to the parent task
 that called it. Thus, it will not be automatically deleted when the
 task finishes.</p>
 
-<p><code class="language-plaintext highlighter-rouge">FieldAllocator</code> objects are also
-resources, but, are similar to <code class="language-plaintext highlighter-rouge">Future</code> objects, in that they
+<p><code class="highlighter-rouge">FieldAllocator</code> objects are also
+resources, but, are similar to <code class="highlighter-rouge">Future</code> objects, in that they
 are reference counted. When the objects go out of the scope
 the destructor is invoked and references are removed. The use of the
 explicit C++ scope at line 36 is to ensure that the allocator is

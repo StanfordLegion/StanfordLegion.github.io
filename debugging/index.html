@@ -121,13 +121,13 @@ applications, and those for debugging the runtime itself.</p>
 (typically in this order):</p>
 
 <ul>
-  <li><a href="#debug-mode">Debug Mode</a> (<code class="language-plaintext highlighter-rouge">DEBUG=1 make; ./app</code>)</li>
-  <li><a href="#backtrace">Backtrace</a> (<code class="language-plaintext highlighter-rouge">LEGION_BACKTRACE=1 ./app</code>)</li>
-  <li><a href="#freeze-on-error">Freeze On Error</a> (<code class="language-plaintext highlighter-rouge">LEGION_FREEZE_ON_ERROR=1 ./app</code>)</li>
-  <li><a href="#privilege-checks">Privilege Checks</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS make; ./app</code>)</li>
-  <li><a href="#bounds-checks">Bounds Checks</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS make; ./app</code>)</li>
-  <li><a href="#partition-checks">Partition Checks</a> (<code class="language-plaintext highlighter-rouge">./app -lg:partcheck</code>)</li>
-  <li><a href="#legion-spy">Legion Spy</a> (<code class="language-plaintext highlighter-rouge">./app -lg:spy -logfile spy_%.log; tools/legion_spy.py -dez spy_*.log</code>)</li>
+  <li><a href="#debug-mode">Debug Mode</a> (<code class="highlighter-rouge">DEBUG=1 make; ./app</code>)</li>
+  <li><a href="#backtrace">Backtrace</a> (<code class="highlighter-rouge">LEGION_BACKTRACE=1 ./app</code>)</li>
+  <li><a href="#freeze-on-error">Freeze On Error</a> (<code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR=1 ./app</code>)</li>
+  <li><a href="#privilege-checks">Privilege Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS make; ./app</code>)</li>
+  <li><a href="#bounds-checks">Bounds Checks</a> (<code class="highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS make; ./app</code>)</li>
+  <li><a href="#partition-checks">Partition Checks</a> (<code class="highlighter-rouge">./app -lg:partcheck</code>)</li>
+  <li><a href="#legion-spy">Legion Spy</a> (<code class="highlighter-rouge">./app -lg:spy -logfile spy_%.log; tools/legion_spy.py -dez spy_*.log</code>)</li>
 </ul>
 
 <p>The following tools are typically used after the initial debugging
@@ -136,14 +136,14 @@ tools have been exhausted or in special circumstances:</p>
 <ul>
   <li><a href="#logging-infrastructure">Logging Infrastructure</a></li>
   <li><a href="#debug-tasks">Debug Tasks</a></li>
-  <li><a href="#delay-start">Delay Start</a> (<code class="language-plaintext highlighter-rouge">./app -lg:delay N</code> where <code class="language-plaintext highlighter-rouge">N</code> is in seconds)</li>
-  <li><a href="#in-order-execution">In-Order Execution</a> (<code class="language-plaintext highlighter-rouge">./app -lg:inorder</code>)</li>
+  <li><a href="#delay-start">Delay Start</a> (<code class="highlighter-rouge">./app -lg:delay N</code> where <code class="highlighter-rouge">N</code> is in seconds)</li>
+  <li><a href="#in-order-execution">In-Order Execution</a> (<code class="highlighter-rouge">./app -lg:inorder</code>)</li>
   <li><a href="#full-size-instances">Full-Size Instances</a></li>
-  <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="language-plaintext highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
-  <li><a href="#dump-backtraces">Dump Backtraces</a> (<code class="language-plaintext highlighter-rouge">./app -ll:force_kthreads</code>)</li>
+  <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
+  <li><a href="#dump-backtraces">Dump Backtraces</a> (<code class="highlighter-rouge">./app -ll:force_kthreads</code>)</li>
   <li><a href="#dump-events">Dump Events</a></li>
-  <li><a href="#trace-memory-allocations">Trace Memory Allocations</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DTRACE_ALLOCATION make; ./app -level allocation=2</code>)</li>
-  <li><a href="#legion-gc">Legion GC</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DLEGION_GC make; ./app -level legion_gc=2 -logfile gc_%.log; tools/legion_gc.py -l gc_*.log</code>)</li>
+  <li><a href="#trace-memory-allocations">Trace Memory Allocations</a> (<code class="highlighter-rouge">CC_FLAGS=-DTRACE_ALLOCATION make; ./app -level allocation=2</code>)</li>
+  <li><a href="#legion-gc">Legion GC</a> (<code class="highlighter-rouge">CC_FLAGS=-DLEGION_GC make; ./app -level legion_gc=2 -logfile gc_%.log; tools/legion_gc.py -l gc_*.log</code>)</li>
 </ul>
 
 <h2 id="try-these-first">Try These First</h2>
@@ -154,7 +154,7 @@ tools have been exhausted or in special circumstances:</p>
 behavior, the first debugging technique should always be
 to compile Legion in debug mode. If the
 application is being built using our standard Makefile
-infrastructure, this is done simply by setting <code class="language-plaintext highlighter-rouge">DEBUG=1</code> in the environment or
+infrastructure, this is done simply by setting <code class="highlighter-rouge">DEBUG=1</code> in the environment or
 at the top of the application’s Makefile. Compiling the
 runtime in debug mode will enable many checks which are
 disabled in release mode and may uncover both application
@@ -174,16 +174,16 @@ negligible performance impact and is therefore recommended in settings
 where crashes occur in production applications. Backtraces often
 provide initial clues as to where a bug may be hiding, and can direct
 further debugging efforts. To enable backtraces, set
-<code class="language-plaintext highlighter-rouge">LEGION_BACKTRACE</code> to <code class="language-plaintext highlighter-rouge">1</code> in the environment:</p>
+<code class="highlighter-rouge">LEGION_BACKTRACE</code> to <code class="highlighter-rouge">1</code> in the environment:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">LEGION_BACKTRACE</span><span class="o">=</span>1 ./app</code></pre></figure>
 
-<p>When using <code class="language-plaintext highlighter-rouge">mpirun</code> as a launcher for the application, remember that a
-<code class="language-plaintext highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
+<p>When using <code class="highlighter-rouge">mpirun</code> as a launcher for the application, remember that a
+<code class="highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">mpirun <span class="nt">-x</span> <span class="nv">LEGION_BACKTRACE</span><span class="o">=</span>1 ./app</code></pre></figure>
 
-<p>(Note: <code class="language-plaintext highlighter-rouge">LEGION_BACKTRACE</code> can also be spelled <code class="language-plaintext highlighter-rouge">REALM_BACKTRACE</code>. Both
+<p>(Note: <code class="highlighter-rouge">LEGION_BACKTRACE</code> can also be spelled <code class="highlighter-rouge">REALM_BACKTRACE</code>. Both
 spellings are identical.)</p>
 
 <h3 id="freeze-on-error">Freeze On Error</h3>
@@ -192,17 +192,17 @@ spellings are identical.)</p>
 error (such as an assertion failure or a segfault). This capability is
 particularly useful in multi-node runs and in situations where the bug
 might reproduce sporadically. To enable this, set
-<code class="language-plaintext highlighter-rouge">LEGION_FREEZE_ON_ERROR</code> to <code class="language-plaintext highlighter-rouge">1</code> in the environment:</p>
+<code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR</code> to <code class="highlighter-rouge">1</code> in the environment:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">LEGION_FREEZE_ON_ERROR</span><span class="o">=</span>1 ./app</code></pre></figure>
 
-<p>When using <code class="language-plaintext highlighter-rouge">mpirun</code> as a launcher for the application, remember that a
-<code class="language-plaintext highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
+<p>When using <code class="highlighter-rouge">mpirun</code> as a launcher for the application, remember that a
+<code class="highlighter-rouge">-x</code> flag is required to pass the variable to the child process:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">mpirun <span class="nt">-x</span> <span class="nv">LEGION_FREEZE_ON_ERROR</span><span class="o">=</span>1 ./app</code></pre></figure>
 
-<p>(Note: <code class="language-plaintext highlighter-rouge">LEGION_FREEZE_ON_ERROR</code> can also be spelled
-<code class="language-plaintext highlighter-rouge">REALM_FREEZE_ON_ERROR</code>. Both spellings are identical.)</p>
+<p>(Note: <code class="highlighter-rouge">LEGION_FREEZE_ON_ERROR</code> can also be spelled
+<code class="highlighter-rouge">REALM_FREEZE_ON_ERROR</code>. Both spellings are identical.)</p>
 
 <p>If the application crashes, it will freeze with an message such as the
 following. After logging in to the node, it should then be possible to
@@ -222,7 +222,7 @@ $ gdb -p 12345
   2    Thread 0x2b2223ffd700 (LWP 2670) "terra" pthread_cond_wait@@GLIBC_2.3.2 () at .../pthread_cond_wait.S:185
 * 1    Thread 0x2b221b23c480 (LWP 2651) "terra" pthread_cond_wait@@GLIBC_2.3.2 () at .../pthread_cond_wait.S:185</code></pre></figure>
 
-<p>(As a hint, the offending thread is usually running <code class="language-plaintext highlighter-rouge">nanosleep</code>. Many
+<p>(As a hint, the offending thread is usually running <code class="highlighter-rouge">nanosleep</code>. Many
 of the other threads are message handers and such and are not useful
 for debugging purposes.)</p>
 
@@ -246,9 +246,9 @@ Regent. For applications written in C++ that use the Legion runtime
 interface directly, we provide a way of dynamically verifying
 privileges on all memory accesses.</p>
 
-<p>To enable privilege checks, the <code class="language-plaintext highlighter-rouge">-DPRIVILEGE_CHECKS</code> flag
+<p>To enable privilege checks, the <code class="highlighter-rouge">-DPRIVILEGE_CHECKS</code> flag
 should be added to the list of compile time flags specified
-by the <code class="language-plaintext highlighter-rouge">CC_FLAGS</code> environment variable in Legion application
+by the <code class="highlighter-rouge">CC_FLAGS</code> environment variable in Legion application
 Makefile. This will enforce a privilege check for every
 memory access done through a region accessor. If any privileges
 violate the originally requested privileges for the task,
@@ -267,9 +267,9 @@ regions requested by a task. This feature is also used
 to catch application bugs which would normally be caught
 at compile-time by the Legion type system, but which may
 escape detection when writing programs directly to the
-runtime API. To enable these checks, the <code class="language-plaintext highlighter-rouge">-DBOUNDS_CHECKS</code>
+runtime API. To enable these checks, the <code class="highlighter-rouge">-DBOUNDS_CHECKS</code>
 flag should the added to the list of compile time flags
-specified by the <code class="language-plaintext highlighter-rouge">CC_FLAGS</code> environment variable in a
+specified by the <code class="highlighter-rouge">CC_FLAGS</code> environment variable in a
 Legion application Makefile. We again note that because
 these checks are performed on every memory access, they
 can significantly degrade the performance of a Legion
@@ -281,7 +281,7 @@ application.</p>
 is creating partitions which an application declares to
 be disjoint, but for which the provided coloring is not
 actually disjoint. For performance reasons, when a call
-to <code class="language-plaintext highlighter-rouge">create_index_partition</code> is made, Legion does <em>NOT</em>
+to <code class="highlighter-rouge">create_index_partition</code> is made, Legion does <em>NOT</em>
 check the declared disjointness of the coloring. Instead
 the runtime simply trusts the applications to correctly
 specify the disjointness of the partition. As users have
@@ -289,7 +289,7 @@ experimented with more complicated coloring schemes, we’ve
 noticed an increasing number of cases where colorings are
 claimed to be disjoint when they actually are not.</p>
 
-<p>To address this problem, we provide the <code class="language-plaintext highlighter-rouge">-lg:partcheck</code>
+<p>To address this problem, we provide the <code class="highlighter-rouge">-lg:partcheck</code>
 command line flag which instructs the Legion high-level
 runtime to verify the disjointness of all colorings which
 are claimed to be disjoint and report a runtime error if
@@ -297,7 +297,7 @@ they are not. Depending on the size and type of coloring
 as well as the number of colors, these checks can take
 arbitrarily long and may degrade performance. Due to the
 extreme performance cost associated with these checks, the
-<code class="language-plaintext highlighter-rouge">-lg:partcheck</code> flag will issue a warning if it is used in conjuction
+<code class="highlighter-rouge">-lg:partcheck</code> flag will issue a warning if it is used in conjuction
 with profiling.</p>
 
 <h3 id="legion-spy">Legion Spy</h3>
@@ -313,23 +313,23 @@ the runtime itself.</p>
 <p>These modes have slightly different usage patterns, as a full check of
 the runtime analysis is relatively expensive.</p>
 
-<p>To use visualize dependencies, run the application with <code class="language-plaintext highlighter-rouge">-lg:spy
+<p>To use visualize dependencies, run the application with <code class="highlighter-rouge">-lg:spy
 -logfile spy_%.log</code>. (No special compile-time flags are necessary.)
 This will produce one log file per node. Then run the post-processing
-script <code class="language-plaintext highlighter-rouge">legion_spy.py</code> on the log files to generate PDF files of the
+script <code class="highlighter-rouge">legion_spy.py</code> on the log files to generate PDF files of the
 various visualizations in the current directory.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-lg</span>:spy <span class="nt">-logfile</span> spy_%.log
 legion/tools/legion_spy.py <span class="nt">-dez</span> spy_<span class="k">*</span>.log</code></pre></figure>
 
-<p>(The options used here are <code class="language-plaintext highlighter-rouge">-d</code> for dataflow graph, <code class="language-plaintext highlighter-rouge">-e</code> for event
-graph, and <code class="language-plaintext highlighter-rouge">-z</code> to include more information, such as field names.)</p>
+<p>(The options used here are <code class="highlighter-rouge">-d</code> for dataflow graph, <code class="highlighter-rouge">-e</code> for event
+graph, and <code class="highlighter-rouge">-z</code> to include more information, such as field names.)</p>
 
 <p>To use Legion Spy’s full checking mode, compile with
-<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DLEGION_SPY</code> in the environment or at the top of the
+<code class="highlighter-rouge">CC_FLAGS=-DLEGION_SPY</code> in the environment or at the top of the
 application Makefile. Run the application as before, and call the
-script with <code class="language-plaintext highlighter-rouge">-lpa</code> (<code class="language-plaintext highlighter-rouge">-l</code> for logical analysis, <code class="language-plaintext highlighter-rouge">-p</code> for physical, and
-<code class="language-plaintext highlighter-rouge">-a</code> to assert on failure). (The options <code class="language-plaintext highlighter-rouge">-dez</code> will work as well.)</p>
+script with <code class="highlighter-rouge">-lpa</code> (<code class="highlighter-rouge">-l</code> for logical analysis, <code class="highlighter-rouge">-p</code> for physical, and
+<code class="highlighter-rouge">-a</code> to assert on failure). (The options <code class="highlighter-rouge">-dez</code> will work as well.)</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">CC_FLAGS</span><span class="o">=</span><span class="nt">-DLEGION_SPY</span> make
 ./app <span class="nt">-logfile</span> spy_%.log
@@ -351,7 +351,7 @@ operations.</p>
 logging levels and categorization of messages. Logging is done using
 static singleton objects called <em>loggers</em>. Each category of message is
 declared as a static singleton object. For example, near the top of
-the default mapper implementation in <code class="language-plaintext highlighter-rouge">default_mapper.cc</code> we create the
+the default mapper implementation in <code class="highlighter-rouge">default_mapper.cc</code> we create the
 following logger category:</p>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Logger</span><span class="o">::</span><span class="n">Category</span> <span class="nf">log_mapper</span><span class="p">(</span><span class="s">"default_mapper"</span><span class="p">);</span></code></pre></figure>
@@ -365,28 +365,28 @@ exact invocation depends on the desired logging level. For example:</p>
 <span class="n">log_mapper</span><span class="p">.</span><span class="n">debug</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"hello ostream"</span> <span class="o">&lt;&lt;</span> <span class="mf">3.14</span><span class="p">;</span> <span class="c1">// no endl</span></code></pre></figure>
 
 <p>Legion supports six levels of logging (in order from lowest priority
-to highest): <code class="language-plaintext highlighter-rouge">spew</code>, <code class="language-plaintext highlighter-rouge">debug</code>, <code class="language-plaintext highlighter-rouge">info</code>, <code class="language-plaintext highlighter-rouge">print</code>, <code class="language-plaintext highlighter-rouge">warning</code>, and <code class="language-plaintext highlighter-rouge">error</code>.</p>
+to highest): <code class="highlighter-rouge">spew</code>, <code class="highlighter-rouge">debug</code>, <code class="highlighter-rouge">info</code>, <code class="highlighter-rouge">print</code>, <code class="highlighter-rouge">warning</code>, and <code class="highlighter-rouge">error</code>.</p>
 
 <p>Message filtering of different levels is controlled simultaneously by
 a static and a dynamic switch.  First, the Makefile variable
-<code class="language-plaintext highlighter-rouge">OUTPUT_LEVEL</code> places a static lower bound on which messages can be
+<code class="highlighter-rouge">OUTPUT_LEVEL</code> places a static lower bound on which messages can be
 emitted. Any messages below this level are guaranteed to be statically
 elided by the compiler to avoid any runtime overhead. The logging
 level can also be controlled dynamically by a command line
-argument. Passing the <code class="language-plaintext highlighter-rouge">-level [&lt;category&gt;=]&lt;int&gt;</code> flag on the command
+argument. Passing the <code class="highlighter-rouge">-level [&lt;category&gt;=]&lt;int&gt;</code> flag on the command
 line will dynamically set the minimum (inclusive) logging level for
 the specified category (or if omitted, all categories), with 0
-corresponding to <code class="language-plaintext highlighter-rouge">spew</code> and 5 corresponding to <code class="language-plaintext highlighter-rouge">error</code>.</p>
+corresponding to <code class="highlighter-rouge">spew</code> and 5 corresponding to <code class="highlighter-rouge">error</code>.</p>
 
-<p>By default, logging messages are emitted to <code class="language-plaintext highlighter-rouge">stderr</code>. Often it is
+<p>By default, logging messages are emitted to <code class="highlighter-rouge">stderr</code>. Often it is
 desirable to log output to a file (or a file per node) instead. The
-<code class="language-plaintext highlighter-rouge">-logfile</code> flag can be used to specify a filename for the logs. A <code class="language-plaintext highlighter-rouge">%</code>
+<code class="highlighter-rouge">-logfile</code> flag can be used to specify a filename for the logs. A <code class="highlighter-rouge">%</code>
 character in the name (if any) will be replaced by the node number
 (resulting in one log file per node).</p>
 
 <p>For example, the command line below sets a logging level of 4 for
-<code class="language-plaintext highlighter-rouge">tasks</code>, 2 for <code class="language-plaintext highlighter-rouge">legion_spy</code>, and 3 for everything else, and directs
-output to a series of files <code class="language-plaintext highlighter-rouge">prof_0.log</code>, <code class="language-plaintext highlighter-rouge">prof_1.log</code>, etc. for each
+<code class="highlighter-rouge">tasks</code>, 2 for <code class="highlighter-rouge">legion_spy</code>, and 3 for everything else, and directs
+output to a series of files <code class="highlighter-rouge">prof_0.log</code>, <code class="highlighter-rouge">prof_1.log</code>, etc. for each
 node.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-level</span> <span class="nv">tasks</span><span class="o">=</span>4,legion_spy<span class="o">=</span>2,3 <span class="nt">-logfile</span> prof_%.log</code></pre></figure>
@@ -397,7 +397,7 @@ node.</p>
 found has been the ability to use <em>debug tasks</em>
 as a means of introspecting Legion applications.
 Due to the out-of-order nature of Legion task
-execution, using a traditional debugger like <code class="language-plaintext highlighter-rouge">gdb</code>
+execution, using a traditional debugger like <code class="highlighter-rouge">gdb</code>
 to debug a single-node Legion application can be
 challenging. To aid in setting break-points and
 checking conditions in association with a debugger
@@ -408,7 +408,7 @@ regarding the data in logical regions. One example of
 a kind of debugging task can be seen in our
 <a href="tutorial/circuit.html">full circuit simulation</a>
 example which has optional checking tasks for
-verifying that there are no <code class="language-plaintext highlighter-rouge">NaN</code> or <code class="language-plaintext highlighter-rouge">Inf</code> values
+verifying that there are no <code class="highlighter-rouge">NaN</code> or <code class="highlighter-rouge">Inf</code> values
 in our simulation.</p>
 
 <p>Debug tasks are a very useful tool as they can request
@@ -417,22 +417,22 @@ all or a subset of an applications data.  Similarly by
 changing privileges and coherence modes, debug tasks
 can control where they are run in the order of execution
 of tasks. We routinely launch debug tasks which declare
-stronger privileges than necessary (e.g. <code class="language-plaintext highlighter-rouge">READ-WRITE</code>
-instead of <code class="language-plaintext highlighter-rouge">READ-ONLY</code>) in order to prevent any later
+stronger privileges than necessary (e.g. <code class="highlighter-rouge">READ-WRITE</code>
+instead of <code class="highlighter-rouge">READ-ONLY</code>) in order to prevent any later
 tasks from running in parallel.</p>
 
 <p>In practice, the ability to launch debug tasks is one of
 the most useful features of Legion, enabling introspection
 that can be easily enabled and disabled without worrying
 about correctness. Really, debug tasks are just a very
-primitive form of <code class="language-plaintext highlighter-rouge">in-situ</code> analytics.</p>
+primitive form of <code class="highlighter-rouge">in-situ</code> analytics.</p>
 
 <h3 id="delay-start">Delay Start</h3>
 
 <p>In some cases it can be useful to attach a debugger to a program prior
 to the point where it actually fails. This can be challenging
 particularly in multi-node executions where the user cannot simply run
-<code class="language-plaintext highlighter-rouge">gdb --args ./app ...</code>. To assist in such cases, Legion provides an
+<code class="highlighter-rouge">gdb --args ./app ...</code>. To assist in such cases, Legion provides an
 option to pause at the beginning of an application run. The user can
 then use the delay to manually attach to the process with a debugger.</p>
 
@@ -442,15 +442,15 @@ to starting the top-level task:</p>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-lg</span>:delay 30</code></pre></figure>
 
 <p>The user can use this opportunity to find the appropriate PID and
-attach with a debugger. For example, assuming that <code class="language-plaintext highlighter-rouge">ps</code> reports that
-the PID is <code class="language-plaintext highlighter-rouge">12345</code>:</p>
+attach with a debugger. For example, assuming that <code class="highlighter-rouge">ps</code> reports that
+the PID is <code class="highlighter-rouge">12345</code>:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">ps <span class="nt">-u</span> <span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span>
 gdb <span class="nt">-p</span> 12345</code></pre></figure>
 
 <p>After entering the debugger, the user can set breakpoints or configure
 settings as appropriate, and then when ready can issue the command
-<code class="language-plaintext highlighter-rouge">continue</code> to resume execution of the application.</p>
+<code class="highlighter-rouge">continue</code> to resume execution of the application.</p>
 
 <h3 id="in-order-execution">In-Order Execution</h3>
 
@@ -461,7 +461,7 @@ useful to know that operations are actually executed
 in the order in which they are issued. This can be useful
 both for debugging Legion application code, as well as
 for investigating runtime bugs. To enable this feature,
-execute the application with the command-line flag <code class="language-plaintext highlighter-rouge">-lg:inorder</code>.
+execute the application with the command-line flag <code class="highlighter-rouge">-lg:inorder</code>.
 When running
 in this mode sub-tasks and other operations launched
 within a parent task will be issued and run to completion
@@ -491,15 +491,15 @@ difficult to ensure all the Legion copy routines
 properly recognized trimmed physical instances.</p>
 
 <p>To help discover both types of bugs, the Legion
-runtime can be compiled with the <code class="language-plaintext highlighter-rouge">-DFULL_SIZE_INSTANCES</code>
-compile-time flag set in the <code class="language-plaintext highlighter-rouge">CC_FLAGS</code> of a
+runtime can be compiled with the <code class="highlighter-rouge">-DFULL_SIZE_INSTANCES</code>
+compile-time flag set in the <code class="highlighter-rouge">CC_FLAGS</code> of a
 Legion application Makefile. This feature forces the
 Legion runtime to always allocated physical instances
 of the size of the top-level logical region in the
 region tree. This prevents out-of-bounds memory accesses
 from corrupting other instances and can aid in finding
 runtime errors. If an application runs correctly
-with <code class="language-plaintext highlighter-rouge">-DFULL_SIZE_INSTANCES</code> and passes all bounds
+with <code class="highlighter-rouge">-DFULL_SIZE_INSTANCES</code> and passes all bounds
 checks then it is likely a runtime bug and should
 be reported on the
 <a href="/discussion/">bug tracker</a>.</p>
@@ -527,8 +527,8 @@ would be in the truly distributed case). This
 allows a single debugger to be attached
 to a process on a single node and observe
 the different runtime instances. This setting
-can be enabled by passing the flags <code class="language-plaintext highlighter-rouge">-lg:separate -ll:util 0</code>
-on the command line. (The <code class="language-plaintext highlighter-rouge">-ll:util 0</code> is required because this mode
+can be enabled by passing the flags <code class="highlighter-rouge">-lg:separate -ll:util 0</code>
+on the command line. (The <code class="highlighter-rouge">-ll:util 0</code> is required because this mode
 does not support execution with explicit utility processors.)</p>
 
 <h3 id="dump-backtraces">Dump Backtraces</h3>
@@ -541,7 +541,7 @@ that may point to a possible cause.</p>
 
 <p>One complicating factor is that Legion employs user-level threads by
 default. Therefore, in order to get useful backtraces, it is necessary
-to use the flag <code class="language-plaintext highlighter-rouge">-ll:force_kthreads</code> to disable user-level threads:</p>
+to use the flag <code class="highlighter-rouge">-ll:force_kthreads</code> to disable user-level threads:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-ll</span>:force_kthreads
 <span class="c"># wait for the application to freeze</span>
@@ -552,7 +552,7 @@ apply thread all bt <span class="c"># inside gdb, dump backtraces</span></code><
 line numbers will not appear in the resulting backtraces. This can be
 accomplished by running in <a href="#debug-mode">debug mode</a> (which is
 recommended anyway), or if the freeze does not reproduce in debug
-mode, Legion can be compiled with <code class="language-plaintext highlighter-rouge">-Og -ggdb</code> or similar to ensure
+mode, Legion can be compiled with <code class="highlighter-rouge">-Og -ggdb</code> or similar to ensure
 that debug symbols are available.</p>
 
 <h3 id="dump-events">Dump Events</h3>
@@ -560,13 +560,13 @@ that debug symbols are available.</p>
 <p>When debugging a freeze, if dumping backtraces fails to provide
 insight, then it can be helpful to dump the Realm event graph to
 determine if a cycle has formed. Note in order for this to work,
-Legion <em>must</em> be compiled with debug symbols (<code class="language-plaintext highlighter-rouge">-Og -ggdb</code> or
+Legion <em>must</em> be compiled with debug symbols (<code class="highlighter-rouge">-Og -ggdb</code> or
 similar). <a href="#debug-mode">Debug mode</a> is not required.</p>
 
 <p>To dump the events, run the application and wait for it to
 freeze. Then attach with a debugger and call the function
-<code class="language-plaintext highlighter-rouge">Realm::realm_show_events(0)</code>. The environment variable
-<code class="language-plaintext highlighter-rouge">REALM_SHOW_EVENT_FILENAME</code> controls where the resulting log files are
+<code class="highlighter-rouge">Realm::realm_show_events(0)</code>. The environment variable
+<code class="highlighter-rouge">REALM_SHOW_EVENT_FILENAME</code> controls where the resulting log files are
 stored.</p>
 
 <p>Using gdb, this might look like:</p>
@@ -577,8 +577,8 @@ stored.</p>
 gdb <span class="nt">-p</span> 12345
 call Realm::realm_show_events<span class="o">(</span>0<span class="o">)</span></code></pre></figure>
 
-<p>This should result in a file called <code class="language-plaintext highlighter-rouge">events.txt</code>. This file can be
-processed by a Legion tool called <code class="language-plaintext highlighter-rouge">detect_loops</code> to look for cycles in
+<p>This should result in a file called <code class="highlighter-rouge">events.txt</code>. This file can be
+processed by a Legion tool called <code class="highlighter-rouge">detect_loops</code> to look for cycles in
 the event graph:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">make <span class="nt">-C</span> legion/tools detect_loops

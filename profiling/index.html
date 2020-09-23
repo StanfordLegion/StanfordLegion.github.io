@@ -139,15 +139,15 @@ techniques to achieving high performance in Legion applications.</p>
 <h2 id="preliminary-steps">Preliminary Steps</h2>
 
 <p>When performance is desired, <em>always</em> build Legion in release mode
-(i.e. <code class="language-plaintext highlighter-rouge">DEBUG=0 make</code>). Release mode ensures that expensive assertions
+(i.e. <code class="highlighter-rouge">DEBUG=0 make</code>). Release mode ensures that expensive assertions
 and checks are disabled, and that appropriate optimization flags are
 used in the build. Also, remember to remove any unnecessary build
-flags (e.g. <code class="language-plaintext highlighter-rouge">-DPRIVILEGE_CHECKS</code>, <code class="language-plaintext highlighter-rouge">-DBOUNDS_CHECKS</code>, or <code class="language-plaintext highlighter-rouge">-DLEGION_SPY</code>).</p>
+flags (e.g. <code class="highlighter-rouge">-DPRIVILEGE_CHECKS</code>, <code class="highlighter-rouge">-DBOUNDS_CHECKS</code>, or <code class="highlighter-rouge">-DLEGION_SPY</code>).</p>
 
-<p>Set <code class="language-plaintext highlighter-rouge">OUTPUT_LEVEL</code> at an appropriate level. The default (<code class="language-plaintext highlighter-rouge">LEVEL_DEBUG</code>)
+<p>Set <code class="highlighter-rouge">OUTPUT_LEVEL</code> at an appropriate level. The default (<code class="highlighter-rouge">LEVEL_DEBUG</code>)
 is usually acceptable as dynamic checks are sufficient to ensure that the
 extra logging statements are not a performance problem. However, a higher
-level such as <code class="language-plaintext highlighter-rouge">LEVEL_SPEW</code> might cause problems, even when disabled on the
+level such as <code class="highlighter-rouge">LEVEL_SPEW</code> might cause problems, even when disabled on the
 command-line.</p>
 
 <p>If using GASNet, ensure that <a href="/gasnet/">GASNet has been properly configured and
@@ -162,30 +162,30 @@ task-level profiler called Legion Prof which is used for this purpose.</p>
 
 <p>Legion Prof is compiled into all builds by default, so no additional
 compile-time flags are required. However, it is always recommended to
-compile Legion in release mode (i.e. <code class="language-plaintext highlighter-rouge">DEBUG=0</code>) before measuring
+compile Legion in release mode (i.e. <code class="highlighter-rouge">DEBUG=0</code>) before measuring
 performance.</p>
 
-<p>Legion Prof outputs its logs in a compressed binary format using <code class="language-plaintext highlighter-rouge">ZLIB</code>.
-If you don’t have <code class="language-plaintext highlighter-rouge">ZLIB</code> on your system, you can set <code class="language-plaintext highlighter-rouge">USE_ZLIB=0</code> in
+<p>Legion Prof outputs its logs in a compressed binary format using <code class="highlighter-rouge">ZLIB</code>.
+If you don’t have <code class="highlighter-rouge">ZLIB</code> on your system, you can set <code class="highlighter-rouge">USE_ZLIB=0</code> in
 your Makefile.</p>
 
 <h3 id="generating-a-profile">Generating a Profile</h3>
 
-<p>To profile an application, run with <code class="language-plaintext highlighter-rouge">-lg:prof &lt;N&gt;</code> where <code class="language-plaintext highlighter-rouge">N</code> is the
-number of nodes to be profiled. (<code class="language-plaintext highlighter-rouge">N</code> can be less than the total number
+<p>To profile an application, run with <code class="highlighter-rouge">-lg:prof &lt;N&gt;</code> where <code class="highlighter-rouge">N</code> is the
+number of nodes to be profiled. (<code class="highlighter-rouge">N</code> can be less than the total number
 of nodes—this profiles a subset of the nodes.) Use the 
-<code class="language-plaintext highlighter-rouge">-lg:prof_logfile &lt;logfile&gt;</code> flag to save the output from each node to
-a separate file. The argument to the <code class="language-plaintext highlighter-rouge">-lg:prof_logfile</code> flag follows
-the same format as for <code class="language-plaintext highlighter-rouge">-logfile</code>, except that a <code class="language-plaintext highlighter-rouge">%</code> (to be replaced
+<code class="highlighter-rouge">-lg:prof_logfile &lt;logfile&gt;</code> flag to save the output from each node to
+a separate file. The argument to the <code class="highlighter-rouge">-lg:prof_logfile</code> flag follows
+the same format as for <code class="highlighter-rouge">-logfile</code>, except that a <code class="highlighter-rouge">%</code> (to be replaced
 by the node number) is mandatory. Finally, pass
-the resulting log files to <code class="language-plaintext highlighter-rouge">legion_prof.py</code>.</p>
+the resulting log files to <code class="highlighter-rouge">legion_prof.py</code>.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DEBUG</span><span class="o">=</span>0 make
 ./app <span class="nt">-lg</span>:prof &lt;N&gt; <span class="nt">-lg</span>:prof_logfile prof_%.gz
 <span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_<span class="k">*</span>.gz</code></pre></figure>
 
-<p>This will generate a subdirectory called <code class="language-plaintext highlighter-rouge">legion_prof</code> under the
-current directory, including a file named <code class="language-plaintext highlighter-rouge">index.html</code>. Open this file
+<p>This will generate a subdirectory called <code class="highlighter-rouge">legion_prof</code> under the
+current directory, including a file named <code class="highlighter-rouge">index.html</code>. Open this file
 in a browser. Note that, if you are attempting to view this file on
 your local computer, modern browser security settings prevent Legion
 Prof from working properly. Please see the instructions for <a href="#using-legion-prof-locally">Using
@@ -207,7 +207,7 @@ to display a broad overview of the performance of the application.
 However, after clicking on the triangles on the left had side of the screen,
 the profile can display more detailed information. This will uncollapse the
 corresponding line to show the actual events that happened during the application.
-For example, after clicking on the triangle for <code class="language-plaintext highlighter-rouge">node 0 (CPU)</code>:</p>
+For example, after clicking on the triangle for <code class="highlighter-rouge">node 0 (CPU)</code>:</p>
 
 <p><img src="/images/profiling/uncollapsed_profile.gif" alt="" /></p>
 
@@ -225,16 +225,16 @@ mouse over a region of interest.</p>
 <p><img src="/images/profiling/zoom_profile.gif" alt="" /></p>
 
 <p>After zooming in on a section, you can return to the previous zoom level by
-pressing <code class="language-plaintext highlighter-rouge">u</code> on the keyboard. You can also reset the zoom level by pressing <code class="language-plaintext highlighter-rouge">0</code>.
-For other options, use the <code class="language-plaintext highlighter-rouge">?</code> key to show a help message.</p>
+pressing <code class="highlighter-rouge">u</code> on the keyboard. You can also reset the zoom level by pressing <code class="highlighter-rouge">0</code>.
+For other options, use the <code class="highlighter-rouge">?</code> key to show a help message.</p>
 
 <p><img src="/images/profiling/help_profile.png" alt="" /></p>
 
-<p>Press <code class="language-plaintext highlighter-rouge">esc</code> or <code class="language-plaintext highlighter-rouge">?</code> to exit the help message.</p>
+<p>Press <code class="highlighter-rouge">esc</code> or <code class="highlighter-rouge">?</code> to exit the help message.</p>
 
 <p>One of the options in the help message was searching for tasks. To search for
-a task, press <code class="language-plaintext highlighter-rouge">s</code>, type a search query, and press enter. Legion Prof will
-highlight the matched tasks in red. To clear the search, press <code class="language-plaintext highlighter-rouge">c</code>.</p>
+a task, press <code class="highlighter-rouge">s</code>, type a search query, and press enter. Legion Prof will
+highlight the matched tasks in red. To clear the search, press <code class="highlighter-rouge">c</code>.</p>
 
 <p><img src="/images/profiling/search_profile.gif" alt="" /></p>
 
@@ -244,7 +244,7 @@ highlight the matched tasks in red. To clear the search, press <code class="lang
 dependencies between tasks. This can be helpful when debugging performance issues.
 To take advantage of this feature, run your application with both Legion Prof and
 <a href="/debugging/#legion-spy">Legion Spy</a> logging enabled. Then pass both the Legion Prof
-and <a href="/debugging/#legion-spy">Legion Spy</a> traces to <code class="language-plaintext highlighter-rouge">legion_prof.py</code>.</p>
+and <a href="/debugging/#legion-spy">Legion Spy</a> traces to <code class="highlighter-rouge">legion_prof.py</code>.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">DEBUG</span><span class="o">=</span>0 make
 ./app <span class="nt">-lg</span>:prof &lt;N&gt; <span class="nt">-lg</span>:spy <span class="nt">-logfile</span> spy_%.log <span class="nt">-lg</span>:prof_logfile prof_%.gz
@@ -268,17 +268,17 @@ relationship lines, respectively.</p>
 
 <p><img src="/images/profiling/deselect_profile.gif" alt="" /></p>
 
-<p>Finally, pressing <code class="language-plaintext highlighter-rouge">a</code> will draw the critical path of dependencies in the
+<p>Finally, pressing <code class="highlighter-rouge">a</code> will draw the critical path of dependencies in the
 application. Inspecting this line can be helpful to determine where optimizations
 should be made to improve the performance of the application. To remove the 
-critical path line, simply press <code class="language-plaintext highlighter-rouge">a</code> again.</p>
+critical path line, simply press <code class="highlighter-rouge">a</code> again.</p>
 
 <p><img src="/images/profiling/critical_path_profile.gif" alt="" /></p>
 
 <h3 id="using-legion-prof-locally">Using Legion Prof Locally</h3>
 
-<p>If you try to access <code class="language-plaintext highlighter-rouge">index.html</code> locally (by opening 
-<code class="language-plaintext highlighter-rouge">file:///.../index.html</code>), you may run into issues and may not be able to view
+<p>If you try to access <code class="highlighter-rouge">index.html</code> locally (by opening 
+<code class="highlighter-rouge">file:///.../index.html</code>), you may run into issues and may not be able to view
 the profile output. We recommend accessing your profile
 over a remote web server. Alternately, you can spin up a simple web server
 locally:</p>
@@ -288,10 +288,10 @@ python <span class="nt">-m</span> SimpleHTTPServer
 <span class="c"># or</span>
 python3 <span class="nt">-m</span> http.server</code></pre></figure>
 
-<p>and load your page on <code class="language-plaintext highlighter-rouge">localhost:8000</code> from your browser.</p>
+<p>and load your page on <code class="highlighter-rouge">localhost:8000</code> from your browser.</p>
 
 <p>Alternatively, if you want to use Chrome on local profiles, launch Chrome with
-<code class="language-plaintext highlighter-rouge">chrome --allow-file-access-from-files</code> from the terminal. Note that you will
+<code class="highlighter-rouge">chrome --allow-file-access-from-files</code> from the terminal. Note that you will
 need to completely close Chrome before doing this.</p>
 
 <h2 id="general-optimization-techniques">General Optimization Techniques</h2>
@@ -369,43 +369,43 @@ be divided into two categories:</p>
 
 <p>Legion provides a multitude of command line parameters which can be
 used to specify the machine configuration that is made visible to an
-application and its mapper through the <code class="language-plaintext highlighter-rouge">Machine</code> object. All these
+application and its mapper through the <code class="highlighter-rouge">Machine</code> object. All these
 flags are interpreted by the Realm low-level runtime and are therefore
-prefixed with <code class="language-plaintext highlighter-rouge">-ll:</code>.</p>
+prefixed with <code class="highlighter-rouge">-ll:</code>.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">-ll:cpu &lt;int&gt;</code> - Specify the number of latency optimized
- <code class="language-plaintext highlighter-rouge">Processors</code> to allocate on each node. Typically this
+  <li><code class="highlighter-rouge">-ll:cpu &lt;int&gt;</code> - Specify the number of latency optimized
+ <code class="highlighter-rouge">Processors</code> to allocate on each node. Typically this
  should be one or two less than the number of physical CPU cores 
  available on a node. The default is 1.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:util &lt;int&gt;</code> - Specify the number of utility <code class="language-plaintext highlighter-rouge">Processors</code>
+  <li><code class="highlighter-rouge">-ll:util &lt;int&gt;</code> - Specify the number of utility <code class="highlighter-rouge">Processors</code>
  to allocate on each node. Utility processors are used
  for performing runtime meta-tasks such as dependence analysis
  and mapping. More utility processors help reduce runtime
  overhead at the cost of consuming more hardware cores for 
  meta-work. The default is 1.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:gpu &lt;int&gt;</code> - Specify the number of 
+  <li><code class="highlighter-rouge">-ll:gpu &lt;int&gt;</code> - Specify the number of 
  GPUs on each node. This should be less than or equal to the number of discrete GPUs on
  the node. The default is 0.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:amsg &lt;int&gt;</code> - Set the number of 
+  <li><code class="highlighter-rouge">-ll:amsg &lt;int&gt;</code> - Set the number of 
  threads used for handling active message traffic
  between nodes. There must always
  be at least one of these threads. Applications which are 
  very communication intensive may consider increasing the 
  number of threads for handling active messages. The default
  value is 1.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:dma &lt;int&gt;</code> - Specify the number of 
+  <li><code class="highlighter-rouge">-ll:dma &lt;int&gt;</code> - Specify the number of 
  threads used for handling copies. For applications
  which do significant movement of data between distinct 
  memories, increasing the number of DMA threads can significantly
  improve performance. There must always be at least one DMA
  thread. The default value is 1.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:csize &lt;int&gt;</code> - Set the amount of system memory per node
+  <li><code class="highlighter-rouge">-ll:csize &lt;int&gt;</code> - Set the amount of system memory per node
  available to the CPUs (e.g. DRAM) in MBs. In general this value
  should be less than the maximum amount of physical memory available
  on a node. If it is set larger, applications may end up thrashing
  virtual DRAM pages. The default is 512 MB.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:gsize &lt;int&gt;</code> - Specify the amount of memory
+  <li><code class="highlighter-rouge">-ll:gsize &lt;int&gt;</code> - Specify the amount of memory
  that should be allocated to the GASNet global memory in MB. The GASNet
  memory provides a globally visible memory
  across all nodes. This means that all nodes can
@@ -413,9 +413,9 @@ prefixed with <code class="language-plaintext highlighter-rouge">-ll:</code>.</p
  doing explicit RDMA reads and writes. The amount of GASNet
  memory divided by the total number of nodes must be less than
  or equal to the GASNet segment size (e.g. set by the
- environment variable <code class="language-plaintext highlighter-rouge">GASNET_PHYSMEM_MAX</code>). The default value 
+ environment variable <code class="highlighter-rouge">GASNET_PHYSMEM_MAX</code>). The default value 
  is 256 MB.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:rsize &lt;int&gt;</code> - Set the amount of GASNet registered
+  <li><code class="highlighter-rouge">-ll:rsize &lt;int&gt;</code> - Set the amount of GASNet registered
  memory in MB to be allocated on each node. Registered memory
  is pinned memory that is registered with GASNet so that it
  may used for doing one-sided RDMA operations. It is therefore
@@ -423,12 +423,12 @@ prefixed with <code class="language-plaintext highlighter-rouge">-ll:</code>.</p
  often communicated in these memories (e.g. ghost region 
  instances). The maximum amount of registered memory must be
  less than GASNet segment size (controlled by the
- <code class="language-plaintext highlighter-rouge">GASNET_PHYSMEM_MAX</code> environment variable). The default value is 0.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:fsize &lt;int&gt;</code> - Indicate the amount of memory
+ <code class="highlighter-rouge">GASNET_PHYSMEM_MAX</code> environment variable). The default value is 0.</li>
+  <li><code class="highlighter-rouge">-ll:fsize &lt;int&gt;</code> - Indicate the amount of memory
   in MB to be allocated for GPU’s framebuffer memory. This value
   is required to be less than the total amount of physical GDDR5
   memory available in each GPU. The default is 256 MB.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:zsize &lt;int&gt;</code> - Indicate the amount of zero-copy
+  <li><code class="highlighter-rouge">-ll:zsize &lt;int&gt;</code> - Indicate the amount of zero-copy
   memory in MB to allocate on each node. Zero-copy memory is 
   memory that is mapped into each GPUs address space as well as
   to CPU-side DRAM and is therefore accessible by all the CPUs and
@@ -437,27 +437,27 @@ prefixed with <code class="language-plaintext highlighter-rouge">-ll:</code>.</p
   For more information on zero-copy memory we refer users
   <a href="http://docs.nvidia.com/cuda/cuda-c-best-practices-guide/#zero-copy">here</a>.
   The default value is 64 MB.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:stacksize &lt;int&gt;</code> - Indicate the maximum stack size to allocate
+  <li><code class="highlighter-rouge">-ll:stacksize &lt;int&gt;</code> - Indicate the maximum stack size to allocate
   for each CPU thread in MB. By default the values is 2 MB
   (consistent with the Posix nominal value).</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:sdpsize &lt;int&gt;</code> - Set the maximum amount of 
+  <li><code class="highlighter-rouge">-ll:sdpsize &lt;int&gt;</code> - Set the maximum amount of 
   pinned memory available for sending GASNet active messages on 
   a node. Users should really only need to increase this value 
-  if they observe failures of the <code class="language-plaintext highlighter-rouge">set_payload</code> runtime method. 
+  if they observe failures of the <code class="highlighter-rouge">set_payload</code> runtime method. 
   The default is 64 MB.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:lmbsize &lt;int&gt;</code> - Indicate the maximum size 
+  <li><code class="highlighter-rouge">-ll:lmbsize &lt;int&gt;</code> - Indicate the maximum size 
   of active messages that can be sent between a pair of nodes 
   by fixing an upper bound on long message buffer (LMB) sizes 
   in MB. Larger messages will get broken into chunks of at most 
   this size. The default is 1 MB.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:numlmbs &lt;int&gt;</code> - Set the maximum number
+  <li><code class="highlighter-rouge">-ll:numlmbs &lt;int&gt;</code> - Set the maximum number
   of long message buffers that should be created between a
   pair of nodes. More buffers will increase the number of
   large active messages that can be in flight simultaneously,
   but at the cost of increasing pinned registered memory
   usage in the GASNet segment. The default is 2.</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:pin &lt;int&gt;</code> - Specify whether the 
-  CPU system memory allocated by the <code class="language-plaintext highlighter-rouge">-ll:csize</code> flag should
+  <li><code class="highlighter-rouge">-ll:pin &lt;int&gt;</code> - Specify whether the 
+  CPU system memory allocated by the <code class="highlighter-rouge">-ll:csize</code> flag should
   be pinned. Pinning the memory means that copies to and from
   the GPU can make use of the asynchronous DMA engines on the
   GPU. Note that pinning doesn’t register this memory with
@@ -474,10 +474,10 @@ are tuned by hardware architects in out-of-order processors. Since
 Legion is built in software though, users have the direct ability
 to tune these parameters to their particular application. In keeping
 with the naming scheme used above, all Legion runtime flags
-are prefixed by <code class="language-plaintext highlighter-rouge">-lg:</code>.</p>
+are prefixed by <code class="highlighter-rouge">-lg:</code>.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">-lg:window</code> - Specify the maximum number of operations that 
+  <li><code class="highlighter-rouge">-lg:window</code> - Specify the maximum number of operations that 
  can be outstanding in a given task context (e.g. how many
  sub-tasks and operations can a task issue) before the 
  task is stalled. This upper bound provides one way of 
@@ -485,7 +485,7 @@ are prefixed by <code class="language-plaintext highlighter-rouge">-lg:</code>.<
  them from running too far in advance. In many ways this
  value is analogous to the size of a re-order buffer (ROB)
  in hardware processors.  The default value is 1024.</li>
-  <li><code class="language-plaintext highlighter-rouge">-lg:sched</code> - Set the maximum number of ready tasks which
+  <li><code class="highlighter-rouge">-lg:sched</code> - Set the maximum number of ready tasks which
  must be available to run on a low-level processor before
  the high-level runtime stops invoking the mapper to 
  schedule more tasks. This controls how far in advance
@@ -494,14 +494,14 @@ are prefixed by <code class="language-plaintext highlighter-rouge">-lg:</code>.<
  tasks require longer to map. In many ways this value is
  analogous to the number of entries available at reservation 
  stations for hardware resource units. The default value is 1.</li>
-  <li><code class="language-plaintext highlighter-rouge">-lg:width</code> - Indicate the number of operations which the
+  <li><code class="highlighter-rouge">-lg:width</code> - Indicate the number of operations which the
  high-level runtime should consider when making a scheduling
  pass. The wider this is, the more operations will be touched
  in a scheduling pass.  This can increase throughput, but also
  increase latency of scheduling on processors. This value
  is analogous to the super-scalar width of modern processors.
  The default value is 4.</li>
-  <li><code class="language-plaintext highlighter-rouge">-lg:message</code> - Specify the maximum size of messages in bytes that
+  <li><code class="highlighter-rouge">-lg:message</code> - Specify the maximum size of messages in bytes that
  can be sent between two instances of the high-level runtime.
  Smaller message sizes can decrease the latency of communication
  by pipelining communication, but can achieve lower interconnect
@@ -510,7 +510,7 @@ are prefixed by <code class="language-plaintext highlighter-rouge">-lg:</code>.<
  to ensure reasonable latency and bandwidth by ensuring medium
  size GASNet active messages are used on both Infiniband and
  Cray GASNet conduits.</li>
-  <li><code class="language-plaintext highlighter-rouge">-lg:filter</code> - This flag is more subtle and we only encourage
+  <li><code class="highlighter-rouge">-lg:filter</code> - This flag is more subtle and we only encourage
  users to make use of it after gaining some understanding of
  how the Legion runtime operates. In some application, there are
  many live operations that are non-interfering in different

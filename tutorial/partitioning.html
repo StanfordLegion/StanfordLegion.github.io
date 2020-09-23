@@ -127,28 +127,28 @@ set of points represented by an index space
 into subsets of points, each of which will
 become index sub-spaces. In our DAXPY example
 we want to partition our two logical regions
-into <code class="language-plaintext highlighter-rouge">num_subregions</code> different sub-regions.
-(Note that <code class="language-plaintext highlighter-rouge">num_subregions</code> can be controlled
-by the <code class="language-plaintext highlighter-rouge">-b</code> command line parameter now to
+into <code class="highlighter-rouge">num_subregions</code> different sub-regions.
+(Note that <code class="highlighter-rouge">num_subregions</code> can be controlled
+by the <code class="highlighter-rouge">-b</code> command line parameter now to
 specify the number of <em>blocks</em> to make.) To do
 this we must partition the common index space
-<code class="language-plaintext highlighter-rouge">is</code> upon which both logical regions are based.
+<code class="highlighter-rouge">is</code> upon which both logical regions are based.
 The partition we wish to create will be called
-<code class="language-plaintext highlighter-rouge">ip</code> for <em>index partition</em> (line 66).</p>
+<code class="highlighter-rouge">ip</code> for <em>index partition</em> (line 66).</p>
 
 <p>The first step in creating a partition is
-to create an <code class="language-plaintext highlighter-rouge">IndexSpace</code> which describes the
+to create an <code class="highlighter-rouge">IndexSpace</code> which describes the
 the <em>color space</em> of the partition. The purpose of a color space
 is to associate a <em>color</em> (a point within
 the color space) with each index sub-space
 we wish to make. In this DAXPY example, we
-create a <code class="language-plaintext highlighter-rouge">color_space</code> with a point for each
+create a <code class="highlighter-rouge">color_space</code> with a point for each
 of the desired blocks (lines 63-64, recall
-<code class="language-plaintext highlighter-rouge">Rect</code> types are inclusive).</p>
+<code class="highlighter-rouge">Rect</code> types are inclusive).</p>
 
 <p>Legion contains a large number of functions for performing any sort of
 partitioning the user desires. In this case, we’ll use
-<code class="language-plaintext highlighter-rouge">create_equal_partition</code> to create a partition with sub-regions of
+<code class="highlighter-rouge">create_equal_partition</code> to create a partition with sub-regions of
 roughly equal size. The resulting sub-regions are guarranteed to be
 dense, but in general partitioning is quite expressive and the
 resulting sub-regions of most partitioning operations need not be
@@ -163,13 +163,13 @@ the <a href="/pdfs/dpl2016.pdf">Dependent Partitioning</a> paper.</p>
 the created index partitions and index sub-spaces
 are implicitly created on all of the logical regions
 that were created using the original index space.
-For example, in our DAXPY application, the <code class="language-plaintext highlighter-rouge">is</code>
-index space was used to create both the <code class="language-plaintext highlighter-rouge">input_lr</code>
-and <code class="language-plaintext highlighter-rouge">output_lr</code> logical regions. Therefore, when
-we created the <code class="language-plaintext highlighter-rouge">ip</code> index partition of <code class="language-plaintext highlighter-rouge">is</code> we
+For example, in our DAXPY application, the <code class="highlighter-rouge">is</code>
+index space was used to create both the <code class="highlighter-rouge">input_lr</code>
+and <code class="highlighter-rouge">output_lr</code> logical regions. Therefore, when
+we created the <code class="highlighter-rouge">ip</code> index partition of <code class="highlighter-rouge">is</code> we
 also automatically created the corresponding
 partitions for both the region trees rooted by
-<code class="language-plaintext highlighter-rouge">input_lr</code> and <code class="language-plaintext highlighter-rouge">output_lr</code>. (A quick performance
+<code class="highlighter-rouge">input_lr</code> and <code class="highlighter-rouge">output_lr</code>. (A quick performance
 note: the Legion runtime lazily instantiates the data
 structures for these region trees to avoid costly
 overheads when dealing with large numbers of partitions
@@ -185,16 +185,16 @@ has no means for obtaining handles to these objects.
 The Legion runtime supports several ways of
 acquiring these handles. One example can be
 seen on line 69 where the application invokes
-<code class="language-plaintext highlighter-rouge">get_logical_partition</code>. This method
-takes a logical region <code class="language-plaintext highlighter-rouge">R</code> and an index partition
-of the index space of <code class="language-plaintext highlighter-rouge">R</code> and returns the corresponding
-<code class="language-plaintext highlighter-rouge">LogicalPartition</code> handle. There are a number of additional methods (such as <code class="language-plaintext highlighter-rouge">get_logical_partition_by_color</code>
-and <code class="language-plaintext highlighter-rouge">get_logical_partition_by_tree</code>) which
-can be used to obtain <code class="language-plaintext highlighter-rouge">LogicalPartition</code>
+<code class="highlighter-rouge">get_logical_partition</code>. This method
+takes a logical region <code class="highlighter-rouge">R</code> and an index partition
+of the index space of <code class="highlighter-rouge">R</code> and returns the corresponding
+<code class="highlighter-rouge">LogicalPartition</code> handle. There are a number of additional methods (such as <code class="highlighter-rouge">get_logical_partition_by_color</code>
+and <code class="highlighter-rouge">get_logical_partition_by_tree</code>) which
+can be used to obtain <code class="highlighter-rouge">LogicalPartition</code>
 handles. For sub-regions, the runtime supports a corresponding
-set of methods (<code class="language-plaintext highlighter-rouge">get_logical_subregion</code>,
-<code class="language-plaintext highlighter-rouge">get_logical_subregion_by_color</code>, and
-<code class="language-plaintext highlighter-rouge">get_logical_subregion_by_tree</code>) for discovering
+set of methods (<code class="highlighter-rouge">get_logical_subregion</code>,
+<code class="highlighter-rouge">get_logical_subregion_by_color</code>, and
+<code class="highlighter-rouge">get_logical_subregion_by_tree</code>) for discovering
 the handles for logical sub-regions.</p>
 
 <h4 id="projection-region-requirements">Projection Region Requirements</h4>
@@ -206,10 +206,10 @@ correctness. To take advantage of the partitioning
 that was performed and increase parallelism we
 need to launch separate sub-tasks for each of
 the logical sub-regions that were created.
-As in an earlier example, we use <code class="language-plaintext highlighter-rouge">IndexLauncher</code>
+As in an earlier example, we use <code class="highlighter-rouge">IndexLauncher</code>
 objects for launching an index space of tasks.
 However, unlike launching single tasks, we need
-a way to specify different <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+a way to specify different <code class="highlighter-rouge">RegionRequirement</code>
 objects for each of the points in the index space
 of tasks. To accomplish this we use <em>projection</em>
 region requirements.</p>
@@ -230,25 +230,25 @@ these two aspects of projection region requirements
 work in our DAXPY example.</p>
 
 <p>Projection region requirements are created using
-an overloaded constructor for the <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+an overloaded constructor for the <code class="highlighter-rouge">RegionRequirement</code>
 type. These constructors always begin by specifying
 either a logical region or logical partition as
 an upper bound on the data to be accessed, followed
 by a projection functor ID (lines 79-80). The
 remaining arguments are the same as other
-<code class="language-plaintext highlighter-rouge">RegionRequirement</code> constructors. In our DAXPY
-example we use the <code class="language-plaintext highlighter-rouge">input_lp</code> and <code class="language-plaintext highlighter-rouge">output_lp</code>
+<code class="highlighter-rouge">RegionRequirement</code> constructors. In our DAXPY
+example we use the <code class="highlighter-rouge">input_lp</code> and <code class="highlighter-rouge">output_lp</code>
 logical partitions as upper bounds for our index
 space task launches as each point task will
 be using a sub-region of these partitions. Our
 projection region requirements also use the
-projection ID <code class="language-plaintext highlighter-rouge">0</code> to specify our projection
-function. The <code class="language-plaintext highlighter-rouge">0</code> projection ID is a reserved
+projection ID <code class="highlighter-rouge">0</code> to specify our projection
+function. The <code class="highlighter-rouge">0</code> projection ID is a reserved
 ID which we describe momentarily. Applications
 can register their own projection functors either statically, before
 starting the Legion runtime starts, using the
-<code class="language-plaintext highlighter-rouge">preregister_projection_functor</code>, or dynamically, after it starts,
-with <code class="language-plaintext highlighter-rouge">register_projection_functor</code>. This is similar to how tasks are
+<code class="highlighter-rouge">preregister_projection_functor</code>, or dynamically, after it starts,
+with <code class="highlighter-rouge">register_projection_functor</code>. This is similar to how tasks are
 registered.</p>
 
 <p>The second step of using projection region
@@ -258,9 +258,9 @@ index space of tasks, it invokes
 the specified projection functor on each
 point to compute the logical region requirement
 for that the task. In the case of our DAXPY example,
-we use the reserved <code class="language-plaintext highlighter-rouge">0</code> projection functor, which uses the identity
-function to determine which sub-region to use. So task <code class="language-plaintext highlighter-rouge">i</code> in the launch will get
-subregion <code class="language-plaintext highlighter-rouge">i</code> in the partition, and so on.</p>
+we use the reserved <code class="highlighter-rouge">0</code> projection functor, which uses the identity
+function to determine which sub-region to use. So task <code class="highlighter-rouge">i</code> in the launch will get
+subregion <code class="highlighter-rouge">i</code> in the partition, and so on.</p>
 
 <p>The tasks in an index space launch must be able to run in
 parallel. This means that when using projection region requirements,
@@ -273,8 +273,8 @@ the regions in question.)</p>
 <h4 id="finding-index-space-bounds">Finding Index Space Bounds</h4>
 
 <p>It can be useful to get the bounds of an index space directly from a
-logical region. This can be done with the <code class="language-plaintext highlighter-rouge">get_index_space_domain</code>
-method on an <code class="language-plaintext highlighter-rouge">IndexSpace</code>, which returns a struct. We use this method
+logical region. This can be done with the <code class="highlighter-rouge">get_index_space_domain</code>
+method on an <code class="highlighter-rouge">IndexSpace</code>, which returns a struct. We use this method
 in all three sub-tasks to avoid needing explicitly pass the bounds of
 the regions down to these tasks.</p>
 

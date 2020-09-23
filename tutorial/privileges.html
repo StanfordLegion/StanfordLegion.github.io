@@ -139,23 +139,23 @@ The top-level task then launches sub-tasks for
 initializing the two fields (lines 51-61), performing
 the DAXPY computation (lines 64-73), and finally
 for checking the result (lines 75-84). All task
-launches are performing using <code class="language-plaintext highlighter-rouge">TaskLauncher</code>
+launches are performing using <code class="highlighter-rouge">TaskLauncher</code>
 objects which were introduced earlier in the tutorial
 for launching a single sub-task. However, when
 launching sub-tasks in this example, we also
-pass <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects as part of the
+pass <code class="highlighter-rouge">RegionRequirement</code> objects as part of the
 task launches in order to specify the logical
 regions on which the sub-tasks will operate.</p>
 
 <p>Unlike inline mappings, sub-tasks can specify
-an arbitrary number of <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects
-in their launchers. The <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects
+an arbitrary number of <code class="highlighter-rouge">RegionRequirement</code> objects
+in their launchers. The <code class="highlighter-rouge">RegionRequirement</code> objects
 that are stored in an STL vector inside of the launcher
-under the <code class="language-plaintext highlighter-rouge">region_requirements</code> field. <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+under the <code class="highlighter-rouge">region_requirements</code> field. <code class="highlighter-rouge">RegionRequirement</code>
 objects can be added directly to the launcher or
-by calling the <code class="language-plaintext highlighter-rouge">add_region_requirement</code> method on
-the <code class="language-plaintext highlighter-rouge">TaskLauncher</code> (lines 52-53). For each of the
-<code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects requested by a sub-task
+by calling the <code class="highlighter-rouge">add_region_requirement</code> method on
+the <code class="highlighter-rouge">TaskLauncher</code> (lines 52-53). For each of the
+<code class="highlighter-rouge">RegionRequirement</code> objects requested by a sub-task
 the Legion runtime will grant the sub-task the
 requested <em>privileges</em> on the specified logical
 regions on fields, thereby allowing the sub-task
@@ -172,9 +172,9 @@ in a functional manner through sub-tasks calls. An astute
 reader will notice that there is no mechanism either in
 Legion or Regent for
 naming privileges or storing them anywhere. Instead
-privileges are only passed through <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+privileges are only passed through <code class="highlighter-rouge">RegionRequirement</code>
 objects used for launching sub-tasks. To reinforce the
-functional nature of privileges <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+functional nature of privileges <code class="highlighter-rouge">RegionRequirement</code>
 objects require applications to name the parent task’s
 logical region from which the sub-task (or inline
 mapping or other operation) is obtaining privileges.</p>
@@ -183,13 +183,13 @@ mapping or other operation) is obtaining privileges.</p>
 passed from the top-level task to one of its sub-tasks.
 When a task creates a logical region it is granted full
 read-write privileges for the created logical region.
-When the top-level task create the <code class="language-plaintext highlighter-rouge">input_lr</code> and
-<code class="language-plaintext highlighter-rouge">output_lr</code> logical regions it obtains full read-write
+When the top-level task create the <code class="highlighter-rouge">input_lr</code> and
+<code class="highlighter-rouge">output_lr</code> logical regions it obtains full read-write
 privileges on those regions. When the DAXPY sub-task
 is invoked on lines 64-71, the sub-task is passed
-<code class="language-plaintext highlighter-rouge">READ_ONLY</code> privileges on the <code class="language-plaintext highlighter-rouge">input_lr</code> for fields
-<code class="language-plaintext highlighter-rouge">FID_X</code> and <code class="language-plaintext highlighter-rouge">FID_Y</code> and <code class="language-plaintext highlighter-rouge">WRITE_DISCARD</code> on field
-<code class="language-plaintext highlighter-rouge">FID_Z</code>. The sub-task’s request for those privileges
+<code class="highlighter-rouge">READ_ONLY</code> privileges on the <code class="highlighter-rouge">input_lr</code> for fields
+<code class="highlighter-rouge">FID_X</code> and <code class="highlighter-rouge">FID_Y</code> and <code class="highlighter-rouge">WRITE_DISCARD</code> on field
+<code class="highlighter-rouge">FID_Z</code>. The sub-task’s request for those privileges
 is valid since they are a subset of the privileges
 owned by the parent task. If a task that created a
 logical region fails to delete it, the privileges
@@ -198,24 +198,24 @@ task’s context. If the privileges escape the top-level
 task Legion will issue a warning noting that the
 logical region was leaked.</p>
 
-<p>There are four kinds of privileges: <code class="language-plaintext highlighter-rouge">READ_WRITE</code>,
-<code class="language-plaintext highlighter-rouge">READ_ONLY</code>, <code class="language-plaintext highlighter-rouge">REDUCE</code>, and <code class="language-plaintext highlighter-rouge">WRITE_DISCARD</code>. <code class="language-plaintext highlighter-rouge">READ_WRITE</code>
+<p>There are four kinds of privileges: <code class="highlighter-rouge">READ_WRITE</code>,
+<code class="highlighter-rouge">READ_ONLY</code>, <code class="highlighter-rouge">REDUCE</code>, and <code class="highlighter-rouge">WRITE_DISCARD</code>. <code class="highlighter-rouge">READ_WRITE</code>
 privileges give the task full permission to mutate
 the specified fields of the logical region using any
-kind of operation (read, write, reduction). <code class="language-plaintext highlighter-rouge">READ_ONLY</code>
+kind of operation (read, write, reduction). <code class="highlighter-rouge">READ_ONLY</code>
 restricts the task to only be able to perform reads
-and <code class="language-plaintext highlighter-rouge">REDUCE</code> restricts the task to only be able to
-perform reductions. <code class="language-plaintext highlighter-rouge">WRITE_DISCARD</code> is a special form
-of <code class="language-plaintext highlighter-rouge">READ_WRITE</code> that still permits the task to perform
+and <code class="highlighter-rouge">REDUCE</code> restricts the task to only be able to
+perform reductions. <code class="highlighter-rouge">WRITE_DISCARD</code> is a special form
+of <code class="highlighter-rouge">READ_WRITE</code> that still permits the task to perform
 any kind of operation, but informs the runtime that
 the task intends to overwrite all previous data stored
 in the logical region without reading it. This enables
 the runtime to perform several performance optimizations
 associated with removing unnecessary data movement
 operations. The various kinds of privileges form a
-semi-lattice with <code class="language-plaintext highlighter-rouge">READ_WRITE</code> and <code class="language-plaintext highlighter-rouge">WRITE_DISCARD</code>
-privileges occupying the top position and <code class="language-plaintext highlighter-rouge">READ_ONLY</code>
-and <code class="language-plaintext highlighter-rouge">REDUCE</code> privileges each representing a subset
+semi-lattice with <code class="highlighter-rouge">READ_WRITE</code> and <code class="highlighter-rouge">WRITE_DISCARD</code>
+privileges occupying the top position and <code class="highlighter-rouge">READ_ONLY</code>
+and <code class="highlighter-rouge">REDUCE</code> privileges each representing a subset
 of the top privileges. The bottom element represents
 having no privileges.</p>
 
@@ -234,19 +234,19 @@ on this we refer you to our
 <h4 id="task-physical-regions">Task Physical Regions</h4>
 
 <p>When a task requests privileges on logical regions
-using <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects, it is commonly
+using <code class="highlighter-rouge">RegionRequirement</code> objects, it is commonly
 the case that the task will need physical instances
 of these requested regions. If a task was launched
 with N region requirements, then it will be passed
-back N <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects in the <code class="language-plaintext highlighter-rouge">region</code>
+back N <code class="highlighter-rouge">PhysicalRegion</code> objects in the <code class="highlighter-rouge">region</code>
 STL vector that is an argument to all Legion tasks
-(line 94). The <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects are identical
+(line 94). The <code class="highlighter-rouge">PhysicalRegion</code> objects are identical
 to the ones described in the previous example that
 are used to name physical instances. The only
 difference in this case is that the Legion runtime
 is intelligent about starting tasks that need
-<code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects, and will not begin
-execution of the task until all of the <code class="language-plaintext highlighter-rouge">PhysicalRegion</code>
+<code class="highlighter-rouge">PhysicalRegion</code> objects, and will not begin
+execution of the task until all of the <code class="highlighter-rouge">PhysicalRegion</code>
 objects are valid.</p>
 
 <p>In general, most Legion application tasks will map
@@ -260,29 +260,29 @@ request that one or more logical region requirements
 be <em>virtually mapped</em>. In these cases no physical
 instance is created, but the task is still granted
 privileges for the requested logical region and fields.
-Tasks can test whether a <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> has been
-virtually mapped by invoking the <code class="language-plaintext highlighter-rouge">is_mapped</code> method
-which will return <code class="language-plaintext highlighter-rouge">false</code> if virtually mapped.
+Tasks can test whether a <code class="highlighter-rouge">PhysicalRegion</code> has been
+virtually mapped by invoking the <code class="highlighter-rouge">is_mapped</code> method
+which will return <code class="highlighter-rouge">false</code> if virtually mapped.
 The Legion default mapper will never virtually map
 a region, but other mappers may choose to do so
 and tasks should be implemented to handle such
 scenarios.</p>
 
-<p>The original <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects that were
+<p>The original <code class="highlighter-rouge">RegionRequirement</code> objects that were
 used to launch a task are available to the task
-implementation via the <code class="language-plaintext highlighter-rouge">Task</code> object. The <code class="language-plaintext highlighter-rouge">regions</code>
-field of the <code class="language-plaintext highlighter-rouge">Task</code> object is an STL vector
-containing the passed <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects.
+implementation via the <code class="highlighter-rouge">Task</code> object. The <code class="highlighter-rouge">regions</code>
+field of the <code class="highlighter-rouge">Task</code> object is an STL vector
+containing the passed <code class="highlighter-rouge">RegionRequirement</code> objects.
 Having access to these arguments is very powerful
 as it even permits the implementation of
 <em>field-polymorphic</em> tasks which can perform the
 same operation on a dynamically determined set
 of fields. For example, in our DAXPY example,
-the <code class="language-plaintext highlighter-rouge">init_field_task</code> is a field-polymorphic
-function as it examines the <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+the <code class="highlighter-rouge">init_field_task</code> is a field-polymorphic
+function as it examines the <code class="highlighter-rouge">RegionRequirement</code>
 passed to it to see which field to initialize
 (line 99). We can therefore use the same task
-to initialize both the <code class="language-plaintext highlighter-rouge">X</code> and <code class="language-plaintext highlighter-rouge">Y</code> fields.
+to initialize both the <code class="highlighter-rouge">X</code> and <code class="highlighter-rouge">Y</code> fields.
 Field-polymorphic tasks occur regularly in Legion
 as it is common for many applications to want
 to perform the same operation over many different
@@ -292,7 +292,7 @@ fields using a single task implementation.</p>
 
 <p>The top-level task in this implementation of DAXPY
 has a very interesting property: it never records
-any <code class="language-plaintext highlighter-rouge">Future</code> objects as part of its sub-task
+any <code class="highlighter-rouge">Future</code> objects as part of its sub-task
 launches (lines 55,61,73,84). As a result there is
 no way for it to explicitly block execution or chain
 dependences between sub-tasks. Furthermore, because
@@ -304,7 +304,7 @@ computes the correct answer?</p>
 
 <p>The crucial insight is that Legion understands the
 structure of program data (in this case the two
-logical regions <code class="language-plaintext highlighter-rouge">input_lr</code> and <code class="language-plaintext highlighter-rouge">output_lr</code> and their
+logical regions <code class="highlighter-rouge">input_lr</code> and <code class="highlighter-rouge">output_lr</code> and their
 fields). As the top-level task executes, Legion computes
 a <em>Task Dataflow Graph</em> (TDG) which captures data
 dependences between operations based on the logical
@@ -323,12 +323,12 @@ TDG for this DAXPY example:</p>
 
 <p>In this figure we see that the DAXPY task has data
 dependences on the two field initialization tasks
-(one on field <code class="language-plaintext highlighter-rouge">X</code> and one on field <code class="language-plaintext highlighter-rouge">Y</code> of the <code class="language-plaintext highlighter-rouge">input_lr</code>
+(one on field <code class="highlighter-rouge">X</code> and one on field <code class="highlighter-rouge">Y</code> of the <code class="highlighter-rouge">input_lr</code>
 logical region). The checking
 task then has a data dependence on the DAXPY task
-(on field <code class="language-plaintext highlighter-rouge">Z</code> of the <code class="language-plaintext highlighter-rouge">output_lr</code> region). (There are
+(on field <code class="highlighter-rouge">Z</code> of the <code class="highlighter-rouge">output_lr</code> region). (There are
 also transitive data dependences from the initialization
-tasks to the checking task on the two fields of <code class="language-plaintext highlighter-rouge">input_lr</code>
+tasks to the checking task on the two fields of <code class="highlighter-rouge">input_lr</code>
 but we omit them for simplicity.) Finally, the deletions
 of the two logical regions must wait until the last task
 using the regions finishes executing. Legion is able to
@@ -361,34 +361,34 @@ Legion automatically manages this phase of a task’s execution.</p>
 <h4 id="field-level-non-interference">Field-Level Non-Interference</h4>
 
 <p>Determining that two sub-tasks have <em>non-interfering</em>
-<code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects is how Legion implicitly
+<code class="highlighter-rouge">RegionRequirement</code> objects is how Legion implicitly
 extracts parallelism from applications. There are three
 forms of non-interference:</p>
 
 <ul>
-  <li><strong>Region non-interference</strong>: two <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects
+  <li><strong>Region non-interference</strong>: two <code class="highlighter-rouge">RegionRequirement</code> objects
 are non-interfering on regions if they access logical
 regions from different region trees, or disjoint logical
 regions in the same tree.</li>
-  <li><strong>Field-level non-interference</strong>: two <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+  <li><strong>Field-level non-interference</strong>: two <code class="highlighter-rouge">RegionRequirement</code>
 objects are non-interfering on fields if they access
 disjoint sets of fields within the same logical region.</li>
-  <li><strong>Privileges non-interference</strong>: two <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+  <li><strong>Privileges non-interference</strong>: two <code class="highlighter-rouge">RegionRequirement</code>
 objects are non-interfering on privileges if they
-are both request <code class="language-plaintext highlighter-rouge">READ_ONLY</code> privileges, or they
-both request <code class="language-plaintext highlighter-rouge">REDUCE</code> privileges with the same
+are both request <code class="highlighter-rouge">READ_ONLY</code> privileges, or they
+both request <code class="highlighter-rouge">REDUCE</code> privileges with the same
 reduction operator.</li>
 </ul>
 
 <p>We’ll see examples of region and privilege non-interference
 in the next two examples. In this DAXPY example we have
 an example of field-level non-interference. Both
-of the <code class="language-plaintext highlighter-rouge">init_field_task</code> launches request the same
-logical region with <code class="language-plaintext highlighter-rouge">WRITE_DISCARD</code> privilege and therefore
+of the <code class="highlighter-rouge">init_field_task</code> launches request the same
+logical region with <code class="highlighter-rouge">WRITE_DISCARD</code> privilege and therefore
 neither region nor privilege non-interference applies. However,
-because the <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects request privileges
+because the <code class="highlighter-rouge">RegionRequirement</code> objects request privileges
 on different fields, the two sets of fields are disjoint.
-Thus, even though the two <code class="language-plaintext highlighter-rouge">init_field_task</code> launches are
+Thus, even though the two <code class="highlighter-rouge">init_field_task</code> launches are
 performed sequentially, Legion infers that the tasks can
 be run in parallel. This is reflected in the TDG where
 there are no data dependence edges between the nodes for

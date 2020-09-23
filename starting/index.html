@@ -134,7 +134,7 @@
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/StanfordLegion/legion.git</code></pre></figure>
 
-<p>To test, find an example you’d like to try and run <code class="language-plaintext highlighter-rouge">make</code>. For example:</p>
+<p>To test, find an example you’d like to try and run <code class="highlighter-rouge">make</code>. For example:</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LG_RT_DIR</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/legion/runtime"</span>
 <span class="nb">cd </span>legion/examples/circuit
@@ -146,21 +146,21 @@ make
 <p>The top-level contents of the repository include:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">tutorial</code>: Source code for the <a href="/tutorial/">tutorials</a>.</li>
-  <li><code class="language-plaintext highlighter-rouge">examples</code>: Larger examples for advanced programming techniques.</li>
-  <li><code class="language-plaintext highlighter-rouge">apps</code>: Several complete Legion applications.</li>
-  <li><code class="language-plaintext highlighter-rouge">language</code>: The <a href="http://regent-lang.org/">Regent programming language</a> compiler and examples.</li>
-  <li><code class="language-plaintext highlighter-rouge">runtime</code>: The core runtime components:
+  <li><code class="highlighter-rouge">tutorial</code>: Source code for the <a href="/tutorial/">tutorials</a>.</li>
+  <li><code class="highlighter-rouge">examples</code>: Larger examples for advanced programming techniques.</li>
+  <li><code class="highlighter-rouge">apps</code>: Several complete Legion applications.</li>
+  <li><code class="highlighter-rouge">language</code>: The <a href="http://regent-lang.org/">Regent programming language</a> compiler and examples.</li>
+  <li><code class="highlighter-rouge">runtime</code>: The core runtime components:
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">legion</code>: The Legion runtime itself (see <code class="language-plaintext highlighter-rouge">legion.h</code>).</li>
-      <li><code class="language-plaintext highlighter-rouge">realm</code>: The Realm low-level runtime (see <code class="language-plaintext highlighter-rouge">realm.h</code>).</li>
-      <li><code class="language-plaintext highlighter-rouge">mappers</code>: Several mappers, including the default mapper (see <code class="language-plaintext highlighter-rouge">default_mapper.h</code>).</li>
+      <li><code class="highlighter-rouge">legion</code>: The Legion runtime itself (see <code class="highlighter-rouge">legion.h</code>).</li>
+      <li><code class="highlighter-rouge">realm</code>: The Realm low-level runtime (see <code class="highlighter-rouge">realm.h</code>).</li>
+      <li><code class="highlighter-rouge">mappers</code>: Several mappers, including the default mapper (see <code class="highlighter-rouge">default_mapper.h</code>).</li>
     </ul>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">tools</code>: Miscellaneous tools:
+  <li><code class="highlighter-rouge">tools</code>: Miscellaneous tools:
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">legion_spy.py</code>: A <a href="/debugging/#legion-spy">visualization tool</a> for task dependencies.</li>
-      <li><code class="language-plaintext highlighter-rouge">legion_prof.py</code>: A task-level <a href="/profiling/#legion-prof">profiler</a>.</li>
+      <li><code class="highlighter-rouge">legion_spy.py</code>: A <a href="/debugging/#legion-spy">visualization tool</a> for task dependencies.</li>
+      <li><code class="highlighter-rouge">legion_prof.py</code>: A task-level <a href="/profiling/#legion-prof">profiler</a>.</li>
     </ul>
   </li>
 </ul>
@@ -171,30 +171,30 @@ Legion runtime.</p>
 <h2 id="makefile-variables">Makefile Variables</h2>
 
 <p>The Legion Makefile includes several variables which influence the
-build. These may either be set in the environment (e.g. <code class="language-plaintext highlighter-rouge">DEBUG=0
+build. These may either be set in the environment (e.g. <code class="highlighter-rouge">DEBUG=0
 make</code>) or at the top of each application’s Makefile.</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">DEBUG=&lt;0,1&gt;</code>: controls optimization level and enables various
+  <li><code class="highlighter-rouge">DEBUG=&lt;0,1&gt;</code>: controls optimization level and enables various
 dynamic checks which are too expensive for release builds.</li>
-  <li><code class="language-plaintext highlighter-rouge">OUTPUT_LEVEL=&lt;level_name&gt;</code>: controls the compile-time <a href="/debugging/#logging-infrastructure">logging
+  <li><code class="highlighter-rouge">OUTPUT_LEVEL=&lt;level_name&gt;</code>: controls the compile-time <a href="/debugging/#logging-infrastructure">logging
 level</a>.</li>
-  <li><code class="language-plaintext highlighter-rouge">USE_CUDA=&lt;0,1&gt;</code>: enables CUDA support. If enabled, <code class="language-plaintext highlighter-rouge">CUDA</code> (or <code class="language-plaintext highlighter-rouge">CUDA_TOOLKITHOME</code>) should be set to the CUDA install location (e.g. <code class="language-plaintext highlighter-rouge">/usr/local/cuda</code>).</li>
-  <li><code class="language-plaintext highlighter-rouge">USE_GASNET=&lt;0,1&gt;</code>: enables GASNet support (see <a href="/gasnet/">installation instructions</a>). If enabled, <code class="language-plaintext highlighter-rouge">GASNET</code> (or <code class="language-plaintext highlighter-rouge">GASNET_ROOT</code>) should be set to the GASNet installation location, and <code class="language-plaintext highlighter-rouge">CONDUIT</code> must be set to the desired GASNet conduit (e.g. ibv, gemini, aries).</li>
-  <li><code class="language-plaintext highlighter-rouge">USE_LLVM=&lt;0,1&gt;</code>: enables LLVM support. If enabled, and an <code class="language-plaintext highlighter-rouge">llvm-config</code> binary is not in your path, specify its location with <code class="language-plaintext highlighter-rouge">LLVM_CONFIG</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">USE_HDF=&lt;0,1&gt;</code>: enables HDF5 support. If enabled, and HDF5 is not installed in the standard include/library directories, specify the install location using <code class="language-plaintext highlighter-rouge">HDF_ROOT</code>.</li>
+  <li><code class="highlighter-rouge">USE_CUDA=&lt;0,1&gt;</code>: enables CUDA support. If enabled, <code class="highlighter-rouge">CUDA</code> (or <code class="highlighter-rouge">CUDA_TOOLKITHOME</code>) should be set to the CUDA install location (e.g. <code class="highlighter-rouge">/usr/local/cuda</code>).</li>
+  <li><code class="highlighter-rouge">USE_GASNET=&lt;0,1&gt;</code>: enables GASNet support (see <a href="/gasnet/">installation instructions</a>). If enabled, <code class="highlighter-rouge">GASNET</code> (or <code class="highlighter-rouge">GASNET_ROOT</code>) should be set to the GASNet installation location, and <code class="highlighter-rouge">CONDUIT</code> must be set to the desired GASNet conduit (e.g. ibv, gemini, aries).</li>
+  <li><code class="highlighter-rouge">USE_LLVM=&lt;0,1&gt;</code>: enables LLVM support. If enabled, and an <code class="highlighter-rouge">llvm-config</code> binary is not in your path, specify its location with <code class="highlighter-rouge">LLVM_CONFIG</code>.</li>
+  <li><code class="highlighter-rouge">USE_HDF=&lt;0,1&gt;</code>: enables HDF5 support. If enabled, and HDF5 is not installed in the standard include/library directories, specify the install location using <code class="highlighter-rouge">HDF_ROOT</code>.</li>
 </ul>
 
 <h2 id="build-flags">Build Flags</h2>
 
 <p>In addition to Makefile variables, compilation is influenced by a
 number of build flags. These flags may be added to the environment
-variable <code class="language-plaintext highlighter-rouge">CC_FLAGS</code> (or again set inside the Makefile).</p>
+variable <code class="highlighter-rouge">CC_FLAGS</code> (or again set inside the Makefile).</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">CC_FLAGS=-DLEGION_SPY</code>: enables <a href="/debugging/#legion-spy">Legion Spy</a>.</li>
-  <li><code class="language-plaintext highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS</code>: enables <a href="/debugging/#privilege-checks">extra privilege checks</a>.</li>
-  <li><code class="language-plaintext highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS</code>: enables <a href="/debugging/#bounds-checks">dynamic bounds checks</a>.</li>
+  <li><code class="highlighter-rouge">CC_FLAGS=-DLEGION_SPY</code>: enables <a href="/debugging/#legion-spy">Legion Spy</a>.</li>
+  <li><code class="highlighter-rouge">CC_FLAGS=-DPRIVILEGE_CHECKS</code>: enables <a href="/debugging/#privilege-checks">extra privilege checks</a>.</li>
+  <li><code class="highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS</code>: enables <a href="/debugging/#bounds-checks">dynamic bounds checks</a>.</li>
 </ul>
 
 <h2 id="command-line-flags">Command-Line Flags</h2>
@@ -203,24 +203,24 @@ variable <code class="language-plaintext highlighter-rouge">CC_FLAGS</code> (or 
 parameters. Below are some of the more commonly used flags:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">-level &lt;category&gt;=&lt;int&gt;</code>:
-sets <a href="/debugging/#logging-infrastructure">logging level</a> for <code class="language-plaintext highlighter-rouge">category</code></li>
-  <li><code class="language-plaintext highlighter-rouge">-logfile &lt;filename&gt;</code>:
-directs <a href="/debugging/#logging-infrastructure">logging output</a> to <code class="language-plaintext highlighter-rouge">filename</code></li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:cpu &lt;int&gt;</code>: CPU processors to create per process</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:gpu &lt;int&gt;</code>: GPU processors to create per process</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:util &lt;int&gt;</code>: utility processors to create per process</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:csize &lt;int&gt;</code>: size of CPU DRAM memory per process (in MB)</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:gsize &lt;int&gt;</code>: size of GASNet global memory available per process (in MB)</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:rsize &lt;int&gt;</code>: size of GASNet registered RDMA memory available per process (in MB)</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:fsize &lt;int&gt;</code>: size of framebuffer memory for each GPU (in MB)</li>
-  <li><code class="language-plaintext highlighter-rouge">-ll:zsize &lt;int&gt;</code>: size of zero-copy memory for each GPU (in MB)</li>
-  <li><code class="language-plaintext highlighter-rouge">-lg:window &lt;int&gt;</code>: maximum number of tasks that can be created in a parent task window</li>
-  <li><code class="language-plaintext highlighter-rouge">-lg:sched &lt;int&gt;</code>: minimum number of tasks to try to schedule for each invocation of the scheduler</li>
+  <li><code class="highlighter-rouge">-level &lt;category&gt;=&lt;int&gt;</code>:
+sets <a href="/debugging/#logging-infrastructure">logging level</a> for <code class="highlighter-rouge">category</code></li>
+  <li><code class="highlighter-rouge">-logfile &lt;filename&gt;</code>:
+directs <a href="/debugging/#logging-infrastructure">logging output</a> to <code class="highlighter-rouge">filename</code></li>
+  <li><code class="highlighter-rouge">-ll:cpu &lt;int&gt;</code>: CPU processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:gpu &lt;int&gt;</code>: GPU processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:util &lt;int&gt;</code>: utility processors to create per process</li>
+  <li><code class="highlighter-rouge">-ll:csize &lt;int&gt;</code>: size of CPU DRAM memory per process (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:gsize &lt;int&gt;</code>: size of GASNet global memory available per process (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:rsize &lt;int&gt;</code>: size of GASNet registered RDMA memory available per process (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:fsize &lt;int&gt;</code>: size of framebuffer memory for each GPU (in MB)</li>
+  <li><code class="highlighter-rouge">-ll:zsize &lt;int&gt;</code>: size of zero-copy memory for each GPU (in MB)</li>
+  <li><code class="highlighter-rouge">-lg:window &lt;int&gt;</code>: maximum number of tasks that can be created in a parent task window</li>
+  <li><code class="highlighter-rouge">-lg:sched &lt;int&gt;</code>: minimum number of tasks to try to schedule for each invocation of the scheduler</li>
 </ul>
 
 <p>The default mapper also has several flags for controlling the default mapping.
-See <code class="language-plaintext highlighter-rouge">default_mapper.cc</code> for more details.</p>
+See <code class="highlighter-rouge">default_mapper.cc</code> for more details.</p>
 
 <h2 id="tutorials">Tutorials</h2>
 

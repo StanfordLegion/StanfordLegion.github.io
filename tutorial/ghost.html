@@ -143,7 +143,7 @@ of applications.</p>
 the  <a href="/tutorial/multiple.html">stencil example</a> in
 a way that uses explicit ghost regions. The
 code for this example can be found in 
-the <code class="language-plaintext highlighter-rouge">examples/full_ghost/</code> directory in the
+the <code class="highlighter-rouge">examples/full_ghost/</code> directory in the
 <a href="https://github.com/StanfordLegion/legion">Legion repository</a>.
 We begin by describing the high-level approach
 to writing our stencil computation. We then
@@ -181,11 +181,11 @@ for the original stencil application: we create
 index trees and region trees. Our approach this
 time will be slightly different. We begin by
 creating an index tree that describes our entire
-space of points called <code class="language-plaintext highlighter-rouge">is</code> in the code. We first
+space of points called <code class="highlighter-rouge">is</code> in the code. We first
 partition this index space into disjoint sub-spaces:
 one for each sub-task that we plan to launch.
-In the code, the resulting <code class="language-plaintext highlighter-rouge">IndexPartition</code> is
-called <code class="language-plaintext highlighter-rouge">disjoint_ip</code>. We then iterate over each
+In the code, the resulting <code class="highlighter-rouge">IndexPartition</code> is
+called <code class="highlighter-rouge">disjoint_ip</code>. We then iterate over each
 of these sub-spaces and recursively partition
 them into two more sub-spaces to describe the
 left and right ghost spaces. It is important
@@ -200,29 +200,29 @@ After setting up our index space tree, we now
 create the explicit ghost regions from the leaf
 index spaces of the tree. Note that we do 
 not actually create the logical regions for 
-the sub-spaces in <code class="language-plaintext highlighter-rouge">disjoint_ip</code> until each
+the sub-spaces in <code class="highlighter-rouge">disjoint_ip</code> until each
 of the sub-tasks are launched from the top-level
 task. Each sub-task will create its own logical
-region from its sub-space in <code class="language-plaintext highlighter-rouge">disjoint_ip</code>. The
+region from its sub-space in <code class="highlighter-rouge">disjoint_ip</code>. The
 explicit ghost logical regions are stored in 
-the <code class="language-plaintext highlighter-rouge">ghost_left</code> and <code class="language-plaintext highlighter-rouge">ghost_right</code> vectors.
+the <code class="highlighter-rouge">ghost_left</code> and <code class="highlighter-rouge">ghost_right</code> vectors.
 Having created our explicit ghost cell regions
 we can now launch off sub-tasks for computing
 stencils for each of our different sub-sets
 of points. We have suggestively named these
-sub-tasks <code class="language-plaintext highlighter-rouge">spmd_tasks</code>. Each <code class="language-plaintext highlighter-rouge">spmd_task</code>
-instance requests <code class="language-plaintext highlighter-rouge">READ-WRITE</code> privileges on
+sub-tasks <code class="highlighter-rouge">spmd_tasks</code>. Each <code class="highlighter-rouge">spmd_task</code>
+instance requests <code class="highlighter-rouge">READ-WRITE</code> privileges on
 both its left and right ghost regions
-as well <code class="language-plaintext highlighter-rouge">READ-ONLY</code> privileges on the left and 
+as well <code class="highlighter-rouge">READ-ONLY</code> privileges on the left and 
 right ghost regions from its adjacent neighbors 
 for a total of  four logical region requirements. 
-This will allow each <code class="language-plaintext highlighter-rouge">spmd_task</code> to read and write
+This will allow each <code class="highlighter-rouge">spmd_task</code> to read and write
 its ghost regions as well as to read its 
 neighbor ghost regions. In Legion applications
-that rely on <code class="language-plaintext highlighter-rouge">EXCLUSIVE</code> coherence, many of
+that rely on <code class="highlighter-rouge">EXCLUSIVE</code> coherence, many of
 these sub-tasks would have explicit data
 dependences. However, we use a <em>relaxed coherence</em>
-mode called <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence to 
+mode called <code class="highlighter-rouge">SIMULTANEOUS</code> coherence to 
 allow these tasks to run in parallel. We
 describe relaxed coherence modes next.</p>
 
@@ -234,7 +234,7 @@ sub-tasks for data dependences based on their
 region requirements in program order (e.g.
 the order they were issued to the Legion
 runtime). Normally, region requirements are
-annotated with <code class="language-plaintext highlighter-rouge">EXCLUSIVE</code> coherence, which
+annotated with <code class="highlighter-rouge">EXCLUSIVE</code> coherence, which
 tells Legion that if there is a dependence
 between two tasks, it must be obeyed in
 keeping with program order execution.</p>
@@ -249,27 +249,27 @@ others, the application might not want Legion
 to enforce any ordering, and instead will handle
 its own synchronization to data in a common
 logical region. To support these cases, Legion
-provides two <em>relaxed</em> coherence modes: <code class="language-plaintext highlighter-rouge">ATOMIC</code>
-and <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code>. <code class="language-plaintext highlighter-rouge">ATOMIC</code> coherence allows
+provides two <em>relaxed</em> coherence modes: <code class="highlighter-rouge">ATOMIC</code>
+and <code class="highlighter-rouge">SIMULTANEOUS</code>. <code class="highlighter-rouge">ATOMIC</code> coherence allows
 Legion to re-order tasks as long as access to
 a particular logical region is guaranteed to
-be serializable. <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> instructs
+be serializable. <code class="highlighter-rouge">SIMULTANEOUS</code> instructs
 Legion to ignore any data dependences on
 logical regions with the guarantee that the
 application will manage access to the shared
 logical regions using its own synchronization
 primitives.</p>
 
-<p>For our stencil application, we use <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code>
+<p>For our stencil application, we use <code class="highlighter-rouge">SIMULTANEOUS</code>
 coherence to instruct Legion to ignore data 
 dependences between tasks accessing the same
 explicit ghost regions with the promise
 that the application will coordinate synchronization
 between them (which we describe momentarily). The 
-use of <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence allows tasks to 
+use of <code class="highlighter-rouge">SIMULTANEOUS</code> coherence allows tasks to 
 run in parallel despite data dependences. This is 
 useful if there may need to be synchronization between 
-our <code class="language-plaintext highlighter-rouge">spmd_task</code> instances, but in our case, we know 
+our <code class="highlighter-rouge">spmd_task</code> instances, but in our case, we know 
 for sure that there will need to be both communication
 and synchronization. We therefore want a stronger
 guarantee that our sub-tasks will run
@@ -291,20 +291,20 @@ avoid hanging. Our stencil application is one
 example of a must-parallelism application since
 we know that we are going to need to explicitly
 exchange data between the different ghost regions
-of our <code class="language-plaintext highlighter-rouge">spmd_task</code> instances.  Under these conditions 
+of our <code class="highlighter-rouge">spmd_task</code> instances.  Under these conditions 
 it is imperative that the application be able
 to express the requirement that tasks execute
 in parallel and synchronize with each other.
 Legion provides a special kind of task launcher 
-called a <code class="language-plaintext highlighter-rouge">MustEpochLauncher</code> that make this possible.</p>
+called a <code class="highlighter-rouge">MustEpochLauncher</code> that make this possible.</p>
 
-<p>A <code class="language-plaintext highlighter-rouge">MustEpochLauncher</code> is actually a <em>meta-launcher</em>
+<p>A <code class="highlighter-rouge">MustEpochLauncher</code> is actually a <em>meta-launcher</em>
 that simply contains other launcher objects. The
 idea is that instead of launching a bunch of tasks
 to the Legion runtime separately and hoping they run
 in parallel, applications can gather up a bunch of
 tasks (either a collection of individual tasks or
-one or more index tasks) inside of a <code class="language-plaintext highlighter-rouge">MustEpochLauncher</code>
+one or more index tasks) inside of a <code class="highlighter-rouge">MustEpochLauncher</code>
 and then issue them as a single launch to the
 Legion runtime. The Legion runtime is then aware
 that all the tasks must be capable of executing
@@ -319,63 +319,63 @@ epoch are mapped onto the same processor they will
 not be able to run in parallel and potentially
 synchronize with each other. To help avoid this
 case, Legion provides an explicit mapping call
-for mapping must-parallelism epochs <code class="language-plaintext highlighter-rouge">map_must_epoch</code>
+for mapping must-parallelism epochs <code class="highlighter-rouge">map_must_epoch</code>
 which we describe later. If there are any mapping
 decisions which would prevent the must-parallelism
 epoch, Legion issues a runtime error (as opposed
 to silently hanging).</p>
 
-<p>Our stencil application creates a <code class="language-plaintext highlighter-rouge">MustEpochLauncher</code>
-and inserts a single <code class="language-plaintext highlighter-rouge">TaskLauncher</code> for each of
-the <code class="language-plaintext highlighter-rouge">spmd_task</code> instances we want to create.
+<p>Our stencil application creates a <code class="highlighter-rouge">MustEpochLauncher</code>
+and inserts a single <code class="highlighter-rouge">TaskLauncher</code> for each of
+the <code class="highlighter-rouge">spmd_task</code> instances we want to create.
 Since all of our region requirements ask for 
-<code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence, we know that there will
+<code class="highlighter-rouge">SIMULTANEOUS</code> coherence, we know that there will
 be no dependences on logical regions. Furthermore,
-we rely on the implementation of <code class="language-plaintext highlighter-rouge">map_must_epoch</code>
+we rely on the implementation of <code class="highlighter-rouge">map_must_epoch</code>
 in the default mapper to ensure that the mapping
 decisions that are made will not prevent our
-<code class="language-plaintext highlighter-rouge">spmd_task</code> instances from running in parallel.</p>
+<code class="highlighter-rouge">spmd_task</code> instances from running in parallel.</p>
 
 <h4 id="explicit-copy-operations">Explicit Copy Operations</h4>
 
-<p>After our <code class="language-plaintext highlighter-rouge">spmd_task</code> instances begin running
+<p>After our <code class="highlighter-rouge">spmd_task</code> instances begin running
 in parallel, they start issuing sub-operations
 for computing the stencil computation (note
 we have them iterate over these operations several
 times in order to illustrate how applications
 might iterate through time steps in a simulation).
-Each <code class="language-plaintext highlighter-rouge">spmd_task</code> instance first  launches a sub-task 
+Each <code class="highlighter-rouge">spmd_task</code> instance first  launches a sub-task 
 for initializing the data over which the stencil will 
 be computed. After the data has been initialized, 
-the <code class="language-plaintext highlighter-rouge">spmd_task</code> instances then need to exchange 
+the <code class="highlighter-rouge">spmd_task</code> instances then need to exchange 
 ghost cell data so that they can run the stencil 
 sub-task. To exchange data through explicit ghost 
 regions we use Legion’s explicit region-to-region
 copy operation.</p>
 
-<p><code class="language-plaintext highlighter-rouge">CopyLauncher</code> objects are used to perform an
+<p><code class="highlighter-rouge">CopyLauncher</code> objects are used to perform an
 explicit copy of data between two different logical
 regions. The only requirement of the two logical
 regions is that they share a common index space 
 tree. (Note this is why we created all of our
 explicit ghost logical regions from the same 
 index space tree.) Just like all other operations
-in Legion, <code class="language-plaintext highlighter-rouge">CopyLauncher</code> objects use region
+in Legion, <code class="highlighter-rouge">CopyLauncher</code> objects use region
 requirements to name the logical regions that
 they will be copying between. Legion performs
 the necessary dependence analysis and will
 perform the copy when it is safe to do so.
-Copy operations have their own <code class="language-plaintext highlighter-rouge">map_copy</code> 
+Copy operations have their own <code class="highlighter-rouge">map_copy</code> 
 call which is invoked in order to determine
 where the source and destination region
 requirements are mapped.</p>
 
 <p>In the case of the stencil computation, we
 use explicit copies to copy data from our
-local logical region <code class="language-plaintext highlighter-rouge">local_lr</code> which 
+local logical region <code class="highlighter-rouge">local_lr</code> which 
 contains all of our data to our left
 and right neighbor explicit ghost regions.
-This will allow our neighbor <code class="language-plaintext highlighter-rouge">spmd_task</code>
+This will allow our neighbor <code class="highlighter-rouge">spmd_task</code>
 instances to see the necessary ghost cell
 data for performing their stencils. At
 the same time our neighbors will be
@@ -386,12 +386,12 @@ obvious question is then how to know
 when it is safe to consume the data
 in our explicit ghost regions. We next
 describe how we perform synchronization 
-between <code class="language-plaintext highlighter-rouge">spmd_task</code> instances in the
+between <code class="highlighter-rouge">spmd_task</code> instances in the
 next section.</p>
 
 <h4 id="phase-barriers">Phase Barriers</h4>
 
-<p>When using <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence it is 
+<p>When using <code class="highlighter-rouge">SIMULTANEOUS</code> coherence it is 
 up to the application to properly synchronize
 access to a logical region. While applications
 are free to construct their own synchronization
@@ -440,7 +440,7 @@ When it is executing, each participant task can launch
 as sub-operations which either arrive or wait on a 
 specific phase barrier as it wants. Once it is done
 launching sub-operations that use a specific generation
-of the phase barrier, it then calls <code class="language-plaintext highlighter-rouge">advance_phase_barrier</code>
+of the phase barrier, it then calls <code class="highlighter-rouge">advance_phase_barrier</code>
 to get the name of the phase barrier corresponding
 to the next generation. Phase barriers remain valid 
 indefinitely (or until they exhaust the maximum number
@@ -450,12 +450,12 @@ deleted by the application.</p>
 <p>For our stencil computation, we create two phase
 barriers for every explicit ghost region that we
 created. The reason for needing two is that we will
-need one for each <code class="language-plaintext highlighter-rouge">spmd_task</code> to be able to indicate when
+need one for each <code class="highlighter-rouge">spmd_task</code> to be able to indicate when
 its copy has been completed, and we need one for
-allowing a consuming <code class="language-plaintext highlighter-rouge">spmd_task</code> to indicate it has
+allowing a consuming <code class="highlighter-rouge">spmd_task</code> to indicate it has
 consumed the data in the explicit ghost region and
 is ready for the next pass. We refer to these
-two barriers as the <code class="language-plaintext highlighter-rouge">ready</code> and <code class="language-plaintext highlighter-rouge">empty</code> barriers
+two barriers as the <code class="highlighter-rouge">ready</code> and <code class="highlighter-rouge">empty</code> barriers
 in the stencil code. We create all the necessary
 phase barriers in the top-level task, and then pass
 in the necessary phase barriers to each sub-task.</p>
@@ -464,16 +464,16 @@ in the necessary phase barriers to each sub-task.</p>
 
 <p>The last feature that we need deals with how
 Legion manages regions which have been mapped
-with <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence. Since these
+with <code class="highlighter-rouge">SIMULTANEOUS</code> coherence. Since these
 physical instances are likely being accessed
 by multiple different tasks, it is unsound
 for Legion to allow sub-operations within
 these tasks to create other copies of the
 logical region in the memory hierarchy. (We
 note that Legion expresses this restriction
-by setting the <code class="language-plaintext highlighter-rouge">restricted</code> field in a
-<code class="language-plaintext highlighter-rouge">RegionRequirement</code> to <code class="language-plaintext highlighter-rouge">true</code> when invoking
-<code class="language-plaintext highlighter-rouge">map_task</code> or other related mapper calls.)
+by setting the <code class="highlighter-rouge">restricted</code> field in a
+<code class="highlighter-rouge">RegionRequirement</code> to <code class="highlighter-rouge">true</code> when invoking
+<code class="highlighter-rouge">map_task</code> or other related mapper calls.)
 Instead, if the application would like to
 make copies of the logical region locally
 within a task context, it must first issue
@@ -500,13 +500,13 @@ of a logical region.</p>
 
 <p>Acquire and release operations are the same
 as other operations in Legion and are issued
-using <code class="language-plaintext highlighter-rouge">AcquireLauncher</code> and <code class="language-plaintext highlighter-rouge">ReleaseLauncher</code>
+using <code class="highlighter-rouge">AcquireLauncher</code> and <code class="highlighter-rouge">ReleaseLauncher</code>
 objects. Instead of naming region requirements,
 acquire and release operations need only name
 the logical region and fields they are acquiring
 and releasing. These operations also need to provide
-the name of the original <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> that the
-parent task mapped using <code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence.
+the name of the original <code class="highlighter-rouge">PhysicalRegion</code> that the
+parent task mapped using <code class="highlighter-rouge">SIMULTANEOUS</code> coherence.
 Note that like other Legion operations, acquire
 and release are issued asynchronously and simply
 become part of the operation stream. This allows
@@ -524,9 +524,9 @@ copies of our explicit ghost cell regions to
 be made for the stencil task to use. The
 release operation after then stencil task then
 invalidate these copies, restoring the original
-instance mapped by the <code class="language-plaintext highlighter-rouge">spmd_task</code> to be only
+instance mapped by the <code class="highlighter-rouge">spmd_task</code> to be only
 valid copy of the data. This ensures that when
-the next copy copies from adjacent <code class="language-plaintext highlighter-rouge">spmd_task</code>
+the next copy copies from adjacent <code class="highlighter-rouge">spmd_task</code>
 instances that we will see the correct version
 of the data in our explicit ghost regions.</p>
 
@@ -536,17 +536,17 @@ of the data in our explicit ghost regions.</p>
 explicit ghost region version of the stencil
 computation, the following picture illustrates
 how the stencil computation works between
-a pair of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances.
+a pair of <code class="highlighter-rouge">spmd_task</code> instances.
 <br /><br />
 <img src="/images/phase_barrier.svg" alt="" />
 <br /><br />
-Each of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances performs several
+Each of <code class="highlighter-rouge">spmd_task</code> instances performs several
 iterations of the stencil computation. Each
 iteration issues a copy to exchange ghost
 cell data with its neighbor. Each copy will
 arrive at a phase barrier once the copy is
 complete indicating that the data is ready
-to be consumed. Each <code class="language-plaintext highlighter-rouge">spmd_task</code> also issues
+to be consumed. Each <code class="highlighter-rouge">spmd_task</code> also issues
 acquire operation which wait for the copy
 operation phase barrier to trigger before
 being ready. The acquire operations enable 
@@ -559,10 +559,10 @@ completed. Each release operation then arrives
 at the other phase barrier for an explicit
 ghost region indicating that the ghost region
 is empty and ready to be filled again by the
-neighboring <code class="language-plaintext highlighter-rouge">spmd_task</code>. Note that by using
+neighboring <code class="highlighter-rouge">spmd_task</code>. Note that by using
 explicit ghost regions with phase barriers
 and explicit acquire/release operations, each
-of the <code class="language-plaintext highlighter-rouge">spmd_task</code> instances can run in
+of the <code class="highlighter-rouge">spmd_task</code> instances can run in
 parallel and perform sub-operation launches
 in parallel, leveraging Legion’s ability
 to do independent analysis on sub-tasks.</p>
@@ -576,7 +576,7 @@ we believe that this example is actually
 relatively simple. If we attempted to do this
 in MPI, we would need to post asynchronous
 sends and receives and interleaving them with
-explicit <code class="language-plaintext highlighter-rouge">cudaMemcpy</code> operations to move data
+explicit <code class="highlighter-rouge">cudaMemcpy</code> operations to move data
 back and forth between the GPU. In our Legion
 version all communication is encoded in the
 same logical region framework, and no explicit
@@ -594,20 +594,20 @@ to this example.</p>
 
 <p>While not included in the code for this example,
 there are several important details regarding the
-mapping of this example that the <code class="language-plaintext highlighter-rouge">DefaultMapper</code>
+mapping of this example that the <code class="highlighter-rouge">DefaultMapper</code>
 implements. First, the default mapper implements
-the <code class="language-plaintext highlighter-rouge">map_must_epoch</code> mapper call, which is
-similar to the <code class="language-plaintext highlighter-rouge">map_task</code> call except it is
+the <code class="highlighter-rouge">map_must_epoch</code> mapper call, which is
+similar to the <code class="highlighter-rouge">map_task</code> call except it is
 given a set of tasks that all need to be mapped.
 It is also given a collection of constraints which
 specify which logical regions in different tasks
 must be mapped to the same physical instance
 in order for tasks to be capable of running in
-parallel. (<code class="language-plaintext highlighter-rouge">SIMULTANEOUS</code> coherence only allows
+parallel. (<code class="highlighter-rouge">SIMULTANEOUS</code> coherence only allows
 tasks to run in parallel if they use the same
 physical instance, otherwise the resulting
 behavior would be undefined.  The same is true
-of <code class="language-plaintext highlighter-rouge">ATOMIC</code> coherence.) The default mapper then
+of <code class="highlighter-rouge">ATOMIC</code> coherence.) The default mapper then
 knows that each of the different tasks must be
 mapped onto a different target processor, and 
 all of the logical regions with constraints should
@@ -618,12 +618,12 @@ run in parallel and therefore will issue a runtime
 error instead of allowing the application to 
 silently hang.</p>
 
-<p>The default mapper also checks the <code class="language-plaintext highlighter-rouge">restricted</code>
+<p>The default mapper also checks the <code class="highlighter-rouge">restricted</code>
 flag on all region requirements in order to see
 if the current physical instance is the only
 one which the mapper will be permitted to map.
 In these cases there is always exactly one 
-instance in the <code class="language-plaintext highlighter-rouge">current_instances</code> map which
+instance in the <code class="highlighter-rouge">current_instances</code> map which
 indicates which memory should be selected for
 the mapping. Failure to use this memory will 
 result in a failed mapping.</p>
@@ -634,13 +634,13 @@ that they map and therefore these physical instances
 must be visible from the processor on which the
 task is going to run. In the case of our explicit
 ghost region code, this is not always the case.
-Each of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances map the adjacent
+Each of <code class="highlighter-rouge">spmd_task</code> instances map the adjacent
 ghost cell regions with no intention of accessing
 them using accessors, but instead only with the
 intention of doing explicit region to region copies.
 To prevent the runtime from throwing an error
 because of this, we annotate the region requirements
-for these regions with the <code class="language-plaintext highlighter-rouge">NO_ACCESS_FLAG</code> in
+for these regions with the <code class="highlighter-rouge">NO_ACCESS_FLAG</code> in
 order to indicate that the tasks will not be
 making accessors for these logical regions.</p>
 

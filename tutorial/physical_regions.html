@@ -175,28 +175,28 @@ managing regions differs between the two approaches.</p>
 regions with a common index space. One logical
 region will store the inputs and the other
 will store the results. The input region will
-have two fields, one for storing the <code class="language-plaintext highlighter-rouge">X</code> values
-and the other for storing the <code class="language-plaintext highlighter-rouge">Y</code> values. The
-output region will have a single <code class="language-plaintext highlighter-rouge">Z</code> field for
+have two fields, one for storing the <code class="highlighter-rouge">X</code> values
+and the other for storing the <code class="highlighter-rouge">Y</code> values. The
+output region will have a single <code class="highlighter-rouge">Z</code> field for
 storing the result of the DAXPY computation.</p>
 
-<p>On lines 31-32 we create a 1D <code class="language-plaintext highlighter-rouge">Rect</code> to describe
+<p>On lines 31-32 we create a 1D <code class="highlighter-rouge">Rect</code> to describe
 the space of elements and
 use it to create an index space. We then
 create two field spaces: one for describing
 the two input fields (line 33) and one for
 describing the output (line 40). In the input
-field space <code class="language-plaintext highlighter-rouge">input_fs</code> we allocate two fields
-with field IDs <code class="language-plaintext highlighter-rouge">FID_X</code> and <code class="language-plaintext highlighter-rouge">FID_Y</code> which each
+field space <code class="highlighter-rouge">input_fs</code> we allocate two fields
+with field IDs <code class="highlighter-rouge">FID_X</code> and <code class="highlighter-rouge">FID_Y</code> which each
 hold double-precision floating-point values.
-In the output field space <code class="language-plaintext highlighter-rouge">output_fs</code> we allocate
-a single field <code class="language-plaintext highlighter-rouge">FID_Z</code> for storing the result
+In the output field space <code class="highlighter-rouge">output_fs</code> we allocate
+a single field <code class="highlighter-rouge">FID_Z</code> for storing the result
 of the computation.</p>
 
 <p>After creating the two fields spaces and allocating
 fields, we create two logical regions each with
-the same index space (lines 46-47). The <code class="language-plaintext highlighter-rouge">input_lr</code>
-and <code class="language-plaintext highlighter-rouge">output_lr</code> logical regions store the input
+the same index space (lines 46-47). The <code class="highlighter-rouge">input_lr</code>
+and <code class="highlighter-rouge">output_lr</code> logical regions store the input
 and output logical regions respectively. We’ll
 make use of the same region scheme throughout
 all of our remaining DAXPY examples. The next
@@ -217,7 +217,7 @@ physical instances will have an explicit placement
 and layout. (The choice of placement and layout are
 made by the mapping process which we cover in a
 later example.) Physical instances that are created
-are represented by <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> handles which
+are represented by <code class="highlighter-rouge">PhysicalRegion</code> handles which
 we discuss in more detail momentarily.</p>
 
 <p>One common criticism about the Legion C++ runtime
@@ -254,63 +254,63 @@ for the data since the data in the logical regions
 has not yet been initialized.</p>
 
 <p>To perform an inline mapping, applications create an
-<code class="language-plaintext highlighter-rouge">InlineLauncher</code> object similar to other launcher
+<code class="highlighter-rouge">InlineLauncher</code> object similar to other launcher
 objects for launching tasks (line 53). The argument
-passed to the <code class="language-plaintext highlighter-rouge">InlineLauncher</code> constructor is a
-<code class="language-plaintext highlighter-rouge">RegionRequirement</code> which is used to describe the
-logical region requested. <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects
+passed to the <code class="highlighter-rouge">InlineLauncher</code> constructor is a
+<code class="highlighter-rouge">RegionRequirement</code> which is used to describe the
+logical region requested. <code class="highlighter-rouge">RegionRequirement</code> objects
 are covered in the next section. Once we have have
-set up the launcher, we invoke the <code class="language-plaintext highlighter-rouge">map_region</code>
+set up the launcher, we invoke the <code class="highlighter-rouge">map_region</code>
 runtime method and pass the launcher. This call
-returns a <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> handle which represents
+returns a <code class="highlighter-rouge">PhysicalRegion</code> handle which represents
 the physical instance of the data. In keeping with
-Legion’s deferred execution model, the <code class="language-plaintext highlighter-rouge">map_region</code>
+Legion’s deferred execution model, the <code class="highlighter-rouge">map_region</code>
 call is asynchronous, allowing the application to
 issue many operations in flight and perform other
 useful work while waiting for the region to be
-ready. We describe the interface for <code class="language-plaintext highlighter-rouge">PhysicalRegion</code>
+ready. We describe the interface for <code class="highlighter-rouge">PhysicalRegion</code>
 objects later in this example.</p>
 
 <h4 id="region-requirements">Region Requirements</h4>
 
-<p><code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects are used to describe
+<p><code class="highlighter-rouge">RegionRequirement</code> objects are used to describe
 the logical regions requested by launcher objects as
 well as what privileges and coherence are requested
 on the specified logical region. On line
-49 we create a <code class="language-plaintext highlighter-rouge">RegionRequirement</code> that requests
-the <code class="language-plaintext highlighter-rouge">input_lr</code> logical region with <code class="language-plaintext highlighter-rouge">READ_WRITE</code>
-privileges and <code class="language-plaintext highlighter-rouge">EXCLUSIVE</code> coherence. The last
+49 we create a <code class="highlighter-rouge">RegionRequirement</code> that requests
+the <code class="highlighter-rouge">input_lr</code> logical region with <code class="highlighter-rouge">READ_WRITE</code>
+privileges and <code class="highlighter-rouge">EXCLUSIVE</code> coherence. The last
 argument specifies the logical region for which
 the enclosing parent task has privileges. We
 discuss privileges in more detail in the next
 example. By default most Legion applications should
-use <code class="language-plaintext highlighter-rouge">EXCLUSIVE</code> coherence. For those interested
+use <code class="highlighter-rouge">EXCLUSIVE</code> coherence. For those interested
 in learning more about <em>relaxed</em> coherence we
 encourage them to read our
 <a href="/publications/index.html">OOPSLA paper</a> which
 covers the semantics of various coherence modes.
 After specifying the requested logical region,
-<code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects must also specify
+<code class="highlighter-rouge">RegionRequirement</code> objects must also specify
 which fields on the logical region to request.
-Fields are added by calling the <code class="language-plaintext highlighter-rouge">add_field</code> method
-on the <code class="language-plaintext highlighter-rouge">RegionRequirement</code> (lines 50-51). There are
+Fields are added by calling the <code class="highlighter-rouge">add_field</code> method
+on the <code class="highlighter-rouge">RegionRequirement</code> (lines 50-51). There are
 many other constructors, methods, and fields
-on <code class="language-plaintext highlighter-rouge">RegionRequirement</code> objects, some of which
+on <code class="highlighter-rouge">RegionRequirement</code> objects, some of which
 we will see in the remaining examples.</p>
 
 <h4 id="physical-regions">Physical Regions</h4>
 
-<p><code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects are handles which name physical
-instances. However, similar to <code class="language-plaintext highlighter-rouge">Future</code> objects
+<p><code class="highlighter-rouge">PhysicalRegion</code> objects are handles which name physical
+instances. However, similar to <code class="highlighter-rouge">Future</code> objects
 which represent values which need to be completed,
-<code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects must be explicitly checked
+<code class="highlighter-rouge">PhysicalRegion</code> objects must be explicitly checked
 for completion as part of Legion’s deferred
 execution model. The application can either poll
-a <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> to see if it is complete
-using the <code class="language-plaintext highlighter-rouge">is_valid</code> method or it can explicitly
+a <code class="highlighter-rouge">PhysicalRegion</code> to see if it is complete
+using the <code class="highlighter-rouge">is_valid</code> method or it can explicitly
 wait for the physical instance to be ready
-by invoking the <code class="language-plaintext highlighter-rouge">wait_until_valid</code> method (line 55).
-Just like waiting for a <code class="language-plaintext highlighter-rouge">Future</code>, if the physical
+by invoking the <code class="highlighter-rouge">wait_until_valid</code> method (line 55).
+Just like waiting for a <code class="highlighter-rouge">Future</code>, if the physical
 instance is not ready the task is preempted
 and other tasks may be run while waiting for
 the region to be ready. Applications do not need
@@ -327,29 +327,29 @@ once the data is valid.</p>
 <p>Like other resources applications can
 explicitly release physical instances that it
 has mapped. We discuss how to explicitly unmap
-a <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> later in this example.
-<code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects are also reference
+a <code class="highlighter-rouge">PhysicalRegion</code> later in this example.
+<code class="highlighter-rouge">PhysicalRegion</code> objects are also reference
 counted so when the handles go out of scope references
 are removed. If the runtime detects that all
-handles to the <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> have gone out
+handles to the <code class="highlighter-rouge">PhysicalRegion</code> have gone out
 of scope, it will automatically unmap the
 physical instance as well.</p>
 
 <h4 id="region-accessors">Region Accessors</h4>
 
 <p>To access data within a physical region,
-an application must create <code class="language-plaintext highlighter-rouge">FieldAccessor</code> objects.
+an application must create <code class="highlighter-rouge">FieldAccessor</code> objects.
 Physical instances can be laid out in many different
 ways including array-of-struct (AOS), struct-of-array
 (SOA), and hybrid formats depending on decisions
 made as part of the process of mapping a Legion
-application. <code class="language-plaintext highlighter-rouge">FieldAccessor</code> objects provide the
+application. <code class="highlighter-rouge">FieldAccessor</code> objects provide the
 necessary level of indirection to make application
 code independent of the selected mapping and therefore
 correct under all possible mapping decisions.</p>
 
-<p><code class="language-plaintext highlighter-rouge">FieldAccessor</code> objects are tied directly to the
-<code class="language-plaintext highlighter-rouge">PhysicalRegion</code> for which they are created. Once
+<p><code class="highlighter-rouge">FieldAccessor</code> objects are tied directly to the
+<code class="highlighter-rouge">PhysicalRegion</code> for which they are created. Once
 the physical region is invalidated, either because
 it is reclaimed or it is explicitly unmapped by
 the application, then all accessors for the physical
@@ -361,11 +361,11 @@ constructor the physical region and field ID (lines 57-58, 74). Field
 accessors are templated on the privilege, field type, and number of
 dimensions of the region being used.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">FieldAccessor</code> provides an overloaded <code class="language-plaintext highlighter-rouge">operator[]</code> method (lines
+<p>The <code class="highlighter-rouge">FieldAccessor</code> provides an overloaded <code class="highlighter-rouge">operator[]</code> method (lines
 62-63, 78) which can be used to access the data within the region. The
-method expects to receive a <code class="language-plaintext highlighter-rouge">Point</code> with the same number of dimensions
+method expects to receive a <code class="highlighter-rouge">Point</code> with the same number of dimensions
 as the region being accessed. For our DAXPY example, we use the
-<code class="language-plaintext highlighter-rouge">PointInRectIterator</code> iterator object to iterate over all the points
+<code class="highlighter-rouge">PointInRectIterator</code> iterator object to iterate over all the points
 in the index space associated with both of our logical regions
 whenever we need to access values in our logical regions (lines 60, 77).</p>
 
@@ -395,21 +395,21 @@ for functions in a C compiler’s implementation of its
 application-binary interface (ABI). We’ll provide a compelling
 case when this occurs in the next example.</p>
 
-<p><code class="language-plaintext highlighter-rouge">PhysicalRegion</code> objects can be explicitly unmapped using the
-<code class="language-plaintext highlighter-rouge">Runtime</code> method <code class="language-plaintext highlighter-rouge">unmap_region</code> (line 82). This allows
+<p><code class="highlighter-rouge">PhysicalRegion</code> objects can be explicitly unmapped using the
+<code class="highlighter-rouge">Runtime</code> method <code class="highlighter-rouge">unmap_region</code> (line 82). This allows
 the application to maintain a handle to the physical instance
 in case it decides to remap the region using the
-<code class="language-plaintext highlighter-rouge">remap_region</code> method. The <code class="language-plaintext highlighter-rouge">remap_region</code> method will
+<code class="highlighter-rouge">remap_region</code> method. The <code class="highlighter-rouge">remap_region</code> method will
 ensure that the exact same physical instance is brought
-up to date which does not invalidate any <code class="language-plaintext highlighter-rouge">FieldAccessor</code>
+up to date which does not invalidate any <code class="highlighter-rouge">FieldAccessor</code>
 objects.</p>
 
 <p>The other way of remapping a region is to perform
 another inline mapping (possibly with different
 privileges or coherence) as we do in this example.
 The process of mapping may ultimately create a new
-<code class="language-plaintext highlighter-rouge">PhysicalRegion</code> object which will invalidate all earlier
-<code class="language-plaintext highlighter-rouge">FieldAccessor</code> objects. Attempts to use <code class="language-plaintext highlighter-rouge">FieldAccessor</code>
+<code class="highlighter-rouge">PhysicalRegion</code> object which will invalidate all earlier
+<code class="highlighter-rouge">FieldAccessor</code> objects. Attempts to use <code class="highlighter-rouge">FieldAccessor</code>
 objects which have been invalidated will result
 in undefined behavior.</p>
 
@@ -419,7 +419,7 @@ in undefined behavior.</p>
 Legion DAXPY application, we can now describe the overall
 structure of the application. Lines 20-28 handle command
 line arguments and allow programmers to deviate from the
-default number of elements by passing a <code class="language-plaintext highlighter-rouge">-n</code> flag with
+default number of elements by passing a <code class="highlighter-rouge">-n</code> flag with
 the new number of elements to use when creating our
 index space. The application then creates the index space,
 field spaces, and logical regions (lines 31-47). The
@@ -430,7 +430,7 @@ in lines 35-38 and 42-44.</p>
 first map a physical instance of input region by
 performing an inline mapping (lines 49-55). Using
 the physical instance that is created we create
-accessors for both of the fields in the <code class="language-plaintext highlighter-rouge">input_lr</code>
+accessors for both of the fields in the <code class="highlighter-rouge">input_lr</code>
 logical region (lines 57-58) and iterate over all the
 points in the index space to initialize all entries for
 both fields with random numbers (lines 60-64).</p>
@@ -439,7 +439,7 @@ both fields with random numbers (lines 60-64).</p>
 region, we then map the output logical region using
 another inline mapping (lines 66-70) and then
 create a region accessor (lines 74, note we do
-not explicitly wait for the <code class="language-plaintext highlighter-rouge">FieldAccessor</code> but
+not explicitly wait for the <code class="highlighter-rouge">FieldAccessor</code> but
 instead wait for the runtime to do it for us when
 creating the accessor). Having mapping physical instances
 of both logical regions, we then perform the DAXPY
@@ -448,13 +448,13 @@ index space used to create both logical regions
 (lines 77-78).</p>
 
 <p>When the DAXPY computation is complete, we then
-unmap the <code class="language-plaintext highlighter-rouge">PhysicalRegion</code> for the output logical
+unmap the <code class="highlighter-rouge">PhysicalRegion</code> for the output logical
 region and remap it using a new inline mapping
 (lines 82-85) to illustrate changing the mapping
-privileges from <code class="language-plaintext highlighter-rouge">WRITE_DISCARD</code> to <code class="language-plaintext highlighter-rouge">READ_ONLY</code>.
+privileges from <code class="highlighter-rouge">WRITE_DISCARD</code> to <code class="highlighter-rouge">READ_ONLY</code>.
 Note that because we performed a new inline
-mapping instead of calling <code class="language-plaintext highlighter-rouge">remap_region</code> we
-had to create a new <code class="language-plaintext highlighter-rouge">FieldAccessor</code> since it
+mapping instead of calling <code class="highlighter-rouge">remap_region</code> we
+had to create a new <code class="highlighter-rouge">FieldAccessor</code> since it
 was possible we received a new physical instance
 (line 87). We then check the results of our
 DAXPY computation to make sure they are correct

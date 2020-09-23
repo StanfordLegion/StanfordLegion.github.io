@@ -117,8 +117,8 @@
 make it easy to remap applications onto
 different architectures. Up to this point
 all of our applications have been mapped
-by the <code class="language-plaintext highlighter-rouge">DefaultMapper</code> implementation that
-is distributed with Legion. The <code class="language-plaintext highlighter-rouge">DefaultMapper</code>
+by the <code class="highlighter-rouge">DefaultMapper</code> implementation that
+is distributed with Legion. The <code class="highlighter-rouge">DefaultMapper</code>
 class provides heuristics for performing mappings
 that are good, but regularly not optimal for
 specific applications or architectures. By
@@ -159,20 +159,20 @@ custom mappers.</p>
 <h4 id="mapper-objects-and-registration">Mapper Objects and Registration</h4>
 
 <p>Mappers are classes that implement the interface
-declared in the abstract class <code class="language-plaintext highlighter-rouge">Mapper</code>. Legion provides a default
+declared in the abstract class <code class="highlighter-rouge">Mapper</code>. Legion provides a default
 implementation of this interface defined by the
-<code class="language-plaintext highlighter-rouge">DefaultMapper</code> class. The default mapper allows
+<code class="highlighter-rouge">DefaultMapper</code> class. The default mapper allows
 applications to be developed without being
 concerned with mapping decisions. Once correctness
 has been established, programmers can implement
 custom mappers to achieve higher performance.
-Custom mappers can either extend the <code class="language-plaintext highlighter-rouge">DefaultMapper</code>
-class or implement the <code class="language-plaintext highlighter-rouge">Mapper</code> interface from
+Custom mappers can either extend the <code class="highlighter-rouge">DefaultMapper</code>
+class or implement the <code class="highlighter-rouge">Mapper</code> interface from
 scratch. In this example, we extend the
-<code class="language-plaintext highlighter-rouge">DefaultMapper</code> to create both our <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>
-(line 20) and <code class="language-plaintext highlighter-rouge">PartitioningMapper</code> (line 41). We then override
-four of the mapping interface calls in the <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>
-(lines 25-38) and one in the <code class="language-plaintext highlighter-rouge">PartitioningMapper</code> (lines 46-49)
+<code class="highlighter-rouge">DefaultMapper</code> to create both our <code class="highlighter-rouge">AdversarialMapper</code>
+(line 20) and <code class="highlighter-rouge">PartitioningMapper</code> (line 41). We then override
+four of the mapping interface calls in the <code class="highlighter-rouge">AdversarialMapper</code>
+(lines 25-38) and one in the <code class="highlighter-rouge">PartitioningMapper</code> (lines 46-49)
 to show how they work. We’ll describe the semantics of these calls and our implementations
 of them in the coming sections.</p>
 
@@ -181,16 +181,16 @@ Legion runtime starts but before the application
 begins executing. To instantiate mappers, the application
 registers a callback function for the runtime to
 invoke prior to beginning execution of the application. In this
-example we create the <code class="language-plaintext highlighter-rouge">mapper_registration</code>
+example we create the <code class="highlighter-rouge">mapper_registration</code>
 function (lines 52-62) and register the function
-with runtime using the static method <code class="language-plaintext highlighter-rouge">add_registration_callback</code>
-of <code class="language-plaintext highlighter-rouge">Runtime</code> (line 469). All callback
-functions must have the same type as the <code class="language-plaintext highlighter-rouge">mapper_registration</code>
+with runtime using the static method <code class="highlighter-rouge">add_registration_callback</code>
+of <code class="highlighter-rouge">Runtime</code> (line 469). All callback
+functions must have the same type as the <code class="highlighter-rouge">mapper_registration</code>
 function so that the runtime can pass the
 necessary parameters for creating new mappers.</p>
 
 <p>In Legion, each kind of
-mapper is identified by a <code class="language-plaintext highlighter-rouge">MapperID</code> (an unsigned integer).
+mapper is identified by a <code class="highlighter-rouge">MapperID</code> (an unsigned integer).
 There should be one instance of each kind of mapper
 for every processor in the system. Having a single
 instance for each processor guarantees that processors
@@ -200,49 +200,49 @@ general, mappers are permitted to be stateful, and users of the
 mapping API can choose what state to track and how to manage that
 state.</p>
 
-<p>When <code class="language-plaintext highlighter-rouge">mapper_registration</code> callback function is invoked, it can
+<p>When <code class="highlighter-rouge">mapper_registration</code> callback function is invoked, it can
 instantiate an arbitrary number of mappers and kinds of mappers.
 For each kind, it should create one instance for
-every processor in the set <code class="language-plaintext highlighter-rouge">local_procs</code> which
+every processor in the set <code class="highlighter-rouge">local_procs</code> which
 describes the set of processors on the local node. Note that in a
 multi-node execution of Legion, this callback will be issued once on
-every node in the system. The <code class="language-plaintext highlighter-rouge">MapperID</code> 0 is reserved for
-the <code class="language-plaintext highlighter-rouge">DefaultMapper</code>, but applications can replace the default with their own mapper
-by calling <code class="language-plaintext highlighter-rouge">replace_default_mapper</code> (lines 57-58). By replacing the default mapper, any tasks in the application will
-automatically use the new <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>. We register <code class="language-plaintext highlighter-rouge">PartitioningMapper</code> with
-the <code class="language-plaintext highlighter-rouge">add_mapper</code> method and assign it a non-zero ID
-<code class="language-plaintext highlighter-rouge">PARTITIONING_MAPPER_ID</code>. We’ll show how to use
+every node in the system. The <code class="highlighter-rouge">MapperID</code> 0 is reserved for
+the <code class="highlighter-rouge">DefaultMapper</code>, but applications can replace the default with their own mapper
+by calling <code class="highlighter-rouge">replace_default_mapper</code> (lines 57-58). By replacing the default mapper, any tasks in the application will
+automatically use the new <code class="highlighter-rouge">AdversarialMapper</code>. We register <code class="highlighter-rouge">PartitioningMapper</code> with
+the <code class="highlighter-rouge">add_mapper</code> method and assign it a non-zero ID
+<code class="highlighter-rouge">PARTITIONING_MAPPER_ID</code>. We’ll show how to use
 mapper IDs to determine which mapper is invoked
 momentarily. Finally, notice that we iterate over
-all the processors in the set of <code class="language-plaintext highlighter-rouge">local_procs</code>
-to create a distinct instances of both <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>
-and <code class="language-plaintext highlighter-rouge">PartitioningMapper</code> for each processor (lines 57-60).</p>
+all the processors in the set of <code class="highlighter-rouge">local_procs</code>
+to create a distinct instances of both <code class="highlighter-rouge">AdversarialMapper</code>
+and <code class="highlighter-rouge">PartitioningMapper</code> for each processor (lines 57-60).</p>
 
 <h4 id="legion-machine-model">Legion Machine Model</h4>
 
 <p>In order to target a specific architecture, mappers need
 access to a description of the underlying hardware.
-Legion provides a static singleton <code class="language-plaintext highlighter-rouge">Machine</code> object
+Legion provides a static singleton <code class="highlighter-rouge">Machine</code> object
 that can be used to make queries concerning the
 underlying hardware. We show how to make some of these
-queries as part of the constructor for our <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>
+queries as part of the constructor for our <code class="highlighter-rouge">AdversarialMapper</code>
 object (lines 64-218).</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Machine</code> object is passed as part
+<p>The <code class="highlighter-rouge">Machine</code> object is passed as part
 of the arguments to any mapper constructor, but it
 can also always be obtained by calling the static method
-<code class="language-plaintext highlighter-rouge">Machine::get_machine</code> from anywhere in the
+<code class="highlighter-rouge">Machine::get_machine</code> from anywhere in the
 application. In our constructor
 we begin by obtaining the set of
 all the processors in the machine (line 69). The
-<code class="language-plaintext highlighter-rouge">Processor</code> objects are simply light-weight handles
+<code class="highlighter-rouge">Processor</code> objects are simply light-weight handles
 that name the various processors (CPUs, GPUs, etc.) in the
 machine. Generally speaking, the number and kind of processors
 available in the Legion runtime are configured by passsing
-command-line flags such as <code class="language-plaintext highlighter-rouge">-ll:cpu &lt;C&gt;</code> and <code class="language-plaintext highlighter-rouge">-ll:gpu &lt;G&gt;</code> (which
-would create <code class="language-plaintext highlighter-rouge">C</code> CPU and <code class="language-plaintext highlighter-rouge">G</code> GPU processors). Note that certain flags
+command-line flags such as <code class="highlighter-rouge">-ll:cpu &lt;C&gt;</code> and <code class="highlighter-rouge">-ll:gpu &lt;G&gt;</code> (which
+would create <code class="highlighter-rouge">C</code> CPU and <code class="highlighter-rouge">G</code> GPU processors). Note that certain flags
 are only available when the appropriate module has been compiled into
-Legion (e.g. the use of GPUs depends on <code class="language-plaintext highlighter-rouge">USE_CUDA</code> at
+Legion (e.g. the use of GPUs depends on <code class="highlighter-rouge">USE_CUDA</code> at
 compile-time). More details on the available flags can be found at the
 <a href="/profiling/index.html#machine-configuration">machine configuration
 page</a>.</p>
@@ -250,17 +250,17 @@ page</a>.</p>
 <p>For illustration, we print the list of processors and memories for our
 machine (lines 71-201). Note that in order to avoid seeing multiple
 copies of this output, we only run this code on the first mapper (line
-70). Recall a separate instance of the <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>
+70). Recall a separate instance of the <code class="highlighter-rouge">AdversarialMapper</code>
 will be made for every processor. We then
 iterate over the set of all processors and print out
 their ID and type (lines 75-104). Most objects
-obtained from the <code class="language-plaintext highlighter-rouge">Machine</code> object have an associated
-<code class="language-plaintext highlighter-rouge">id</code> field that can uniquely identify them (the special constant
-<code class="language-plaintext highlighter-rouge">IDFMT</code> contains the appropriate format code for printing an ID).
+obtained from the <code class="highlighter-rouge">Machine</code> object have an associated
+<code class="highlighter-rouge">id</code> field that can uniquely identify them (the special constant
+<code class="highlighter-rouge">IDFMT</code> contains the appropriate format code for printing an ID).
 There are a variety of processor types supported
 by the Legion runtime: latency-optimized processors
-(<code class="language-plaintext highlighter-rouge">LOC_PROC</code>) are CPU processors, throughput-optimized
-processors (<code class="language-plaintext highlighter-rouge">TOC_PROC</code>) are GPUs, and utility processors
+(<code class="highlighter-rouge">LOC_PROC</code>) are CPU processors, throughput-optimized
+processors (<code class="highlighter-rouge">TOC_PROC</code>) are GPUs, and utility processors
 are special CPU processors used for performing Legion runtime
 tasks. Legion also supports special-purpose processors for I/O,
 OpenMP, and Python (not shown in this tutorial).</p>
@@ -283,58 +283,58 @@ the exact affinity values are only approximations and do not reflect
 the actual transfer bandwidth of the machine.</p>
 
 <p>Line 205 uses
-the <code class="language-plaintext highlighter-rouge">get_visible_memories</code> method to obtain the
+the <code class="highlighter-rouge">get_visible_memories</code> method to obtain the
 set of memories that are visible from the local processor.
 We then print out the affinities between the local
 processor and each of these memories using the
-<code class="language-plaintext highlighter-rouge">get_proc_mem_affinity</code> method (line 212).</p>
+<code class="highlighter-rouge">get_proc_mem_affinity</code> method (line 212).</p>
 
 <h4 id="selecting-task-options">Selecting Task Options</h4>
 
 <p>The first mapper call that we override is the
-<code class="language-plaintext highlighter-rouge">select_task_options</code> call (lines 220-228). This
+<code class="highlighter-rouge">select_task_options</code> call (lines 220-228). This
 mapper call is performed on every task launch
 immediately after it is made, and is used to configure certain
 important aspects of task execution that the runtime needs to know up
 front.</p>
 
 <p>In general, mapper calls in Legion use a well-defined set of inputs
-and outputs. The inputs are provided by one or more <code class="language-plaintext highlighter-rouge">const</code>
-references, while the output is provided in a single non-<code class="language-plaintext highlighter-rouge">const</code>
+and outputs. The inputs are provided by one or more <code class="highlighter-rouge">const</code>
+references, while the output is provided in a single non-<code class="highlighter-rouge">const</code>
 reference struct. In this way, it is possible to determine what fields
 a mapper is expected to set simply by looking at the signature of the
 mapper call.</p>
 
-<p>In the case of the <code class="language-plaintext highlighter-rouge">select_task_options</code> call, the following output
+<p>In the case of the <code class="highlighter-rouge">select_task_options</code> call, the following output
 fields are provided to the mapper:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">inline_task</code> determines whether the child task should be executed
+  <li><code class="highlighter-rouge">inline_task</code> determines whether the child task should be executed
 directly in the parent tasks’s context, using the parent task’s
-physical regions. (This is option is usually left to <code class="language-plaintext highlighter-rouge">false</code> as it
+physical regions. (This is option is usually left to <code class="highlighter-rouge">false</code> as it
 is desirable for the child to execute asynchronously with the
 parent.)</li>
-  <li><code class="language-plaintext highlighter-rouge">stealable</code> is used for work-stealing load balancing and controls
+  <li><code class="highlighter-rouge">stealable</code> is used for work-stealing load balancing and controls
 whether the task is available to be stolen by another</li>
-  <li><code class="language-plaintext highlighter-rouge">map_locally</code> determines whether subsequent mapper calls (such as
-<code class="language-plaintext highlighter-rouge">map_task</code>) should be processed by the current mapper, or the
+  <li><code class="highlighter-rouge">map_locally</code> determines whether subsequent mapper calls (such as
+<code class="highlighter-rouge">map_task</code>) should be processed by the current mapper, or the
 mapper for the processor to which the task is to be assigned.</li>
-  <li><code class="language-plaintext highlighter-rouge">initial_proc</code> is used to send the task to be mapped on another
+  <li><code class="highlighter-rouge">initial_proc</code> is used to send the task to be mapped on another
 processor. Note that the task may not necessarily execute on
-<code class="language-plaintext highlighter-rouge">initial_proc</code>, since the mapper can still use the <code class="language-plaintext highlighter-rouge">map_task</code> call
+<code class="highlighter-rouge">initial_proc</code>, since the mapper can still use the <code class="highlighter-rouge">map_task</code> call
 to send it to a different final destination.</li>
 </ul>
 
 <p>For our adversarial mapper, to demonstrate that Legion can handle any
 possible mapping strategy, we just choose a random processor for the
-<code class="language-plaintext highlighter-rouge">initial_proc</code>. We use two <code class="language-plaintext highlighter-rouge">DefaultMapper</code> utility methods,
-<code class="language-plaintext highlighter-rouge">select_random_processor</code> and <code class="language-plaintext highlighter-rouge">select_random_processor_kind</code> to do
+<code class="highlighter-rouge">initial_proc</code>. We use two <code class="highlighter-rouge">DefaultMapper</code> utility methods,
+<code class="highlighter-rouge">select_random_processor</code> and <code class="highlighter-rouge">select_random_processor_kind</code> to do
 this (lines 226-227).</p>
 
 <h4 id="slicing-index-task-spaces">Slicing Index Task Spaces</h4>
 
-<p>The second call that we override is the <code class="language-plaintext highlighter-rouge">slice_task</code>
-method (lines 230-277). The <code class="language-plaintext highlighter-rouge">slice_task</code> method is used to determine
+<p>The second call that we override is the <code class="highlighter-rouge">slice_task</code>
+method (lines 230-277). The <code class="highlighter-rouge">slice_task</code> method is used to determine
 how to distribute the tasks within an index space launch around the</p>
 
 <p>machine. The mapper is given as input a set of slices (which initially
@@ -344,14 +344,14 @@ are attempting to stress the runtime, we create a slice for each point
 task and assign it to another processor. In more typical usage, the
 slices would be chosen to maximize locality in the application.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">slice_task</code> method can optionally be called recursively until the
+<p>The <code class="highlighter-rouge">slice_task</code> method can optionally be called recursively until the
 index space launch has been decomposed down to slices of the desired
 size. In this case we disable this feature and only perform one level
 of slicing.</p>
 
 <h4 id="task-mapping">Task Mapping</h4>
 
-<p>The next mapping call, <code class="language-plaintext highlighter-rouge">map_task</code> (lines 279-338) is one of the most
+<p>The next mapping call, <code class="highlighter-rouge">map_task</code> (lines 279-338) is one of the most
 important methods. The call has a number of responsibilities:</p>
 
 <ul>
@@ -364,8 +364,8 @@ important methods. The call has a number of responsibilities:</p>
 
 <p>On line 298, we select the final processor that the task will execute
 on. In this case, we simply keep the processor that was chosen by
-<code class="language-plaintext highlighter-rouge">select_task_options</code>, which is stored in the <code class="language-plaintext highlighter-rouge">task.target_proc</code>
-field. Note that <code class="language-plaintext highlighter-rouge">output.target_procs</code> is a set and if multiple
+<code class="highlighter-rouge">select_task_options</code>, which is stored in the <code class="highlighter-rouge">task.target_proc</code>
+field. Note that <code class="highlighter-rouge">output.target_procs</code> is a set and if multiple
 processors, task will be load balanced between the selected
 processors. It is a common pattern to select all of the processors on
 the local node that have the appropriate type. For the adversarial
@@ -393,7 +393,7 @@ said to be <em>premapped</em>. We find a list of such regions on lines
 
 <p>Certain variants of tasks may assume that the data has a specific
 layout. In order to ensure that the mapping is correct for the given
-variant, we use <code class="language-plaintext highlighter-rouge">find_task_layout_constraints</code> to look up the <em>layout
+variant, we use <code class="highlighter-rouge">find_task_layout_constraints</code> to look up the <em>layout
 constraints</em> for the given variant (lines 305-307). Layout constraints
 describe the layout that the variant expects to receive.</p>
 
@@ -405,8 +405,8 @@ always provided in the correct layout. The mapper is simply
 responsible for choosing the layout that it wants for the data.</p>
 
 <p>To simplify the process of choosing an appropriate layout, we use two
-helper methods <code class="language-plaintext highlighter-rouge">map_constrained_requirement</code> (lines 322-323) and
-<code class="language-plaintext highlighter-rouge">map_random_requirement</code> (lines 326-328) that handle the cases where
+helper methods <code class="highlighter-rouge">map_constrained_requirement</code> (lines 322-323) and
+<code class="highlighter-rouge">map_random_requirement</code> (lines 326-328) that handle the cases where
 the variant specifies constraints on the layout, or leaves the layout
 unconstrained, respectively. In an application-specific mapper, the
 mapper might have more knowledge of the desired layout and might
@@ -428,18 +428,18 @@ typical usage, the mapper would assign higher priority to tasks along
 the critical path of the application, to ensure that those tasks
 execute as soon as they are ready.</p>
 
-<p>Finally, <code class="language-plaintext highlighter-rouge">map_task</code> can request various profiling information about a
+<p>Finally, <code class="highlighter-rouge">map_task</code> can request various profiling information about a
 task, such as the status (success or failure) of a task, the execution
 time, and the overhead incurred (lines 332-337). These results are
-then passed back to the mapper via the <code class="language-plaintext highlighter-rouge">report_profiling</code> callback
+then passed back to the mapper via the <code class="highlighter-rouge">report_profiling</code> callback
 once the task completed.</p>
 
 <h4 id="reporting-results">Reporting Results</h4>
 
-<p>The last mapper call that we override for our <code class="language-plaintext highlighter-rouge">AdversarialMapper</code> is
-the <code class="language-plaintext highlighter-rouge">report_profiling</code> method (lines 340-410). This method prints out
+<p>The last mapper call that we override for our <code class="highlighter-rouge">AdversarialMapper</code> is
+the <code class="highlighter-rouge">report_profiling</code> method (lines 340-410). This method prints out
 the profiling information obtained from the task execution that was
-requested in <code class="language-plaintext highlighter-rouge">map_task</code>.</p>
+requested in <code class="highlighter-rouge">map_task</code>.</p>
 
 <h4 id="handling-tunable-variables">Handling Tunable Variables</h4>
 
@@ -451,29 +451,29 @@ to be specifically tuned for different architectures.
 Since these variables are machine dependent and likely
 to affect performance, we prefer to make these variables
 explicit. To do this we provide a separate mapping call
-<code class="language-plaintext highlighter-rouge">select_tunable_value</code> to explicitly request that the
+<code class="highlighter-rouge">select_tunable_value</code> to explicitly request that the
 mapper pick the value for this variable. We override
-this call in our <code class="language-plaintext highlighter-rouge">PartitioningMapper</code> on lines 410-430.</p>
+this call in our <code class="highlighter-rouge">PartitioningMapper</code> on lines 410-430.</p>
 
 <p>We make a slight modification to our DAXPY code to
 make the number of sub-regions to create a tunable
 variable so that the mapper can pick a value based
 on the number of processors on the target machine. Note that the
-<code class="language-plaintext highlighter-rouge">top_level_task</code> explicitly invokes the <code class="language-plaintext highlighter-rouge">select_tunable_value</code>
+<code class="highlighter-rouge">top_level_task</code> explicitly invokes the <code class="highlighter-rouge">select_tunable_value</code>
 to find the number of sub-regions to create. (Instead of showing the
 full example again, we show only the relevant snippet below.) When
 this call is made, we
-pass the <code class="language-plaintext highlighter-rouge">PARTITIONING_MAPPER_ID</code> as the value to the
-<code class="language-plaintext highlighter-rouge">MapperID</code> field, indicating that an instance of
-our <code class="language-plaintext highlighter-rouge">PartitioningMapper</code> should be used to handle
-the request and not an instance of the <code class="language-plaintext highlighter-rouge">AdversarialMapper</code>.
-When we make the call we also pass in a <code class="language-plaintext highlighter-rouge">TunableID</code>
+pass the <code class="highlighter-rouge">PARTITIONING_MAPPER_ID</code> as the value to the
+<code class="highlighter-rouge">MapperID</code> field, indicating that an instance of
+our <code class="highlighter-rouge">PartitioningMapper</code> should be used to handle
+the request and not an instance of the <code class="highlighter-rouge">AdversarialMapper</code>.
+When we make the call we also pass in a <code class="highlighter-rouge">TunableID</code>
 which is used to identify the name of the tunable
-variable that should be set. The <code class="language-plaintext highlighter-rouge">TunableID</code>
+variable that should be set. The <code class="highlighter-rouge">TunableID</code>
 can be arbitrary, so long as the mapper that it
 is being sent to knows what to do with it. In
-this case we pass <code class="language-plaintext highlighter-rouge">SUBREGION_TUNABLE</code> as the
-integer name for tunable variable. The <code class="language-plaintext highlighter-rouge">PartitioningMapper</code>
+this case we pass <code class="highlighter-rouge">SUBREGION_TUNABLE</code> as the
+integer name for tunable variable. The <code class="highlighter-rouge">PartitioningMapper</code>
 instance looks up the total number of processors
 in the machine and returns that as the number
 of sub-regions to create.</p>
@@ -483,7 +483,7 @@ of sub-regions to create.</p>
                                    <span class="n">PARTITIONING_MAPPER_ID</span><span class="p">).</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span><span class="p">();</span></code></pre></figure>
 
 <p>Tunable variables are returned as a future, so if the application code
-needs to use the result it must call <code class="language-plaintext highlighter-rouge">get_result&lt;T&gt;</code> to get the value.</p>
+needs to use the result it must call <code class="highlighter-rouge">get_result&lt;T&gt;</code> to get the value.</p>
 
 <h4 id="what-next">What Next?</h4>
 
@@ -1068,19 +1068,19 @@ regarding how to use them, please post to the
       <span class="n">Processor</span><span class="o">::</span><span class="n">Kind</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">();</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Latency-optimized cores (LOCs) are CPUs</span>
-        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">LOC_PROC</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is CPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Throughput-optimized cores (TOCs) are GPUs</span>
-        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">TOC_PROC</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="o">::</span><span class="n">TOC_PROC</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is GPU</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Processor for doing I/O</span>
-        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">IO_PROC</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="o">::</span><span class="n">IO_PROC</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is I/O Proc</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
@@ -1088,7 +1088,7 @@ regarding how to use them, please post to the
         <span class="c1">// Utility processors are helper processors for</span>
         <span class="c1">// running Legion runtime meta-level tasks and</span>
         <span class="c1">// should not be used for running application tasks</span>
-        <span class="k">case</span> <span class="n">Processor</span><span class="p">:</span><span class="o">:</span><span class="n">UTIL_PROC</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Processor</span><span class="o">::</span><span class="n">UTIL_PROC</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Processor ID "</span> <span class="n">IDFMT</span> <span class="s">" is utility</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
@@ -1106,28 +1106,28 @@ regarding how to use them, please post to the
       <span class="kt">size_t</span> <span class="n">memory_size_in_kb</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="mi">10</span><span class="p">;</span>
       <span class="k">switch</span> <span class="p">(</span><span class="n">kind</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// RDMA addressable memory when running with GASNet</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GLOBAL_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">GLOBAL_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  GASNet Global Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// DRAM on a single node</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SYSTEM_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">SYSTEM_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  System Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Pinned memory on a single node</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">REGDMA_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">REGDMA_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Pinned Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// A memory associated with a single socket</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">SOCKET_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">SOCKET_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Socket Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
@@ -1135,56 +1135,56 @@ regarding how to use them, please post to the
           <span class="p">}</span>
         <span class="c1">// Zero-copy memory betweeen CPU DRAM and</span>
         <span class="c1">// all GPUs on a single node</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">Z_COPY_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">Z_COPY_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Zero-Copy Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// GPU framebuffer memory for a single GPU</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">GPU_FB_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">GPU_FB_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  GPU Frame Buffer Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Disk memory on a single node</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">DISK_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">DISK_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Disk Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// HDF framebuffer memory for a single GPU</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">HDF_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">HDF_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  HDF Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// File memory on a single node</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">FILE_MEM</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">FILE_MEM</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  File Memory ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Block of memory sized for L3 cache</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL3_CACHE</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">LEVEL3_CACHE</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 3 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Block of memory sized for L2 cache</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL2_CACHE</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">LEVEL2_CACHE</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 2 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="p">}</span>
         <span class="c1">// Block of memory sized for L1 cache</span>
-        <span class="k">case</span> <span class="n">Memory</span><span class="p">:</span><span class="o">:</span><span class="n">LEVEL1_CACHE</span><span class="o">:</span>
+        <span class="k">case</span> <span class="n">Memory</span><span class="o">::</span><span class="n">LEVEL1_CACHE</span><span class="p">:</span>
           <span class="p">{</span>
             <span class="n">printf</span><span class="p">(</span><span class="s">"  Level 1 Cache ID "</span> <span class="n">IDFMT</span> <span class="s">" has %zd KB</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
                     <span class="n">it</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">,</span> <span class="n">memory_size_in_kb</span><span class="p">);</span>
@@ -1340,27 +1340,27 @@ regarding how to use them, please post to the
     <span class="n">input</span><span class="p">.</span><span class="n">profiling_responses</span><span class="p">.</span><span class="n">get_measurement</span><span class="o">&lt;</span><span class="n">OperationStatus</span><span class="o">&gt;</span><span class="p">();</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="o">-&gt;</span><span class="n">result</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">COMPLETED_SUCCESSFULLY</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="o">::</span><span class="n">COMPLETED_SUCCESSFULLY</span><span class="p">:</span>
         <span class="p">{</span>
           <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s COMPLETED SUCCESSFULLY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
-      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">COMPLETED_WITH_ERRORS</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="o">::</span><span class="n">COMPLETED_WITH_ERRORS</span><span class="p">:</span>
         <span class="p">{</span>
           <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s COMPLETED WITH ERRORS</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
-      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">INTERRUPT_REQUESTED</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="o">::</span><span class="n">INTERRUPT_REQUESTED</span><span class="p">:</span>
         <span class="p">{</span>
           <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s was INTERRUPTED</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
-      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">TERMINATED_EARLY</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="o">::</span><span class="n">TERMINATED_EARLY</span><span class="p">:</span>
         <span class="p">{</span>
           <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s TERMINATED EARLY</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
           <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
-      <span class="k">case</span> <span class="n">OperationStatus</span><span class="p">:</span><span class="o">:</span><span class="n">CANCELLED</span><span class="o">:</span>
+      <span class="k">case</span> <span class="n">OperationStatus</span><span class="o">::</span><span class="n">CANCELLED</span><span class="p">:</span>
         <span class="p">{</span>
           <span class="n">printf</span><span class="p">(</span><span class="s">"Task %s was CANCELLED</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">task</span><span class="p">.</span><span class="n">get_task_name</span><span class="p">());</span>
           <span class="k">break</span><span class="p">;</span>

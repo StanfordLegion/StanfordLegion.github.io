@@ -124,60 +124,60 @@ domains, and points and give examples of how they work.</p>
 <h4 id="rectangles-and-domains">Rectangles and Domains</h4>
 
 <p>To aid in describing structured data, Legion supports
-a <code class="language-plaintext highlighter-rouge">Rect</code> type which is used to describe an arbitrary-dimensional
-dense arrays of points. <code class="language-plaintext highlighter-rouge">Rect</code> types are templated on the number
+a <code class="highlighter-rouge">Rect</code> type which is used to describe an arbitrary-dimensional
+dense arrays of points. <code class="highlighter-rouge">Rect</code> types are templated on the number
 of dimensions that they describe as well as a coordinate type
-which defaults to 64 bit signed integers. To specify a <code class="language-plaintext highlighter-rouge">Rect</code> a
-user gives two <code class="language-plaintext highlighter-rouge">Point</code> objects which specify the lower and
+which defaults to 64 bit signed integers. To specify a <code class="highlighter-rouge">Rect</code> a
+user gives two <code class="highlighter-rouge">Point</code> objects which specify the lower and
 upper bounds in all dimensions respectively. Similar to
-the <code class="language-plaintext highlighter-rouge">Rect</code> type, a <code class="language-plaintext highlighter-rouge">Point</code> type is templated on the
+the <code class="highlighter-rouge">Rect</code> type, a <code class="highlighter-rouge">Point</code> type is templated on the
 number of dimensions it stores and the coordinate type. 
-In this example we create a 1-D <code class="language-plaintext highlighter-rouge">Rect</code> for which we’ll 
+In this example we create a 1-D <code class="highlighter-rouge">Rect</code> for which we’ll 
 launch an array of tasks with one task per point (line 29). 
-Note that the bounds on <code class="language-plaintext highlighter-rouge">Rect</code> objects are inclusive.</p>
+Note that the bounds on <code class="highlighter-rouge">Rect</code> objects are inclusive.</p>
 
 <p>It can be useful to be able to refer to a rectangle where the number
-of dimensions is not known at compile time. The <code class="language-plaintext highlighter-rouge">Domain</code> class is used
-for this purpose. While we do not use <code class="language-plaintext highlighter-rouge">Domain</code> in this example, and
-Legion runtime calls almost always accept <code class="language-plaintext highlighter-rouge">Rect</code>, you may see this
+of dimensions is not known at compile time. The <code class="highlighter-rouge">Domain</code> class is used
+for this purpose. While we do not use <code class="highlighter-rouge">Domain</code> in this example, and
+Legion runtime calls almost always accept <code class="highlighter-rouge">Rect</code>, you may see this
 in Legion code in the wild.</p>
 
 <h4 id="argument-and-future-maps">Argument and Future Maps</h4>
 
 <p>When launching a large set of tasks in a single
 call, we may want to pass different arguments to each
-task. <code class="language-plaintext highlighter-rouge">ArgumentMap</code> types allow the user to pass
-different <code class="language-plaintext highlighter-rouge">TaskArgument</code> values to tasks associated
-with different points. <code class="language-plaintext highlighter-rouge">ArgumentMap</code> types do not
+task. <code class="highlighter-rouge">ArgumentMap</code> types allow the user to pass
+different <code class="highlighter-rouge">TaskArgument</code> values to tasks associated
+with different points. <code class="highlighter-rouge">ArgumentMap</code> types do not
 need to specify arguments for all points. Legion
 is intelligent about only passing arguments to tasks
 which have arguments assigned. In this example we
-create an <code class="language-plaintext highlighter-rouge">ArgumentMap</code> (line 31) and then pass in
+create an <code class="highlighter-rouge">ArgumentMap</code> (line 31) and then pass in
 different integer arguments associated with each
-point (lines 32-35). <code class="language-plaintext highlighter-rouge">ArgumentMap</code> objects copy 
-their values on calls to <code class="language-plaintext highlighter-rouge">set_point</code>, but the actual
-<code class="language-plaintext highlighter-rouge">ArgumentMap</code> itself will not be copied until the
+point (lines 32-35). <code class="highlighter-rouge">ArgumentMap</code> objects copy 
+their values on calls to <code class="highlighter-rouge">set_point</code>, but the actual
+<code class="highlighter-rouge">ArgumentMap</code> itself will not be copied until the
 task is launched. Legion is smart about copying
-<code class="language-plaintext highlighter-rouge">ArgumentMap</code> values so that data is not copied
+<code class="highlighter-rouge">ArgumentMap</code> values so that data is not copied
 unnecessarily.</p>
 
-<p>Legion also provides <code class="language-plaintext highlighter-rouge">FutureMap</code> types as a mechanism
+<p>Legion also provides <code class="highlighter-rouge">FutureMap</code> types as a mechanism
 for managing the many return values that are returned
-from an index space task launch. <code class="language-plaintext highlighter-rouge">FutureMap</code> objects
+from an index space task launch. <code class="highlighter-rouge">FutureMap</code> objects
 store a future value for every point in the index
 space task launch. Applications can either wait on the
-<code class="language-plaintext highlighter-rouge">FutureMap</code> for all tasks in the index space launch
-to complete, or it can extract individual <code class="language-plaintext highlighter-rouge">Future</code>
+<code class="highlighter-rouge">FutureMap</code> for all tasks in the index space launch
+to complete, or it can extract individual <code class="highlighter-rouge">Future</code>
 objects associated with specific points in the
 index space task launch.</p>
 
 <p>In this example we wait for all the point tasks in
-the index space task launch using the <code class="language-plaintext highlighter-rouge">wait_all_results</code>
+the index space task launch using the <code class="highlighter-rouge">wait_all_results</code>
 method (line 43). We then extract individual future
 values for each point and check that each returned
 value matches the expected result (lines 45-55).
-Even though we use the <code class="language-plaintext highlighter-rouge">get_result</code> method on the
-<code class="language-plaintext highlighter-rouge">Future</code> objects, we know that the values will
+Even though we use the <code class="highlighter-rouge">get_result</code> method on the
+<code class="highlighter-rouge">Future</code> objects, we know that the values will
 be immediately ready because we already waited
 for all the point tasks to complete.</p>
 
@@ -185,16 +185,16 @@ for all the point tasks to complete.</p>
 
 <p>Index space tasks are launched in a similar manner to
 individual tasks using a launcher object which has
-the type <code class="language-plaintext highlighter-rouge">IndexTaskLauncher</code> (lines 37-40). <code class="language-plaintext highlighter-rouge">IndexTaskLauncher</code> objects take
-some of the same arguments as <code class="language-plaintext highlighter-rouge">TaskLauncher</code> objects
-such as the ID of the task to launch and a <code class="language-plaintext highlighter-rouge">TaskArgument</code>
+the type <code class="highlighter-rouge">IndexTaskLauncher</code> (lines 37-40). <code class="highlighter-rouge">IndexTaskLauncher</code> objects take
+some of the same arguments as <code class="highlighter-rouge">TaskLauncher</code> objects
+such as the ID of the task to launch and a <code class="highlighter-rouge">TaskArgument</code>
 which is passed by value as a global argument to all
-the points in the index space launch. The <code class="language-plaintext highlighter-rouge">IndexTaskLauncher</code>
+the points in the index space launch. The <code class="highlighter-rouge">IndexTaskLauncher</code>
 objects also take the additional arguments of an
-<code class="language-plaintext highlighter-rouge">ArgumentMap</code> and a <code class="language-plaintext highlighter-rouge">Rect</code> which describes the set
+<code class="highlighter-rouge">ArgumentMap</code> and a <code class="highlighter-rouge">Rect</code> which describes the set
 of tasks to create (one for each point). Index space
 tasks are launched the same as single tasks, but
-return a <code class="language-plaintext highlighter-rouge">FutureMap</code> (line 42). Just like individual tasks,
+return a <code class="highlighter-rouge">FutureMap</code> (line 42). Just like individual tasks,
 index space task launches are performed asynchronously.</p>
 
 <h4 id="index-space-tasks">Index Space Tasks</h4>
@@ -202,20 +202,20 @@ index space task launches are performed asynchronously.</p>
 <p>Index space task variants are registered the same as single
 tasks.</p>
 
-<p>Additional fields on the <code class="language-plaintext highlighter-rouge">Task</code> object are defined
+<p>Additional fields on the <code class="highlighter-rouge">Task</code> object are defined
 when executing as an index space task. First, the
-<code class="language-plaintext highlighter-rouge">index_space_task</code> field is set to true. Next,
+<code class="highlighter-rouge">index_space_task</code> field is set to true. Next,
 index space tasks can find the point they are responsible
-for executing in the <code class="language-plaintext highlighter-rouge">index_point</code> field. The <code class="language-plaintext highlighter-rouge">index_point</code>
-field is a <code class="language-plaintext highlighter-rouge">DomainPoint</code> which is a type-erased form of a
-<code class="language-plaintext highlighter-rouge">Point</code> type. Lines 61-62 show how a task can make
-use of the <code class="language-plaintext highlighter-rouge">index_point</code> field. Finally, the <code class="language-plaintext highlighter-rouge">local_arglen</code>
-and <code class="language-plaintext highlighter-rouge">local_arg</code> fields contain the <code class="language-plaintext highlighter-rouge">TaskArgument</code> values
-passed in to the <code class="language-plaintext highlighter-rouge">ArgumentMap</code> for the given task’s
+for executing in the <code class="highlighter-rouge">index_point</code> field. The <code class="highlighter-rouge">index_point</code>
+field is a <code class="highlighter-rouge">DomainPoint</code> which is a type-erased form of a
+<code class="highlighter-rouge">Point</code> type. Lines 61-62 show how a task can make
+use of the <code class="highlighter-rouge">index_point</code> field. Finally, the <code class="highlighter-rouge">local_arglen</code>
+and <code class="highlighter-rouge">local_arg</code> fields contain the <code class="highlighter-rouge">TaskArgument</code> values
+passed in to the <code class="highlighter-rouge">ArgumentMap</code> for the given task’s
 point (if any existed). In lines 63-65, the application
 does some simple computation on the input value and then
-returns it. The resulting value is set in the <code class="language-plaintext highlighter-rouge">Future</code>
-for the corresponding point in the <code class="language-plaintext highlighter-rouge">FutureMap</code>.</p>
+returns it. The resulting value is set in the <code class="highlighter-rouge">Future</code>
+for the corresponding point in the <code class="highlighter-rouge">FutureMap</code>.</p>
 
 <p>Next Example: <a href="/tutorial/hybrid.html">Hybrid Model</a><br />
 Previous Example: <a href="/tutorial/tasks_and_futures.html">Tasks and Futures</a></p>

@@ -117,7 +117,7 @@
 of the features used to implement the canonical
 circuit example covered in many of our 
 <a href="/publications/index.html">publications</a>. The source
-code for this example can also be found in <code class="highlighter-rouge">examples/circuit</code>
+code for this example can also be found in <code class="language-plaintext highlighter-rouge">examples/circuit</code>
 directory of the Legion repository. The circuit example
 simulates an arbitrary graph of integrated circuit
 components. Components are represented by nodes, and wires
@@ -160,16 +160,16 @@ of the optimizations supported by the Legion runtime
 for reductions.</p>
 
 <p>A reduction operation in Legion is characterized by an <em>apply</em> function 
-which must be a pure function of the form <code class="highlighter-rouge">T1 -&gt; T2 -&gt; T1</code> 
-where <code class="highlighter-rouge">T1</code> is the type of the field being reduced to and
-<code class="highlighter-rouge">T2</code> is the type of the value being applied as a reduction.
+which must be a pure function of the form <code class="language-plaintext highlighter-rouge">T1 -&gt; T2 -&gt; T1</code> 
+where <code class="language-plaintext highlighter-rouge">T1</code> is the type of the field being reduced to and
+<code class="language-plaintext highlighter-rouge">T2</code> is the type of the value being applied as a reduction.
 One simple example of a reduction is a summation, where
-both <code class="highlighter-rouge">T1</code> and <code class="highlighter-rouge">T2</code> are <code class="highlighter-rouge">double</code> values.  A more complex example
+both <code class="language-plaintext highlighter-rouge">T1</code> and <code class="language-plaintext highlighter-rouge">T2</code> are <code class="language-plaintext highlighter-rouge">double</code> values.  A more complex example
 of a reduction might be inserting a particle into a cell where
-<code class="highlighter-rouge">T1</code> is the type of the cell and <code class="highlighter-rouge">T2</code> is the type of the particle.
+<code class="language-plaintext highlighter-rouge">T1</code> is the type of the cell and <code class="language-plaintext highlighter-rouge">T2</code> is the type of the particle.
 In addition to the apply function, reduction operations may also
 support a second operation called a <em>fold</em> which must be a pure
-function of the type <code class="highlighter-rouge">T2 -&gt; T2 -&gt; T2</code> where <code class="highlighter-rouge">T2</code> is again the
+function of the type <code class="language-plaintext highlighter-rouge">T2 -&gt; T2 -&gt; T2</code> where <code class="language-plaintext highlighter-rouge">T2</code> is again the
 type of the value being reduced. We describe how fold functions
 are used by the runtime in the next section.
 <br />
@@ -221,18 +221,18 @@ the circuit simulation.</p>
 <span class="p">};</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-<p>Every reduction operation must contain <code class="highlighter-rouge">typedef</code> declarations for
-the <code class="highlighter-rouge">LHS</code> and <code class="highlighter-rouge">RHS</code> types representing the left-hand-side and 
-right-hand-side functions of the reduction operation (e.g. <code class="highlighter-rouge">T1</code>
-and <code class="highlighter-rouge">T2</code>). Furthermore, the reduction operation must specify an
-static <code class="highlighter-rouge">apply</code> method. This function will be invoked by the
-runtime whenever a value of the type <code class="highlighter-rouge">RHS</code> will be applied to
-a value of <code class="highlighter-rouge">LHS</code>. The template parameter allows the runtime to
+<p>Every reduction operation must contain <code class="language-plaintext highlighter-rouge">typedef</code> declarations for
+the <code class="language-plaintext highlighter-rouge">LHS</code> and <code class="language-plaintext highlighter-rouge">RHS</code> types representing the left-hand-side and 
+right-hand-side functions of the reduction operation (e.g. <code class="language-plaintext highlighter-rouge">T1</code>
+and <code class="language-plaintext highlighter-rouge">T2</code>). Furthermore, the reduction operation must specify an
+static <code class="language-plaintext highlighter-rouge">apply</code> method. This function will be invoked by the
+runtime whenever a value of the type <code class="language-plaintext highlighter-rouge">RHS</code> will be applied to
+a value of <code class="language-plaintext highlighter-rouge">LHS</code>. The template parameter allows the runtime to
 indicate whether or not parallel reductions might also be occurring
-to the same <code class="highlighter-rouge">lhs</code> element simultaneously. This allows the application
+to the same <code class="language-plaintext highlighter-rouge">lhs</code> element simultaneously. This allows the application
 to employ different operations depending on whether or not it has
-<code class="highlighter-rouge">EXCLUSIVE</code> access to the <code class="highlighter-rouge">lhs</code> element. We use template specialization
-to implement different versions of <code class="highlighter-rouge">apply</code> in the circuit simulation
+<code class="language-plaintext highlighter-rouge">EXCLUSIVE</code> access to the <code class="language-plaintext highlighter-rouge">lhs</code> element. We use template specialization
+to implement different versions of <code class="language-plaintext highlighter-rouge">apply</code> in the circuit simulation
 as can be seen in the following code example: when we have exclusive
 access we need only do a basic addition, but without exclusive access
 we use an atomic compare-and-swap to perform the summation reduction.</p>
@@ -250,14 +250,14 @@ we use an atomic compare-and-swap to perform the summation reduction.</p>
 </pre></td></tr></tbody></table></code></pre></figure>
 
 <p>In addition to the necessary reduction operation declarations, our
-<code class="highlighter-rouge">AccumulateCharge</code> class also supports an optional <code class="highlighter-rouge">fold</code> function.
+<code class="language-plaintext highlighter-rouge">AccumulateCharge</code> class also supports an optional <code class="language-plaintext highlighter-rouge">fold</code> function.
 A fold function allows the runtime to combine two values of the 
-<code class="highlighter-rouge">RHS</code> type into a single value. The <code class="highlighter-rouge">fold</code> operation allows the
+<code class="language-plaintext highlighter-rouge">RHS</code> type into a single value. The <code class="language-plaintext highlighter-rouge">fold</code> operation allows the
 runtime to support an optimized layout of data for reductions
-which we describe in the next section. Supplying a <code class="highlighter-rouge">fold</code> function
-also necessitates a declaration of an <code class="highlighter-rouge">identity</code> element which 
+which we describe in the next section. Supplying a <code class="language-plaintext highlighter-rouge">fold</code> function
+also necessitates a declaration of an <code class="language-plaintext highlighter-rouge">identity</code> element which 
 when folded with any other element returns the other element. In
-the case of our <code class="highlighter-rouge">AccumulateCharge</code> class, the identity element is
+the case of our <code class="language-plaintext highlighter-rouge">AccumulateCharge</code> class, the identity element is
 simply zero.</p>
 
 <p>Similar to tasks, reduction operations must be registered before
@@ -265,7 +265,7 @@ starting up the Legion runtime. Operations have their own space
 of IDs which the application can use later for naming the reduction
 operation to be performed when requesting reduction privileges.
 Reduction operations are registered with the Legion runtime
-using the static runtime method <code class="highlighter-rouge">register_reduction_op</code> which is
+using the static runtime method <code class="language-plaintext highlighter-rouge">register_reduction_op</code> which is
 templated on the reduction operation class and takes as an
 argument the ID to associate with the reduction operation.</p>
 
@@ -292,7 +292,7 @@ within the circuit simulation is shown below.
 <img src="/images/circuit_mapping.svg" alt="" />
 <br /><br />
 Legion supports the creation of two different kinds of reduction
-instances. First, for basic reduction operations with no <code class="highlighter-rouge">fold</code>
+instances. First, for basic reduction operations with no <code class="language-plaintext highlighter-rouge">fold</code>
 function, Legion can create <em>reduction list</em> instances. When
 reductions are issued to the physical instance they are buffered
 in a list which records the reduction operation, the destination
@@ -302,7 +302,7 @@ applied in order to the destination instance in bulk.</p>
 
 <p>The second kind of reduction instance is called a <em>reduction fold</em> 
 instance and can only be used when the associated reduction
-operation supports a <code class="highlighter-rouge">fold</code> function. Reduction fold instances
+operation supports a <code class="language-plaintext highlighter-rouge">fold</code> function. Reduction fold instances
 initialize a physical instance for the given logical region with
 each location initialized with the identity value. As reductions
 are applied to the physical instance they are folded into their
@@ -314,10 +314,10 @@ distribute charge tasks are complete, the fold reduction instances
 are then applied back to the physical instance containing all
 the shared nodes in GASNet memory.</p>
 
-<p>For operations which support both <code class="highlighter-rouge">apply</code> and <code class="highlighter-rouge">fold</code> reduction
+<p>For operations which support both <code class="language-plaintext highlighter-rouge">apply</code> and <code class="language-plaintext highlighter-rouge">fold</code> reduction
 instances, the mapper has the option of selecting which kind of
-instance to create by using the value of the <code class="highlighter-rouge">reduction_list</code>
-flag in the <code class="highlighter-rouge">RegionRequirement</code> for the reduction when mapping
+instance to create by using the value of the <code class="language-plaintext highlighter-rouge">reduction_list</code>
+flag in the <code class="language-plaintext highlighter-rouge">RegionRequirement</code> for the reduction when mapping
 a task. Reduction list instances perform best when reductions are
 sparse in the target logical region and the resulting list of 
 reductions has fewer elements than the target logical region.
@@ -339,16 +339,16 @@ describe launcher objects for launching tasks, while static
 members functions will be used to give the many variant
 implementations of the task. In our circuit example, each of
 the three major tasks leverage this pattern by declaring
-the <code class="highlighter-rouge">CalcNewCurrentsTask</code>, <code class="highlighter-rouge">DistributeChargeTask</code>, and
-<code class="highlighter-rouge">UpdateVoltagesTask</code> classes.</p>
+the <code class="language-plaintext highlighter-rouge">CalcNewCurrentsTask</code>, <code class="language-plaintext highlighter-rouge">DistributeChargeTask</code>, and
+<code class="language-plaintext highlighter-rouge">UpdateVoltagesTask</code> classes.</p>
 
 <p>The first step in implementing this pattern is to have each of
 the classes extend the kind of launcher that will be used
 to launch the variants of the task (in the circuit example,
-the classes extend the <code class="highlighter-rouge">IndexLauncher</code> class since we perform
+the classes extend the <code class="language-plaintext highlighter-rouge">IndexLauncher</code> class since we perform
 index space launches for the three major classes). The
 implementation of the constructors for each of these tasks 
-then fill in the <code class="highlighter-rouge">RegionRequirement</code> vectors for each task
+then fill in the <code class="language-plaintext highlighter-rouge">RegionRequirement</code> vectors for each task
 launch. This explicitly co-locates in the description of the
 logical regions and fields to be used by a task improving
 code readability.<br />
@@ -360,11 +360,11 @@ leaf task implementations. Note that all of these static
 methods use the same naming and argument schemes. This allows
 us to use generic templated functions to automatically 
 register, launch, and provide wrapper code for each of the
-different tasks. The <code class="highlighter-rouge">TaskHelper</code> namespace provides 
+different tasks. The <code class="language-plaintext highlighter-rouge">TaskHelper</code> namespace provides 
 template functions for performing these duties for each
-of the main tasks in the circuit simulation. The <code class="highlighter-rouge">dispatch_task</code>
-function is used to launch tasks. The <code class="highlighter-rouge">register_cpu_variants</code>
-and <code class="highlighter-rouge">register_hybrid_variants</code> are used to register either
+of the main tasks in the circuit simulation. The <code class="language-plaintext highlighter-rouge">dispatch_task</code>
+function is used to launch tasks. The <code class="language-plaintext highlighter-rouge">register_cpu_variants</code>
+and <code class="language-plaintext highlighter-rouge">register_hybrid_variants</code> are used to register either
 the CPU-only or both CPU and GPU variants of tasks
 respectively. Implementing all Legion tasks in this way
 makes it possible to generalize task implementation,
@@ -381,28 +381,28 @@ simply by issuing additional tasks which read (and possibly
 modify) existing logical regions which contain the
 necessary data. For our circuit example, we have included
 a very simple example of performing in-situ analysis:
-checking for <code class="highlighter-rouge">NaN</code> (not-a-number) floating point values.</p>
+checking for <code class="language-plaintext highlighter-rouge">NaN</code> (not-a-number) floating point values.</p>
 
 <p>Our analysis is very simple, after each of the index space
 task launch, we issue a second index space task launch of 
 a checking task to verify that all the fields that were
-written are free of <code class="highlighter-rouge">NaN</code> values. To do this we add a
-<code class="highlighter-rouge">launch_check_fields</code> method to each of our task objects. 
+written are free of <code class="language-plaintext highlighter-rouge">NaN</code> values. To do this we add a
+<code class="language-plaintext highlighter-rouge">launch_check_fields</code> method to each of our task objects. 
 This method is responsible for launching the checking task
 for each kind of circuit simulation task. Since we use
-the common <code class="highlighter-rouge">dispatch_task</code> template method for launching
+the common <code class="language-plaintext highlighter-rouge">dispatch_task</code> template method for launching
 all of our tasks, we simply modify this method to see
 if we are performing the in-situ analysis, and if-so, 
-call the <code class="highlighter-rouge">launch_check_fields</code> method on each launcher
+call the <code class="language-plaintext highlighter-rouge">launch_check_fields</code> method on each launcher
 object. Whether or not we perform the analysis is controlled
-by the <code class="highlighter-rouge">-checks</code> command line flag.</p>
+by the <code class="language-plaintext highlighter-rouge">-checks</code> command line flag.</p>
 
 <p>The checking tasks are just like any other task to the
 Legion runtime and it performs the necessary dependency
 analysis to ensure that they check the correct data.
 Since the checking tasks are just like any other task
 they can be off-loaded onto unused processors. In this
-case, all of the checking tasks only use <code class="highlighter-rouge">READ-ONLY</code>
+case, all of the checking tasks only use <code class="language-plaintext highlighter-rouge">READ-ONLY</code>
 privileges, which guarantees that the tasks are not on
 the critical path. Note that we only have a CPU variant 
 of the checking task. When running with GPU processors,
@@ -424,7 +424,7 @@ executing.</p>
 
 <h4 id="fast-accessors">Fast Accessors</h4>
 
-<p>While the <code class="highlighter-rouge">AccessorType::Generic</code> region accessor is general
+<p>While the <code class="language-plaintext highlighter-rouge">AccessorType::Generic</code> region accessor is general
 purpose and works for all physical instances, it is very
 slow. Most Legion applications are performance sensitive
 and therefore need fast access to the data contained within
@@ -461,47 +461,47 @@ in Legion via deferred execution. However, for the moment
 we are stuck with C++ templates.</p>
 
 <p>In our circuit example, we show an example of using specialized
-accessors in the <code class="highlighter-rouge">CalcNewCurrentsTask</code> which is the most
-computationally expensive task. We add a <code class="highlighter-rouge">dense_calc_new_currents</code>
+accessors in the <code class="language-plaintext highlighter-rouge">CalcNewCurrentsTask</code> which is the most
+computationally expensive task. We add a <code class="language-plaintext highlighter-rouge">dense_calc_new_currents</code>
 method to the class which will attempt to specialize all
 of our region accessors into accessors for struct-of-arrays
 physical instances. Note that it is possible that this
-specialization fails in which case the <code class="highlighter-rouge">dense_calc_new_currents</code>
-method returns <code class="highlighter-rouge">false</code> and we fall back to the slow version
+specialization fails in which case the <code class="language-plaintext highlighter-rouge">dense_calc_new_currents</code>
+method returns <code class="language-plaintext highlighter-rouge">false</code> and we fall back to the slow version
 of the task using generic accessors.</p>
 
 <p>The accessor for struct-of-arrays physical instances is
-<code class="highlighter-rouge">AccessorType::SOA</code>. This type is templated on the size of
+<code class="language-plaintext highlighter-rouge">AccessorType::SOA</code>. This type is templated on the size of
 the field being accessed in bytes. The template value
-can also be instantiated with <code class="highlighter-rouge">0</code>, but this will cause
+can also be instantiated with <code class="language-plaintext highlighter-rouge">0</code>, but this will cause
 the accessor to fall back to using a dynamically computed
 field size which will not be as fast C pointer dereferences
 (but will always be correct). For each of our accessors,
-we first call the <code class="highlighter-rouge">can_convert</code> method on the generic accessor
+we first call the <code class="language-plaintext highlighter-rouge">can_convert</code> method on the generic accessor
 to confirm that we can convert to new accessor type. If
-any of them fails, then we return <code class="highlighter-rouge">false</code>. If they all
-succeed, then we can invoke <code class="highlighter-rouge">convert</code> method to get
-specialized <code class="highlighter-rouge">SOA</code> accessors.</p>
+any of them fails, then we return <code class="language-plaintext highlighter-rouge">false</code>. If they all
+succeed, then we can invoke <code class="language-plaintext highlighter-rouge">convert</code> method to get
+specialized <code class="language-plaintext highlighter-rouge">SOA</code> accessors.</p>
 
-<p>In addition to <code class="highlighter-rouge">SOA</code> accessors, there are several other
+<p>In addition to <code class="language-plaintext highlighter-rouge">SOA</code> accessors, there are several other
 specialized accessors:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">AOS</code> - array-of-struct accessors</li>
-  <li><code class="highlighter-rouge">HybridSOA</code> - for handling layouts that interleave
+  <li><code class="language-plaintext highlighter-rouge">AOS</code> - array-of-struct accessors</li>
+  <li><code class="language-plaintext highlighter-rouge">HybridSOA</code> - for handling layouts that interleave
 multiple elements for different fields (still in
 progress, inspired by the <a href="https://github.com/ispc/ispc/wiki/Better-in-language-support-for-aosoa-layout">ISPC compiler</a></li>
-  <li><code class="highlighter-rouge">ReductionFold</code> - for reduction instances
+  <li><code class="language-plaintext highlighter-rouge">ReductionFold</code> - for reduction instances
 with an explicit fold operation</li>
-  <li><code class="highlighter-rouge">ReductionList</code> - for reduction instances
+  <li><code class="language-plaintext highlighter-rouge">ReductionList</code> - for reduction instances
 without an explicit fold operation</li>
 </ul>
 
-<p>Once we have converted all our accessors to <code class="highlighter-rouge">SOA</code> we
-can then perform our kernel. Specialized accessors like <code class="highlighter-rouge">SOA</code> have
-additional methods <code class="highlighter-rouge">ptr</code> and <code class="highlighter-rouge">ref</code> which enable applications
+<p>Once we have converted all our accessors to <code class="language-plaintext highlighter-rouge">SOA</code> we
+can then perform our kernel. Specialized accessors like <code class="language-plaintext highlighter-rouge">SOA</code> have
+additional methods <code class="language-plaintext highlighter-rouge">ptr</code> and <code class="language-plaintext highlighter-rouge">ref</code> which enable applications
 to get direct C pointers and C++ references to elements. Using
-the <code class="highlighter-rouge">ptr</code> method we get pointers for the specific elements.
+the <code class="language-plaintext highlighter-rouge">ptr</code> method we get pointers for the specific elements.
 Since we know the elements for a field are laid out contiguously
 in memory, we can use SSE vectorized loads and stores to move
 data. It is is then a straight-forward
@@ -514,20 +514,20 @@ for AVX or FMA instruction extensions.</p>
 <p>At this point, the observant reader will notice that we
 have done nothing to actually specify that our
 physical instances should be laid out in struct-of-arrays
-order. To accomplish this we extend the <code class="highlighter-rouge">DefaultMapper</code>
-with a custom <code class="highlighter-rouge">CircuitMapper</code>. In the <code class="highlighter-rouge">map_task</code> method,
-we modify the mapping requests for each <code class="highlighter-rouge">RegionRequirement</code>
-to specify that the <code class="highlighter-rouge">blocking_factor</code> should be set to
-the <code class="highlighter-rouge">max_blocking_factor</code> allowed. This will tell the
+order. To accomplish this we extend the <code class="language-plaintext highlighter-rouge">DefaultMapper</code>
+with a custom <code class="language-plaintext highlighter-rouge">CircuitMapper</code>. In the <code class="language-plaintext highlighter-rouge">map_task</code> method,
+we modify the mapping requests for each <code class="language-plaintext highlighter-rouge">RegionRequirement</code>
+to specify that the <code class="language-plaintext highlighter-rouge">blocking_factor</code> should be set to
+the <code class="language-plaintext highlighter-rouge">max_blocking_factor</code> allowed. This will tell the
 runtime that a struct-of-arrays layout should be used.
-If we had specified <code class="highlighter-rouge">1</code> for the blocking factor, that
-would correspond to an <code class="highlighter-rouge">AOS</code> layout, and any value in
-between would be a <code class="highlighter-rouge">HybridSOA</code> layout.</p>
+If we had specified <code class="language-plaintext highlighter-rouge">1</code> for the blocking factor, that
+would correspond to an <code class="language-plaintext highlighter-rouge">AOS</code> layout, and any value in
+between would be a <code class="language-plaintext highlighter-rouge">HybridSOA</code> layout.</p>
 
 <h4 id="gpu-execution">GPU Execution</h4>
 
 <p>The circuit example also illustrates how to execute tasks
-on the GPU (see any of the <code class="highlighter-rouge">gpu_base_impl</code> methods on
+on the GPU (see any of the <code class="language-plaintext highlighter-rouge">gpu_base_impl</code> methods on
 the three major circuit tasks). In Legion GPU tasks 
 actually begin running on a CPU thread. Legion guarantees 
 that this CPU thread is already bound to a 
@@ -553,19 +553,19 @@ consider the task complete until all of the CUDA kernels
 launched during the task have finished. This allows the 
 task to return without needing to synchronize with the GPU.
 Legion tracks kernels by providing its own implementation of 
-the CUDA runtime API declared in <code class="highlighter-rouge">cuda_runtime.h</code> (note the 
+the CUDA runtime API declared in <code class="language-plaintext highlighter-rouge">cuda_runtime.h</code> (note the 
 Legion runtime does not need to link against the CUDA runtime 
-library <code class="highlighter-rouge">-lcudart</code>). Legion transparently captures all CUDA runtime 
+library <code class="language-plaintext highlighter-rouge">-lcudart</code>). Legion transparently captures all CUDA runtime 
 API calls and translates them into the appropriate CUDA driver API 
 calls while recording the necessary information to track when 
 tasks have been completed. This approach allows Legion applications 
 to be written using standard CUDA syntax and to have the CUDA 
-compiler <code class="highlighter-rouge">nvcc</code> automatically target the Legion runtime.</p>
+compiler <code class="language-plaintext highlighter-rouge">nvcc</code> automatically target the Legion runtime.</p>
 
 <p>By providing its own implementation of the CUDA runtime API
 Legion controls the set of API calls that can be done inside
 of Legion GPU tasks. In general, Legion GPU tasks should only
-need to perform kernel launches with the standard <code class="highlighter-rouge">&lt;&lt;&lt;...&gt;&gt;&gt;</code>
+need to perform kernel launches with the standard <code class="language-plaintext highlighter-rouge">&lt;&lt;&lt;...&gt;&gt;&gt;</code>
 launch syntax.  However, we do support several CUDA runtime
 API calls for special cases.  Any attempt to use an API call
 that we do not support will result in a link error.  <b>It is
@@ -576,31 +576,31 @@ and will result in undefined behavior.</p>
 
 <p>In all of the GPU variants for each of the three
 primary circuit simulation tasks, we create region
-accessors just as before. We again create <code class="highlighter-rouge">SOA</code>
+accessors just as before. We again create <code class="language-plaintext highlighter-rouge">SOA</code>
 accessors for our physical instances (we assert if
-we fail to convert right now). <code class="highlighter-rouge">SOA</code> accessors
+we fail to convert right now). <code class="language-plaintext highlighter-rouge">SOA</code> accessors
 guarantee that all global loads and stores in the
 GPU kernels will be coalesced. The one exception is
-in the <code class="highlighter-rouge">distribute_charge</code> task. The shared and ghost
+in the <code class="language-plaintext highlighter-rouge">distribute_charge</code> task. The shared and ghost
 charge regions are actually reduction-fold instances
-so we create <code class="highlighter-rouge">ReductionFold</code> accessors for these two
-regions. Since we know <code class="highlighter-rouge">ReductionFold</code> regions only
+so we create <code class="language-plaintext highlighter-rouge">ReductionFold</code> accessors for these two
+regions. Since we know <code class="language-plaintext highlighter-rouge">ReductionFold</code> regions only
 have a single field, we know that reductions to
 these regions will also be coalesced. To perform
-the reductions we use the <code class="highlighter-rouge">GPUAccumulateCharge</code>
+the reductions we use the <code class="language-plaintext highlighter-rouge">GPUAccumulateCharge</code>
 class. This class serves the same functionality
-as the <code class="highlighter-rouge">AccumulateCharge</code> task on the CPU side, but
-instead uses CUDA <code class="highlighter-rouge">atomicAdd</code> intrinsics to perform
+as the <code class="language-plaintext highlighter-rouge">AccumulateCharge</code> task on the CPU side, but
+instead uses CUDA <code class="language-plaintext highlighter-rouge">atomicAdd</code> intrinsics to perform
 the reductions.</p>
 
-<p>The GPU <code class="highlighter-rouge">update_voltages</code> task illustrates a pending
-productivity issue in Legion. The <code class="highlighter-rouge">update_voltages</code>
+<p>The GPU <code class="language-plaintext highlighter-rouge">update_voltages</code> task illustrates a pending
+productivity issue in Legion. The <code class="language-plaintext highlighter-rouge">update_voltages</code>
 kernel currently needs to look up the location of 
 the node pointer to see if it is in the private
 or the shared set of nodes. This can lead to
 control divergence within the execution of the
 GPU kernel (it is not a serious concern for
-circuit as <code class="highlighter-rouge">update_voltages</code> is not performance
+circuit as <code class="language-plaintext highlighter-rouge">update_voltages</code> is not performance
 critical). Ideally, it would be nice to be
 able to overlay the data for these two logical
 regions on the same physical instance since

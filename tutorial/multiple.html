@@ -122,19 +122,19 @@ construct a simple program to compute the derivative
 of some data by performing a simple 1-D 5-point stencil
 on a discretized space using the standard formula.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f'(x) = (-f(x+2) + 8f(x+1) - 8f(x-1) + f(x-2))/12
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f'(x) = (-f(x+2) + 8f(x+1) - 8f(x-1) + f(x-2))/12
 </code></pre></div></div>
 
 <p>To perform the stencil computation we create the
-<code class="highlighter-rouge">stencil_lr</code> logical region with two fields: one
+<code class="language-plaintext highlighter-rouge">stencil_lr</code> logical region with two fields: one
 field containing the input values and a second field
 to store the computed derivative value at each point
 (lines 37-46). After creating the logical regions
-we partition the <code class="highlighter-rouge">stencil_lr</code> logical region in
+we partition the <code class="language-plaintext highlighter-rouge">stencil_lr</code> logical region in
 two different ways which we cover in the next
 section. After partitioning the logical region
 we initialize the data in our value field using
-the <code class="highlighter-rouge">init_field_task</code> (lines 67-73, identical
+the <code class="language-plaintext highlighter-rouge">init_field_task</code> (lines 67-73, identical
 to the one from our DAXPY example). We then launch
 an index space of tasks to perform the stencil
 computation in parallel (lines 75-85). Finally,
@@ -159,9 +159,9 @@ The need for these ghost cells means that some
 cells will exist in multiple sub-regions and
 therefore sub-regions of the partition may overlap.</p>
 
-<p>We create the disjoint partition with <code class="highlighter-rouge">create_equal_partition</code> as we
+<p>We create the disjoint partition with <code class="language-plaintext highlighter-rouge">create_equal_partition</code> as we
 did the previous example (lines 51-52). For the new, aliased partition
-we use another runtime method called <code class="highlighter-rouge">create_partition_by_restriction</code>
+we use another runtime method called <code class="language-plaintext highlighter-rouge">create_partition_by_restriction</code>
 (lines 53-58). This method works by multiplying every index point in
 the color space of the partition by a transform matrix, to determine
 the offset of the subregion to create. This essentially allows us to
@@ -181,12 +181,12 @@ the same task. Consider the index space task
 launch for performing the stencil computation.
 We pass two projection region requirements
 in the launcher object. The first region
-requirement requests <code class="highlighter-rouge">READ_ONLY</code> privileges
-on the aliased <code class="highlighter-rouge">ghost_lp</code> logical partition
-for the <code class="highlighter-rouge">FID_VAL</code> field (lines 77-80).
+requirement requests <code class="language-plaintext highlighter-rouge">READ_ONLY</code> privileges
+on the aliased <code class="language-plaintext highlighter-rouge">ghost_lp</code> logical partition
+for the <code class="language-plaintext highlighter-rouge">FID_VAL</code> field (lines 77-80).
 The second region requirement requests
-<code class="highlighter-rouge">READ_WRITE</code> privileges on the <code class="highlighter-rouge">disjoint_lp</code>
-logical partition for the <code class="highlighter-rouge">FID_DERIV</code> field
+<code class="language-plaintext highlighter-rouge">READ_WRITE</code> privileges on the <code class="language-plaintext highlighter-rouge">disjoint_lp</code>
+logical partition for the <code class="language-plaintext highlighter-rouge">FID_DERIV</code> field
 (lines 81-84). In the next section we describe
 how Legion proves that all of the stencil
 tasks can be run in parallel.</p>
@@ -208,7 +208,7 @@ partition is used. The last case where non-interference
 must be shown is with regards to the first region
 requirement between any pair of tasks. Neither field-level
 nor logical region non-interference applies. However,
-since all tasks are only requesting <code class="highlighter-rouge">READ_ONLY</code>
+since all tasks are only requesting <code class="language-plaintext highlighter-rouge">READ_ONLY</code>
 privileges, then the tasks are non-interfering on
 privileges because tasks that are only reading data cannot
 interfere with each other. Consequently, all the

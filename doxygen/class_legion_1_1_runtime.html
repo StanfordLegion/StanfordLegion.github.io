@@ -322,6 +322,10 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:aa08079d49f5ca63e3254864c3c91827b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a888c6816e049c49ce25e6196b15535d5"><td class="memItemLeft" align="right" valign="top">Mapping::Mapper *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a888c6816e049c49ce25e6196b15535d5">get_mapper</a> (Context ctx, MapperID id, Processor target=Processor::NO_PROC)</td></tr>
 <tr class="separator:a888c6816e049c49ce25e6196b15535d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affcf2b0d9fb51e2a25b1b2f3bed2e9d2"><td class="memItemLeft" align="right" valign="top">Mapping::MapperContext&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#affcf2b0d9fb51e2a25b1b2f3bed2e9d2">begin_mapper_call</a> (Context ctx, MapperID id, Processor target=Processor::NO_PROC)</td></tr>
+<tr class="separator:affcf2b0d9fb51e2a25b1b2f3bed2e9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087efef8f6dde153b6419a591334d82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a087efef8f6dde153b6419a591334d82d">end_mapper_call</a> (Mapping::MapperContext ctx)</td></tr>
+<tr class="separator:a087efef8f6dde153b6419a591334d82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae005a8b8c1f513af1c52029d22bbf9d"><td class="memItemLeft" align="right" valign="top">Processor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aae005a8b8c1f513af1c52029d22bbf9d">get_executing_processor</a> (Context ctx)</td></tr>
 <tr class="separator:aae005a8b8c1f513af1c52029d22bbf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74371677d9d67f800329ac5c770c54c4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a74371677d9d67f800329ac5c770c54c4">get_current_task</a> (Context ctx)</td></tr>
@@ -2324,6 +2328,48 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>In addition to launching top-level tasks from outside the runtime, applications can bind external threads as new implicit top-level tasks to the runtime. This will tell the runtime that this external thread should now function as new top-level task that is executing. After this call the trhead will be treated as through it is a top-level task running on a specific kind of processor. Users can also mark that this implicit top-level task is control replicable for supporting implicit top-level tasks for multi-node runs. For the control replicable case we expect to see the same number of calls from every address space. This number is controlled by shard_per_address_space and defaults to one. The application can also optionally specify the shard ID for every implicit top level task for control replication settings. If it is specified, then the application must specify it for all shards. Otherwise the runtime will allocate shard IDs contiguously on each node before proceeding to the next node. </p>
+
+</div>
+</div>
+<a class="anchor" id="affcf2b0d9fb51e2a25b1b2f3bed2e9d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mapping::MapperContext Legion::Runtime::begin_mapper_call </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapperID&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Processor&#160;</td>
+          <td class="paramname"><em>target</em> = <code>Processor::NO_PROC</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start a mapper call from the application side. This will create a mapper context to use during the mapper call. The creation of this mapper context will ensure appropriate synchronization with other mapper calls consistent with the mapper synchronization model. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">id</td><td>the mapper ID for which mapper to locate </td></tr>
+    <tr><td class="paramname">target</td><td>processor if any, if none specified then the executing processor for the current context is used, if specified processor must be local to the address space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a fresh mapper context to use for the mapper call </dd></dl>
 
 </div>
 </div>
@@ -5866,6 +5912,29 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Enable recording of profiling information. </p>
+
+</div>
+</div>
+<a class="anchor" id="a087efef8f6dde153b6419a591334d82d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::end_mapper_call </td>
+          <td>(</td>
+          <td class="paramtype">Mapping::MapperContext&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>End a mapper call from the application side. This must be done for all mapper contexts created by calls into begin_mapper_call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>mapper context to end </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -13282,7 +13351,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 30 2020 12:17:12 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2020 13:44:46 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

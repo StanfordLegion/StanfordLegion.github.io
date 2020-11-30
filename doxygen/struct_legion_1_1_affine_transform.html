@@ -106,7 +106,7 @@ template&lt;typename T2 &gt; </td></tr>
 <tr class="separator:ae1ce188bc68922ec5b25b91a1c5aaee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5aebf2421383661991083ccb4d30219e"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5aebf2421383661991083ccb4d30219e"></a>
 template&lt;typename T2 , typename T3 &gt; </td></tr>
-<tr class="memitem:a5aebf2421383661991083ccb4d30219e"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>AffineTransform</b> (const <a class="el" href="struct_legion_1_1_transform.html">Transform</a>&lt; M, N, T2 &gt; transform, const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; M, T3 &gt; offset)</td></tr>
+<tr class="memitem:a5aebf2421383661991083ccb4d30219e"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>AffineTransform</b> (const Transform&lt; M, N, T2 &gt; transform, const Point&lt; M, T3 &gt; offset)</td></tr>
 <tr class="separator:a5aebf2421383661991083ccb4d30219e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8ff386f007a9ba18612971c82863639"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa8ff386f007a9ba18612971c82863639"></a>
 template&lt;typename T2 &gt; </td></tr>
@@ -115,7 +115,7 @@ N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opera
 <tr class="separator:aa8ff386f007a9ba18612971c82863639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a74670e229234a719052caeb1551b40"><td class="memTemplParams" colspan="2"><a class="anchor" id="a8a74670e229234a719052caeb1551b40"></a>
 template&lt;typename T2 &gt; </td></tr>
-<tr class="memitem:a8a74670e229234a719052caeb1551b40"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__ <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; M, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator[]</b> (const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; N, T2 &gt; point) const </td></tr>
+<tr class="memitem:a8a74670e229234a719052caeb1551b40"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__ Point&lt; M, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator[]</b> (const Point&lt; N, T2 &gt; point) const </td></tr>
 <tr class="separator:a8a74670e229234a719052caeb1551b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae00d4ef319ebfc3314c78f6a3c3e75c0"><td class="memTemplParams" colspan="2"><a class="anchor" id="ae00d4ef319ebfc3314c78f6a3c3e75c0"></a>
 template&lt;int P&gt; </td></tr>
@@ -129,10 +129,10 @@ __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_identi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aee9989e87ba1ee5e5e6a942ed1632727"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee9989e87ba1ee5e5e6a942ed1632727"></a>
-<a class="el" href="struct_legion_1_1_transform.html">Transform</a>&lt; M, N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b></td></tr>
+Transform&lt; M, N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b></td></tr>
 <tr class="separator:aee9989e87ba1ee5e5e6a942ed1632727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8fdd566773c5ae3959cd3eb5fe0f05e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8fdd566773c5ae3959cd3eb5fe0f05e"></a>
-<a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; M, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b></td></tr>
+Point&lt; M, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b></td></tr>
 <tr class="separator:ab8fdd566773c5ae3959cd3eb5fe0f05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -146,7 +146,7 @@ class Legion::AffineTransform&lt; M, N, T &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2020 13:44:46 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 30 2020 15:40:48 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

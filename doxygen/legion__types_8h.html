@@ -108,6 +108,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;deque&gt;</code><br/>
 <code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;typeinfo&gt;</code><br/>
+<code>#include &lt;type_traits&gt;</code><br/>
 <code>#include &quot;<a class="el" href="legion__config_8h_source.html">legion/legion_config.h</a>&quot;</code><br/>
 <code>#include &quot;legion/legion_template_help.h&quot;</code><br/>
 <code>#include &quot;realm.h&quot;</code><br/>
@@ -340,6 +341,18 @@ typedef IndexTaskLauncher&#160;</td><td class="memItemRight" valign="bottom"><b>
 <tr class="memitem:addbf1ff9556bb1cbaeda6a17705ba290"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addbf1ff9556bb1cbaeda6a17705ba290"></a>
 typedef Runtime&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::HighLevelRuntime</b></td></tr>
 <tr class="separator:addbf1ff9556bb1cbaeda6a17705ba290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedfec70827c226b30ce1b84bd42f881f"><td class="memTemplParams" colspan="2"><a class="anchor" id="aedfec70827c226b30ce1b84bd42f881f"></a>
+template&lt;typename FT , int N, typename T  = ::legion_coord_t&gt; </td></tr>
+<tr class="memitem:aedfec70827c226b30ce1b84bd42f881f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Legion::GenericAccessor</b> = Realm::GenericAccessor&lt; FT, N, T &gt;</td></tr>
+<tr class="separator:aedfec70827c226b30ce1b84bd42f881f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8ff1e8ac03512c466f9645d61ab3a4"><td class="memTemplParams" colspan="2"><a class="anchor" id="acc8ff1e8ac03512c466f9645d61ab3a4"></a>
+template&lt;typename FT , int N, typename T  = ::legion_coord_t&gt; </td></tr>
+<tr class="memitem:acc8ff1e8ac03512c466f9645d61ab3a4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Legion::AffineAccessor</b> = Realm::AffineAccessor&lt; FT, N, T &gt;</td></tr>
+<tr class="separator:acc8ff1e8ac03512c466f9645d61ab3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab1224ec3f64e51bd3a38dc63bdb3d4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5ab1224ec3f64e51bd3a38dc63bdb3d4"></a>
+template&lt;typename FT , int N, typename T  = ::legion_coord_t&gt; </td></tr>
+<tr class="memitem:a5ab1224ec3f64e51bd3a38dc63bdb3d4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Legion::MultiAffineAccessor</b> = Realm::MultiAffineAccessor&lt; FT, N, T &gt;</td></tr>
+<tr class="separator:a5ab1224ec3f64e51bd3a38dc63bdb3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace780bc119e94f1bed99b63bf81464d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace780bc119e94f1bed99b63bf81464d9"></a>
 typedef Mapping::MapperEvent&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::MapperEvent</b></td></tr>
 <tr class="separator:ace780bc119e94f1bed99b63bf81464d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1409,7 +1422,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2020 13:44:46 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 30 2020 15:40:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

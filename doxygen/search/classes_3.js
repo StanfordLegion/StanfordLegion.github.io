@@ -11,7 +11,6 @@ var searchData=
   ['domainpoint',['DomainPoint',['../class_legion_1_1_domain_point.html',1,'Legion']]],
   ['domainpointiterator',['DomainPointIterator',['../class_legion_1_1_domain_1_1_domain_point_iterator.html',1,'Legion::Domain']]],
   ['domainscaletransform',['DomainScaleTransform',['../class_legion_1_1_domain_scale_transform.html',1,'Legion']]],
-  ['domaint',['DomainT',['../struct_legion_1_1_domain_t.html',1,'Legion']]],
   ['domaintransform',['DomainTransform',['../class_legion_1_1_domain_transform.html',1,'Legion']]],
   ['dynamiccollective',['DynamicCollective',['../class_legion_1_1_dynamic_collective.html',1,'Legion']]]
 ];

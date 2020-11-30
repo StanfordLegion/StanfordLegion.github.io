@@ -106,7 +106,7 @@ template&lt;typename T2 &gt; </td></tr>
 <tr class="separator:ae26f3e19a14d569cf25b0b5cf086c22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a27726f4fe55b0eec63ecf37309c07f"><td class="memTemplParams" colspan="2"><a class="anchor" id="a8a27726f4fe55b0eec63ecf37309c07f"></a>
 template&lt;typename T2 , typename T3 , typename T4 &gt; </td></tr>
-<tr class="memitem:a8a27726f4fe55b0eec63ecf37309c07f"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ScaleTransform</b> (const <a class="el" href="struct_legion_1_1_transform.html">Transform</a>&lt; M, N, T2 &gt; transform, const <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; M, T3 &gt; extent, const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; M, T4 &gt; divisor)</td></tr>
+<tr class="memitem:a8a27726f4fe55b0eec63ecf37309c07f"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ScaleTransform</b> (const Transform&lt; M, N, T2 &gt; transform, const Rect&lt; M, T3 &gt; extent, const Point&lt; M, T4 &gt; divisor)</td></tr>
 <tr class="separator:a8a27726f4fe55b0eec63ecf37309c07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b1412942426e5eed6b120de46fcdb5d"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3b1412942426e5eed6b120de46fcdb5d"></a>
 template&lt;typename T2 &gt; </td></tr>
@@ -115,7 +115,7 @@ N, T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>opera
 <tr class="separator:a3b1412942426e5eed6b120de46fcdb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786f064b2dbd99c96800ef0b9bc2d839"><td class="memTemplParams" colspan="2"><a class="anchor" id="a786f064b2dbd99c96800ef0b9bc2d839"></a>
 template&lt;typename T2 &gt; </td></tr>
-<tr class="memitem:a786f064b2dbd99c96800ef0b9bc2d839"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__ <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; M, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator[]</b> (const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; N, T2 &gt; point) const </td></tr>
+<tr class="memitem:a786f064b2dbd99c96800ef0b9bc2d839"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__ Rect&lt; M, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator[]</b> (const Point&lt; N, T2 &gt; point) const </td></tr>
 <tr class="separator:a786f064b2dbd99c96800ef0b9bc2d839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6b55f279f0ec4ebf08d2bd19486f719"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6b55f279f0ec4ebf08d2bd19486f719"></a>
 __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_identity</b> (void) const </td></tr>
@@ -124,13 +124,13 @@ __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_identi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7ce6d6a10c8f81ea09bbd1cd46f4cb9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ce6d6a10c8f81ea09bbd1cd46f4cb9d"></a>
-<a class="el" href="struct_legion_1_1_transform.html">Transform</a>&lt; M, N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b></td></tr>
+Transform&lt; M, N, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b></td></tr>
 <tr class="separator:a7ce6d6a10c8f81ea09bbd1cd46f4cb9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab791255758f56e2b7fdde1dad52e8c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab791255758f56e2b7fdde1dad52e8c5"></a>
-<a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; M, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>extent</b></td></tr>
+Rect&lt; M, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>extent</b></td></tr>
 <tr class="separator:aab791255758f56e2b7fdde1dad52e8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a995663dda45e62a6a2379f78296ce9ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a995663dda45e62a6a2379f78296ce9ad"></a>
-<a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; M, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>divisor</b></td></tr>
+Point&lt; M, T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>divisor</b></td></tr>
 <tr class="separator:a995663dda45e62a6a2379f78296ce9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -146,7 +146,7 @@ class Legion::ScaleTransform&lt; M, N, T &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2020 13:44:46 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 30 2020 15:40:48 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

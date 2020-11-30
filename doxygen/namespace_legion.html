@@ -242,17 +242,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_c_context.html">CContext</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_point.html">Point</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_rect.html">Rect</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_transform.html">Transform</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_scale_transform.html">ScaleTransform</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_domain_t.html">DomainT</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -349,6 +341,18 @@ typedef <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTas
 <tr class="memitem:addbf1ff9556bb1cbaeda6a17705ba290"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addbf1ff9556bb1cbaeda6a17705ba290"></a>
 typedef <a class="el" href="class_legion_1_1_runtime.html">Runtime</a>&#160;</td><td class="memItemRight" valign="bottom"><b>HighLevelRuntime</b></td></tr>
 <tr class="separator:addbf1ff9556bb1cbaeda6a17705ba290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedfec70827c226b30ce1b84bd42f881f"><td class="memTemplParams" colspan="2"><a class="anchor" id="aedfec70827c226b30ce1b84bd42f881f"></a>
+template&lt;typename FT , int N, typename T  = ::legion_coord_t&gt; </td></tr>
+<tr class="memitem:aedfec70827c226b30ce1b84bd42f881f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GenericAccessor</b> = Realm::GenericAccessor&lt; FT, N, T &gt;</td></tr>
+<tr class="separator:aedfec70827c226b30ce1b84bd42f881f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc8ff1e8ac03512c466f9645d61ab3a4"><td class="memTemplParams" colspan="2"><a class="anchor" id="acc8ff1e8ac03512c466f9645d61ab3a4"></a>
+template&lt;typename FT , int N, typename T  = ::legion_coord_t&gt; </td></tr>
+<tr class="memitem:acc8ff1e8ac03512c466f9645d61ab3a4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>AffineAccessor</b> = Realm::AffineAccessor&lt; FT, N, T &gt;</td></tr>
+<tr class="separator:acc8ff1e8ac03512c466f9645d61ab3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab1224ec3f64e51bd3a38dc63bdb3d4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5ab1224ec3f64e51bd3a38dc63bdb3d4"></a>
+template&lt;typename FT , int N, typename T  = ::legion_coord_t&gt; </td></tr>
+<tr class="memitem:a5ab1224ec3f64e51bd3a38dc63bdb3d4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>MultiAffineAccessor</b> = Realm::MultiAffineAccessor&lt; FT, N, T &gt;</td></tr>
+<tr class="separator:a5ab1224ec3f64e51bd3a38dc63bdb3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a074b6d48d24735505d41bac01f82fba5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a074b6d48d24735505d41bac01f82fba5"></a>
 typedef Realm::Runtime&#160;</td><td class="memItemRight" valign="bottom"><b>RealmRuntime</b></td></tr>
 <tr class="separator:a074b6d48d24735505d41bac01f82fba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -580,13 +584,29 @@ typedef std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">Dom
 typedef std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <br class="typebreak"/>
 std::set&lt; <a class="el" href="class_legion_1_1_domain.html">Domain</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>MultiDomainPointColoring</b></td></tr>
 <tr class="separator:aafabb7eda97a238b7588aba13d04d8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc16922f7216edff43f405c20d1435bc"><td class="memTemplParams" colspan="2"><a class="anchor" id="adc16922f7216edff43f405c20d1435bc"></a>
+template&lt;int DIM, typename T  = coord_t&gt; </td></tr>
+<tr class="memitem:adc16922f7216edff43f405c20d1435bc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Point</b> = Realm::Point&lt; DIM, T &gt;</td></tr>
+<tr class="separator:adc16922f7216edff43f405c20d1435bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df68b9c8d84c3202fae25a3d46d9fa4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5df68b9c8d84c3202fae25a3d46d9fa4"></a>
+template&lt;int DIM, typename T  = coord_t&gt; </td></tr>
+<tr class="memitem:a5df68b9c8d84c3202fae25a3d46d9fa4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Rect</b> = Realm::Rect&lt; DIM, T &gt;</td></tr>
+<tr class="separator:a5df68b9c8d84c3202fae25a3d46d9fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dba643bca394a5154db58f19a44e4c0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1dba643bca394a5154db58f19a44e4c0"></a>
+template&lt;int M, int N, typename T  = coord_t&gt; </td></tr>
+<tr class="memitem:a1dba643bca394a5154db58f19a44e4c0"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Transform</b> = Realm::Matrix&lt; M, N, T &gt;</td></tr>
+<tr class="separator:a1dba643bca394a5154db58f19a44e4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d26e1df95d7d71ce6278bcc5ca9f747"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0d26e1df95d7d71ce6278bcc5ca9f747"></a>
+template&lt;int DIM, typename T  = coord_t&gt; </td></tr>
+<tr class="memitem:a0d26e1df95d7d71ce6278bcc5ca9f747"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>DomainT</b> = Realm::IndexSpace&lt; DIM, T &gt;</td></tr>
+<tr class="separator:a0d26e1df95d7d71ce6278bcc5ca9f747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace for all <a class="el" href="namespace_legion.html">Legion</a> runtime objects </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2020 13:44:46 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 30 2020 15:40:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

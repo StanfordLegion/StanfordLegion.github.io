@@ -107,7 +107,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory::Kind kind, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> bounds, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
 <tr class="separator:a19eb3c031c48080e19bbb6c16f4b75b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04793b81f6be0fb3bf038580b61c4f8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04793b81f6be0fb3bf038580b61c4f8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; DIM, COORD_T &gt; &amp;bounds, Memory::Kind kind, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory::Kind kind, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
 <tr class="separator:a04793b81f6be0fb3bf038580b61c4f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5d97795e6a793f9df5757b4302e9da8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5d97795e6a793f9df5757b4302e9da8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (<a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; bounds, Memory::Kind kind, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
@@ -119,28 +119,28 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory memory, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> bounds, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
 <tr class="separator:a55dfc95908e49d7cca01ffecaa2e4fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb643043e3080235702568a569098cc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb643043e3080235702568a569098cc9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; DIM, COORD_T &gt; &amp;bounds, Memory memory, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory memory, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
 <tr class="separator:adb643043e3080235702568a569098cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56cb271e76bf3bd55ee1619f68e7e85a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56cb271e76bf3bd55ee1619f68e7e85a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (<a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; bounds, Memory memory, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
 <tr class="separator:a56cb271e76bf3bd55ee1619f68e7e85a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38b3255c1c47b8fa984e7a8286ca7b9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38b3255c1c47b8fa984e7a8286ca7b9a"></a>
-__CUDA_HD__ T&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; &amp;p) const </td></tr>
+__CUDA_HD__ T&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (const Point&lt; DIM, COORD_T &gt; &amp;p) const </td></tr>
 <tr class="separator:a38b3255c1c47b8fa984e7a8286ca7b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03e3a3974eb9ce1f00c2852dea77a12f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03e3a3974eb9ce1f00c2852dea77a12f"></a>
-__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; &amp;p, T value) const </td></tr>
+__CUDA_HD__ void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const Point&lt; DIM, COORD_T &gt; &amp;p, T value) const </td></tr>
 <tr class="separator:a03e3a3974eb9ce1f00c2852dea77a12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6816a709d88779bc932f252b592cd2e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6816a709d88779bc932f252b592cd2e0"></a>
-__CUDA_HD__ T *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; &amp;p) const </td></tr>
+__CUDA_HD__ T *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (const Point&lt; DIM, COORD_T &gt; &amp;p) const </td></tr>
 <tr class="separator:a6816a709d88779bc932f252b592cd2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2312cd7d3341e5a27cc67f1d29308a53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2312cd7d3341e5a27cc67f1d29308a53"></a>
-__CUDA_HD__ T *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (const <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; DIM, COORD_T &gt; &amp;r) const </td></tr>
+__CUDA_HD__ T *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (const Rect&lt; DIM, COORD_T &gt; &amp;r) const </td></tr>
 <tr class="separator:a2312cd7d3341e5a27cc67f1d29308a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55fa681eba93d5d4e7c3a96766c356e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad55fa681eba93d5d4e7c3a96766c356e"></a>
-__CUDA_HD__ T *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (const <a class="el" href="struct_legion_1_1_rect.html">Rect</a>&lt; DIM, COORD_T &gt; &amp;r, size_t strides[DIM]) const </td></tr>
+__CUDA_HD__ T *&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b> (const Rect&lt; DIM, COORD_T &gt; &amp;r, size_t strides[DIM]) const </td></tr>
 <tr class="separator:ad55fa681eba93d5d4e7c3a96766c356e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a27af18898928e57c895424706ed9b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a27af18898928e57c895424706ed9b9"></a>
-__CUDA_HD__ T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const <a class="el" href="struct_legion_1_1_point.html">Point</a>&lt; DIM, COORD_T &gt; &amp;p) const </td></tr>
+__CUDA_HD__ T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const Point&lt; DIM, COORD_T &gt; &amp;p) const </td></tr>
 <tr class="separator:a3a27af18898928e57c895424706ed9b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -164,7 +164,7 @@ class Legion::DeferredBuffer&lt; T, DIM, COORD_T, CHECK_BOUNDS &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2020 13:44:46 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 30 2020 15:40:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

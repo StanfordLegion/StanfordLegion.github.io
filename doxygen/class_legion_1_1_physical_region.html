@@ -113,9 +113,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a868e1424616b367f42bc0f6623881ef0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a868e1424616b367f42bc0f6623881ef0"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PhysicalRegion</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;rhs)</td></tr>
 <tr class="separator:a868e1424616b367f42bc0f6623881ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9700f516f68585d5378976c30cda89a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9700f516f68585d5378976c30cda89a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PhysicalRegion</b> (<a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;&amp;rhs)</td></tr>
+<tr class="separator:ab9700f516f68585d5378976c30cda89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d35b0ef9d7ad1f394ab7cec34c0128b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d35b0ef9d7ad1f394ab7cec34c0128b"></a>
 <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;rhs)</td></tr>
 <tr class="separator:a8d35b0ef9d7ad1f394ab7cec34c0128b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0de7a2817f3d316301955f68bf147a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0de7a2817f3d316301955f68bf147a1"></a>
+<a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;&amp;rhs)</td></tr>
+<tr class="separator:ac0de7a2817f3d316301955f68bf147a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5ff670ffe174598d3ca5f9a33321af3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5ff670ffe174598d3ca5f9a33321af3"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;reg) const </td></tr>
 <tr class="separator:ad5ff670ffe174598d3ca5f9a33321af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,8 +144,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="memitem:aed30abc7b6438666205e34c1e27d736e"><td class="memItemLeft" align="right" valign="top">LegionRuntime::Accessor::RegionAccessor<br class="typebreak"/>
 &lt; LegionRuntime::Accessor::AccessorType::Generic &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_physical_region.html#aed30abc7b6438666205e34c1e27d736e">get_field_accessor</a> (FieldID field, bool silence_warnings=false) const </td></tr>
 <tr class="separator:aed30abc7b6438666205e34c1e27d736e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af61751149a7aeec96547edb9a6eb12b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_physical_region.html#af61751149a7aeec96547edb9a6eb12b0">get_memories</a> (std::set&lt; Memory &gt; &amp;memories) const </td></tr>
-<tr class="separator:af61751149a7aeec96547edb9a6eb12b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9d5b305b5ac4e61b747ab692e3ce364"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_physical_region.html#ab9d5b305b5ac4e61b747ab692e3ce364">get_memories</a> (std::set&lt; Memory &gt; &amp;memories, bool silence_warnings=false, const char *warning_string=NULL) const </td></tr>
+<tr class="separator:ab9d5b305b5ac4e61b747ab692e3ce364"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a324ee7573a800137b2b4e5009fd23ada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_physical_region.html#a324ee7573a800137b2b4e5009fd23ada">get_fields</a> (std::vector&lt; FieldID &gt; &amp;fields) const </td></tr>
 <tr class="separator:a324ee7573a800137b2b4e5009fd23ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab96001d941d20d194b0d5ff47bea7835"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab96001d941d20d194b0d5ff47bea7835"></a>
@@ -279,7 +285,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_privilege
 
 </div>
 </div>
-<a class="anchor" id="af61751149a7aeec96547edb9a6eb12b0"></a>
+<a class="anchor" id="ab9d5b305b5ac4e61b747ab692e3ce364"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -287,8 +293,24 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_privilege
           <td class="memname">void Legion::PhysicalRegion::get_memories </td>
           <td>(</td>
           <td class="paramtype">std::set&lt; Memory &gt; &amp;&#160;</td>
-          <td class="paramname"><em>memories</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>memories</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>silence_warnings</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>warning_string</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -381,7 +403,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_privilege
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 30 2020 15:40:47 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 12 2021 14:18:51 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

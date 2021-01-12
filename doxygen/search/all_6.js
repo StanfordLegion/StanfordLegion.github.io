@@ -69,7 +69,7 @@ var searchData=
   ['get_5fmapper',['get_mapper',['../class_legion_1_1_runtime.html#a888c6816e049c49ce25e6196b15535d5',1,'Legion::Runtime']]],
   ['get_5fmapper_5fruntime',['get_mapper_runtime',['../class_legion_1_1_runtime.html#ad899e01c313c6ef26865f873e9232887',1,'Legion::Runtime']]],
   ['get_5fmaximum_5fdimension',['get_maximum_dimension',['../class_legion_1_1_runtime.html#ae0f5f4c6e37c8bc225de4b1851d87a2a',1,'Legion::Runtime']]],
-  ['get_5fmemories',['get_memories',['../class_legion_1_1_physical_region.html#af61751149a7aeec96547edb9a6eb12b0',1,'Legion::PhysicalRegion']]],
+  ['get_5fmemories',['get_memories',['../class_legion_1_1_physical_region.html#ab9d5b305b5ac4e61b747ab692e3ce364',1,'Legion::PhysicalRegion']]],
   ['get_5fparent_5findex_5fpartition',['get_parent_index_partition',['../class_legion_1_1_runtime.html#a9ca198b6c23f72a8e0269e50d49ae556',1,'Legion::Runtime']]],
   ['get_5fparent_5findex_5fspace',['get_parent_index_space',['../class_legion_1_1_runtime.html#ac3eda0d64b2aced859894d2967e26ccb',1,'Legion::Runtime']]],
   ['get_5fparent_5flogical_5fpartition',['get_parent_logical_partition',['../class_legion_1_1_runtime.html#a54086a6e4fb144bec4a48d414eaffbb0',1,'Legion::Runtime']]],

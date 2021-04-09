@@ -147,7 +147,7 @@ tools have been exhausted or in special circumstances:</p>
   <li><a href="#full-size-instances">Full-Size Instances</a></li>
   <li><a href="#separate-runtime-instances">Separate Runtime Instances</a> (<code class="language-plaintext highlighter-rouge">./app -lg:separate -ll:util 0</code>)</li>
   <li><a href="#dump-backtraces">Dump Backtraces</a> (<code class="language-plaintext highlighter-rouge">./app -ll:force_kthreads</code>)</li>
-  <li><a href="#dump-events">Dump Events</a></li>
+  <li><a href="#dump-events">Dump Events</a> (<code class="language-plaintext highlighter-rouge">REALM_SHOW_EVENT_WAITERS=60+5</code>)</li>
   <li><a href="#trace-memory-allocations">Trace Memory Allocations</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DTRACE_ALLOCATION make; ./app -level allocation=2</code>)</li>
   <li><a href="#legion-gc">Legion GC</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DLEGION_GC make; ./app -level legion_gc=2 -logfile gc_%.log; tools/legion_gc.py -l gc_*.log</code>)</li>
 </ul>
@@ -565,7 +565,29 @@ that debug symbols are available.</p>
 
 <p>When debugging a freeze, if dumping backtraces fails to provide
 insight, then it can be helpful to dump the Realm event graph to
-determine if a cycle has formed. Note in order for this to work,
+determine if a cycle has formed.</p>
+
+<p>Realm can be configured to do this after a fixed delay. For example,
+if you observe that the application is reliably frozen after 60
+seconds, then you can do:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">REALM_SHOW_EVENT_WAITERS</span><span class="o">=</span>60+5
+./app</code></pre></figure>
+
+<p>In a multi-node job, rank <code class="language-plaintext highlighter-rouge">i</code> will print its events at time
+<code class="language-plaintext highlighter-rouge">60+5i</code>. This allows the printing to be staggered so that the results
+do not get corrupted. Alternatively, one can use the job scheduler to
+send <code class="language-plaintext highlighter-rouge">stdout</code> to a different file for each rank (e.g.,
+<code class="language-plaintext highlighter-rouge">--output events_%t.log</code> in SLURM).</p>
+
+<h4 id="dumping-events-with-a-debugger">Dumping Events with a Debugger</h4>
+
+<p>There is an older method of dumping events which is no longer
+recommended in general, but has the advantage that it can be triggered
+interactively (so you can wait until the job actually freezes). This
+method is described below.</p>
+
+<p>Note in order for this to work,
 Legion <em>must</em> be compiled with debug symbols (<code class="language-plaintext highlighter-rouge">-Og -ggdb</code> or
 similar). <a href="#debug-mode">Debug mode</a> is not required.</p>
 

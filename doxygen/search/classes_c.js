@@ -1,9 +1,14 @@
 var searchData=
 [
-  ['scaletransform',['ScaleTransform',['../struct_legion_1_1_scale_transform.html',1,'Legion']]],
-  ['shardingfunctor',['ShardingFunctor',['../class_legion_1_1_sharding_functor.html',1,'Legion']]],
-  ['span',['Span',['../class_legion_1_1_span.html',1,'Legion']]],
-  ['spaniterator',['SpanIterator',['../class_legion_1_1_span_iterator.html',1,'Legion']]],
-  ['staticdependence',['StaticDependence',['../struct_legion_1_1_static_dependence.html',1,'Legion']]],
-  ['stlcomparator',['STLComparator',['../struct_legion_1_1_domain_point_1_1_s_t_l_comparator.html',1,'Legion::DomainPoint']]]
+  ['rectindomainiterator_1130',['RectInDomainIterator',['../class_legion_1_1_rect_in_domain_iterator.html',1,'Legion']]],
+  ['rectindomainiterator_3c_20dim_2c_20coord_5ft_20_3e_1131',['RectInDomainIterator&lt; DIM, coord_t &gt;',['../class_legion_1_1_rect_in_domain_iterator.html',1,'Legion']]],
+  ['reductionaccessor_1132',['ReductionAccessor',['../class_legion_1_1_reduction_accessor.html',1,'Legion']]],
+  ['regionrequirement_1133',['RegionRequirement',['../struct_legion_1_1_region_requirement.html',1,'Legion']]],
+  ['release_1134',['Release',['../class_legion_1_1_release.html',1,'Legion']]],
+  ['releaselauncher_1135',['ReleaseLauncher',['../struct_legion_1_1_release_launcher.html',1,'Legion']]],
+  ['reverse_5fiterator_1136',['reverse_iterator',['../class_legion_1_1_span_1_1reverse__iterator.html',1,'Legion::Span']]],
+  ['rtbarrier_1137',['RtBarrier',['../class_legion_1_1_internal_1_1_rt_barrier.html',1,'Legion::Internal']]],
+  ['rtevent_1138',['RtEvent',['../class_legion_1_1_internal_1_1_rt_event.html',1,'Legion::Internal']]],
+  ['rtuserevent_1139',['RtUserEvent',['../class_legion_1_1_internal_1_1_rt_user_event.html',1,'Legion::Internal']]],
+  ['runtime_1140',['Runtime',['../class_legion_1_1_runtime.html',1,'Legion']]]
 ];

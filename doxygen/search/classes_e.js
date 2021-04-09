@@ -1,15 +1,10 @@
 var searchData=
 [
-  ['unsafefieldaccessor',['UnsafeFieldAccessor',['../class_legion_1_1_unsafe_field_accessor.html',1,'Legion']]],
-  ['unserializable',['Unserializable',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20argumentmap_20_3e',['Unserializable&lt; ArgumentMap &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20fieldallocator_20_3e',['Unserializable&lt; FieldAllocator &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20future_20_3e',['Unserializable&lt; Future &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20futuremap_20_3e',['Unserializable&lt; FutureMap &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20indexallocator_20_3e',['Unserializable&lt; IndexAllocator &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20legionhandshake_20_3e',['Unserializable&lt; LegionHandshake &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20physicalregion_20_3e',['Unserializable&lt; PhysicalRegion &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20predicate_20_3e',['Unserializable&lt; Predicate &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20staticdependence_20_3e',['Unserializable&lt; StaticDependence &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20taskargument_20_3e',['Unserializable&lt; TaskArgument &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]]
+  ['task_1148',['Task',['../class_legion_1_1_task.html',1,'Legion']]],
+  ['taskargument_1149',['TaskArgument',['../class_legion_1_1_task_argument.html',1,'Legion']]],
+  ['taskconfigoptions_1150',['TaskConfigOptions',['../struct_legion_1_1_task_config_options.html',1,'Legion']]],
+  ['tasklauncher_1151',['TaskLauncher',['../struct_legion_1_1_task_launcher.html',1,'Legion']]],
+  ['taskvariantregistrar_1152',['TaskVariantRegistrar',['../struct_legion_1_1_task_variant_registrar.html',1,'Legion']]],
+  ['timinglauncher_1153',['TimingLauncher',['../struct_legion_1_1_timing_launcher.html',1,'Legion']]],
+  ['tlbitmask_1154',['TLBitMask',['../class_t_l_bit_mask.html',1,'']]]
 ];

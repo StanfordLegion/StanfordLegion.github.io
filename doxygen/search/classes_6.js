@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['indexallocator',['IndexAllocator',['../class_legion_1_1_index_allocator.html',1,'Legion']]],
-  ['indexcopylauncher',['IndexCopyLauncher',['../struct_legion_1_1_index_copy_launcher.html',1,'Legion']]],
-  ['indexfilllauncher',['IndexFillLauncher',['../struct_legion_1_1_index_fill_launcher.html',1,'Legion']]],
-  ['indexiterator',['IndexIterator',['../class_legion_1_1_index_iterator.html',1,'Legion']]],
-  ['indexpartition',['IndexPartition',['../class_legion_1_1_index_partition.html',1,'Legion']]],
-  ['indexpartitiont',['IndexPartitionT',['../class_legion_1_1_index_partition_t.html',1,'Legion']]],
-  ['indexpartnodet',['IndexPartNodeT',['../class_legion_1_1_internal_1_1_index_part_node_t.html',1,'Legion::Internal']]],
-  ['indexspace',['IndexSpace',['../class_legion_1_1_index_space.html',1,'Legion']]],
-  ['indexspacedifference',['IndexSpaceDifference',['../class_legion_1_1_internal_1_1_index_space_difference.html',1,'Legion::Internal']]],
-  ['indexspaceintersection',['IndexSpaceIntersection',['../class_legion_1_1_internal_1_1_index_space_intersection.html',1,'Legion::Internal']]],
-  ['indexspacenodet',['IndexSpaceNodeT',['../class_legion_1_1_internal_1_1_index_space_node_t.html',1,'Legion::Internal']]],
-  ['indexspaceoperationt',['IndexSpaceOperationT',['../class_legion_1_1_internal_1_1_index_space_operation_t.html',1,'Legion::Internal']]],
-  ['indexspacerequirement',['IndexSpaceRequirement',['../struct_legion_1_1_index_space_requirement.html',1,'Legion']]],
-  ['indexspacet',['IndexSpaceT',['../class_legion_1_1_index_space_t.html',1,'Legion']]],
-  ['indexspaceunion',['IndexSpaceUnion',['../class_legion_1_1_internal_1_1_index_space_union.html',1,'Legion::Internal']]],
-  ['indextasklauncher',['IndexTaskLauncher',['../struct_legion_1_1_index_task_launcher.html',1,'Legion']]],
-  ['inlinelauncher',['InlineLauncher',['../struct_legion_1_1_inline_launcher.html',1,'Legion']]],
-  ['inlinemapping',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
-  ['inputargs',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],
-  ['integerset',['IntegerSet',['../class_integer_set.html',1,'']]],
-  ['iterator',['iterator',['../class_legion_1_1_span_1_1iterator.html',1,'Legion::Span']]]
+  ['grant_1054',['Grant',['../class_legion_1_1_grant.html',1,'Legion']]]
 ];

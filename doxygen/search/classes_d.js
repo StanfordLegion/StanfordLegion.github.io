@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['task',['Task',['../class_legion_1_1_task.html',1,'Legion']]],
-  ['taskargument',['TaskArgument',['../class_legion_1_1_task_argument.html',1,'Legion']]],
-  ['taskconfigoptions',['TaskConfigOptions',['../struct_legion_1_1_task_config_options.html',1,'Legion']]],
-  ['tasklauncher',['TaskLauncher',['../struct_legion_1_1_task_launcher.html',1,'Legion']]],
-  ['taskvariantregistrar',['TaskVariantRegistrar',['../struct_legion_1_1_task_variant_registrar.html',1,'Legion']]],
-  ['timinglauncher',['TimingLauncher',['../struct_legion_1_1_timing_launcher.html',1,'Legion']]],
-  ['tlbitmask',['TLBitMask',['../class_t_l_bit_mask.html',1,'']]]
+  ['scaletransform_1141',['ScaleTransform',['../struct_legion_1_1_scale_transform.html',1,'Legion']]],
+  ['shardingfunctor_1142',['ShardingFunctor',['../class_legion_1_1_sharding_functor.html',1,'Legion']]],
+  ['span_1143',['Span',['../class_legion_1_1_span.html',1,'Legion']]],
+  ['span_3c_20ft_2c_20pm_20_3e_1144',['Span&lt; FT, PM &gt;',['../class_legion_1_1_span.html',1,'Legion']]],
+  ['spaniterator_1145',['SpanIterator',['../class_legion_1_1_span_iterator.html',1,'Legion']]],
+  ['staticdependence_1146',['StaticDependence',['../struct_legion_1_1_static_dependence.html',1,'Legion']]],
+  ['stlcomparator_1147',['STLComparator',['../struct_legion_1_1_domain_point_1_1_s_t_l_comparator.html',1,'Legion::DomainPoint']]]
 ];

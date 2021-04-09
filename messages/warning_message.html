@@ -121,382 +121,391 @@
     <div class="article-wrap" itemprop="text">
       <p id="warning_message_1005"><b>warning 1005</b>
 <br>Message: Accessor construction in non-leaf task #1 (UID #2) is a blocking operation in violation of Legion's deferred execution model best practices. You may notice a severe performance degradation. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1897">runtime.cc line 1897</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1971">runtime.cc line 1971</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L2319">runtime.cc line 2319</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1902">runtime.cc line 1902</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1976">runtime.cc line 1976</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L2324">runtime.cc line 2324</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1006"><b>warning 1006</b>
 <br>Message: Accessor construction was performed on an unmapped region in task #1 (UID #2). Legion is mapping it for you. Please try to be more careful. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1914">runtime.cc line 1914</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1988">runtime.cc line 1988</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L2337">runtime.cc line 2337</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1919">runtime.cc line 1919</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1993">runtime.cc line 1993</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L2342">runtime.cc line 2342</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1103"><b>warning 1103</b>
 <br>Message: Custom serdez operator #1 was dynamically registered outside of a registration callback invocation. In the near future this will become an error in order to support task subprocesses. Please use 'perform_registration_callback' to generate a callback where it will be safe to perform dynamic registrations.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L3303">runtime.cc line 3303</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L3335">runtime.cc line 3335</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L14751">runtime.cc line 14751</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L23849">runtime.cc line 23849</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L23869">runtime.cc line 23869</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L3428">runtime.cc line 3428</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L3460">runtime.cc line 3460</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L14963">runtime.cc line 14963</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L24211">runtime.cc line 24211</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L24231">runtime.cc line 24231</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1017"><b>warning 1017</b>
 <br>Message: DESTINATION REGION REQUIREMENT #1 OF COPY (ID #2) IN TASK #3 (ID #4) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L3939">legion_ops.cc line 3939</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L3933">legion_ops.cc line 3933</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_233"><b>warning 233</b>
 <br>Message: DESTINATION REGION REQUIREMENT #1 OF COPY (ID #2) IN TASK #3 (ID #4) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L3997">legion_ops.cc line 3997</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L6278">legion_ops.cc line 6278</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L6287">legion_ops.cc line 6287</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L6344">legion_ops.cc line 6344</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L3997">legion_ops.cc line 3997</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L6290">legion_ops.cc line 6290</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L6299">legion_ops.cc line 6299</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L6362">legion_ops.cc line 6362</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1101"><b>warning 1101</b>
 <br>Message: Duplicate deletions were performed for region (#1,#2,#3) in task tree rooted by #4
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L884">legion_context.cc line 884</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L894">legion_context.cc line 894</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L905">legion_context.cc line 905</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L915">legion_context.cc line 915</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L925">legion_context.cc line 925</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5470">legion_context.cc line 5470</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L884">legion_context.cc line 884</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L894">legion_context.cc line 894</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L905">legion_context.cc line 905</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L915">legion_context.cc line 915</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L925">legion_context.cc line 925</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5500">legion_context.cc line 5500</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1094"><b>warning 1094</b>
-<br>Message: EXTERNAL ARRAY ATTACH OPERATION ISSUED WITH NO PRIVILEGE FIELDS IN TASK #1 (ID #2)! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L16810">legion_ops.cc line 16810</a>
+<br>Message: EXTERNAL ARRAY INDEX ATTACH OPERATION ISSUED WITH NO PRIVILEGE FIELDS IN TASK #1 (ID #2)! DID YOU FORGET THEM?!?
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L16843">legion_ops.cc line 16843</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L17585">legion_ops.cc line 17585</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1026"><b>warning 1026</b>
 <br>Message: Empty output target_procs from call to 'map_task' by mapper #1 for task #2 (ID #3). Adding the 'target_proc' 
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L2858">legion_tasks.cc line 2858</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L2869">legion_tasks.cc line 2869</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1022"><b>warning 1022</b>
-<br>Message: FILE ATTACH OPERATION ISSUED WITH NO FIELD MAPPINGS IN TASK #1 (ID #2)! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L16700">legion_ops.cc line 16700</a>
+<br>Message: FILE INDEX ATTACH OPERATION ISSUED WITH NO FIELD MAPPINGS IN TASK #1 (ID #2)! DID YOU FORGET THEM?!?
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L16733">legion_ops.cc line 16733</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L17501">legion_ops.cc line 17501</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1105"><b>warning 1105</b>
 <br>Message: Failed to inline task #1 (UID #2) into parent task #3 (UID #4) because there was no mapped region for region requirement #5 to use. Currently all regions must be mapped in the parent task in order to allow for inlining. If you believe you have a compelling use case for inline a task with virtually mapped regions then please contact the Legion developers.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L9263">legion_context.cc line 9263</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L9631">legion_context.cc line 9631</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1023"><b>warning 1023</b>
-<br>Message: HDF5 ATTACH OPERATION ISSUED WITH NO FIELD MAPPINGS IN TASK #1 (ID #2)! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L16726">legion_ops.cc line 16726</a>
+<br>Message: HDF5 INDEX ATTACH OPERATION ISSUED WITH NO FIELD MAPPINGS IN TASK #1 (ID #2)! DID YOU FORGET THEM?!?
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L16759">legion_ops.cc line 16759</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L17518">legion_ops.cc line 17518</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1035"><b>warning 1035</b>
 <br>Message: Ignoring acquire request in unsupported mapper call #1 in mapper #2
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1767">mapper_manager.cc line 1767</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1863">mapper_manager.cc line 1863</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1962">mapper_manager.cc line 1962</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2077">mapper_manager.cc line 2077</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2191">mapper_manager.cc line 2191</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2223">mapper_manager.cc line 2223</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2256">mapper_manager.cc line 2256</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2291">mapper_manager.cc line 2291</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2331">mapper_manager.cc line 2331</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2380">mapper_manager.cc line 2380</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2411">mapper_manager.cc line 2411</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2479">mapper_manager.cc line 2479</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2512">mapper_manager.cc line 2512</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1779">mapper_manager.cc line 1779</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1887">mapper_manager.cc line 1887</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1998">mapper_manager.cc line 1998</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2139">mapper_manager.cc line 2139</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2279">mapper_manager.cc line 2279</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2311">mapper_manager.cc line 2311</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2344">mapper_manager.cc line 2344</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2379">mapper_manager.cc line 2379</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2419">mapper_manager.cc line 2419</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2468">mapper_manager.cc line 2468</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2500">mapper_manager.cc line 2500</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2584">mapper_manager.cc line 2584</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2618">mapper_manager.cc line 2618</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1104"><b>warning 1104</b>
 <br>Message: Ignoring call to create a collective instance for the #1 call to create instance in mapper call #2 in mapper #3 because the mapper call does not have an assoicated mappable. Legion will still attempt to make an instance.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1779">mapper_manager.cc line 1779</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1804">mapper_manager.cc line 1804</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1816">mapper_manager.cc line 1816</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1876">mapper_manager.cc line 1876</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1901">mapper_manager.cc line 1901</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1913">mapper_manager.cc line 1913</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L1973">mapper_manager.cc line 1973</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2002">mapper_manager.cc line 2002</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2014">mapper_manager.cc line 2014</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2038">mapper_manager.cc line 2038</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2090">mapper_manager.cc line 2090</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2118">mapper_manager.cc line 2118</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2130">mapper_manager.cc line 2130</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2155">mapper_manager.cc line 2155</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1792">mapper_manager.cc line 1792</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1803">mapper_manager.cc line 1803</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1828">mapper_manager.cc line 1828</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1840">mapper_manager.cc line 1840</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1901">mapper_manager.cc line 1901</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1912">mapper_manager.cc line 1912</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1937">mapper_manager.cc line 1937</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L1949">mapper_manager.cc line 1949</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2011">mapper_manager.cc line 2011</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2021">mapper_manager.cc line 2021</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2050">mapper_manager.cc line 2050</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2062">mapper_manager.cc line 2062</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2089">mapper_manager.cc line 2089</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2099">mapper_manager.cc line 2099</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2154">mapper_manager.cc line 2154</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2164">mapper_manager.cc line 2164</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2192">mapper_manager.cc line 2192</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2204">mapper_manager.cc line 2204</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2232">mapper_manager.cc line 2232</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2242">mapper_manager.cc line 2242</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1086"><b>warning 1086</b>
 <br>Message: Ignoring empty index space copy in task #1 (ID #2)
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5959">legion_context.cc line 5959</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L6046">legion_context.cc line 6046</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1085"><b>warning 1085</b>
 <br>Message: Ignoring empty index space fill in task #1 (ID #2)
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5876">legion_context.cc line 5876</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5963">legion_context.cc line 5963</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1058"><b>warning 1058</b>
 <br>Message: Ignoring empty index task launch in task #1 (ID #2)
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5608">legion_context.cc line 5608</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5650">legion_context.cc line 5650</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5638">legion_context.cc line 5638</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5680">legion_context.cc line 5680</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1025"><b>warning 1025</b>
 <br>Message: Ignoring index fill request with no fields in ask #1 (UID #2)
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5825">legion_context.cc line 5825</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5868">legion_context.cc line 5868</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5912">legion_context.cc line 5912</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5955">legion_context.cc line 5955</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1096"><b>warning 1096</b>
 <br>Message: Ignoring invalid instance output from mapper #1 for select copy sources call on Operation #2 (UID #3)
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L1424">legion_ops.cc line 1424</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L1418">legion_ops.cc line 1418</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1028"><b>warning 1028</b>
 <br>Message: Ignoring processor request of 
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L2892">legion_tasks.cc line 2892</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L2903">legion_tasks.cc line 2903</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1089"><b>warning 1089</b>
 <br>Message: Ignoring release request in unsupported mapper call #1 in mapper #2
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2666">mapper_manager.cc line 2666</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2684">mapper_manager.cc line 2684</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/mapper_manager.cc#L2703">mapper_manager.cc line 2703</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2788">mapper_manager.cc line 2788</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2806">mapper_manager.cc line 2806</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/mapper_manager.cc#L2825">mapper_manager.cc line 2825</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1099"><b>warning 1099</b>
 <br>Message: Ignoring request by mapper #1 to not track valid instances for region requirement #2 of task #3 (UID #4) because region requirement does not have read-only privileges.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L3571">legion_ops.cc line 3571</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3269">legion_tasks.cc line 3269</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L3565">legion_ops.cc line 3565</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3280">legion_tasks.cc line 3280</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1095"><b>warning 1095</b>
 <br>Message: Ignoring request for mapper #1 to set garbage collection priority on an external instance
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L5058">runtime.cc line 5058</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L5183">runtime.cc line 5183</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1012"><b>warning 1012</b>
 <br>Message: Ignoring request to create instance in memory 
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_instances.cc#L3403">legion_instances.cc line 3403</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_instances.cc#L3638">legion_instances.cc line 3638</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_instances.cc#L3403">legion_instances.cc line 3403</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_instances.cc#L3638">legion_instances.cc line 3638</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1027"><b>warning 1027</b>
 <br>Message: Ignoring spurious additional target processors requested in 'map_task' for task #1 (ID #2) by mapper #3 because task is part of a must epoch launch.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L2882">legion_tasks.cc line 2882</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L2893">legion_tasks.cc line 2893</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1100"><b>warning 1100</b>
 <br>Message: Index space #1 was leaked out of task tree rooted by task #2
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L937">legion_context.cc line 937</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L952">legion_context.cc line 952</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L981">legion_context.cc line 981</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L995">legion_context.cc line 995</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L1009">legion_context.cc line 1009</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L937">legion_context.cc line 937</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L952">legion_context.cc line 952</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L981">legion_context.cc line 981</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L995">legion_context.cc line 995</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L1009">legion_context.cc line 1009</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1098"><b>warning 1098</b>
 <br>Message: Internal runtime performance warning: equivalence set #1 has #2 different users which is the same as the sampling rate of #3. Please report this application use case to the Legion developers mailing list.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_analysis.cc#L11278">legion_analysis.cc line 11278</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_analysis.cc#L11278">legion_analysis.cc line 11278</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1030"><b>warning 1030</b>
 <br>Message: Mapper #1 requested a composite instance be created for region requirement #2 of task #3 (ID #4) for a post mapping. The request is being ignored.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3940">legion_tasks.cc line 3940</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3951">legion_tasks.cc line 3951</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1013"><b>warning 1013</b>
 <br>Message: Mapper #1 requested a profiling measurement of type #2 which is not applicable to operation #3 (UID #4) and will be ignored.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L745">legion_ops.cc line 745</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L745">legion_ops.cc line 745</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1082"><b>warning 1082</b>
 <br>Message: Mapper #1 requested a profiling measurement of type #2 which is not applicable to task #3 (UID #4) and will be ignored.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3467">legion_tasks.cc line 3467</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3478">legion_tasks.cc line 3478</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1093"><b>warning 1093</b>
 <br>Message: Mapper #1 requested change of priority for parent task #2 (UID #3) when launching child task #4 (UID #5), but the parent context does not support parent task priority mutation
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L998">legion_tasks.cc line 998</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L1009">legion_tasks.cc line 1009</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1088"><b>warning 1088</b>
 <br>Message: Mapper #1 requested post mapping instances be created for region requirement #2 of task #3 (ID #4), but this region requirement has REDUCE privileges. The request is being ignored.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3859">legion_tasks.cc line 3859</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3870">legion_tasks.cc line 3870</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3881">legion_tasks.cc line 3881</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3870">legion_tasks.cc line 3870</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3881">legion_tasks.cc line 3881</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3892">legion_tasks.cc line 3892</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1031"><b>warning 1031</b>
 <br>Message: Mapper #1 requested to inline task #2 (UID #3) but the 'enable_inlining' option was not set on the task launcher so the request is being ignored
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L5274">legion_tasks.cc line 5274</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L7166">legion_tasks.cc line 7166</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L5295">legion_tasks.cc line 5295</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L7193">legion_tasks.cc line 7193</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1008"><b>warning 1008</b>
 <br>Message: NO PROCESSOR CONSTRAINT SPECIFIED FOR VARIANT #1 (ID #2) OF TASK #3 (ID #4)! ASSUMING LOC_PROC!
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L9910">runtime.cc line 9910</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L10099">runtime.cc line 10099</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L10114">runtime.cc line 10114</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L10303">runtime.cc line 10303</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1020"><b>warning 1020</b>
 <br>Message: PRIVILEGE FIELDS OF ACQUIRE OPERATIONIN TASK #1 (ID #2) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L9606">legion_ops.cc line 9606</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L9637">legion_ops.cc line 9637</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1021"><b>warning 1021</b>
 <br>Message: PRIVILEGE FIELDS OF RELEASE OPERATIONIN TASK #1 (ID #2) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L10490">legion_ops.cc line 10490</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L10521">legion_ops.cc line 10521</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1001"><b>warning 1001</b>
 <br>Message: Performing a blocking is_empty test on a in non-leaf task #1 (UID #2) is a violation of Legion's deferred execution model best practices. You may notice a severe performance degradation. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L640">runtime.cc line 640</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L642">runtime.cc line 642</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1009"><b>warning 1009</b>
 <br>Message: Projection functor #1 is being dynamically registered for a multi-node run with #2 nodes. It is currently the responsibility of the application to ensure that this projection functor is registered on all nodes where it will be required. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L14759">runtime.cc line 14759</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L14971">runtime.cc line 14971</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1024"><b>warning 1024</b>
 <br>Message: REGION REQUIREMENT #1 OF TASK #2 (ID #3) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L926">legion_tasks.cc line 926</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L929">legion_tasks.cc line 929</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1014"><b>warning 1014</b>
 <br>Message: REGION REQUIREMENT OF INLINE MAPPING IN TASK #1 (ID #2) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L2768">legion_ops.cc line 2768</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L2762">legion_ops.cc line 2762</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1071"><b>warning 1071</b>
 <br>Message: Region requirement #1 of operation #2 (UID #3) in parent task #4 (UID #5) is using uninitialized data for field(s) #6 of logical region (#7,#8,#9)
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L637">legion_ops.cc line 637</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L637">legion_ops.cc line 637</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1019"><b>warning 1019</b>
 <br>Message: Region requirements #1 and #2 of index task #3 (UID #4) in parent task #5 (UID #6) are potentially interfering.  It's possible that this is a false positive if there are projection region requirements and each of the point tasks are non-interfering. If the runtime is built in debug mode then it will check that the region requirements of all points are actually non-interfering. If you see no further error messages for this index task launch then everything is good.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L6870">legion_ops.cc line 6870</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L7246">legion_tasks.cc line 7246</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L6900">legion_ops.cc line 6900</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L7273">legion_tasks.cc line 7273</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1032"><b>warning 1032</b>
 <br>Message: Region requirements #1 and #2 of individual task #3 (UID #4) in parent task #5 (UID #6) are interfering.  This behavior is currently undefined. You better really know what you are doing.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L5380">legion_tasks.cc line 5380</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L5410">legion_tasks.cc line 5410</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1083"><b>warning 1083</b>
 <br>Message: Region tree state logging is disabled.  To enable region tree state logging compile in debug mode.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L22808">runtime.cc line 22808</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L23108">runtime.cc line 23108</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1004"><b>warning 1004</b>
 <br>Message: Request for 'get_piece_iterator' was performed on a physical region in task #1 (ID #2) without first waiting for the physical region to be valid. Legion is performing the wait for you. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1815">runtime.cc line 1815</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L2115">runtime.cc line 2115</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L2195">runtime.cc line 2195</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1817">runtime.cc line 1817</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L2120">runtime.cc line 2120</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L2200">runtime.cc line 2200</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1016"><b>warning 1016</b>
 <br>Message: SOURCE REGION REQUIREMENT #1 OF COPY (ID #2) IN TASK #3 (ID #4) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L3924">legion_ops.cc line 3924</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L3918">legion_ops.cc line 3918</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_232"><b>warning 232</b>
 <br>Message: SOURCE REGION REQUIREMENT #1 OF COPY (ID #2) IN TASK #3 (ID #4) HAS NO PRIVILEGE FIELDS! DID YOU FORGET THEM?!?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L6263">legion_ops.cc line 6263</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L6275">legion_ops.cc line 6275</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1011"><b>warning 1011</b>
 <br>Message: THERE ARE NEW METHODS FOR PROJECTION FUNCTORS THAT MUST BE OVERRIDEN! CALLING DEPRECATED METHODS FOR NOW!
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion.cc#L3071">legion.cc line 3071</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion.cc#L3147">legion.cc line 3147</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion.cc#L3173">legion.cc line 3173</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion.cc#L3249">legion.cc line 3249</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1091"><b>warning 1091</b>
 <br>Message: Using a generic accessor for accessing a physical instance of task #1 (UID #2). Generic accessors are very slow and are strongly discouraged for use in high performance code. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L2356">runtime.cc line 2356</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L2361">runtime.cc line 2361</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1087"><b>warning 1087</b>
 <br>Message: Variant #1 of task #2 (UID #3) was not marked as an 'inner' variant but it only launched operations and did not make any accessors. Did you forget the 'inner' annotation?
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L8877">legion_context.cc line 8877</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L8904">legion_context.cc line 8904</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L9244">legion_context.cc line 9244</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L9271">legion_context.cc line 9271</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1050"><b>warning 1050</b>
 <br>Message: WARNING: Runtime is unmapping and remapping physical regions around execute_task call in task #1 (UID #2).
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L4166">legion_context.cc line 4166</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L4311">legion_context.cc line 4311</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L4377">legion_context.cc line 4377</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L4444">legion_context.cc line 4444</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L4529">legion_context.cc line 4529</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L4597">legion_context.cc line 4597</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5845">legion_context.cc line 5845</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5899">legion_context.cc line 5899</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5935">legion_context.cc line 5935</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L5982">legion_context.cc line 5982</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L6018">legion_context.cc line 6018</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L6053">legion_context.cc line 6053</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L6195">legion_context.cc line 6195</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L9405">legion_context.cc line 9405</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_context.cc#L9412">legion_context.cc line 9412</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L4196">legion_context.cc line 4196</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L4341">legion_context.cc line 4341</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L4407">legion_context.cc line 4407</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L4474">legion_context.cc line 4474</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L4559">legion_context.cc line 4559</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L4627">legion_context.cc line 4627</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5932">legion_context.cc line 5932</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L5986">legion_context.cc line 5986</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L6022">legion_context.cc line 6022</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L6069">legion_context.cc line 6069</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L6105">legion_context.cc line 6105</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L6140">legion_context.cc line 6140</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L6545">legion_context.cc line 6545</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L9775">legion_context.cc line 9775</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_context.cc#L9782">legion_context.cc line 9782</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1102"><b>warning 1102</b>
 <br>Message: WARNING: The runtime has created #1 new replayable templates for trace #2 without replaying any existing templates. This may mean that your mapper is not making mapper decisions conducive to replaying templates. Please check that your mapper is making decisions that align with prior templates. If you believe that this number of templates is reasonable please adjust the settings for LEGION_NEW_TEMPLATE_WARNING_COUNT in legion_config.h.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_trace.cc#L1967">legion_trace.cc line 1967</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_trace.cc#L1980">legion_trace.cc line 1980</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1097"><b>warning 1097</b>
 <br>Message: WARNING: The runtime has failed to memoize the trace more than #1 times, due to the absence of a replayable template. It is highly likely that trace #2 will not be memoized for the rest of execution. The most recent template was not replayable for the following reason: #3. Please change the mapper to stop making memoization requests.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_trace.cc#L1933">legion_trace.cc line 1933</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_trace.cc#L1946">legion_trace.cc line 1946</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_245"><b>warning 245</b>
 <br>Message: WARNING: mapper #1 faield to acquire instance for partition mapping operation in task #2 (ID #3) in 'map_partition' call. You may experience undefined behavior as a consequence.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L3554">legion_ops.cc line 3554</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L14336">legion_ops.cc line 14336</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L3548">legion_ops.cc line 3548</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L14367">legion_ops.cc line 14367</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1003"><b>warning 1003</b>
 <br>Message: Waiting for a physical region to be valid in non-leaf task #1 (UID #2) is a violation of Legion's deferred execution model best practices. You may notice a severe performance degradation. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1796">runtime.cc line 1796</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1804">runtime.cc line 1804</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1798">runtime.cc line 1798</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1806">runtime.cc line 1806</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1002"><b>warning 1002</b>
 <br>Message: Waiting for all futures in a future map in non-leaf task #1 (UID #2) is a violation of Legion's deferred execution model best practices. You may notice a severe performance degredation. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L1525">runtime.cc line 1525</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L1527">runtime.cc line 1527</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1047"><b>warning 1047</b>
 <br>Message: Waiting on a future in non-leaf task #1 (UID #2) is a violation of Legion's deferred execution model best practices. You may notice a severe performance degradation. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L532">runtime.cc line 532</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L573">runtime.cc line 573</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L534">runtime.cc line 534</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L575">runtime.cc line 575</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1092"><b>warning 1092</b>
 <br>Message: You should not specify -lg:prof_logfile <logfile_name> when running with -lg:serializer ascii\n       legion_prof output will be written to '-logfile <logfile_name>' instead
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_profiling.cc#L1386">legion_profiling.cc line 1386</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_profiling.cc#L1388">legion_profiling.cc line 1388</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1007"><b>warning 1007</b>
 <br>Message: creating read-write accessor for field #1 in task #2 which only has WRITE_DISCARD privileges. You may be accessing uninitialized data. Warning string: #3
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L2256">runtime.cc line 2256</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L2261">runtime.cc line 2261</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1010"><b>warning 1010</b>
 <br>Message: duplicate calls to configure_MPI_interoperability on rank #1
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/runtime.cc#L23540">runtime.cc line 23540</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/runtime.cc#L23885">runtime.cc line 23885</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_message_1015"><b>warning 1015</b>
 <br>Message: mapper #1 failed to acquire instances for region requirement #2 of task #3 (ID #4) in 'premap_task' call. You may experience undefined behavior as a consequence.
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_ops.cc#L6009">legion_ops.cc line 6009</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3103">legion_tasks.cc line 3103</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L3930">legion_tasks.cc line 3930</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/ba2319d3ede397ea8340c8eca89bb3663fad425e/runtime/./legion/legion_tasks.cc#L7567">legion_tasks.cc line 7567</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_ops.cc#L6021">legion_ops.cc line 6021</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3114">legion_tasks.cc line 3114</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L3941">legion_tasks.cc line 3941</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/a76dcf4305d3c3cc9882dd54ed7ea8509e675979/runtime/./legion/legion_tasks.cc#L7594">legion_tasks.cc line 7594</a>
 <p>
 <br><a href="index.html">back to message index</a>
 

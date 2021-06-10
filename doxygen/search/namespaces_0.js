@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['legion_1168',['Legion',['../namespace_legion.html',1,'']]]
+  ['legion',['Legion',['../namespace_legion.html',1,'']]]
 ];

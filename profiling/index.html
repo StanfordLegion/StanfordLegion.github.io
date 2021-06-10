@@ -190,6 +190,10 @@ the resulting log files to <code class="language-plaintext highlighter-rouge">le
 ./app <span class="nt">-lg</span>:prof &lt;N&gt; <span class="nt">-lg</span>:prof_logfile prof_%.gz
 <span class="nv">$LG_RT_DIR</span>/../tools/legion_prof.py prof_<span class="k">*</span>.gz</code></pre></figure>
 
+<p>(Note: there is now a Rust implementation of Legion Prof, which
+supports a subset of the features, but is 5-15x faster than the Python
+implementation above. See <a href="#rust-legion-prof">below</a> for details.)</p>
+
 <p>This will generate a subdirectory called <code class="language-plaintext highlighter-rouge">legion_prof</code> under the
 current directory, including a file named <code class="language-plaintext highlighter-rouge">index.html</code>. Open this file
 in a browser. Note that, if you are attempting to view this file on
@@ -205,6 +209,46 @@ Legion Prof Locally</a>.</p>
 during the run. Legion Prof also can also display  more detailed
 information as described in
 <a href="#interacting-with-a-profile">Interacting with a Profile</a>.</p>
+
+<h3 id="rust-legion-prof">Rust Legion Prof</h3>
+
+<p>There is now a Rust implementation of Legion Prof, in addition to
+Python. It supports a subset of the features of Python, but for the
+features that are supported, the outputs are bitwise identical. See
+below for usage instructions for the Rust profilers.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">--proto</span> <span class="s1">'=https'</span> <span class="nt">--tlsv1</span>.2 <span class="nt">-sSf</span> https://sh.rustup.rs | sh
+cargo <span class="nb">install</span> <span class="nt">--path</span> legion/tools/legion_prof_rs
+legion_prof prof_<span class="k">*</span>.gz</code></pre></figure>
+
+<p>The first line installs Rust. The second install a <code class="language-plaintext highlighter-rouge">legion_prof</code>
+binary into <code class="language-plaintext highlighter-rouge">~/.cargo/bin</code>. The third runs the profiler. The supported
+flags are substantially similar to the Python implementation and can
+be queried with <code class="language-plaintext highlighter-rouge">--help</code>.</p>
+
+<p>The following features are supported:</p>
+
+<ul>
+  <li>All utilization views (processors, channels, memories)</li>
+  <li>Detailed views for:
+    <ul>
+      <li>Processors</li>
+      <li>Channels</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The following features are NOT currently supported:</p>
+
+<ul>
+  <li>Detailed views for:
+    <ul>
+      <li>Memories (i.e., instances)</li>
+      <li>Critical path</li>
+      <li>Task dependencies</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="interacting-with-a-profile">Interacting with a Profile</h3>
 

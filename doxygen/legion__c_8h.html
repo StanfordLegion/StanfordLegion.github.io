@@ -928,6 +928,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>legion_domain_is_dens
 <tr class="separator:a319b8b8ea94b02f5287903c9c35dff68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade46cb9038e329abf9c8990a1c6517f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ade46cb9038e329abf9c8990a1c6517f4">legion_task_launcher_set_local_function_task</a> (legion_task_launcher_t launcher, bool local_function_task)</td></tr>
 <tr class="separator:ade46cb9038e329abf9c8990a1c6517f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62849d452bc115014e1fc4238a2c043"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ab62849d452bc115014e1fc4238a2c043">legion_task_launcher_set_elide_future_return</a> (legion_task_launcher_t launcher, bool elide_future_return)</td></tr>
+<tr class="separator:ab62849d452bc115014e1fc4238a2c043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac01d2068d15385183fc6a47824e1789a"><td class="memItemLeft" align="right" valign="top">legion_index_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ac01d2068d15385183fc6a47824e1789a">legion_index_launcher_create</a> (legion_task_id_t tid, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> domain, <a class="el" href="structlegion__task__argument__t.html">legion_task_argument_t</a> global_arg, legion_argument_map_t map, legion_predicate_t pred, bool must, legion_mapper_id_t id, legion_mapping_tag_id_t tag)</td></tr>
 <tr class="separator:ac01d2068d15385183fc6a47824e1789a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79b6ed8a8f72c689482e2edee8b9db26"><td class="memItemLeft" align="right" valign="top">legion_index_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a79b6ed8a8f72c689482e2edee8b9db26">legion_index_launcher_create_from_buffer</a> (legion_task_id_t tid, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> domain, const void *buffer, size_t buffer_size, legion_argument_map_t map, legion_predicate_t pred, bool must, legion_mapper_id_t id, legion_mapping_tag_id_t tag)</td></tr>
@@ -980,6 +982,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>legion_domain_is_dens
 <tr class="separator:a9ffa41d8549ec3693d8cadf5f89adcdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7f1ceecd283b309c055495dd9b1ccb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a4b7f1ceecd283b309c055495dd9b1ccb">legion_index_launcher_set_mapping_tag</a> (legion_index_launcher_t launcher, legion_mapping_tag_id_t tag)</td></tr>
 <tr class="separator:a4b7f1ceecd283b309c055495dd9b1ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac681042bf3cd43a21018fc71be0c408b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#ac681042bf3cd43a21018fc71be0c408b">legion_index_launcher_set_elide_future_return</a> (legion_index_launcher_t launcher, bool elide_future_return)</td></tr>
+<tr class="separator:ac681042bf3cd43a21018fc71be0c408b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a127f99298debdfbbf2e50ac8b29b1f5a"><td class="memItemLeft" align="right" valign="top">legion_inline_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a127f99298debdfbbf2e50ac8b29b1f5a">legion_inline_launcher_create_logical_region</a> (<a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> handle, legion_privilege_mode_t priv, legion_coherence_property_t prop, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> parent, legion_mapping_tag_id_t region_tag, bool verified, legion_mapper_id_t id, legion_mapping_tag_id_t launcher_tag)</td></tr>
 <tr class="separator:a127f99298debdfbbf2e50ac8b29b1f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01a77b6b7d0493736a9fb1826dbd3370"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a01a77b6b7d0493736a9fb1826dbd3370">legion_inline_launcher_destroy</a> (legion_inline_launcher_t handle)</td></tr>
@@ -1177,6 +1181,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_field_map_inse
 <tr class="separator:ad07544d8df65a825db128acfe75d3b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a537556bd499f876bf59f2eb45c8aeba7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a537556bd499f876bf59f2eb45c8aeba7">legion_index_attach_launcher_set_restricted</a> (legion_index_attach_launcher_t handle, bool restricted)</td></tr>
 <tr class="separator:a537556bd499f876bf59f2eb45c8aeba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a165e5550898d5ba4afb243c8eabcf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a1a165e5550898d5ba4afb243c8eabcf2">legion_index_attach_launcher_set_deduplicate_across_shards</a> (legion_index_attach_launcher_t handle, bool deduplicate)</td></tr>
+<tr class="separator:a1a165e5550898d5ba4afb243c8eabcf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19db1da88e6bc2e2cbd8c18a348e553e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a19db1da88e6bc2e2cbd8c18a348e553e">legion_index_attach_launcher_attach_file</a> (legion_index_attach_launcher_t handle, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> region, const char *filename, const legion_field_id_t *fields, size_t num_fields, legion_file_mode_t mode)</td></tr>
 <tr class="separator:a19db1da88e6bc2e2cbd8c18a348e553e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c479f8623d9130be137cf580423a088"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a7c479f8623d9130be137cf580423a088">legion_index_attach_launcher_attach_hdf5</a> (legion_index_attach_launcher_t handle, <a class="el" href="structlegion__logical__region__t.html">legion_logical_region_t</a> region, const char *filename, legion_field_map_t field_map, legion_file_mode_t mode)</td></tr>
@@ -1187,8 +1193,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>legion_field_map_inse
 <tr class="separator:ad9b404c7176fce94a0e2fd2c60980caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69df6ce1c3acc793e29ad9b2528e7221"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a69df6ce1c3acc793e29ad9b2528e7221">legion_index_attach_launcher_destroy</a> (legion_index_attach_launcher_t handle)</td></tr>
 <tr class="separator:a69df6ce1c3acc793e29ad9b2528e7221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144ef4d92ac9af6ce47f43c1e7bbacd8"><td class="memItemLeft" align="right" valign="top">legion_external_resources_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a144ef4d92ac9af6ce47f43c1e7bbacd8">legion_attach_external_resources</a> (legion_runtime_t runtime, legion_context_t ctx, legion_attach_launcher_t launcher, bool deduplicate_across_shards)</td></tr>
-<tr class="separator:a144ef4d92ac9af6ce47f43c1e7bbacd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9304ce8b6bb0b4a5366cc4a2cb4d5534"><td class="memItemLeft" align="right" valign="top">legion_external_resources_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a9304ce8b6bb0b4a5366cc4a2cb4d5534">legion_attach_external_resources</a> (legion_runtime_t runtime, legion_context_t ctx, legion_attach_launcher_t launcher)</td></tr>
+<tr class="separator:a9304ce8b6bb0b4a5366cc4a2cb4d5534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a957ca7831d6ea00b4f8d98b6cb9fd3b4"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a957ca7831d6ea00b4f8d98b6cb9fd3b4">legion_detach_external_resources</a> (legion_runtime_t runtime, legion_context_t ctx, legion_external_resources_t, bool flush, bool unordered)</td></tr>
 <tr class="separator:a957ca7831d6ea00b4f8d98b6cb9fd3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f3731f12da371da781d191d30ba976d"><td class="memItemLeft" align="right" valign="top">legion_must_epoch_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a7f3731f12da371da781d191d30ba976d">legion_must_epoch_launcher_create</a> (legion_mapper_id_t id, legion_mapping_tag_id_t launcher_tag)</td></tr>
@@ -2755,7 +2761,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_context_get_
 
 </div>
 </div>
-<a class="anchor" id="a144ef4d92ac9af6ce47f43c1e7bbacd8"></a>
+<a class="anchor" id="a9304ce8b6bb0b4a5366cc4a2cb4d5534"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2775,13 +2781,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_context_get_
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">legion_attach_launcher_t&#160;</td>
-          <td class="paramname"><em>launcher</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>deduplicate_across_shards</em>&#160;</td>
+          <td class="paramname"><em>launcher</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2791,7 +2791,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_context_get_
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#a67dddbf57b7a7d97596c83159e9d4654">Legion::Runtime::attach_external_resources()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#a85f01d9189d26f07ad2e4f8db2dc55bd">Legion::Runtime::attach_external_resources()</a> </dd></dl>
 
 </div>
 </div>
@@ -3301,7 +3301,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_context_get_
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#af5f25cf7469f41187e2e4985b00263b6">Legion::Runtime::construct_future_map</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#ac771798e3d31b6112dcfadfc64af3f3b">Legion::Runtime::construct_future_map</a> </dd></dl>
 
 </div>
 </div>
@@ -6674,7 +6674,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Caller takes ownership of return value</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#af5f25cf7469f41187e2e4985b00263b6">Legion::Runtime::construct_future_map</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#ac771798e3d31b6112dcfadfc64af3f3b">Legion::Runtime::construct_future_map</a> </dd></dl>
 
 </div>
 </div>
@@ -7174,6 +7174,33 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
   </dd>
 </dl>
 <dl class="section see"><dt>See Also</dt><dd>Legion::IndexAttachLauncher::~IndexAttachLauncher() </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1a165e5550898d5ba4afb243c8eabcf2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void legion_index_attach_launcher_set_deduplicate_across_shards </td>
+          <td>(</td>
+          <td class="paramtype">legion_index_attach_launcher_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>deduplicate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd>Legion::IndexAttachLauncher::deduplicate_across_shards </dd></dl>
 
 </div>
 </div>
@@ -9381,6 +9408,33 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
       </table>
 </div><div class="memdoc">
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="struct_legion_1_1_region_requirement.html#ae61db267f7f5cf23f65eebda28a11f4d">Legion::RegionRequirement::flags</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac681042bf3cd43a21018fc71be0c408b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void legion_index_launcher_set_elide_future_return </td>
+          <td>(</td>
+          <td class="paramtype">legion_index_launcher_t&#160;</td>
+          <td class="paramname"><em>launcher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>elide_future_return</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd>Legion::IndexTaskLauncher::elide_future_return </dd></dl>
 
 </div>
 </div>
@@ -20968,6 +21022,33 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="ab62849d452bc115014e1fc4238a2c043"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void legion_task_launcher_set_elide_future_return </td>
+          <td>(</td>
+          <td class="paramtype">legion_task_launcher_t&#160;</td>
+          <td class="paramname"><em>launcher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>elide_future_return</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd>Legion::TaskLauncher::elide_future_return </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a319b8b8ea94b02f5287903c9c35dff68"></a>
 <div class="memitem">
 <div class="memproto">
@@ -21606,7 +21687,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 30 2021 15:48:39 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 24 2021 13:00:23 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

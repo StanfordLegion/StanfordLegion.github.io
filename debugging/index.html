@@ -134,6 +134,7 @@ applications, and those for debugging the runtime itself.</p>
   <li><a href="#bounds-checks">Bounds Checks</a> (<code class="language-plaintext highlighter-rouge">CC_FLAGS=-DBOUNDS_CHECKS make; ./app</code>)</li>
   <li><a href="#partition-checks">Partition Checks</a> (<code class="language-plaintext highlighter-rouge">./app -lg:partcheck</code>)</li>
   <li><a href="#legion-spy">Legion Spy</a> (<code class="language-plaintext highlighter-rouge">./app -lg:spy -logfile spy_%.log; tools/legion_spy.py -dez spy_*.log</code>)</li>
+  <li><a href="#mapper-logging-wrapper">Mapper Logging Wrapper</a> (<code class="language-plaintext highlighter-rouge">new LoggingWrapper(...)</code> and <code class="language-plaintext highlighter-rouge">-level mapper=2</code>)</li>
 </ul>
 
 <p>The following tools are typically used after the initial debugging
@@ -348,6 +349,35 @@ edges represent explicit event dependences between the different
 operations.</p>
 
 <p><img src="/images/event_graph.jpg" alt="" /></p>
+
+<h3 id="mapper-logging-wrapper">Mapper Logging Wrapper</h3>
+
+<p>When your issue stems from tasks running on the wrong processor or
+regions being instantiated in ways not suitable for your application
+(e.g. a task’s input being placed on the wrong memory, or with the
+wrong layout, or covering more of the index space than needed, or
+having multiple copies when only one is needed) this is likely due to
+the mapper making the wrong decision. You can confirm this by using
+the <code class="language-plaintext highlighter-rouge">LoggingWrapper</code> class to record the decisions of the mapper,
+and the characteristics of the <code class="language-plaintext highlighter-rouge">PhysicalInstance</code>s it creates.</p>
+
+<p>To use with your own mapper, include <code class="language-plaintext highlighter-rouge">runtime/mappers/logging_wrapper.h</code>,
+replace any use of <code class="language-plaintext highlighter-rouge">new MyMapper(...)</code> in your code with
+<code class="language-plaintext highlighter-rouge">new LoggingWrapper(new MyMapper(...))</code> and run with <code class="language-plaintext highlighter-rouge">-level mapper=2</code>.
+Enabling Realm-level instance reporting might also be useful (<code class="language-plaintext highlighter-rouge">-level inst=1</code>).</p>
+
+<p>If you are not already using a custom mapper, you can define something like
+the following:</p>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="k">static</span> <span class="kt">void</span> <span class="nf">update_mappers</span><span class="p">(</span><span class="n">Machine</span> <span class="n">machine</span><span class="p">,</span> <span class="n">Runtime</span><span class="o">*</span> <span class="n">rt</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Processor</span><span class="o">&gt;&amp;</span> <span class="n">local_procs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">rt</span><span class="o">-&gt;</span><span class="n">replace_default_mapper</span><span class="p">(</span><span class="k">new</span> <span class="n">LoggingWrapper</span><span class="p">(</span><span class="k">new</span> <span class="n">DefaultMapper</span><span class="p">(</span>
+    <span class="n">rt</span><span class="o">-&gt;</span><span class="n">get_mapper_runtime</span><span class="p">(),</span> <span class="n">machine</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">local_procs</span><span class="p">.</span><span class="n">begin</span><span class="p">()))));</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>and invoke <code class="language-plaintext highlighter-rouge">Runtime::add_registration_callback(update_mappers)</code> at some
+point before the runtime is started, e.g. in <code class="language-plaintext highlighter-rouge">main</code> right before calling
+<code class="language-plaintext highlighter-rouge">Runtime::start(...)</code>.</p>
 
 <h2 id="other-debugging-options">Other Debugging Options</h2>
 

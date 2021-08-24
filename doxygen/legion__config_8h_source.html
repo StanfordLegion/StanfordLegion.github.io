@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif // LEGION_USE_PYTHON_CFFI</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// Define a prefix for annotating functions for CUDA compilation</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifdef __CUDACC__</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#if defined (__CUDACC__) || defined (__HIPCC__)</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __CUDA_HD__ __host__ __device__</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __CUDA_HD__</span></div>
@@ -1054,7 +1054,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;  ERROR_UNFOLDABLE_REDUCTION_OP = 83,</div>
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;  ERROR_INVALID_INLINE_ID = 84,</div>
 <div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;  ERROR_ILLEGAL_MUST_PARALLEL_INLINE = 85,</div>
-<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;  <span class="comment">//ERROR_RETURN_SIZE_MISMATCH = 86,</span></div>
+<div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;  ERROR_ILLEGAL_MAPPER_PROCESSOR = 86,</div>
 <div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;  ERROR_FUTURE_SIZE_MISMATCH = 87,</div>
 <div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;  ERROR_ILLEGAL_PREDICATE_FUTURE = 88,</div>
 <div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;  ERROR_COPY_REQUIREMENTS_MISMATCH = 89,</div>
@@ -2145,7 +2145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 30 2021 15:48:39 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 24 2021 13:00:23 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -114,6 +114,12 @@ __CUDA_HD__ <a class="el" href="class_legion_1_1_domain_transform.html">DomainTr
 template&lt;int M, int N, typename T &gt; </td></tr>
 <tr class="memitem:a014b07f090d545a67a475ff94d6fd74e"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__ <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const Transform&lt; M, N, T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a014b07f090d545a67a475ff94d6fd74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46b09777d2e7b40cd5c06f451a76bfca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46b09777d2e7b40cd5c06f451a76bfca"></a>
+__CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a> &amp;rhs) const </td></tr>
+<tr class="separator:a46b09777d2e7b40cd5c06f451a76bfca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb0c26269a8a1990915e367dca9f61d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbb0c26269a8a1990915e367dca9f61d"></a>
+__CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a> &amp;rhs) const </td></tr>
+<tr class="separator:afbb0c26269a8a1990915e367dca9f61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac806dead444d15ac06c0befffb33d93d"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac806dead444d15ac06c0befffb33d93d"></a>
 template&lt;int M, int N, typename T &gt; </td></tr>
 <tr class="memitem:ac806dead444d15ac06c0befffb33d93d"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator Transform&lt; M, N, T &gt;</b> (void) const </td></tr>
@@ -121,6 +127,12 @@ template&lt;int M, int N, typename T &gt; </td></tr>
 <tr class="memitem:af6b1fbd7b44e95403f4fcc643a3c5518"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6b1fbd7b44e95403f4fcc643a3c5518"></a>
 __CUDA_HD__ <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;p) const </td></tr>
 <tr class="separator:af6b1fbd7b44e95403f4fcc643a3c5518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cdffe5b911f34e2a68d0f0459b3e14b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cdffe5b911f34e2a68d0f0459b3e14b"></a>
+__CUDA_HD__ <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;domain) const </td></tr>
+<tr class="separator:a1cdffe5b911f34e2a68d0f0459b3e14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add02c8f785d187fcaf306ada999041e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add02c8f785d187fcaf306ada999041e0"></a>
+__CUDA_HD__ <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="class_legion_1_1_domain_transform.html">DomainTransform</a> &amp;transform) const </td></tr>
+<tr class="separator:add02c8f785d187fcaf306ada999041e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e426b2c4d3d408db2326ae45ddbc3b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e426b2c4d3d408db2326ae45ddbc3b1"></a>
 __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_identity</b> (void) const </td></tr>
 <tr class="separator:a7e426b2c4d3d408db2326ae45ddbc3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,7 +157,7 @@ coord_t&#160;</td><td class="memItemRight" valign="bottom"><b>matrix</b> [LEGION
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 30 2021 15:48:39 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 24 2021 13:00:24 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

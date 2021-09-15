@@ -174,6 +174,7 @@
       <li><a href="#soleilx2018">Soleil-X (2018)</a> [<a href="/pdfs/soleilx2018.pdf">PDF</a>]</li>
       <li><a href="#htr2020">HTR Solver (2020)</a> [<a href="https://doi.org/10.1016/j.cpc.2020.107262">PDF</a>]</li>
       <li><a href="#taskbench2020">Task Bench (SC 2020)</a> [<a href="/pdfs/taskbench2020.pdf">PDF</a>]</li>
+      <li><a href="#meshfree2020">Meshfree Solver (PAW-ATM 2020)</a> [<a href="/pdfs/pawatm2020.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Theses:
@@ -626,6 +627,20 @@ scale, 100μs-long tasks are the finest granularity that any
 system runs efficiently with current technologies. We also study each
 system’s scalability, ability to hide communication and mitigate load
 imbalance.</p>
+
+<p><a name="meshfree2020"></a><strong>An Implicitly Parallel Meshfree Solver in Regent</strong> <a href="/pdfs/pawatm2020.pdf">PDF</a> <br />
+<em>Rupanshu Soi, Nischay Ram Mamidi, Elliott Slaughter, Kumar Prasun, Anil Nemili, and S.M. Deshpande</em> <br />
+In the Parallel Applications Workshop, Alternatives to MPI+X (<a href="https://sourceryinstitute.github.io/PAW/PAW-ATM20/indexPAW-ATM20.html">PAW-ATM 2020</a>) <br />
+<strong>Abstract:</strong> This paper presents the development of a Regent
+based implicitly parallel meshfree solver for inviscid compressible
+fluid flows. The meshfree solver is based on the Least Squares
+Kinetic Upwind Method (LSKUM). The performance of the
+Regent parallel solver is assessed by comparing with the explicitly
+parallel versions of the same solver written in Fortran 90 and
+Julia. The Fortran code uses MPI with PETSc libraries, while the
+Julia code uses an MPI + X alternative parallel library. Numerical
+results are shown to assess the performance of these solvers on
+single and multiple CPU nodes.</p>
 
 <p><a name="dcr2021"></a><strong>Scaling Implicit Parallelism via Dynamic Control Replication</strong> <a href="/pdfs/dcr2021.pdf">PDF</a> <br />
 <em>Michael Bauer, Wonchan Lee, Elliott Slaughter, Zhihao Jia, Mario Di Renzo, Manolis Papadakis, Galen Shipman, Patrick McCormick, Michael Garland, and Alex Aiken</em> <br />

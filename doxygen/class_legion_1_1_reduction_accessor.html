@@ -113,20 +113,40 @@ typedef const REDOP::RHS &amp;&#160;</td><td class="memItemRight" valign="bottom
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ef44697500a203a002d1031bc63eafa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ef44697500a203a002d1031bc63eafa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::LHS), bool check_field_size=false)</td></tr>
-<tr class="separator:a0ef44697500a203a002d1031bc63eafa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a778dddc7d7a7fd9457552406136b732a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a778dddc7d7a7fd9457552406136b732a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const Rect&lt; N, COORD_T &gt; bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::LHS), bool check_field_size=false)</td></tr>
-<tr class="separator:a778dddc7d7a7fd9457552406136b732a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8da82937834024f5fb0de427f1c8fc8"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad8da82937834024f5fb0de427f1c8fc8"></a>
+<tr class="memitem:ae06f25a307c18d2a0e3540333c3b1979"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae06f25a307c18d2a0e3540333c3b1979"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:ae06f25a307c18d2a0e3540333c3b1979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf60e2013301d2d1266b20100d3c163"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afaf60e2013301d2d1266b20100d3c163"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const Rect&lt; N, COORD_T &gt; bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:afaf60e2013301d2d1266b20100d3c163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ba4ea6ad14a10949c353634e6f7487"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac2ba4ea6ad14a10949c353634e6f7487"></a>
 template&lt;int M&gt; </td></tr>
-<tr class="memitem:ad8da82937834024f5fb0de427f1c8fc8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; transform, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::LHS), bool check_field_size=false)</td></tr>
-<tr class="separator:ad8da82937834024f5fb0de427f1c8fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcbb23109c175df42f073a79a88ce59a"><td class="memTemplParams" colspan="2"><a class="anchor" id="afcbb23109c175df42f073a79a88ce59a"></a>
+<tr class="memitem:ac2ba4ea6ad14a10949c353634e6f7487"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; transform, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:ac2ba4ea6ad14a10949c353634e6f7487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa035648059542f506a709c073fd52c2e"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa035648059542f506a709c073fd52c2e"></a>
 template&lt;int M&gt; </td></tr>
-<tr class="memitem:afcbb23109c175df42f073a79a88ce59a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; transform, const Rect&lt; N, COORD_T &gt; bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::LHS), bool check_field_size=false)</td></tr>
-<tr class="separator:afcbb23109c175df42f073a79a88ce59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa035648059542f506a709c073fd52c2e"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &amp;region, FieldID fid, ReductionOpID redop, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; transform, const Rect&lt; N, COORD_T &gt; bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:aa035648059542f506a709c073fd52c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81828af0acef8ffda0e8e8f18a24f4a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81828af0acef8ffda0e8e8f18a24f4a5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_value.html">UntypedDeferredValue</a> &amp;value, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:a81828af0acef8ffda0e8e8f18a24f4a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0747e6dc61d30f8c69ecad9f68d5529c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0747e6dc61d30f8c69ecad9f68d5529c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_value.html">UntypedDeferredValue</a> &amp;value, const Rect&lt; N, COORD_T &gt; &amp;bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:a0747e6dc61d30f8c69ecad9f68d5529c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae461c7b4e04b73ab7a1dc49a01211262"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae461c7b4e04b73ab7a1dc49a01211262"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_buffer.html">UntypedDeferredBuffer</a>&lt; COORD_T &gt; &amp;buffer, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:ae461c7b4e04b73ab7a1dc49a01211262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4faf4734e9285852a2b5fb11df52d327"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4faf4734e9285852a2b5fb11df52d327"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_buffer.html">UntypedDeferredBuffer</a>&lt; COORD_T &gt; &amp;buffer, const Rect&lt; N, COORD_T &gt; &amp;bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:a4faf4734e9285852a2b5fb11df52d327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c36c9ce43062b58c8ecb622f6621f8"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab9c36c9ce43062b58c8ecb622f6621f8"></a>
+template&lt;int M&gt; </td></tr>
+<tr class="memitem:ab9c36c9ce43062b58c8ecb622f6621f8"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_buffer.html">UntypedDeferredBuffer</a>&lt; COORD_T &gt; &amp;buffer, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; &amp;transform, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:ab9c36c9ce43062b58c8ecb622f6621f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4629b7eee30923e6c8f3a22b1799c91"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab4629b7eee30923e6c8f3a22b1799c91"></a>
+template&lt;int M&gt; </td></tr>
+<tr class="memitem:ab4629b7eee30923e6c8f3a22b1799c91"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ReductionAccessor</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_buffer.html">UntypedDeferredBuffer</a>&lt; COORD_T &gt; &amp;buffer, const <a class="el" href="struct_legion_1_1_affine_transform.html">AffineTransform</a>&lt; M, N, COORD_T &gt; &amp;transform, const Rect&lt; N, COORD_T &gt; &amp;bounds, bool silence_warnings=false, const char *warning_string=NULL, size_t subfield_offset=0, size_t actual_field_size=sizeof(typename REDOP::RHS), bool check_field_size=false)</td></tr>
+<tr class="separator:ab4629b7eee30923e6c8f3a22b1799c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -145,7 +165,7 @@ class Legion::ReductionAccessor&lt; REDOP, EXCLUSIVE, N, COORD_T, A, CHECK_BOUND
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 24 2021 13:00:23 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 15 2021 14:07:57 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

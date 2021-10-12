@@ -100,9 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a086af18f3fa821a7fdb8af31f0be047c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a086af18f3fa821a7fdb8af31f0be047c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TaskLauncher</b> (TaskID tid, <a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> arg, <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> pred=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0)</td></tr>
-<tr class="separator:a086af18f3fa821a7fdb8af31f0be047c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab835fa9190dbfcb65da024d887c49736"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab835fa9190dbfcb65da024d887c49736"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TaskLauncher</b> (TaskID tid, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> arg, <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> pred=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> map_arg=<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>())</td></tr>
+<tr class="separator:ab835fa9190dbfcb65da024d887c49736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2afb6f66f796d9a93c2ad2589278df0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2afb6f66f796d9a93c2ad2589278df0b"></a>
 <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>add_index_requirement</b> (const <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &amp;req)</td></tr>
 <tr class="separator:a2afb6f66f796d9a93c2ad2589278df0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,9 +133,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>add_arrival_handshake
 <tr class="memitem:a42f56a63ffd4e2daeec3c0a305fd5643"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42f56a63ffd4e2daeec3c0a305fd5643"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_predicate_false_future</b> (<a class="el" href="class_legion_1_1_future.html">Future</a> f)</td></tr>
 <tr class="separator:a42f56a63ffd4e2daeec3c0a305fd5643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37f6a0b0c0700c898ae20bcd07f7fac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af37f6a0b0c0700c898ae20bcd07f7fac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_predicate_false_result</b> (<a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a> arg)</td></tr>
-<tr class="separator:af37f6a0b0c0700c898ae20bcd07f7fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb2b47f018c5530cb0e12b50afe3fce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedb2b47f018c5530cb0e12b50afe3fce"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_predicate_false_result</b> (<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> arg)</td></tr>
+<tr class="separator:aedb2b47f018c5530cb0e12b50afe3fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a405ac96d9d4b77d72d4040bee8207a59"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a405ac96d9d4b77d72d4040bee8207a59"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_independent_requirements</b> (bool independent)</td></tr>
 <tr class="separator:a405ac96d9d4b77d72d4040bee8207a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,9 +164,9 @@ std::vector&lt; <a class="el" href="class_legion_1_1_phase_barrier.html">PhaseBa
 <tr class="memitem:ae63a8543679475a6e0deca67802b9a48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae63a8543679475a6e0deca67802b9a48"></a>
 std::vector&lt; <a class="el" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>arrive_barriers</b></td></tr>
 <tr class="separator:ae63a8543679475a6e0deca67802b9a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c91ff05aa6499c6bf9ad9a8699ee34a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c91ff05aa6499c6bf9ad9a8699ee34a"></a>
-<a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a>&#160;</td><td class="memItemRight" valign="bottom"><b>argument</b></td></tr>
-<tr class="separator:a7c91ff05aa6499c6bf9ad9a8699ee34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4d0c068cd815a34a7b176ab0b6c03a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa4d0c068cd815a34a7b176ab0b6c03a2"></a>
+<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>argument</b></td></tr>
+<tr class="separator:aa4d0c068cd815a34a7b176ab0b6c03a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2da922d524c099dd7f355555214f8aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2da922d524c099dd7f355555214f8aa"></a>
 <a class="el" href="class_legion_1_1_predicate.html">Predicate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>predicate</b></td></tr>
 <tr class="separator:ae2da922d524c099dd7f355555214f8aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +176,9 @@ MapperID&#160;</td><td class="memItemRight" valign="bottom"><b>map_id</b></td></
 <tr class="memitem:acf3feedda3297727bdfcae367d2574fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf3feedda3297727bdfcae367d2574fe"></a>
 MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b></td></tr>
 <tr class="separator:acf3feedda3297727bdfcae367d2574fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1395d8c291ba93ccf63324ea535de426"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1395d8c291ba93ccf63324ea535de426"></a>
+<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>map_arg</b></td></tr>
+<tr class="separator:a1395d8c291ba93ccf63324ea535de426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf57628e5c30e8ec3e1b6ee085decf10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf57628e5c30e8ec3e1b6ee085decf10"></a>
 <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>point</b></td></tr>
 <tr class="separator:adf57628e5c30e8ec3e1b6ee085decf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,9 +188,9 @@ MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b></td><
 <tr class="memitem:a9de10360fbb916f5b5854c2c7216803f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9de10360fbb916f5b5854c2c7216803f"></a>
 <a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><b>predicate_false_future</b></td></tr>
 <tr class="separator:a9de10360fbb916f5b5854c2c7216803f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19b60eecaf4b62895ed7e2e4898cbe38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19b60eecaf4b62895ed7e2e4898cbe38"></a>
-<a class="el" href="class_legion_1_1_task_argument.html">TaskArgument</a>&#160;</td><td class="memItemRight" valign="bottom"><b>predicate_false_result</b></td></tr>
-<tr class="separator:a19b60eecaf4b62895ed7e2e4898cbe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10707c8a908fa7c47b897c0cb35fdbc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10707c8a908fa7c47b897c0cb35fdbc8"></a>
+<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>predicate_false_result</b></td></tr>
+<tr class="separator:a10707c8a908fa7c47b897c0cb35fdbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fa4f659899c87788ed3353bc34e655c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fa4f659899c87788ed3353bc34e655c"></a>
 const std::vector<br class="typebreak"/>
 &lt; <a class="el" href="struct_legion_1_1_static_dependence.html">StaticDependence</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>static_dependences</b></td></tr>
@@ -217,7 +220,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>silence_warnings</b><
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 15 2021 14:32:19 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 14:49:48 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

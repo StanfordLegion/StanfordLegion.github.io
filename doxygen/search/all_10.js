@@ -16,7 +16,8 @@ var searchData=
   ['unserializable_3c_20physicalregion_20_3e',['Unserializable&lt; PhysicalRegion &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20predicate_20_3e',['Unserializable&lt; Predicate &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
   ['unserializable_3c_20staticdependence_20_3e',['Unserializable&lt; StaticDependence &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
-  ['unserializable_3c_20taskargument_20_3e',['Unserializable&lt; TaskArgument &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
+  ['unserializable_3c_20untypedbuffer_20_3e',['Unserializable&lt; UntypedBuffer &gt;',['../class_legion_1_1_unserializable.html',1,'Legion']]],
+  ['untypedbuffer',['UntypedBuffer',['../class_legion_1_1_untyped_buffer.html',1,'Legion']]],
   ['untypeddeferredbuffer',['UntypedDeferredBuffer',['../class_legion_1_1_untyped_deferred_buffer.html',1,'Legion']]],
   ['untypeddeferredvalue',['UntypedDeferredValue',['../class_legion_1_1_untyped_deferred_value.html',1,'Legion']]]
 ];

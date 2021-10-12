@@ -75,7 +75,7 @@ var searchData=
   ['get_5fparent_5findex_5fspace',['get_parent_index_space',['../class_legion_1_1_runtime.html#ac3eda0d64b2aced859894d2967e26ccb',1,'Legion::Runtime']]],
   ['get_5fparent_5flogical_5fpartition',['get_parent_logical_partition',['../class_legion_1_1_runtime.html#a54086a6e4fb144bec4a48d414eaffbb0',1,'Legion::Runtime']]],
   ['get_5fparent_5flogical_5fregion',['get_parent_logical_region',['../class_legion_1_1_runtime.html#aecb1ba26ad2b6d3857afaff64bb9de93',1,'Legion::Runtime']]],
-  ['get_5fpoint',['get_point',['../class_legion_1_1_argument_map.html#aabe2cd1880bec426870e8899c15f74b1',1,'Legion::ArgumentMap::get_point()'],['../legion__c_8h.html#a49350d46a31c1cc4e3bdb69a454fa83c',1,'GET_POINT():&#160;legion_c.h']]],
+  ['get_5fpoint',['get_point',['../class_legion_1_1_argument_map.html#a0efff5781b6fa82299010fddad2e21a0',1,'Legion::ArgumentMap::get_point()'],['../legion__c_8h.html#a49350d46a31c1cc4e3bdb69a454fa83c',1,'GET_POINT():&#160;legion_c.h']]],
   ['get_5fpredicate_5ffuture',['get_predicate_future',['../class_legion_1_1_runtime.html#a35f8b658d5534f78088c7e268567b0e0',1,'Legion::Runtime']]],
   ['get_5fprivilege',['get_privilege',['../class_legion_1_1_physical_region.html#aaf947f649c70cf9ed40aa3cb18c40c1f',1,'Legion::PhysicalRegion']]],
   ['get_5fprojection_5ffunctor',['get_projection_functor',['../class_legion_1_1_runtime.html#a97afe9ec2226b0cd545b291c407296c1',1,'Legion::Runtime']]],

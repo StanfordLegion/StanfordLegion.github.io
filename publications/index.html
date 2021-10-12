@@ -129,6 +129,7 @@
       <li><a href="#trace2018">Tracing (SC 2018)</a> [<a href="/pdfs/trace2018.pdf">PDF</a>]</li>
       <li><a href="#dep2018">Correctness of Dependence Analysis (Correctness 2018)</a> [<a href="/pdfs/dep2018.pdf">PDF</a>]</li>
       <li><a href="#dcr2021">Dynamic Control Replication (PPoPP 2021)</a> [<a href="/pdfs/dcr2021.pdf">PDF</a>]</li>
+      <li><a href="#idx2021">Index Launches (SC 2021)</a> [<a href="/pdfs/idx2021.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Programming Model:
@@ -666,6 +667,25 @@ our experiments), and scalability to hundreds of nodes.  We also show
 that dynamic control replication provides good absolute performance
 and scaling for HPC applications, competitive in many cases with
 explicitly parallel programming systems.</p>
+
+<p><a name="idx2021"></a><strong>Index Launches: Scalable, Flexible Representation of Parallel Task Groups</strong> <a href="/pdfs/idx2021.pdf">PDF</a> <br />
+<em>Rupanshu Soi, Michael Bauer, Sean Treichler, Manolis Papadakis, Wonchan Lee, Patrick McCormick, Alex Aiken, and Elliott Slaughter</em> <br />
+In the International Conference for High Performance Computing, Networking, Storage and Analysis (<a href="https://sc21.supercomputing.org/presentation/?id=pap300&amp;sess=sess176">SC 2021</a>) <br />
+<strong>Abstract:</strong> It’s common to see specialized language constructs in
+modern task-based programming systems for reasoning about groups of
+independent tasks intended for parallel execution.  However, most
+systems use an ad-hoc representation that limits expressiveness and
+often overfits for a given application domain.  We introduce <em>index
+launches</em>, a scalable and flexible representation of a group of tasks.
+Index launches use a flexible mechanism to indicate the data required
+for a given task, allowing them to be used for a much broader set of
+use cases while maintaining an efficient representation.  We present a
+hybrid design for index launches, involving static and dynamic program
+analyses, along with a characterization of how they’re used in Legion
+and Regent, and show how they generalize constructs found in other
+task-based systems.  Finally, we present results of scaling
+experiments which demonstrate that index launches are crucial for the
+efficient distributed execution of several scientific codes in Regent.</p>
 
 <h2 id="theses">Theses</h2>
 

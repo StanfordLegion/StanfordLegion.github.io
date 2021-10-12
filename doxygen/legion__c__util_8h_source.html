@@ -506,19 +506,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">return</span> r;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      }</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <span class="keyword">static</span> <a class="code" href="structlegion__task__argument__t.html">legion_task_argument_t</a></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      wrap(TaskArgument arg)</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <span class="keyword">static</span> <a class="code" href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      wrap(UntypedBuffer arg)</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;      {</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <a class="code" href="structlegion__task__argument__t.html">legion_task_argument_t</a> arg_;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <a class="code" href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a> arg_;</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        arg_.args = arg.get_ptr();</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        arg_.arglen = arg.get_size();</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">return</span> arg_;</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      }</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      <span class="keyword">static</span> TaskArgument</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      unwrap(<a class="code" href="structlegion__task__argument__t.html">legion_task_argument_t</a> arg_)</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      <span class="keyword">static</span> UntypedBuffer </div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      unwrap(<a class="code" href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a> arg_)</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      {</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordflow">return</span> TaskArgument(arg_.args, arg_.arglen);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordflow">return</span> UntypedBuffer(arg_.args, arg_.arglen);</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      }</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structlegion__byte__offset__t.html">legion_byte_offset_t</a></div>
@@ -810,65 +810,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;</div>
 <div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="preprocessor">#endif // __LEGION_C_UTIL_H__</span></div>
 <div class="ttc" id="class_legion_1_1_domain_1_1_domain_point_iterator_html"><div class="ttname"><a href="class_legion_1_1_domain_1_1_domain_point_iterator.html">Legion::Domain::DomainPointIterator</a></div><div class="ttdef"><b>Definition:</b> legion_domain.h:350</div></div>
-<div class="ttc" id="struct_legion_1_1_index_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_copy_launcher.html">Legion::IndexCopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1760</div></div>
-<div class="ttc" id="structlegion__slice__task__input__t_html"><div class="ttname"><a href="structlegion__slice__task__input__t.html">legion_slice_task_input_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:374</div></div>
-<div class="ttc" id="structlegion__memory__t_html"><div class="ttname"><a href="structlegion__memory__t.html">legion_memory_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:323</div></div>
-<div class="ttc" id="struct_legion_1_1_must_epoch_launcher_html"><div class="ttname"><a href="struct_legion_1_1_must_epoch_launcher.html">Legion::MustEpochLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3417</div></div>
-<div class="ttc" id="class_legion_1_1_physical_region_html"><div class="ttname"><a href="class_legion_1_1_physical_region.html">Legion::PhysicalRegion</a></div><div class="ttdef"><b>Definition:</b> legion.h:2250</div></div>
+<div class="ttc" id="struct_legion_1_1_index_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_copy_launcher.html">Legion::IndexCopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1772</div></div>
+<div class="ttc" id="structlegion__slice__task__input__t_html"><div class="ttname"><a href="structlegion__slice__task__input__t.html">legion_slice_task_input_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:377</div></div>
+<div class="ttc" id="structlegion__memory__t_html"><div class="ttname"><a href="structlegion__memory__t.html">legion_memory_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:326</div></div>
+<div class="ttc" id="struct_legion_1_1_must_epoch_launcher_html"><div class="ttname"><a href="struct_legion_1_1_must_epoch_launcher.html">Legion::MustEpochLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3448</div></div>
+<div class="ttc" id="class_legion_1_1_physical_region_html"><div class="ttname"><a href="class_legion_1_1_physical_region.html">Legion::PhysicalRegion</a></div><div class="ttdef"><b>Definition:</b> legion.h:2277</div></div>
 <div class="ttc" id="class_legion_1_1_domain_html"><div class="ttname"><a href="class_legion_1_1_domain.html">Legion::Domain</a></div><div class="ttdef"><b>Definition:</b> legion_domain.h:248</div></div>
-<div class="ttc" id="class_legion_1_1_future_map_html"><div class="ttname"><a href="class_legion_1_1_future_map.html">Legion::FutureMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:1289</div></div>
-<div class="ttc" id="struct_legion_1_1_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_fill_launcher.html">Legion::FillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1840</div></div>
+<div class="ttc" id="class_legion_1_1_future_map_html"><div class="ttname"><a href="class_legion_1_1_future_map.html">Legion::FutureMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:1292</div></div>
+<div class="ttc" id="struct_legion_1_1_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_fill_launcher.html">Legion::FillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1855</div></div>
 <div class="ttc" id="structlegion__domain__transform__t_html"><div class="ttname"><a href="structlegion__domain__transform__t.html">legion_domain_transform_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:198</div></div>
-<div class="ttc" id="class_legion_1_1_runtime_html"><div class="ttname"><a href="class_legion_1_1_runtime.html">Legion::Runtime</a></div><div class="ttdef"><b>Definition:</b> legion.h:4175</div></div>
+<div class="ttc" id="class_legion_1_1_runtime_html"><div class="ttname"><a href="class_legion_1_1_runtime.html">Legion::Runtime</a></div><div class="ttdef"><b>Definition:</b> legion.h:4206</div></div>
 <div class="ttc" id="legion__c_8h_html"><div class="ttname"><a href="legion__c_8h.html">legion_c.h</a></div></div>
 <div class="ttc" id="structlegion__index__space__t_html"><div class="ttname"><a href="structlegion__index__space__t.html">legion_index_space_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:243</div></div>
-<div class="ttc" id="structlegion__task__slice__t_html"><div class="ttname"><a href="structlegion__task__slice__t.html">legion_task_slice_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:330</div></div>
-<div class="ttc" id="class_legion_1_1_inline_mapping_html"><div class="ttname"><a href="class_legion_1_1_inline_mapping.html">Legion::InlineMapping</a></div><div class="ttdef"><b>Definition:</b> legion.h:3708</div></div>
-<div class="ttc" id="structlegion__input__args__t_html"><div class="ttname"><a href="structlegion__input__args__t.html">legion_input_args_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:298</div></div>
-<div class="ttc" id="struct_legion_1_1_index_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_task_launcher.html">Legion::IndexTaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1528</div></div>
+<div class="ttc" id="structlegion__task__slice__t_html"><div class="ttname"><a href="structlegion__task__slice__t.html">legion_task_slice_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:333</div></div>
+<div class="ttc" id="class_legion_1_1_inline_mapping_html"><div class="ttname"><a href="class_legion_1_1_inline_mapping.html">Legion::InlineMapping</a></div><div class="ttdef"><b>Definition:</b> legion.h:3739</div></div>
+<div class="ttc" id="structlegion__input__args__t_html"><div class="ttname"><a href="structlegion__input__args__t.html">legion_input_args_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:301</div></div>
+<div class="ttc" id="structlegion__untyped__buffer__t_html"><div class="ttname"><a href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:286</div></div>
+<div class="ttc" id="struct_legion_1_1_index_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_task_launcher.html">Legion::IndexTaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1533</div></div>
 <div class="ttc" id="structlegion__logical__partition__t_html"><div class="ttname"><a href="structlegion__logical__partition__t.html">legion_logical_partition_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:277</div></div>
-<div class="ttc" id="struct_legion_1_1_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_task_launcher.html">Legion::TaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1431</div></div>
-<div class="ttc" id="structlegion__task__options__t_html"><div class="ttname"><a href="structlegion__task__options__t.html">legion_task_options_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:363</div></div>
-<div class="ttc" id="class_legion_1_1_external_resources_html"><div class="ttname"><a href="class_legion_1_1_external_resources.html">Legion::ExternalResources</a></div><div class="ttdef"><b>Definition:</b> legion.h:2397</div></div>
-<div class="ttc" id="class_legion_1_1_predicate_html"><div class="ttname"><a href="class_legion_1_1_predicate.html">Legion::Predicate</a></div><div class="ttdef"><b>Definition:</b> legion.h:726</div></div>
+<div class="ttc" id="struct_legion_1_1_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_task_launcher.html">Legion::TaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1434</div></div>
+<div class="ttc" id="structlegion__task__options__t_html"><div class="ttname"><a href="structlegion__task__options__t.html">legion_task_options_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:366</div></div>
+<div class="ttc" id="class_legion_1_1_external_resources_html"><div class="ttname"><a href="class_legion_1_1_external_resources.html">Legion::ExternalResources</a></div><div class="ttdef"><b>Definition:</b> legion.h:2424</div></div>
+<div class="ttc" id="class_legion_1_1_predicate_html"><div class="ttname"><a href="class_legion_1_1_predicate.html">Legion::Predicate</a></div><div class="ttdef"><b>Definition:</b> legion.h:729</div></div>
 <div class="ttc" id="structlegion__logical__region__t_html"><div class="ttname"><a href="structlegion__logical__region__t.html">legion_logical_region_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:268</div></div>
-<div class="ttc" id="class_legion_1_1_fill_html"><div class="ttname"><a href="class_legion_1_1_fill.html">Legion::Fill</a></div><div class="ttdef"><b>Definition:</b> legion.h:3795</div></div>
-<div class="ttc" id="legion__c_8h_html_ac456143edca3648144bea7899e03a38e"><div class="ttname"><a href="legion__c_8h.html#ac456143edca3648144bea7899e03a38e">ACCESSOR_ARRAY</a></div><div class="ttdeci">#define ACCESSOR_ARRAY(DIM)</div><div class="ttdef"><b>Definition:</b> legion_c.h:4706</div></div>
+<div class="ttc" id="class_legion_1_1_fill_html"><div class="ttname"><a href="class_legion_1_1_fill.html">Legion::Fill</a></div><div class="ttdef"><b>Definition:</b> legion.h:3826</div></div>
+<div class="ttc" id="legion__c_8h_html_ac456143edca3648144bea7899e03a38e"><div class="ttname"><a href="legion__c_8h.html#ac456143edca3648144bea7899e03a38e">ACCESSOR_ARRAY</a></div><div class="ttdeci">#define ACCESSOR_ARRAY(DIM)</div><div class="ttdef"><b>Definition:</b> legion_c.h:4796</div></div>
 <div class="ttc" id="structlegion__domain__t_html"><div class="ttname"><a href="structlegion__domain__t.html">legion_domain_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:152</div></div>
-<div class="ttc" id="class_legion_1_1_future_html"><div class="ttname"><a href="class_legion_1_1_future.html">Legion::Future</a></div><div class="ttdef"><b>Definition:</b> legion.h:1153</div></div>
-<div class="ttc" id="struct_legion_1_1_region_requirement_html"><div class="ttname"><a href="struct_legion_1_1_region_requirement.html">Legion::RegionRequirement</a></div><div class="ttdef"><b>Definition:</b> legion.h:944</div></div>
-<div class="ttc" id="struct_legion_1_1_inline_launcher_html"><div class="ttname"><a href="struct_legion_1_1_inline_launcher.html">Legion::InlineLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1631</div></div>
+<div class="ttc" id="class_legion_1_1_future_html"><div class="ttname"><a href="class_legion_1_1_future.html">Legion::Future</a></div><div class="ttdef"><b>Definition:</b> legion.h:1156</div></div>
+<div class="ttc" id="struct_legion_1_1_region_requirement_html"><div class="ttname"><a href="struct_legion_1_1_region_requirement.html">Legion::RegionRequirement</a></div><div class="ttdef"><b>Definition:</b> legion.h:947</div></div>
+<div class="ttc" id="struct_legion_1_1_inline_launcher_html"><div class="ttname"><a href="struct_legion_1_1_inline_launcher.html">Legion::InlineLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1639</div></div>
 <div class="ttc" id="legion_8h_html"><div class="ttname"><a href="legion_8h.html">legion.h</a></div></div>
-<div class="ttc" id="struct_legion_1_1_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_copy_launcher.html">Legion::CopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1685</div></div>
+<div class="ttc" id="struct_legion_1_1_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_copy_launcher.html">Legion::CopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1695</div></div>
 <div class="ttc" id="class_legion_1_1_c_context_html"><div class="ttname"><a href="class_legion_1_1_c_context.html">Legion::CContext</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:649</div></div>
 <div class="ttc" id="structlegion__domain__point__t_html"><div class="ttname"><a href="structlegion__domain__point__t.html">legion_domain_point_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:190</div></div>
-<div class="ttc" id="structlegion__task__config__options__t_html"><div class="ttname"><a href="structlegion__task__config__options__t.html">legion_task_config_options_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:306</div></div>
-<div class="ttc" id="struct_legion_1_1_acquire_launcher_html"><div class="ttname"><a href="struct_legion_1_1_acquire_launcher.html">Legion::AcquireLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3322</div></div>
+<div class="ttc" id="structlegion__task__config__options__t_html"><div class="ttname"><a href="structlegion__task__config__options__t.html">legion_task_config_options_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:309</div></div>
+<div class="ttc" id="struct_legion_1_1_acquire_launcher_html"><div class="ttname"><a href="struct_legion_1_1_acquire_launcher.html">Legion::AcquireLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3349</div></div>
 <div class="ttc" id="structlegion__ptr__t_html"><div class="ttname"><a href="structlegion__ptr__t.html">legion_ptr_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:118</div></div>
-<div class="ttc" id="structlegion__task__argument__t_html"><div class="ttname"><a href="structlegion__task__argument__t.html">legion_task_argument_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:286</div></div>
-<div class="ttc" id="struct_legion_1_1_release_launcher_html"><div class="ttname"><a href="struct_legion_1_1_release_launcher.html">Legion::ReleaseLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3364</div></div>
-<div class="ttc" id="struct_legion_1_1_index_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_attach_launcher.html">Legion::IndexAttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2037</div></div>
-<div class="ttc" id="class_legion_1_1_task_html"><div class="ttname"><a href="class_legion_1_1_task.html">Legion::Task</a></div><div class="ttdef"><b>Definition:</b> legion.h:3633</div></div>
+<div class="ttc" id="struct_legion_1_1_release_launcher_html"><div class="ttname"><a href="struct_legion_1_1_release_launcher.html">Legion::ReleaseLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3393</div></div>
+<div class="ttc" id="struct_legion_1_1_index_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_attach_launcher.html">Legion::IndexAttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2064</div></div>
+<div class="ttc" id="class_legion_1_1_task_html"><div class="ttname"><a href="class_legion_1_1_task.html">Legion::Task</a></div><div class="ttdef"><b>Definition:</b> legion.h:3664</div></div>
 <div class="ttc" id="structlegion__domain__affine__transform__t_html"><div class="ttname"><a href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:235</div></div>
 <div class="ttc" id="class_legion_1_1_c_object_wrapper_html"><div class="ttname"><a href="class_legion_1_1_c_object_wrapper.html">Legion::CObjectWrapper</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:39</div></div>
 <div class="ttc" id="class_legion_1_1_task_mut_html"><div class="ttname"><a href="class_legion_1_1_task_mut.html">Legion::TaskMut</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:695</div></div>
-<div class="ttc" id="struct_legion_1_1_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1983</div></div>
-<div class="ttc" id="class_legion_1_1_argument_map_html"><div class="ttname"><a href="class_legion_1_1_argument_map.html">Legion::ArgumentMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:634</div></div>
-<div class="ttc" id="structlegion__phase__barrier__t_html"><div class="ttname"><a href="structlegion__phase__barrier__t.html">legion_phase_barrier_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:340</div></div>
+<div class="ttc" id="struct_legion_1_1_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2010</div></div>
+<div class="ttc" id="class_legion_1_1_argument_map_html"><div class="ttname"><a href="class_legion_1_1_argument_map.html">Legion::ArgumentMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:637</div></div>
+<div class="ttc" id="structlegion__phase__barrier__t_html"><div class="ttname"><a href="structlegion__phase__barrier__t.html">legion_phase_barrier_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:343</div></div>
 <div class="ttc" id="structlegion__field__space__t_html"><div class="ttname"><a href="structlegion__field__space__t.html">legion_field_space_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:261</div></div>
-<div class="ttc" id="struct_legion_1_1_index_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_fill_launcher.html">Legion::IndexFillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1892</div></div>
+<div class="ttc" id="struct_legion_1_1_index_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_fill_launcher.html">Legion::IndexFillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1910</div></div>
 <div class="ttc" id="class_legion_1_1_field_allocator_html"><div class="ttname"><a href="class_legion_1_1_field_allocator.html">Legion::FieldAllocator</a></div><div class="ttdef"><b>Definition:</b> legion.h:478</div></div>
-<div class="ttc" id="class_legion_1_1_mappable_html"><div class="ttname"><a href="class_legion_1_1_mappable.html">Legion::Mappable</a></div><div class="ttdef"><b>Definition:</b> legion.h:3567</div></div>
-<div class="ttc" id="structlegion__processor__t_html"><div class="ttname"><a href="structlegion__processor__t.html">legion_processor_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:316</div></div>
-<div class="ttc" id="structlegion__dynamic__collective__t_html"><div class="ttname"><a href="structlegion__dynamic__collective__t.html">legion_dynamic_collective_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:350</div></div>
+<div class="ttc" id="class_legion_1_1_mappable_html"><div class="ttname"><a href="class_legion_1_1_mappable.html">Legion::Mappable</a></div><div class="ttdef"><b>Definition:</b> legion.h:3598</div></div>
+<div class="ttc" id="structlegion__processor__t_html"><div class="ttname"><a href="structlegion__processor__t.html">legion_processor_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:319</div></div>
+<div class="ttc" id="structlegion__dynamic__collective__t_html"><div class="ttname"><a href="structlegion__dynamic__collective__t.html">legion_dynamic_collective_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:353</div></div>
 <div class="ttc" id="structlegion__index__partition__t_html"><div class="ttname"><a href="structlegion__index__partition__t.html">legion_index_partition_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:252</div></div>
 <div class="ttc" id="struct_legion_1_1_c_object_wrapper_1_1_blockify_html"><div class="ttname"><a href="struct_legion_1_1_c_object_wrapper_1_1_blockify.html">Legion::CObjectWrapper::Blockify</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:215</div></div>
-<div class="ttc" id="class_legion_1_1_copy_html"><div class="ttname"><a href="class_legion_1_1_copy.html">Legion::Copy</a></div><div class="ttdef"><b>Definition:</b> legion.h:3680</div></div>
-<div class="ttc" id="structlegion__byte__offset__t_html"><div class="ttname"><a href="structlegion__byte__offset__t.html">legion_byte_offset_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:291</div></div>
+<div class="ttc" id="class_legion_1_1_copy_html"><div class="ttname"><a href="class_legion_1_1_copy.html">Legion::Copy</a></div><div class="ttdef"><b>Definition:</b> legion.h:3711</div></div>
+<div class="ttc" id="structlegion__byte__offset__t_html"><div class="ttname"><a href="structlegion__byte__offset__t.html">legion_byte_offset_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:294</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 15 2021 14:32:18 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 14:49:48 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

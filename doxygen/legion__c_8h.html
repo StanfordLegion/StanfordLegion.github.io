@@ -877,10 +877,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>legion_domain_is_dens
 <tr class="separator:a9a8a8acfae9802bf3996579ff7f70554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dad46af529a48ebc62ea94d0433edff"><td class="memItemLeft" align="right" valign="top">legion_future_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a9dad46af529a48ebc62ea94d0433edff">legion_future_map_reduce</a> (legion_runtime_t runtime, legion_context_t ctx, legion_future_map_t handle, legion_reduction_op_id_t redop, bool deterministic)</td></tr>
 <tr class="separator:a9dad46af529a48ebc62ea94d0433edff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7dd14859c1ac4207752479571ca0f51"><td class="memItemLeft" align="right" valign="top">legion_future_map_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#aa7dd14859c1ac4207752479571ca0f51">legion_future_map_construct_from_buffers</a> (legion_runtime_t runtime, legion_context_t ctx, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> domain, <a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a> *points, <a class="el" href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a> *buffers, size_t num_points, bool collective, legion_shard_id_t sid, bool implicit_sharding)</td></tr>
-<tr class="separator:aa7dd14859c1ac4207752479571ca0f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a4b1644f1aa82a0fcd9779480aece21"><td class="memItemLeft" align="right" valign="top">legion_future_map_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a7a4b1644f1aa82a0fcd9779480aece21">legion_future_map_construct_from_futures</a> (legion_runtime_t runtime, legion_context_t ctx, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> domain, <a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a> *points, legion_future_t *futures, size_t num_futures, bool collective, legion_shard_id_t sid, bool implicit_sharding)</td></tr>
-<tr class="separator:a7a4b1644f1aa82a0fcd9779480aece21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ba694b819cc0f3fa2d65c5768c4ed1"><td class="memItemLeft" align="right" valign="top">legion_future_map_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a77ba694b819cc0f3fa2d65c5768c4ed1">legion_future_map_construct_from_buffers</a> (legion_runtime_t runtime, legion_context_t ctx, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> domain, <a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a> *points, <a class="el" href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a> *buffers, size_t num_points, bool collective, legion_sharding_id_t sid, bool implicit_sharding)</td></tr>
+<tr class="separator:a77ba694b819cc0f3fa2d65c5768c4ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7eeedec02cb5d9cf4d9aee600997024"><td class="memItemLeft" align="right" valign="top">legion_future_map_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#af7eeedec02cb5d9cf4d9aee600997024">legion_future_map_construct_from_futures</a> (legion_runtime_t runtime, legion_context_t ctx, <a class="el" href="structlegion__domain__t.html">legion_domain_t</a> domain, <a class="el" href="structlegion__domain__point__t.html">legion_domain_point_t</a> *points, legion_future_t *futures, size_t num_futures, bool collective, legion_sharding_id_t sid, bool implicit_sharding)</td></tr>
+<tr class="separator:af7eeedec02cb5d9cf4d9aee600997024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24961584da768c700dc24d68f5ca281"><td class="memItemLeft" align="right" valign="top">legion_task_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#af24961584da768c700dc24d68f5ca281">legion_task_launcher_create</a> (legion_task_id_t tid, <a class="el" href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a> arg, legion_predicate_t pred, legion_mapper_id_t id, legion_mapping_tag_id_t tag)</td></tr>
 <tr class="separator:af24961584da768c700dc24d68f5ca281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c453fbfc8c3cfebe47f380bd38f2aa4"><td class="memItemLeft" align="right" valign="top">legion_task_launcher_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="legion__c_8h.html#a4c453fbfc8c3cfebe47f380bd38f2aa4">legion_task_launcher_create_from_buffer</a> (legion_task_id_t tid, const void *buffer, size_t buffer_size, legion_predicate_t pred, legion_mapper_id_t id, legion_mapping_tag_id_t tag)</td></tr>
@@ -6713,7 +6713,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aa7dd14859c1ac4207752479571ca0f51"></a>
+<a class="anchor" id="a77ba694b819cc0f3fa2d65c5768c4ed1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -6762,7 +6762,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">legion_shard_id_t&#160;</td>
+          <td class="paramtype">legion_sharding_id_t&#160;</td>
           <td class="paramname"><em>sid</em>, </td>
         </tr>
         <tr>
@@ -6783,7 +6783,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a7a4b1644f1aa82a0fcd9779480aece21"></a>
+<a class="anchor" id="af7eeedec02cb5d9cf4d9aee600997024"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -6832,7 +6832,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">legion_shard_id_t&#160;</td>
+          <td class="paramtype">legion_sharding_id_t&#160;</td>
           <td class="paramname"><em>sid</em>, </td>
         </tr>
         <tr>
@@ -22051,7 +22051,7 @@ Legion::Copy::dst_indirect_requirements </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 12 2021 14:49:48 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 18 2021 14:15:44 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

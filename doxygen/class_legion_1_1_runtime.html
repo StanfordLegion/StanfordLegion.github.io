@@ -1201,8 +1201,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a48ccafce990902cc501cd4ca2f160914"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
 <tr class="memitem:a48ccafce990902cc501cd4ca2f160914"><td class="memTemplItemLeft" align="right" valign="top">static TaskID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a48ccafce990902cc501cd4ca2f160914">register_legion_task</a> (TaskID id, Processor::Kind proc_kind, bool single, bool index, const UDT &amp;user_data, VariantID vid=LEGION_AUTO_GENERATE_ID, <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options=<a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(), const char *task_name=NULL)</td></tr>
 <tr class="separator:a48ccafce990902cc501cd4ca2f160914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0b93b22fb8f780717fa6310e289dad3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af0b93b22fb8f780717fa6310e289dad3">has_runtime</a> (void)</td></tr>
+<tr class="separator:af0b93b22fb8f780717fa6310e289dad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ae746205378b10cd898824b719ee8a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a61ae746205378b10cd898824b719ee8a">get_runtime</a> (Processor p=Processor::NO_PROC)</td></tr>
 <tr class="separator:a61ae746205378b10cd898824b719ee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2bae127d301ae23323b0341b01ab94e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac2bae127d301ae23323b0341b01ab94e">has_context</a> (void)</td></tr>
+<tr class="separator:ac2bae127d301ae23323b0341b01ab94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ae1696024e39fb7afc5ed87797ad8ff"><td class="memItemLeft" align="right" valign="top">static Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">get_context</a> (void)</td></tr>
 <tr class="separator:a0ae1696024e39fb7afc5ed87797ad8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fb3136f2a6068ad51307831ee645c4a"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8fb3136f2a6068ad51307831ee645c4a">get_context_task</a> (Context ctx)</td></tr>
@@ -9545,6 +9549,32 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ac2bae127d301ae23323b0341b01ab94e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Legion::Runtime::has_context </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Test whether we are inside of a <a class="el" href="namespace_legion.html">Legion</a> task and therefore have a context available. This can be used to see if it is safe to call '<a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">Runtime::get_context</a>'. </p>
+<dl class="section return"><dt>Returns</dt><dd>boolean indicating if we are inside of a <a class="el" href="namespace_legion.html">Legion</a> task </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a2db78ed39353a434fad6b403c52fb5a8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -9815,6 +9845,31 @@ template&lt;unsigned DIM&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if a parent exists </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af0b93b22fb8f780717fa6310e289dad3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Legion::Runtime::has_runtime </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Provide a method to test whether the <a class="el" href="namespace_legion.html">Legion</a> runtime has been started yet or not. Note that this method simply queries at a single point in time and can race with a call to <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> performed by a different thread. </p>
 
 </div>
 </div>
@@ -13679,7 +13734,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 20 2021 15:51:09 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 15 2021 10:46:39 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

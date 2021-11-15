@@ -494,6 +494,8 @@ var searchData=
   ['legion_5fruntime_5fget_5finput_5fargs',['legion_runtime_get_input_args',['../legion__c_8h.html#a7e9d0aee5302b6b3b8ed51b4ce17fe1e',1,'legion_c.h']]],
   ['legion_5fruntime_5fget_5fmaximum_5fdimension',['legion_runtime_get_maximum_dimension',['../legion__c_8h.html#a015f0e613d11c6b876f1ef779fb14e9f',1,'legion_c.h']]],
   ['legion_5fruntime_5fget_5fruntime',['legion_runtime_get_runtime',['../legion__c_8h.html#ac4f556311c0798d624f0db5bf8258c0b',1,'legion_c.h']]],
+  ['legion_5fruntime_5fhas_5fcontext',['legion_runtime_has_context',['../legion__c_8h.html#ae57e5be92760827ca586a80a847f2117',1,'legion_c.h']]],
+  ['legion_5fruntime_5fhas_5fruntime',['legion_runtime_has_runtime',['../legion__c_8h.html#ae0a590fb782a51bc13113ef9b07e9668',1,'legion_c.h']]],
   ['legion_5fruntime_5findex_5ffill_5ffield',['legion_runtime_index_fill_field',['../legion__c_8h.html#ac53e1f161ab17661b45a833a52e551e2',1,'legion_c.h']]],
   ['legion_5fruntime_5findex_5ffill_5ffield_5ffuture',['legion_runtime_index_fill_field_future',['../legion__c_8h.html#a0c9da92665cc4d0bac099ef7b548a531',1,'legion_c.h']]],
   ['legion_5fruntime_5findex_5ffill_5ffield_5ffuture_5fwith_5fdomain',['legion_runtime_index_fill_field_future_with_domain',['../legion__c_8h.html#a6b642f33dd7da9f95ea0743343e7a68e',1,'legion_c.h']]],

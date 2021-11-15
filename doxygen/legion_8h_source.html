@@ -4881,133 +4881,137 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l09064"></a><span class="lineno"> 9064</span>&#160;                              <a class="code" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options = <a class="code" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(),</div>
 <div class="line"><a name="l09065"></a><span class="lineno"> 9065</span>&#160;                                         <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name = NULL);</div>
 <div class="line"><a name="l09066"></a><span class="lineno"> 9066</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09074"></a><span class="lineno"> 9074</span>&#160;      <span class="keyword">static</span> <a class="code" href="class_legion_1_1_runtime.html">Runtime</a>* <a class="code" href="class_legion_1_1_runtime.html#a61ae746205378b10cd898824b719ee8a">get_runtime</a>(Processor p = Processor::NO_PROC);</div>
-<div class="line"><a name="l09075"></a><span class="lineno"> 9075</span>&#160;</div>
-<div class="line"><a name="l09082"></a><span class="lineno"> 9082</span>&#160;      <span class="keyword">static</span> Context <a class="code" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">get_context</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l09073"></a><span class="lineno"> 9073</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_legion_1_1_runtime.html#af0b93b22fb8f780717fa6310e289dad3">has_runtime</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l09074"></a><span class="lineno"> 9074</span>&#160;</div>
+<div class="line"><a name="l09082"></a><span class="lineno"> 9082</span>&#160;      <span class="keyword">static</span> <a class="code" href="class_legion_1_1_runtime.html">Runtime</a>* <a class="code" href="class_legion_1_1_runtime.html#a61ae746205378b10cd898824b719ee8a">get_runtime</a>(Processor p = Processor::NO_PROC);</div>
 <div class="line"><a name="l09083"></a><span class="lineno"> 9083</span>&#160;</div>
-<div class="line"><a name="l09089"></a><span class="lineno"> 9089</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="class_legion_1_1_task.html">Task</a>* <a class="code" href="class_legion_1_1_runtime.html#a8fb3136f2a6068ad51307831ee645c4a">get_context_task</a>(Context ctx);</div>
-<div class="line"><a name="l09090"></a><span class="lineno"> 9090</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l09091"></a><span class="lineno"> 9091</span>&#160;      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> create_restricted_partition(Context ctx,</div>
-<div class="line"><a name="l09092"></a><span class="lineno"> 9092</span>&#160;                                      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> parent,</div>
-<div class="line"><a name="l09093"></a><span class="lineno"> 9093</span>&#160;                                      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space,</div>
-<div class="line"><a name="l09094"></a><span class="lineno"> 9094</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *transform,</div>
-<div class="line"><a name="l09095"></a><span class="lineno"> 9095</span>&#160;                                      <span class="keywordtype">size_t</span> transform_size,</div>
-<div class="line"><a name="l09096"></a><span class="lineno"> 9096</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *extent, </div>
-<div class="line"><a name="l09097"></a><span class="lineno"> 9097</span>&#160;                                      <span class="keywordtype">size_t</span> extent_size,</div>
-<div class="line"><a name="l09098"></a><span class="lineno"> 9098</span>&#160;                                      PartitionKind part_kind, Color color);</div>
-<div class="line"><a name="l09099"></a><span class="lineno"> 9099</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_union_internal(Context ctx,</div>
-<div class="line"><a name="l09100"></a><span class="lineno"> 9100</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent,</div>
-<div class="line"><a name="l09101"></a><span class="lineno"> 9101</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
-<div class="line"><a name="l09102"></a><span class="lineno"> 9102</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;IndexSpace&gt; &amp;handles);</div>
-<div class="line"><a name="l09103"></a><span class="lineno"> 9103</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_union_internal(Context ctx, </div>
-<div class="line"><a name="l09104"></a><span class="lineno"> 9104</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent, </div>
-<div class="line"><a name="l09105"></a><span class="lineno"> 9105</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
-<div class="line"><a name="l09106"></a><span class="lineno"> 9106</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle);</div>
-<div class="line"><a name="l09107"></a><span class="lineno"> 9107</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_intersection_internal(Context ctx,</div>
-<div class="line"><a name="l09108"></a><span class="lineno"> 9108</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent,</div>
-<div class="line"><a name="l09109"></a><span class="lineno"> 9109</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
-<div class="line"><a name="l09110"></a><span class="lineno"> 9110</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;IndexSpace&gt; &amp;handles);</div>
-<div class="line"><a name="l09111"></a><span class="lineno"> 9111</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_intersection_internal(Context ctx, </div>
-<div class="line"><a name="l09112"></a><span class="lineno"> 9112</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent, </div>
-<div class="line"><a name="l09113"></a><span class="lineno"> 9113</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
-<div class="line"><a name="l09114"></a><span class="lineno"> 9114</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle);</div>
-<div class="line"><a name="l09115"></a><span class="lineno"> 9115</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_difference_internal(Context ctx,</div>
-<div class="line"><a name="l09116"></a><span class="lineno"> 9116</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> paretn,</div>
+<div class="line"><a name="l09090"></a><span class="lineno"> 9090</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_legion_1_1_runtime.html#ac2bae127d301ae23323b0341b01ab94e">has_context</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l09091"></a><span class="lineno"> 9091</span>&#160;</div>
+<div class="line"><a name="l09098"></a><span class="lineno"> 9098</span>&#160;      <span class="keyword">static</span> Context <a class="code" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">get_context</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l09099"></a><span class="lineno"> 9099</span>&#160;</div>
+<div class="line"><a name="l09105"></a><span class="lineno"> 9105</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="class_legion_1_1_task.html">Task</a>* <a class="code" href="class_legion_1_1_runtime.html#a8fb3136f2a6068ad51307831ee645c4a">get_context_task</a>(Context ctx);</div>
+<div class="line"><a name="l09106"></a><span class="lineno"> 9106</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l09107"></a><span class="lineno"> 9107</span>&#160;      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> create_restricted_partition(Context ctx,</div>
+<div class="line"><a name="l09108"></a><span class="lineno"> 9108</span>&#160;                                      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> parent,</div>
+<div class="line"><a name="l09109"></a><span class="lineno"> 9109</span>&#160;                                      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space,</div>
+<div class="line"><a name="l09110"></a><span class="lineno"> 9110</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *transform,</div>
+<div class="line"><a name="l09111"></a><span class="lineno"> 9111</span>&#160;                                      <span class="keywordtype">size_t</span> transform_size,</div>
+<div class="line"><a name="l09112"></a><span class="lineno"> 9112</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *extent, </div>
+<div class="line"><a name="l09113"></a><span class="lineno"> 9113</span>&#160;                                      <span class="keywordtype">size_t</span> extent_size,</div>
+<div class="line"><a name="l09114"></a><span class="lineno"> 9114</span>&#160;                                      PartitionKind part_kind, Color color);</div>
+<div class="line"><a name="l09115"></a><span class="lineno"> 9115</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_union_internal(Context ctx,</div>
+<div class="line"><a name="l09116"></a><span class="lineno"> 9116</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent,</div>
 <div class="line"><a name="l09117"></a><span class="lineno"> 9117</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
-<div class="line"><a name="l09118"></a><span class="lineno"> 9118</span>&#160;                                      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> initial,</div>
-<div class="line"><a name="l09119"></a><span class="lineno"> 9119</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;IndexSpace&gt; &amp;handles);</div>
-<div class="line"><a name="l09120"></a><span class="lineno"> 9120</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> get_index_subspace_internal(<a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle, </div>
-<div class="line"><a name="l09121"></a><span class="lineno"> 9121</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
-<div class="line"><a name="l09122"></a><span class="lineno"> 9122</span>&#160;      <span class="keywordtype">bool</span> has_index_subspace_internal(<a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle,</div>
-<div class="line"><a name="l09123"></a><span class="lineno"> 9123</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
-<div class="line"><a name="l09124"></a><span class="lineno"> 9124</span>&#160;      <span class="keywordtype">void</span> get_index_partition_color_space_internal(<a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle,</div>
-<div class="line"><a name="l09125"></a><span class="lineno"> 9125</span>&#160;                                      <span class="keywordtype">void</span> *realm_is, TypeTag type_tag);</div>
-<div class="line"><a name="l09126"></a><span class="lineno"> 9126</span>&#160;      <span class="keywordtype">void</span> get_index_space_domain_internal(<a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> handle, </div>
-<div class="line"><a name="l09127"></a><span class="lineno"> 9127</span>&#160;                                      <span class="keywordtype">void</span> *realm_is, TypeTag type_tag);</div>
-<div class="line"><a name="l09128"></a><span class="lineno"> 9128</span>&#160;      <span class="keywordtype">void</span> get_index_space_color_internal(<a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> handle,</div>
-<div class="line"><a name="l09129"></a><span class="lineno"> 9129</span>&#160;                                      <span class="keywordtype">void</span> *realm_color, TypeTag type_tag);</div>
-<div class="line"><a name="l09130"></a><span class="lineno"> 9130</span>&#160;      <span class="keywordtype">bool</span> safe_cast_internal(Context ctx, <a class="code" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region,</div>
-<div class="line"><a name="l09131"></a><span class="lineno"> 9131</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_point,TypeTag type_tag);</div>
-<div class="line"><a name="l09132"></a><span class="lineno"> 9132</span>&#160;      <a class="code" href="class_legion_1_1_logical_region.html">LogicalRegion</a> get_logical_subregion_by_color_internal(</div>
-<div class="line"><a name="l09133"></a><span class="lineno"> 9133</span>&#160;                                      <a class="code" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> parent,</div>
-<div class="line"><a name="l09134"></a><span class="lineno"> 9134</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
-<div class="line"><a name="l09135"></a><span class="lineno"> 9135</span>&#160;      <span class="keywordtype">bool</span> has_logical_subregion_by_color_internal(</div>
-<div class="line"><a name="l09136"></a><span class="lineno"> 9136</span>&#160;                                      <a class="code" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> parent,</div>
+<div class="line"><a name="l09118"></a><span class="lineno"> 9118</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;IndexSpace&gt; &amp;handles);</div>
+<div class="line"><a name="l09119"></a><span class="lineno"> 9119</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_union_internal(Context ctx, </div>
+<div class="line"><a name="l09120"></a><span class="lineno"> 9120</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent, </div>
+<div class="line"><a name="l09121"></a><span class="lineno"> 9121</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
+<div class="line"><a name="l09122"></a><span class="lineno"> 9122</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle);</div>
+<div class="line"><a name="l09123"></a><span class="lineno"> 9123</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_intersection_internal(Context ctx,</div>
+<div class="line"><a name="l09124"></a><span class="lineno"> 9124</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent,</div>
+<div class="line"><a name="l09125"></a><span class="lineno"> 9125</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
+<div class="line"><a name="l09126"></a><span class="lineno"> 9126</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;IndexSpace&gt; &amp;handles);</div>
+<div class="line"><a name="l09127"></a><span class="lineno"> 9127</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_intersection_internal(Context ctx, </div>
+<div class="line"><a name="l09128"></a><span class="lineno"> 9128</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> parent, </div>
+<div class="line"><a name="l09129"></a><span class="lineno"> 9129</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
+<div class="line"><a name="l09130"></a><span class="lineno"> 9130</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle);</div>
+<div class="line"><a name="l09131"></a><span class="lineno"> 9131</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> create_index_space_difference_internal(Context ctx,</div>
+<div class="line"><a name="l09132"></a><span class="lineno"> 9132</span>&#160;                                      <a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> paretn,</div>
+<div class="line"><a name="l09133"></a><span class="lineno"> 9133</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color, TypeTag type_tag,</div>
+<div class="line"><a name="l09134"></a><span class="lineno"> 9134</span>&#160;                                      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> initial,</div>
+<div class="line"><a name="l09135"></a><span class="lineno"> 9135</span>&#160;                                      <span class="keyword">const</span> std::vector&lt;IndexSpace&gt; &amp;handles);</div>
+<div class="line"><a name="l09136"></a><span class="lineno"> 9136</span>&#160;      <a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> get_index_subspace_internal(<a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle, </div>
 <div class="line"><a name="l09137"></a><span class="lineno"> 9137</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
-<div class="line"><a name="l09138"></a><span class="lineno"> 9138</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l09139"></a><span class="lineno"> 9139</span>&#160;      <span class="comment">// Methods for the wrapper functions to get information from the runtime</span></div>
-<div class="line"><a name="l09140"></a><span class="lineno"> 9140</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>LegionTaskWrapper;</div>
-<div class="line"><a name="l09141"></a><span class="lineno"> 9141</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>LegionSerialization;</div>
-<div class="line"><a name="l09142"></a><span class="lineno"> 9142</span>&#160;      <a class="code" href="class_legion_1_1_future.html">Future</a> from_value(<span class="keyword">const</span> <span class="keywordtype">void</span> *value, <span class="keywordtype">size_t</span> value_size, <span class="keywordtype">bool</span> owned);</div>
-<div class="line"><a name="l09143"></a><span class="lineno"> 9143</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l09144"></a><span class="lineno"> 9144</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l09145"></a><span class="lineno"> 9145</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_deferred_value.html">DeferredValue</a>;</div>
-<div class="line"><a name="l09146"></a><span class="lineno"> 9146</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> DIM, <span class="keyword">typename</span> COORD_T, <span class="keywordtype">bool</span> CHECK_BOUNDS&gt;</div>
-<div class="line"><a name="l09147"></a><span class="lineno"> 9147</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_deferred_buffer.html">DeferredBuffer</a>;</div>
-<div class="line"><a name="l09148"></a><span class="lineno"> 9148</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_untyped_deferred_value.html">UntypedDeferredValue</a>;</div>
-<div class="line"><a name="l09149"></a><span class="lineno"> 9149</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">typename</span>&gt;</div>
-<div class="line"><a name="l09150"></a><span class="lineno"> 9150</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_untyped_deferred_buffer.html">UntypedDeferredBuffer</a>;</div>
-<div class="line"><a name="l09151"></a><span class="lineno"> 9151</span>&#160;      Realm::RegionInstance create_task_local_instance(Memory memory,</div>
-<div class="line"><a name="l09152"></a><span class="lineno"> 9152</span>&#160;                                Realm::InstanceLayoutGeneric *layout);</div>
-<div class="line"><a name="l09153"></a><span class="lineno"> 9153</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09154"></a><span class="lineno"> 9154</span>&#160;      <span class="comment">// This method is hidden down here and not publicly documented because</span></div>
-<div class="line"><a name="l09155"></a><span class="lineno"> 9155</span>&#160;      <span class="comment">// users shouldn&#39;t really need it for anything, however there are some</span></div>
-<div class="line"><a name="l09156"></a><span class="lineno"> 9156</span>&#160;      <span class="comment">// reasonable cases where it might be utilitized for things like doing</span></div>
-<div class="line"><a name="l09157"></a><span class="lineno"> 9157</span>&#160;      <span class="comment">// file I/O or printf that people might want it for so we&#39;ve got it</span></div>
-<div class="line"><a name="l09158"></a><span class="lineno"> 9158</span>&#160;      ShardID get_shard_id(Context ctx, <span class="keywordtype">bool</span> I_know_what_I_am_doing = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l09159"></a><span class="lineno"> 9159</span>&#160;      <span class="comment">// We&#39;ll also allow users to get the total number of shards in the context</span></div>
-<div class="line"><a name="l09160"></a><span class="lineno"> 9160</span>&#160;      <span class="comment">// if they also ar willing to attest they know what they are doing</span></div>
-<div class="line"><a name="l09161"></a><span class="lineno"> 9161</span>&#160;      <span class="keywordtype">size_t</span> get_num_shards(Context ctx, <span class="keywordtype">bool</span> I_know_what_I_am_doing = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l09162"></a><span class="lineno"> 9162</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l09163"></a><span class="lineno"> 9163</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>Mapper;</div>
-<div class="line"><a name="l09164"></a><span class="lineno"> 9164</span>&#160;      Internal::Runtime *runtime;</div>
-<div class="line"><a name="l09165"></a><span class="lineno"> 9165</span>&#160;    };</div>
-<div class="line"><a name="l09166"></a><span class="lineno"> 9166</span>&#160;</div>
-<div class="line"><a name="l09167"></a><span class="lineno"> 9167</span>&#160;    <span class="comment">//==========================================================================</span></div>
-<div class="line"><a name="l09168"></a><span class="lineno"> 9168</span>&#160;    <span class="comment">//                        Compiler Helper Classes</span></div>
-<div class="line"><a name="l09169"></a><span class="lineno"> 9169</span>&#160;    <span class="comment">//==========================================================================</span></div>
-<div class="line"><a name="l09170"></a><span class="lineno"> 9170</span>&#160;</div>
-<div class="line"><a name="l09176"></a><span class="lineno"><a class="line" href="class_legion_1_1_coloring_serializer.html"> 9176</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_legion_1_1_coloring_serializer.html">ColoringSerializer</a> {</div>
-<div class="line"><a name="l09177"></a><span class="lineno"> 9177</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09178"></a><span class="lineno"> 9178</span>&#160;      <a class="code" href="class_legion_1_1_coloring_serializer.html">ColoringSerializer</a>(<span class="keywordtype">void</span>) { }</div>
-<div class="line"><a name="l09179"></a><span class="lineno"> 9179</span>&#160;      <a class="code" href="class_legion_1_1_coloring_serializer.html">ColoringSerializer</a>(<span class="keyword">const</span> Coloring &amp;c);</div>
-<div class="line"><a name="l09180"></a><span class="lineno"> 9180</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09181"></a><span class="lineno"> 9181</span>&#160;      <span class="keywordtype">size_t</span> legion_buffer_size(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l09182"></a><span class="lineno"> 9182</span>&#160;      <span class="keywordtype">size_t</span> legion_serialize(<span class="keywordtype">void</span> *buffer) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l09183"></a><span class="lineno"> 9183</span>&#160;      <span class="keywordtype">size_t</span> legion_deserialize(<span class="keyword">const</span> <span class="keywordtype">void</span> *buffer);</div>
-<div class="line"><a name="l09184"></a><span class="lineno"> 9184</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09185"></a><span class="lineno"> 9185</span>&#160;      <span class="keyword">inline</span> Coloring&amp; ref(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> coloring; }</div>
-<div class="line"><a name="l09186"></a><span class="lineno"> 9186</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l09187"></a><span class="lineno"> 9187</span>&#160;      Coloring coloring;</div>
-<div class="line"><a name="l09188"></a><span class="lineno"> 9188</span>&#160;    };</div>
-<div class="line"><a name="l09189"></a><span class="lineno"> 9189</span>&#160;</div>
-<div class="line"><a name="l09195"></a><span class="lineno"><a class="line" href="class_legion_1_1_domain_coloring_serializer.html"> 9195</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_legion_1_1_domain_coloring_serializer.html">DomainColoringSerializer</a> {</div>
+<div class="line"><a name="l09138"></a><span class="lineno"> 9138</span>&#160;      <span class="keywordtype">bool</span> has_index_subspace_internal(<a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle,</div>
+<div class="line"><a name="l09139"></a><span class="lineno"> 9139</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
+<div class="line"><a name="l09140"></a><span class="lineno"> 9140</span>&#160;      <span class="keywordtype">void</span> get_index_partition_color_space_internal(<a class="code" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle,</div>
+<div class="line"><a name="l09141"></a><span class="lineno"> 9141</span>&#160;                                      <span class="keywordtype">void</span> *realm_is, TypeTag type_tag);</div>
+<div class="line"><a name="l09142"></a><span class="lineno"> 9142</span>&#160;      <span class="keywordtype">void</span> get_index_space_domain_internal(<a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> handle, </div>
+<div class="line"><a name="l09143"></a><span class="lineno"> 9143</span>&#160;                                      <span class="keywordtype">void</span> *realm_is, TypeTag type_tag);</div>
+<div class="line"><a name="l09144"></a><span class="lineno"> 9144</span>&#160;      <span class="keywordtype">void</span> get_index_space_color_internal(<a class="code" href="class_legion_1_1_index_space.html">IndexSpace</a> handle,</div>
+<div class="line"><a name="l09145"></a><span class="lineno"> 9145</span>&#160;                                      <span class="keywordtype">void</span> *realm_color, TypeTag type_tag);</div>
+<div class="line"><a name="l09146"></a><span class="lineno"> 9146</span>&#160;      <span class="keywordtype">bool</span> safe_cast_internal(Context ctx, <a class="code" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region,</div>
+<div class="line"><a name="l09147"></a><span class="lineno"> 9147</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_point,TypeTag type_tag);</div>
+<div class="line"><a name="l09148"></a><span class="lineno"> 9148</span>&#160;      <a class="code" href="class_legion_1_1_logical_region.html">LogicalRegion</a> get_logical_subregion_by_color_internal(</div>
+<div class="line"><a name="l09149"></a><span class="lineno"> 9149</span>&#160;                                      <a class="code" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> parent,</div>
+<div class="line"><a name="l09150"></a><span class="lineno"> 9150</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
+<div class="line"><a name="l09151"></a><span class="lineno"> 9151</span>&#160;      <span class="keywordtype">bool</span> has_logical_subregion_by_color_internal(</div>
+<div class="line"><a name="l09152"></a><span class="lineno"> 9152</span>&#160;                                      <a class="code" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> parent,</div>
+<div class="line"><a name="l09153"></a><span class="lineno"> 9153</span>&#160;                                      <span class="keyword">const</span> <span class="keywordtype">void</span> *realm_color,TypeTag type_tag);</div>
+<div class="line"><a name="l09154"></a><span class="lineno"> 9154</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l09155"></a><span class="lineno"> 9155</span>&#160;      <span class="comment">// Methods for the wrapper functions to get information from the runtime</span></div>
+<div class="line"><a name="l09156"></a><span class="lineno"> 9156</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>LegionTaskWrapper;</div>
+<div class="line"><a name="l09157"></a><span class="lineno"> 9157</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>LegionSerialization;</div>
+<div class="line"><a name="l09158"></a><span class="lineno"> 9158</span>&#160;      <a class="code" href="class_legion_1_1_future.html">Future</a> from_value(<span class="keyword">const</span> <span class="keywordtype">void</span> *value, <span class="keywordtype">size_t</span> value_size, <span class="keywordtype">bool</span> owned);</div>
+<div class="line"><a name="l09159"></a><span class="lineno"> 9159</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l09160"></a><span class="lineno"> 9160</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l09161"></a><span class="lineno"> 9161</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_deferred_value.html">DeferredValue</a>;</div>
+<div class="line"><a name="l09162"></a><span class="lineno"> 9162</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">int</span> DIM, <span class="keyword">typename</span> COORD_T, <span class="keywordtype">bool</span> CHECK_BOUNDS&gt;</div>
+<div class="line"><a name="l09163"></a><span class="lineno"> 9163</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_deferred_buffer.html">DeferredBuffer</a>;</div>
+<div class="line"><a name="l09164"></a><span class="lineno"> 9164</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_untyped_deferred_value.html">UntypedDeferredValue</a>;</div>
+<div class="line"><a name="l09165"></a><span class="lineno"> 9165</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">typename</span>&gt;</div>
+<div class="line"><a name="l09166"></a><span class="lineno"> 9166</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_legion_1_1_untyped_deferred_buffer.html">UntypedDeferredBuffer</a>;</div>
+<div class="line"><a name="l09167"></a><span class="lineno"> 9167</span>&#160;      Realm::RegionInstance create_task_local_instance(Memory memory,</div>
+<div class="line"><a name="l09168"></a><span class="lineno"> 9168</span>&#160;                                Realm::InstanceLayoutGeneric *layout);</div>
+<div class="line"><a name="l09169"></a><span class="lineno"> 9169</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l09170"></a><span class="lineno"> 9170</span>&#160;      <span class="comment">// This method is hidden down here and not publicly documented because</span></div>
+<div class="line"><a name="l09171"></a><span class="lineno"> 9171</span>&#160;      <span class="comment">// users shouldn&#39;t really need it for anything, however there are some</span></div>
+<div class="line"><a name="l09172"></a><span class="lineno"> 9172</span>&#160;      <span class="comment">// reasonable cases where it might be utilitized for things like doing</span></div>
+<div class="line"><a name="l09173"></a><span class="lineno"> 9173</span>&#160;      <span class="comment">// file I/O or printf that people might want it for so we&#39;ve got it</span></div>
+<div class="line"><a name="l09174"></a><span class="lineno"> 9174</span>&#160;      ShardID get_shard_id(Context ctx, <span class="keywordtype">bool</span> I_know_what_I_am_doing = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l09175"></a><span class="lineno"> 9175</span>&#160;      <span class="comment">// We&#39;ll also allow users to get the total number of shards in the context</span></div>
+<div class="line"><a name="l09176"></a><span class="lineno"> 9176</span>&#160;      <span class="comment">// if they also ar willing to attest they know what they are doing</span></div>
+<div class="line"><a name="l09177"></a><span class="lineno"> 9177</span>&#160;      <span class="keywordtype">size_t</span> get_num_shards(Context ctx, <span class="keywordtype">bool</span> I_know_what_I_am_doing = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l09178"></a><span class="lineno"> 9178</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l09179"></a><span class="lineno"> 9179</span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>Mapper;</div>
+<div class="line"><a name="l09180"></a><span class="lineno"> 9180</span>&#160;      Internal::Runtime *runtime;</div>
+<div class="line"><a name="l09181"></a><span class="lineno"> 9181</span>&#160;    };</div>
+<div class="line"><a name="l09182"></a><span class="lineno"> 9182</span>&#160;</div>
+<div class="line"><a name="l09183"></a><span class="lineno"> 9183</span>&#160;    <span class="comment">//==========================================================================</span></div>
+<div class="line"><a name="l09184"></a><span class="lineno"> 9184</span>&#160;    <span class="comment">//                        Compiler Helper Classes</span></div>
+<div class="line"><a name="l09185"></a><span class="lineno"> 9185</span>&#160;    <span class="comment">//==========================================================================</span></div>
+<div class="line"><a name="l09186"></a><span class="lineno"> 9186</span>&#160;</div>
+<div class="line"><a name="l09192"></a><span class="lineno"><a class="line" href="class_legion_1_1_coloring_serializer.html"> 9192</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_legion_1_1_coloring_serializer.html">ColoringSerializer</a> {</div>
+<div class="line"><a name="l09193"></a><span class="lineno"> 9193</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l09194"></a><span class="lineno"> 9194</span>&#160;      <a class="code" href="class_legion_1_1_coloring_serializer.html">ColoringSerializer</a>(<span class="keywordtype">void</span>) { }</div>
+<div class="line"><a name="l09195"></a><span class="lineno"> 9195</span>&#160;      <a class="code" href="class_legion_1_1_coloring_serializer.html">ColoringSerializer</a>(<span class="keyword">const</span> Coloring &amp;c);</div>
 <div class="line"><a name="l09196"></a><span class="lineno"> 9196</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09197"></a><span class="lineno"> 9197</span>&#160;      <a class="code" href="class_legion_1_1_domain_coloring_serializer.html">DomainColoringSerializer</a>(<span class="keywordtype">void</span>) { }</div>
-<div class="line"><a name="l09198"></a><span class="lineno"> 9198</span>&#160;      <a class="code" href="class_legion_1_1_domain_coloring_serializer.html">DomainColoringSerializer</a>(<span class="keyword">const</span> DomainColoring &amp;c);</div>
-<div class="line"><a name="l09199"></a><span class="lineno"> 9199</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09200"></a><span class="lineno"> 9200</span>&#160;      <span class="keywordtype">size_t</span> legion_buffer_size(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l09201"></a><span class="lineno"> 9201</span>&#160;      <span class="keywordtype">size_t</span> legion_serialize(<span class="keywordtype">void</span> *buffer) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l09202"></a><span class="lineno"> 9202</span>&#160;      <span class="keywordtype">size_t</span> legion_deserialize(<span class="keyword">const</span> <span class="keywordtype">void</span> *buffer);</div>
-<div class="line"><a name="l09203"></a><span class="lineno"> 9203</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l09204"></a><span class="lineno"> 9204</span>&#160;      <span class="keyword">inline</span> DomainColoring&amp; ref(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> coloring; }</div>
-<div class="line"><a name="l09205"></a><span class="lineno"> 9205</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l09206"></a><span class="lineno"> 9206</span>&#160;      DomainColoring coloring;</div>
-<div class="line"><a name="l09207"></a><span class="lineno"> 9207</span>&#160;    };</div>
-<div class="line"><a name="l09208"></a><span class="lineno"> 9208</span>&#160;</div>
-<div class="line"><a name="l09209"></a><span class="lineno"> 9209</span>&#160;}; <span class="comment">// namespace Legion</span></div>
-<div class="line"><a name="l09210"></a><span class="lineno"> 9210</span>&#160;</div>
-<div class="line"><a name="l09211"></a><span class="lineno"> 9211</span>&#160;<span class="preprocessor">#include &quot;legion/legion.inl&quot;</span></div>
-<div class="line"><a name="l09212"></a><span class="lineno"> 9212</span>&#160;<span class="comment">// Include this here so we get the mapper interface in the header file</span></div>
-<div class="line"><a name="l09213"></a><span class="lineno"> 9213</span>&#160;<span class="comment">// We have to put it here though since the mapper interface depends</span></div>
-<div class="line"><a name="l09214"></a><span class="lineno"> 9214</span>&#160;<span class="comment">// on the rest of the legion interface</span></div>
-<div class="line"><a name="l09215"></a><span class="lineno"> 9215</span>&#160;<span class="preprocessor">#include &quot;legion/legion_mapping.h&quot;</span></div>
-<div class="line"><a name="l09216"></a><span class="lineno"> 9216</span>&#160;</div>
-<div class="line"><a name="l09217"></a><span class="lineno"> 9217</span>&#160;<span class="preprocessor">#endif // __LEGION_RUNTIME_H__</span></div>
-<div class="line"><a name="l09218"></a><span class="lineno"> 9218</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // defined LEGION_ENABLE_CXX_BINDINGS</span></div>
-<div class="line"><a name="l09219"></a><span class="lineno"> 9219</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l09220"></a><span class="lineno"> 9220</span>&#160;<span class="comment">// EOF</span></div>
-<div class="line"><a name="l09221"></a><span class="lineno"> 9221</span>&#160;</div>
+<div class="line"><a name="l09197"></a><span class="lineno"> 9197</span>&#160;      <span class="keywordtype">size_t</span> legion_buffer_size(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l09198"></a><span class="lineno"> 9198</span>&#160;      <span class="keywordtype">size_t</span> legion_serialize(<span class="keywordtype">void</span> *buffer) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l09199"></a><span class="lineno"> 9199</span>&#160;      <span class="keywordtype">size_t</span> legion_deserialize(<span class="keyword">const</span> <span class="keywordtype">void</span> *buffer);</div>
+<div class="line"><a name="l09200"></a><span class="lineno"> 9200</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l09201"></a><span class="lineno"> 9201</span>&#160;      <span class="keyword">inline</span> Coloring&amp; ref(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> coloring; }</div>
+<div class="line"><a name="l09202"></a><span class="lineno"> 9202</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l09203"></a><span class="lineno"> 9203</span>&#160;      Coloring coloring;</div>
+<div class="line"><a name="l09204"></a><span class="lineno"> 9204</span>&#160;    };</div>
+<div class="line"><a name="l09205"></a><span class="lineno"> 9205</span>&#160;</div>
+<div class="line"><a name="l09211"></a><span class="lineno"><a class="line" href="class_legion_1_1_domain_coloring_serializer.html"> 9211</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_legion_1_1_domain_coloring_serializer.html">DomainColoringSerializer</a> {</div>
+<div class="line"><a name="l09212"></a><span class="lineno"> 9212</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l09213"></a><span class="lineno"> 9213</span>&#160;      <a class="code" href="class_legion_1_1_domain_coloring_serializer.html">DomainColoringSerializer</a>(<span class="keywordtype">void</span>) { }</div>
+<div class="line"><a name="l09214"></a><span class="lineno"> 9214</span>&#160;      <a class="code" href="class_legion_1_1_domain_coloring_serializer.html">DomainColoringSerializer</a>(<span class="keyword">const</span> DomainColoring &amp;c);</div>
+<div class="line"><a name="l09215"></a><span class="lineno"> 9215</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l09216"></a><span class="lineno"> 9216</span>&#160;      <span class="keywordtype">size_t</span> legion_buffer_size(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l09217"></a><span class="lineno"> 9217</span>&#160;      <span class="keywordtype">size_t</span> legion_serialize(<span class="keywordtype">void</span> *buffer) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l09218"></a><span class="lineno"> 9218</span>&#160;      <span class="keywordtype">size_t</span> legion_deserialize(<span class="keyword">const</span> <span class="keywordtype">void</span> *buffer);</div>
+<div class="line"><a name="l09219"></a><span class="lineno"> 9219</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l09220"></a><span class="lineno"> 9220</span>&#160;      <span class="keyword">inline</span> DomainColoring&amp; ref(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> coloring; }</div>
+<div class="line"><a name="l09221"></a><span class="lineno"> 9221</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l09222"></a><span class="lineno"> 9222</span>&#160;      DomainColoring coloring;</div>
+<div class="line"><a name="l09223"></a><span class="lineno"> 9223</span>&#160;    };</div>
+<div class="line"><a name="l09224"></a><span class="lineno"> 9224</span>&#160;</div>
+<div class="line"><a name="l09225"></a><span class="lineno"> 9225</span>&#160;}; <span class="comment">// namespace Legion</span></div>
+<div class="line"><a name="l09226"></a><span class="lineno"> 9226</span>&#160;</div>
+<div class="line"><a name="l09227"></a><span class="lineno"> 9227</span>&#160;<span class="preprocessor">#include &quot;legion/legion.inl&quot;</span></div>
+<div class="line"><a name="l09228"></a><span class="lineno"> 9228</span>&#160;<span class="comment">// Include this here so we get the mapper interface in the header file</span></div>
+<div class="line"><a name="l09229"></a><span class="lineno"> 9229</span>&#160;<span class="comment">// We have to put it here though since the mapper interface depends</span></div>
+<div class="line"><a name="l09230"></a><span class="lineno"> 9230</span>&#160;<span class="comment">// on the rest of the legion interface</span></div>
+<div class="line"><a name="l09231"></a><span class="lineno"> 9231</span>&#160;<span class="preprocessor">#include &quot;legion/legion_mapping.h&quot;</span></div>
+<div class="line"><a name="l09232"></a><span class="lineno"> 9232</span>&#160;</div>
+<div class="line"><a name="l09233"></a><span class="lineno"> 9233</span>&#160;<span class="preprocessor">#endif // __LEGION_RUNTIME_H__</span></div>
+<div class="line"><a name="l09234"></a><span class="lineno"> 9234</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // defined LEGION_ENABLE_CXX_BINDINGS</span></div>
+<div class="line"><a name="l09235"></a><span class="lineno"> 9235</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l09236"></a><span class="lineno"> 9236</span>&#160;<span class="comment">// EOF</span></div>
+<div class="line"><a name="l09237"></a><span class="lineno"> 9237</span>&#160;</div>
 <div class="ttc" id="class_legion_1_1_index_iterator_html"><div class="ttname"><a href="class_legion_1_1_index_iterator.html">Legion::IndexIterator</a></div><div class="ttdef"><b>Definition:</b> legion.h:364</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_ad93bf3b151012fb90aac52137eaf652f"><div class="ttname"><a href="class_legion_1_1_runtime.html#ad93bf3b151012fb90aac52137eaf652f">Legion::Runtime::detach_hdf5</a></div><div class="ttdeci">void detach_hdf5(Context ctx, PhysicalRegion region)</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_ae006fc7a66d9efe5f079e8e83fe56ba6"><div class="ttname"><a href="class_legion_1_1_runtime.html#ae006fc7a66d9efe5f079e8e83fe56ba6">Legion::Runtime::get_logical_region_color</a></div><div class="ttdeci">Color get_logical_region_color(Context ctx, LogicalRegion handle)</div></div>
@@ -5091,11 +5095,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_legion_1_1_runtime_html_a764afe41f18fac3eec8511d60ef231cf"><div class="ttname"><a href="class_legion_1_1_runtime.html#a764afe41f18fac3eec8511d60ef231cf">Legion::Runtime::issue_mapping_fence</a></div><div class="ttdeci">Future issue_mapping_fence(Context ctx)</div></div>
 <div class="ttc" id="class_legion_1_1_physical_region_html_ab9d5b305b5ac4e61b747ab692e3ce364"><div class="ttname"><a href="class_legion_1_1_physical_region.html#ab9d5b305b5ac4e61b747ab692e3ce364">Legion::PhysicalRegion::get_memories</a></div><div class="ttdeci">void get_memories(std::set&lt; Memory &gt; &amp;memories, bool silence_warnings=false, const char *warning_string=NULL) const </div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_a28fe2ec9b3a38a98e02d7258cc9cbd37"><div class="ttname"><a href="class_legion_1_1_runtime.html#a28fe2ec9b3a38a98e02d7258cc9cbd37">Legion::Runtime::create_index_space</a></div><div class="ttdeci">IndexSpace create_index_space(Context ctx, const Domain &amp;bounds, TypeTag type_tag=0)</div></div>
-<div class="ttc" id="class_legion_1_1_domain_coloring_serializer_html"><div class="ttname"><a href="class_legion_1_1_domain_coloring_serializer.html">Legion::DomainColoringSerializer</a></div><div class="ttdef"><b>Definition:</b> legion.h:9195</div></div>
+<div class="ttc" id="class_legion_1_1_domain_coloring_serializer_html"><div class="ttname"><a href="class_legion_1_1_domain_coloring_serializer.html">Legion::DomainColoringSerializer</a></div><div class="ttdef"><b>Definition:</b> legion.h:9211</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_ac3d61b0337c401f877ec94bc55d87bf0"><div class="ttname"><a href="class_legion_1_1_runtime.html#ac3d61b0337c401f877ec94bc55d87bf0">Legion::Runtime::create_handshake</a></div><div class="ttdeci">static MPILegionHandshake create_handshake(bool init_in_MPI=true, int mpi_participants=1, int legion_participants=1)</div></div>
 <div class="ttc" id="class_legion_1_1_future_map_html"><div class="ttname"><a href="class_legion_1_1_future_map.html">Legion::FutureMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:1292</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_a087efef8f6dde153b6419a591334d82d"><div class="ttname"><a href="class_legion_1_1_runtime.html#a087efef8f6dde153b6419a591334d82d">Legion::Runtime::end_mapper_call</a></div><div class="ttdeci">void end_mapper_call(Mapping::MapperContext ctx)</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_ac27b2638c8aa39d366886a678f63749d"><div class="ttname"><a href="class_legion_1_1_runtime.html#ac27b2638c8aa39d366886a678f63749d">Legion::Runtime::find_reverse_MPI_mapping</a></div><div class="ttdeci">const std::map&lt; AddressSpace, int &gt; &amp; find_reverse_MPI_mapping(void)</div></div>
+<div class="ttc" id="class_legion_1_1_runtime_html_af0b93b22fb8f780717fa6310e289dad3"><div class="ttname"><a href="class_legion_1_1_runtime.html#af0b93b22fb8f780717fa6310e289dad3">Legion::Runtime::has_runtime</a></div><div class="ttdeci">static bool has_runtime(void)</div></div>
 <div class="ttc" id="class_legion_1_1_dynamic_collective_html"><div class="ttname"><a href="class_legion_1_1_dynamic_collective.html">Legion::DynamicCollective</a></div><div class="ttdef"><b>Definition:</b> legion.h:915</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_a51cb6acd03b57e45fd3857704ffcb0a7"><div class="ttname"><a href="class_legion_1_1_runtime.html#a51cb6acd03b57e45fd3857704ffcb0a7">Legion::Runtime::create_index_partition</a></div><div class="ttdeci">IndexPartition create_index_partition(Context ctx, IndexSpace parent, const Domain &amp;color_space, const PointColoring &amp;coloring, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, bool allocable=false)</div></div>
 <div class="ttc" id="class_legion_1_1_index_partition_t_html"><div class="ttname"><a href="class_legion_1_1_index_partition_t.html">Legion::IndexPartitionT</a></div><div class="ttdef"><b>Definition:</b> legion.h:174</div></div>
@@ -5160,6 +5165,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_legion_1_1_field_space_html"><div class="ttname"><a href="class_legion_1_1_field_space.html">Legion::FieldSpace</a></div><div class="ttdef"><b>Definition:</b> legion.h:195</div></div>
 <div class="ttc" id="class_legion_1_1_logical_region_html_a5b1fb82290bce3f864e05b3e81f9b2b0"><div class="ttname"><a href="class_legion_1_1_logical_region.html#a5b1fb82290bce3f864e05b3e81f9b2b0">Legion::LogicalRegion::NO_REGION</a></div><div class="ttdeci">static const LogicalRegion NO_REGION</div><div class="ttdef"><b>Definition:</b> legion.h:232</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_ace3cbdfa056de737b5187c350a0000a8"><div class="ttname"><a href="class_legion_1_1_runtime.html#ace3cbdfa056de737b5187c350a0000a8">Legion::Runtime::generate_library_sharding_ids</a></div><div class="ttdeci">ShardingID generate_library_sharding_ids(const char *name, size_t count)</div></div>
+<div class="ttc" id="class_legion_1_1_runtime_html_ac2bae127d301ae23323b0341b01ab94e"><div class="ttname"><a href="class_legion_1_1_runtime.html#ac2bae127d301ae23323b0341b01ab94e">Legion::Runtime::has_context</a></div><div class="ttdeci">static bool has_context(void)</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_a0807fe3cf812682fcbdb29e1ebaa0918"><div class="ttname"><a href="class_legion_1_1_runtime.html#a0807fe3cf812682fcbdb29e1ebaa0918">Legion::Runtime::generate_static_task_id</a></div><div class="ttdeci">static TaskID generate_static_task_id(void)</div></div>
 <div class="ttc" id="class_legion_1_1_projection_functor_html_a1fe71b856e92397cd7c5c07de670158c"><div class="ttname"><a href="class_legion_1_1_projection_functor.html#a1fe71b856e92397cd7c5c07de670158c">Legion::ProjectionFunctor::get_depth</a></div><div class="ttdeci">virtual unsigned get_depth(void) const =0</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_af840cc317084b2faccf5321557755c8e"><div class="ttname"><a href="class_legion_1_1_runtime.html#af840cc317084b2faccf5321557755c8e">Legion::Runtime::detach_file</a></div><div class="ttdeci">void detach_file(Context ctx, PhysicalRegion region)</div></div>
@@ -5331,7 +5337,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_legion_1_1_runtime_html_a3819fe6203528d2e753f3a09325eec8c"><div class="ttname"><a href="class_legion_1_1_runtime.html#a3819fe6203528d2e753f3a09325eec8c">Legion::Runtime::create_field_allocator</a></div><div class="ttdeci">FieldAllocator create_field_allocator(Context ctx, FieldSpace handle)</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_a3b1338247926eef76421390573c82cc3"><div class="ttname"><a href="class_legion_1_1_runtime.html#a3b1338247926eef76421390573c82cc3">Legion::Runtime::disable_profiling</a></div><div class="ttdeci">static void disable_profiling(void)</div></div>
 <div class="ttc" id="struct_legion_1_1_region_requirement_html_a8608a9ca1e1619e18e5bfb6c4074b160"><div class="ttname"><a href="struct_legion_1_1_region_requirement.html#a8608a9ca1e1619e18e5bfb6c4074b160">Legion::RegionRequirement::partition</a></div><div class="ttdeci">LogicalPartition partition</div><div class="ttdef"><b>Definition:</b> legion.h:1067</div></div>
-<div class="ttc" id="class_legion_1_1_coloring_serializer_html"><div class="ttname"><a href="class_legion_1_1_coloring_serializer.html">Legion::ColoringSerializer</a></div><div class="ttdef"><b>Definition:</b> legion.h:9176</div></div>
+<div class="ttc" id="class_legion_1_1_coloring_serializer_html"><div class="ttname"><a href="class_legion_1_1_coloring_serializer.html">Legion::ColoringSerializer</a></div><div class="ttdef"><b>Definition:</b> legion.h:9192</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_acfb81b9ca5d9f3626f5172b35e9ff4ac"><div class="ttname"><a href="class_legion_1_1_runtime.html#acfb81b9ca5d9f3626f5172b35e9ff4ac">Legion::Runtime::create_index_space_intersection</a></div><div class="ttdeci">IndexSpace create_index_space_intersection(Context ctx, IndexPartition parent, const DomainPoint &amp;color, const std::vector&lt; IndexSpace &gt; &amp;handles)</div></div>
 <div class="ttc" id="class_legion_1_1_runtime_html_ab8ac09dd81911b31e0569f41b9ef9668"><div class="ttname"><a href="class_legion_1_1_runtime.html#ab8ac09dd81911b31e0569f41b9ef9668">Legion::Runtime::end_trace</a></div><div class="ttdeci">void end_trace(Context ctx, TraceID tid)</div></div>
 <div class="ttc" id="struct_legion_1_1_region_requirement_html_aa2c2cf591d76a346c73f206efe242259"><div class="ttname"><a href="struct_legion_1_1_region_requirement.html#aa2c2cf591d76a346c73f206efe242259">Legion::RegionRequirement::redop</a></div><div class="ttdeci">ReductionOpID redop</div><div class="ttdef"><b>Definition:</b> legion.h:1073</div></div>
@@ -5387,7 +5393,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 20 2021 15:51:08 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 15 2021 10:46:38 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -46,10 +46,10 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:544: warning: Member FROM_AFFINE(D1, D2) (macro definition) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:2733: warning: Member BUFFER_PTR(DIM) (macro definition) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:2744: warning: Member BUFFER_DESTROY(DIM) (macro definition) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4805: warning: Member RAW_PTR(DIM) (macro definition) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4820: warning: Member READ_ARRAY(DIM) (macro definition) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4834: warning: Member WRITE_ARRAY(DIM) (macro definition) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4847: warning: Member REF_ARRAY(DIM) (macro definition) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4817: warning: Member RAW_PTR(DIM) (macro definition) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4832: warning: Member READ_ARRAY(DIM) (macro definition) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4846: warning: Member WRITE_ARRAY(DIM) (macro definition) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4859: warning: Member REF_ARRAY(DIM) (macro definition) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:122: warning: Member coord_t (typedef) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:292: warning: Member legion_task_argument_t (typedef) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:296: warning: Member legion_byte_offset_t (typedef) of file legion_c.h is not documented.
@@ -112,18 +112,18 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:573: warning: Member legion_domain_point_origin(unsigned dim) (function) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:3726: warning: Member legion_field_map_insert(legion_field_map_t handle, legion_field_id_t key, const char *value) (function) of file legion_c.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4630: warning: Member legion_runtime_complete_frame(legion_runtime_t runtime, legion_context_t ctx) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4701: warning: Member legion_runtime_enable_scheduler_lock(void) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4704: warning: Member legion_runtime_disable_scheduler_lock(void) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4773: warning: Member legion_physical_region_get_field_id(legion_physical_region_t handle, size_t index) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4781: warning: Member legion_physical_region_get_memory(legion_physical_region_t handle, size_t index) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4816: warning: Member legion_accessor_array_1d_read(legion_accessor_array_1d_t handle, legion_ptr_t ptr, void *dst, size_t bytes) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4830: warning: Member legion_accessor_array_1d_write(legion_accessor_array_1d_t handle, legion_ptr_t ptr, const void *src, size_t bytes) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4844: warning: Member legion_accessor_array_1d_ref(legion_accessor_array_1d_t handle, legion_ptr_t ptr) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6066: warning: Member legion_physical_instance_destroy(legion_physical_instance_t instance) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6294: warning: Member legion_context_get_shard_id(legion_runtime_t, legion_context_t, bool) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6299: warning: Member legion_context_get_num_shards(legion_runtime_t, legion_context_t, bool) (function) of file legion_c.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4855: warning: argument 'handle' of command @param is not found in the argument list of DESTROY_ARRAY(DIM)
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4855: warning: The following parameters of DESTROY_ARRAY(DIM) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4713: warning: Member legion_runtime_enable_scheduler_lock(void) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4716: warning: Member legion_runtime_disable_scheduler_lock(void) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4785: warning: Member legion_physical_region_get_field_id(legion_physical_region_t handle, size_t index) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4793: warning: Member legion_physical_region_get_memory(legion_physical_region_t handle, size_t index) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4828: warning: Member legion_accessor_array_1d_read(legion_accessor_array_1d_t handle, legion_ptr_t ptr, void *dst, size_t bytes) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4842: warning: Member legion_accessor_array_1d_write(legion_accessor_array_1d_t handle, legion_ptr_t ptr, const void *src, size_t bytes) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4856: warning: Member legion_accessor_array_1d_ref(legion_accessor_array_1d_t handle, legion_ptr_t ptr) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6078: warning: Member legion_physical_instance_destroy(legion_physical_instance_t instance) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6306: warning: Member legion_context_get_shard_id(legion_runtime_t, legion_context_t, bool) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6311: warning: Member legion_context_get_num_shards(legion_runtime_t, legion_context_t, bool) (function) of file legion_c.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4867: warning: argument 'handle' of command @param is not found in the argument list of DESTROY_ARRAY(DIM)
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4867: warning: The following parameters of DESTROY_ARRAY(DIM) are not documented:
   parameter 'DIM'
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:645: warning: argument 'handle' of command @param is not found in the argument list of ITERATOR_DESTROY(DIM)
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:645: warning: The following parameters of ITERATOR_DESTROY(DIM) are not documented:
@@ -132,7 +132,7 @@
   parameter 'handle'
   parameter 'color'
   parameter 'start'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4668: warning: argument 'handle' of command @param is not found in the argument list of legion_context_destroy(legion_context_t)
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:4680: warning: argument 'handle' of command @param is not found in the argument list of legion_context_destroy(legion_context_t)
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:2498: warning: The following parameters of legion_dynamic_collective_destroy(legion_runtime_t runtime, legion_context_t ctx, legion_dynamic_collective_t handle) are not documented:
   parameter 'runtime'
   parameter 'ctx'
@@ -178,7 +178,7 @@
   parameter 'runtime'
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:961: warning: The following parameters of legion_index_space_has_parent_index_partition(legion_runtime_t runtime, legion_index_space_t handle) are not documented:
   parameter 'runtime'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:5268: warning: The following parameters of legion_layout_constraint_set_release(legion_runtime_t runtime, legion_layout_constraint_id_t handle) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:5280: warning: The following parameters of legion_layout_constraint_set_release(legion_runtime_t runtime, legion_layout_constraint_id_t handle) are not documented:
   parameter 'runtime'
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:1959: warning: The following parameters of legion_logical_partition_destroy(legion_runtime_t runtime, legion_context_t ctx, legion_logical_partition_t handle) are not documented:
   parameter 'runtime'
@@ -197,18 +197,18 @@
   parameter 'runtime'
   parameter 'ctx'
   parameter 'unordered'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6269: warning: argument 'handle' of command @param is not found in the argument list of legion_mapper_runtime_acquire_instance(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t instance)
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6269: warning: The following parameters of legion_mapper_runtime_acquire_instance(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t instance) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6281: warning: argument 'handle' of command @param is not found in the argument list of legion_mapper_runtime_acquire_instance(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t instance)
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6281: warning: The following parameters of legion_mapper_runtime_acquire_instance(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t instance) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'instance'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6280: warning: argument 'handle' of command @param is not found in the argument list of legion_mapper_runtime_acquire_instances(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t *instances, size_t instances_size)
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6280: warning: The following parameters of legion_mapper_runtime_acquire_instances(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t *instances, size_t instances_size) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6292: warning: argument 'handle' of command @param is not found in the argument list of legion_mapper_runtime_acquire_instances(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t *instances, size_t instances_size)
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6292: warning: The following parameters of legion_mapper_runtime_acquire_instances(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_physical_instance_t *instances, size_t instances_size) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'instances'
   parameter 'instances_size'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6162: warning: The following parameters of legion_mapper_runtime_create_physical_instance_layout_constraint(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_set_t constraints, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, legion_garbage_collection_priority_t priority) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6174: warning: The following parameters of legion_mapper_runtime_create_physical_instance_layout_constraint(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_set_t constraints, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, legion_garbage_collection_priority_t priority) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'target_memory'
@@ -217,7 +217,7 @@
   parameter 'regions_size'
   parameter 'acquire'
   parameter 'priority'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6179: warning: The following parameters of legion_mapper_runtime_create_physical_instance_layout_constraint_id(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_id_t layout_id, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, legion_garbage_collection_priority_t priority) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6191: warning: The following parameters of legion_mapper_runtime_create_physical_instance_layout_constraint_id(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_id_t layout_id, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, legion_garbage_collection_priority_t priority) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'target_memory'
@@ -226,7 +226,7 @@
   parameter 'regions_size'
   parameter 'acquire'
   parameter 'priority'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6196: warning: The following parameters of legion_mapper_runtime_find_or_create_physical_instance_layout_constraint(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_set_t constraints, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool *created, bool acquire, legion_garbage_collection_priority_t priority, bool tight_region_bounds) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6208: warning: The following parameters of legion_mapper_runtime_find_or_create_physical_instance_layout_constraint(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_set_t constraints, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool *created, bool acquire, legion_garbage_collection_priority_t priority, bool tight_region_bounds) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'target_memory'
@@ -237,7 +237,7 @@
   parameter 'acquire'
   parameter 'priority'
   parameter 'tight_region_bounds'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6215: warning: The following parameters of legion_mapper_runtime_find_or_create_physical_instance_layout_constraint_id(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_id_t layout_id, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool *created, bool acquire, legion_garbage_collection_priority_t priority, bool tight_region_bounds) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6227: warning: The following parameters of legion_mapper_runtime_find_or_create_physical_instance_layout_constraint_id(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_id_t layout_id, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool *created, bool acquire, legion_garbage_collection_priority_t priority, bool tight_region_bounds) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'target_memory'
@@ -248,7 +248,7 @@
   parameter 'acquire'
   parameter 'priority'
   parameter 'tight_region_bounds'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6234: warning: The following parameters of legion_mapper_runtime_find_physical_instance_layout_constraint(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_set_t constraints, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, bool tight_region_bounds) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6246: warning: The following parameters of legion_mapper_runtime_find_physical_instance_layout_constraint(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_set_t constraints, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, bool tight_region_bounds) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'target_memory'
@@ -257,7 +257,7 @@
   parameter 'regions_size'
   parameter 'acquire'
   parameter 'tight_region_bounds'
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6251: warning: The following parameters of legion_mapper_runtime_find_physical_instance_layout_constraint_id(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_id_t layout_id, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, bool tight_region_bounds) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:6263: warning: The following parameters of legion_mapper_runtime_find_physical_instance_layout_constraint_id(legion_mapper_runtime_t runtime, legion_mapper_context_t ctx, legion_memory_t target_memory, legion_layout_constraint_id_t layout_id, const legion_logical_region_t *regions, size_t regions_size, legion_physical_instance_t *result, bool acquire, bool tight_region_bounds) are not documented:
   parameter 'runtime'
   parameter 'ctx'
   parameter 'target_memory'
@@ -2012,8 +2012,8 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:7286: warning: Member select_tunable_value(Context ctx, const TunableLauncher &launcher) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:7318: warning: Member get_local_task_variable(Context ctx, LocalVariableID id) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:7333: warning: Member set_local_task_variable(Context ctx, LocalVariableID id, const T *value, void(*destructor)(void *)=NULL) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9158: warning: Member get_shard_id(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9161: warning: Member get_num_shards(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9174: warning: Member get_shard_id(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9177: warning: Member get_num_shards(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:4212: warning: Member Runtime(Internal::Runtime *rt) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:7545: warning: argument 'handle' of command @param is not found in the argument list of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false)
 /home/eslaught/jekyll/_legion/runtime/legion.h:7545: warning: The following parameters of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false) are not documented:
@@ -2077,8 +2077,8 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:6925: warning: argument 'pred' of command @param is not found in the argument list of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p)
 /home/eslaught/jekyll/_legion/runtime/legion.h:6925: warning: The following parameters of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p) are not documented:
   parameter 'p'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9068: warning: argument 'processor' of command @param is not found in the argument list of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9068: warning: The following parameters of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9076: warning: argument 'processor' of command @param is not found in the argument list of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9076: warning: The following parameters of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC) are not documented:
   parameter 'p'
 /home/eslaught/jekyll/_legion/runtime/legion.h:6030: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c)
 /home/eslaught/jekyll/_legion/runtime/legion.h:6030: warning: The following parameters of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c) are not documented:
@@ -2133,16 +2133,16 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:7502: warning: argument 'enclosing' of command @param is not found in the argument list of Legion::Runtime::total_shards(Context ctx)
 /home/eslaught/jekyll/_legion/runtime/legion.h:7502: warning: The following parameters of Legion::Runtime::total_shards(Context ctx) are not documented:
   parameter 'ctx'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9179: warning: Member ColoringSerializer(const Coloring &c) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9181: warning: Member legion_buffer_size(void) const  (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9182: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9183: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9185: warning: Member ref(void) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9198: warning: Member DomainColoringSerializer(const DomainColoring &c) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9200: warning: Member legion_buffer_size(void) const  (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9201: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9202: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9204: warning: Member ref(void) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9195: warning: Member ColoringSerializer(const Coloring &c) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9197: warning: Member legion_buffer_size(void) const  (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9198: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9199: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9201: warning: Member ref(void) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9214: warning: Member DomainColoringSerializer(const DomainColoring &c) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9216: warning: Member legion_buffer_size(void) const  (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9217: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9218: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9220: warning: Member ref(void) (function) of class Legion::DomainColoringSerializer is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2499: warning: Member legion_buffer_size(void) (function) of class Legion::Unserializable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2500: warning: Member legion_serialize(void *buffer) (function) of class Legion::Unserializable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2501: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::Unserializable is not documented.

@@ -167,8 +167,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_profiling_response_base.html">Legion::Internal::ProfilingResponseBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_lg_task_args.html">Legion::Internal::LgTaskArgs&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_index_space_operation_t.html">Legion::Internal::IndexSpaceOperationT&lt; DIM, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_index_space_union.html">Legion::Internal::IndexSpaceUnion&lt; DIM, T &gt;</a></td></tr>
@@ -182,6 +180,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_index_part_node_t.html">Legion::Internal::IndexPartNodeT&lt; DIM, T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_color_space_iterator_t.html">Legion::Internal::ColorSpaceIteratorT&lt; DIM, T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_lg_task_args.html">Legion::Internal::LgTaskArgs&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_n_t___template_helper.html">Legion::Internal::NT_TemplateHelper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -958,203 +958,202 @@ Enumerations</h2></td></tr>
 <b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_REQUEST</b>, 
 <b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_INVALIDATION</b>, 
-<b>SEND_INDEX_SPACE_GENERATE_COLOR_REQUEST</b>, 
+&#160;&#160;<b>SEND_INDEX_SPACE_GENERATE_COLOR_REQUEST</b>, 
 <b>SEND_INDEX_SPACE_GENERATE_COLOR_RESPONSE</b>, 
 <b>SEND_INDEX_SPACE_RELEASE_COLOR</b>, 
+<b>SEND_INDEX_PARTITION_NOTIFICATION</b>, 
 <br/>
-&#160;&#160;<b>SEND_INDEX_PARTITION_NOTIFICATION</b>, 
-<b>SEND_INDEX_PARTITION_REQUEST</b>, 
+&#160;&#160;<b>SEND_INDEX_PARTITION_REQUEST</b>, 
 <b>SEND_INDEX_PARTITION_RETURN</b>, 
 <b>SEND_INDEX_PARTITION_CHILD_REQUEST</b>, 
+<b>SEND_INDEX_PARTITION_CHILD_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_INDEX_PARTITION_CHILD_RESPONSE</b>, 
-<b>SEND_INDEX_PARTITION_DISJOINT_UPDATE</b>, 
+&#160;&#160;<b>SEND_INDEX_PARTITION_DISJOINT_UPDATE</b>, 
 <b>SEND_FIELD_SPACE_NODE</b>, 
 <b>SEND_FIELD_SPACE_REQUEST</b>, 
+<b>SEND_FIELD_SPACE_RETURN</b>, 
 <br/>
-&#160;&#160;<b>SEND_FIELD_SPACE_RETURN</b>, 
-<b>SEND_FIELD_SPACE_ALLOCATOR_REQUEST</b>, 
+&#160;&#160;<b>SEND_FIELD_SPACE_ALLOCATOR_REQUEST</b>, 
 <b>SEND_FIELD_SPACE_ALLOCATOR_RESPONSE</b>, 
 <b>SEND_FIELD_SPACE_ALLOCATOR_INVALIDATION</b>, 
+<b>SEND_FIELD_SPACE_ALLOCATOR_FLUSH</b>, 
 <br/>
-&#160;&#160;<b>SEND_FIELD_SPACE_ALLOCATOR_FLUSH</b>, 
-<b>SEND_FIELD_SPACE_ALLOCATOR_FREE</b>, 
+&#160;&#160;<b>SEND_FIELD_SPACE_ALLOCATOR_FREE</b>, 
 <b>SEND_FIELD_SPACE_INFOS_REQUEST</b>, 
 <b>SEND_FIELD_SPACE_INFOS_RESPONSE</b>, 
+<b>SEND_FIELD_ALLOC_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_FIELD_ALLOC_REQUEST</b>, 
-<b>SEND_FIELD_SIZE_UPDATE</b>, 
+&#160;&#160;<b>SEND_FIELD_SIZE_UPDATE</b>, 
 <b>SEND_FIELD_FREE</b>, 
 <b>SEND_FIELD_FREE_INDEXES</b>, 
+<b>SEND_FIELD_SPACE_LAYOUT_INVALIDATION</b>, 
 <br/>
-&#160;&#160;<b>SEND_FIELD_SPACE_LAYOUT_INVALIDATION</b>, 
-<b>SEND_LOCAL_FIELD_ALLOC_REQUEST</b>, 
+&#160;&#160;<b>SEND_LOCAL_FIELD_ALLOC_REQUEST</b>, 
 <b>SEND_LOCAL_FIELD_ALLOC_RESPONSE</b>, 
 <b>SEND_LOCAL_FIELD_FREE</b>, 
+<b>SEND_LOCAL_FIELD_UPDATE</b>, 
 <br/>
-&#160;&#160;<b>SEND_LOCAL_FIELD_UPDATE</b>, 
-<b>SEND_TOP_LEVEL_REGION_REQUEST</b>, 
+&#160;&#160;<b>SEND_TOP_LEVEL_REGION_REQUEST</b>, 
 <b>SEND_TOP_LEVEL_REGION_RETURN</b>, 
 <b>INDEX_SPACE_DESTRUCTION_MESSAGE</b>, 
+<b>INDEX_PARTITION_DESTRUCTION_MESSAGE</b>, 
 <br/>
-&#160;&#160;<b>INDEX_PARTITION_DESTRUCTION_MESSAGE</b>, 
-<b>FIELD_SPACE_DESTRUCTION_MESSAGE</b>, 
+&#160;&#160;<b>FIELD_SPACE_DESTRUCTION_MESSAGE</b>, 
 <b>LOGICAL_REGION_DESTRUCTION_MESSAGE</b>, 
 <b>INDIVIDUAL_REMOTE_COMPLETE</b>, 
+<b>INDIVIDUAL_REMOTE_COMMIT</b>, 
 <br/>
-&#160;&#160;<b>INDIVIDUAL_REMOTE_COMMIT</b>, 
-<b>SLICE_REMOTE_MAPPED</b>, 
+&#160;&#160;<b>SLICE_REMOTE_MAPPED</b>, 
 <b>SLICE_REMOTE_COMPLETE</b>, 
 <b>SLICE_REMOTE_COMMIT</b>, 
+<b>SLICE_FIND_INTRA_DEP</b>, 
 <br/>
-&#160;&#160;<b>SLICE_FIND_INTRA_DEP</b>, 
-<b>SLICE_RECORD_INTRA_DEP</b>, 
+&#160;&#160;<b>SLICE_RECORD_INTRA_DEP</b>, 
 <b>SLICE_COLLECTIVE_REQUEST</b>, 
 <b>SLICE_COLLECTIVE_RESPONSE</b>, 
+<b>DISTRIBUTED_REMOTE_REGISTRATION</b>, 
 <br/>
-&#160;&#160;<b>DISTRIBUTED_REMOTE_REGISTRATION</b>, 
-<b>DISTRIBUTED_VALID_UPDATE</b>, 
+&#160;&#160;<b>DISTRIBUTED_VALID_UPDATE</b>, 
 <b>DISTRIBUTED_GC_UPDATE</b>, 
 <b>DISTRIBUTED_CREATE_ADD</b>, 
+<b>DISTRIBUTED_CREATE_REMOVE</b>, 
 <br/>
-&#160;&#160;<b>DISTRIBUTED_CREATE_REMOVE</b>, 
-<b>DISTRIBUTED_UNREGISTER</b>, 
+&#160;&#160;<b>DISTRIBUTED_UNREGISTER</b>, 
 <b>SEND_ATOMIC_RESERVATION_REQUEST</b>, 
 <b>SEND_ATOMIC_RESERVATION_RESPONSE</b>, 
+<b>SEND_BACK_LOGICAL_STATE</b>, 
 <br/>
-&#160;&#160;<b>SEND_BACK_LOGICAL_STATE</b>, 
-<b>SEND_MATERIALIZED_VIEW</b>, 
+&#160;&#160;<b>SEND_MATERIALIZED_VIEW</b>, 
 <b>SEND_FILL_VIEW</b>, 
 <b>SEND_PHI_VIEW</b>, 
+<b>SEND_REDUCTION_VIEW</b>, 
 <br/>
-&#160;&#160;<b>SEND_REDUCTION_VIEW</b>, 
-<b>SEND_INSTANCE_MANAGER</b>, 
+&#160;&#160;<b>SEND_INSTANCE_MANAGER</b>, 
 <b>SEND_COLLECTIVE_MANAGER</b>, 
 <b>SEND_COLLECTIVE_MESSAGE</b>, 
+<b>SEND_CREATE_SHADOW_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_CREATE_SHADOW_REQUEST</b>, 
-<b>SEND_CREATE_SHADOW_RESPONSE</b>, 
+&#160;&#160;<b>SEND_CREATE_SHADOW_RESPONSE</b>, 
 <b>SEND_CREATE_TOP_VIEW_REQUEST</b>, 
 <b>SEND_CREATE_TOP_VIEW_RESPONSE</b>, 
+<b>SEND_VIEW_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_VIEW_REQUEST</b>, 
-<b>SEND_VIEW_REGISTER_USER</b>, 
+&#160;&#160;<b>SEND_VIEW_REGISTER_USER</b>, 
 <b>SEND_VIEW_FIND_COPY_PRE_REQUEST</b>, 
 <b>SEND_VIEW_FIND_COPY_PRE_RESPONSE</b>, 
+<b>SEND_VIEW_ADD_COPY_USER</b>, 
 <br/>
-&#160;&#160;<b>SEND_VIEW_ADD_COPY_USER</b>, 
-<b>SEND_VIEW_REPLICATION_REQUEST</b>, 
+&#160;&#160;<b>SEND_VIEW_REPLICATION_REQUEST</b>, 
 <b>SEND_VIEW_REPLICATION_RESPONSE</b>, 
 <b>SEND_VIEW_REPLICATION_REMOVAL</b>, 
+<b>SEND_MANAGER_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_MANAGER_REQUEST</b>, 
-<b>SEND_FUTURE_RESULT</b>, 
+&#160;&#160;<b>SEND_FUTURE_RESULT</b>, 
 <b>SEND_FUTURE_SUBSCRIPTION</b>, 
 <b>SEND_FUTURE_NOTIFICATION</b>, 
+<b>SEND_FUTURE_BROADCAST</b>, 
 <br/>
-&#160;&#160;<b>SEND_FUTURE_BROADCAST</b>, 
-<b>SEND_FUTURE_MAP_REQUEST</b>, 
+&#160;&#160;<b>SEND_FUTURE_MAP_REQUEST</b>, 
 <b>SEND_FUTURE_MAP_RESPONSE</b>, 
 <b>SEND_MAPPER_MESSAGE</b>, 
+<b>SEND_MAPPER_BROADCAST</b>, 
 <br/>
-&#160;&#160;<b>SEND_MAPPER_BROADCAST</b>, 
-<b>SEND_TASK_IMPL_SEMANTIC_REQ</b>, 
+&#160;&#160;<b>SEND_TASK_IMPL_SEMANTIC_REQ</b>, 
 <b>SEND_INDEX_SPACE_SEMANTIC_REQ</b>, 
 <b>SEND_INDEX_PARTITION_SEMANTIC_REQ</b>, 
+<b>SEND_FIELD_SPACE_SEMANTIC_REQ</b>, 
 <br/>
-&#160;&#160;<b>SEND_FIELD_SPACE_SEMANTIC_REQ</b>, 
-<b>SEND_FIELD_SEMANTIC_REQ</b>, 
+&#160;&#160;<b>SEND_FIELD_SEMANTIC_REQ</b>, 
 <b>SEND_LOGICAL_REGION_SEMANTIC_REQ</b>, 
 <b>SEND_LOGICAL_PARTITION_SEMANTIC_REQ</b>, 
+<b>SEND_TASK_IMPL_SEMANTIC_INFO</b>, 
 <br/>
-&#160;&#160;<b>SEND_TASK_IMPL_SEMANTIC_INFO</b>, 
-<b>SEND_INDEX_SPACE_SEMANTIC_INFO</b>, 
+&#160;&#160;<b>SEND_INDEX_SPACE_SEMANTIC_INFO</b>, 
 <b>SEND_INDEX_PARTITION_SEMANTIC_INFO</b>, 
 <b>SEND_FIELD_SPACE_SEMANTIC_INFO</b>, 
+<b>SEND_FIELD_SEMANTIC_INFO</b>, 
 <br/>
-&#160;&#160;<b>SEND_FIELD_SEMANTIC_INFO</b>, 
-<b>SEND_LOGICAL_REGION_SEMANTIC_INFO</b>, 
+&#160;&#160;<b>SEND_LOGICAL_REGION_SEMANTIC_INFO</b>, 
 <b>SEND_LOGICAL_PARTITION_SEMANTIC_INFO</b>, 
 <b>SEND_REMOTE_CONTEXT_REQUEST</b>, 
+<b>SEND_REMOTE_CONTEXT_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_REMOTE_CONTEXT_RESPONSE</b>, 
-<b>SEND_REMOTE_CONTEXT_RELEASE</b>, 
+&#160;&#160;<b>SEND_REMOTE_CONTEXT_RELEASE</b>, 
 <b>SEND_REMOTE_CONTEXT_FREE</b>, 
 <b>SEND_REMOTE_CONTEXT_PHYSICAL_REQUEST</b>, 
+<b>SEND_REMOTE_CONTEXT_PHYSICAL_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_REMOTE_CONTEXT_PHYSICAL_RESPONSE</b>, 
-<b>SEND_COMPUTE_EQUIVALENCE_SETS_REQUEST</b>, 
+&#160;&#160;<b>SEND_COMPUTE_EQUIVALENCE_SETS_REQUEST</b>, 
 <b>SEND_EQUIVALENCE_SET_REQUEST</b>, 
 <b>SEND_EQUIVALENCE_SET_RESPONSE</b>, 
+<b>SEND_EQUIVALENCE_SET_SUBSET_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_SUBSET_REQUEST</b>, 
-<b>SEND_EQUIVALENCE_SET_SUBSET_RESPONSE</b>, 
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_SUBSET_RESPONSE</b>, 
 <b>SEND_EQUIVALENCE_SET_SUBSET_UPDATE</b>, 
 <b>SEND_EQUIVALENCE_SET_RAY_TRACE_REQUEST</b>, 
+<b>SEND_EQUIVALENCE_SET_RAY_TRACE_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_RAY_TRACE_RESPONSE</b>, 
-<b>SEND_EQUIVALENCE_SET_MIGRATION</b>, 
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_MIGRATION</b>, 
 <b>SEND_EQUIVALENCE_SET_OWNER_UPDATE</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_REFINEMENT</b>, 
+<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INSTANCES</b>, 
 <br/>
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INSTANCES</b>, 
-<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INVALID</b>, 
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INVALID</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_UPDATES</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_ACQUIRES</b>, 
+<b>SEND_EQUIVALENCE_SET_REMOTE_RELEASES</b>, 
 <br/>
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_RELEASES</b>, 
-<b>SEND_EQUIVALENCE_SET_REMOTE_COPIES_ACROSS</b>, 
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_COPIES_ACROSS</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_OVERWRITES</b>, 
 <b>SEND_EQUIVALENCE_SET_REMOTE_FILTERS</b>, 
+<b>SEND_EQUIVALENCE_SET_REMOTE_INSTANCES</b>, 
 <br/>
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_INSTANCES</b>, 
-<b>SEND_EQUIVALENCE_SET_STALE_UPDATE</b>, 
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_STALE_UPDATE</b>, 
 <b>SEND_INSTANCE_REQUEST</b>, 
 <b>SEND_INSTANCE_RESPONSE</b>, 
+<b>SEND_EXTERNAL_CREATE_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_EXTERNAL_CREATE_REQUEST</b>, 
-<b>SEND_EXTERNAL_CREATE_RESPONSE</b>, 
+&#160;&#160;<b>SEND_EXTERNAL_CREATE_RESPONSE</b>, 
 <b>SEND_EXTERNAL_ATTACH</b>, 
 <b>SEND_EXTERNAL_DETACH</b>, 
+<b>SEND_GC_PRIORITY_UPDATE</b>, 
 <br/>
-&#160;&#160;<b>SEND_GC_PRIORITY_UPDATE</b>, 
-<b>SEND_NEVER_GC_RESPONSE</b>, 
+&#160;&#160;<b>SEND_NEVER_GC_RESPONSE</b>, 
 <b>SEND_ACQUIRE_REQUEST</b>, 
 <b>SEND_ACQUIRE_RESPONSE</b>, 
+<b>SEND_VARIANT_BROADCAST</b>, 
 <br/>
-&#160;&#160;<b>SEND_VARIANT_BROADCAST</b>, 
-<b>SEND_CONSTRAINT_REQUEST</b>, 
+&#160;&#160;<b>SEND_CONSTRAINT_REQUEST</b>, 
 <b>SEND_CONSTRAINT_RESPONSE</b>, 
 <b>SEND_CONSTRAINT_RELEASE</b>, 
+<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
 <br/>
-&#160;&#160;<b>SEND_TOP_LEVEL_TASK_REQUEST</b>, 
-<b>SEND_TOP_LEVEL_TASK_COMPLETE</b>, 
+&#160;&#160;<b>SEND_TOP_LEVEL_TASK_COMPLETE</b>, 
 <b>SEND_MPI_RANK_EXCHANGE</b>, 
 <b>SEND_LIBRARY_MAPPER_REQUEST</b>, 
+<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_LIBRARY_MAPPER_RESPONSE</b>, 
-<b>SEND_LIBRARY_TRACE_REQUEST</b>, 
+&#160;&#160;<b>SEND_LIBRARY_TRACE_REQUEST</b>, 
 <b>SEND_LIBRARY_TRACE_RESPONSE</b>, 
 <b>SEND_LIBRARY_PROJECTION_REQUEST</b>, 
+<b>SEND_LIBRARY_PROJECTION_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_LIBRARY_PROJECTION_RESPONSE</b>, 
-<b>SEND_LIBRARY_TASK_REQUEST</b>, 
+&#160;&#160;<b>SEND_LIBRARY_TASK_REQUEST</b>, 
 <b>SEND_LIBRARY_TASK_RESPONSE</b>, 
 <b>SEND_LIBRARY_REDOP_REQUEST</b>, 
+<b>SEND_LIBRARY_REDOP_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_LIBRARY_REDOP_RESPONSE</b>, 
-<b>SEND_LIBRARY_SERDEZ_REQUEST</b>, 
+&#160;&#160;<b>SEND_LIBRARY_SERDEZ_REQUEST</b>, 
 <b>SEND_LIBRARY_SERDEZ_RESPONSE</b>, 
 <b>SEND_REMOTE_OP_REPORT_UNINIT</b>, 
+<b>SEND_REMOTE_OP_PROFILING_COUNT_UPDATE</b>, 
 <br/>
-&#160;&#160;<b>SEND_REMOTE_OP_PROFILING_COUNT_UPDATE</b>, 
-<b>SEND_REMOTE_TRACE_UPDATE</b>, 
+&#160;&#160;<b>SEND_REMOTE_TRACE_UPDATE</b>, 
 <b>SEND_REMOTE_TRACE_RESPONSE</b>, 
 <b>SEND_REMOTE_TRACE_EQ_REQUEST</b>, 
+<b>SEND_REMOTE_TRACE_EQ_RESPONSE</b>, 
 <br/>
-&#160;&#160;<b>SEND_REMOTE_TRACE_EQ_RESPONSE</b>, 
-<b>SEND_SHUTDOWN_NOTIFICATION</b>, 
+&#160;&#160;<b>SEND_SHUTDOWN_NOTIFICATION</b>, 
 <b>SEND_SHUTDOWN_RESPONSE</b>, 
 <b>LAST_SEND_KIND</b>
 <br/>
@@ -1393,6 +1392,9 @@ __thread::legion_unique_id_t&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memitem:a1f701c91966c33d16d6b17139bf6be3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f701c91966c33d16d6b17139bf6be3d"></a>
 __thread unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::inside_registration_callback</b></td></tr>
 <tr class="separator:a1f701c91966c33d16d6b17139bf6be3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a3d8ca812b31bda43f5194586e16b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81a3d8ca812b31bda43f5194586e16b1"></a>
+__thread ImplicitReferenceTracker *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_reference_tracker</b></td></tr>
+<tr class="separator:a81a3d8ca812b31bda43f5194586e16b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00791b815b40df4cde86a44d0df2f463"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00791b815b40df4cde86a44d0df2f463"></a>
 const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::INVALID_COLOR</b> = LLONG_MAX</td></tr>
 <tr class="separator:a00791b815b40df4cde86a44d0df2f463"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1427,7 +1429,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 15 2021 10:46:38 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 4 2022 11:23:49 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

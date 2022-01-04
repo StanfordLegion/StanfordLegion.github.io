@@ -184,6 +184,7 @@
       <li><a href="#treichler_thesis">Sean Treichler’s Thesis (2016)</a> [<a href="/pdfs/treichler_thesis.pdf">PDF</a>]</li>
       <li><a href="#slaughter_thesis">Elliott Slaughter’s Thesis (2017)</a> [<a href="/pdfs/slaughter_thesis.pdf">PDF</a>]</li>
       <li><a href="#lee_thesis">Wonchan Lee’s Thesis (2019)</a> [<a href="/pdfs/lee_thesis.pdf">PDF</a>]</li>
+      <li><a href="#soi_thesis">Rupanshu Soi’s Thesis (2021)</a> [<a href="/pdfs/soi_thesis.pdf">PDF</a>]</li>
     </ul>
   </li>
 </ul>
@@ -897,13 +898,43 @@ significantly improves the efficiency of tasking, and thereby brings
 the strong scalability of explicit parallelism to implicit task
 parallelism.</p>
 
+<p><a name="soi_thesis"></a><strong>Scaling Implicit Parallelism with Index Launches</strong> <a href="/pdfs/soi_thesis.pdf">PDF</a><br />
+<em>Rupanshu Soi</em><br />
+December 2021<br />
+<strong>Abstract:</strong>Task-based programming systems are now widely used to
+program modern supercomputers. Since these systems need to achieve
+efficient scalable execution while being suitable for a wide variety
+of application domains, their core abstraction, the task graph, needs
+to have a scalable but expressive representation.</p>
+
+<p>We present index launches, a technique, embedded in a general
+task-based framework, to collapse a task graph to obtain a more
+efficient representation. Leveraging a hybrid program analysis, we
+show how a compiler can support index launches by providing safety
+guarantees in virtually every case of practical importance.</p>
+
+<p>In addition to the support for forall-style parallelism, we extend
+index launches in two primary directions. First, we introduce cross
+products, a novel abstraction for nested data partitioning, and
+describe how to incorporate them in index launches. Second, to enable
+index launches to represent limited forms of pipeline parallelism, we
+present ordered launches, and develop the program analysis required
+for an efficient implementation.</p>
+
+<p>Our implementation of index launches is in Regent, a high-productivity
+programming language for distributed computing. Using the Piz Daint
+supercomputer, we evaluate the performance of several scientific
+applications written in Regent, and show that index launches lead to
+improved performance at the scales of contemporary and upcoming
+high-performance machines.</p>
+
     </div><!-- /.article-wrap -->
   </article>
 </div><!-- /#index -->
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2021 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2022 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

@@ -109,9 +109,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a80a9438014150bc71b0c5875b229950f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>MAX_RECT_DIM</b> = LEGION_MAX_DIM
- }</td></tr>
-<tr class="separator:a80a9438014150bc71b0c5875b229950f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6a4939be8d6a8e8531e6619106d39d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6a4939be8d6a8e8531e6619106d39d9"></a>
 typedef ::realm_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>IDType</b></td></tr>
 <tr class="separator:ad6a4939be8d6a8e8531e6619106d39d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,12 +186,12 @@ template&lt;int DIM, typename T &gt; </td></tr>
 <tr class="memitem:ab175fb0799b3cdcb31a53cccc07ce736"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab175fb0799b3cdcb31a53cccc07ce736"></a>
 __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_valid</b> (void) const </td></tr>
 <tr class="separator:ab175fb0799b3cdcb31a53cccc07ce736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad6975342b13ecbf3ba2144e73a066d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad6975342b13ecbf3ba2144e73a066d3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (<a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> point) const </td></tr>
-<tr class="separator:aad6975342b13ecbf3ba2144e73a066d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73d880dce8f00a97b431d12100bc3649"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73d880dce8f00a97b431d12100bc3649"></a>
-__CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains_bounds_only</b> (<a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> point) const </td></tr>
-<tr class="separator:a73d880dce8f00a97b431d12100bc3649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1da7999f099bbab1ec56f9dd292a39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c1da7999f099bbab1ec56f9dd292a39"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point) const </td></tr>
+<tr class="separator:a8c1da7999f099bbab1ec56f9dd292a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cbaf21ec728892fc50ceef15752ef55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cbaf21ec728892fc50ceef15752ef55"></a>
+__CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains_bounds_only</b> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point) const </td></tr>
+<tr class="separator:a6cbaf21ec728892fc50ceef15752ef55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad86bb6e8085af2c583da8f79f060e6aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad86bb6e8085af2c583da8f79f060e6aa"></a>
 __CUDA_HD__ int&#160;</td><td class="memItemRight" valign="bottom"><b>get_dim</b> (void) const </td></tr>
 <tr class="separator:ad86bb6e8085af2c583da8f79f060e6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,6 +237,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a65612cace3ae7a5f86b3a14e9b9ad819"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65612cace3ae7a5f86b3a14e9b9ad819"></a>
 IDType&#160;</td><td class="memItemRight" valign="bottom"><b>is_id</b></td></tr>
 <tr class="separator:a65612cace3ae7a5f86b3a14e9b9ad819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30127d8715383d36a19c43166ffa84c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30127d8715383d36a19c43166ffa84c7"></a>
+TypeTag&#160;</td><td class="memItemRight" valign="bottom"><b>is_type</b></td></tr>
+<tr class="separator:a30127d8715383d36a19c43166ffa84c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab94e4cf8c2e764b049614880f35ae4d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab94e4cf8c2e764b049614880f35ae4d5"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>dim</b></td></tr>
 <tr class="separator:ab94e4cf8c2e764b049614880f35ae4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,6 +249,9 @@ coord_t&#160;</td><td class="memItemRight" valign="bottom"><b>rect_data</b> [2 *
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
+<tr class="memitem:aecb7dd48e7e54b13884ae807d7666da4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecb7dd48e7e54b13884ae807d7666da4"></a>
+static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_RECT_DIM</b> = LEGION_MAX_DIM</td></tr>
+<tr class="separator:aecb7dd48e7e54b13884ae807d7666da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c862e80f748d2bb14075b56ae6db05a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c862e80f748d2bb14075b56ae6db05a"></a>
 static const <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NO_DOMAIN</b></td></tr>
 <tr class="separator:a3c862e80f748d2bb14075b56ae6db05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,7 +264,7 @@ static const <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 4 2022 13:07:13 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 6 2022 09:03:43 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

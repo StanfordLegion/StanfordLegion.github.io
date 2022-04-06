@@ -89,10 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_legion_1_1_domain_point-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -106,12 +107,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_domain_point_1_1_s_t_l_comparator.html">STLComparator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a2bc964da43cb155d75213691618f0c5b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>MAX_POINT_DIM</b> = LEGION_MAX_DIM
- }</td></tr>
-<tr class="separator:a2bc964da43cb155d75213691618f0c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -251,6 +246,19 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>dim</b></td></tr>
 coord_t&#160;</td><td class="memItemRight" valign="bottom"><b>point_data</b> [MAX_POINT_DIM]</td></tr>
 <tr class="separator:a5311258cb5549e8d2e6b4dd4c52c489b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac99ac66ec0b4138a012feabbab5ac216"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac99ac66ec0b4138a012feabbab5ac216"></a>
+static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_POINT_DIM</b> = LEGION_MAX_DIM</td></tr>
+<tr class="separator:ac99ac66ec0b4138a012feabbab5ac216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a0fee7ac786b90382a2d4af81b769f9cf"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0fee7ac786b90382a2d4af81b769f9cf"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0fee7ac786b90382a2d4af81b769f9cf"><td class="memTemplItemLeft" align="right" valign="top">static __CUDA_HD__ coord_t&#160;</td><td class="memTemplItemRight" valign="bottom"><b>check_for_overflow</b> (const T &amp;value)</td></tr>
+<tr class="separator:a0fee7ac786b90382a2d4af81b769f9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a39b0c73b569d2eb4380e1ace998dd0c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39b0c73b569d2eb4380e1ace998dd0c2"></a>
@@ -265,7 +273,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 4 2022 13:07:13 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 6 2022 09:03:43 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -230,6 +230,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_input_args.html">InputArgs</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_registration_callback_args.html">RegistrationCallbackArgs</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_projection_functor.html">ProjectionFunctor</a></td></tr>
@@ -557,6 +559,9 @@ typedef ::legion_internal_color_t&#160;</td><td class="memItemRight" valign="bot
 <tr class="memitem:aa1227a13655b092e89162d1b08e7fbb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1227a13655b092e89162d1b08e7fbb1"></a>
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>RegistrationCallbackFnptr</b> )(Machine machine, <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *rt, const std::set&lt; Processor &gt; &amp;local_procs)</td></tr>
 <tr class="separator:aa1227a13655b092e89162d1b08e7fbb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48dd627537b5b89bcf362ab6ceda3249"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48dd627537b5b89bcf362ab6ceda3249"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>RegistrationWithArgsCallbackFnptr</b> )(const <a class="el" href="struct_legion_1_1_registration_callback_args.html">RegistrationCallbackArgs</a> &amp;args)</td></tr>
+<tr class="separator:a48dd627537b5b89bcf362ab6ceda3249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f119aa8e2365b6ac8bce1840981b0ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f119aa8e2365b6ac8bce1840981b0ac"></a>
 typedef <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>(*&#160;</td><td class="memItemRight" valign="bottom"><b>RegionProjectionFnptr</b> )(<a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;, <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *rt)</td></tr>
 <tr class="separator:a9f119aa8e2365b6ac8bce1840981b0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -621,7 +626,7 @@ template&lt;int DIM, typename T  = coord_t&gt; </td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 4 2022 13:07:12 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 6 2022 09:03:42 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

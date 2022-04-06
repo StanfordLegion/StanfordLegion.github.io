@@ -8,6 +8,7 @@ var searchData=
   ['coloringserializer',['ColoringSerializer',['../class_legion_1_1_coloring_serializer.html',1,'Legion']]],
   ['colorspaceiteratort',['ColorSpaceIteratorT',['../class_legion_1_1_internal_1_1_color_space_iterator_t.html',1,'Legion::Internal']]],
   ['complete_5fframe',['complete_frame',['../class_legion_1_1_runtime.html#a10d3efcf0d027029a962c618ad6341f6',1,'Legion::Runtime']]],
+  ['compoundbitmask',['CompoundBitMask',['../class_compound_bit_mask.html',1,'']]],
   ['configure_5fmpi_5finteroperability',['configure_MPI_interoperability',['../class_legion_1_1_runtime.html#a5fd293aa87d221487f044562a81bddb4',1,'Legion::Runtime']]],
   ['construct_5ffuture_5fmap',['construct_future_map',['../class_legion_1_1_runtime.html#a04ef382f66b480e80d87607641912573',1,'Legion::Runtime::construct_future_map(Context ctx, IndexSpace domain, const std::map&lt; DomainPoint, UntypedBuffer &gt; &amp;data, bool collective=false, ShardingID sid=0, bool implicit_sharding=false)'],['../class_legion_1_1_runtime.html#a48747a174d705ab278598b8b36dd27fe',1,'Legion::Runtime::construct_future_map(Context ctx, IndexSpace domain, const std::map&lt; DomainPoint, Future &gt; &amp;futures, bool collective=false, ShardingID sid=0, bool implicit_sharding=false)']]],
   ['copy',['Copy',['../class_legion_1_1_copy.html',1,'Legion']]],

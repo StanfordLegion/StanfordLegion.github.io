@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['perform_5fregistration_5fcallback',['perform_registration_callback',['../class_legion_1_1_runtime.html#ac9b2f41e39bff2e64956d40ab1732477',1,'Legion::Runtime']]],
   ['predicate_5fand',['predicate_and',['../class_legion_1_1_runtime.html#afd38898e2abbcc214558170841cd15ca',1,'Legion::Runtime']]],
   ['predicate_5fnot',['predicate_not',['../class_legion_1_1_runtime.html#a9bf64228ebfbebe041c98892cda411a1',1,'Legion::Runtime']]],
   ['predicate_5for',['predicate_or',['../class_legion_1_1_runtime.html#aa5bf04780fafcd9e370a92fa36d03d4f',1,'Legion::Runtime']]],

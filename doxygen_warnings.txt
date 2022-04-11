@@ -1,32 +1,32 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:579: warning: Compound Legion::RectInDomainIterator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:756: warning: Compound Legion::Span::iterator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2148: warning: Compound Legion::Internal::RtUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1845: warning: Compound Legion::Internal::NT_TemplateHelper is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2106: warning: Compound Legion::Internal::ApUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2166: warning: Compound Legion::Internal::RtUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1863: warning: Compound Legion::Internal::NT_TemplateHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2124: warning: Compound Legion::Internal::ApUserEvent is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:651: warning: Compound Legion::CContext is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:378: warning: Compound legion_slice_task_input_t is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2119: warning: Compound Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1869: warning: Compound Legion::Internal::NT_TemplateHelper::DimHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2137: warning: Compound Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1887: warning: Compound Legion::Internal::NT_TemplateHelper::DimHelper is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:366: warning: Compound Legion::Domain::DomainPointIterator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2136: warning: Compound Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1397: warning: Compound Legion::Internal::ProfilingResponseHandler is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2154: warning: Compound Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1415: warning: Compound Legion::Internal::ProfilingResponseHandler is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:295: warning: Compound legion_byte_offset_t is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:211: warning: Compound Legion::DomainPoint::STLComparator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2359: warning: Compound Legion::Internal::AutoTryLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2221: warning: Compound Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2370: warning: Compound Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2239: warning: Compound Legion::Internal::AutoLock is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:215: warning: Compound Legion::CObjectWrapper::Blockify is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2053: warning: Compound Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1404: warning: Compound Legion::Internal::ProfilingResponseBase is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2521: warning: Compound Legion::Unserializable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2071: warning: Compound Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1422: warning: Compound Legion::Internal::ProfilingResponseBase is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2531: warning: Compound Legion::Unserializable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:600: warning: Compound Legion::PointInDomainIterator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:817: warning: Compound Legion::Span::reverse_iterator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2081: warning: Compound Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2068: warning: Compound Legion::Internal::PredEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2099: warning: Compound Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2086: warning: Compound Legion::Internal::PredEvent is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:927: warning: Compound Legion::DynamicCollective is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:39: warning: Compound Legion::CObjectWrapper is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:697: warning: Compound Legion::TaskMut is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2179: warning: Compound Legion::Internal::LocalLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2161: warning: Compound Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2197: warning: Compound Legion::Internal::LocalLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2179: warning: Compound Legion::Internal::RtBarrier is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:546: warning: Compound Legion::PointInRectIterator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:37: warning: Member __LEGION_RUNTIME_H__ (macro definition) of file legion.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:61: warning: Member LEGION_PRINT_ONCE(runtime, ctx, file, fmt,...) (macro definition) of file legion.h is not documented.
@@ -465,22 +465,22 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:125: warning: Member DomainT (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:417: warning: Member LG_TASK_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:570: warning: Member MAPPER_CALL_NAMES(name) (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:853: warning: Member LG_MESSAGE_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1197: warning: Member RUNTIME_CALL_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1648: warning: Member FRIEND_ALL_RUNTIME_CLASSES (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1735: warning: Member LEGION_EXTERN_LOGGER_DECLARATIONS (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1888: warning: Member LEGION_FIELD_MASK_FIELD_TYPE (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1889: warning: Member LEGION_FIELD_MASK_FIELD_SHIFT (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1890: warning: Member LEGION_FIELD_MASK_FIELD_MASK (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1891: warning: Member LEGION_FIELD_MASK_FIELD_ALL_ONES (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1945: warning: Member LEGION_NODE_MASK_NODE_TYPE (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1946: warning: Member LEGION_NODE_MASK_NODE_SHIFT (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1947: warning: Member LEGION_NODE_MASK_NODE_MASK (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1948: warning: Member LEGION_NODE_MASK_NODE_ALL_ONES (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2000: warning: Member LEGION_PROC_MASK_PROC_TYPE (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2001: warning: Member LEGION_PROC_MASK_PROC_SHIFT (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2002: warning: Member LEGION_PROC_MASK_PROC_MASK (macro definition) of file legion_types.h is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2003: warning: Member LEGION_PROC_MASK_PROC_ALL_ONES (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:862: warning: Member LG_MESSAGE_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1215: warning: Member RUNTIME_CALL_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1666: warning: Member FRIEND_ALL_RUNTIME_CLASSES (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1753: warning: Member LEGION_EXTERN_LOGGER_DECLARATIONS (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1906: warning: Member LEGION_FIELD_MASK_FIELD_TYPE (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1907: warning: Member LEGION_FIELD_MASK_FIELD_SHIFT (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1908: warning: Member LEGION_FIELD_MASK_FIELD_MASK (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1909: warning: Member LEGION_FIELD_MASK_FIELD_ALL_ONES (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1963: warning: Member LEGION_NODE_MASK_NODE_TYPE (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1964: warning: Member LEGION_NODE_MASK_NODE_SHIFT (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1965: warning: Member LEGION_NODE_MASK_NODE_MASK (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1966: warning: Member LEGION_NODE_MASK_NODE_ALL_ONES (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2018: warning: Member LEGION_PROC_MASK_PROC_TYPE (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2019: warning: Member LEGION_PROC_MASK_PROC_SHIFT (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2020: warning: Member LEGION_PROC_MASK_PROC_MASK (macro definition) of file legion_types.h is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2021: warning: Member LEGION_PROC_MASK_PROC_ALL_ONES (macro definition) of file legion_types.h is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:85: warning: Member LegionErrorType (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:86: warning: Member PrivilegeMode (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:87: warning: Member AllocateMode (typedef) of namespace Legion is not documented.
@@ -506,93 +506,93 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:192: warning: Member GenericAccessor (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:194: warning: Member AffineAccessor (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:196: warning: Member MultiAffineAccessor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1602: warning: Member MapperEvent (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1603: warning: Member ProfilingMeasurementID (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1754: warning: Member RealmRuntime (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1755: warning: Member Machine (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1756: warning: Member Memory (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1757: warning: Member Processor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1758: warning: Member ProcessorGroup (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1759: warning: Member CodeDescriptor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1760: warning: Member Reservation (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1761: warning: Member CompletionQueue (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1762: warning: Member ReductionOpID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1763: warning: Member ReductionOp (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1764: warning: Member CustomSerdezID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1765: warning: Member SerdezOp (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1766: warning: Member ProcessorMemoryAffinity (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1767: warning: Member MemoryMemoryAffinity (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1768: warning: Member TypeTag (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1769: warning: Member Logger (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1770: warning: Member coord_t (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1772: warning: Member SerdezOpTable (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1774: warning: Member ReductionOpTable (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1775: warning: Member SerdezInitFnptr)(const ReductionOp *, void *&, size_t &) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1776: warning: Member SerdezFoldFnptr)(const ReductionOp *, void *&, size_t &, const void *) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1778: warning: Member SerdezRedopTable (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1779: warning: Member HandleType (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1780: warning: Member AddressSpace (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1781: warning: Member TaskPriority (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1782: warning: Member GCPriority (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1783: warning: Member Color (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1784: warning: Member FieldID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1785: warning: Member TraceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1786: warning: Member MapperID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1787: warning: Member ContextID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1788: warning: Member InstanceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1789: warning: Member IndexSpaceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1790: warning: Member IndexPartitionID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1791: warning: Member IndexTreeID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1792: warning: Member FieldSpaceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1793: warning: Member GenerationID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1794: warning: Member TypeHandle (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1795: warning: Member ProjectionID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1796: warning: Member ShardingID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1797: warning: Member RegionTreeID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1798: warning: Member DistributedID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1799: warning: Member AddressSpaceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1800: warning: Member TunableID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1801: warning: Member LocalVariableID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1802: warning: Member MappingTagID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1803: warning: Member SemanticTag (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1804: warning: Member VariantID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1805: warning: Member CodeDescriptorID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1806: warning: Member UniqueID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1807: warning: Member VersionID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1808: warning: Member ProjectionEpochID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1809: warning: Member TaskID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1810: warning: Member LayoutConstraintID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1811: warning: Member ReplicationID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1812: warning: Member ShardID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1813: warning: Member LegionColor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1814: warning: Member RegistrationCallbackFnptr)(Machine machine, Runtime *rt, const std::set< Processor > &local_procs) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1816: warning: Member RegistrationWithArgsCallbackFnptr)(const RegistrationCallbackArgs &args) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1818: warning: Member RegionProjectionFnptr)(LogicalRegion parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1820: warning: Member PartitionProjectionFnptr)(LogicalPartition parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1822: warning: Member PredicateFnptr)(const void *, size_t, const std::vector< Future > futures) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1824: warning: Member RealmFnptr)(const void *, size_t, const void *, size_t, Processor) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1828: warning: Member Context (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1831: warning: Member MapperContext (typedef) of namespace Legion::Mapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1832: warning: Member PhysicalInstanceImpl (typedef) of namespace Legion::Mapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1839: warning: Member PhysicalInstance (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1840: warning: Member IndexSpaceExprID (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1841: warning: Member TraceLocalID (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1881: warning: Member Mapper (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1882: warning: Member MappingInstance (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1933: warning: Member FieldMask (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1936: warning: Member FieldPermutation (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1937: warning: Member InstFrac (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1990: warning: Member NodeMask (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1993: warning: Member NodeSet (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2045: warning: Member ProcessorMask (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2513: warning: Member CopySrcDstField (typedef) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member ByteOffset (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2537: warning: Member Coloring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2538: warning: Member DomainColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2539: warning: Member MultiDomainColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2540: warning: Member PointColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2541: warning: Member DomainPointColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2542: warning: Member MultiDomainPointColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1620: warning: Member MapperEvent (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1621: warning: Member ProfilingMeasurementID (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1772: warning: Member RealmRuntime (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1773: warning: Member Machine (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1774: warning: Member Memory (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1775: warning: Member Processor (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1776: warning: Member ProcessorGroup (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1777: warning: Member CodeDescriptor (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1778: warning: Member Reservation (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1779: warning: Member CompletionQueue (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1780: warning: Member ReductionOpID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1781: warning: Member ReductionOp (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1782: warning: Member CustomSerdezID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1783: warning: Member SerdezOp (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1784: warning: Member ProcessorMemoryAffinity (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1785: warning: Member MemoryMemoryAffinity (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1786: warning: Member TypeTag (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1787: warning: Member Logger (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1788: warning: Member coord_t (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1790: warning: Member SerdezOpTable (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1792: warning: Member ReductionOpTable (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1793: warning: Member SerdezInitFnptr)(const ReductionOp *, void *&, size_t &) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1794: warning: Member SerdezFoldFnptr)(const ReductionOp *, void *&, size_t &, const void *) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1796: warning: Member SerdezRedopTable (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1797: warning: Member HandleType (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1798: warning: Member AddressSpace (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1799: warning: Member TaskPriority (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1800: warning: Member GCPriority (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1801: warning: Member Color (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1802: warning: Member FieldID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1803: warning: Member TraceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1804: warning: Member MapperID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1805: warning: Member ContextID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1806: warning: Member InstanceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1807: warning: Member IndexSpaceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1808: warning: Member IndexPartitionID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1809: warning: Member IndexTreeID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1810: warning: Member FieldSpaceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1811: warning: Member GenerationID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1812: warning: Member TypeHandle (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1813: warning: Member ProjectionID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1814: warning: Member ShardingID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1815: warning: Member RegionTreeID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1816: warning: Member DistributedID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1817: warning: Member AddressSpaceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1818: warning: Member TunableID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1819: warning: Member LocalVariableID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1820: warning: Member MappingTagID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1821: warning: Member SemanticTag (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1822: warning: Member VariantID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1823: warning: Member CodeDescriptorID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1824: warning: Member UniqueID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1825: warning: Member VersionID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1826: warning: Member ProjectionEpochID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1827: warning: Member TaskID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1828: warning: Member LayoutConstraintID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1829: warning: Member ReplicationID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1830: warning: Member ShardID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1831: warning: Member LegionColor (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1832: warning: Member RegistrationCallbackFnptr)(Machine machine, Runtime *rt, const std::set< Processor > &local_procs) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1834: warning: Member RegistrationWithArgsCallbackFnptr)(const RegistrationCallbackArgs &args) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1836: warning: Member RegionProjectionFnptr)(LogicalRegion parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1838: warning: Member PartitionProjectionFnptr)(LogicalPartition parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1840: warning: Member PredicateFnptr)(const void *, size_t, const std::vector< Future > futures) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1842: warning: Member RealmFnptr)(const void *, size_t, const void *, size_t, Processor) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1846: warning: Member Context (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1849: warning: Member MapperContext (typedef) of namespace Legion::Mapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1850: warning: Member PhysicalInstanceImpl (typedef) of namespace Legion::Mapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1857: warning: Member PhysicalInstance (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1858: warning: Member IndexSpaceExprID (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1859: warning: Member TraceLocalID (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1899: warning: Member Mapper (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1900: warning: Member MappingInstance (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1951: warning: Member FieldMask (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1954: warning: Member FieldPermutation (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1955: warning: Member InstFrac (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2008: warning: Member NodeMask (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2011: warning: Member NodeSet (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2063: warning: Member ProcessorMask (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member CopySrcDstField (typedef) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2545: warning: Member ByteOffset (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2547: warning: Member Coloring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2548: warning: Member DomainColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2549: warning: Member MultiDomainColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2550: warning: Member PointColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2551: warning: Member DomainPointColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2552: warning: Member MultiDomainPointColoring (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:256: warning: Member ProfilingMeasurementID (enumeration) of namespace Legion::Mapping is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:264: warning: Member OpenState (enumeration) of namespace Legion::Internal is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:284: warning: Member DepPartOpKind (enumeration) of namespace Legion::Internal is not documented.
@@ -601,16 +601,16 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:638: warning: Member LgPriority (enumeration) of namespace Legion::Internal is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:657: warning: Member VirtualChannelKind (enumeration) of namespace Legion::Internal is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:677: warning: Member MessageKind (enumeration) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1049: warning: Member RuntimeCallKind (enumeration) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1345: warning: Member SemanticInfoKind (enumeration) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1619: warning: Member RegistrationCallbackMode (enumeration) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1607: warning: Member implicit_context (variable) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1609: warning: Member implicit_runtime (variable) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1612: warning: Member local_lock_list (variable) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1616: warning: Member implicit_provenance (variable) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1624: warning: Member inside_registration_callback (variable) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1631: warning: Member implicit_reference_tracker (variable) of namespace Legion::Internal is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1837: warning: Member INVALID_COLOR (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1067: warning: Member RuntimeCallKind (enumeration) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1363: warning: Member SemanticInfoKind (enumeration) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1637: warning: Member RegistrationCallbackMode (enumeration) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1625: warning: Member implicit_context (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1627: warning: Member implicit_runtime (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1630: warning: Member local_lock_list (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1634: warning: Member implicit_provenance (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1642: warning: Member inside_registration_callback (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1649: warning: Member implicit_reference_tracker (variable) of namespace Legion::Internal is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1855: warning: Member INVALID_COLOR (variable) of namespace Legion::Internal is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:296: warning: Member offset (variable) of class legion_byte_offset_t is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:237: warning: Member transform (variable) of class legion_domain_affine_transform_t is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c.h:238: warning: Member offset (variable) of class legion_domain_affine_transform_t is not documented.
@@ -691,77 +691,77 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:192: warning: Member GenericAccessor (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:194: warning: Member AffineAccessor (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:196: warning: Member MultiAffineAccessor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1754: warning: Member RealmRuntime (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1755: warning: Member Machine (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1756: warning: Member Memory (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1757: warning: Member Processor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1758: warning: Member ProcessorGroup (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1759: warning: Member CodeDescriptor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1760: warning: Member Reservation (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1761: warning: Member CompletionQueue (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1762: warning: Member ReductionOpID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1763: warning: Member ReductionOp (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1764: warning: Member CustomSerdezID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1765: warning: Member SerdezOp (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1766: warning: Member ProcessorMemoryAffinity (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1767: warning: Member MemoryMemoryAffinity (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1768: warning: Member TypeTag (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1769: warning: Member Logger (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1770: warning: Member coord_t (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1772: warning: Member SerdezOpTable (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1774: warning: Member ReductionOpTable (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1775: warning: Member SerdezInitFnptr)(const ReductionOp *, void *&, size_t &) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1776: warning: Member SerdezFoldFnptr)(const ReductionOp *, void *&, size_t &, const void *) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1778: warning: Member SerdezRedopTable (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1779: warning: Member HandleType (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1780: warning: Member AddressSpace (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1781: warning: Member TaskPriority (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1782: warning: Member GCPriority (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1783: warning: Member Color (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1784: warning: Member FieldID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1785: warning: Member TraceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1786: warning: Member MapperID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1787: warning: Member ContextID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1788: warning: Member InstanceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1789: warning: Member IndexSpaceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1790: warning: Member IndexPartitionID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1791: warning: Member IndexTreeID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1792: warning: Member FieldSpaceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1793: warning: Member GenerationID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1794: warning: Member TypeHandle (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1795: warning: Member ProjectionID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1796: warning: Member ShardingID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1797: warning: Member RegionTreeID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1798: warning: Member DistributedID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1799: warning: Member AddressSpaceID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1800: warning: Member TunableID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1801: warning: Member LocalVariableID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1802: warning: Member MappingTagID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1803: warning: Member SemanticTag (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1804: warning: Member VariantID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1805: warning: Member CodeDescriptorID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1806: warning: Member UniqueID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1807: warning: Member VersionID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1808: warning: Member ProjectionEpochID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1809: warning: Member TaskID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1810: warning: Member LayoutConstraintID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1811: warning: Member ReplicationID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1812: warning: Member ShardID (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1813: warning: Member LegionColor (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1814: warning: Member RegistrationCallbackFnptr)(Machine machine, Runtime *rt, const std::set< Processor > &local_procs) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1816: warning: Member RegistrationWithArgsCallbackFnptr)(const RegistrationCallbackArgs &args) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1818: warning: Member RegionProjectionFnptr)(LogicalRegion parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1820: warning: Member PartitionProjectionFnptr)(LogicalPartition parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1822: warning: Member PredicateFnptr)(const void *, size_t, const std::vector< Future > futures) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1824: warning: Member RealmFnptr)(const void *, size_t, const void *, size_t, Processor) (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1828: warning: Member Context (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member ByteOffset (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2537: warning: Member Coloring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2538: warning: Member DomainColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2539: warning: Member MultiDomainColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2540: warning: Member PointColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2541: warning: Member DomainPointColoring (typedef) of namespace Legion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2542: warning: Member MultiDomainPointColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1772: warning: Member RealmRuntime (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1773: warning: Member Machine (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1774: warning: Member Memory (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1775: warning: Member Processor (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1776: warning: Member ProcessorGroup (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1777: warning: Member CodeDescriptor (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1778: warning: Member Reservation (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1779: warning: Member CompletionQueue (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1780: warning: Member ReductionOpID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1781: warning: Member ReductionOp (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1782: warning: Member CustomSerdezID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1783: warning: Member SerdezOp (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1784: warning: Member ProcessorMemoryAffinity (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1785: warning: Member MemoryMemoryAffinity (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1786: warning: Member TypeTag (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1787: warning: Member Logger (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1788: warning: Member coord_t (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1790: warning: Member SerdezOpTable (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1792: warning: Member ReductionOpTable (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1793: warning: Member SerdezInitFnptr)(const ReductionOp *, void *&, size_t &) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1794: warning: Member SerdezFoldFnptr)(const ReductionOp *, void *&, size_t &, const void *) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1796: warning: Member SerdezRedopTable (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1797: warning: Member HandleType (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1798: warning: Member AddressSpace (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1799: warning: Member TaskPriority (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1800: warning: Member GCPriority (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1801: warning: Member Color (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1802: warning: Member FieldID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1803: warning: Member TraceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1804: warning: Member MapperID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1805: warning: Member ContextID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1806: warning: Member InstanceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1807: warning: Member IndexSpaceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1808: warning: Member IndexPartitionID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1809: warning: Member IndexTreeID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1810: warning: Member FieldSpaceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1811: warning: Member GenerationID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1812: warning: Member TypeHandle (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1813: warning: Member ProjectionID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1814: warning: Member ShardingID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1815: warning: Member RegionTreeID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1816: warning: Member DistributedID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1817: warning: Member AddressSpaceID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1818: warning: Member TunableID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1819: warning: Member LocalVariableID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1820: warning: Member MappingTagID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1821: warning: Member SemanticTag (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1822: warning: Member VariantID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1823: warning: Member CodeDescriptorID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1824: warning: Member UniqueID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1825: warning: Member VersionID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1826: warning: Member ProjectionEpochID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1827: warning: Member TaskID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1828: warning: Member LayoutConstraintID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1829: warning: Member ReplicationID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1830: warning: Member ShardID (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1831: warning: Member LegionColor (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1832: warning: Member RegistrationCallbackFnptr)(Machine machine, Runtime *rt, const std::set< Processor > &local_procs) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1834: warning: Member RegistrationWithArgsCallbackFnptr)(const RegistrationCallbackArgs &args) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1836: warning: Member RegionProjectionFnptr)(LogicalRegion parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1838: warning: Member PartitionProjectionFnptr)(LogicalPartition parent, const DomainPoint &, Runtime *rt) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1840: warning: Member PredicateFnptr)(const void *, size_t, const std::vector< Future > futures) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1842: warning: Member RealmFnptr)(const void *, size_t, const void *, size_t, Processor) (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1846: warning: Member Context (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2545: warning: Member ByteOffset (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2547: warning: Member Coloring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2548: warning: Member DomainColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2549: warning: Member MultiDomainColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2550: warning: Member PointColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2551: warning: Member DomainPointColoring (typedef) of namespace Legion is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2552: warning: Member MultiDomainPointColoring (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:32: warning: Member Point (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:34: warning: Member Rect (typedef) of namespace Legion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:36: warning: Member Transform (typedef) of namespace Legion is not documented.
@@ -905,9 +905,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:440: warning: Member operator=(const IndexAllocator &allocator) (function) of class Legion::IndexAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:441: warning: Member operator<(const IndexAllocator &rhs) const  (function) of class Legion::IndexAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:442: warning: Member operator==(const IndexAllocator &rhs) const  (function) of class Legion::IndexAllocator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< IndexAllocator > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< IndexAllocator > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< IndexAllocator > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< IndexAllocator > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< IndexAllocator > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< IndexAllocator > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:438: warning: Member IndexAllocator(IndexSpace space, IndexIterator iterator) (function) of class Legion::IndexAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:493: warning: Member FieldAllocator(const FieldAllocator &allocator) (function) of class Legion::FieldAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:494: warning: Member FieldAllocator(FieldAllocator &&allocator) (function) of class Legion::FieldAllocator is not documented.
@@ -915,9 +915,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:502: warning: Member operator=(FieldAllocator &&allocator) (function) of class Legion::FieldAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:503: warning: Member operator<(const FieldAllocator &rhs) const  (function) of class Legion::FieldAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:504: warning: Member operator==(const FieldAllocator &rhs) const  (function) of class Legion::FieldAllocator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< FieldAllocator > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< FieldAllocator > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< FieldAllocator > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< FieldAllocator > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< FieldAllocator > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< FieldAllocator > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:499: warning: Member FieldAllocator(Internal::FieldAllocatorImpl *impl) (function) of class Legion::FieldAllocator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:553: warning: The following parameters of Legion::FieldAllocator::allocate_fields(const std::vector< size_t > &field_sizes, std::vector< FieldID > &resulting_fields, CustomSerdezID serdez_id=0, bool local_fields=false) are not documented:
   parameter 'serdez_id'
@@ -928,9 +928,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:625: warning: Member operator==(const UntypedBuffer &arg) const  (function) of class Legion::UntypedBuffer is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:627: warning: Member operator<(const UntypedBuffer &arg) const  (function) of class Legion::UntypedBuffer is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:629: warning: Member operator=(const UntypedBuffer &rhs) (function) of class Legion::UntypedBuffer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< UntypedBuffer > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< UntypedBuffer > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< UntypedBuffer > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< UntypedBuffer > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< UntypedBuffer > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< UntypedBuffer > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:652: warning: Member ArgumentMap(const FutureMap &rhs) (function) of class Legion::ArgumentMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:653: warning: Member ArgumentMap(const ArgumentMap &rhs) (function) of class Legion::ArgumentMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:654: warning: Member ArgumentMap(ArgumentMap &&rhs) (function) of class Legion::ArgumentMap is not documented.
@@ -939,9 +939,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:659: warning: Member operator=(ArgumentMap &&rhs) (function) of class Legion::ArgumentMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:660: warning: Member operator==(const ArgumentMap &rhs) const  (function) of class Legion::ArgumentMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:662: warning: Member operator<(const ArgumentMap &rhs) const  (function) of class Legion::ArgumentMap is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< ArgumentMap > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< ArgumentMap > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< ArgumentMap > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< ArgumentMap > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< ArgumentMap > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< ArgumentMap > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:680: warning: argument 'future' of command @param is not found in the argument list of Legion::ArgumentMap::set_point(const DomainPoint &point, const Future &f, bool replace=true)
 /home/eslaught/jekyll/_legion/runtime/legion.h:680: warning: The following parameters of Legion::ArgumentMap::set_point(const DomainPoint &point, const Future &f, bool replace=true) are not documented:
   parameter 'f'
@@ -953,9 +953,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:759: warning: Member operator==(const Predicate &p) const  (function) of class Legion::Predicate is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:760: warning: Member operator<(const Predicate &p) const  (function) of class Legion::Predicate is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:761: warning: Member operator!=(const Predicate &p) const  (function) of class Legion::Predicate is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< Predicate > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< Predicate > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< Predicate > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< Predicate > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< Predicate > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< Predicate > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:743: warning: Member TRUE_PRED (variable) of class Legion::Predicate is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:744: warning: Member FALSE_PRED (variable) of class Legion::Predicate is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:755: warning: Member Predicate(Internal::PredicateImpl *impl) (function) of class Legion::Predicate is not documented.
@@ -1040,9 +1040,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:1264: warning: Member get(void) (function) of class Legion::Future is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1266: warning: Member valid(void) const  (function) of class Legion::Future is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1268: warning: Member wait(void) const  (function) of class Legion::Future is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< Future > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< Future > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< Future > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< Future > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< Future > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< Future > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1179: warning: Member Future(Internal::FutureImpl *impl, bool need_reference=true) (function) of class Legion::Future is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1307: warning: Member FutureMap(const FutureMap &map) (function) of class Legion::FutureMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1308: warning: Member FutureMap(FutureMap &&map) (function) of class Legion::FutureMap is not documented.
@@ -1051,18 +1051,18 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:1322: warning: Member operator[](const DomainPoint &point) const  (function) of class Legion::FutureMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1324: warning: Member operator=(const FutureMap &f) (function) of class Legion::FutureMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1325: warning: Member operator=(FutureMap &&f) (function) of class Legion::FutureMap is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< FutureMap > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< FutureMap > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< FutureMap > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< FutureMap > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< FutureMap > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< FutureMap > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1315: warning: Member FutureMap(Internal::FutureMapImpl *impl, bool need_reference=true) (function) of class Legion::FutureMap is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1348: warning: argument 'silience_warnings' of command @param is not found in the argument list of Legion::FutureMap::get_void_result(const DomainPoint &point, bool silence_warnings=false, const char *warning_string=NULL) const
 /home/eslaught/jekyll/_legion/runtime/legion.h:1348: warning: The following parameters of Legion::FutureMap::get_void_result(const DomainPoint &point, bool silence_warnings=false, const char *warning_string=NULL) const are not documented:
   parameter 'silence_warnings'
 /home/eslaught/jekyll/_legion/runtime/legion.h:1411: warning: Member StaticDependence(unsigned previous_offset, unsigned previous_req_index, unsigned current_req_index, DependenceType dtype, bool validates=false, bool shard_only=false) (function) of class Legion::StaticDependence is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1418: warning: Member add_field(FieldID fid) (function) of class Legion::StaticDependence is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< StaticDependence > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< StaticDependence > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< StaticDependence > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< StaticDependence > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< StaticDependence > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< StaticDependence > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1423: warning: Member previous_offset (variable) of class Legion::StaticDependence is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1425: warning: Member previous_req_index (variable) of class Legion::StaticDependence is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:1427: warning: Member current_req_index (variable) of class Legion::StaticDependence is not documented.
@@ -1387,9 +1387,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:2380: warning: Member get_bounds(void) const  (function) of class Legion::PhysicalRegion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2384: warning: Member operator DomainT< DIM, COORD_T >(void) const  (function) of class Legion::PhysicalRegion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2388: warning: Member operator Rect< DIM, COORD_T >(void) const  (function) of class Legion::PhysicalRegion is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< PhysicalRegion > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< PhysicalRegion > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< PhysicalRegion > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< PhysicalRegion > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< PhysicalRegion > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< PhysicalRegion > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2303: warning: Member PhysicalRegion(Internal::PhysicalRegionImpl *impl) (function) of class Legion::PhysicalRegion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2408: warning: Member get_instance_info(PrivilegeMode mode, FieldID fid, size_t field_size, void *realm_is, TypeTag type_tag, const char *warning_string, bool silence_warnings, bool generic_accessor, bool check_field_size, ReductionOpID redop=0) const  (function) of class Legion::PhysicalRegion is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2416: warning: Member report_incompatible_accessor(const char *accessor_kind, Realm::RegionInstance instance, FieldID fid) const  (function) of class Legion::PhysicalRegion is not documented.
@@ -1407,9 +1407,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:2456: warning: Member operator<(const ExternalResources &reg) const  (function) of class Legion::ExternalResources is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2459: warning: Member size(void) const  (function) of class Legion::ExternalResources is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2460: warning: Member operator[](unsigned index) const  (function) of class Legion::ExternalResources is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< ExternalResources > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< ExternalResources > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< ExternalResources > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< ExternalResources > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< ExternalResources > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< ExternalResources > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2450: warning: Member ExternalResources(Internal::ExternalResourcesImpl *impl) (function) of class Legion::ExternalResources is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2673: warning: Member value_type (typedef) of class Legion::FieldAccessor is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:2674: warning: Member reference (typedef) of class Legion::FieldAccessor is not documented.
@@ -1617,9 +1617,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:3531: warning: Member operator==(const LegionHandshake &h) const  (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3533: warning: Member operator<(const LegionHandshake &h) const  (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3535: warning: Member operator=(const LegionHandshake &rhs) (function) of class Legion::LegionHandshake is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< LegionHandshake > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< LegionHandshake > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3529: warning: Member LegionHandshake(Internal::LegionHandshakeImpl *impl) (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3525: warning: Member impl (variable) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3587: warning: Member MPILegionHandshake(const MPILegionHandshake &rhs) (function) of class Legion::MPILegionHandshake is not documented.
@@ -1630,9 +1630,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:3531: warning: Member operator==(const LegionHandshake &h) const  (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3533: warning: Member operator<(const LegionHandshake &h) const  (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3535: warning: Member operator=(const LegionHandshake &rhs) (function) of class Legion::LegionHandshake is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Unserializable< LegionHandshake > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Unserializable< LegionHandshake > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Unserializable< LegionHandshake > is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3592: warning: Member MPILegionHandshake(Internal::LegionHandshakeImpl *impl) (function) of class Legion::MPILegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3529: warning: Member LegionHandshake(Internal::LegionHandshakeImpl *impl) (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3525: warning: Member impl (variable) of class Legion::LegionHandshake is not documented.
@@ -2024,10 +2024,12 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:7337: warning: Member select_tunable_value(Context ctx, const TunableLauncher &launcher) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:7369: warning: Member get_local_task_variable(Context ctx, LocalVariableID id) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:7384: warning: Member set_local_task_variable(Context ctx, LocalVariableID id, const T *value, void(*destructor)(void *)=NULL) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9227: warning: Member get_shard_id(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9230: warning: Member get_num_shards(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:8636: warning: Member add_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9241: warning: Member get_shard_id(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9244: warning: Member get_num_shards(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:8643: warning: Member add_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer, bool dedup=true, size_t dedup_tag=0) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:8674: warning: Member perform_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer, bool global, bool deduplicate=true, size_t dedup_tag=0) (function) of class Legion::Runtime is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:4263: warning: Member Runtime(Internal::Runtime *rt) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:8626: warning: argument 'buffer' of command @param is not found in the argument list of Legion::Runtime::add_registration_callback(RegistrationCallbackFnptr callback, bool dedup=true, size_t dedup_tag=0)
 /home/eslaught/jekyll/_legion/runtime/legion.h:7596: warning: argument 'handle' of command @param is not found in the argument list of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false)
 /home/eslaught/jekyll/_legion/runtime/legion.h:7596: warning: The following parameters of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false) are not documented:
   parameter 'task_id'
@@ -2090,8 +2092,8 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:6976: warning: argument 'pred' of command @param is not found in the argument list of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p)
 /home/eslaught/jekyll/_legion/runtime/legion.h:6976: warning: The following parameters of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p) are not documented:
   parameter 'p'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9129: warning: argument 'processor' of command @param is not found in the argument list of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9129: warning: The following parameters of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9143: warning: argument 'processor' of command @param is not found in the argument list of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9143: warning: The following parameters of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC) are not documented:
   parameter 'p'
 /home/eslaught/jekyll/_legion/runtime/legion.h:6081: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c)
 /home/eslaught/jekyll/_legion/runtime/legion.h:6081: warning: The following parameters of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c) are not documented:
@@ -2099,20 +2101,26 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:6173: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_subregion_by_color(Context ctx, LogicalPartition parent, const DomainPoint &c)
 /home/eslaught/jekyll/_legion/runtime/legion.h:6173: warning: The following parameters of Legion::Runtime::has_logical_subregion_by_color(Context ctx, LogicalPartition parent, const DomainPoint &c) are not documented:
   parameter 'c'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8969: warning: argument 'regionsptr' of command @param is not found in the argument list of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8969: warning: The following parameters of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8983: warning: argument 'regionsptr' of command @param is not found in the argument list of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8983: warning: The following parameters of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime) are not documented:
   parameter 'reg'
 /home/eslaught/jekyll/_legion/runtime/legion.h:6601: warning: argument 'the' of command @param is not found in the argument list of Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0)
 /home/eslaught/jekyll/_legion/runtime/legion.h:6601: warning: The following parameters of Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0) are not documented:
   parameter 'tag'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8907: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8907: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8648: warning: argument 'ctx' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8648: warning: argument 'buffer' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8648: warning: argument 'dedup' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8648: warning: The following parameters of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0) are not documented:
+  parameter 'callback'
+  parameter 'deduplicate'
+/home/eslaught/jekyll/_legion/runtime/legion.h:8921: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8921: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
   parameter 'task_name'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8925: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8925: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8939: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8939: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
   parameter 'task_name'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8944: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8944: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8958: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8958: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true) are not documented:
   parameter 'task_name'
   parameter 'vid'
   parameter 'return_type_size'
@@ -2122,13 +2130,9 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:8166: warning: Found unknown command `\pram'
 /home/eslaught/jekyll/_legion/runtime/legion.h:8152: warning: The following parameters of Legion::Runtime::register_reduction_op(ReductionOpID redop_id, ReductionOp *op, SerdezInitFnptr init_fnptr=NULL, SerdezFoldFnptr fold_fnptr=NULL, bool permit_duplicates=false) are not documented:
   parameter 'fold_fnptr'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8848: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8848: warning: The following parameters of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8862: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8862: warning: The following parameters of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
   parameter 'return_type_size'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8665: warning: argument 'ctx' of command @param is not found in the argument list of Legion::Runtime::set_registration_callback(RegistrationCallbackFnptr callback)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8665: warning: argument 'global' of command @param is not found in the argument list of Legion::Runtime::set_registration_callback(RegistrationCallbackFnptr callback)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8665: warning: The following parameters of Legion::Runtime::set_registration_callback(RegistrationCallbackFnptr callback) are not documented:
-  parameter 'callback'
 /home/eslaught/jekyll/_legion/runtime/legion.h:8292: warning: Unsupported xml/html tag <int> found
 /home/eslaught/jekyll/_legion/runtime/legion.h:8297: warning: Unsupported xml/html tag <int> found
 /home/eslaught/jekyll/_legion/runtime/legion.h:8300: warning: Unsupported xml/html tag <int> found
@@ -2146,19 +2150,19 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:7553: warning: argument 'enclosing' of command @param is not found in the argument list of Legion::Runtime::total_shards(Context ctx)
 /home/eslaught/jekyll/_legion/runtime/legion.h:7553: warning: The following parameters of Legion::Runtime::total_shards(Context ctx) are not documented:
   parameter 'ctx'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9248: warning: Member ColoringSerializer(const Coloring &c) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9250: warning: Member legion_buffer_size(void) const  (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9251: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9252: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9254: warning: Member ref(void) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9267: warning: Member DomainColoringSerializer(const DomainColoring &c) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9269: warning: Member legion_buffer_size(void) const  (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9270: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9271: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9273: warning: Member ref(void) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2523: warning: Member legion_buffer_size(void) (function) of class Legion::Unserializable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2524: warning: Member legion_serialize(void *buffer) (function) of class Legion::Unserializable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2525: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::Unserializable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9262: warning: Member ColoringSerializer(const Coloring &c) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9264: warning: Member legion_buffer_size(void) const  (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9265: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9266: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9268: warning: Member ref(void) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9281: warning: Member DomainColoringSerializer(const DomainColoring &c) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9283: warning: Member legion_buffer_size(void) const  (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9284: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9285: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9287: warning: Member ref(void) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2533: warning: Member legion_buffer_size(void) (function) of class Legion::Unserializable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2534: warning: Member legion_serialize(void *buffer) (function) of class Legion::Unserializable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2535: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::Unserializable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:149: warning: Member FieldMap (typedef) of class Legion::CObjectWrapper is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:86: warning: Member NEW_OPAQUE_WRAPPER(legion_runtime_t, Runtime *) (function) of class Legion::CObjectWrapper is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:87: warning: Member NEW_OPAQUE_WRAPPER(legion_context_t, CContext *) (function) of class Legion::CObjectWrapper is not documented.
@@ -2558,156 +2562,158 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:871: warning: Member operator>(const reverse_iterator &rhs) const  (function) of class Legion::Span::reverse_iterator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:873: warning: Member operator<=(const reverse_iterator &rhs) const  (function) of class Legion::Span::reverse_iterator is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:875: warning: Member operator>=(const reverse_iterator &rhs) const  (function) of class Legion::Span::reverse_iterator is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1399: warning: Member handle_profiling_response(const ProfilingResponseBase *base, const Realm::ProfilingResponse &response, const void *orig, size_t orig_length)=0 (function) of class Legion::Internal::ProfilingResponseHandler is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1406: warning: Member ProfilingResponseBase(ProfilingResponseHandler *h) (function) of class Legion::Internal::ProfilingResponseBase is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1409: warning: Member handler (variable) of class Legion::Internal::ProfilingResponseBase is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1640: warning: Member LgTaskArgs(::legion_unique_id_t uid) (function) of class Legion::Internal::LgTaskArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1644: warning: Member provenance (variable) of class Legion::Internal::LgTaskArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1645: warning: Member lg_task_id (variable) of class Legion::Internal::LgTaskArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1847: warning: Member SUPER (typedef) of class Legion::Internal::NT_TemplateHelper is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1850: warning: Member encode_tag(void) (function) of class Legion::Internal::NT_TemplateHelper is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1861: warning: Member check_type(const TypeTag t) (function) of class Legion::Internal::NT_TemplateHelper is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1874: warning: Member get_dim(const TypeTag t) (function) of class Legion::Internal::NT_TemplateHelper is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1872: warning: Member demux(int *result) (function) of class Legion::Internal::NT_TemplateHelper::DimHelper is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member PredEvent(const PredEvent &rhs)=default (function) of class Legion::Internal::PredEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2074: warning: Member PredEvent(const Realm::UserEvent &e) (function) of class Legion::Internal::PredEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member operator=(const PredEvent &rhs)=default (function) of class Legion::Internal::PredEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member operator Realm::UserEvent() const  (function) of class Legion::Internal::PredEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2070: warning: Member NO_PRED_EVENT (variable) of class Legion::Internal::PredEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2086: warning: Member ApEvent(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2087: warning: Member ApEvent(const Realm::Event &e) (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2088: warning: Member ApEvent(const PredEvent &e) (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2090: warning: Member operator=(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2091: warning: Member has_triggered_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2094: warning: Member wait_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member NO_AP_EVENT (variable) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2111: warning: Member ApUserEvent(const ApUserEvent &rhs)=default (function) of class Legion::Internal::ApUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2112: warning: Member ApUserEvent(const Realm::UserEvent &e) (function) of class Legion::Internal::ApUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2114: warning: Member operator=(const ApUserEvent &rhs)=default (function) of class Legion::Internal::ApUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2115: warning: Member operator Realm::UserEvent() const  (function) of class Legion::Internal::ApUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2086: warning: Member ApEvent(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2087: warning: Member ApEvent(const Realm::Event &e) (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2088: warning: Member ApEvent(const PredEvent &e) (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2090: warning: Member operator=(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2091: warning: Member has_triggered_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2094: warning: Member wait_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2108: warning: Member NO_AP_USER_EVENT (variable) of class Legion::Internal::ApUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member NO_AP_EVENT (variable) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2124: warning: Member ApBarrier(const ApBarrier &rhs)=default (function) of class Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2125: warning: Member ApBarrier(const Realm::Barrier &b) (function) of class Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2128: warning: Member operator=(const ApBarrier &rhs)=default (function) of class Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2129: warning: Member operator Realm::Barrier() const  (function) of class Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2086: warning: Member ApEvent(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2087: warning: Member ApEvent(const Realm::Event &e) (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2088: warning: Member ApEvent(const PredEvent &e) (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2090: warning: Member operator=(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2091: warning: Member has_triggered_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2094: warning: Member wait_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2133: warning: Member timestamp (variable) of class Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2121: warning: Member NO_AP_BARRIER (variable) of class Legion::Internal::ApBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member NO_AP_EVENT (variable) of class Legion::Internal::ApEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2141: warning: Member RtEvent(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2142: warning: Member RtEvent(const Realm::Event &e) (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2143: warning: Member RtEvent(const PredEvent &e) (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2145: warning: Member operator=(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2138: warning: Member NO_RT_EVENT (variable) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2153: warning: Member RtUserEvent(const RtUserEvent &rhs)=default (function) of class Legion::Internal::RtUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2154: warning: Member RtUserEvent(const Realm::UserEvent &e) (function) of class Legion::Internal::RtUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2156: warning: Member operator=(const RtUserEvent &rhs)=default (function) of class Legion::Internal::RtUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2157: warning: Member operator Realm::UserEvent() const  (function) of class Legion::Internal::RtUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2141: warning: Member RtEvent(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2142: warning: Member RtEvent(const Realm::Event &e) (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2143: warning: Member RtEvent(const PredEvent &e) (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2145: warning: Member operator=(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2150: warning: Member NO_RT_USER_EVENT (variable) of class Legion::Internal::RtUserEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2138: warning: Member NO_RT_EVENT (variable) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2166: warning: Member RtBarrier(const RtBarrier &rhs)=default (function) of class Legion::Internal::RtBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2167: warning: Member RtBarrier(const Realm::Barrier &b) (function) of class Legion::Internal::RtBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2170: warning: Member operator=(const RtBarrier &rhs)=default (function) of class Legion::Internal::RtBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2171: warning: Member operator Realm::Barrier() const  (function) of class Legion::Internal::RtBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2141: warning: Member RtEvent(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2142: warning: Member RtEvent(const Realm::Event &e) (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2143: warning: Member RtEvent(const PredEvent &e) (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2145: warning: Member operator=(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2058: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2059: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2061: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2064: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2065: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2175: warning: Member timestamp (variable) of class Legion::Internal::RtBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2163: warning: Member NO_RT_BARRIER (variable) of class Legion::Internal::RtBarrier is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2138: warning: Member NO_RT_EVENT (variable) of class Legion::Internal::RtEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2055: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2183: warning: Member LocalLock(const LocalLock &rhs) (function) of class Legion::Internal::LocalLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2190: warning: Member operator=(const LocalLock &rhs) (function) of class Legion::Internal::LocalLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2213: warning: Member reservation (variable) of class Legion::Internal::LocalLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2223: warning: Member AutoLock(LocalLock &r, int mode=0, bool excl=true) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2264: warning: Member AutoLock(const AutoLock &rhs) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2280: warning: Member operator=(const AutoLock &rhs) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2287: warning: Member release(void) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2297: warning: Member reacquire(void) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2329: warning: Member advise_sleep_entry(Realm::UserEvent guard) const  (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2336: warning: Member advise_sleep_exit(void) const  (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2253: warning: Member AutoLock(int mode, bool excl, LocalLock &r) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2352: warning: Member local_lock (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2353: warning: Member previous (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2354: warning: Member exclusive (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2355: warning: Member held (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2361: warning: Member AutoTryLock(LocalLock &r, int mode=0, bool excl=true) (function) of class Legion::Internal::AutoTryLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2372: warning: Member has_lock(void) const  (function) of class Legion::Internal::AutoTryLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2373: warning: Member try_next(void) const  (function) of class Legion::Internal::AutoTryLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2223: warning: Member AutoLock(LocalLock &r, int mode=0, bool excl=true) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2264: warning: Member AutoLock(const AutoLock &rhs) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2280: warning: Member operator=(const AutoLock &rhs) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2287: warning: Member release(void) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2297: warning: Member reacquire(void) (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2329: warning: Member advise_sleep_entry(Realm::UserEvent guard) const  (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2336: warning: Member advise_sleep_exit(void) const  (function) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2375: warning: Member ready (variable) of class Legion::Internal::AutoTryLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2352: warning: Member local_lock (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2353: warning: Member previous (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2354: warning: Member exclusive (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2355: warning: Member held (variable) of class Legion::Internal::AutoLock is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2253: warning: Member AutoLock(int mode, bool excl, LocalLock &r) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1417: warning: Member handle_profiling_response(const ProfilingResponseBase *base, const Realm::ProfilingResponse &response, const void *orig, size_t orig_length)=0 (function) of class Legion::Internal::ProfilingResponseHandler is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1424: warning: Member ProfilingResponseBase(ProfilingResponseHandler *h) (function) of class Legion::Internal::ProfilingResponseBase is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1427: warning: Member handler (variable) of class Legion::Internal::ProfilingResponseBase is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1658: warning: Member LgTaskArgs(::legion_unique_id_t uid) (function) of class Legion::Internal::LgTaskArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1662: warning: Member provenance (variable) of class Legion::Internal::LgTaskArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1663: warning: Member lg_task_id (variable) of class Legion::Internal::LgTaskArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1865: warning: Member SUPER (typedef) of class Legion::Internal::NT_TemplateHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1868: warning: Member encode_tag(void) (function) of class Legion::Internal::NT_TemplateHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1879: warning: Member check_type(const TypeTag t) (function) of class Legion::Internal::NT_TemplateHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1892: warning: Member get_dim(const TypeTag t) (function) of class Legion::Internal::NT_TemplateHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:1890: warning: Member demux(int *result) (function) of class Legion::Internal::NT_TemplateHelper::DimHelper is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2091: warning: Member PredEvent(const PredEvent &rhs)=default (function) of class Legion::Internal::PredEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2092: warning: Member PredEvent(const Realm::UserEvent &e) (function) of class Legion::Internal::PredEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2094: warning: Member operator=(const PredEvent &rhs)=default (function) of class Legion::Internal::PredEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2095: warning: Member operator Realm::UserEvent() const  (function) of class Legion::Internal::PredEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2088: warning: Member NO_PRED_EVENT (variable) of class Legion::Internal::PredEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2104: warning: Member ApEvent(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2105: warning: Member ApEvent(const Realm::Event &e) (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2106: warning: Member ApEvent(const PredEvent &e) (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2108: warning: Member operator=(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2109: warning: Member has_triggered_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2112: warning: Member wait_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2101: warning: Member NO_AP_EVENT (variable) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2129: warning: Member ApUserEvent(const ApUserEvent &rhs)=default (function) of class Legion::Internal::ApUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2130: warning: Member ApUserEvent(const Realm::UserEvent &e) (function) of class Legion::Internal::ApUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2132: warning: Member operator=(const ApUserEvent &rhs)=default (function) of class Legion::Internal::ApUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2133: warning: Member operator Realm::UserEvent() const  (function) of class Legion::Internal::ApUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2104: warning: Member ApEvent(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2105: warning: Member ApEvent(const Realm::Event &e) (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2106: warning: Member ApEvent(const PredEvent &e) (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2108: warning: Member operator=(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2109: warning: Member has_triggered_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2112: warning: Member wait_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2126: warning: Member NO_AP_USER_EVENT (variable) of class Legion::Internal::ApUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2101: warning: Member NO_AP_EVENT (variable) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2142: warning: Member ApBarrier(const ApBarrier &rhs)=default (function) of class Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2143: warning: Member ApBarrier(const Realm::Barrier &b) (function) of class Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2146: warning: Member operator=(const ApBarrier &rhs)=default (function) of class Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2147: warning: Member operator Realm::Barrier() const  (function) of class Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2104: warning: Member ApEvent(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2105: warning: Member ApEvent(const Realm::Event &e) (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2106: warning: Member ApEvent(const PredEvent &e) (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2108: warning: Member operator=(const ApEvent &rhs)=default (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2109: warning: Member has_triggered_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2112: warning: Member wait_faultignorant(void) const  (function) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2151: warning: Member timestamp (variable) of class Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2139: warning: Member NO_AP_BARRIER (variable) of class Legion::Internal::ApBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2101: warning: Member NO_AP_EVENT (variable) of class Legion::Internal::ApEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2159: warning: Member RtEvent(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2160: warning: Member RtEvent(const Realm::Event &e) (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2161: warning: Member RtEvent(const PredEvent &e) (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2163: warning: Member operator=(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2156: warning: Member NO_RT_EVENT (variable) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2171: warning: Member RtUserEvent(const RtUserEvent &rhs)=default (function) of class Legion::Internal::RtUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2172: warning: Member RtUserEvent(const Realm::UserEvent &e) (function) of class Legion::Internal::RtUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2174: warning: Member operator=(const RtUserEvent &rhs)=default (function) of class Legion::Internal::RtUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2175: warning: Member operator Realm::UserEvent() const  (function) of class Legion::Internal::RtUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2159: warning: Member RtEvent(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2160: warning: Member RtEvent(const Realm::Event &e) (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2161: warning: Member RtEvent(const PredEvent &e) (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2163: warning: Member operator=(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2168: warning: Member NO_RT_USER_EVENT (variable) of class Legion::Internal::RtUserEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2156: warning: Member NO_RT_EVENT (variable) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2184: warning: Member RtBarrier(const RtBarrier &rhs)=default (function) of class Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2185: warning: Member RtBarrier(const Realm::Barrier &b) (function) of class Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2188: warning: Member operator=(const RtBarrier &rhs)=default (function) of class Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2189: warning: Member operator Realm::Barrier() const  (function) of class Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2159: warning: Member RtEvent(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2160: warning: Member RtEvent(const Realm::Event &e) (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2161: warning: Member RtEvent(const PredEvent &e) (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2163: warning: Member operator=(const RtEvent &rhs)=default (function) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2076: warning: Member LgEvent(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2077: warning: Member LgEvent(const Realm::Event e) (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2079: warning: Member operator=(const LgEvent &rhs)=default (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2082: warning: Member wait(void) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2083: warning: Member wait_faultaware(bool &poisoned) const  (function) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2193: warning: Member timestamp (variable) of class Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2181: warning: Member NO_RT_BARRIER (variable) of class Legion::Internal::RtBarrier is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2156: warning: Member NO_RT_EVENT (variable) of class Legion::Internal::RtEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2073: warning: Member NO_LG_EVENT (variable) of class Legion::Internal::LgEvent is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2201: warning: Member LocalLock(const LocalLock &rhs) (function) of class Legion::Internal::LocalLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2208: warning: Member operator=(const LocalLock &rhs) (function) of class Legion::Internal::LocalLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2231: warning: Member reservation (variable) of class Legion::Internal::LocalLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2241: warning: Member AutoLock(LocalLock &r, int mode=0, bool excl=true) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2281: warning: Member AutoLock(const AutoLock &rhs)=delete (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2296: warning: Member operator=(const AutoLock &rhs)=delete (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2298: warning: Member release(void) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2308: warning: Member reacquire(void) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2340: warning: Member advise_sleep_entry(Realm::UserEvent guard) const  (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2347: warning: Member advise_sleep_exit(void) const  (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2271: warning: Member AutoLock(int mode, bool excl, LocalLock &r) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2363: warning: Member local_lock (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2364: warning: Member previous (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2365: warning: Member exclusive (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2366: warning: Member held (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2372: warning: Member AutoTryLock(LocalLock &r, int mode=0, bool excl=true) (function) of class Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2383: warning: Member AutoTryLock(const AutoTryLock &rhs)=delete (function) of class Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2385: warning: Member operator=(const AutoTryLock &rhs)=delete (function) of class Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2388: warning: Member has_lock(void) const  (function) of class Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2389: warning: Member try_next(void) const  (function) of class Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2241: warning: Member AutoLock(LocalLock &r, int mode=0, bool excl=true) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2281: warning: Member AutoLock(const AutoLock &rhs)=delete (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2296: warning: Member operator=(const AutoLock &rhs)=delete (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2298: warning: Member release(void) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2308: warning: Member reacquire(void) (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2340: warning: Member advise_sleep_entry(Realm::UserEvent guard) const  (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2347: warning: Member advise_sleep_exit(void) const  (function) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2391: warning: Member ready (variable) of class Legion::Internal::AutoTryLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2363: warning: Member local_lock (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2364: warning: Member previous (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2365: warning: Member exclusive (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2366: warning: Member held (variable) of class Legion::Internal::AutoLock is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2271: warning: Member AutoLock(int mode, bool excl, LocalLock &r) (function) of class Legion::Internal::AutoLock is not documented.

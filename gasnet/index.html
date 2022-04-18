@@ -125,10 +125,33 @@ are advised to leave it disabled until their application is fully
 ported and optimized on a single node.</p>
 
 <ul>
+  <li><a href="#established-gasnet-configurations">Established GASNet Configurations</a></li>
   <li><a href="#building-gasnet">Building GASNet</a></li>
   <li><a href="#configuring-gasnet-for-performance">Configuring GASNet for Performance</a></li>
   <li><a href="#gasnet-performance-environment-variables">GASNet Performance Environment Variables</a></li>
 </ul>
+
+<h2 id="established-gasnet-configurations">Established GASNet Configurations</h2>
+
+<p>Most users, on most machines, do not need to follow our full
+instructions below. Instead, for machines and networks we’ve used in
+the past, we maintain a set of <a href="https://github.com/StanfordLegion/gasnet">tuned and tested GASNet
+configurations</a> that are
+known to work well with Legion. We recommend trying these first to see
+if they will meet your needs prior to attempting to build GASNet on
+your own.</p>
+
+<p>For example, on an InfiniBand machine, the workflow might look like:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre>git clone https://github.com/StanfordLegion/gasnet.git
+<span class="nb">export </span><span class="nv">CONDUIT</span><span class="o">=</span>ibv
+<span class="nb">export </span><span class="nv">GASNET</span><span class="o">=</span><span class="nv">$PWD</span>/gasnet/release
+make <span class="nt">-C</span> gasnet
+</pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="building-gasnet">Building GASNet</h2>
 

@@ -132,11 +132,11 @@ partitions the circuit graph into components that are either
 <em>private</em> or <em>shared</em> between circuit pieces. Further partitions
 then refine the <em>private</em>, <em>shared</em>, and <em>ghost</em> nodes for
 each circuit piece. The following figure illustrates the
-partitioning scheme for the node logical region tree.
-<br /><br />
-<img src="/images/circuit_partition.svg" alt="" />
-<br /><br />
-An explicit iterative solver is then used to step through 
+partitioning scheme for the node logical region tree.</p>
+
+<p><img src="/images/circuit_partition.svg" alt="" /></p>
+
+<p>An explicit iterative solver is then used to step through 
 time and solve for the updated voltages and currents on 
 each node and wire. The solver consists of three primary stages:</p>
 
@@ -177,9 +177,9 @@ In addition to the apply function, reduction operations may also
 support a second operation called a <em>fold</em> which must be a pure
 function of the type <code class="language-plaintext highlighter-rouge">T2 -&gt; T2 -&gt; T2</code> where <code class="language-plaintext highlighter-rouge">T2</code> is again the
 type of the value being reduced. We describe how fold functions
-are used by the runtime in the next section.
-<br />
-Legion assumes that reduction operations are always <em>associative</em>
+are used by the runtime in the next section.</p>
+
+<p>Legion assumes that reduction operations are always <em>associative</em>
 and <em>commutative</em> in the mathematical sense. This means that
 regardless of the order in which reductions are issued by tasks
 the runtime is free to actually perform the apply operations in
@@ -293,11 +293,11 @@ reduction instances for the distribute charge tasks running on the
 GPU. After the tasks finish executing, the reduction buffers are
 then applied back to the instance containing all the shared nodes
 residing in GASNet memory. An illustration depicting this scenario
-within the circuit simulation is shown below.
-<br /><br />
-<img src="/images/circuit_mapping.svg" alt="" />
-<br /><br />
-Legion supports the creation of two different kinds of reduction
+within the circuit simulation is shown below.</p>
+
+<p><img src="/images/circuit_mapping.svg" alt="" /></p>
+
+<p>Legion supports the creation of two different kinds of reduction
 instances. First, for basic reduction operations with no <code class="language-plaintext highlighter-rouge">fold</code>
 function, Legion can create <em>reduction list</em> instances. When
 reductions are issued to the physical instance they are buffered
@@ -357,9 +357,9 @@ implementation of the constructors for each of these tasks
 then fill in the <code class="language-plaintext highlighter-rouge">RegionRequirement</code> vectors for each task
 launch. This explicitly co-locates in the description of the
 logical regions and fields to be used by a task improving
-code readability.<br />
-&lt;/br&gt;
-For the implementation of each task, static member functions
+code readability.</p>
+
+<p>For the implementation of each task, static member functions
 are given for each kind of variant. For all three primary
 tasks in our circuit example, we support both CPU and GPU
 leaf task implementations. Note that all of these static

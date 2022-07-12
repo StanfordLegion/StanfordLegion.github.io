@@ -199,10 +199,11 @@ to note at this point we have not created any
 logical regions yet, but simply described the
 decomposition of the index space of points. The
 following image illustrate the resulting index
-space tree.<br /><br />
-<img src="/images/ghost_tree.svg" alt="" />
-<br /><br />
-After setting up our index space tree, we now
+space tree.</p>
+
+<p><img src="/images/ghost_tree.svg" alt="" /></p>
+
+<p>After setting up our index space tree, we now
 create the explicit ghost regions from the leaf
 index spaces of the tree. Note that we do 
 not actually create the logical regions for 
@@ -542,11 +543,11 @@ of the data in our explicit ghost regions.</p>
 explicit ghost region version of the stencil
 computation, the following picture illustrates
 how the stencil computation works between
-a pair of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances.
-<br /><br />
-<img src="/images/phase_barrier.svg" alt="" />
-<br /><br />
-Each of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances performs several
+a pair of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances.</p>
+
+<p><img src="/images/phase_barrier.svg" alt="" /></p>
+
+<p>Each of <code class="language-plaintext highlighter-rouge">spmd_task</code> instances performs several
 iterations of the stencil computation. Each
 iteration issues a copy to exchange ghost
 cell data with its neighbor. Each copy will

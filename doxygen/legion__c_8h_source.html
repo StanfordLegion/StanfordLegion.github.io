@@ -3621,545 +3621,548 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l05505"></a><span class="lineno"> 5505</span>&#160;    legion_processor_t proc);</div>
 <div class="line"><a name="l05506"></a><span class="lineno"> 5506</span>&#160;</div>
 <div class="line"><a name="l05510"></a><span class="lineno"> 5510</span>&#160;  legion_projection_id_t</div>
-<div class="line"><a name="l05511"></a><span class="lineno"> 5511</span>&#160;  <a class="code" href="legion__c_8h.html#a2b6faf9a178c63f1fb7c6608c41786f9">legion_runtime_generate_library_projection_ids</a>(</div>
-<div class="line"><a name="l05512"></a><span class="lineno"> 5512</span>&#160;      legion_runtime_t runtime,</div>
-<div class="line"><a name="l05513"></a><span class="lineno"> 5513</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
-<div class="line"><a name="l05514"></a><span class="lineno"> 5514</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l05515"></a><span class="lineno"> 5515</span>&#160;</div>
-<div class="line"><a name="l05519"></a><span class="lineno"> 5519</span>&#160;  legion_sharding_id_t</div>
-<div class="line"><a name="l05520"></a><span class="lineno"> 5520</span>&#160;  <a class="code" href="legion__c_8h.html#a47367836393b03ab0fe6d15ff92d3f2f">legion_runtime_generate_library_sharding_ids</a>(</div>
-<div class="line"><a name="l05521"></a><span class="lineno"> 5521</span>&#160;      legion_runtime_t runtime,</div>
-<div class="line"><a name="l05522"></a><span class="lineno"> 5522</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
-<div class="line"><a name="l05523"></a><span class="lineno"> 5523</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l05524"></a><span class="lineno"> 5524</span>&#160;</div>
-<div class="line"><a name="l05528"></a><span class="lineno"> 5528</span>&#160;  legion_reduction_op_id_t</div>
-<div class="line"><a name="l05529"></a><span class="lineno"> 5529</span>&#160;  <a class="code" href="legion__c_8h.html#aed6e174f68f41abbef25bb902ec2dbe0">legion_runtime_generate_library_reduction_ids</a>(</div>
-<div class="line"><a name="l05530"></a><span class="lineno"> 5530</span>&#160;      legion_runtime_t runtime,</div>
-<div class="line"><a name="l05531"></a><span class="lineno"> 5531</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
-<div class="line"><a name="l05532"></a><span class="lineno"> 5532</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l05533"></a><span class="lineno"> 5533</span>&#160;</div>
-<div class="line"><a name="l05537"></a><span class="lineno"> 5537</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05538"></a><span class="lineno"> 5538</span>&#160;  <a class="code" href="legion__c_8h.html#ad9d7ad11abaed96affed7745ed799996">legion_runtime_preregister_projection_functor</a>(</div>
-<div class="line"><a name="l05539"></a><span class="lineno"> 5539</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l05540"></a><span class="lineno"> 5540</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
-<div class="line"><a name="l05541"></a><span class="lineno"> 5541</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
-<div class="line"><a name="l05542"></a><span class="lineno"> 5542</span>&#160;    <a class="code" href="legion__c_8h.html#ac100932b1ad9a0cca80f13ab9975e07d">legion_projection_functor_logical_region_t</a> region_functor,</div>
-<div class="line"><a name="l05543"></a><span class="lineno"> 5543</span>&#160;    <a class="code" href="legion__c_8h.html#a5d181ab0c2b2a07300ec4d178e989a57">legion_projection_functor_logical_partition_t</a> partition_functor);</div>
-<div class="line"><a name="l05544"></a><span class="lineno"> 5544</span>&#160;</div>
-<div class="line"><a name="l05548"></a><span class="lineno"> 5548</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05549"></a><span class="lineno"> 5549</span>&#160;  <a class="code" href="legion__c_8h.html#a50ad80e9d27b5c2e9d8a74baf11e06f1">legion_runtime_preregister_projection_functor_mappable</a>(</div>
-<div class="line"><a name="l05550"></a><span class="lineno"> 5550</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l05551"></a><span class="lineno"> 5551</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
-<div class="line"><a name="l05552"></a><span class="lineno"> 5552</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
-<div class="line"><a name="l05553"></a><span class="lineno"> 5553</span>&#160;    <a class="code" href="legion__c_8h.html#a5b5a1c8dc2d8854ed876dfeb25845868">legion_projection_functor_logical_region_mappable_t</a> region_functor,</div>
-<div class="line"><a name="l05554"></a><span class="lineno"> 5554</span>&#160;    <a class="code" href="legion__c_8h.html#a49f276ef479961d20e1ff1c2ced74c4a">legion_projection_functor_logical_partition_mappable_t</a> partition_functor);</div>
-<div class="line"><a name="l05555"></a><span class="lineno"> 5555</span>&#160;</div>
-<div class="line"><a name="l05559"></a><span class="lineno"> 5559</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05560"></a><span class="lineno"> 5560</span>&#160;  <a class="code" href="legion__c_8h.html#a1824a4a4caabead68b75ef40185c5c9e">legion_runtime_register_projection_functor</a>(</div>
-<div class="line"><a name="l05561"></a><span class="lineno"> 5561</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05562"></a><span class="lineno"> 5562</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l05563"></a><span class="lineno"> 5563</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
-<div class="line"><a name="l05564"></a><span class="lineno"> 5564</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
-<div class="line"><a name="l05565"></a><span class="lineno"> 5565</span>&#160;    <a class="code" href="legion__c_8h.html#ac100932b1ad9a0cca80f13ab9975e07d">legion_projection_functor_logical_region_t</a> region_functor,</div>
-<div class="line"><a name="l05566"></a><span class="lineno"> 5566</span>&#160;    <a class="code" href="legion__c_8h.html#a5d181ab0c2b2a07300ec4d178e989a57">legion_projection_functor_logical_partition_t</a> partition_functor);</div>
-<div class="line"><a name="l05567"></a><span class="lineno"> 5567</span>&#160;</div>
-<div class="line"><a name="l05571"></a><span class="lineno"> 5571</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05572"></a><span class="lineno"> 5572</span>&#160;  <a class="code" href="legion__c_8h.html#acb442d3ac1072ed50b887980b1b26733">legion_runtime_register_projection_functor_mappable</a>(</div>
-<div class="line"><a name="l05573"></a><span class="lineno"> 5573</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05574"></a><span class="lineno"> 5574</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l05575"></a><span class="lineno"> 5575</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
-<div class="line"><a name="l05576"></a><span class="lineno"> 5576</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
-<div class="line"><a name="l05577"></a><span class="lineno"> 5577</span>&#160;    <a class="code" href="legion__c_8h.html#a5b5a1c8dc2d8854ed876dfeb25845868">legion_projection_functor_logical_region_mappable_t</a> region_functor,</div>
-<div class="line"><a name="l05578"></a><span class="lineno"> 5578</span>&#160;    <a class="code" href="legion__c_8h.html#a49f276ef479961d20e1ff1c2ced74c4a">legion_projection_functor_logical_partition_mappable_t</a> partition_functor);</div>
-<div class="line"><a name="l05579"></a><span class="lineno"> 5579</span>&#160;</div>
-<div class="line"><a name="l05583"></a><span class="lineno"> 5583</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05584"></a><span class="lineno"> 5584</span>&#160;  <a class="code" href="legion__c_8h.html#a3e103aa2aaa442105a755773060472f0">legion_runtime_generate_library_task_ids</a>(</div>
-<div class="line"><a name="l05585"></a><span class="lineno"> 5585</span>&#160;      legion_runtime_t runtime,</div>
-<div class="line"><a name="l05586"></a><span class="lineno"> 5586</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
-<div class="line"><a name="l05587"></a><span class="lineno"> 5587</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l05588"></a><span class="lineno"> 5588</span>&#160;</div>
-<div class="line"><a name="l05592"></a><span class="lineno"> 5592</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05593"></a><span class="lineno"> 5593</span>&#160;  <a class="code" href="legion__c_8h.html#a7f08c71f8cf9619e81e36fe31d422ff1">legion_runtime_register_task_variant_fnptr</a>(</div>
-<div class="line"><a name="l05594"></a><span class="lineno"> 5594</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05595"></a><span class="lineno"> 5595</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05596"></a><span class="lineno"> 5596</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05597"></a><span class="lineno"> 5597</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *variant_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05598"></a><span class="lineno"> 5598</span>&#160;    <span class="keywordtype">bool</span> global,</div>
-<div class="line"><a name="l05599"></a><span class="lineno"> 5599</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
-<div class="line"><a name="l05600"></a><span class="lineno"> 5600</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
-<div class="line"><a name="l05601"></a><span class="lineno"> 5601</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
-<div class="line"><a name="l05602"></a><span class="lineno"> 5602</span>&#160;    legion_task_pointer_wrapped_t wrapped_task_pointer,</div>
-<div class="line"><a name="l05603"></a><span class="lineno"> 5603</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
-<div class="line"><a name="l05604"></a><span class="lineno"> 5604</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
-<div class="line"><a name="l05605"></a><span class="lineno"> 5605</span>&#160;</div>
-<div class="line"><a name="l05609"></a><span class="lineno"> 5609</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05610"></a><span class="lineno"> 5610</span>&#160;  <a class="code" href="legion__c_8h.html#a487be83f3e3ecb078ff54bbae32d915b">legion_runtime_preregister_task_variant_fnptr</a>(</div>
-<div class="line"><a name="l05611"></a><span class="lineno"> 5611</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05612"></a><span class="lineno"> 5612</span>&#160;    legion_variant_id_t variant_id <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05613"></a><span class="lineno"> 5613</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05614"></a><span class="lineno"> 5614</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *variant_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05615"></a><span class="lineno"> 5615</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
-<div class="line"><a name="l05616"></a><span class="lineno"> 5616</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
-<div class="line"><a name="l05617"></a><span class="lineno"> 5617</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
-<div class="line"><a name="l05618"></a><span class="lineno"> 5618</span>&#160;    legion_task_pointer_wrapped_t wrapped_task_pointer,</div>
-<div class="line"><a name="l05619"></a><span class="lineno"> 5619</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
-<div class="line"><a name="l05620"></a><span class="lineno"> 5620</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
-<div class="line"><a name="l05621"></a><span class="lineno"> 5621</span>&#160;</div>
-<div class="line"><a name="l05622"></a><span class="lineno"> 5622</span>&#160;<span class="preprocessor">#ifdef REALM_USE_LLVM</span></div>
-<div class="line"><a name="l05623"></a><span class="lineno"> 5623</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l05626"></a><span class="lineno"> 5626</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05627"></a><span class="lineno"> 5627</span>&#160;  legion_runtime_register_task_variant_llvmir(</div>
-<div class="line"><a name="l05628"></a><span class="lineno"> 5628</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05629"></a><span class="lineno"> 5629</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05630"></a><span class="lineno"> 5630</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05631"></a><span class="lineno"> 5631</span>&#160;    <span class="keywordtype">bool</span> global,</div>
-<div class="line"><a name="l05632"></a><span class="lineno"> 5632</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
-<div class="line"><a name="l05633"></a><span class="lineno"> 5633</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
-<div class="line"><a name="l05634"></a><span class="lineno"> 5634</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
-<div class="line"><a name="l05635"></a><span class="lineno"> 5635</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *llvmir,</div>
-<div class="line"><a name="l05636"></a><span class="lineno"> 5636</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *entry_symbol,</div>
-<div class="line"><a name="l05637"></a><span class="lineno"> 5637</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
-<div class="line"><a name="l05638"></a><span class="lineno"> 5638</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
-<div class="line"><a name="l05639"></a><span class="lineno"> 5639</span>&#160;</div>
-<div class="line"><a name="l05643"></a><span class="lineno"> 5643</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05644"></a><span class="lineno"> 5644</span>&#160;  legion_runtime_preregister_task_variant_llvmir(</div>
-<div class="line"><a name="l05645"></a><span class="lineno"> 5645</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05646"></a><span class="lineno"> 5646</span>&#160;    legion_variant_id_t variant_id <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05647"></a><span class="lineno"> 5647</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05648"></a><span class="lineno"> 5648</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
-<div class="line"><a name="l05649"></a><span class="lineno"> 5649</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
-<div class="line"><a name="l05650"></a><span class="lineno"> 5650</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
-<div class="line"><a name="l05651"></a><span class="lineno"> 5651</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *llvmir,</div>
-<div class="line"><a name="l05652"></a><span class="lineno"> 5652</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *entry_symbol,</div>
-<div class="line"><a name="l05653"></a><span class="lineno"> 5653</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
-<div class="line"><a name="l05654"></a><span class="lineno"> 5654</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
-<div class="line"><a name="l05655"></a><span class="lineno"> 5655</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l05656"></a><span class="lineno"> 5656</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l05657"></a><span class="lineno"> 5657</span>&#160;<span class="preprocessor">#ifdef REALM_USE_PYTHON</span></div>
-<div class="line"><a name="l05658"></a><span class="lineno"> 5658</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l05661"></a><span class="lineno"> 5661</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05662"></a><span class="lineno"> 5662</span>&#160;  legion_runtime_register_task_variant_python_source(</div>
-<div class="line"><a name="l05663"></a><span class="lineno"> 5663</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05664"></a><span class="lineno"> 5664</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05665"></a><span class="lineno"> 5665</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05666"></a><span class="lineno"> 5666</span>&#160;    <span class="keywordtype">bool</span> global,</div>
-<div class="line"><a name="l05667"></a><span class="lineno"> 5667</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
-<div class="line"><a name="l05668"></a><span class="lineno"> 5668</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
-<div class="line"><a name="l05669"></a><span class="lineno"> 5669</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
-<div class="line"><a name="l05670"></a><span class="lineno"> 5670</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *module_name,</div>
-<div class="line"><a name="l05671"></a><span class="lineno"> 5671</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *function_name,</div>
-<div class="line"><a name="l05672"></a><span class="lineno"> 5672</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
-<div class="line"><a name="l05673"></a><span class="lineno"> 5673</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
-<div class="line"><a name="l05674"></a><span class="lineno"> 5674</span>&#160;</div>
-<div class="line"><a name="l05678"></a><span class="lineno"> 5678</span>&#160;  legion_task_id_t</div>
-<div class="line"><a name="l05679"></a><span class="lineno"> 5679</span>&#160;  legion_runtime_register_task_variant_python_source_qualname(</div>
-<div class="line"><a name="l05680"></a><span class="lineno"> 5680</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05681"></a><span class="lineno"> 5681</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
-<div class="line"><a name="l05682"></a><span class="lineno"> 5682</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
-<div class="line"><a name="l05683"></a><span class="lineno"> 5683</span>&#160;    <span class="keywordtype">bool</span> global,</div>
-<div class="line"><a name="l05684"></a><span class="lineno"> 5684</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
-<div class="line"><a name="l05685"></a><span class="lineno"> 5685</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
-<div class="line"><a name="l05686"></a><span class="lineno"> 5686</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
-<div class="line"><a name="l05687"></a><span class="lineno"> 5687</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *module_name,</div>
-<div class="line"><a name="l05688"></a><span class="lineno"> 5688</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> **function_qualname,</div>
-<div class="line"><a name="l05689"></a><span class="lineno"> 5689</span>&#160;    <span class="keywordtype">size_t</span> function_qualname_len,</div>
-<div class="line"><a name="l05690"></a><span class="lineno"> 5690</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
-<div class="line"><a name="l05691"></a><span class="lineno"> 5691</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
-<div class="line"><a name="l05692"></a><span class="lineno"> 5692</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l05693"></a><span class="lineno"> 5693</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l05697"></a><span class="lineno"> 5697</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05698"></a><span class="lineno"> 5698</span>&#160;  <a class="code" href="legion__c_8h.html#a5956193ca5a4c4f6bb3365574714b629">legion_task_preamble</a>(</div>
-<div class="line"><a name="l05699"></a><span class="lineno"> 5699</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *data,</div>
-<div class="line"><a name="l05700"></a><span class="lineno"> 5700</span>&#160;    <span class="keywordtype">size_t</span> datalen,</div>
-<div class="line"><a name="l05701"></a><span class="lineno"> 5701</span>&#160;    realm_id_t proc_id,</div>
-<div class="line"><a name="l05702"></a><span class="lineno"> 5702</span>&#160;    legion_task_t *taskptr,</div>
-<div class="line"><a name="l05703"></a><span class="lineno"> 5703</span>&#160;    <span class="keyword">const</span> legion_physical_region_t **regionptr,</div>
-<div class="line"><a name="l05704"></a><span class="lineno"> 5704</span>&#160;    <span class="keywordtype">unsigned</span> * num_regions_ptr,</div>
-<div class="line"><a name="l05705"></a><span class="lineno"> 5705</span>&#160;    legion_context_t * ctxptr,</div>
-<div class="line"><a name="l05706"></a><span class="lineno"> 5706</span>&#160;    legion_runtime_t * runtimeptr);</div>
-<div class="line"><a name="l05707"></a><span class="lineno"> 5707</span>&#160;</div>
-<div class="line"><a name="l05711"></a><span class="lineno"> 5711</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05712"></a><span class="lineno"> 5712</span>&#160;  <a class="code" href="legion__c_8h.html#a86ff176d954f70ca77c5ec423a10f190">legion_task_postamble</a>(</div>
-<div class="line"><a name="l05713"></a><span class="lineno"> 5713</span>&#160;    legion_runtime_t runtime,</div>
-<div class="line"><a name="l05714"></a><span class="lineno"> 5714</span>&#160;    legion_context_t ctx,</div>
-<div class="line"><a name="l05715"></a><span class="lineno"> 5715</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *retval,</div>
-<div class="line"><a name="l05716"></a><span class="lineno"> 5716</span>&#160;    <span class="keywordtype">size_t</span> retsize);</div>
-<div class="line"><a name="l05717"></a><span class="lineno"> 5717</span>&#160;</div>
-<div class="line"><a name="l05718"></a><span class="lineno"> 5718</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05719"></a><span class="lineno"> 5719</span>&#160;  <span class="comment">// Timing Operations</span></div>
-<div class="line"><a name="l05720"></a><span class="lineno"> 5720</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05721"></a><span class="lineno"> 5721</span>&#160;</div>
-<div class="line"><a name="l05725"></a><span class="lineno"> 5725</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span></div>
-<div class="line"><a name="l05726"></a><span class="lineno"> 5726</span>&#160;  <a class="code" href="legion__c_8h.html#a520969117564a7914b0f3df2aa790640">legion_get_current_time_in_micros</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l05511"></a><span class="lineno"> 5511</span>&#160;  <a class="code" href="legion__c_8h.html#af39b94a9492d5858e3d9617ba9ab46c2">legion_runtime_generate_static_projection_id</a>();</div>
+<div class="line"><a name="l05512"></a><span class="lineno"> 5512</span>&#160;</div>
+<div class="line"><a name="l05516"></a><span class="lineno"> 5516</span>&#160;  legion_projection_id_t</div>
+<div class="line"><a name="l05517"></a><span class="lineno"> 5517</span>&#160;  <a class="code" href="legion__c_8h.html#a2b6faf9a178c63f1fb7c6608c41786f9">legion_runtime_generate_library_projection_ids</a>(</div>
+<div class="line"><a name="l05518"></a><span class="lineno"> 5518</span>&#160;      legion_runtime_t runtime,</div>
+<div class="line"><a name="l05519"></a><span class="lineno"> 5519</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
+<div class="line"><a name="l05520"></a><span class="lineno"> 5520</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l05521"></a><span class="lineno"> 5521</span>&#160;</div>
+<div class="line"><a name="l05525"></a><span class="lineno"> 5525</span>&#160;  legion_sharding_id_t</div>
+<div class="line"><a name="l05526"></a><span class="lineno"> 5526</span>&#160;  <a class="code" href="legion__c_8h.html#a47367836393b03ab0fe6d15ff92d3f2f">legion_runtime_generate_library_sharding_ids</a>(</div>
+<div class="line"><a name="l05527"></a><span class="lineno"> 5527</span>&#160;      legion_runtime_t runtime,</div>
+<div class="line"><a name="l05528"></a><span class="lineno"> 5528</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
+<div class="line"><a name="l05529"></a><span class="lineno"> 5529</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l05530"></a><span class="lineno"> 5530</span>&#160;</div>
+<div class="line"><a name="l05534"></a><span class="lineno"> 5534</span>&#160;  legion_reduction_op_id_t</div>
+<div class="line"><a name="l05535"></a><span class="lineno"> 5535</span>&#160;  <a class="code" href="legion__c_8h.html#aed6e174f68f41abbef25bb902ec2dbe0">legion_runtime_generate_library_reduction_ids</a>(</div>
+<div class="line"><a name="l05536"></a><span class="lineno"> 5536</span>&#160;      legion_runtime_t runtime,</div>
+<div class="line"><a name="l05537"></a><span class="lineno"> 5537</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
+<div class="line"><a name="l05538"></a><span class="lineno"> 5538</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l05539"></a><span class="lineno"> 5539</span>&#160;</div>
+<div class="line"><a name="l05543"></a><span class="lineno"> 5543</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05544"></a><span class="lineno"> 5544</span>&#160;  <a class="code" href="legion__c_8h.html#ad9d7ad11abaed96affed7745ed799996">legion_runtime_preregister_projection_functor</a>(</div>
+<div class="line"><a name="l05545"></a><span class="lineno"> 5545</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l05546"></a><span class="lineno"> 5546</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
+<div class="line"><a name="l05547"></a><span class="lineno"> 5547</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
+<div class="line"><a name="l05548"></a><span class="lineno"> 5548</span>&#160;    <a class="code" href="legion__c_8h.html#ac100932b1ad9a0cca80f13ab9975e07d">legion_projection_functor_logical_region_t</a> region_functor,</div>
+<div class="line"><a name="l05549"></a><span class="lineno"> 5549</span>&#160;    <a class="code" href="legion__c_8h.html#a5d181ab0c2b2a07300ec4d178e989a57">legion_projection_functor_logical_partition_t</a> partition_functor);</div>
+<div class="line"><a name="l05550"></a><span class="lineno"> 5550</span>&#160;</div>
+<div class="line"><a name="l05554"></a><span class="lineno"> 5554</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05555"></a><span class="lineno"> 5555</span>&#160;  <a class="code" href="legion__c_8h.html#a50ad80e9d27b5c2e9d8a74baf11e06f1">legion_runtime_preregister_projection_functor_mappable</a>(</div>
+<div class="line"><a name="l05556"></a><span class="lineno"> 5556</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l05557"></a><span class="lineno"> 5557</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
+<div class="line"><a name="l05558"></a><span class="lineno"> 5558</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
+<div class="line"><a name="l05559"></a><span class="lineno"> 5559</span>&#160;    <a class="code" href="legion__c_8h.html#a5b5a1c8dc2d8854ed876dfeb25845868">legion_projection_functor_logical_region_mappable_t</a> region_functor,</div>
+<div class="line"><a name="l05560"></a><span class="lineno"> 5560</span>&#160;    <a class="code" href="legion__c_8h.html#a49f276ef479961d20e1ff1c2ced74c4a">legion_projection_functor_logical_partition_mappable_t</a> partition_functor);</div>
+<div class="line"><a name="l05561"></a><span class="lineno"> 5561</span>&#160;</div>
+<div class="line"><a name="l05565"></a><span class="lineno"> 5565</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05566"></a><span class="lineno"> 5566</span>&#160;  <a class="code" href="legion__c_8h.html#a1824a4a4caabead68b75ef40185c5c9e">legion_runtime_register_projection_functor</a>(</div>
+<div class="line"><a name="l05567"></a><span class="lineno"> 5567</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05568"></a><span class="lineno"> 5568</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l05569"></a><span class="lineno"> 5569</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
+<div class="line"><a name="l05570"></a><span class="lineno"> 5570</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
+<div class="line"><a name="l05571"></a><span class="lineno"> 5571</span>&#160;    <a class="code" href="legion__c_8h.html#ac100932b1ad9a0cca80f13ab9975e07d">legion_projection_functor_logical_region_t</a> region_functor,</div>
+<div class="line"><a name="l05572"></a><span class="lineno"> 5572</span>&#160;    <a class="code" href="legion__c_8h.html#a5d181ab0c2b2a07300ec4d178e989a57">legion_projection_functor_logical_partition_t</a> partition_functor);</div>
+<div class="line"><a name="l05573"></a><span class="lineno"> 5573</span>&#160;</div>
+<div class="line"><a name="l05577"></a><span class="lineno"> 5577</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05578"></a><span class="lineno"> 5578</span>&#160;  <a class="code" href="legion__c_8h.html#acb442d3ac1072ed50b887980b1b26733">legion_runtime_register_projection_functor_mappable</a>(</div>
+<div class="line"><a name="l05579"></a><span class="lineno"> 5579</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05580"></a><span class="lineno"> 5580</span>&#160;    legion_projection_id_t <span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l05581"></a><span class="lineno"> 5581</span>&#160;    <span class="keywordtype">bool</span> exclusive,</div>
+<div class="line"><a name="l05582"></a><span class="lineno"> 5582</span>&#160;    <span class="keywordtype">unsigned</span> depth,</div>
+<div class="line"><a name="l05583"></a><span class="lineno"> 5583</span>&#160;    <a class="code" href="legion__c_8h.html#a5b5a1c8dc2d8854ed876dfeb25845868">legion_projection_functor_logical_region_mappable_t</a> region_functor,</div>
+<div class="line"><a name="l05584"></a><span class="lineno"> 5584</span>&#160;    <a class="code" href="legion__c_8h.html#a49f276ef479961d20e1ff1c2ced74c4a">legion_projection_functor_logical_partition_mappable_t</a> partition_functor);</div>
+<div class="line"><a name="l05585"></a><span class="lineno"> 5585</span>&#160;</div>
+<div class="line"><a name="l05589"></a><span class="lineno"> 5589</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05590"></a><span class="lineno"> 5590</span>&#160;  <a class="code" href="legion__c_8h.html#a3e103aa2aaa442105a755773060472f0">legion_runtime_generate_library_task_ids</a>(</div>
+<div class="line"><a name="l05591"></a><span class="lineno"> 5591</span>&#160;      legion_runtime_t runtime,</div>
+<div class="line"><a name="l05592"></a><span class="lineno"> 5592</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> *library_name,</div>
+<div class="line"><a name="l05593"></a><span class="lineno"> 5593</span>&#160;      <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l05594"></a><span class="lineno"> 5594</span>&#160;</div>
+<div class="line"><a name="l05598"></a><span class="lineno"> 5598</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05599"></a><span class="lineno"> 5599</span>&#160;  <a class="code" href="legion__c_8h.html#a7f08c71f8cf9619e81e36fe31d422ff1">legion_runtime_register_task_variant_fnptr</a>(</div>
+<div class="line"><a name="l05600"></a><span class="lineno"> 5600</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05601"></a><span class="lineno"> 5601</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05602"></a><span class="lineno"> 5602</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05603"></a><span class="lineno"> 5603</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *variant_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05604"></a><span class="lineno"> 5604</span>&#160;    <span class="keywordtype">bool</span> global,</div>
+<div class="line"><a name="l05605"></a><span class="lineno"> 5605</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
+<div class="line"><a name="l05606"></a><span class="lineno"> 5606</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
+<div class="line"><a name="l05607"></a><span class="lineno"> 5607</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
+<div class="line"><a name="l05608"></a><span class="lineno"> 5608</span>&#160;    legion_task_pointer_wrapped_t wrapped_task_pointer,</div>
+<div class="line"><a name="l05609"></a><span class="lineno"> 5609</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
+<div class="line"><a name="l05610"></a><span class="lineno"> 5610</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
+<div class="line"><a name="l05611"></a><span class="lineno"> 5611</span>&#160;</div>
+<div class="line"><a name="l05615"></a><span class="lineno"> 5615</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05616"></a><span class="lineno"> 5616</span>&#160;  <a class="code" href="legion__c_8h.html#a487be83f3e3ecb078ff54bbae32d915b">legion_runtime_preregister_task_variant_fnptr</a>(</div>
+<div class="line"><a name="l05617"></a><span class="lineno"> 5617</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05618"></a><span class="lineno"> 5618</span>&#160;    legion_variant_id_t variant_id <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05619"></a><span class="lineno"> 5619</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05620"></a><span class="lineno"> 5620</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *variant_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05621"></a><span class="lineno"> 5621</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
+<div class="line"><a name="l05622"></a><span class="lineno"> 5622</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
+<div class="line"><a name="l05623"></a><span class="lineno"> 5623</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
+<div class="line"><a name="l05624"></a><span class="lineno"> 5624</span>&#160;    legion_task_pointer_wrapped_t wrapped_task_pointer,</div>
+<div class="line"><a name="l05625"></a><span class="lineno"> 5625</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
+<div class="line"><a name="l05626"></a><span class="lineno"> 5626</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
+<div class="line"><a name="l05627"></a><span class="lineno"> 5627</span>&#160;</div>
+<div class="line"><a name="l05628"></a><span class="lineno"> 5628</span>&#160;<span class="preprocessor">#ifdef REALM_USE_LLVM</span></div>
+<div class="line"><a name="l05629"></a><span class="lineno"> 5629</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l05632"></a><span class="lineno"> 5632</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05633"></a><span class="lineno"> 5633</span>&#160;  legion_runtime_register_task_variant_llvmir(</div>
+<div class="line"><a name="l05634"></a><span class="lineno"> 5634</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05635"></a><span class="lineno"> 5635</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05636"></a><span class="lineno"> 5636</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05637"></a><span class="lineno"> 5637</span>&#160;    <span class="keywordtype">bool</span> global,</div>
+<div class="line"><a name="l05638"></a><span class="lineno"> 5638</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
+<div class="line"><a name="l05639"></a><span class="lineno"> 5639</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
+<div class="line"><a name="l05640"></a><span class="lineno"> 5640</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
+<div class="line"><a name="l05641"></a><span class="lineno"> 5641</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *llvmir,</div>
+<div class="line"><a name="l05642"></a><span class="lineno"> 5642</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *entry_symbol,</div>
+<div class="line"><a name="l05643"></a><span class="lineno"> 5643</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
+<div class="line"><a name="l05644"></a><span class="lineno"> 5644</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
+<div class="line"><a name="l05645"></a><span class="lineno"> 5645</span>&#160;</div>
+<div class="line"><a name="l05649"></a><span class="lineno"> 5649</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05650"></a><span class="lineno"> 5650</span>&#160;  legion_runtime_preregister_task_variant_llvmir(</div>
+<div class="line"><a name="l05651"></a><span class="lineno"> 5651</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05652"></a><span class="lineno"> 5652</span>&#160;    legion_variant_id_t variant_id <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05653"></a><span class="lineno"> 5653</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05654"></a><span class="lineno"> 5654</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
+<div class="line"><a name="l05655"></a><span class="lineno"> 5655</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
+<div class="line"><a name="l05656"></a><span class="lineno"> 5656</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
+<div class="line"><a name="l05657"></a><span class="lineno"> 5657</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *llvmir,</div>
+<div class="line"><a name="l05658"></a><span class="lineno"> 5658</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *entry_symbol,</div>
+<div class="line"><a name="l05659"></a><span class="lineno"> 5659</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
+<div class="line"><a name="l05660"></a><span class="lineno"> 5660</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
+<div class="line"><a name="l05661"></a><span class="lineno"> 5661</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l05662"></a><span class="lineno"> 5662</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l05663"></a><span class="lineno"> 5663</span>&#160;<span class="preprocessor">#ifdef REALM_USE_PYTHON</span></div>
+<div class="line"><a name="l05664"></a><span class="lineno"> 5664</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l05667"></a><span class="lineno"> 5667</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05668"></a><span class="lineno"> 5668</span>&#160;  legion_runtime_register_task_variant_python_source(</div>
+<div class="line"><a name="l05669"></a><span class="lineno"> 5669</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05670"></a><span class="lineno"> 5670</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05671"></a><span class="lineno"> 5671</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05672"></a><span class="lineno"> 5672</span>&#160;    <span class="keywordtype">bool</span> global,</div>
+<div class="line"><a name="l05673"></a><span class="lineno"> 5673</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
+<div class="line"><a name="l05674"></a><span class="lineno"> 5674</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
+<div class="line"><a name="l05675"></a><span class="lineno"> 5675</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
+<div class="line"><a name="l05676"></a><span class="lineno"> 5676</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *module_name,</div>
+<div class="line"><a name="l05677"></a><span class="lineno"> 5677</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *function_name,</div>
+<div class="line"><a name="l05678"></a><span class="lineno"> 5678</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
+<div class="line"><a name="l05679"></a><span class="lineno"> 5679</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
+<div class="line"><a name="l05680"></a><span class="lineno"> 5680</span>&#160;</div>
+<div class="line"><a name="l05684"></a><span class="lineno"> 5684</span>&#160;  legion_task_id_t</div>
+<div class="line"><a name="l05685"></a><span class="lineno"> 5685</span>&#160;  legion_runtime_register_task_variant_python_source_qualname(</div>
+<div class="line"><a name="l05686"></a><span class="lineno"> 5686</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05687"></a><span class="lineno"> 5687</span>&#160;    legion_task_id_t <span class="keywordtype">id</span> <span class="comment">/* = AUTO_GENERATE_ID */</span>,</div>
+<div class="line"><a name="l05688"></a><span class="lineno"> 5688</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *task_name <span class="comment">/* = NULL*/</span>,</div>
+<div class="line"><a name="l05689"></a><span class="lineno"> 5689</span>&#160;    <span class="keywordtype">bool</span> global,</div>
+<div class="line"><a name="l05690"></a><span class="lineno"> 5690</span>&#160;    legion_execution_constraint_set_t execution_constraints,</div>
+<div class="line"><a name="l05691"></a><span class="lineno"> 5691</span>&#160;    legion_task_layout_constraint_set_t layout_constraints,</div>
+<div class="line"><a name="l05692"></a><span class="lineno"> 5692</span>&#160;    <a class="code" href="structlegion__task__config__options__t.html">legion_task_config_options_t</a> options,</div>
+<div class="line"><a name="l05693"></a><span class="lineno"> 5693</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *module_name,</div>
+<div class="line"><a name="l05694"></a><span class="lineno"> 5694</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> **function_qualname,</div>
+<div class="line"><a name="l05695"></a><span class="lineno"> 5695</span>&#160;    <span class="keywordtype">size_t</span> function_qualname_len,</div>
+<div class="line"><a name="l05696"></a><span class="lineno"> 5696</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *userdata,</div>
+<div class="line"><a name="l05697"></a><span class="lineno"> 5697</span>&#160;    <span class="keywordtype">size_t</span> userlen);</div>
+<div class="line"><a name="l05698"></a><span class="lineno"> 5698</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l05699"></a><span class="lineno"> 5699</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l05703"></a><span class="lineno"> 5703</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05704"></a><span class="lineno"> 5704</span>&#160;  <a class="code" href="legion__c_8h.html#a5956193ca5a4c4f6bb3365574714b629">legion_task_preamble</a>(</div>
+<div class="line"><a name="l05705"></a><span class="lineno"> 5705</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *data,</div>
+<div class="line"><a name="l05706"></a><span class="lineno"> 5706</span>&#160;    <span class="keywordtype">size_t</span> datalen,</div>
+<div class="line"><a name="l05707"></a><span class="lineno"> 5707</span>&#160;    realm_id_t proc_id,</div>
+<div class="line"><a name="l05708"></a><span class="lineno"> 5708</span>&#160;    legion_task_t *taskptr,</div>
+<div class="line"><a name="l05709"></a><span class="lineno"> 5709</span>&#160;    <span class="keyword">const</span> legion_physical_region_t **regionptr,</div>
+<div class="line"><a name="l05710"></a><span class="lineno"> 5710</span>&#160;    <span class="keywordtype">unsigned</span> * num_regions_ptr,</div>
+<div class="line"><a name="l05711"></a><span class="lineno"> 5711</span>&#160;    legion_context_t * ctxptr,</div>
+<div class="line"><a name="l05712"></a><span class="lineno"> 5712</span>&#160;    legion_runtime_t * runtimeptr);</div>
+<div class="line"><a name="l05713"></a><span class="lineno"> 5713</span>&#160;</div>
+<div class="line"><a name="l05717"></a><span class="lineno"> 5717</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05718"></a><span class="lineno"> 5718</span>&#160;  <a class="code" href="legion__c_8h.html#a86ff176d954f70ca77c5ec423a10f190">legion_task_postamble</a>(</div>
+<div class="line"><a name="l05719"></a><span class="lineno"> 5719</span>&#160;    legion_runtime_t runtime,</div>
+<div class="line"><a name="l05720"></a><span class="lineno"> 5720</span>&#160;    legion_context_t ctx,</div>
+<div class="line"><a name="l05721"></a><span class="lineno"> 5721</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span> *retval,</div>
+<div class="line"><a name="l05722"></a><span class="lineno"> 5722</span>&#160;    <span class="keywordtype">size_t</span> retsize);</div>
+<div class="line"><a name="l05723"></a><span class="lineno"> 5723</span>&#160;</div>
+<div class="line"><a name="l05724"></a><span class="lineno"> 5724</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05725"></a><span class="lineno"> 5725</span>&#160;  <span class="comment">// Timing Operations</span></div>
+<div class="line"><a name="l05726"></a><span class="lineno"> 5726</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l05727"></a><span class="lineno"> 5727</span>&#160;</div>
 <div class="line"><a name="l05731"></a><span class="lineno"> 5731</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span></div>
-<div class="line"><a name="l05732"></a><span class="lineno"> 5732</span>&#160;  <a class="code" href="legion__c_8h.html#adb8cb1317b7d1fdcf6a7f7bf86c67849">legion_get_current_time_in_nanos</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l05732"></a><span class="lineno"> 5732</span>&#160;  <a class="code" href="legion__c_8h.html#a520969117564a7914b0f3df2aa790640">legion_get_current_time_in_micros</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l05733"></a><span class="lineno"> 5733</span>&#160;</div>
-<div class="line"><a name="l05737"></a><span class="lineno"> 5737</span>&#160;  legion_future_t</div>
-<div class="line"><a name="l05738"></a><span class="lineno"> 5738</span>&#160;  <a class="code" href="legion__c_8h.html#ac8a4e61fc3ae755d403b40c4f2101c52">legion_issue_timing_op_seconds</a>(legion_runtime_t runtime,</div>
-<div class="line"><a name="l05739"></a><span class="lineno"> 5739</span>&#160;                                 legion_context_t ctx);</div>
-<div class="line"><a name="l05740"></a><span class="lineno"> 5740</span>&#160;</div>
-<div class="line"><a name="l05744"></a><span class="lineno"> 5744</span>&#160;  legion_future_t</div>
-<div class="line"><a name="l05745"></a><span class="lineno"> 5745</span>&#160;  <a class="code" href="legion__c_8h.html#af7d26194c3815c32928fbb4328c9f389">legion_issue_timing_op_microseconds</a>(legion_runtime_t runtime,</div>
-<div class="line"><a name="l05746"></a><span class="lineno"> 5746</span>&#160;                                      legion_context_t ctx);</div>
-<div class="line"><a name="l05747"></a><span class="lineno"> 5747</span>&#160;</div>
-<div class="line"><a name="l05751"></a><span class="lineno"> 5751</span>&#160;  legion_future_t</div>
-<div class="line"><a name="l05752"></a><span class="lineno"> 5752</span>&#160;  <a class="code" href="legion__c_8h.html#adf3eb18e160aac2eb6fe9d45bc3da8bf">legion_issue_timing_op_nanoseconds</a>(legion_runtime_t runtime,</div>
-<div class="line"><a name="l05753"></a><span class="lineno"> 5753</span>&#160;                                     legion_context_t ctx);</div>
-<div class="line"><a name="l05754"></a><span class="lineno"> 5754</span>&#160;</div>
-<div class="line"><a name="l05755"></a><span class="lineno"> 5755</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05756"></a><span class="lineno"> 5756</span>&#160;  <span class="comment">// Machine Operations</span></div>
-<div class="line"><a name="l05757"></a><span class="lineno"> 5757</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05758"></a><span class="lineno"> 5758</span>&#160;</div>
-<div class="line"><a name="l05764"></a><span class="lineno"> 5764</span>&#160;  legion_machine_t</div>
-<div class="line"><a name="l05765"></a><span class="lineno"> 5765</span>&#160;  <a class="code" href="legion__c_8h.html#a9e297c11ec465ccebc0253a67035dd37">legion_machine_create</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l05766"></a><span class="lineno"> 5766</span>&#160;</div>
-<div class="line"><a name="l05772"></a><span class="lineno"> 5772</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05773"></a><span class="lineno"> 5773</span>&#160;  <a class="code" href="legion__c_8h.html#a4d706a96bc560908d36823e64fb38a27">legion_machine_destroy</a>(legion_machine_t handle);</div>
-<div class="line"><a name="l05774"></a><span class="lineno"> 5774</span>&#160;</div>
+<div class="line"><a name="l05737"></a><span class="lineno"> 5737</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span></div>
+<div class="line"><a name="l05738"></a><span class="lineno"> 5738</span>&#160;  <a class="code" href="legion__c_8h.html#adb8cb1317b7d1fdcf6a7f7bf86c67849">legion_get_current_time_in_nanos</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l05739"></a><span class="lineno"> 5739</span>&#160;</div>
+<div class="line"><a name="l05743"></a><span class="lineno"> 5743</span>&#160;  legion_future_t</div>
+<div class="line"><a name="l05744"></a><span class="lineno"> 5744</span>&#160;  <a class="code" href="legion__c_8h.html#ac8a4e61fc3ae755d403b40c4f2101c52">legion_issue_timing_op_seconds</a>(legion_runtime_t runtime,</div>
+<div class="line"><a name="l05745"></a><span class="lineno"> 5745</span>&#160;                                 legion_context_t ctx);</div>
+<div class="line"><a name="l05746"></a><span class="lineno"> 5746</span>&#160;</div>
+<div class="line"><a name="l05750"></a><span class="lineno"> 5750</span>&#160;  legion_future_t</div>
+<div class="line"><a name="l05751"></a><span class="lineno"> 5751</span>&#160;  <a class="code" href="legion__c_8h.html#af7d26194c3815c32928fbb4328c9f389">legion_issue_timing_op_microseconds</a>(legion_runtime_t runtime,</div>
+<div class="line"><a name="l05752"></a><span class="lineno"> 5752</span>&#160;                                      legion_context_t ctx);</div>
+<div class="line"><a name="l05753"></a><span class="lineno"> 5753</span>&#160;</div>
+<div class="line"><a name="l05757"></a><span class="lineno"> 5757</span>&#160;  legion_future_t</div>
+<div class="line"><a name="l05758"></a><span class="lineno"> 5758</span>&#160;  <a class="code" href="legion__c_8h.html#adf3eb18e160aac2eb6fe9d45bc3da8bf">legion_issue_timing_op_nanoseconds</a>(legion_runtime_t runtime,</div>
+<div class="line"><a name="l05759"></a><span class="lineno"> 5759</span>&#160;                                     legion_context_t ctx);</div>
+<div class="line"><a name="l05760"></a><span class="lineno"> 5760</span>&#160;</div>
+<div class="line"><a name="l05761"></a><span class="lineno"> 5761</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05762"></a><span class="lineno"> 5762</span>&#160;  <span class="comment">// Machine Operations</span></div>
+<div class="line"><a name="l05763"></a><span class="lineno"> 5763</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05764"></a><span class="lineno"> 5764</span>&#160;</div>
+<div class="line"><a name="l05770"></a><span class="lineno"> 5770</span>&#160;  legion_machine_t</div>
+<div class="line"><a name="l05771"></a><span class="lineno"> 5771</span>&#160;  <a class="code" href="legion__c_8h.html#a9e297c11ec465ccebc0253a67035dd37">legion_machine_create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l05772"></a><span class="lineno"> 5772</span>&#160;</div>
 <div class="line"><a name="l05778"></a><span class="lineno"> 5778</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05779"></a><span class="lineno"> 5779</span>&#160;  <a class="code" href="legion__c_8h.html#a735b07945be0a1b2f3b0a0d15508be81">legion_machine_get_all_processors</a>(</div>
-<div class="line"><a name="l05780"></a><span class="lineno"> 5780</span>&#160;    legion_machine_t machine,</div>
-<div class="line"><a name="l05781"></a><span class="lineno"> 5781</span>&#160;    legion_processor_t *processors,</div>
-<div class="line"><a name="l05782"></a><span class="lineno"> 5782</span>&#160;    <span class="keywordtype">size_t</span> processors_size);</div>
-<div class="line"><a name="l05783"></a><span class="lineno"> 5783</span>&#160;</div>
-<div class="line"><a name="l05787"></a><span class="lineno"> 5787</span>&#160;  <span class="keywordtype">size_t</span></div>
-<div class="line"><a name="l05788"></a><span class="lineno"> 5788</span>&#160;  <a class="code" href="legion__c_8h.html#ab4986b4fbea9736181c8f7718f03dab6">legion_machine_get_all_processors_size</a>(legion_machine_t machine);</div>
+<div class="line"><a name="l05779"></a><span class="lineno"> 5779</span>&#160;  <a class="code" href="legion__c_8h.html#a4d706a96bc560908d36823e64fb38a27">legion_machine_destroy</a>(legion_machine_t handle);</div>
+<div class="line"><a name="l05780"></a><span class="lineno"> 5780</span>&#160;</div>
+<div class="line"><a name="l05784"></a><span class="lineno"> 5784</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05785"></a><span class="lineno"> 5785</span>&#160;  <a class="code" href="legion__c_8h.html#a735b07945be0a1b2f3b0a0d15508be81">legion_machine_get_all_processors</a>(</div>
+<div class="line"><a name="l05786"></a><span class="lineno"> 5786</span>&#160;    legion_machine_t machine,</div>
+<div class="line"><a name="l05787"></a><span class="lineno"> 5787</span>&#160;    legion_processor_t *processors,</div>
+<div class="line"><a name="l05788"></a><span class="lineno"> 5788</span>&#160;    <span class="keywordtype">size_t</span> processors_size);</div>
 <div class="line"><a name="l05789"></a><span class="lineno"> 5789</span>&#160;</div>
-<div class="line"><a name="l05793"></a><span class="lineno"> 5793</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05794"></a><span class="lineno"> 5794</span>&#160;  <a class="code" href="legion__c_8h.html#a433773a7c01c36a789f7d3358ff36435">legion_machine_get_all_memories</a>(</div>
-<div class="line"><a name="l05795"></a><span class="lineno"> 5795</span>&#160;    legion_machine_t machine,</div>
-<div class="line"><a name="l05796"></a><span class="lineno"> 5796</span>&#160;    <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> *memories,</div>
-<div class="line"><a name="l05797"></a><span class="lineno"> 5797</span>&#160;    <span class="keywordtype">size_t</span> memories_size);</div>
-<div class="line"><a name="l05798"></a><span class="lineno"> 5798</span>&#160;</div>
-<div class="line"><a name="l05802"></a><span class="lineno"> 5802</span>&#160;  <span class="keywordtype">size_t</span></div>
-<div class="line"><a name="l05803"></a><span class="lineno"> 5803</span>&#160;  <a class="code" href="legion__c_8h.html#aa0f3bbf4f322a692ec0e62dc97cdc5c4">legion_machine_get_all_memories_size</a>(legion_machine_t machine);</div>
+<div class="line"><a name="l05793"></a><span class="lineno"> 5793</span>&#160;  <span class="keywordtype">size_t</span></div>
+<div class="line"><a name="l05794"></a><span class="lineno"> 5794</span>&#160;  <a class="code" href="legion__c_8h.html#ab4986b4fbea9736181c8f7718f03dab6">legion_machine_get_all_processors_size</a>(legion_machine_t machine);</div>
+<div class="line"><a name="l05795"></a><span class="lineno"> 5795</span>&#160;</div>
+<div class="line"><a name="l05799"></a><span class="lineno"> 5799</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05800"></a><span class="lineno"> 5800</span>&#160;  <a class="code" href="legion__c_8h.html#a433773a7c01c36a789f7d3358ff36435">legion_machine_get_all_memories</a>(</div>
+<div class="line"><a name="l05801"></a><span class="lineno"> 5801</span>&#160;    legion_machine_t machine,</div>
+<div class="line"><a name="l05802"></a><span class="lineno"> 5802</span>&#160;    <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> *memories,</div>
+<div class="line"><a name="l05803"></a><span class="lineno"> 5803</span>&#160;    <span class="keywordtype">size_t</span> memories_size);</div>
 <div class="line"><a name="l05804"></a><span class="lineno"> 5804</span>&#160;</div>
-<div class="line"><a name="l05805"></a><span class="lineno"> 5805</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05806"></a><span class="lineno"> 5806</span>&#160;  <span class="comment">// Processor Operations</span></div>
-<div class="line"><a name="l05807"></a><span class="lineno"> 5807</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05808"></a><span class="lineno"> 5808</span>&#160;</div>
-<div class="line"><a name="l05812"></a><span class="lineno"> 5812</span>&#160;  legion_processor_kind_t</div>
-<div class="line"><a name="l05813"></a><span class="lineno"> 5813</span>&#160;  <a class="code" href="legion__c_8h.html#ae0ba887da0847e1c173577aecabd2edf">legion_processor_kind</a>(legion_processor_t proc);</div>
+<div class="line"><a name="l05808"></a><span class="lineno"> 5808</span>&#160;  <span class="keywordtype">size_t</span></div>
+<div class="line"><a name="l05809"></a><span class="lineno"> 5809</span>&#160;  <a class="code" href="legion__c_8h.html#aa0f3bbf4f322a692ec0e62dc97cdc5c4">legion_machine_get_all_memories_size</a>(legion_machine_t machine);</div>
+<div class="line"><a name="l05810"></a><span class="lineno"> 5810</span>&#160;</div>
+<div class="line"><a name="l05811"></a><span class="lineno"> 5811</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05812"></a><span class="lineno"> 5812</span>&#160;  <span class="comment">// Processor Operations</span></div>
+<div class="line"><a name="l05813"></a><span class="lineno"> 5813</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l05814"></a><span class="lineno"> 5814</span>&#160;</div>
-<div class="line"><a name="l05818"></a><span class="lineno"> 5818</span>&#160;  legion_address_space_t</div>
-<div class="line"><a name="l05819"></a><span class="lineno"> 5819</span>&#160;  <a class="code" href="legion__c_8h.html#a5e900596ff012674163acf685feed599">legion_processor_address_space</a>(legion_processor_t proc);</div>
+<div class="line"><a name="l05818"></a><span class="lineno"> 5818</span>&#160;  legion_processor_kind_t</div>
+<div class="line"><a name="l05819"></a><span class="lineno"> 5819</span>&#160;  <a class="code" href="legion__c_8h.html#ae0ba887da0847e1c173577aecabd2edf">legion_processor_kind</a>(legion_processor_t proc);</div>
 <div class="line"><a name="l05820"></a><span class="lineno"> 5820</span>&#160;</div>
-<div class="line"><a name="l05821"></a><span class="lineno"> 5821</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05822"></a><span class="lineno"> 5822</span>&#160;  <span class="comment">// Memory Operations</span></div>
-<div class="line"><a name="l05823"></a><span class="lineno"> 5823</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05824"></a><span class="lineno"> 5824</span>&#160;</div>
-<div class="line"><a name="l05828"></a><span class="lineno"> 5828</span>&#160;  legion_memory_kind_t</div>
-<div class="line"><a name="l05829"></a><span class="lineno"> 5829</span>&#160;  <a class="code" href="legion__c_8h.html#aa0a8ebf77b31a077798d1f818b8e05ec">legion_memory_kind</a>(<a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
+<div class="line"><a name="l05824"></a><span class="lineno"> 5824</span>&#160;  legion_address_space_t</div>
+<div class="line"><a name="l05825"></a><span class="lineno"> 5825</span>&#160;  <a class="code" href="legion__c_8h.html#a5e900596ff012674163acf685feed599">legion_processor_address_space</a>(legion_processor_t proc);</div>
+<div class="line"><a name="l05826"></a><span class="lineno"> 5826</span>&#160;</div>
+<div class="line"><a name="l05827"></a><span class="lineno"> 5827</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05828"></a><span class="lineno"> 5828</span>&#160;  <span class="comment">// Memory Operations</span></div>
+<div class="line"><a name="l05829"></a><span class="lineno"> 5829</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
 <div class="line"><a name="l05830"></a><span class="lineno"> 5830</span>&#160;</div>
-<div class="line"><a name="l05834"></a><span class="lineno"> 5834</span>&#160;  legion_address_space_t</div>
-<div class="line"><a name="l05835"></a><span class="lineno"> 5835</span>&#160;  <a class="code" href="legion__c_8h.html#aa4e1a989e72413ef1a399d81d5fc8513">legion_memory_address_space</a>(<a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
+<div class="line"><a name="l05834"></a><span class="lineno"> 5834</span>&#160;  legion_memory_kind_t</div>
+<div class="line"><a name="l05835"></a><span class="lineno"> 5835</span>&#160;  <a class="code" href="legion__c_8h.html#aa0a8ebf77b31a077798d1f818b8e05ec">legion_memory_kind</a>(<a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
 <div class="line"><a name="l05836"></a><span class="lineno"> 5836</span>&#160;</div>
-<div class="line"><a name="l05837"></a><span class="lineno"> 5837</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05838"></a><span class="lineno"> 5838</span>&#160;  <span class="comment">// Processor Query Operations</span></div>
-<div class="line"><a name="l05839"></a><span class="lineno"> 5839</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05840"></a><span class="lineno"> 5840</span>&#160;</div>
-<div class="line"><a name="l05846"></a><span class="lineno"> 5846</span>&#160;  legion_processor_query_t</div>
-<div class="line"><a name="l05847"></a><span class="lineno"> 5847</span>&#160;  <a class="code" href="legion__c_8h.html#a6ca8f5ff8673d79a37348939feb863c1">legion_processor_query_create</a>(legion_machine_t machine);</div>
-<div class="line"><a name="l05848"></a><span class="lineno"> 5848</span>&#160;</div>
-<div class="line"><a name="l05854"></a><span class="lineno"> 5854</span>&#160;  legion_processor_query_t</div>
-<div class="line"><a name="l05855"></a><span class="lineno"> 5855</span>&#160;  <a class="code" href="legion__c_8h.html#ace5688c2d21b35031baf2a5077df1399">legion_processor_query_create_copy</a>(legion_processor_query_t query);</div>
-<div class="line"><a name="l05856"></a><span class="lineno"> 5856</span>&#160;</div>
-<div class="line"><a name="l05862"></a><span class="lineno"> 5862</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05863"></a><span class="lineno"> 5863</span>&#160;  <a class="code" href="legion__c_8h.html#abafc740a92bab5f4fc4f678e96f88bb6">legion_processor_query_destroy</a>(legion_processor_query_t handle);</div>
-<div class="line"><a name="l05864"></a><span class="lineno"> 5864</span>&#160;</div>
-<div class="line"><a name="l05870"></a><span class="lineno"> 5870</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05871"></a><span class="lineno"> 5871</span>&#160;  <a class="code" href="legion__c_8h.html#a0e8da541894f19c861713dec2f1810ae">legion_processor_query_only_kind</a>(legion_processor_query_t query,</div>
-<div class="line"><a name="l05872"></a><span class="lineno"> 5872</span>&#160;                                   legion_processor_kind_t kind);</div>
-<div class="line"><a name="l05873"></a><span class="lineno"> 5873</span>&#160;</div>
-<div class="line"><a name="l05879"></a><span class="lineno"> 5879</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05880"></a><span class="lineno"> 5880</span>&#160;  <a class="code" href="legion__c_8h.html#a8764bae75ca013edfc8f66951c61205a">legion_processor_query_local_address_space</a>(legion_processor_query_t query);</div>
-<div class="line"><a name="l05881"></a><span class="lineno"> 5881</span>&#160;</div>
-<div class="line"><a name="l05887"></a><span class="lineno"> 5887</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05888"></a><span class="lineno"> 5888</span>&#160;  <a class="code" href="legion__c_8h.html#a07883dd1165d9f74f119f72d49d095ea">legion_processor_query_same_address_space_as_processor</a>(legion_processor_query_t query,</div>
-<div class="line"><a name="l05889"></a><span class="lineno"> 5889</span>&#160;                                                         legion_processor_t proc);</div>
-<div class="line"><a name="l05890"></a><span class="lineno"> 5890</span>&#160;</div>
-<div class="line"><a name="l05896"></a><span class="lineno"> 5896</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05897"></a><span class="lineno"> 5897</span>&#160;  <a class="code" href="legion__c_8h.html#aa7d43f43756b820d2f782b49a8aa7b09">legion_processor_query_same_address_space_as_memory</a>(legion_processor_query_t query,</div>
-<div class="line"><a name="l05898"></a><span class="lineno"> 5898</span>&#160;                                                      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
-<div class="line"><a name="l05899"></a><span class="lineno"> 5899</span>&#160;</div>
-<div class="line"><a name="l05905"></a><span class="lineno"> 5905</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05906"></a><span class="lineno"> 5906</span>&#160;  <a class="code" href="legion__c_8h.html#a2805c25677f9341ca12d2083c950309f">legion_processor_query_has_affinity_to_memory</a>(legion_processor_query_t query,</div>
-<div class="line"><a name="l05907"></a><span class="lineno"> 5907</span>&#160;                                                <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
-<div class="line"><a name="l05908"></a><span class="lineno"> 5908</span>&#160;                                                <span class="keywordtype">unsigned</span> min_bandwidth <span class="comment">/* = 0 */</span>,</div>
-<div class="line"><a name="l05909"></a><span class="lineno"> 5909</span>&#160;                                                <span class="keywordtype">unsigned</span> max_latency <span class="comment">/* = 0 */</span>);</div>
-<div class="line"><a name="l05910"></a><span class="lineno"> 5910</span>&#160;</div>
-<div class="line"><a name="l05916"></a><span class="lineno"> 5916</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05917"></a><span class="lineno"> 5917</span>&#160;  <a class="code" href="legion__c_8h.html#ab31befad4f921a4c47839c9a3074d0b5">legion_processor_query_best_affinity_to_memory</a>(legion_processor_query_t query,</div>
-<div class="line"><a name="l05918"></a><span class="lineno"> 5918</span>&#160;                                                 <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
-<div class="line"><a name="l05919"></a><span class="lineno"> 5919</span>&#160;                                                 <span class="keywordtype">int</span> bandwidth_weight <span class="comment">/* = 0 */</span>,</div>
-<div class="line"><a name="l05920"></a><span class="lineno"> 5920</span>&#160;                                                 <span class="keywordtype">int</span> latency_weight <span class="comment">/* = 0 */</span>);</div>
-<div class="line"><a name="l05921"></a><span class="lineno"> 5921</span>&#160;</div>
-<div class="line"><a name="l05925"></a><span class="lineno"> 5925</span>&#160;  <span class="keywordtype">size_t</span></div>
-<div class="line"><a name="l05926"></a><span class="lineno"> 5926</span>&#160;  <a class="code" href="legion__c_8h.html#ac425adf785665b9c566b3eb30d8d1acb">legion_processor_query_count</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05840"></a><span class="lineno"> 5840</span>&#160;  legion_address_space_t</div>
+<div class="line"><a name="l05841"></a><span class="lineno"> 5841</span>&#160;  <a class="code" href="legion__c_8h.html#aa4e1a989e72413ef1a399d81d5fc8513">legion_memory_address_space</a>(<a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
+<div class="line"><a name="l05842"></a><span class="lineno"> 5842</span>&#160;</div>
+<div class="line"><a name="l05843"></a><span class="lineno"> 5843</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05844"></a><span class="lineno"> 5844</span>&#160;  <span class="comment">// Processor Query Operations</span></div>
+<div class="line"><a name="l05845"></a><span class="lineno"> 5845</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05846"></a><span class="lineno"> 5846</span>&#160;</div>
+<div class="line"><a name="l05852"></a><span class="lineno"> 5852</span>&#160;  legion_processor_query_t</div>
+<div class="line"><a name="l05853"></a><span class="lineno"> 5853</span>&#160;  <a class="code" href="legion__c_8h.html#a6ca8f5ff8673d79a37348939feb863c1">legion_processor_query_create</a>(legion_machine_t machine);</div>
+<div class="line"><a name="l05854"></a><span class="lineno"> 5854</span>&#160;</div>
+<div class="line"><a name="l05860"></a><span class="lineno"> 5860</span>&#160;  legion_processor_query_t</div>
+<div class="line"><a name="l05861"></a><span class="lineno"> 5861</span>&#160;  <a class="code" href="legion__c_8h.html#ace5688c2d21b35031baf2a5077df1399">legion_processor_query_create_copy</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05862"></a><span class="lineno"> 5862</span>&#160;</div>
+<div class="line"><a name="l05868"></a><span class="lineno"> 5868</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05869"></a><span class="lineno"> 5869</span>&#160;  <a class="code" href="legion__c_8h.html#abafc740a92bab5f4fc4f678e96f88bb6">legion_processor_query_destroy</a>(legion_processor_query_t handle);</div>
+<div class="line"><a name="l05870"></a><span class="lineno"> 5870</span>&#160;</div>
+<div class="line"><a name="l05876"></a><span class="lineno"> 5876</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05877"></a><span class="lineno"> 5877</span>&#160;  <a class="code" href="legion__c_8h.html#a0e8da541894f19c861713dec2f1810ae">legion_processor_query_only_kind</a>(legion_processor_query_t query,</div>
+<div class="line"><a name="l05878"></a><span class="lineno"> 5878</span>&#160;                                   legion_processor_kind_t kind);</div>
+<div class="line"><a name="l05879"></a><span class="lineno"> 5879</span>&#160;</div>
+<div class="line"><a name="l05885"></a><span class="lineno"> 5885</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05886"></a><span class="lineno"> 5886</span>&#160;  <a class="code" href="legion__c_8h.html#a8764bae75ca013edfc8f66951c61205a">legion_processor_query_local_address_space</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05887"></a><span class="lineno"> 5887</span>&#160;</div>
+<div class="line"><a name="l05893"></a><span class="lineno"> 5893</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05894"></a><span class="lineno"> 5894</span>&#160;  <a class="code" href="legion__c_8h.html#a07883dd1165d9f74f119f72d49d095ea">legion_processor_query_same_address_space_as_processor</a>(legion_processor_query_t query,</div>
+<div class="line"><a name="l05895"></a><span class="lineno"> 5895</span>&#160;                                                         legion_processor_t proc);</div>
+<div class="line"><a name="l05896"></a><span class="lineno"> 5896</span>&#160;</div>
+<div class="line"><a name="l05902"></a><span class="lineno"> 5902</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05903"></a><span class="lineno"> 5903</span>&#160;  <a class="code" href="legion__c_8h.html#aa7d43f43756b820d2f782b49a8aa7b09">legion_processor_query_same_address_space_as_memory</a>(legion_processor_query_t query,</div>
+<div class="line"><a name="l05904"></a><span class="lineno"> 5904</span>&#160;                                                      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
+<div class="line"><a name="l05905"></a><span class="lineno"> 5905</span>&#160;</div>
+<div class="line"><a name="l05911"></a><span class="lineno"> 5911</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05912"></a><span class="lineno"> 5912</span>&#160;  <a class="code" href="legion__c_8h.html#a2805c25677f9341ca12d2083c950309f">legion_processor_query_has_affinity_to_memory</a>(legion_processor_query_t query,</div>
+<div class="line"><a name="l05913"></a><span class="lineno"> 5913</span>&#160;                                                <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
+<div class="line"><a name="l05914"></a><span class="lineno"> 5914</span>&#160;                                                <span class="keywordtype">unsigned</span> min_bandwidth <span class="comment">/* = 0 */</span>,</div>
+<div class="line"><a name="l05915"></a><span class="lineno"> 5915</span>&#160;                                                <span class="keywordtype">unsigned</span> max_latency <span class="comment">/* = 0 */</span>);</div>
+<div class="line"><a name="l05916"></a><span class="lineno"> 5916</span>&#160;</div>
+<div class="line"><a name="l05922"></a><span class="lineno"> 5922</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05923"></a><span class="lineno"> 5923</span>&#160;  <a class="code" href="legion__c_8h.html#ab31befad4f921a4c47839c9a3074d0b5">legion_processor_query_best_affinity_to_memory</a>(legion_processor_query_t query,</div>
+<div class="line"><a name="l05924"></a><span class="lineno"> 5924</span>&#160;                                                 <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
+<div class="line"><a name="l05925"></a><span class="lineno"> 5925</span>&#160;                                                 <span class="keywordtype">int</span> bandwidth_weight <span class="comment">/* = 0 */</span>,</div>
+<div class="line"><a name="l05926"></a><span class="lineno"> 5926</span>&#160;                                                 <span class="keywordtype">int</span> latency_weight <span class="comment">/* = 0 */</span>);</div>
 <div class="line"><a name="l05927"></a><span class="lineno"> 5927</span>&#160;</div>
-<div class="line"><a name="l05931"></a><span class="lineno"> 5931</span>&#160;  legion_processor_t</div>
-<div class="line"><a name="l05932"></a><span class="lineno"> 5932</span>&#160;  <a class="code" href="legion__c_8h.html#a151c657407e40689cb4335ec6671cbbc">legion_processor_query_first</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05931"></a><span class="lineno"> 5931</span>&#160;  <span class="keywordtype">size_t</span></div>
+<div class="line"><a name="l05932"></a><span class="lineno"> 5932</span>&#160;  <a class="code" href="legion__c_8h.html#ac425adf785665b9c566b3eb30d8d1acb">legion_processor_query_count</a>(legion_processor_query_t query);</div>
 <div class="line"><a name="l05933"></a><span class="lineno"> 5933</span>&#160;</div>
 <div class="line"><a name="l05937"></a><span class="lineno"> 5937</span>&#160;  legion_processor_t</div>
-<div class="line"><a name="l05938"></a><span class="lineno"> 5938</span>&#160;  <a class="code" href="legion__c_8h.html#aef6d92731f9f6f2b8f206cfa3307267a">legion_processor_query_next</a>(legion_processor_query_t query,</div>
-<div class="line"><a name="l05939"></a><span class="lineno"> 5939</span>&#160;                              legion_processor_t after);</div>
-<div class="line"><a name="l05940"></a><span class="lineno"> 5940</span>&#160;</div>
-<div class="line"><a name="l05944"></a><span class="lineno"> 5944</span>&#160;  legion_processor_t</div>
-<div class="line"><a name="l05945"></a><span class="lineno"> 5945</span>&#160;  <a class="code" href="legion__c_8h.html#a9a2326d7eb3d4255f686980394bdb97f">legion_processor_query_random</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05938"></a><span class="lineno"> 5938</span>&#160;  <a class="code" href="legion__c_8h.html#a151c657407e40689cb4335ec6671cbbc">legion_processor_query_first</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05939"></a><span class="lineno"> 5939</span>&#160;</div>
+<div class="line"><a name="l05943"></a><span class="lineno"> 5943</span>&#160;  legion_processor_t</div>
+<div class="line"><a name="l05944"></a><span class="lineno"> 5944</span>&#160;  <a class="code" href="legion__c_8h.html#aef6d92731f9f6f2b8f206cfa3307267a">legion_processor_query_next</a>(legion_processor_query_t query,</div>
+<div class="line"><a name="l05945"></a><span class="lineno"> 5945</span>&#160;                              legion_processor_t after);</div>
 <div class="line"><a name="l05946"></a><span class="lineno"> 5946</span>&#160;</div>
-<div class="line"><a name="l05947"></a><span class="lineno"> 5947</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05948"></a><span class="lineno"> 5948</span>&#160;  <span class="comment">// Memory Query Operations</span></div>
-<div class="line"><a name="l05949"></a><span class="lineno"> 5949</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05950"></a><span class="lineno"> 5950</span>&#160;</div>
-<div class="line"><a name="l05956"></a><span class="lineno"> 5956</span>&#160;  legion_memory_query_t</div>
-<div class="line"><a name="l05957"></a><span class="lineno"> 5957</span>&#160;  <a class="code" href="legion__c_8h.html#a6e7ed7318bb042c690ba88bd3b4fc33a">legion_memory_query_create</a>(legion_machine_t machine);</div>
-<div class="line"><a name="l05958"></a><span class="lineno"> 5958</span>&#160;</div>
-<div class="line"><a name="l05964"></a><span class="lineno"> 5964</span>&#160;  legion_memory_query_t</div>
-<div class="line"><a name="l05965"></a><span class="lineno"> 5965</span>&#160;  <a class="code" href="legion__c_8h.html#ad5d7e9a7bb8d6273bbee2777d8362270">legion_memory_query_create_copy</a>(legion_memory_query_t query);</div>
-<div class="line"><a name="l05966"></a><span class="lineno"> 5966</span>&#160;</div>
-<div class="line"><a name="l05972"></a><span class="lineno"> 5972</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05973"></a><span class="lineno"> 5973</span>&#160;  <a class="code" href="legion__c_8h.html#a7a566f6be35fde095ffc7a0fc9a02fe3">legion_memory_query_destroy</a>(legion_memory_query_t handle);</div>
-<div class="line"><a name="l05974"></a><span class="lineno"> 5974</span>&#160;</div>
-<div class="line"><a name="l05980"></a><span class="lineno"> 5980</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05981"></a><span class="lineno"> 5981</span>&#160;  <a class="code" href="legion__c_8h.html#aa7c9339b588f9b1be1348ed54be1b7b5">legion_memory_query_only_kind</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l05982"></a><span class="lineno"> 5982</span>&#160;                                legion_memory_kind_t kind);</div>
-<div class="line"><a name="l05983"></a><span class="lineno"> 5983</span>&#160;</div>
-<div class="line"><a name="l05989"></a><span class="lineno"> 5989</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05990"></a><span class="lineno"> 5990</span>&#160;  <a class="code" href="legion__c_8h.html#afd3d685c13ca9e6fe189a95fe518346d">legion_memory_query_local_address_space</a>(legion_memory_query_t query);</div>
-<div class="line"><a name="l05991"></a><span class="lineno"> 5991</span>&#160;</div>
-<div class="line"><a name="l05997"></a><span class="lineno"> 5997</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l05998"></a><span class="lineno"> 5998</span>&#160;  <a class="code" href="legion__c_8h.html#a858e4edcc7bd98fce005dc2752ad201c">legion_memory_query_same_address_space_as_processor</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l05999"></a><span class="lineno"> 5999</span>&#160;                                                      legion_processor_t proc);</div>
-<div class="line"><a name="l06000"></a><span class="lineno"> 6000</span>&#160;</div>
-<div class="line"><a name="l06006"></a><span class="lineno"> 6006</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06007"></a><span class="lineno"> 6007</span>&#160;  <a class="code" href="legion__c_8h.html#a30965601f8a6affcbe828df88efacc49">legion_memory_query_same_address_space_as_memory</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l06008"></a><span class="lineno"> 6008</span>&#160;                                                   <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
-<div class="line"><a name="l06009"></a><span class="lineno"> 6009</span>&#160;</div>
-<div class="line"><a name="l06015"></a><span class="lineno"> 6015</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06016"></a><span class="lineno"> 6016</span>&#160;  <a class="code" href="legion__c_8h.html#a2bcd0eef4de705bbc3e73137ba6409a8">legion_memory_query_has_affinity_to_processor</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l06017"></a><span class="lineno"> 6017</span>&#160;                                                legion_processor_t proc,</div>
-<div class="line"><a name="l06018"></a><span class="lineno"> 6018</span>&#160;                                                <span class="keywordtype">unsigned</span> min_bandwidth <span class="comment">/* = 0 */</span>,</div>
-<div class="line"><a name="l06019"></a><span class="lineno"> 6019</span>&#160;                                                <span class="keywordtype">unsigned</span> max_latency <span class="comment">/* = 0 */</span>);</div>
-<div class="line"><a name="l06020"></a><span class="lineno"> 6020</span>&#160;</div>
-<div class="line"><a name="l06026"></a><span class="lineno"> 6026</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06027"></a><span class="lineno"> 6027</span>&#160;  <a class="code" href="legion__c_8h.html#a5b6db05744ac59704cb1ba0b98c1f74b">legion_memory_query_has_affinity_to_memory</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l06028"></a><span class="lineno"> 6028</span>&#160;                                             <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
-<div class="line"><a name="l06029"></a><span class="lineno"> 6029</span>&#160;                                             <span class="keywordtype">unsigned</span> min_bandwidth <span class="comment">/* = 0 */</span>,</div>
-<div class="line"><a name="l06030"></a><span class="lineno"> 6030</span>&#160;                                             <span class="keywordtype">unsigned</span> max_latency <span class="comment">/* = 0 */</span>);</div>
-<div class="line"><a name="l06031"></a><span class="lineno"> 6031</span>&#160;</div>
-<div class="line"><a name="l06037"></a><span class="lineno"> 6037</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06038"></a><span class="lineno"> 6038</span>&#160;  <a class="code" href="legion__c_8h.html#ac6ae1da602857224f19cd0155718f5d3">legion_memory_query_best_affinity_to_processor</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l06039"></a><span class="lineno"> 6039</span>&#160;                                                 legion_processor_t proc,</div>
-<div class="line"><a name="l06040"></a><span class="lineno"> 6040</span>&#160;                                                 <span class="keywordtype">int</span> bandwidth_weight <span class="comment">/* = 0 */</span>,</div>
-<div class="line"><a name="l06041"></a><span class="lineno"> 6041</span>&#160;                                                 <span class="keywordtype">int</span> latency_weight <span class="comment">/* = 0 */</span>);</div>
-<div class="line"><a name="l06042"></a><span class="lineno"> 6042</span>&#160;</div>
-<div class="line"><a name="l06048"></a><span class="lineno"> 6048</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06049"></a><span class="lineno"> 6049</span>&#160;  <a class="code" href="legion__c_8h.html#a43107bcaea6b80aac1296bf39b29a1fd">legion_memory_query_best_affinity_to_memory</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l06050"></a><span class="lineno"> 6050</span>&#160;                                              <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
-<div class="line"><a name="l06051"></a><span class="lineno"> 6051</span>&#160;                                              <span class="keywordtype">int</span> bandwidth_weight <span class="comment">/* = 0 */</span>,</div>
-<div class="line"><a name="l06052"></a><span class="lineno"> 6052</span>&#160;                                              <span class="keywordtype">int</span> latency_weight <span class="comment">/* = 0 */</span>);</div>
-<div class="line"><a name="l06053"></a><span class="lineno"> 6053</span>&#160;</div>
-<div class="line"><a name="l06057"></a><span class="lineno"> 6057</span>&#160;  <span class="keywordtype">size_t</span></div>
-<div class="line"><a name="l06058"></a><span class="lineno"> 6058</span>&#160;  <a class="code" href="legion__c_8h.html#a88ae42ed7c45c2e534d9b3195c90c102">legion_memory_query_count</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l05950"></a><span class="lineno"> 5950</span>&#160;  legion_processor_t</div>
+<div class="line"><a name="l05951"></a><span class="lineno"> 5951</span>&#160;  <a class="code" href="legion__c_8h.html#a9a2326d7eb3d4255f686980394bdb97f">legion_processor_query_random</a>(legion_processor_query_t query);</div>
+<div class="line"><a name="l05952"></a><span class="lineno"> 5952</span>&#160;</div>
+<div class="line"><a name="l05953"></a><span class="lineno"> 5953</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05954"></a><span class="lineno"> 5954</span>&#160;  <span class="comment">// Memory Query Operations</span></div>
+<div class="line"><a name="l05955"></a><span class="lineno"> 5955</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05956"></a><span class="lineno"> 5956</span>&#160;</div>
+<div class="line"><a name="l05962"></a><span class="lineno"> 5962</span>&#160;  legion_memory_query_t</div>
+<div class="line"><a name="l05963"></a><span class="lineno"> 5963</span>&#160;  <a class="code" href="legion__c_8h.html#a6e7ed7318bb042c690ba88bd3b4fc33a">legion_memory_query_create</a>(legion_machine_t machine);</div>
+<div class="line"><a name="l05964"></a><span class="lineno"> 5964</span>&#160;</div>
+<div class="line"><a name="l05970"></a><span class="lineno"> 5970</span>&#160;  legion_memory_query_t</div>
+<div class="line"><a name="l05971"></a><span class="lineno"> 5971</span>&#160;  <a class="code" href="legion__c_8h.html#ad5d7e9a7bb8d6273bbee2777d8362270">legion_memory_query_create_copy</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l05972"></a><span class="lineno"> 5972</span>&#160;</div>
+<div class="line"><a name="l05978"></a><span class="lineno"> 5978</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05979"></a><span class="lineno"> 5979</span>&#160;  <a class="code" href="legion__c_8h.html#a7a566f6be35fde095ffc7a0fc9a02fe3">legion_memory_query_destroy</a>(legion_memory_query_t handle);</div>
+<div class="line"><a name="l05980"></a><span class="lineno"> 5980</span>&#160;</div>
+<div class="line"><a name="l05986"></a><span class="lineno"> 5986</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05987"></a><span class="lineno"> 5987</span>&#160;  <a class="code" href="legion__c_8h.html#aa7c9339b588f9b1be1348ed54be1b7b5">legion_memory_query_only_kind</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l05988"></a><span class="lineno"> 5988</span>&#160;                                legion_memory_kind_t kind);</div>
+<div class="line"><a name="l05989"></a><span class="lineno"> 5989</span>&#160;</div>
+<div class="line"><a name="l05995"></a><span class="lineno"> 5995</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l05996"></a><span class="lineno"> 5996</span>&#160;  <a class="code" href="legion__c_8h.html#afd3d685c13ca9e6fe189a95fe518346d">legion_memory_query_local_address_space</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l05997"></a><span class="lineno"> 5997</span>&#160;</div>
+<div class="line"><a name="l06003"></a><span class="lineno"> 6003</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06004"></a><span class="lineno"> 6004</span>&#160;  <a class="code" href="legion__c_8h.html#a858e4edcc7bd98fce005dc2752ad201c">legion_memory_query_same_address_space_as_processor</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06005"></a><span class="lineno"> 6005</span>&#160;                                                      legion_processor_t proc);</div>
+<div class="line"><a name="l06006"></a><span class="lineno"> 6006</span>&#160;</div>
+<div class="line"><a name="l06012"></a><span class="lineno"> 6012</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06013"></a><span class="lineno"> 6013</span>&#160;  <a class="code" href="legion__c_8h.html#a30965601f8a6affcbe828df88efacc49">legion_memory_query_same_address_space_as_memory</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06014"></a><span class="lineno"> 6014</span>&#160;                                                   <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem);</div>
+<div class="line"><a name="l06015"></a><span class="lineno"> 6015</span>&#160;</div>
+<div class="line"><a name="l06021"></a><span class="lineno"> 6021</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06022"></a><span class="lineno"> 6022</span>&#160;  <a class="code" href="legion__c_8h.html#a2bcd0eef4de705bbc3e73137ba6409a8">legion_memory_query_has_affinity_to_processor</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06023"></a><span class="lineno"> 6023</span>&#160;                                                legion_processor_t proc,</div>
+<div class="line"><a name="l06024"></a><span class="lineno"> 6024</span>&#160;                                                <span class="keywordtype">unsigned</span> min_bandwidth <span class="comment">/* = 0 */</span>,</div>
+<div class="line"><a name="l06025"></a><span class="lineno"> 6025</span>&#160;                                                <span class="keywordtype">unsigned</span> max_latency <span class="comment">/* = 0 */</span>);</div>
+<div class="line"><a name="l06026"></a><span class="lineno"> 6026</span>&#160;</div>
+<div class="line"><a name="l06032"></a><span class="lineno"> 6032</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06033"></a><span class="lineno"> 6033</span>&#160;  <a class="code" href="legion__c_8h.html#a5b6db05744ac59704cb1ba0b98c1f74b">legion_memory_query_has_affinity_to_memory</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06034"></a><span class="lineno"> 6034</span>&#160;                                             <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
+<div class="line"><a name="l06035"></a><span class="lineno"> 6035</span>&#160;                                             <span class="keywordtype">unsigned</span> min_bandwidth <span class="comment">/* = 0 */</span>,</div>
+<div class="line"><a name="l06036"></a><span class="lineno"> 6036</span>&#160;                                             <span class="keywordtype">unsigned</span> max_latency <span class="comment">/* = 0 */</span>);</div>
+<div class="line"><a name="l06037"></a><span class="lineno"> 6037</span>&#160;</div>
+<div class="line"><a name="l06043"></a><span class="lineno"> 6043</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06044"></a><span class="lineno"> 6044</span>&#160;  <a class="code" href="legion__c_8h.html#ac6ae1da602857224f19cd0155718f5d3">legion_memory_query_best_affinity_to_processor</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06045"></a><span class="lineno"> 6045</span>&#160;                                                 legion_processor_t proc,</div>
+<div class="line"><a name="l06046"></a><span class="lineno"> 6046</span>&#160;                                                 <span class="keywordtype">int</span> bandwidth_weight <span class="comment">/* = 0 */</span>,</div>
+<div class="line"><a name="l06047"></a><span class="lineno"> 6047</span>&#160;                                                 <span class="keywordtype">int</span> latency_weight <span class="comment">/* = 0 */</span>);</div>
+<div class="line"><a name="l06048"></a><span class="lineno"> 6048</span>&#160;</div>
+<div class="line"><a name="l06054"></a><span class="lineno"> 6054</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06055"></a><span class="lineno"> 6055</span>&#160;  <a class="code" href="legion__c_8h.html#a43107bcaea6b80aac1296bf39b29a1fd">legion_memory_query_best_affinity_to_memory</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06056"></a><span class="lineno"> 6056</span>&#160;                                              <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> mem,</div>
+<div class="line"><a name="l06057"></a><span class="lineno"> 6057</span>&#160;                                              <span class="keywordtype">int</span> bandwidth_weight <span class="comment">/* = 0 */</span>,</div>
+<div class="line"><a name="l06058"></a><span class="lineno"> 6058</span>&#160;                                              <span class="keywordtype">int</span> latency_weight <span class="comment">/* = 0 */</span>);</div>
 <div class="line"><a name="l06059"></a><span class="lineno"> 6059</span>&#160;</div>
-<div class="line"><a name="l06063"></a><span class="lineno"> 6063</span>&#160;  <a class="code" href="structlegion__memory__t.html">legion_memory_t</a></div>
-<div class="line"><a name="l06064"></a><span class="lineno"> 6064</span>&#160;  <a class="code" href="legion__c_8h.html#ad78635d47d301cb7db5988ee715edee8">legion_memory_query_first</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l06063"></a><span class="lineno"> 6063</span>&#160;  <span class="keywordtype">size_t</span></div>
+<div class="line"><a name="l06064"></a><span class="lineno"> 6064</span>&#160;  <a class="code" href="legion__c_8h.html#a88ae42ed7c45c2e534d9b3195c90c102">legion_memory_query_count</a>(legion_memory_query_t query);</div>
 <div class="line"><a name="l06065"></a><span class="lineno"> 6065</span>&#160;</div>
 <div class="line"><a name="l06069"></a><span class="lineno"> 6069</span>&#160;  <a class="code" href="structlegion__memory__t.html">legion_memory_t</a></div>
-<div class="line"><a name="l06070"></a><span class="lineno"> 6070</span>&#160;  <a class="code" href="legion__c_8h.html#a8683b31e7eda90374f48d274c05eac46">legion_memory_query_next</a>(legion_memory_query_t query,</div>
-<div class="line"><a name="l06071"></a><span class="lineno"> 6071</span>&#160;                           <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> after);</div>
-<div class="line"><a name="l06072"></a><span class="lineno"> 6072</span>&#160;</div>
-<div class="line"><a name="l06076"></a><span class="lineno"> 6076</span>&#160;  <a class="code" href="structlegion__memory__t.html">legion_memory_t</a></div>
-<div class="line"><a name="l06077"></a><span class="lineno"> 6077</span>&#160;  <a class="code" href="legion__c_8h.html#a0a3f60b387b018fc00e44a6ca95d0830">legion_memory_query_random</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l06070"></a><span class="lineno"> 6070</span>&#160;  <a class="code" href="legion__c_8h.html#ad78635d47d301cb7db5988ee715edee8">legion_memory_query_first</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l06071"></a><span class="lineno"> 6071</span>&#160;</div>
+<div class="line"><a name="l06075"></a><span class="lineno"> 6075</span>&#160;  <a class="code" href="structlegion__memory__t.html">legion_memory_t</a></div>
+<div class="line"><a name="l06076"></a><span class="lineno"> 6076</span>&#160;  <a class="code" href="legion__c_8h.html#a8683b31e7eda90374f48d274c05eac46">legion_memory_query_next</a>(legion_memory_query_t query,</div>
+<div class="line"><a name="l06077"></a><span class="lineno"> 6077</span>&#160;                           <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> after);</div>
 <div class="line"><a name="l06078"></a><span class="lineno"> 6078</span>&#160;</div>
-<div class="line"><a name="l06079"></a><span class="lineno"> 6079</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06080"></a><span class="lineno"> 6080</span>&#160;  <span class="comment">// Physical Instance Operations</span></div>
-<div class="line"><a name="l06081"></a><span class="lineno"> 6081</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06082"></a><span class="lineno"> 6082</span>&#160;</div>
-<div class="line"><a name="l06083"></a><span class="lineno"> 6083</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l06084"></a><span class="lineno"> 6084</span>&#160;<span class="comment">   * @param instance Caller must have ownership of parameter `instance`.</span></div>
-<div class="line"><a name="l06085"></a><span class="lineno"> 6085</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l06086"></a><span class="lineno"> 6086</span>&#160;<span class="comment">   * @see Legion::Mapping::PhysicalInstance</span></div>
-<div class="line"><a name="l06087"></a><span class="lineno"> 6087</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l06088"></a><span class="lineno"> 6088</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06089"></a><span class="lineno"> 6089</span>&#160;  legion_physical_instance_destroy(legion_physical_instance_t instance);</div>
-<div class="line"><a name="l06090"></a><span class="lineno"> 6090</span>&#160;</div>
-<div class="line"><a name="l06091"></a><span class="lineno"> 6091</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06092"></a><span class="lineno"> 6092</span>&#160;  <span class="comment">// Slice Task Output</span></div>
-<div class="line"><a name="l06093"></a><span class="lineno"> 6093</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06094"></a><span class="lineno"> 6094</span>&#160;</div>
-<div class="line"><a name="l06098"></a><span class="lineno"> 6098</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06099"></a><span class="lineno"> 6099</span>&#160;  <a class="code" href="legion__c_8h.html#a70dafbb399f1774bfd52a9bec1107578">legion_slice_task_output_slices_add</a>(</div>
-<div class="line"><a name="l06100"></a><span class="lineno"> 6100</span>&#160;      legion_slice_task_output_t output,</div>
-<div class="line"><a name="l06101"></a><span class="lineno"> 6101</span>&#160;      <a class="code" href="structlegion__task__slice__t.html">legion_task_slice_t</a> slice);</div>
-<div class="line"><a name="l06102"></a><span class="lineno"> 6102</span>&#160;</div>
-<div class="line"><a name="l06106"></a><span class="lineno"> 6106</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06107"></a><span class="lineno"> 6107</span>&#160;  <a class="code" href="legion__c_8h.html#a56a4e8c4557678b59bbf84f1c0ec9409">legion_slice_task_output_verify_correctness_set</a>(</div>
-<div class="line"><a name="l06108"></a><span class="lineno"> 6108</span>&#160;      legion_slice_task_output_t output,</div>
-<div class="line"><a name="l06109"></a><span class="lineno"> 6109</span>&#160;      <span class="keywordtype">bool</span> verify_correctness);</div>
-<div class="line"><a name="l06110"></a><span class="lineno"> 6110</span>&#160;</div>
-<div class="line"><a name="l06111"></a><span class="lineno"> 6111</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06112"></a><span class="lineno"> 6112</span>&#160;  <span class="comment">// Map Task Input/Output</span></div>
-<div class="line"><a name="l06113"></a><span class="lineno"> 6113</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06114"></a><span class="lineno"> 6114</span>&#160;</div>
-<div class="line"><a name="l06118"></a><span class="lineno"> 6118</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06119"></a><span class="lineno"> 6119</span>&#160;  <a class="code" href="legion__c_8h.html#a59e6816dabe29388bcfed9ac1877a53c">legion_map_task_output_chosen_instances_clear_all</a>(</div>
-<div class="line"><a name="l06120"></a><span class="lineno"> 6120</span>&#160;      legion_map_task_output_t output);</div>
-<div class="line"><a name="l06121"></a><span class="lineno"> 6121</span>&#160;</div>
-<div class="line"><a name="l06125"></a><span class="lineno"> 6125</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06126"></a><span class="lineno"> 6126</span>&#160;  <a class="code" href="legion__c_8h.html#ae1996253b42214fd98aa0facc350f0ea">legion_map_task_output_chosen_instances_clear_each</a>(</div>
-<div class="line"><a name="l06127"></a><span class="lineno"> 6127</span>&#160;      legion_map_task_output_t output,</div>
-<div class="line"><a name="l06128"></a><span class="lineno"> 6128</span>&#160;      <span class="keywordtype">size_t</span> idx);</div>
-<div class="line"><a name="l06129"></a><span class="lineno"> 6129</span>&#160;</div>
-<div class="line"><a name="l06133"></a><span class="lineno"> 6133</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06134"></a><span class="lineno"> 6134</span>&#160;  <a class="code" href="legion__c_8h.html#a5a8c76932e51c7c6b07756415a428a61">legion_map_task_output_chosen_instances_add</a>(</div>
-<div class="line"><a name="l06135"></a><span class="lineno"> 6135</span>&#160;      legion_map_task_output_t output,</div>
-<div class="line"><a name="l06136"></a><span class="lineno"> 6136</span>&#160;      legion_physical_instance_t *instances,</div>
-<div class="line"><a name="l06137"></a><span class="lineno"> 6137</span>&#160;      <span class="keywordtype">size_t</span> instances_size);</div>
-<div class="line"><a name="l06138"></a><span class="lineno"> 6138</span>&#160;</div>
-<div class="line"><a name="l06142"></a><span class="lineno"> 6142</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06143"></a><span class="lineno"> 6143</span>&#160;  <a class="code" href="legion__c_8h.html#aa16f7fd9815ca6701877b6b831d1ba2d">legion_map_task_output_chosen_instances_set</a>(</div>
-<div class="line"><a name="l06144"></a><span class="lineno"> 6144</span>&#160;      legion_map_task_output_t output,</div>
-<div class="line"><a name="l06145"></a><span class="lineno"> 6145</span>&#160;      <span class="keywordtype">size_t</span> idx,</div>
-<div class="line"><a name="l06146"></a><span class="lineno"> 6146</span>&#160;      legion_physical_instance_t *instances,</div>
-<div class="line"><a name="l06147"></a><span class="lineno"> 6147</span>&#160;      <span class="keywordtype">size_t</span> instances_size);</div>
-<div class="line"><a name="l06148"></a><span class="lineno"> 6148</span>&#160;</div>
-<div class="line"><a name="l06152"></a><span class="lineno"> 6152</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06153"></a><span class="lineno"> 6153</span>&#160;  <a class="code" href="legion__c_8h.html#ab985f5add1e2dfc2a9b38c8894894053">legion_map_task_output_target_procs_clear</a>(</div>
-<div class="line"><a name="l06154"></a><span class="lineno"> 6154</span>&#160;      legion_map_task_output_t output);</div>
-<div class="line"><a name="l06155"></a><span class="lineno"> 6155</span>&#160;</div>
-<div class="line"><a name="l06159"></a><span class="lineno"> 6159</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06160"></a><span class="lineno"> 6160</span>&#160;  <a class="code" href="legion__c_8h.html#a5bc131800c9882e2e88fa1c0e628cb50">legion_map_task_output_target_procs_add</a>(</div>
-<div class="line"><a name="l06161"></a><span class="lineno"> 6161</span>&#160;      legion_map_task_output_t output,</div>
-<div class="line"><a name="l06162"></a><span class="lineno"> 6162</span>&#160;      legion_processor_t proc);</div>
-<div class="line"><a name="l06163"></a><span class="lineno"> 6163</span>&#160;</div>
-<div class="line"><a name="l06167"></a><span class="lineno"> 6167</span>&#160;  legion_processor_t</div>
-<div class="line"><a name="l06168"></a><span class="lineno"> 6168</span>&#160;  <a class="code" href="legion__c_8h.html#a62aed2074f647414976e523d188329e5">legion_map_task_output_target_procs_get</a>(</div>
-<div class="line"><a name="l06169"></a><span class="lineno"> 6169</span>&#160;      legion_map_task_output_t output,</div>
-<div class="line"><a name="l06170"></a><span class="lineno"> 6170</span>&#160;      <span class="keywordtype">size_t</span> idx);</div>
-<div class="line"><a name="l06171"></a><span class="lineno"> 6171</span>&#160;</div>
-<div class="line"><a name="l06175"></a><span class="lineno"> 6175</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l06176"></a><span class="lineno"> 6176</span>&#160;  <a class="code" href="legion__c_8h.html#aac3842c770c2eb738dd884b29bfb2b3c">legion_map_task_output_task_priority_set</a>(</div>
-<div class="line"><a name="l06177"></a><span class="lineno"> 6177</span>&#160;      legion_map_task_output_t output,</div>
-<div class="line"><a name="l06178"></a><span class="lineno"> 6178</span>&#160;      legion_task_priority_t priority);</div>
-<div class="line"><a name="l06179"></a><span class="lineno"> 6179</span>&#160;</div>
-<div class="line"><a name="l06180"></a><span class="lineno"> 6180</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06181"></a><span class="lineno"> 6181</span>&#160;  <span class="comment">// MapperRuntime Operations</span></div>
-<div class="line"><a name="l06182"></a><span class="lineno"> 6182</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
-<div class="line"><a name="l06183"></a><span class="lineno"> 6183</span>&#160;</div>
-<div class="line"><a name="l06189"></a><span class="lineno"> 6189</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06190"></a><span class="lineno"> 6190</span>&#160;  <a class="code" href="legion__c_8h.html#a78fd7e071137ba52f2ad832b7d1a4c15">legion_mapper_runtime_create_physical_instance_layout_constraint</a>(</div>
-<div class="line"><a name="l06191"></a><span class="lineno"> 6191</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06192"></a><span class="lineno"> 6192</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06193"></a><span class="lineno"> 6193</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
-<div class="line"><a name="l06194"></a><span class="lineno"> 6194</span>&#160;      legion_layout_constraint_set_t constraints,</div>
-<div class="line"><a name="l06195"></a><span class="lineno"> 6195</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
-<div class="line"><a name="l06196"></a><span class="lineno"> 6196</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
-<div class="line"><a name="l06197"></a><span class="lineno"> 6197</span>&#160;      legion_physical_instance_t *result,</div>
-<div class="line"><a name="l06198"></a><span class="lineno"> 6198</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
-<div class="line"><a name="l06199"></a><span class="lineno"> 6199</span>&#160;      legion_garbage_collection_priority_t priority);</div>
-<div class="line"><a name="l06200"></a><span class="lineno"> 6200</span>&#160;</div>
-<div class="line"><a name="l06206"></a><span class="lineno"> 6206</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06207"></a><span class="lineno"> 6207</span>&#160;  <a class="code" href="legion__c_8h.html#a99304d5c8bf4cbeef1144190dee96637">legion_mapper_runtime_create_physical_instance_layout_constraint_id</a>(</div>
-<div class="line"><a name="l06208"></a><span class="lineno"> 6208</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06209"></a><span class="lineno"> 6209</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06210"></a><span class="lineno"> 6210</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
-<div class="line"><a name="l06211"></a><span class="lineno"> 6211</span>&#160;      legion_layout_constraint_id_t layout_id,</div>
-<div class="line"><a name="l06212"></a><span class="lineno"> 6212</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
-<div class="line"><a name="l06213"></a><span class="lineno"> 6213</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
-<div class="line"><a name="l06214"></a><span class="lineno"> 6214</span>&#160;      legion_physical_instance_t *result,</div>
-<div class="line"><a name="l06215"></a><span class="lineno"> 6215</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
-<div class="line"><a name="l06216"></a><span class="lineno"> 6216</span>&#160;      legion_garbage_collection_priority_t priority);</div>
-<div class="line"><a name="l06217"></a><span class="lineno"> 6217</span>&#160;</div>
-<div class="line"><a name="l06223"></a><span class="lineno"> 6223</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06224"></a><span class="lineno"> 6224</span>&#160;  <a class="code" href="legion__c_8h.html#a39e825ebb2c257cf0c1ae090b67e0c4e">legion_mapper_runtime_find_or_create_physical_instance_layout_constraint</a>(</div>
-<div class="line"><a name="l06225"></a><span class="lineno"> 6225</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06226"></a><span class="lineno"> 6226</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06227"></a><span class="lineno"> 6227</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
-<div class="line"><a name="l06228"></a><span class="lineno"> 6228</span>&#160;      legion_layout_constraint_set_t constraints,</div>
-<div class="line"><a name="l06229"></a><span class="lineno"> 6229</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
-<div class="line"><a name="l06230"></a><span class="lineno"> 6230</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
-<div class="line"><a name="l06231"></a><span class="lineno"> 6231</span>&#160;      legion_physical_instance_t *result,</div>
-<div class="line"><a name="l06232"></a><span class="lineno"> 6232</span>&#160;      <span class="keywordtype">bool</span> *created,</div>
-<div class="line"><a name="l06233"></a><span class="lineno"> 6233</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
-<div class="line"><a name="l06234"></a><span class="lineno"> 6234</span>&#160;      legion_garbage_collection_priority_t priority,</div>
-<div class="line"><a name="l06235"></a><span class="lineno"> 6235</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
-<div class="line"><a name="l06236"></a><span class="lineno"> 6236</span>&#160;</div>
-<div class="line"><a name="l06242"></a><span class="lineno"> 6242</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06243"></a><span class="lineno"> 6243</span>&#160;  <a class="code" href="legion__c_8h.html#abd09bffee231447f12d3c1c1fafaf9e0">legion_mapper_runtime_find_or_create_physical_instance_layout_constraint_id</a>(</div>
-<div class="line"><a name="l06244"></a><span class="lineno"> 6244</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06245"></a><span class="lineno"> 6245</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06246"></a><span class="lineno"> 6246</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
-<div class="line"><a name="l06247"></a><span class="lineno"> 6247</span>&#160;      legion_layout_constraint_id_t layout_id,</div>
-<div class="line"><a name="l06248"></a><span class="lineno"> 6248</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
-<div class="line"><a name="l06249"></a><span class="lineno"> 6249</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
-<div class="line"><a name="l06250"></a><span class="lineno"> 6250</span>&#160;      legion_physical_instance_t *result,</div>
-<div class="line"><a name="l06251"></a><span class="lineno"> 6251</span>&#160;      <span class="keywordtype">bool</span> *created,</div>
-<div class="line"><a name="l06252"></a><span class="lineno"> 6252</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
-<div class="line"><a name="l06253"></a><span class="lineno"> 6253</span>&#160;      legion_garbage_collection_priority_t priority,</div>
-<div class="line"><a name="l06254"></a><span class="lineno"> 6254</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
-<div class="line"><a name="l06255"></a><span class="lineno"> 6255</span>&#160;</div>
-<div class="line"><a name="l06261"></a><span class="lineno"> 6261</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06262"></a><span class="lineno"> 6262</span>&#160;  <a class="code" href="legion__c_8h.html#ac4afdd7971f926f8b3df99bacaf23031">legion_mapper_runtime_find_physical_instance_layout_constraint</a>(</div>
-<div class="line"><a name="l06263"></a><span class="lineno"> 6263</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06264"></a><span class="lineno"> 6264</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06265"></a><span class="lineno"> 6265</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
-<div class="line"><a name="l06266"></a><span class="lineno"> 6266</span>&#160;      legion_layout_constraint_set_t constraints,</div>
-<div class="line"><a name="l06267"></a><span class="lineno"> 6267</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
-<div class="line"><a name="l06268"></a><span class="lineno"> 6268</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
-<div class="line"><a name="l06269"></a><span class="lineno"> 6269</span>&#160;      legion_physical_instance_t *result,</div>
-<div class="line"><a name="l06270"></a><span class="lineno"> 6270</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
-<div class="line"><a name="l06271"></a><span class="lineno"> 6271</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
-<div class="line"><a name="l06272"></a><span class="lineno"> 6272</span>&#160;</div>
-<div class="line"><a name="l06278"></a><span class="lineno"> 6278</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06279"></a><span class="lineno"> 6279</span>&#160;  <a class="code" href="legion__c_8h.html#ac4c2816542ca540a992618c7884f1b5a">legion_mapper_runtime_find_physical_instance_layout_constraint_id</a>(</div>
-<div class="line"><a name="l06280"></a><span class="lineno"> 6280</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06281"></a><span class="lineno"> 6281</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06282"></a><span class="lineno"> 6282</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
-<div class="line"><a name="l06283"></a><span class="lineno"> 6283</span>&#160;      legion_layout_constraint_id_t layout_id,</div>
-<div class="line"><a name="l06284"></a><span class="lineno"> 6284</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
-<div class="line"><a name="l06285"></a><span class="lineno"> 6285</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
-<div class="line"><a name="l06286"></a><span class="lineno"> 6286</span>&#160;      legion_physical_instance_t *result,</div>
-<div class="line"><a name="l06287"></a><span class="lineno"> 6287</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
-<div class="line"><a name="l06288"></a><span class="lineno"> 6288</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
-<div class="line"><a name="l06289"></a><span class="lineno"> 6289</span>&#160;</div>
-<div class="line"><a name="l06290"></a><span class="lineno"> 6290</span>&#160;</div>
-<div class="line"><a name="l06296"></a><span class="lineno"> 6296</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06297"></a><span class="lineno"> 6297</span>&#160;  <a class="code" href="legion__c_8h.html#ab366fc3a3bc425d5c4f8e717c28354c4">legion_mapper_runtime_acquire_instance</a>(</div>
-<div class="line"><a name="l06298"></a><span class="lineno"> 6298</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06299"></a><span class="lineno"> 6299</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06300"></a><span class="lineno"> 6300</span>&#160;      legion_physical_instance_t instance);</div>
-<div class="line"><a name="l06301"></a><span class="lineno"> 6301</span>&#160;</div>
-<div class="line"><a name="l06307"></a><span class="lineno"> 6307</span>&#160;  <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l06308"></a><span class="lineno"> 6308</span>&#160;  <a class="code" href="legion__c_8h.html#ace92fd8be3e384c8b87cf8cd386037d8">legion_mapper_runtime_acquire_instances</a>(</div>
-<div class="line"><a name="l06309"></a><span class="lineno"> 6309</span>&#160;      legion_mapper_runtime_t runtime,</div>
-<div class="line"><a name="l06310"></a><span class="lineno"> 6310</span>&#160;      legion_mapper_context_t ctx,</div>
-<div class="line"><a name="l06311"></a><span class="lineno"> 6311</span>&#160;      legion_physical_instance_t *instances,</div>
-<div class="line"><a name="l06312"></a><span class="lineno"> 6312</span>&#160;      <span class="keywordtype">size_t</span> instances_size);</div>
-<div class="line"><a name="l06313"></a><span class="lineno"> 6313</span>&#160;</div>
-<div class="line"><a name="l06314"></a><span class="lineno"> 6314</span>&#160;  <span class="comment">// A hidden method here that hopefully nobody sees or ever needs</span></div>
-<div class="line"><a name="l06315"></a><span class="lineno"> 6315</span>&#160;  <span class="comment">// to use but its here anyway just in case</span></div>
-<div class="line"><a name="l06316"></a><span class="lineno"> 6316</span>&#160;  legion_shard_id_t</div>
-<div class="line"><a name="l06317"></a><span class="lineno"> 6317</span>&#160;  legion_context_get_shard_id(legion_runtime_t <span class="comment">/*runtime*/</span>,</div>
-<div class="line"><a name="l06318"></a><span class="lineno"> 6318</span>&#160;                              legion_context_t <span class="comment">/*context*/</span>,</div>
-<div class="line"><a name="l06319"></a><span class="lineno"> 6319</span>&#160;                              <span class="keywordtype">bool</span> <span class="comment">/*I know what I am doing*/</span>);</div>
-<div class="line"><a name="l06320"></a><span class="lineno"> 6320</span>&#160;  <span class="comment">// Another hidden method for getting the number of shards</span></div>
-<div class="line"><a name="l06321"></a><span class="lineno"> 6321</span>&#160;  <span class="keywordtype">size_t</span></div>
-<div class="line"><a name="l06322"></a><span class="lineno"> 6322</span>&#160;  legion_context_get_num_shards(legion_runtime_t <span class="comment">/*runtime*/</span>,</div>
-<div class="line"><a name="l06323"></a><span class="lineno"> 6323</span>&#160;                                legion_context_t <span class="comment">/*context*/</span>,</div>
-<div class="line"><a name="l06324"></a><span class="lineno"> 6324</span>&#160;                                <span class="keywordtype">bool</span> <span class="comment">/*I know what I am doing*/</span>);</div>
-<div class="line"><a name="l06325"></a><span class="lineno"> 6325</span>&#160;      </div>
-<div class="line"><a name="l06329"></a><span class="lineno"> 6329</span>&#160;  legion_physical_region_t</div>
-<div class="line"><a name="l06330"></a><span class="lineno"> 6330</span>&#160;  <a class="code" href="legion__c_8h.html#ab064a0a6ca505270612d514f66aabe5f">legion_get_physical_region_by_id</a>(</div>
-<div class="line"><a name="l06331"></a><span class="lineno"> 6331</span>&#160;      legion_physical_region_t *regionptr, </div>
-<div class="line"><a name="l06332"></a><span class="lineno"> 6332</span>&#160;      <span class="keywordtype">int</span> <span class="keywordtype">id</span>, </div>
-<div class="line"><a name="l06333"></a><span class="lineno"> 6333</span>&#160;      <span class="keywordtype">int</span> num_regions); </div>
-<div class="line"><a name="l06334"></a><span class="lineno"> 6334</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l06335"></a><span class="lineno"> 6335</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l06336"></a><span class="lineno"> 6336</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l06337"></a><span class="lineno"> 6337</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l06338"></a><span class="lineno"> 6338</span>&#160;<span class="preprocessor">#endif // __LEGION_C_H__</span></div>
+<div class="line"><a name="l06082"></a><span class="lineno"> 6082</span>&#160;  <a class="code" href="structlegion__memory__t.html">legion_memory_t</a></div>
+<div class="line"><a name="l06083"></a><span class="lineno"> 6083</span>&#160;  <a class="code" href="legion__c_8h.html#a0a3f60b387b018fc00e44a6ca95d0830">legion_memory_query_random</a>(legion_memory_query_t query);</div>
+<div class="line"><a name="l06084"></a><span class="lineno"> 6084</span>&#160;</div>
+<div class="line"><a name="l06085"></a><span class="lineno"> 6085</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06086"></a><span class="lineno"> 6086</span>&#160;  <span class="comment">// Physical Instance Operations</span></div>
+<div class="line"><a name="l06087"></a><span class="lineno"> 6087</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06088"></a><span class="lineno"> 6088</span>&#160;</div>
+<div class="line"><a name="l06089"></a><span class="lineno"> 6089</span>&#160;  <span class="comment">/*</span></div>
+<div class="line"><a name="l06090"></a><span class="lineno"> 6090</span>&#160;<span class="comment">   * @param instance Caller must have ownership of parameter `instance`.</span></div>
+<div class="line"><a name="l06091"></a><span class="lineno"> 6091</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l06092"></a><span class="lineno"> 6092</span>&#160;<span class="comment">   * @see Legion::Mapping::PhysicalInstance</span></div>
+<div class="line"><a name="l06093"></a><span class="lineno"> 6093</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l06094"></a><span class="lineno"> 6094</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06095"></a><span class="lineno"> 6095</span>&#160;  legion_physical_instance_destroy(legion_physical_instance_t instance);</div>
+<div class="line"><a name="l06096"></a><span class="lineno"> 6096</span>&#160;</div>
+<div class="line"><a name="l06097"></a><span class="lineno"> 6097</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06098"></a><span class="lineno"> 6098</span>&#160;  <span class="comment">// Slice Task Output</span></div>
+<div class="line"><a name="l06099"></a><span class="lineno"> 6099</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06100"></a><span class="lineno"> 6100</span>&#160;</div>
+<div class="line"><a name="l06104"></a><span class="lineno"> 6104</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06105"></a><span class="lineno"> 6105</span>&#160;  <a class="code" href="legion__c_8h.html#a70dafbb399f1774bfd52a9bec1107578">legion_slice_task_output_slices_add</a>(</div>
+<div class="line"><a name="l06106"></a><span class="lineno"> 6106</span>&#160;      legion_slice_task_output_t output,</div>
+<div class="line"><a name="l06107"></a><span class="lineno"> 6107</span>&#160;      <a class="code" href="structlegion__task__slice__t.html">legion_task_slice_t</a> slice);</div>
+<div class="line"><a name="l06108"></a><span class="lineno"> 6108</span>&#160;</div>
+<div class="line"><a name="l06112"></a><span class="lineno"> 6112</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06113"></a><span class="lineno"> 6113</span>&#160;  <a class="code" href="legion__c_8h.html#a56a4e8c4557678b59bbf84f1c0ec9409">legion_slice_task_output_verify_correctness_set</a>(</div>
+<div class="line"><a name="l06114"></a><span class="lineno"> 6114</span>&#160;      legion_slice_task_output_t output,</div>
+<div class="line"><a name="l06115"></a><span class="lineno"> 6115</span>&#160;      <span class="keywordtype">bool</span> verify_correctness);</div>
+<div class="line"><a name="l06116"></a><span class="lineno"> 6116</span>&#160;</div>
+<div class="line"><a name="l06117"></a><span class="lineno"> 6117</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06118"></a><span class="lineno"> 6118</span>&#160;  <span class="comment">// Map Task Input/Output</span></div>
+<div class="line"><a name="l06119"></a><span class="lineno"> 6119</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06120"></a><span class="lineno"> 6120</span>&#160;</div>
+<div class="line"><a name="l06124"></a><span class="lineno"> 6124</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06125"></a><span class="lineno"> 6125</span>&#160;  <a class="code" href="legion__c_8h.html#a59e6816dabe29388bcfed9ac1877a53c">legion_map_task_output_chosen_instances_clear_all</a>(</div>
+<div class="line"><a name="l06126"></a><span class="lineno"> 6126</span>&#160;      legion_map_task_output_t output);</div>
+<div class="line"><a name="l06127"></a><span class="lineno"> 6127</span>&#160;</div>
+<div class="line"><a name="l06131"></a><span class="lineno"> 6131</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06132"></a><span class="lineno"> 6132</span>&#160;  <a class="code" href="legion__c_8h.html#ae1996253b42214fd98aa0facc350f0ea">legion_map_task_output_chosen_instances_clear_each</a>(</div>
+<div class="line"><a name="l06133"></a><span class="lineno"> 6133</span>&#160;      legion_map_task_output_t output,</div>
+<div class="line"><a name="l06134"></a><span class="lineno"> 6134</span>&#160;      <span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a name="l06135"></a><span class="lineno"> 6135</span>&#160;</div>
+<div class="line"><a name="l06139"></a><span class="lineno"> 6139</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06140"></a><span class="lineno"> 6140</span>&#160;  <a class="code" href="legion__c_8h.html#a5a8c76932e51c7c6b07756415a428a61">legion_map_task_output_chosen_instances_add</a>(</div>
+<div class="line"><a name="l06141"></a><span class="lineno"> 6141</span>&#160;      legion_map_task_output_t output,</div>
+<div class="line"><a name="l06142"></a><span class="lineno"> 6142</span>&#160;      legion_physical_instance_t *instances,</div>
+<div class="line"><a name="l06143"></a><span class="lineno"> 6143</span>&#160;      <span class="keywordtype">size_t</span> instances_size);</div>
+<div class="line"><a name="l06144"></a><span class="lineno"> 6144</span>&#160;</div>
+<div class="line"><a name="l06148"></a><span class="lineno"> 6148</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06149"></a><span class="lineno"> 6149</span>&#160;  <a class="code" href="legion__c_8h.html#aa16f7fd9815ca6701877b6b831d1ba2d">legion_map_task_output_chosen_instances_set</a>(</div>
+<div class="line"><a name="l06150"></a><span class="lineno"> 6150</span>&#160;      legion_map_task_output_t output,</div>
+<div class="line"><a name="l06151"></a><span class="lineno"> 6151</span>&#160;      <span class="keywordtype">size_t</span> idx,</div>
+<div class="line"><a name="l06152"></a><span class="lineno"> 6152</span>&#160;      legion_physical_instance_t *instances,</div>
+<div class="line"><a name="l06153"></a><span class="lineno"> 6153</span>&#160;      <span class="keywordtype">size_t</span> instances_size);</div>
+<div class="line"><a name="l06154"></a><span class="lineno"> 6154</span>&#160;</div>
+<div class="line"><a name="l06158"></a><span class="lineno"> 6158</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06159"></a><span class="lineno"> 6159</span>&#160;  <a class="code" href="legion__c_8h.html#ab985f5add1e2dfc2a9b38c8894894053">legion_map_task_output_target_procs_clear</a>(</div>
+<div class="line"><a name="l06160"></a><span class="lineno"> 6160</span>&#160;      legion_map_task_output_t output);</div>
+<div class="line"><a name="l06161"></a><span class="lineno"> 6161</span>&#160;</div>
+<div class="line"><a name="l06165"></a><span class="lineno"> 6165</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06166"></a><span class="lineno"> 6166</span>&#160;  <a class="code" href="legion__c_8h.html#a5bc131800c9882e2e88fa1c0e628cb50">legion_map_task_output_target_procs_add</a>(</div>
+<div class="line"><a name="l06167"></a><span class="lineno"> 6167</span>&#160;      legion_map_task_output_t output,</div>
+<div class="line"><a name="l06168"></a><span class="lineno"> 6168</span>&#160;      legion_processor_t proc);</div>
+<div class="line"><a name="l06169"></a><span class="lineno"> 6169</span>&#160;</div>
+<div class="line"><a name="l06173"></a><span class="lineno"> 6173</span>&#160;  legion_processor_t</div>
+<div class="line"><a name="l06174"></a><span class="lineno"> 6174</span>&#160;  <a class="code" href="legion__c_8h.html#a62aed2074f647414976e523d188329e5">legion_map_task_output_target_procs_get</a>(</div>
+<div class="line"><a name="l06175"></a><span class="lineno"> 6175</span>&#160;      legion_map_task_output_t output,</div>
+<div class="line"><a name="l06176"></a><span class="lineno"> 6176</span>&#160;      <span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a name="l06177"></a><span class="lineno"> 6177</span>&#160;</div>
+<div class="line"><a name="l06181"></a><span class="lineno"> 6181</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l06182"></a><span class="lineno"> 6182</span>&#160;  <a class="code" href="legion__c_8h.html#aac3842c770c2eb738dd884b29bfb2b3c">legion_map_task_output_task_priority_set</a>(</div>
+<div class="line"><a name="l06183"></a><span class="lineno"> 6183</span>&#160;      legion_map_task_output_t output,</div>
+<div class="line"><a name="l06184"></a><span class="lineno"> 6184</span>&#160;      legion_task_priority_t priority);</div>
+<div class="line"><a name="l06185"></a><span class="lineno"> 6185</span>&#160;</div>
+<div class="line"><a name="l06186"></a><span class="lineno"> 6186</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06187"></a><span class="lineno"> 6187</span>&#160;  <span class="comment">// MapperRuntime Operations</span></div>
+<div class="line"><a name="l06188"></a><span class="lineno"> 6188</span>&#160;  <span class="comment">// -----------------------------------------------------------------------</span></div>
+<div class="line"><a name="l06189"></a><span class="lineno"> 6189</span>&#160;</div>
+<div class="line"><a name="l06195"></a><span class="lineno"> 6195</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06196"></a><span class="lineno"> 6196</span>&#160;  <a class="code" href="legion__c_8h.html#a78fd7e071137ba52f2ad832b7d1a4c15">legion_mapper_runtime_create_physical_instance_layout_constraint</a>(</div>
+<div class="line"><a name="l06197"></a><span class="lineno"> 6197</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06198"></a><span class="lineno"> 6198</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06199"></a><span class="lineno"> 6199</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
+<div class="line"><a name="l06200"></a><span class="lineno"> 6200</span>&#160;      legion_layout_constraint_set_t constraints,</div>
+<div class="line"><a name="l06201"></a><span class="lineno"> 6201</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
+<div class="line"><a name="l06202"></a><span class="lineno"> 6202</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
+<div class="line"><a name="l06203"></a><span class="lineno"> 6203</span>&#160;      legion_physical_instance_t *result,</div>
+<div class="line"><a name="l06204"></a><span class="lineno"> 6204</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
+<div class="line"><a name="l06205"></a><span class="lineno"> 6205</span>&#160;      legion_garbage_collection_priority_t priority);</div>
+<div class="line"><a name="l06206"></a><span class="lineno"> 6206</span>&#160;</div>
+<div class="line"><a name="l06212"></a><span class="lineno"> 6212</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06213"></a><span class="lineno"> 6213</span>&#160;  <a class="code" href="legion__c_8h.html#a99304d5c8bf4cbeef1144190dee96637">legion_mapper_runtime_create_physical_instance_layout_constraint_id</a>(</div>
+<div class="line"><a name="l06214"></a><span class="lineno"> 6214</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06215"></a><span class="lineno"> 6215</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06216"></a><span class="lineno"> 6216</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
+<div class="line"><a name="l06217"></a><span class="lineno"> 6217</span>&#160;      legion_layout_constraint_id_t layout_id,</div>
+<div class="line"><a name="l06218"></a><span class="lineno"> 6218</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
+<div class="line"><a name="l06219"></a><span class="lineno"> 6219</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
+<div class="line"><a name="l06220"></a><span class="lineno"> 6220</span>&#160;      legion_physical_instance_t *result,</div>
+<div class="line"><a name="l06221"></a><span class="lineno"> 6221</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
+<div class="line"><a name="l06222"></a><span class="lineno"> 6222</span>&#160;      legion_garbage_collection_priority_t priority);</div>
+<div class="line"><a name="l06223"></a><span class="lineno"> 6223</span>&#160;</div>
+<div class="line"><a name="l06229"></a><span class="lineno"> 6229</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06230"></a><span class="lineno"> 6230</span>&#160;  <a class="code" href="legion__c_8h.html#a39e825ebb2c257cf0c1ae090b67e0c4e">legion_mapper_runtime_find_or_create_physical_instance_layout_constraint</a>(</div>
+<div class="line"><a name="l06231"></a><span class="lineno"> 6231</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06232"></a><span class="lineno"> 6232</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06233"></a><span class="lineno"> 6233</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
+<div class="line"><a name="l06234"></a><span class="lineno"> 6234</span>&#160;      legion_layout_constraint_set_t constraints,</div>
+<div class="line"><a name="l06235"></a><span class="lineno"> 6235</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
+<div class="line"><a name="l06236"></a><span class="lineno"> 6236</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
+<div class="line"><a name="l06237"></a><span class="lineno"> 6237</span>&#160;      legion_physical_instance_t *result,</div>
+<div class="line"><a name="l06238"></a><span class="lineno"> 6238</span>&#160;      <span class="keywordtype">bool</span> *created,</div>
+<div class="line"><a name="l06239"></a><span class="lineno"> 6239</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
+<div class="line"><a name="l06240"></a><span class="lineno"> 6240</span>&#160;      legion_garbage_collection_priority_t priority,</div>
+<div class="line"><a name="l06241"></a><span class="lineno"> 6241</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
+<div class="line"><a name="l06242"></a><span class="lineno"> 6242</span>&#160;</div>
+<div class="line"><a name="l06248"></a><span class="lineno"> 6248</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06249"></a><span class="lineno"> 6249</span>&#160;  <a class="code" href="legion__c_8h.html#abd09bffee231447f12d3c1c1fafaf9e0">legion_mapper_runtime_find_or_create_physical_instance_layout_constraint_id</a>(</div>
+<div class="line"><a name="l06250"></a><span class="lineno"> 6250</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06251"></a><span class="lineno"> 6251</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06252"></a><span class="lineno"> 6252</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
+<div class="line"><a name="l06253"></a><span class="lineno"> 6253</span>&#160;      legion_layout_constraint_id_t layout_id,</div>
+<div class="line"><a name="l06254"></a><span class="lineno"> 6254</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
+<div class="line"><a name="l06255"></a><span class="lineno"> 6255</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
+<div class="line"><a name="l06256"></a><span class="lineno"> 6256</span>&#160;      legion_physical_instance_t *result,</div>
+<div class="line"><a name="l06257"></a><span class="lineno"> 6257</span>&#160;      <span class="keywordtype">bool</span> *created,</div>
+<div class="line"><a name="l06258"></a><span class="lineno"> 6258</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
+<div class="line"><a name="l06259"></a><span class="lineno"> 6259</span>&#160;      legion_garbage_collection_priority_t priority,</div>
+<div class="line"><a name="l06260"></a><span class="lineno"> 6260</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
+<div class="line"><a name="l06261"></a><span class="lineno"> 6261</span>&#160;</div>
+<div class="line"><a name="l06267"></a><span class="lineno"> 6267</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06268"></a><span class="lineno"> 6268</span>&#160;  <a class="code" href="legion__c_8h.html#ac4afdd7971f926f8b3df99bacaf23031">legion_mapper_runtime_find_physical_instance_layout_constraint</a>(</div>
+<div class="line"><a name="l06269"></a><span class="lineno"> 6269</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06270"></a><span class="lineno"> 6270</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06271"></a><span class="lineno"> 6271</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
+<div class="line"><a name="l06272"></a><span class="lineno"> 6272</span>&#160;      legion_layout_constraint_set_t constraints,</div>
+<div class="line"><a name="l06273"></a><span class="lineno"> 6273</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
+<div class="line"><a name="l06274"></a><span class="lineno"> 6274</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
+<div class="line"><a name="l06275"></a><span class="lineno"> 6275</span>&#160;      legion_physical_instance_t *result,</div>
+<div class="line"><a name="l06276"></a><span class="lineno"> 6276</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
+<div class="line"><a name="l06277"></a><span class="lineno"> 6277</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
+<div class="line"><a name="l06278"></a><span class="lineno"> 6278</span>&#160;</div>
+<div class="line"><a name="l06284"></a><span class="lineno"> 6284</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06285"></a><span class="lineno"> 6285</span>&#160;  <a class="code" href="legion__c_8h.html#ac4c2816542ca540a992618c7884f1b5a">legion_mapper_runtime_find_physical_instance_layout_constraint_id</a>(</div>
+<div class="line"><a name="l06286"></a><span class="lineno"> 6286</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06287"></a><span class="lineno"> 6287</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06288"></a><span class="lineno"> 6288</span>&#160;      <a class="code" href="structlegion__memory__t.html">legion_memory_t</a> target_memory,</div>
+<div class="line"><a name="l06289"></a><span class="lineno"> 6289</span>&#160;      legion_layout_constraint_id_t layout_id,</div>
+<div class="line"><a name="l06290"></a><span class="lineno"> 6290</span>&#160;      <span class="keyword">const</span> legion_logical_region_t *regions,</div>
+<div class="line"><a name="l06291"></a><span class="lineno"> 6291</span>&#160;      <span class="keywordtype">size_t</span> regions_size,</div>
+<div class="line"><a name="l06292"></a><span class="lineno"> 6292</span>&#160;      legion_physical_instance_t *result,</div>
+<div class="line"><a name="l06293"></a><span class="lineno"> 6293</span>&#160;      <span class="keywordtype">bool</span> acquire,</div>
+<div class="line"><a name="l06294"></a><span class="lineno"> 6294</span>&#160;      <span class="keywordtype">bool</span> tight_region_bounds);</div>
+<div class="line"><a name="l06295"></a><span class="lineno"> 6295</span>&#160;</div>
+<div class="line"><a name="l06296"></a><span class="lineno"> 6296</span>&#160;</div>
+<div class="line"><a name="l06302"></a><span class="lineno"> 6302</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06303"></a><span class="lineno"> 6303</span>&#160;  <a class="code" href="legion__c_8h.html#ab366fc3a3bc425d5c4f8e717c28354c4">legion_mapper_runtime_acquire_instance</a>(</div>
+<div class="line"><a name="l06304"></a><span class="lineno"> 6304</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06305"></a><span class="lineno"> 6305</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06306"></a><span class="lineno"> 6306</span>&#160;      legion_physical_instance_t instance);</div>
+<div class="line"><a name="l06307"></a><span class="lineno"> 6307</span>&#160;</div>
+<div class="line"><a name="l06313"></a><span class="lineno"> 6313</span>&#160;  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l06314"></a><span class="lineno"> 6314</span>&#160;  <a class="code" href="legion__c_8h.html#ace92fd8be3e384c8b87cf8cd386037d8">legion_mapper_runtime_acquire_instances</a>(</div>
+<div class="line"><a name="l06315"></a><span class="lineno"> 6315</span>&#160;      legion_mapper_runtime_t runtime,</div>
+<div class="line"><a name="l06316"></a><span class="lineno"> 6316</span>&#160;      legion_mapper_context_t ctx,</div>
+<div class="line"><a name="l06317"></a><span class="lineno"> 6317</span>&#160;      legion_physical_instance_t *instances,</div>
+<div class="line"><a name="l06318"></a><span class="lineno"> 6318</span>&#160;      <span class="keywordtype">size_t</span> instances_size);</div>
+<div class="line"><a name="l06319"></a><span class="lineno"> 6319</span>&#160;</div>
+<div class="line"><a name="l06320"></a><span class="lineno"> 6320</span>&#160;  <span class="comment">// A hidden method here that hopefully nobody sees or ever needs</span></div>
+<div class="line"><a name="l06321"></a><span class="lineno"> 6321</span>&#160;  <span class="comment">// to use but its here anyway just in case</span></div>
+<div class="line"><a name="l06322"></a><span class="lineno"> 6322</span>&#160;  legion_shard_id_t</div>
+<div class="line"><a name="l06323"></a><span class="lineno"> 6323</span>&#160;  legion_context_get_shard_id(legion_runtime_t <span class="comment">/*runtime*/</span>,</div>
+<div class="line"><a name="l06324"></a><span class="lineno"> 6324</span>&#160;                              legion_context_t <span class="comment">/*context*/</span>,</div>
+<div class="line"><a name="l06325"></a><span class="lineno"> 6325</span>&#160;                              <span class="keywordtype">bool</span> <span class="comment">/*I know what I am doing*/</span>);</div>
+<div class="line"><a name="l06326"></a><span class="lineno"> 6326</span>&#160;  <span class="comment">// Another hidden method for getting the number of shards</span></div>
+<div class="line"><a name="l06327"></a><span class="lineno"> 6327</span>&#160;  <span class="keywordtype">size_t</span></div>
+<div class="line"><a name="l06328"></a><span class="lineno"> 6328</span>&#160;  legion_context_get_num_shards(legion_runtime_t <span class="comment">/*runtime*/</span>,</div>
+<div class="line"><a name="l06329"></a><span class="lineno"> 6329</span>&#160;                                legion_context_t <span class="comment">/*context*/</span>,</div>
+<div class="line"><a name="l06330"></a><span class="lineno"> 6330</span>&#160;                                <span class="keywordtype">bool</span> <span class="comment">/*I know what I am doing*/</span>);</div>
+<div class="line"><a name="l06331"></a><span class="lineno"> 6331</span>&#160;      </div>
+<div class="line"><a name="l06335"></a><span class="lineno"> 6335</span>&#160;  legion_physical_region_t</div>
+<div class="line"><a name="l06336"></a><span class="lineno"> 6336</span>&#160;  <a class="code" href="legion__c_8h.html#ab064a0a6ca505270612d514f66aabe5f">legion_get_physical_region_by_id</a>(</div>
+<div class="line"><a name="l06337"></a><span class="lineno"> 6337</span>&#160;      legion_physical_region_t *regionptr, </div>
+<div class="line"><a name="l06338"></a><span class="lineno"> 6338</span>&#160;      <span class="keywordtype">int</span> <span class="keywordtype">id</span>, </div>
+<div class="line"><a name="l06339"></a><span class="lineno"> 6339</span>&#160;      <span class="keywordtype">int</span> num_regions); </div>
+<div class="line"><a name="l06340"></a><span class="lineno"> 6340</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l06341"></a><span class="lineno"> 6341</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l06342"></a><span class="lineno"> 6342</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l06343"></a><span class="lineno"> 6343</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l06344"></a><span class="lineno"> 6344</span>&#160;<span class="preprocessor">#endif // __LEGION_C_H__</span></div>
 <div class="ttc" id="legion__c_8h_html_a41943b97cfbd27506612769bafb8770a"><div class="ttname"><a href="legion__c_8h.html#a41943b97cfbd27506612769bafb8770a">legion_logical_region_has_parent_logical_partition</a></div><div class="ttdeci">bool legion_logical_region_has_parent_logical_partition(legion_runtime_t runtime, legion_logical_region_t handle)</div></div>
 <div class="ttc" id="legion__c_8h_html_ada1d3bfee3a67617ed2fa689a60db56d"><div class="ttname"><a href="legion__c_8h.html#ada1d3bfee3a67617ed2fa689a60db56d">legion_future_is_ready</a></div><div class="ttdeci">bool legion_future_is_ready(legion_future_t handle)</div></div>
 <div class="ttc" id="legion__c_8h_html_a91e68aad701feef3a5eb5b2d172313a2"><div class="ttname"><a href="legion__c_8h.html#a91e68aad701feef3a5eb5b2d172313a2">legion_future_get_untyped_pointer</a></div><div class="ttdeci">const void * legion_future_get_untyped_pointer(legion_future_t handle)</div></div>
@@ -4651,6 +4654,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="legion__c_8h_html_a8683b31e7eda90374f48d274c05eac46"><div class="ttname"><a href="legion__c_8h.html#a8683b31e7eda90374f48d274c05eac46">legion_memory_query_next</a></div><div class="ttdeci">legion_memory_t legion_memory_query_next(legion_memory_query_t query, legion_memory_t after)</div></div>
 <div class="ttc" id="legion__c_8h_html_a3710929fe3f636ed749858ca6d45d6b1"><div class="ttname"><a href="legion__c_8h.html#a3710929fe3f636ed749858ca6d45d6b1">legion_domain_point_coloring_destroy</a></div><div class="ttdeci">void legion_domain_point_coloring_destroy(legion_domain_point_coloring_t handle)</div></div>
 <div class="ttc" id="legion__c_8h_html_ab98b556b651519dbb9012dcb44bb4d75"><div class="ttname"><a href="legion__c_8h.html#ab98b556b651519dbb9012dcb44bb4d75">legion_must_epoch_launcher_set_launch_space</a></div><div class="ttdeci">void legion_must_epoch_launcher_set_launch_space(legion_must_epoch_launcher_t launcher, legion_index_space_t is)</div></div>
+<div class="ttc" id="legion__c_8h_html_af39b94a9492d5858e3d9617ba9ab46c2"><div class="ttname"><a href="legion__c_8h.html#af39b94a9492d5858e3d9617ba9ab46c2">legion_runtime_generate_static_projection_id</a></div><div class="ttdeci">legion_projection_id_t legion_runtime_generate_static_projection_id()</div></div>
 <div class="ttc" id="legion__c_8h_html_a3c31ea1c5ee7b3634c8c2e4565fb47f7"><div class="ttname"><a href="legion__c_8h.html#a3c31ea1c5ee7b3634c8c2e4565fb47f7">legion_logical_region_create</a></div><div class="ttdeci">legion_logical_region_t legion_logical_region_create(legion_runtime_t runtime, legion_context_t ctx, legion_index_space_t index, legion_field_space_t fields, bool task_local)</div></div>
 <div class="ttc" id="legion__c_8h_html_ae286ffd583e8360780a8cb07393a2e03"><div class="ttname"><a href="legion__c_8h.html#ae286ffd583e8360780a8cb07393a2e03">legion_execution_constraint_set_add_isa_constraint</a></div><div class="ttdeci">void legion_execution_constraint_set_add_isa_constraint(legion_execution_constraint_set_t handle, uint64_t prop)</div></div>
 <div class="ttc" id="legion__c_8h_html_aec004cd21707a66c341f7984fbb31173"><div class="ttname"><a href="legion__c_8h.html#aec004cd21707a66c341f7984fbb31173">legion_inline_launcher_execute</a></div><div class="ttdeci">legion_physical_region_t legion_inline_launcher_execute(legion_runtime_t runtime, legion_context_t ctx, legion_inline_launcher_t launcher)</div></div>
@@ -4779,7 +4783,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 12 2022 11:19:12 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 9 2022 09:13:32 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

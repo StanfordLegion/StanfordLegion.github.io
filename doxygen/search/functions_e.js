@@ -10,5 +10,5 @@ var searchData=
   ['set_5ftop_5flevel_5ftask_5fid',['set_top_level_task_id',['../class_legion_1_1_runtime.html#a63bc41e96b5b10f3435b15ef6d5f090b',1,'Legion::Runtime']]],
   ['set_5ftop_5flevel_5ftask_5fmapper_5fid',['set_top_level_task_mapper_id',['../class_legion_1_1_runtime.html#aa64b2a328c162ba26386019fffc5dc21',1,'Legion::Runtime']]],
   ['start',['start',['../class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015',1,'Legion::Runtime']]],
-  ['subtract_5findex_5fspaces',['subtract_index_spaces',['../class_legion_1_1_runtime.html#a0ee59b347d6a4b7c8c12b8b2f63ea6f3',1,'Legion::Runtime']]]
+  ['subtract_5findex_5fspaces',['subtract_index_spaces',['../class_legion_1_1_runtime.html#abe24b579ab20fa57baafd450ab116ce1',1,'Legion::Runtime']]]
 ];

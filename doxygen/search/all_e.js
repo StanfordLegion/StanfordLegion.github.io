@@ -16,5 +16,5 @@ var searchData=
   ['start',['start',['../class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015',1,'Legion::Runtime']]],
   ['staticdependence',['StaticDependence',['../struct_legion_1_1_static_dependence.html',1,'Legion']]],
   ['stlcomparator',['STLComparator',['../struct_legion_1_1_domain_point_1_1_s_t_l_comparator.html',1,'Legion::DomainPoint']]],
-  ['subtract_5findex_5fspaces',['subtract_index_spaces',['../class_legion_1_1_runtime.html#a0ee59b347d6a4b7c8c12b8b2f63ea6f3',1,'Legion::Runtime']]]
+  ['subtract_5findex_5fspaces',['subtract_index_spaces',['../class_legion_1_1_runtime.html#abe24b579ab20fa57baafd450ab116ce1',1,'Legion::Runtime']]]
 ];

@@ -7,8 +7,8 @@ var searchData=
   ['find_5freverse_5fmpi_5fmapping',['find_reverse_MPI_mapping',['../class_legion_1_1_runtime.html#ac27b2638c8aa39d366886a678f63749d',1,'Legion::Runtime']]],
   ['finish_5fimplicit_5ftask',['finish_implicit_task',['../class_legion_1_1_runtime.html#aa64e8a16a1b5769cd8542338f0200100',1,'Legion::Runtime']]],
   ['free',['free',['../class_legion_1_1_index_allocator.html#a85187376e85cc3f6717242652a1c4247',1,'Legion::IndexAllocator']]],
-  ['free_5ffield',['free_field',['../class_legion_1_1_field_allocator.html#a321e3c16bb7b52b4f9cf677536bdb60a',1,'Legion::FieldAllocator']]],
-  ['free_5ffields',['free_fields',['../class_legion_1_1_field_allocator.html#adc9df4e5020cd81a94e1b29fca96d351',1,'Legion::FieldAllocator']]],
+  ['free_5ffield',['free_field',['../class_legion_1_1_field_allocator.html#aeb91a9362bb191fbe8598f2f9799e90d',1,'Legion::FieldAllocator']]],
+  ['free_5ffields',['free_fields',['../class_legion_1_1_field_allocator.html#ad930469bab4949e40dd8c35823a8d2c8',1,'Legion::FieldAllocator']]],
   ['from_5funtyped_5fpointer',['from_untyped_pointer',['../class_legion_1_1_future.html#a748cf065d38332f8d0c77053e77439e0',1,'Legion::Future']]],
   ['from_5fvalue',['from_value',['../class_legion_1_1_future.html#a8a5f95c981e5e2ed8f5119c037f93290',1,'Legion::Future']]]
 ];

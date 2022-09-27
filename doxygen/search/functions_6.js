@@ -29,7 +29,7 @@ var searchData=
   ['get_5fcurrent_5ftime_5fin_5fmicroseconds',['get_current_time_in_microseconds',['../class_legion_1_1_runtime.html#af81ff08366d6e945735015c228595f52',1,'Legion::Runtime']]],
   ['get_5fcurrent_5ftime_5fin_5fnanoseconds',['get_current_time_in_nanoseconds',['../class_legion_1_1_runtime.html#a08a4e3e7621d3f8bc12b4c54e2c13001',1,'Legion::Runtime']]],
   ['get_5fdepth',['get_depth',['../class_legion_1_1_projection_functor.html#a1fe71b856e92397cd7c5c07de670158c',1,'Legion::ProjectionFunctor']]],
-  ['get_5fdynamic_5fcollective_5fresult',['get_dynamic_collective_result',['../class_legion_1_1_runtime.html#aab641c4a5808f95c9a3f9ac1a15a0679',1,'Legion::Runtime']]],
+  ['get_5fdynamic_5fcollective_5fresult',['get_dynamic_collective_result',['../class_legion_1_1_runtime.html#a27211b0ad6a4087bb97de66f8fa44f20',1,'Legion::Runtime']]],
   ['get_5fexecuting_5fprocessor',['get_executing_processor',['../class_legion_1_1_runtime.html#aae005a8b8c1f513af1c52029d22bbf9d',1,'Legion::Runtime']]],
   ['get_5ffield_5faccessor',['get_field_accessor',['../class_legion_1_1_physical_region.html#aed30abc7b6438666205e34c1e27d736e',1,'Legion::PhysicalRegion']]],
   ['get_5ffield_5fsize',['get_field_size',['../class_legion_1_1_runtime.html#a8f321f0c4b28b50018bca830829f6f72',1,'Legion::Runtime']]],

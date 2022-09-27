@@ -127,28 +127,28 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="memitem:ad97be4a572b3fd2b2091d3d81687adda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad97be4a572b3fd2b2091d3d81687adda"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_legion_1_1_field_allocator.html">FieldAllocator</a> &amp;rhs) const </td></tr>
 <tr class="separator:ad97be4a572b3fd2b2091d3d81687adda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a321e3c16bb7b52b4f9cf677536bdb60a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a321e3c16bb7b52b4f9cf677536bdb60a">free_field</a> (FieldID fid, const bool unordered=false)</td></tr>
-<tr class="separator:a321e3c16bb7b52b4f9cf677536bdb60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef87630bfbef3d1b3ec52c75400dc850"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#aef87630bfbef3d1b3ec52c75400dc850">allocate_local_field</a> (size_t field_size, FieldID desired_fieldid=LEGION_AUTO_GENERATE_ID, CustomSerdezID serdez_id=0)</td></tr>
-<tr class="separator:aef87630bfbef3d1b3ec52c75400dc850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc9df4e5020cd81a94e1b29fca96d351"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#adc9df4e5020cd81a94e1b29fca96d351">free_fields</a> (const std::set&lt; FieldID &gt; &amp;to_free, const bool unordered=false)</td></tr>
-<tr class="separator:adc9df4e5020cd81a94e1b29fca96d351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41404760cb480a1a40dea27b68dafdf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a41404760cb480a1a40dea27b68dafdf3">allocate_local_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0)</td></tr>
-<tr class="separator:a41404760cb480a1a40dea27b68dafdf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb91a9362bb191fbe8598f2f9799e90d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#aeb91a9362bb191fbe8598f2f9799e90d">free_field</a> (FieldID fid, const bool unordered=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:aeb91a9362bb191fbe8598f2f9799e90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fee55a7d68ca3560ec63f1ce9f98eb"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a34fee55a7d68ca3560ec63f1ce9f98eb">allocate_local_field</a> (size_t field_size, FieldID desired_fieldid=LEGION_AUTO_GENERATE_ID, CustomSerdezID serdez_id=0, const char *provenance=NULL)</td></tr>
+<tr class="separator:a34fee55a7d68ca3560ec63f1ce9f98eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad930469bab4949e40dd8c35823a8d2c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#ad930469bab4949e40dd8c35823a8d2c8">free_fields</a> (const std::set&lt; FieldID &gt; &amp;to_free, const bool unordered=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:ad930469bab4949e40dd8c35823a8d2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a90d246d36c13c08f67921b59571b7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a2a90d246d36c13c08f67921b59571b7b">allocate_local_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0, const char *provenance=NULL)</td></tr>
+<tr class="separator:a2a90d246d36c13c08f67921b59571b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dfc61fb6100ea65f6dd04c9767892bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a4dfc61fb6100ea65f6dd04c9767892bf">get_field_space</a> (void) const </td></tr>
 <tr class="separator:a4dfc61fb6100ea65f6dd04c9767892bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a9646eef1ccf2b9a1b265f6c1c8fd721d"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a9646eef1ccf2b9a1b265f6c1c8fd721d">allocate_field</a> (size_t field_size, FieldID desired_fieldid=LEGION_AUTO_GENERATE_ID, CustomSerdezID serdez_id=0, bool local_field=false)</td></tr>
-<tr class="separator:a9646eef1ccf2b9a1b265f6c1c8fd721d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94da2ed7019c5df8427d8a0cccf03eaf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94da2ed7019c5df8427d8a0cccf03eaf"></a>
-FieldID&#160;</td><td class="memItemRight" valign="bottom"><b>allocate_field</b> (const <a class="el" href="class_legion_1_1_future.html">Future</a> &amp;field_size, FieldID desired_fieldid=LEGION_AUTO_GENERATE_ID, CustomSerdezID serdez_id=0, bool local_field=false)</td></tr>
-<tr class="separator:a94da2ed7019c5df8427d8a0cccf03eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28b5fedf47a01b12eebf5f039b8e53de"><td class="memItemLeft" align="right" valign="top">FieldID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a28b5fedf47a01b12eebf5f039b8e53de">allocate_field</a> (size_t field_size, FieldID desired_fieldid=LEGION_AUTO_GENERATE_ID, CustomSerdezID serdez_id=0, bool local_field=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:a28b5fedf47a01b12eebf5f039b8e53de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03cb482ced158d8971624b0fbd2cf38c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03cb482ced158d8971624b0fbd2cf38c"></a>
+FieldID&#160;</td><td class="memItemRight" valign="bottom"><b>allocate_field</b> (const <a class="el" href="class_legion_1_1_future.html">Future</a> &amp;field_size, FieldID desired_fieldid=LEGION_AUTO_GENERATE_ID, CustomSerdezID serdez_id=0, bool local_field=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:a03cb482ced158d8971624b0fbd2cf38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ae99572f248042867938efffc6bf5d814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#ae99572f248042867938efffc6bf5d814">allocate_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0, bool local_fields=false)</td></tr>
-<tr class="separator:ae99572f248042867938efffc6bf5d814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab82b1bf8bdc6ffe28a2643ab46512013"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab82b1bf8bdc6ffe28a2643ab46512013"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>allocate_fields</b> (const std::vector&lt; <a class="el" href="class_legion_1_1_future.html">Future</a> &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0, bool local_fields=false)</td></tr>
-<tr class="separator:ab82b1bf8bdc6ffe28a2643ab46512013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a358a6914e8cc8bcf14ba5b172d13c31e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_field_allocator.html#a358a6914e8cc8bcf14ba5b172d13c31e">allocate_fields</a> (const std::vector&lt; size_t &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0, bool local_fields=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:a358a6914e8cc8bcf14ba5b172d13c31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b0490c26988406203ce017e9714f1b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b0490c26988406203ce017e9714f1b5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>allocate_fields</b> (const std::vector&lt; <a class="el" href="class_legion_1_1_future.html">Future</a> &gt; &amp;field_sizes, std::vector&lt; FieldID &gt; &amp;resulting_fields, CustomSerdezID serdez_id=0, bool local_fields=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:a4b0490c26988406203ce017e9714f1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_legion_1_1_unserializable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_legion_1_1_unserializable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_legion_1_1_unserializable.html">Legion::Unserializable&lt; FieldAllocator &gt;</a></td></tr>
 <tr class="memitem:a5130925a9ea7a47cd5d3956fcdb3ce12 inherit pub_methods_class_legion_1_1_unserializable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5130925a9ea7a47cd5d3956fcdb3ce12"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_buffer_size</b> (void)</td></tr>
@@ -173,7 +173,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 <dd>
 <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9646eef1ccf2b9a1b265f6c1c8fd721d"></a>
+<a class="anchor" id="a28b5fedf47a01b12eebf5f039b8e53de"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -199,7 +199,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>local_field</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>local_field</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -215,6 +221,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
     <tr><td class="paramname">desired_fieldid</td><td>field ID to be assigned to the field or LEGION_AUTO_GENERATE_ID to specify that the runtime should assign a fresh field ID </td></tr>
     <tr><td class="paramname">serdez_id</td><td>optional parameter for specifying a custom serdez object for serializing and deserializing a field when it is moved. </td></tr>
     <tr><td class="paramname">local_field</td><td>whether this is a local field or not </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this index space </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,7 +229,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a class="anchor" id="ae99572f248042867938efffc6bf5d814"></a>
+<a class="anchor" id="a358a6914e8cc8bcf14ba5b172d13c31e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -248,7 +255,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>local_fields</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>local_fields</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -263,6 +276,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
     <tr><td class="paramname">field_sizes</td><td>size in bytes of the fields to be allocated </td></tr>
     <tr><td class="paramname">resulting_fields</td><td>optional field names for allocated fields </td></tr>
     <tr><td class="paramname">local_fields</td><td>whether these should be local fields or not </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this index space </td></tr>
   </table>
   </dd>
 </dl>
@@ -270,7 +284,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a class="anchor" id="aef87630bfbef3d1b3ec52c75400dc850"></a>
+<a class="anchor" id="a34fee55a7d68ca3560ec63f1ce9f98eb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -290,7 +304,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">CustomSerdezID&#160;</td>
-          <td class="paramname"><em>serdez_id</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>serdez_id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -303,7 +323,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a class="anchor" id="a41404760cb480a1a40dea27b68dafdf3"></a>
+<a class="anchor" id="a2a90d246d36c13c08f67921b59571b7b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -323,7 +343,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">CustomSerdezID&#160;</td>
-          <td class="paramname"><em>serdez_id</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>serdez_id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -336,7 +362,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a class="anchor" id="a321e3c16bb7b52b4f9cf677536bdb60a"></a>
+<a class="anchor" id="aeb91a9362bb191fbe8598f2f9799e90d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -350,7 +376,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>unordered</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>unordered</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -364,13 +396,14 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
   <table class="params">
     <tr><td class="paramname">fid</td><td>the field ID to be deallocated </td></tr>
     <tr><td class="paramname">unordered</td><td>set to true if this is performed by a different thread than the one for the task (e.g a garbage collector) </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this index space </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="adc9df4e5020cd81a94e1b29fca96d351"></a>
+<a class="anchor" id="ad930469bab4949e40dd8c35823a8d2c8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -384,7 +417,13 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>unordered</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>unordered</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -398,6 +437,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
   <table class="params">
     <tr><td class="paramname">to_free</td><td>set of field IDs to be freed </td></tr>
     <tr><td class="paramname">unordered</td><td>set to true if this is performed by a different thread than the one for the task (e.g a garbage collector) </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this index space </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,7 +467,7 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 9 2022 09:13:33 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 27 2022 08:38:17 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

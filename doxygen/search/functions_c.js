@@ -1,9 +1,9 @@
 var searchData=
 [
   ['perform_5fregistration_5fcallback',['perform_registration_callback',['../class_legion_1_1_runtime.html#ac9b2f41e39bff2e64956d40ab1732477',1,'Legion::Runtime']]],
-  ['predicate_5fand',['predicate_and',['../class_legion_1_1_runtime.html#afd38898e2abbcc214558170841cd15ca',1,'Legion::Runtime']]],
-  ['predicate_5fnot',['predicate_not',['../class_legion_1_1_runtime.html#a9bf64228ebfbebe041c98892cda411a1',1,'Legion::Runtime']]],
-  ['predicate_5for',['predicate_or',['../class_legion_1_1_runtime.html#aa5bf04780fafcd9e370a92fa36d03d4f',1,'Legion::Runtime']]],
+  ['predicate_5fand',['predicate_and',['../class_legion_1_1_runtime.html#a00aac64c5c44fb580598a8c1a4bea175',1,'Legion::Runtime']]],
+  ['predicate_5fnot',['predicate_not',['../class_legion_1_1_runtime.html#a36140f9ce5045dfa588d11fe5835026f',1,'Legion::Runtime']]],
+  ['predicate_5for',['predicate_or',['../class_legion_1_1_runtime.html#aba44e7bfcbc9f7dbf78fd3865fcc8122',1,'Legion::Runtime']]],
   ['preregister_5flayout',['preregister_layout',['../class_legion_1_1_runtime.html#a83a125ab374f0985728589368ee8faf2',1,'Legion::Runtime']]],
   ['preregister_5fprojection_5ffunctor',['preregister_projection_functor',['../class_legion_1_1_runtime.html#aa7deb7e4e59ec0254a042e485370ab32',1,'Legion::Runtime']]],
   ['preregister_5fsharding_5ffunctor',['preregister_sharding_functor',['../class_legion_1_1_runtime.html#af960d0cdd23cb7dd8e535920f5073095',1,'Legion::Runtime']]],

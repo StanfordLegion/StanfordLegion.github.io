@@ -100,9 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92be323d8e6ab4ca074d04e306bc81f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92be323d8e6ab4ca074d04e306bc81f7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CopyLauncher</b> (<a class="el" href="class_legion_1_1_predicate.html">Predicate</a> pred=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> map_arg=<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>())</td></tr>
-<tr class="separator:a92be323d8e6ab4ca074d04e306bc81f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb062cee6a2ef8c4cbe0c619e60d45f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cb062cee6a2ef8c4cbe0c619e60d45f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CopyLauncher</b> (<a class="el" href="class_legion_1_1_predicate.html">Predicate</a> pred=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> map_arg=<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>(), const char *provenance=&quot;&quot;)</td></tr>
+<tr class="separator:a2cb062cee6a2ef8c4cbe0c619e60d45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab10b971945c7de29ca8f2016509429d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab10b971945c7de29ca8f2016509429d1"></a>
 unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>add_copy_requirements</b> (const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;src, const <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &amp;dst)</td></tr>
 <tr class="separator:ab10b971945c7de29ca8f2016509429d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +187,9 @@ MappingTagID&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b></td><
 <tr class="memitem:af0b6254865815f9c900cab2cb4108d5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0b6254865815f9c900cab2cb4108d5f"></a>
 <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sharding_space</b></td></tr>
 <tr class="separator:af0b6254865815f9c900cab2cb4108d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec10084e076168b657b56e283263d38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ec10084e076168b657b56e283263d38"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>provenance</b></td></tr>
+<tr class="separator:a0ec10084e076168b657b56e283263d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a940b70b80559a89b851468ad3d7a7bc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a940b70b80559a89b851468ad3d7a7bc0"></a>
 const std::vector<br class="typebreak"/>
 &lt; <a class="el" href="struct_legion_1_1_static_dependence.html">StaticDependence</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>static_dependences</b></td></tr>
@@ -217,7 +220,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>silence_warnings</b><
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 9 2022 09:13:33 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 27 2022 08:38:17 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

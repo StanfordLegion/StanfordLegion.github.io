@@ -582,7 +582,7 @@ to use the flag <code class="language-plaintext highlighter-rouge">-ll:force_kth
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">./app <span class="nt">-ll</span>:force_kthreads
 <span class="c"># wait for the application to freeze</span>
 gdb <span class="nt">-p</span> 12345
-apply thread all bt <span class="c"># inside gdb, dump backtraces</span></code></pre></figure>
+thread apply all bt <span class="c"># inside gdb, dump backtraces</span></code></pre></figure>
 
 <p>Note also that it is important to compile with debug symbols or else
 line numbers will not appear in the resulting backtraces. This can be

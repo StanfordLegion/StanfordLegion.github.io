@@ -799,22 +799,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        assert(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;      }</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> has_parent_task(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> std::string&amp; get_provenance_string(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">new</span> std::string());</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* get_task_name(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> has_parent_task(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;      }</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a> get_slice_domain(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* get_task_name(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="keywordflow">return</span> Domain::NO_DOMAIN;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;      }</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    };</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;};</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="preprocessor">#endif // __LEGION_C_UTIL_H__</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a> get_slice_domain(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        <span class="keywordflow">return</span> Domain::NO_DOMAIN;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      }</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    };</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;};</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="preprocessor">#endif // __LEGION_C_UTIL_H__</span></div>
 <div class="ttc" id="class_legion_1_1_domain_1_1_domain_point_iterator_html"><div class="ttname"><a href="class_legion_1_1_domain_1_1_domain_point_iterator.html">Legion::Domain::DomainPointIterator</a></div><div class="ttdef"><b>Definition:</b> legion_domain.h:366</div></div>
 <div class="ttc" id="struct_legion_1_1_index_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_copy_launcher.html">Legion::IndexCopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1816</div></div>
 <div class="ttc" id="structlegion__slice__task__input__t_html"><div class="ttname"><a href="structlegion__slice__task__input__t.html">legion_slice_task_input_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:378</div></div>
@@ -825,11 +829,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_legion_1_1_future_map_html"><div class="ttname"><a href="class_legion_1_1_future_map.html">Legion::FutureMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:1319</div></div>
 <div class="ttc" id="struct_legion_1_1_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_fill_launcher.html">Legion::FillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1904</div></div>
 <div class="ttc" id="structlegion__domain__transform__t_html"><div class="ttname"><a href="structlegion__domain__transform__t.html">legion_domain_transform_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:199</div></div>
-<div class="ttc" id="class_legion_1_1_runtime_html"><div class="ttname"><a href="class_legion_1_1_runtime.html">Legion::Runtime</a></div><div class="ttdef"><b>Definition:</b> legion.h:4395</div></div>
+<div class="ttc" id="class_legion_1_1_runtime_html"><div class="ttname"><a href="class_legion_1_1_runtime.html">Legion::Runtime</a></div><div class="ttdef"><b>Definition:</b> legion.h:4397</div></div>
 <div class="ttc" id="legion__c_8h_html"><div class="ttname"><a href="legion__c_8h.html">legion_c.h</a></div></div>
 <div class="ttc" id="structlegion__index__space__t_html"><div class="ttname"><a href="structlegion__index__space__t.html">legion_index_space_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:244</div></div>
 <div class="ttc" id="structlegion__task__slice__t_html"><div class="ttname"><a href="structlegion__task__slice__t.html">legion_task_slice_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:334</div></div>
-<div class="ttc" id="class_legion_1_1_inline_mapping_html"><div class="ttname"><a href="class_legion_1_1_inline_mapping.html">Legion::InlineMapping</a></div><div class="ttdef"><b>Definition:</b> legion.h:3917</div></div>
+<div class="ttc" id="class_legion_1_1_inline_mapping_html"><div class="ttname"><a href="class_legion_1_1_inline_mapping.html">Legion::InlineMapping</a></div><div class="ttdef"><b>Definition:</b> legion.h:3919</div></div>
 <div class="ttc" id="structlegion__input__args__t_html"><div class="ttname"><a href="structlegion__input__args__t.html">legion_input_args_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:302</div></div>
 <div class="ttc" id="structlegion__untyped__buffer__t_html"><div class="ttname"><a href="structlegion__untyped__buffer__t.html">legion_untyped_buffer_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:287</div></div>
 <div class="ttc" id="struct_legion_1_1_index_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_task_launcher.html">Legion::IndexTaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1564</div></div>
@@ -839,7 +843,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_legion_1_1_external_resources_html"><div class="ttname"><a href="class_legion_1_1_external_resources.html">Legion::ExternalResources</a></div><div class="ttdef"><b>Definition:</b> legion.h:2506</div></div>
 <div class="ttc" id="class_legion_1_1_predicate_html"><div class="ttname"><a href="class_legion_1_1_predicate.html">Legion::Predicate</a></div><div class="ttdef"><b>Definition:</b> legion.h:756</div></div>
 <div class="ttc" id="structlegion__logical__region__t_html"><div class="ttname"><a href="structlegion__logical__region__t.html">legion_logical_region_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:269</div></div>
-<div class="ttc" id="class_legion_1_1_fill_html"><div class="ttname"><a href="class_legion_1_1_fill.html">Legion::Fill</a></div><div class="ttdef"><b>Definition:</b> legion.h:4004</div></div>
+<div class="ttc" id="class_legion_1_1_fill_html"><div class="ttname"><a href="class_legion_1_1_fill.html">Legion::Fill</a></div><div class="ttdef"><b>Definition:</b> legion.h:4006</div></div>
 <div class="ttc" id="legion__c_8h_html_ac456143edca3648144bea7899e03a38e"><div class="ttname"><a href="legion__c_8h.html#ac456143edca3648144bea7899e03a38e">ACCESSOR_ARRAY</a></div><div class="ttdeci">#define ACCESSOR_ARRAY(DIM)</div><div class="ttdef"><b>Definition:</b> legion_c.h:4903</div></div>
 <div class="ttc" id="structlegion__domain__t_html"><div class="ttname"><a href="structlegion__domain__t.html">legion_domain_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:152</div></div>
 <div class="ttc" id="class_legion_1_1_future_html"><div class="ttname"><a href="class_legion_1_1_future.html">Legion::Future</a></div><div class="ttdef"><b>Definition:</b> legion.h:1183</div></div>
@@ -854,7 +858,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="structlegion__ptr__t_html"><div class="ttname"><a href="structlegion__ptr__t.html">legion_ptr_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:118</div></div>
 <div class="ttc" id="struct_legion_1_1_release_launcher_html"><div class="ttname"><a href="struct_legion_1_1_release_launcher.html">Legion::ReleaseLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3559</div></div>
 <div class="ttc" id="struct_legion_1_1_index_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_attach_launcher.html">Legion::IndexAttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2134</div></div>
-<div class="ttc" id="class_legion_1_1_task_html"><div class="ttname"><a href="class_legion_1_1_task.html">Legion::Task</a></div><div class="ttdef"><b>Definition:</b> legion.h:3837</div></div>
+<div class="ttc" id="class_legion_1_1_task_html"><div class="ttname"><a href="class_legion_1_1_task.html">Legion::Task</a></div><div class="ttdef"><b>Definition:</b> legion.h:3839</div></div>
 <div class="ttc" id="structlegion__domain__affine__transform__t_html"><div class="ttname"><a href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:236</div></div>
 <div class="ttc" id="class_legion_1_1_c_object_wrapper_html"><div class="ttname"><a href="class_legion_1_1_c_object_wrapper.html">Legion::CObjectWrapper</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:39</div></div>
 <div class="ttc" id="class_legion_1_1_task_mut_html"><div class="ttname"><a href="class_legion_1_1_task_mut.html">Legion::TaskMut</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:697</div></div>
@@ -869,12 +873,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="structlegion__dynamic__collective__t_html"><div class="ttname"><a href="structlegion__dynamic__collective__t.html">legion_dynamic_collective_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:354</div></div>
 <div class="ttc" id="structlegion__index__partition__t_html"><div class="ttname"><a href="structlegion__index__partition__t.html">legion_index_partition_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:253</div></div>
 <div class="ttc" id="struct_legion_1_1_c_object_wrapper_1_1_blockify_html"><div class="ttname"><a href="struct_legion_1_1_c_object_wrapper_1_1_blockify.html">Legion::CObjectWrapper::Blockify</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:215</div></div>
-<div class="ttc" id="class_legion_1_1_copy_html"><div class="ttname"><a href="class_legion_1_1_copy.html">Legion::Copy</a></div><div class="ttdef"><b>Definition:</b> legion.h:3889</div></div>
+<div class="ttc" id="class_legion_1_1_copy_html"><div class="ttname"><a href="class_legion_1_1_copy.html">Legion::Copy</a></div><div class="ttdef"><b>Definition:</b> legion.h:3891</div></div>
 <div class="ttc" id="structlegion__byte__offset__t_html"><div class="ttname"><a href="structlegion__byte__offset__t.html">legion_byte_offset_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:295</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 4 2022 11:48:00 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 18 2022 09:59:58 for Legion Runtime by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

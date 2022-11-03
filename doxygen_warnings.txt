@@ -1655,550 +1655,550 @@
 /home/eslaught/jekyll/_legion/runtime/legion.h:3902: warning: Member MPILegionHandshake(Internal::LegionHandshakeImpl *impl) (function) of class Legion::MPILegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3839: warning: Member LegionHandshake(Internal::LegionHandshakeImpl *impl) (function) of class Legion::LegionHandshake is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3835: warning: Member impl (variable) of class Legion::LegionHandshake is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_mappable_type(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4016: warning: Member has_parent_task(void) const =0 (function) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4018: warning: Member get_task_name(void) const =0 (function) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4022: warning: Member get_slice_domain(void) const =0 (function) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4024: warning: Member get_mappable_type(void) const  (function) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4026: warning: Member as_task(void) const  (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member get_mappable_type(void) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4019: warning: Member has_parent_task(void) const =0 (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4021: warning: Member get_task_name(void) const =0 (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4025: warning: Member get_slice_domain(void) const =0 (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4027: warning: Member get_mappable_type(void) const  (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4029: warning: Member as_task(void) const  (function) of class Legion::Task is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4029: warning: Member task_id (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4030: warning: Member indexes (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4031: warning: Member regions (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4032: warning: Member futures (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4033: warning: Member grants (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4034: warning: Member wait_barriers (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4035: warning: Member arrive_barriers (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4036: warning: Member args (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4037: warning: Member arglen (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4040: warning: Member is_index_space (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4041: warning: Member must_epoch_task (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4042: warning: Member index_domain (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4043: warning: Member index_point (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4044: warning: Member sharding_space (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4045: warning: Member local_args (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4046: warning: Member local_arglen (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4049: warning: Member orig_proc (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4050: warning: Member current_proc (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4051: warning: Member target_proc (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4052: warning: Member steal_count (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4053: warning: Member stealable (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4054: warning: Member speculated (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4055: warning: Member local_function (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4067: warning: Member get_mappable_type(void) const  (function) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4069: warning: Member as_copy(void) const  (function) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4032: warning: Member task_id (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4033: warning: Member indexes (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4034: warning: Member regions (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4035: warning: Member futures (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4036: warning: Member grants (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4037: warning: Member wait_barriers (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4038: warning: Member arrive_barriers (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4039: warning: Member args (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4040: warning: Member arglen (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4043: warning: Member is_index_space (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4044: warning: Member must_epoch_task (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4045: warning: Member index_domain (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4046: warning: Member index_point (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4047: warning: Member sharding_space (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4048: warning: Member local_args (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4049: warning: Member local_arglen (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4052: warning: Member orig_proc (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4053: warning: Member current_proc (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4054: warning: Member target_proc (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4055: warning: Member steal_count (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4056: warning: Member stealable (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4057: warning: Member speculated (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4058: warning: Member local_function (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4070: warning: Member get_mappable_type(void) const  (function) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4072: warning: Member as_copy(void) const  (function) of class Legion::Copy is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4072: warning: Member src_requirements (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4073: warning: Member dst_requirements (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4074: warning: Member src_indirect_requirements (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4075: warning: Member dst_indirect_requirements (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4076: warning: Member grants (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4077: warning: Member wait_barriers (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4078: warning: Member arrive_barriers (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4081: warning: Member is_index_space (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4082: warning: Member index_domain (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4083: warning: Member index_point (variable) of class Legion::Copy is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4095: warning: Member get_mappable_type(void) const  (function) of class Legion::InlineMapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4097: warning: Member as_inline(void) const  (function) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4075: warning: Member src_requirements (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4076: warning: Member dst_requirements (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4077: warning: Member src_indirect_requirements (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4078: warning: Member dst_indirect_requirements (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4079: warning: Member grants (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4080: warning: Member wait_barriers (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4081: warning: Member arrive_barriers (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4084: warning: Member is_index_space (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4085: warning: Member index_domain (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4086: warning: Member index_point (variable) of class Legion::Copy is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4098: warning: Member get_mappable_type(void) const  (function) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4100: warning: Member as_inline(void) const  (function) of class Legion::InlineMapping is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4100: warning: Member requirement (variable) of class Legion::InlineMapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4101: warning: Member grants (variable) of class Legion::InlineMapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4102: warning: Member wait_barriers (variable) of class Legion::InlineMapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4103: warning: Member arrive_barriers (variable) of class Legion::InlineMapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4104: warning: Member layout_constraint_id (variable) of class Legion::InlineMapping is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4116: warning: Member get_mappable_type(void) const  (function) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4118: warning: Member as_acquire(void) const  (function) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4103: warning: Member requirement (variable) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4104: warning: Member grants (variable) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4105: warning: Member wait_barriers (variable) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4106: warning: Member arrive_barriers (variable) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4107: warning: Member layout_constraint_id (variable) of class Legion::InlineMapping is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4119: warning: Member get_mappable_type(void) const  (function) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4121: warning: Member as_acquire(void) const  (function) of class Legion::Acquire is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4121: warning: Member logical_region (variable) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4122: warning: Member parent_region (variable) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4123: warning: Member fields (variable) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4124: warning: Member grants (variable) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4125: warning: Member wait_barriers (variable) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4126: warning: Member arrive_barriers (variable) of class Legion::Acquire is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4138: warning: Member get_mappable_type(void) const  (function) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4140: warning: Member as_release(void) const  (function) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4124: warning: Member logical_region (variable) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4125: warning: Member parent_region (variable) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4126: warning: Member fields (variable) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4127: warning: Member grants (variable) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4128: warning: Member wait_barriers (variable) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4129: warning: Member arrive_barriers (variable) of class Legion::Acquire is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4141: warning: Member get_mappable_type(void) const  (function) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4143: warning: Member as_release(void) const  (function) of class Legion::Release is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4143: warning: Member logical_region (variable) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4144: warning: Member parent_region (variable) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4145: warning: Member fields (variable) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4146: warning: Member grants (variable) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4147: warning: Member wait_barriers (variable) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4148: warning: Member arrive_barriers (variable) of class Legion::Release is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4164: warning: Member get_mappable_type(void) const  (function) of class Legion::Close is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4166: warning: Member as_close(void) const  (function) of class Legion::Close is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4146: warning: Member logical_region (variable) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4147: warning: Member parent_region (variable) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4148: warning: Member fields (variable) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4149: warning: Member grants (variable) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4150: warning: Member wait_barriers (variable) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4151: warning: Member arrive_barriers (variable) of class Legion::Release is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4167: warning: Member get_mappable_type(void) const  (function) of class Legion::Close is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4169: warning: Member as_close(void) const  (function) of class Legion::Close is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4169: warning: Member requirement (variable) of class Legion::Close is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4182: warning: Member get_mappable_type(void) const  (function) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4184: warning: Member as_fill(void) const  (function) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4172: warning: Member requirement (variable) of class Legion::Close is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4185: warning: Member get_mappable_type(void) const  (function) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4187: warning: Member as_fill(void) const  (function) of class Legion::Fill is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4187: warning: Member requirement (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4188: warning: Member grants (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4189: warning: Member wait_barriers (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4190: warning: Member arrive_barriers (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4193: warning: Member is_index_space (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4194: warning: Member index_domain (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4195: warning: Member index_point (variable) of class Legion::Fill is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4213: warning: Member PartitionKind (enumeration) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4209: warning: Member get_mappable_type(void) const  (function) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4211: warning: Member as_partition(void) const  (function) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4221: warning: Member get_partition_kind(void) const =0 (function) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4190: warning: Member requirement (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4191: warning: Member grants (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4192: warning: Member wait_barriers (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4193: warning: Member arrive_barriers (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4196: warning: Member is_index_space (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4197: warning: Member index_domain (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4198: warning: Member index_point (variable) of class Legion::Fill is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4216: warning: Member PartitionKind (enumeration) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4212: warning: Member get_mappable_type(void) const  (function) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4214: warning: Member as_partition(void) const  (function) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4224: warning: Member get_partition_kind(void) const =0 (function) of class Legion::Partition is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4224: warning: Member requirement (variable) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4227: warning: Member is_index_space (variable) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4228: warning: Member index_domain (variable) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4229: warning: Member index_point (variable) of class Legion::Partition is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4242: warning: Member get_mappable_type(void) const  (function) of class Legion::MustEpoch is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4244: warning: Member as_must_epoch(void) const  (function) of class Legion::MustEpoch is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4227: warning: Member requirement (variable) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4230: warning: Member is_index_space (variable) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4231: warning: Member index_domain (variable) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4232: warning: Member index_point (variable) of class Legion::Partition is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4245: warning: Member get_mappable_type(void) const  (function) of class Legion::MustEpoch is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4247: warning: Member as_must_epoch(void) const  (function) of class Legion::MustEpoch is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3948: warning: Member get_unique_id(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3952: warning: Member get_context_index(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3954: warning: Member get_depth(void) const =0 (function) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion.h:3956: warning: Member get_parent_task(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3958: warning: Member get_provenance_string(void) const =0 (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3961: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4246: warning: Member individual_tasks (variable) of class Legion::MustEpoch is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4247: warning: Member index_space_tasks (variable) of class Legion::MustEpoch is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4250: warning: Member launch_domain (variable) of class Legion::MustEpoch is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4251: warning: Member sharding_space (variable) of class Legion::MustEpoch is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4266: warning: Member points (variable) of class Legion::ColoredPoints is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4267: warning: Member ranges (variable) of class Legion::ColoredPoints is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4277: warning: Member argv (variable) of class Legion::InputArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4278: warning: Member argc (variable) of class Legion::InputArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4286: warning: Member machine (variable) of class Legion::RegistrationCallbackArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4287: warning: Member runtime (variable) of class Legion::RegistrationCallbackArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4288: warning: Member local_procs (variable) of class Legion::RegistrationCallbackArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4289: warning: Member buffer (variable) of class Legion::RegistrationCallbackArgs is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4306: warning: Member TaskConfigOptions(bool leaf=false, bool inner=false, bool idempotent=false) (function) of class Legion::TaskConfigOptions is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4310: warning: Member leaf (variable) of class Legion::TaskConfigOptions is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4311: warning: Member inner (variable) of class Legion::TaskConfigOptions is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4312: warning: Member idempotent (variable) of class Legion::TaskConfigOptions is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4335: warning: Member ProjectionFunctor(Runtime *rt) (function) of class Legion::ProjectionFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4462: warning: Member is_functional(void) const  (function) of class Legion::ProjectionFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4489: warning: Member runtime (variable) of class Legion::ProjectionFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4510: warning: Member shard(const DomainPoint &point, const Domain &full_space, const size_t total_shards)=0 (function) of class Legion::ShardingFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4514: warning: Member is_invertible(void) const  (function) of class Legion::ShardingFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4515: warning: Member invert(ShardID shard, const Domain &shard_domain, const Domain &full_domain, const size_t total_shards, std::vector< DomainPoint > &points) (function) of class Legion::ShardingFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4541: warning: Member callback_get_future_size(void)=0 (function) of class Legion::FutureFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4542: warning: Member callback_pack_future(void *buffer, size_t size)=0 (function) of class Legion::FutureFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4543: warning: Member callback_release_future(void)=0 (function) of class Legion::FutureFunctor is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:6453: warning: Member create_logical_region(Context ctx, IndexSpaceT< DIM, COORD_T > index, FieldSpace fields, bool task_local=false, const char *provenance=NULL) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:6912: warning: Member construct_future_map(Context ctx, const Domain &domain, const std::map< DomainPoint, UntypedBuffer > &data, bool collective=false, ShardingID sid=0, bool implicit_sharding=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:6946: warning: Member construct_future_map(Context ctx, const Domain &domain, const std::map< DomainPoint, Future > &futures, bool collective=false, ShardingID sid=0, bool implicit_sharding=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:7842: warning: Member select_tunable_value(Context ctx, const TunableLauncher &launcher) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:7874: warning: Member get_local_task_variable(Context ctx, LocalVariableID id) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:7889: warning: Member set_local_task_variable(Context ctx, LocalVariableID id, const T *value, void(*destructor)(void *)=NULL) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9752: warning: Member get_shard_id(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9755: warning: Member get_num_shards(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9148: warning: Member add_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer, bool dedup=true, size_t dedup_tag=0) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9179: warning: Member perform_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer, bool global, bool deduplicate=true, size_t dedup_tag=0) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4575: warning: Member Runtime(Internal::Runtime *rt) (function) of class Legion::Runtime is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9131: warning: argument 'buffer' of command @param is not found in the argument list of Legion::Runtime::add_registration_callback(RegistrationCallbackFnptr callback, bool dedup=true, size_t dedup_tag=0)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8101: warning: argument 'handle' of command @param is not found in the argument list of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8101: warning: The following parameters of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:3960: warning: Member get_provenance_string(bool human=true) const =0 (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_task(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4249: warning: Member individual_tasks (variable) of class Legion::MustEpoch is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4250: warning: Member index_space_tasks (variable) of class Legion::MustEpoch is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4253: warning: Member launch_domain (variable) of class Legion::MustEpoch is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4254: warning: Member sharding_space (variable) of class Legion::MustEpoch is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4269: warning: Member points (variable) of class Legion::ColoredPoints is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4270: warning: Member ranges (variable) of class Legion::ColoredPoints is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4280: warning: Member argv (variable) of class Legion::InputArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4281: warning: Member argc (variable) of class Legion::InputArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4289: warning: Member machine (variable) of class Legion::RegistrationCallbackArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4290: warning: Member runtime (variable) of class Legion::RegistrationCallbackArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4291: warning: Member local_procs (variable) of class Legion::RegistrationCallbackArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4292: warning: Member buffer (variable) of class Legion::RegistrationCallbackArgs is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4309: warning: Member TaskConfigOptions(bool leaf=false, bool inner=false, bool idempotent=false) (function) of class Legion::TaskConfigOptions is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4313: warning: Member leaf (variable) of class Legion::TaskConfigOptions is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4314: warning: Member inner (variable) of class Legion::TaskConfigOptions is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4315: warning: Member idempotent (variable) of class Legion::TaskConfigOptions is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4338: warning: Member ProjectionFunctor(Runtime *rt) (function) of class Legion::ProjectionFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4465: warning: Member is_functional(void) const  (function) of class Legion::ProjectionFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4492: warning: Member runtime (variable) of class Legion::ProjectionFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4513: warning: Member shard(const DomainPoint &point, const Domain &full_space, const size_t total_shards)=0 (function) of class Legion::ShardingFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4517: warning: Member is_invertible(void) const  (function) of class Legion::ShardingFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4518: warning: Member invert(ShardID shard, const Domain &shard_domain, const Domain &full_domain, const size_t total_shards, std::vector< DomainPoint > &points) (function) of class Legion::ShardingFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4544: warning: Member callback_get_future_size(void)=0 (function) of class Legion::FutureFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4545: warning: Member callback_pack_future(void *buffer, size_t size)=0 (function) of class Legion::FutureFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4546: warning: Member callback_release_future(void)=0 (function) of class Legion::FutureFunctor is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:6456: warning: Member create_logical_region(Context ctx, IndexSpaceT< DIM, COORD_T > index, FieldSpace fields, bool task_local=false, const char *provenance=NULL) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:6915: warning: Member construct_future_map(Context ctx, const Domain &domain, const std::map< DomainPoint, UntypedBuffer > &data, bool collective=false, ShardingID sid=0, bool implicit_sharding=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:6949: warning: Member construct_future_map(Context ctx, const Domain &domain, const std::map< DomainPoint, Future > &futures, bool collective=false, ShardingID sid=0, bool implicit_sharding=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:7845: warning: Member select_tunable_value(Context ctx, const TunableLauncher &launcher) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:7877: warning: Member get_local_task_variable(Context ctx, LocalVariableID id) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:7892: warning: Member set_local_task_variable(Context ctx, LocalVariableID id, const T *value, void(*destructor)(void *)=NULL) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9755: warning: Member get_shard_id(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9758: warning: Member get_num_shards(Context ctx, bool I_know_what_I_am_doing=false) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9151: warning: Member add_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer, bool dedup=true, size_t dedup_tag=0) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9182: warning: Member perform_registration_callback(RegistrationWithArgsCallbackFnptr callback, const UntypedBuffer &buffer, bool global, bool deduplicate=true, size_t dedup_tag=0) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4578: warning: Member Runtime(Internal::Runtime *rt) (function) of class Legion::Runtime is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9134: warning: argument 'buffer' of command @param is not found in the argument list of Legion::Runtime::add_registration_callback(RegistrationCallbackFnptr callback, bool dedup=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8104: warning: argument 'handle' of command @param is not found in the argument list of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8104: warning: The following parameters of Legion::Runtime::attach_semantic_information(TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false) are not documented:
   parameter 'task_id'
-/home/eslaught/jekyll/_legion/runtime/legion.h:7705: warning: The following parameters of Legion::Runtime::begin_trace(Context ctx, TraceID tid, bool logical_only=false, bool static_trace=false, const std::set< RegionTreeID > *managed=NULL, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:7708: warning: The following parameters of Legion::Runtime::begin_trace(Context ctx, TraceID tid, bool logical_only=false, bool static_trace=false, const std::set< RegionTreeID > *managed=NULL, const char *provenance=NULL) are not documented:
   parameter 'provenance'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5265: warning: argument 'fid' of command @param is not found in the argument list of Legion::Runtime::create_association(Context ctx, LogicalRegion domain, LogicalRegion domain_parent, FieldID domain_fid, IndexSpace range, MapperID id=0, MappingTagID tag=0, UntypedBuffer map_arg=UntypedBuffer(), const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5265: warning: The following parameters of Legion::Runtime::create_association(Context ctx, LogicalRegion domain, LogicalRegion domain_parent, FieldID domain_fid, IndexSpace range, MapperID id=0, MappingTagID tag=0, UntypedBuffer map_arg=UntypedBuffer(), const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5268: warning: argument 'fid' of command @param is not found in the argument list of Legion::Runtime::create_association(Context ctx, LogicalRegion domain, LogicalRegion domain_parent, FieldID domain_fid, IndexSpace range, MapperID id=0, MappingTagID tag=0, UntypedBuffer map_arg=UntypedBuffer(), const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5268: warning: The following parameters of Legion::Runtime::create_association(Context ctx, LogicalRegion domain, LogicalRegion domain_parent, FieldID domain_fid, IndexSpace range, MapperID id=0, MappingTagID tag=0, UntypedBuffer map_arg=UntypedBuffer(), const char *provenance=NULL) are not documented:
   parameter 'domain_fid'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5220: warning: argument 'handle' of command @param is not found in the argument list of Legion::Runtime::create_cross_product_partitions(Context ctx, IndexPartition handle1, IndexPartition handle2, std::map< IndexSpace, IndexPartition > &handles, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5220: warning: The following parameters of Legion::Runtime::create_cross_product_partitions(Context ctx, IndexPartition handle1, IndexPartition handle2, std::map< IndexSpace, IndexPartition > &handles, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5223: warning: argument 'handle' of command @param is not found in the argument list of Legion::Runtime::create_cross_product_partitions(Context ctx, IndexPartition handle1, IndexPartition handle2, std::map< IndexSpace, IndexPartition > &handles, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5223: warning: The following parameters of Legion::Runtime::create_cross_product_partitions(Context ctx, IndexPartition handle1, IndexPartition handle2, std::map< IndexSpace, IndexPartition > &handles, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
   parameter 'handles'
-/home/eslaught/jekyll/_legion/runtime/legion.h:4894: warning: argument 'disjoint' of command @param is not found in the argument list of Legion::Runtime::create_index_partition(Context ctx, IndexSpace parent, LegionRuntime::Accessor::RegionAccessor< LegionRuntime::Accessor::AccessorType::Generic > field_accessor, Color color=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:4894: warning: argument 'complete' of command @param is not found in the argument list of Legion::Runtime::create_index_partition(Context ctx, IndexSpace parent, LegionRuntime::Accessor::RegionAccessor< LegionRuntime::Accessor::AccessorType::Generic > field_accessor, Color color=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:4607: warning: argument 'future' of command @param is not found in the argument list of Legion::Runtime::create_index_space(Context ctx, size_t dimensions, const Future &f, TypeTag type_tag=0, const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:4607: warning: The following parameters of Legion::Runtime::create_index_space(Context ctx, size_t dimensions, const Future &f, TypeTag type_tag=0, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:4897: warning: argument 'disjoint' of command @param is not found in the argument list of Legion::Runtime::create_index_partition(Context ctx, IndexSpace parent, LegionRuntime::Accessor::RegionAccessor< LegionRuntime::Accessor::AccessorType::Generic > field_accessor, Color color=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:4897: warning: argument 'complete' of command @param is not found in the argument list of Legion::Runtime::create_index_partition(Context ctx, IndexSpace parent, LegionRuntime::Accessor::RegionAccessor< LegionRuntime::Accessor::AccessorType::Generic > field_accessor, Color color=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:4610: warning: argument 'future' of command @param is not found in the argument list of Legion::Runtime::create_index_space(Context ctx, size_t dimensions, const Future &f, TypeTag type_tag=0, const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:4610: warning: The following parameters of Legion::Runtime::create_index_space(Context ctx, size_t dimensions, const Future &f, TypeTag type_tag=0, const char *provenance=NULL) are not documented:
   parameter 'f'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5899: warning: argument 'provenance' of command @param is not found in the argument list of Legion::Runtime::create_index_space_difference(Context ctx, IndexPartition parent, const DomainPoint &color, IndexSpace initial, const std::vector< IndexSpace > &handles, const char *provenancne=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5899: warning: The following parameters of Legion::Runtime::create_index_space_difference(Context ctx, IndexPartition parent, const DomainPoint &color, IndexSpace initial, const std::vector< IndexSpace > &handles, const char *provenancne=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5902: warning: argument 'provenance' of command @param is not found in the argument list of Legion::Runtime::create_index_space_difference(Context ctx, IndexPartition parent, const DomainPoint &color, IndexSpace initial, const std::vector< IndexSpace > &handles, const char *provenancne=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5902: warning: The following parameters of Legion::Runtime::create_index_space_difference(Context ctx, IndexPartition parent, const DomainPoint &color, IndexSpace initial, const std::vector< IndexSpace > &handles, const char *provenancne=NULL) are not documented:
   parameter 'provenancne'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5872: warning: argument 'provenance' of command @param is not found in the argument list of Legion::Runtime::create_index_space_intersection(Context ctx, IndexPartition parent, const DomainPoint &color, IndexPartition handle, const char *provenannce=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5872: warning: The following parameters of Legion::Runtime::create_index_space_intersection(Context ctx, IndexPartition parent, const DomainPoint &color, IndexPartition handle, const char *provenannce=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5875: warning: argument 'provenance' of command @param is not found in the argument list of Legion::Runtime::create_index_space_intersection(Context ctx, IndexPartition parent, const DomainPoint &color, IndexPartition handle, const char *provenannce=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5875: warning: The following parameters of Legion::Runtime::create_index_space_intersection(Context ctx, IndexPartition parent, const DomainPoint &color, IndexPartition handle, const char *provenannce=NULL) are not documented:
   parameter 'provenannce'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6435: warning: The following parameters of Legion::Runtime::create_logical_region(Context ctx, IndexSpace index, FieldSpace fields, bool task_local=false, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6438: warning: The following parameters of Legion::Runtime::create_logical_region(Context ctx, IndexSpace index, FieldSpace fields, bool task_local=false, const char *provenance=NULL) are not documented:
   parameter 'task_local'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5380: warning: argument 'blocking' of command @param is not found in the argument list of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blocking_factor, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5380: warning: The following parameters of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blocking_factor, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5383: warning: argument 'blocking' of command @param is not found in the argument list of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blocking_factor, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5383: warning: The following parameters of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blocking_factor, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
   parameter 'blocking_factor'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5407: warning: argument 'blocking' of command @param is not found in the argument list of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blockify_factor, DomainPoint origin, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5407: warning: The following parameters of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blockify_factor, DomainPoint origin, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5410: warning: argument 'blocking' of command @param is not found in the argument list of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blockify_factor, DomainPoint origin, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5410: warning: The following parameters of Legion::Runtime::create_partition_by_blockify(Context ctx, IndexSpace parent, DomainPoint blockify_factor, DomainPoint origin, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
   parameter 'blockify_factor'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5475: warning: argument 'domains' of command @param is not found in the argument list of Legion::Runtime::create_partition_by_domain(Context ctx, IndexSpace parent, const FutureMap &domain_future_map, IndexSpace color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:5475: warning: The following parameters of Legion::Runtime::create_partition_by_domain(Context ctx, IndexSpace parent, const FutureMap &domain_future_map, IndexSpace color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5478: warning: argument 'domains' of command @param is not found in the argument list of Legion::Runtime::create_partition_by_domain(Context ctx, IndexSpace parent, const FutureMap &domain_future_map, IndexSpace color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:5478: warning: The following parameters of Legion::Runtime::create_partition_by_domain(Context ctx, IndexSpace parent, const FutureMap &domain_future_map, IndexSpace color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL) are not documented:
   parameter 'domain_future_map'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5572: warning: Found unknown command `\projection'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5572: warning: Found unknown command `\handle'
-/home/eslaught/jekyll/_legion/runtime/legion.h:5589: warning: Found unknown command `\handle'
-/home/eslaught/jekyll/_legion/runtime/legion.h:7472: warning: explicit link request to 'return' could not be resolved
-/home/eslaught/jekyll/_legion/runtime/legion.h:7495: warning: argument 'r' of command @param is not found in the argument list of Legion::Runtime::destroy_lock(Context ctx, Lock l)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7495: warning: The following parameters of Legion::Runtime::destroy_lock(Context ctx, Lock l) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:5575: warning: Found unknown command `\projection'
+/home/eslaught/jekyll/_legion/runtime/legion.h:5575: warning: Found unknown command `\handle'
+/home/eslaught/jekyll/_legion/runtime/legion.h:5592: warning: Found unknown command `\handle'
+/home/eslaught/jekyll/_legion/runtime/legion.h:7475: warning: explicit link request to 'return' could not be resolved
+/home/eslaught/jekyll/_legion/runtime/legion.h:7498: warning: argument 'r' of command @param is not found in the argument list of Legion::Runtime::destroy_lock(Context ctx, Lock l)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7498: warning: The following parameters of Legion::Runtime::destroy_lock(Context ctx, Lock l) are not documented:
   parameter 'l'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6978: warning: argument 'must_parallelism' of command @param is not found in the argument list of Legion::Runtime::execute_index_space(Context ctx, TaskID task_id, const Domain domain, const std::vector< IndexSpaceRequirement > &indexes, const std::vector< FieldSpaceRequirement > &fields, const std::vector< RegionRequirement > &regions, const UntypedBuffer &global_arg, const ArgumentMap &arg_map, const Predicate &predicate=Predicate::TRUE_PRED, bool must_paralleism=false, MapperID id=0, MappingTagID tag=0)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7162: warning: argument 'value' of command @param is not found in the argument list of Legion::Runtime::fill_field(Context ctx, LogicalRegion handle, LogicalRegion parent, FieldID fid, Future f, Predicate pred=Predicate::TRUE_PRED)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7162: warning: argument 'value_size' of command @param is not found in the argument list of Legion::Runtime::fill_field(Context ctx, LogicalRegion handle, LogicalRegion parent, FieldID fid, Future f, Predicate pred=Predicate::TRUE_PRED)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7162: warning: The following parameters of Legion::Runtime::fill_field(Context ctx, LogicalRegion handle, LogicalRegion parent, FieldID fid, Future f, Predicate pred=Predicate::TRUE_PRED) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6981: warning: argument 'must_parallelism' of command @param is not found in the argument list of Legion::Runtime::execute_index_space(Context ctx, TaskID task_id, const Domain domain, const std::vector< IndexSpaceRequirement > &indexes, const std::vector< FieldSpaceRequirement > &fields, const std::vector< RegionRequirement > &regions, const UntypedBuffer &global_arg, const ArgumentMap &arg_map, const Predicate &predicate=Predicate::TRUE_PRED, bool must_paralleism=false, MapperID id=0, MappingTagID tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7165: warning: argument 'value' of command @param is not found in the argument list of Legion::Runtime::fill_field(Context ctx, LogicalRegion handle, LogicalRegion parent, FieldID fid, Future f, Predicate pred=Predicate::TRUE_PRED)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7165: warning: argument 'value_size' of command @param is not found in the argument list of Legion::Runtime::fill_field(Context ctx, LogicalRegion handle, LogicalRegion parent, FieldID fid, Future f, Predicate pred=Predicate::TRUE_PRED)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7165: warning: The following parameters of Legion::Runtime::fill_field(Context ctx, LogicalRegion handle, LogicalRegion parent, FieldID fid, Future f, Predicate pred=Predicate::TRUE_PRED) are not documented:
   parameter 'f'
-/home/eslaught/jekyll/_legion/runtime/legion.h:7210: warning: argument 'future' of command @param is not found in the argument list of Legion::Runtime::fill_fields(Context ctx, LogicalRegion handle, LogicalRegion parent, const std::set< FieldID > &fields, Future f, Predicate pred=Predicate::TRUE_PRED)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7210: warning: The following parameters of Legion::Runtime::fill_fields(Context ctx, LogicalRegion handle, LogicalRegion parent, const std::set< FieldID > &fields, Future f, Predicate pred=Predicate::TRUE_PRED) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:7213: warning: argument 'future' of command @param is not found in the argument list of Legion::Runtime::fill_fields(Context ctx, LogicalRegion handle, LogicalRegion parent, const std::set< FieldID > &fields, Future f, Predicate pred=Predicate::TRUE_PRED)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7213: warning: The following parameters of Legion::Runtime::fill_fields(Context ctx, LogicalRegion handle, LogicalRegion parent, const std::set< FieldID > &fields, Future f, Predicate pred=Predicate::TRUE_PRED) are not documented:
   parameter 'f'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8500: warning: Found unknown command `\reutrn'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6405: warning: argument 'set' of command @param is not found in the argument list of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::vector< FieldID > &fields)
-/home/eslaught/jekyll/_legion/runtime/legion.h:6405: warning: The following parameters of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::vector< FieldID > &fields) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8503: warning: Found unknown command `\reutrn'
+/home/eslaught/jekyll/_legion/runtime/legion.h:6408: warning: argument 'set' of command @param is not found in the argument list of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::vector< FieldID > &fields)
+/home/eslaught/jekyll/_legion/runtime/legion.h:6408: warning: The following parameters of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::vector< FieldID > &fields) are not documented:
   parameter 'fields'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6419: warning: argument 'set' of command @param is not found in the argument list of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::set< FieldID > &fields)
-/home/eslaught/jekyll/_legion/runtime/legion.h:6419: warning: The following parameters of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::set< FieldID > &fields) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6422: warning: argument 'set' of command @param is not found in the argument list of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::set< FieldID > &fields)
+/home/eslaught/jekyll/_legion/runtime/legion.h:6422: warning: The following parameters of Legion::Runtime::get_field_space_fields(Context ctx, FieldSpace handle, std::set< FieldID > &fields) are not documented:
   parameter 'fields'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6067: warning: argument 'vector' of command @param is not found in the argument list of Legion::Runtime::get_index_space_domains(Context ctx, IndexSpace handle, std::vector< Domain > &domains)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7859: warning: argument 'the' of command @param is not found in the argument list of Legion::Runtime::get_local_task(Context ctx)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7859: warning: The following parameters of Legion::Runtime::get_local_task(Context ctx) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6070: warning: argument 'vector' of command @param is not found in the argument list of Legion::Runtime::get_index_space_domains(Context ctx, IndexSpace handle, std::vector< Domain > &domains)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7862: warning: argument 'the' of command @param is not found in the argument list of Legion::Runtime::get_local_task(Context ctx)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7862: warning: The following parameters of Legion::Runtime::get_local_task(Context ctx) are not documented:
   parameter 'ctx'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6522: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::get_logical_partition_by_color(Context ctx, LogicalRegion parent, Color c)
-/home/eslaught/jekyll/_legion/runtime/legion.h:6522: warning: The following parameters of Legion::Runtime::get_logical_partition_by_color(Context ctx, LogicalRegion parent, Color c) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6525: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::get_logical_partition_by_color(Context ctx, LogicalRegion parent, Color c)
+/home/eslaught/jekyll/_legion/runtime/legion.h:6525: warning: The following parameters of Legion::Runtime::get_logical_partition_by_color(Context ctx, LogicalRegion parent, Color c) are not documented:
   parameter 'c'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6613: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::get_logical_subregion_by_color(Context ctx, LogicalPartition parent, Color c)
-/home/eslaught/jekyll/_legion/runtime/legion.h:6613: warning: The following parameters of Legion::Runtime::get_logical_subregion_by_color(Context ctx, LogicalPartition parent, Color c) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6616: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::get_logical_subregion_by_color(Context ctx, LogicalPartition parent, Color c)
+/home/eslaught/jekyll/_legion/runtime/legion.h:6616: warning: The following parameters of Legion::Runtime::get_logical_subregion_by_color(Context ctx, LogicalPartition parent, Color c) are not documented:
   parameter 'c'
-/home/eslaught/jekyll/_legion/runtime/legion.h:7477: warning: argument 'pred' of command @param is not found in the argument list of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7477: warning: The following parameters of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:7480: warning: argument 'pred' of command @param is not found in the argument list of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7480: warning: The following parameters of Legion::Runtime::get_predicate_future(Context ctx, const Predicate &p) are not documented:
   parameter 'p'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9648: warning: argument 'processor' of command @param is not found in the argument list of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9648: warning: The following parameters of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9651: warning: argument 'processor' of command @param is not found in the argument list of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9651: warning: The following parameters of Legion::Runtime::get_runtime(Processor p=Processor::NO_PROC) are not documented:
   parameter 'p'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6549: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c)
-/home/eslaught/jekyll/_legion/runtime/legion.h:6549: warning: The following parameters of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6552: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c)
+/home/eslaught/jekyll/_legion/runtime/legion.h:6552: warning: The following parameters of Legion::Runtime::has_logical_partition_by_color(Context ctx, LogicalRegion parent, const DomainPoint &c) are not documented:
   parameter 'c'
-/home/eslaught/jekyll/_legion/runtime/legion.h:6641: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_subregion_by_color(Context ctx, LogicalPartition parent, const DomainPoint &c)
-/home/eslaught/jekyll/_legion/runtime/legion.h:6641: warning: The following parameters of Legion::Runtime::has_logical_subregion_by_color(Context ctx, LogicalPartition parent, const DomainPoint &c) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:6644: warning: argument 'color' of command @param is not found in the argument list of Legion::Runtime::has_logical_subregion_by_color(Context ctx, LogicalPartition parent, const DomainPoint &c)
+/home/eslaught/jekyll/_legion/runtime/legion.h:6644: warning: The following parameters of Legion::Runtime::has_logical_subregion_by_color(Context ctx, LogicalPartition parent, const DomainPoint &c) are not documented:
   parameter 'c'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9488: warning: argument 'regionsptr' of command @param is not found in the argument list of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9488: warning: The following parameters of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9491: warning: argument 'regionsptr' of command @param is not found in the argument list of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9491: warning: The following parameters of Legion::Runtime::legion_task_preamble(const void *data, size_t datalen, Processor p, const Task *&task, const std::vector< PhysicalRegion > *&reg, Context &ctx, Runtime *&runtime) are not documented:
   parameter 'reg'
-/home/eslaught/jekyll/_legion/runtime/legion.h:7078: warning: argument 'the' of command @param is not found in the argument list of Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0, const char *provenance=NULL)
-/home/eslaught/jekyll/_legion/runtime/legion.h:7078: warning: The following parameters of Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:7081: warning: argument 'the' of command @param is not found in the argument list of Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0, const char *provenance=NULL)
+/home/eslaught/jekyll/_legion/runtime/legion.h:7081: warning: The following parameters of Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0, const char *provenance=NULL) are not documented:
   parameter 'tag'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9153: warning: argument 'ctx' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9153: warning: argument 'buffer' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9153: warning: argument 'dedup' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9153: warning: The following parameters of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9156: warning: argument 'ctx' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9156: warning: argument 'buffer' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9156: warning: argument 'dedup' of command @param is not found in the argument list of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9156: warning: The following parameters of Legion::Runtime::perform_registration_callback(RegistrationCallbackFnptr callback, bool global, bool deduplicate=true, size_t dedup_tag=0) are not documented:
   parameter 'callback'
   parameter 'deduplicate'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9426: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9426: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9429: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9429: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
   parameter 'task_name'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9444: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9444: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9447: warning: argument 'an' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9447: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const UDT &user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
   parameter 'task_name'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9463: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9463: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9466: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9466: warning: The following parameters of Legion::Runtime::preregister_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true) are not documented:
   parameter 'task_name'
   parameter 'vid'
   parameter 'return_type_size'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8413: warning: argument 'file' of command @param is not found in the argument list of Legion::Runtime::print_once(Context ctx, FILE *f, const char *message)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8413: warning: The following parameters of Legion::Runtime::print_once(Context ctx, FILE *f, const char *message) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8416: warning: argument 'file' of command @param is not found in the argument list of Legion::Runtime::print_once(Context ctx, FILE *f, const char *message)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8416: warning: The following parameters of Legion::Runtime::print_once(Context ctx, FILE *f, const char *message) are not documented:
   parameter 'f'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8671: warning: Found unknown command `\pram'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8657: warning: The following parameters of Legion::Runtime::register_reduction_op(ReductionOpID redop_id, ReductionOp *op, SerdezInitFnptr init_fnptr=NULL, SerdezFoldFnptr fold_fnptr=NULL, bool permit_duplicates=false) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8674: warning: Found unknown command `\pram'
+/home/eslaught/jekyll/_legion/runtime/legion.h:8660: warning: The following parameters of Legion::Runtime::register_reduction_op(ReductionOpID redop_id, ReductionOp *op, SerdezInitFnptr init_fnptr=NULL, SerdezFoldFnptr fold_fnptr=NULL, bool permit_duplicates=false) are not documented:
   parameter 'fold_fnptr'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9367: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID)
-/home/eslaught/jekyll/_legion/runtime/legion.h:9367: warning: The following parameters of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:9370: warning: argument 'has_return_type' of command @param is not found in the argument list of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID)
+/home/eslaught/jekyll/_legion/runtime/legion.h:9370: warning: The following parameters of Legion::Runtime::register_task_variant(const TaskVariantRegistrar &registrar, const CodeDescriptor &codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID) are not documented:
   parameter 'return_type_size'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8797: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8802: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8800: warning: Unsupported xml/html tag <int> found
 /home/eslaught/jekyll/_legion/runtime/legion.h:8805: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8815: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8827: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8849: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8866: warning: Unsupported xml/html tag <replay_file> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8808: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8818: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8830: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8852: warning: Unsupported xml/html tag <int> found
 /home/eslaught/jekyll/_legion/runtime/legion.h:8869: warning: Unsupported xml/html tag <replay_file> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8896: warning: Unsupported xml/html tag <sec> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8908: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8913: warning: Unsupported xml/html tag <string> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8915: warning: Unsupported xml/html tag <filename> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8917: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:8923: warning: Unsupported xml/html tag <int> found
-/home/eslaught/jekyll/_legion/runtime/legion.h:4702: warning: The following parameters of Legion::Runtime::subtract_index_spaces(Context ctx, IndexSpace left, IndexSpace right, const char *provenance=NULL) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8872: warning: Unsupported xml/html tag <replay_file> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8899: warning: Unsupported xml/html tag <sec> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8911: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8916: warning: Unsupported xml/html tag <string> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8918: warning: Unsupported xml/html tag <filename> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8920: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:8926: warning: Unsupported xml/html tag <int> found
+/home/eslaught/jekyll/_legion/runtime/legion.h:4705: warning: The following parameters of Legion::Runtime::subtract_index_spaces(Context ctx, IndexSpace left, IndexSpace right, const char *provenance=NULL) are not documented:
   parameter 'ctx'
   parameter 'left'
   parameter 'right'
-/home/eslaught/jekyll/_legion/runtime/legion.h:8058: warning: argument 'enclosing' of command @param is not found in the argument list of Legion::Runtime::total_shards(Context ctx)
-/home/eslaught/jekyll/_legion/runtime/legion.h:8058: warning: The following parameters of Legion::Runtime::total_shards(Context ctx) are not documented:
+/home/eslaught/jekyll/_legion/runtime/legion.h:8061: warning: argument 'enclosing' of command @param is not found in the argument list of Legion::Runtime::total_shards(Context ctx)
+/home/eslaught/jekyll/_legion/runtime/legion.h:8061: warning: The following parameters of Legion::Runtime::total_shards(Context ctx) are not documented:
   parameter 'ctx'
-/home/eslaught/jekyll/_legion/runtime/legion.h:9773: warning: Member ColoringSerializer(const Coloring &c) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9775: warning: Member legion_buffer_size(void) const  (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9776: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9777: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9779: warning: Member ref(void) (function) of class Legion::ColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9792: warning: Member DomainColoringSerializer(const DomainColoring &c) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9794: warning: Member legion_buffer_size(void) const  (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9795: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9796: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::DomainColoringSerializer is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:9798: warning: Member ref(void) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9776: warning: Member ColoringSerializer(const Coloring &c) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9778: warning: Member legion_buffer_size(void) const  (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9779: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9780: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9782: warning: Member ref(void) (function) of class Legion::ColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9795: warning: Member DomainColoringSerializer(const DomainColoring &c) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9797: warning: Member legion_buffer_size(void) const  (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9798: warning: Member legion_serialize(void *buffer) const  (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9799: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::DomainColoringSerializer is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:9801: warning: Member ref(void) (function) of class Legion::DomainColoringSerializer is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2543: warning: Member legion_buffer_size(void) (function) of class Legion::Unserializable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2544: warning: Member legion_serialize(void *buffer) (function) of class Legion::Unserializable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_types.h:2545: warning: Member legion_deserialize(const void *buffer) (function) of class Legion::Unserializable is not documented.
@@ -2315,58 +2315,58 @@
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:704: warning: Member get_context_index(void) const  (function) of class Legion::TaskMut is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:708: warning: Member get_depth(void) const  (function) of class Legion::TaskMut is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:712: warning: Member get_parent_task(void) const  (function) of class Legion::TaskMut is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:716: warning: Member get_provenance_string(void) const  (function) of class Legion::TaskMut is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:716: warning: Member get_provenance_string(bool human=true) const  (function) of class Legion::TaskMut is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:720: warning: Member has_parent_task(void) const  (function) of class Legion::TaskMut is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:724: warning: Member get_task_name(void) const  (function) of class Legion::TaskMut is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_c_util.h:728: warning: Member get_slice_domain(void) const  (function) of class Legion::TaskMut is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4024: warning: Member get_mappable_type(void) const  (function) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4026: warning: Member as_task(void) const  (function) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3962: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3963: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3964: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3988: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4029: warning: Member task_id (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4030: warning: Member indexes (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4031: warning: Member regions (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4032: warning: Member futures (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4033: warning: Member grants (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4034: warning: Member wait_barriers (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4035: warning: Member arrive_barriers (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4036: warning: Member args (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4037: warning: Member arglen (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4040: warning: Member is_index_space (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4041: warning: Member must_epoch_task (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4042: warning: Member index_domain (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4043: warning: Member index_point (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4044: warning: Member sharding_space (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4045: warning: Member local_args (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4046: warning: Member local_arglen (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4049: warning: Member orig_proc (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4050: warning: Member current_proc (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4051: warning: Member target_proc (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4052: warning: Member steal_count (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4053: warning: Member stealable (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4054: warning: Member speculated (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:4055: warning: Member local_function (variable) of class Legion::Task is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member map_id (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member tag (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3977: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3981: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3990: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3992: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
-/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4027: warning: Member get_mappable_type(void) const  (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4029: warning: Member as_task(void) const  (function) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3965: warning: Member as_copy(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3966: warning: Member as_inline(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3967: warning: Member as_acquire(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3968: warning: Member as_release(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3969: warning: Member as_close(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3970: warning: Member as_fill(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3971: warning: Member as_partition(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3972: warning: Member as_must_epoch(void) const  (function) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3991: warning: Member MappableType (typedef) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4032: warning: Member task_id (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4033: warning: Member indexes (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4034: warning: Member regions (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4035: warning: Member futures (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4036: warning: Member grants (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4037: warning: Member wait_barriers (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4038: warning: Member arrive_barriers (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4039: warning: Member args (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4040: warning: Member arglen (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4043: warning: Member is_index_space (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4044: warning: Member must_epoch_task (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4045: warning: Member index_domain (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4046: warning: Member index_point (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4047: warning: Member sharding_space (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4048: warning: Member local_args (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4049: warning: Member local_arglen (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4052: warning: Member orig_proc (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4053: warning: Member current_proc (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4054: warning: Member target_proc (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4055: warning: Member steal_count (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4056: warning: Member stealable (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4057: warning: Member speculated (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4058: warning: Member local_function (variable) of class Legion::Task is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3974: warning: Member map_id (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3975: warning: Member tag (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3980: warning: Member parent_task (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3983: warning: Member mapper_data (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3984: warning: Member mapper_data_size (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3993: warning: Member TASK_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3994: warning: Member COPY_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3995: warning: Member INLINE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3996: warning: Member ACQUIRE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3997: warning: Member RELEASE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3998: warning: Member CLOSE_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:3999: warning: Member FILL_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4000: warning: Member PARTITION_MAPPABLE (variable) of class Legion::Mappable is not documented.
+/home/eslaught/jekyll/_legion/runtime/legion.h:4002: warning: Member MUST_EPOCH_MAPPABLE (variable) of class Legion::Mappable is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:56: warning: Member AffineTransform(const AffineTransform< M, N, T2 > &rhs) (function) of class Legion::AffineTransform is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:58: warning: Member AffineTransform(const Transform< M, N, T2 > transform, const Point< M, T3 > offset) (function) of class Legion::AffineTransform is not documented.
 /home/eslaught/jekyll/_legion/runtime/legion/legion_domain.h:62: warning: Member operator=(const AffineTransform< M, N, T2 > &rhs) (function) of class Legion::AffineTransform is not documented.

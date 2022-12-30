@@ -163,6 +163,7 @@
       <li><a href="#legate2019">Legate NumPy (SC 2019)</a> [<a href="/pdfs/legate-preprint.pdf">PDF</a>]</li>
       <li><a href="#distal2022">Tensor Algebra (PLDI 2022)</a> [<a href="/pdfs/distal2022.pdf">PDF</a>]</li>
       <li><a href="#pawatm2022">Distributed Task Fusion (PAW-ATM 2022)</a> [<a href="/pdfs/pawatm2022.pdf">PDF</a>]</li>
+      <li><a href="#spdistal2022">Sparse Tensor Algebra (SC 2022)</a> [<a href="/pdfs/spdistal2022.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Applications:
@@ -727,6 +728,23 @@ efficient execution of pipelines involving many successive finegrained
 tasks. Finally, we discuss potential future work, including
 complementary optimizations that could result in additional
 performance improvements.</p>
+
+<p><a name="spdistal2022"></a><strong>SpDISTAL: Compiling Distributed Sparse Tensor Computations</strong> <a href="/pdfs/spdistal2022.pdf">PDF</a> <br />
+<em>Rohan Yadav, Alex Aiken and Fredrik Kjolstad</em> <br />
+In the International Conference for High Performance Computing, Networking, Storage and Analysis (<a href="https://sc22.supercomputing.org/presentation/?id=pap204&amp;sess=sess164">SC 2022</a>) <br />
+<strong>Abstract:</strong> We introduce SpDISTAL, a compiler for sparse tensor
+algebra that targets distributed systems. SpDISTAL combines separate
+descriptions of tensor algebra expressions, sparse data structures,
+data distribution, and computation distribution.  Thus, it enables
+distributed execution of sparse tensor algebra expressions with a wide
+variety of sparse data structures and data distributions. SpDISTAL is
+implemented as a C++ library that targets a distributed task-based
+runtime system and can generate code for nodes with both multi-core
+CPUs and multiple GPUs.  SpDISTAL generates distributed code that
+achieves performance competitive with hand-written distributed
+functions for specific sparse tensor algebra expressions and that
+outperforms general interpretation-based systems by one to two orders
+of magnitude.</p>
 
 <h2 id="theses">Theses</h2>
 

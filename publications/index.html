@@ -130,6 +130,7 @@
       <li><a href="#dep2018">Correctness of Dependence Analysis (Correctness 2018)</a> [<a href="/pdfs/dep2018.pdf">PDF</a>]</li>
       <li><a href="#dcr2021">Dynamic Control Replication (PPoPP 2021)</a> [<a href="/pdfs/dcr2021.pdf">PDF</a>]</li>
       <li><a href="#idx2021">Index Launches (SC 2021)</a> [<a href="/pdfs/idx2021.pdf">PDF</a>]</li>
+      <li><a href="#visibility2023">Visibility Algorithms (PPoPP 2023)</a> [<a href="/pdfs/visibility2023.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Programming Model:
@@ -746,6 +747,19 @@ functions for specific sparse tensor algebra expressions and that
 outperforms general interpretation-based systems by one to two orders
 of magnitude.</p>
 
+<p><a name="visibility2023"></a><strong>Visibility Algorithms for Dynamic Dependence Analysis and Distributed Coherence</strong> <a href="/pdfs/visibility2023.pdf">PDF</a> <br />
+<em>Michael Bauer, Elliott Slaughter, Sean Treichler, Wonchan Lee, Michael Garland and Alex Aiken</em> <br />
+In Principles and Practices of Parallel Programming (<a href="https://ppopp23.sigplan.org/details/PPoPP-2023-papers/17/Visibility-Algorithms-for-Dynamic-Dependence-Analysis-and-Distributed-Coherence">PPoPP 2023</a>) <br />
+<strong>Abstract:</strong> Implicitly parallel programming systems must solve 
+the joint problems of dependence analysis and coherence to ensure 
+apparently-sequential semantics for applications run on distributed 
+memory machines. Solving these problems in the presence of data-dependent 
+control flow and arbitrary aliasing is a challenge that most existing systems 
+eschew by compromising the expressivity of their programming models and/or 
+the performance of their implementations. We demonstrate a general class of 
+solutions to these problems via a reduction to the visibility problem from 
+computer graphics.</p>
+
 <h2 id="theses">Theses</h2>
 
 <p><a name="bauer_thesis"></a><em>Note: The following thesis is a thorough guide to the Legion programming model and covers many implementation details that are not documented elsewhere.</em><br />
@@ -992,7 +1006,7 @@ high-performance machines.</p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2022 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

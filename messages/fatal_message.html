@@ -47,18 +47,26 @@
 <script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
-<!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
-<!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
 
 </head>
 
@@ -142,6 +150,14 @@
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/runtime.cc#L12190">runtime.cc line 12190</a>
 <p>
 <br><a href="index.html">back to message index</a>
+<p id="fatal_message_2012"><b>fatal 2012</b>
+<br>Message: Local fields do no support allocation with future sizes yet.
+<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_context.cc#L5296">legion_context.cc line 5296</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_context.cc#L5400">legion_context.cc line 5400</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/runtime.cc#L6672">runtime.cc line 6672</a>
+<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/runtime.cc#L6835">runtime.cc line 6835</a>
+<p>
+<br><a href="index.html">back to message index</a>
 <p id="fatal_message_544"><b>fatal 544</b>
 <br>Message: Splitting layout constraints are not currently supported
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_instances.cc#L3952">legion_instances.cc line 3952</a>
@@ -152,14 +168,6 @@
 <p id="fatal_message_2014"><b>fatal 2014</b>
 <br>Message: Unsafe re-use of reduction instance detected due to alternating un-flushed reduction operations #1 and #2. Please report this use case to the Legion developer's mailing list so that we can help you address it.
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_analysis.cc#L10835">legion_analysis.cc line 10835</a>
-<p>
-<br><a href="index.html">back to message index</a>
-<p id="fatal_message_2012"><b>fatal 2012</b>
-<br>Message: Unsupported memory kind for LEGION_MALLOC_INSTANCES #1
-<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_context.cc#L5296">legion_context.cc line 5296</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_context.cc#L5400">legion_context.cc line 5400</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/runtime.cc#L6672">runtime.cc line 6672</a>
-<br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/runtime.cc#L6835">runtime.cc line 6835</a>
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="fatal_message_2007"><b>fatal 2007</b>

@@ -47,18 +47,26 @@
 <script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
-<!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
-<!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
 
 </head>
 
@@ -219,7 +227,7 @@
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_code_1015"><b>warning 1015</b>
-<br>Message: mapper #1 failed to acquire instances for #2 region requirement #3 of explicit region-to-region copy in task #4 (ID #5) in 'map_copy' call. You may experience undefined behavior as a consequence.
+<br>Message: mapper #1 failed to acquire instances for region requirement #2 of task #3 (ID #4) in 'premap_task' call. You may experience undefined behavior as a consequence.
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_ops.cc#L6369">legion_ops.cc line 6369</a>
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_tasks.cc#L3629">legion_tasks.cc line 3629</a>
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_tasks.cc#L4496">legion_tasks.cc line 4496</a>
@@ -237,7 +245,7 @@
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_code_1019"><b>warning 1019</b>
-<br>Message: Region requirements #1 and #2 of index copy #3 in parent task #4 (UID #5) are potentially interfering. It's possible that this is a false positive if there are projection region requirements and each of the point copies are non-interfering. If the runtime is built in debug mode then it will check that the region requirements of all points are actually non-interfering. If you see no further error messages for this index task launch then everything is good.
+<br>Message: Region requirements #1 and #2 of index task #3 (UID #4) in parent task #5 (UID #6) are potentially interfering.  It's possible that this is a false positive if there are projection region requirements and each of the point tasks are non-interfering. If the runtime is built in debug mode then it will check that the region requirements of all points are actually non-interfering. If you see no further error messages for this index task launch then everything is good.
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_ops.cc#L7284">legion_ops.cc line 7284</a>
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_tasks.cc#L7927">legion_tasks.cc line 7927</a>
 <p>
@@ -441,7 +449,7 @@
 <p>
 <br><a href="index.html">back to message index</a>
 <p id="warning_code_1099"><b>warning 1099</b>
-<br>Message: Ignoring request by mapper #1 to not track valid instances for inline mapping #2 in parent task #3 (UID #4) because the region requirement does not have read-only privileges.
+<br>Message: Ignoring request by mapper #1 to not track valid instances for region requirement #2 of task #3 (UID #4) because region requirement does not have read-only privileges.
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_ops.cc#L3780">legion_ops.cc line 3780</a>
 <br><a href="https://github.com/StanfordLegion/legion/blob/29fefee6feaa44b4c1214d6c77de319db4bcfed4/runtime/./legion/legion_tasks.cc#L3791">legion_tasks.cc line 3791</a>
 <p>

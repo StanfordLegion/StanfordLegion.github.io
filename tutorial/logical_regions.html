@@ -359,10 +359,10 @@ Previous Example: <a href="/tutorial/hybrid.html">Hybrid Model</a></p>
 80
 81
 82
-</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
-#include &lt;cassert&gt;
-#include &lt;cstdlib&gt;
-#include "legion.h"
+</pre></td><td class="code"><pre><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+#include</span> <span class="cpf">"legion.h"</span><span class="cp">
 </span><span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
 
 <span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
@@ -374,7 +374,7 @@ Previous Example: <a href="/tutorial/hybrid.html">Hybrid Model</a></p>
   <span class="n">FID_FIELD_B</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">void</span> <span class="n">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">const</span> <span class="n">Domain</span> <span class="n">domain</span><span class="p">(</span><span class="n">DomainPoint</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">DomainPoint</span><span class="p">(</span><span class="mi">1023</span><span class="p">));</span>
@@ -430,7 +430,7 @@ Previous Example: <a href="/tutorial/hybrid.html">Hybrid Model</a></p>
   <span class="n">printf</span><span class="p">(</span><span class="s">"Successfully cleaned up all of our resources</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
   <span class="p">{</span>
@@ -474,6 +474,7 @@ Previous Example: <a href="/tutorial/hybrid.html">Hybrid Model</a></p>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
           
 
 </body>

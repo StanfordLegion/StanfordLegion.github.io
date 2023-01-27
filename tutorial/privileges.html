@@ -608,10 +608,10 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
 185
 186
 187
-</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
-#include &lt;cassert&gt;
-#include &lt;cstdlib&gt;
-#include "legion.h"
+</pre></td><td class="code"><pre><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+#include</span> <span class="cpf">"legion.h"</span><span class="cp">
 </span><span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
 
 <span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
@@ -627,7 +627,7 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
   <span class="n">FID_Z</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">void</span> <span class="n">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">num_elements</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">;</span>
@@ -700,7 +700,7 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
   <span class="n">runtime</span><span class="o">-&gt;</span><span class="n">destroy_index_space</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">is</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">init_field_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">void</span> <span class="n">init_field_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                      <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                      <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
@@ -716,7 +716,7 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
     <span class="n">acc</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">=</span> <span class="n">drand48</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">daxpy_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">void</span> <span class="n">daxpy_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                 <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
@@ -735,7 +735,7 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
     <span class="n">acc_z</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">acc_x</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">]</span> <span class="o">+</span> <span class="n">acc_y</span><span class="p">[</span><span class="o">*</span><span class="n">pir</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">check_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">void</span> <span class="n">check_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                 <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                 <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">regions</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
@@ -762,7 +762,7 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
     <span class="n">printf</span><span class="p">(</span><span class="s">"FAILURE!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
@@ -828,6 +828,7 @@ Previous Example: <a href="/tutorial/physical_regions.html">Physical Regions</a>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
           
 
 </body>

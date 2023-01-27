@@ -456,10 +456,10 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
 106
 107
 108
-</pre></td><td class="code"><pre><span class="cp">#include &lt;cstdio&gt;
-#include &lt;cassert&gt;
-#include &lt;cstdlib&gt;
-#include "legion.h"
+</pre></td><td class="code"><pre><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+#include</span> <span class="cpf">"legion.h"</span><span class="cp">
 </span><span class="k">using</span> <span class="k">namespace</span> <span class="n">Legion</span><span class="p">;</span>
 
 <span class="k">enum</span> <span class="n">TaskIDs</span> <span class="p">{</span>
@@ -468,7 +468,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
   <span class="n">SUM_TASK_ID</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="kt">void</span> <span class="nf">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">void</span> <span class="n">top_level_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                     <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                     <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">num_fibonacci</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// Default value</span>
@@ -500,7 +500,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
   <span class="n">fib_results</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">fibonacci_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">int</span> <span class="n">fibonacci_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
                    <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">arglen</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
@@ -528,7 +528,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
   <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">get_result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">sum_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
+<span class="kt">int</span> <span class="n">sum_task</span><span class="p">(</span><span class="k">const</span> <span class="n">Task</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span>
              <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PhysicalRegion</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">regions</span><span class="p">,</span>
              <span class="n">Context</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">Runtime</span> <span class="o">*</span><span class="n">runtime</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">assert</span><span class="p">(</span><span class="n">task</span><span class="o">-&gt;</span><span class="n">futures</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
@@ -540,7 +540,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
   <span class="k">return</span> <span class="p">(</span><span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">Runtime</span><span class="o">::</span><span class="n">set_top_level_task_id</span><span class="p">(</span><span class="n">TOP_LEVEL_TASK_ID</span><span class="p">);</span>
 
   <span class="p">{</span>
@@ -597,6 +597,7 @@ Previous Example: <a href="/tutorial/hello_world.html">Hello World</a></p>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
           
 
 </body>

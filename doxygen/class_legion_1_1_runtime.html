@@ -637,6 +637,10 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
 <tr class="memitem:a544f4384cb5009d1ba42eacf1c37c811"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_domain</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;domain_future_map, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)</td></tr>
 <tr class="separator:a544f4384cb5009d1ba42eacf1c37c811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a8d752159a39993951df0ad41f0ed8560"><td class="memTemplParams" colspan="2">template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
+<tr class="memitem:a8d752159a39993951df0ad41f0ed8560"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8d752159a39993951df0ad41f0ed8560">create_partition_by_rectangles</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const std::map&lt; Point&lt; COLOR_DIM, COLOR_COORD_T &gt;, std::vector&lt; Rect&lt; DIM, COORD_T &gt; &gt; &gt; &amp;rectangles, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)</td></tr>
+<tr class="separator:a8d752159a39993951df0ad41f0ed8560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:ac3eff619ee6af41d64afc6dcfab212f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac3eff619ee6af41d64afc6dcfab212f1">create_partition_by_field</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, Color color=LEGION_AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0, PartitionKind part_kind=LEGION_DISJOINT_KIND, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> map_arg=<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>(), const char *provenance=NULL)</td></tr>
 <tr class="separator:ac3eff619ee6af41d64afc6dcfab212f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe38224a48b0571c10f20860af166b5e"><td class="memTemplParams" colspan="2"><a id="afe38224a48b0571c10f20860af166b5e"></a>
@@ -5352,6 +5356,86 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a new index partition of the index space of 'handle' </dd></dl>
+
+</div>
+</div>
+<a id="a8d752159a39993951df0ad41f0ed8560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d752159a39993951df0ad41f0ed8560">&#9670;&nbsp;</a></span>create_partition_by_rectangles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt;DIM,COORD_T&gt; Legion::Runtime::create_partition_by_rectangles </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt;&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::map&lt; Point&lt; COLOR_DIM, COLOR_COORD_T &gt;, std::vector&lt; Rect&lt; DIM, COORD_T &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rectangles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt;&#160;</td>
+          <td class="paramname"><em>color_space</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>perform_intersections</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PartitionKind&#160;</td>
+          <td class="paramname"><em>part_kind</em> = <code>LEGION_COMPUTE_KIND</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Color&#160;</td>
+          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create partition by rectangles is a special case of partition by domain that will create a partition from a list of rectangles supplied for each point in the color space. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
+    <tr><td class="paramname">parent</td><td>the parent index space to be partitioned </td></tr>
+    <tr><td class="paramname">rectangles</td><td>map of rectangle lists for each point </td></tr>
+    <tr><td class="paramname">color_space</td><td>the color space for the partition </td></tr>
+    <tr><td class="paramname">perform_intersections</td><td>intersect domains with parent space </td></tr>
+    <tr><td class="paramname">part_kind</td><td>specify the partition kind or ask to compute it </td></tr>
+    <tr><td class="paramname">color</td><td>the color of the result of the partition </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new index partition of the parent index space </dd></dl>
 
 </div>
 </div>
@@ -14556,7 +14640,7 @@ Profiling</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 27 2023 19:42:33 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jun 22 2023 04:33:13 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

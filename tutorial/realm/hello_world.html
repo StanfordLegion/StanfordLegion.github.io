@@ -1,0 +1,321 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Hello World &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Hello World">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/hello_world.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/hello_world.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Hello World</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>The tutorial begins with a simple “hello world” example that showcases the basics. 
+You can access the source code, the Makefile and CMakeList.txt for building 
+and running the application, in the <code class="language-plaintext highlighter-rouge">tutorial/realm</code> directory of the repository. 
+By going through these tutorial programs in detail, we will demonstrate how to 
+effectively use the Realm C++ runtime API.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#realm-namespaces">Realm Namespaces</a></li>
+  <li><a href="#realm-runtime-startup">Realm Runtime Startup</a></li>
+  <li><a href="#registering-realm-tasks">Registering Realm Tasks</a></li>
+  <li><a href="#launching-tasks">Launching Tasks</a></li>
+  <li><a href="#shuting-down-runtime">Shuting Down Runtime</a></li>
+</ul>
+
+<h2 id="realm-namespaces">Realm Namespaces</h2>
+
+<p>Each Realm class has its own C++ header file. All classes are 
+aggregated in <code class="language-plaintext highlighter-rouge">realm.h</code> and can be included in an application for
+convenience. Each class definition is placed in a <code class="language-plaintext highlighter-rouge">Realm</code> namespace to
+avoid naming conflicts.</p>
+
+<h2 id="realm-runtime-startup">Realm Runtime Startup</h2>
+
+<p>The following code illustrates how to initializes a singleton <code class="language-plaintext highlighter-rouge">Runtime</code> object.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Runtime</span> <span class="n">rt</span><span class="p">;</span>
+<span class="n">rt</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The initialization must be performed by every application process. After
+initialization is complete, the runtime remains mostly idle (except system
+status checks) and waits for the task launches.</p>
+
+<h2 id="registering-realm-tasks">Registering Realm Tasks</h2>
+
+<p>A Realm task is an asynchronous operation, which can be defined by a task ID 
+and one or more task bodies representing the implementations of the task.
+This tutorial contains two types of tasks: main task and hello world task. 
+Therefore, we use an enumeration of two members to store the IDs for each task with which the Realm runtime will associate.
+The first task should always start from or larger than <code class="language-plaintext highlighter-rouge">Processor::TASK_ID_FIRST_AVAILABLE</code>, because Realm reserve 
+some numbers for internal tasks.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="p">{</span>
+  <span class="n">MAIN_TASK</span> <span class="o">=</span> <span class="n">Processor</span><span class="o">::</span><span class="n">TASK_ID_FIRST_AVAILABLE</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="n">HELLO_TASK</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>A task can have an implementation on every kind of processor, e.g., CPU, GPU, etc. 
+For example, the <code class="language-plaintext highlighter-rouge">main_task</code> is the CPU implementation of the main task, while
+the <code class="language-plaintext highlighter-rouge">hello_cpu_task</code>, <code class="language-plaintext highlighter-rouge">hello_gpu_task</code> and <code class="language-plaintext highlighter-rouge">hello_omp_task</code> are
+the CPU, GPU and OpenMP implementations of the hello world task, respectively.
+It is worth noting that in Realm, a CPU processor typically refers to a physical CPU core, 
+and therefore, the implementation of a CPU task generally is single-threaded. 
+A GPU processor has a CUDA/HIP context associated with it, 
+which allows it to launch GPU tasks containing CUDA/HIP kernels. 
+However, for the sake of simplicity, we do not launch actual CUDA kernels in the GPU task in this tutorial.</p>
+
+<p>A task has to be registered on processors before the Realm runtime can launch it. 
+To register a task, the static method <code class="language-plaintext highlighter-rouge">Processor::register_task_by_kind</code> is used shown as follows.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Processor</span><span class="o">::</span><span class="n">register_task_by_kind</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">,</span> <span class="nb">false</span> <span class="cm">/*!global*/</span><span class="p">,</span>
+                                 <span class="n">MAIN_TASK</span><span class="p">,</span>
+                                 <span class="n">CodeDescriptor</span><span class="p">(</span><span class="n">main_task</span><span class="p">),</span>
+                                 <span class="n">ProfilingRequestSet</span><span class="p">(),</span>
+                                 <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>This function takes several parameters:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">target_kind</code> - describes which kind of processor the task will be launched on. We will introduce the processor API in the next example.</li>
+  <li><code class="language-plaintext highlighter-rouge">global</code> - if set to true, the task is visible on all nodes. It is noted that in this example, <code class="language-plaintext highlighter-rouge">register_task_by_kind</code> is called from
+the main function, which is performed by every application process when running with mpirun, thus, it is still visible on all nodes even <code class="language-plaintext highlighter-rouge">global</code> is false. 
+However, when calling <code class="language-plaintext highlighter-rouge">register_task_by_kind</code> from a single task, we need to set the <code class="language-plaintext highlighter-rouge">global</code> to true if we need to make it visible on all nodes.</li>
+  <li><code class="language-plaintext highlighter-rouge">TaskFuncID</code> - the task ID we defined in the enumeration.</li>
+  <li><code class="language-plaintext highlighter-rouge">CodeDescriptor</code> - an object that describes a blob of code as a callable function.
+In this case, the implementation of the <code class="language-plaintext highlighter-rouge">MAIN_TASK</code> is <code class="language-plaintext highlighter-rouge">main_task</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">user_data</code> and <code class="language-plaintext highlighter-rouge">user_data_len</code> - the data passed into the task (the 3rd and 4th paramters of the task implementation).</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">register_task_by_kind</code> is an asynchronous function that does not guarantee that task registration is done after it returns. 
+For this reason, it returns an <code class="language-plaintext highlighter-rouge">Event</code> object, allowing us to wait for completion explicitly. The usage of events is introduced in the following tutorials.
+As mentioned before, Realm allows a task to have multiple implementations. When the task is launched, Realm automatically selects the appropriate implementation based on the processor where it is being executed.</p>
+
+<h2 id="launching-tasks">Launching Tasks</h2>
+
+<p>Before launching a task, we need to pick a processor. In this example, we select the first CPU core, 
+GPU, and OpenMP processor to launch the CPU, GPU and OpenMP tasks, respectively. An example of selecting the first CPU
+core is shown as follows. We will introduce the <code class="language-plaintext highlighter-rouge">Machine</code> API in the next tutorial.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Processor</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Machine</span><span class="o">::</span><span class="n">ProcessorQuery</span><span class="p">(</span><span class="n">Machine</span><span class="o">::</span><span class="n">get_machine</span><span class="p">())</span>
+  <span class="p">.</span><span class="n">only_kind</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">first</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>In the area of high-performance computing, most distributed programs start by invoking a main function across a number of parallel processes
+concurrently, in what is known as the Single-Program-Multiple-Data (SPMD) execution model. To transition from the SPMD-style execution model
+to the task-based model employed by Realm, the <code class="language-plaintext highlighter-rouge">collective_spawn</code> method is the most expedient way to bridge this gap.
+In this example, the <code class="language-plaintext highlighter-rouge">MAIN_TASK</code> is launched using the <code class="language-plaintext highlighter-rouge">collective_spawn</code> method, as seen below:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Event</span> <span class="n">e</span> <span class="o">=</span> <span class="n">rt</span><span class="p">.</span><span class="n">collective_spawn</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">MAIN_TASK</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The main task is not SPMD-style, and now
+the program is transitioned from the SPMD model into the task-based one. Additionally, Realm provides the <code class="language-plaintext highlighter-rouge">collective_spawn_by_kind</code> method, 
+which can be used to launch an SPMD task where each process launches one task.</p>
+
+<p>Within the main task, we use the <code class="language-plaintext highlighter-rouge">spawn</code> method of the Processor object to launch the <code class="language-plaintext highlighter-rouge">HELLO_TASK</code> on the selected CPU, GPU and 
+OpenMP processor, respectively. An example of spawning the <code class="language-plaintext highlighter-rouge">HELLO_TASK</code> on the CPU processor is shown below:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Event</span> <span class="n">cpu_e</span> <span class="o">=</span> <span class="n">cpu</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">HELLO_TASK</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Like <code class="language-plaintext highlighter-rouge">register_task_by_kind</code>, the <code class="language-plaintext highlighter-rouge">spawn</code> and <code class="language-plaintext highlighter-rouge">collective_spawn</code> are
+also asynchronous functions that return an <code class="language-plaintext highlighter-rouge">Event</code> object. Then we can either
+invoke the <code class="language-plaintext highlighter-rouge">wait</code> method to wait for the completion of the task or pass it as the pre-condition of other Realm
+operations. We will introduce more details about Realm events in the following tutorial.</p>
+
+<p>It is worth mentioning that there is no task hierarchy in Realm, so the completion of a Realm task does not imply that all its sub-tasks 
+have also been completed. If the cumulative property is needed, users need to implement it explicitly. For example, to ensure that all 
+<code class="language-plaintext highlighter-rouge">HELLO_TASK</code> are completed before exiting the <code class="language-plaintext highlighter-rouge">MAIN_TASK</code>, the <code class="language-plaintext highlighter-rouge">wait</code> method is used.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">launch_task</span><span class="p">(</span><span class="n">p</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="launching-tasks-without-using-collective_spawn">Launching Tasks without Using collective_spawn</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">HELLO_TASK</code> can also be launched from the main function without using the <code class="language-plaintext highlighter-rouge">collective_spawn</code>.
+To achieve it, we need to mimic the <code class="language-plaintext highlighter-rouge">collective_spawn</code> behavior by explicitly picking a process, such as the rank 0, 
+to launch the hello world tasks using the <code class="language-plaintext highlighter-rouge">spawn</code> method.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Processor</span> <span class="n">local_proc</span> <span class="o">=</span> <span class="n">Machine</span><span class="o">::</span><span class="n">ProcessorQuery</span><span class="p">(</span><span class="n">Machine</span><span class="o">::</span><span class="n">get_machine</span><span class="p">())</span>
+  <span class="p">.</span><span class="n">only_kind</span><span class="p">(</span><span class="n">Processor</span><span class="o">::</span><span class="n">LOC_PROC</span><span class="p">).</span><span class="n">local_address_space</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">first</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">local_proc</span><span class="p">.</span><span class="n">address_space</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Event</span> <span class="n">e</span> <span class="o">=</span> <span class="n">launch_task</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+  <span class="n">rt</span><span class="p">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>However, it is generally recommended to use <code class="language-plaintext highlighter-rouge">collective_spawn</code> to launch a main task and then <code class="language-plaintext highlighter-rouge">spawn</code> tasks within it.</p>
+
+<h2 id="shuting-down-runtime">Shuting Down Runtime</h2>
+
+<p>At the end of a Realm program, it is necessary to shut down the runtime using the <code class="language-plaintext highlighter-rouge">shutdown</code> and <code class="language-plaintext highlighter-rouge">wait_for_shutdown method</code>s. 
+In this example, we instruct the runtime to initiate <code class="language-plaintext highlighter-rouge">shutdown</code> as soon as the <code class="language-plaintext highlighter-rouge">MAIN_TASK</code> or all <code class="language-plaintext highlighter-rouge">Hello_Task</code> are finished, respectively. 
+While the <code class="language-plaintext highlighter-rouge">wait_for_shutdown</code> method must be called by all processes, it is not necessary for <code class="language-plaintext highlighter-rouge">shutdown</code>.
+However, if the <code class="language-plaintext highlighter-rouge">shutdown</code> is called from all processes, the pre-conditional event must be identical across all processes. 
+Therefore, in this program, the <code class="language-plaintext highlighter-rouge">shutdown</code> is called from all processes when using the <code class="language-plaintext highlighter-rouge">collective_spawn</code>, but only on rank 0 without
+<code class="language-plaintext highlighter-rouge">collective_spawn</code>.</p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

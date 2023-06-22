@@ -1,0 +1,307 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Machine Model &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Machine Model">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/machine_model.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/machine_model.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Machine Model</h1>
+    <div class="article-wrap" itemprop="text">
+      <p>This example illustrates how to query the machine model from Realm. In addition, it outlines 
+various types that Realm uses to define resources of underlying hardware that an application 
+occupies, as well as affinities between these resources.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#machine">Machine</a></li>
+  <li><a href="#processor">Processor</a></li>
+  <li><a href="#memory">Memory</a></li>
+  <li><a href="#affinity">Affinity</a></li>
+  <li><a href="#id">ID</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+<h2 id="machine">Machine</h2>
+
+<p>In Realm, a Machine is the highest level of machine model, representing all the computer nodes an application can occupy. 
+It can be retrieved using the <code class="language-plaintext highlighter-rouge">Machine::get_machine()</code> function, 
+which returns a singleton object.
+Processors, memories of the <code class="language-plaintext highlighter-rouge">Machine</code>, and affinity information can be queried from the <code class="language-plaintext highlighter-rouge">Machine</code> object.</p>
+
+<h2 id="processor">Processor</h2>
+
+<p>A <code class="language-plaintext highlighter-rouge">Processor</code> is a runtime object that represents any execution resource that can run a task, such as CPU, GPU, etc.
+To retrieve a Processor, <code class="language-plaintext highlighter-rouge">ProcessorQuery</code> can be used. In this example, we use <code class="language-plaintext highlighter-rouge">ProcessorQuery</code> to iterate over all 
+enabled processors and print out their address space and ID (a unique identifier Realm assignes).</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="n">Machine</span><span class="o">::</span><span class="n">ProcessorQuery</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">Machine</span><span class="o">::</span><span class="n">ProcessorQuery</span><span class="p">(</span><span class="n">machine</span><span class="p">).</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The address space of a Realm resource, such as Processor and Memory (introduced in the next section), indicates the process/rank where it resides.</p>
+
+<p>A <code class="language-plaintext highlighter-rouge">Processor</code> can also be queried by its <code class="language-plaintext highlighter-rouge">kind</code> and the runtime supports the following options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">TOC_PROC</code> represents a throughput processor, which is usually a CPU core. 
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:cpu</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">LOC_PROC</code> represents a latency processor (GPU).
+Currently, Realm supports both NVIDIA and AMD GPUs.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:gpu</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">UTIL_PROC</code> represents a CPU processor that is designed for users to run their own background work.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:util</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">IO_PROC</code> represents a processor that is used for I/O, which is also a CPU core. 
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:io</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PROC_GROUP</code> represents a group of processors.</li>
+  <li><code class="language-plaintext highlighter-rouge">PROC_SET</code> represents a set of processors for OpenMP/Kokkos etc. 
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:mp_nodes</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">OMP_PROC</code> represents OpenMP thread pool. 
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:ocpu</code>. 
+The number of threads per <code class="language-plaintext highlighter-rouge">OMP_PROC</code> can be specified by <code class="language-plaintext highlighter-rouge">-ll:othr</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">PY_PROC</code> represents a CPU processor that is used for Python interpreter. 
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:py</code>. 
+Currently, we only support a single <code class="language-plaintext highlighter-rouge">PY_PROC</code>.</li>
+</ul>
+
+<p>For a list of all the processors kind supported by Realm, please refer to <a href="#full-proc-kind">Full Processor Kind</a>.</p>
+
+<h2 id="memory">Memory</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Memory</code> is used to describe the location of application data. <code class="language-plaintext highlighter-rouge">MemoryQuery</code> can be used to query 
+the Memory. For example, a <code class="language-plaintext highlighter-rouge">MemoryQuery</code> can be created with the condition <code class="language-plaintext highlighter-rouge">has_affinity_to</code> to return 
+all memories that are affixed to the given processor.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Machine</span><span class="o">::</span><span class="n">MemoryQuery</span> <span class="n">mq</span> <span class="o">=</span> <span class="n">Machine</span><span class="o">::</span><span class="n">MemoryQuery</span><span class="p">(</span><span class="n">machine</span><span class="p">).</span><span class="n">has_affinity_to</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>A <code class="language-plaintext highlighter-rouge">Memory</code> can also be queried by its <code class="language-plaintext highlighter-rouge">kind</code> and the runtime supports the following options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GLOBAL_MEM</code> represents CPU memory guaranteed to be visible to all processors on all nodes.
+e.g. GASNet global memory. <code class="language-plaintext highlighter-rouge">GLOBAL_MEM</code> is usually slow. 
+<code class="language-plaintext highlighter-rouge">GLOBAL_MEM</code> is only used by MPI and GASNet1 modules, and it can be specified by <code class="language-plaintext highlighter-rouge">-ll:gsize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SYSTEM_MEM</code> represents CPU memory visible to all processors on a node.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:csize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">REGDMA_MEM</code> represents registered memory visible to all processors on a node, and can be a target of RDMA.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:rsize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SOCKET_MEM</code> represents CPU memory visible to all processors within a node. 
+It is NUMA-aware, so it provides better performance for processors on the same socket.</li>
+  <li><code class="language-plaintext highlighter-rouge">Z_COPY_MEM</code> represents Zero-Copy memory visible to all CPUs within a node and one or more GPUs.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:zsize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">GPU_FB_MEM</code> represents framebuffer memory for a particular GPU.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:fsize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">GPU_MANAGED_MEM</code> represents managed memory that can be cached by either host or GPU.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:msize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">GPU_DYNAMIC_MEM</code> represents dynamically-allocated framebuffer memory for a particular GPU.
+Its size is not fixed, but its maximum size can be specified by <code class="language-plaintext highlighter-rouge">-cuda:dynfb_max</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">DISK_MEM</code> represents disk memory visible to all processors on a node.
+It can be specified by <code class="language-plaintext highlighter-rouge">-ll:dsize</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">HDF_MEM</code> and <code class="language-plaintext highlighter-rouge">FILE_MEM</code> represent HDF and file memory visible to all processors on a node, respectively. 
+They do not have memory space, so their sizes are always 0.
+These I/O related memories allow users to create instances for I/O operations.</li>
+</ul>
+
+<p>For a list of all the memories kind supported by Realm, please refer to <a href="#full-mem-kind">Full Memory Kind</a>.</p>
+
+<h2 id="affinity">Affinity</h2>
+
+<p>Realm provides <code class="language-plaintext highlighter-rouge">ProcessorMemoryAffinity</code> and <code class="language-plaintext highlighter-rouge">MemoryMemoryAffinity</code> to query the affinity information
+between processors and memories. In this example, we use <code class="language-plaintext highlighter-rouge">ProcessorMemoryAffinity</code> to retrieve the information,
+including latency and bandwidth between a pair of memory and processor.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Machine</span><span class="o">::</span><span class="n">ProcessorMemoryAffinity</span><span class="o">&gt;</span> <span class="n">pm_affinity</span><span class="p">;</span>
+<span class="n">machine</span><span class="p">.</span><span class="n">get_proc_mem_affinity</span><span class="p">(</span><span class="n">pm_affinity</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="nb">true</span><span class="cm">/*local_only*/</span><span class="p">);</span>
+<span class="kt">unsigned</span> <span class="n">bandwidth</span> <span class="o">=</span> <span class="n">pm_affinity</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">bandwidth</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="n">latency</span> <span class="o">=</span> <span class="n">pm_affinity</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">latency</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="id">ID</h2>
+
+<p>Realm ID is a 64-bit value that uniquely encodes both the type of the referred-to Realm object and its identity.
+Once we convert an ID into a hexadecimal number, it can be decoded. The following is an example of a processor ID 
+and a memory ID:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Processor ID 1d00010000000001 is CPU.
+System Memory ID 1e00010000000000 has 0 KB, bandwidth 100, latency 5.
+</code></pre></div></div>
+<p>The highest two digits (8 bits) are used to tell the type of an ID, e.g., <code class="language-plaintext highlighter-rouge">1d</code> represents Processor and <code class="language-plaintext highlighter-rouge">1e</code> represents Memory. 
+The next four digits (16 bits) are used to tell the owner node of an ID, e.g., <code class="language-plaintext highlighter-rouge">0001</code> means the processor/memory is on
+node 1. The last two/three digits (8/12 bits) are used tell the local index of a Memory/Processor ID, e.g., <code class="language-plaintext highlighter-rouge">01</code> means
+the cpu index is 1 while <code class="language-plaintext highlighter-rouge">00</code> means the memory index is 0. 
+Besides processor and memory, the ID of other Realm objects (e.g., Event and etc.) can also be decoded. 
+For a complete introduction to Realm ID, please refer to the <a href="#id-header-file">ID header file</a>.</p>
+
+<p>Realm provides <code class="language-plaintext highlighter-rouge">is_TYPE</code> functions to test the type of an ID, e.g. in this example, <code class="language-plaintext highlighter-rouge">is_processor</code> is used to check if an ID 
+is a processor.</p>
+
+<h2 id="references">References</h2>
+
+<div id="full-proc-kind"></div>
+<p>[1]: <a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/realm_c.h#L45">Full Processor Kind</a></p>
+
+<div id="full-mem-kind"></div>
+<p>[2]: <a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/realm_c.h#L63">Full Memory Kind</a></p>
+
+<div id="id-header-file"></div>
+<p>[3]: <a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/id.h">ID header file</a></p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

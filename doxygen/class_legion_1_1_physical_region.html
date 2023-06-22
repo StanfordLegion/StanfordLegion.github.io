@@ -158,6 +158,9 @@ Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>get_
 <tr class="memitem:a71c311bb33600c754bf7596dae7f32ae"><td class="memItemLeft" align="right" valign="top"><a id="a71c311bb33600c754bf7596dae7f32ae"></a>
 Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>get_instance_info</b> (PrivilegeMode mode, const std::vector&lt; <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &gt; &amp;other_regions, FieldID fid, size_t field_size, void *realm_is, TypeTag type_tag, const char *warning_string, bool silence_warnings, bool generic_accessor, bool check_field_size, bool need_bounds, ReductionOpID redop=0) const</td></tr>
 <tr class="separator:a71c311bb33600c754bf7596dae7f32ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7f962a47ba807fbdf7844d59463856"><td class="memItemLeft" align="right" valign="top"><a id="a7f7f962a47ba807fbdf7844d59463856"></a>
+Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>get_padding_info</b> (FieldID fid, size_t field_size, <a class="el" href="class_legion_1_1_domain.html">Domain</a> *inner, <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;outer, const char *warning_string, bool silence_warnings, bool generic_accessor, bool check_field_size) const</td></tr>
+<tr class="separator:a7f7f962a47ba807fbdf7844d59463856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca0bc563c47558a3024b48d0b6d88042"><td class="memItemLeft" align="right" valign="top"><a id="aca0bc563c47558a3024b48d0b6d88042"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>report_incompatible_accessor</b> (const char *accessor_kind, Realm::RegionInstance instance, FieldID fid) const</td></tr>
 <tr class="separator:aca0bc563c47558a3024b48d0b6d88042"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,6 +191,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_privilege
 <tr class="memitem:aa80c928e243c86de18663dc9e18da588"><td class="memItemLeft" align="right" valign="top"><a id="aa80c928e243c86de18663dc9e18da588"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_privilege_check</b> (<a class="el" href="class_legion_1_1_domain.html">Domain</a> d, FieldID fid, PrivilegeMode mode)</td></tr>
 <tr class="separator:aa80c928e243c86de18663dc9e18da588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf6d4b53a95c607b9ef7c2d83f8c49c"><td class="memItemLeft" align="right" valign="top"><a id="addf6d4b53a95c607b9ef7c2d83f8c49c"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_padding_check</b> (<a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> p, FieldID fid)</td></tr>
+<tr class="separator:addf6d4b53a95c607b9ef7c2d83f8c49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Physical region objects are used to manage access to the physical instances that hold data. They are lightweight handles that can be stored in data structures and passed by value. They should never escape the context in which they are created. </p>
@@ -405,7 +411,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>fail_privilege
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 27 2023 19:42:33 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jun 22 2023 04:33:13 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

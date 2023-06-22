@@ -1,0 +1,296 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Copies and Fills &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Copies and Fills">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/index_space_copy_fill.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/index_space_copy_fill.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Copies and Fills</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="introduction">Introduction</h2>
+<p>In this example, we will discuss how to perform operations such
+as filling and copying data stored in region instances while
+exploring the features of index spaces.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#dma-system">DMA Sytem</a></li>
+  <li><a href="#structured-and-unstructured-copies">Structured And Unstructured
+Copies</a></li>
+  <li><a href="#filling-region-instances">Filling Region Instances</a></li>
+  <li><a href="#copying-region-instances">Copying Region Instances</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+<h2 id="dma-system">DMA System</h2>
+<p>In Realm, data is stored inside region instances. The region instances
+cannot be moved; therefore, the only way to migrate data is to
+perform a copy operation. Data copies are executed by the <code class="language-plaintext highlighter-rouge">DMA</code> system
+in Realm, which also manages the execution of reductions and fill
+operations. The DMA channels provided by modules handle the actual
+movement of data between storage locations in the memory hierarchy.
+When a new copy request is made, the Realm process retrieves
+information about the instances involved from the nodes on which they
+were created. These requests are performed concurrently while waiting
+for the transfer’s precondition to be met.</p>
+
+<h2 id="structured-and-unstructured-copies">Structured And Unstructured Copies</h2>
+<p>Realm allows users to copy structured and
+unstructured data, which can also be referred to as structured and
+unstructured copies.</p>
+
+<p>A structured copy refers to an operation over data organized
+in a predictable, uniform pattern. Most of the time, the copy domain can
+be defined by a dense index space with a single bounding rectangle. For
+example, <code class="language-plaintext highlighter-rouge">src_index_space</code> and <code class="language-plaintext highlighter-rouge">dst_index_space</code> in this example have
+the following structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>----------------------------------------------------------------------
+| P0:V0, P1:V1, P2:V2, P3:V3, P4:V4, P5:V5, P6:V6, P7:V7...PN-1:VN-1 |
+----------------------------------------------------------------------
+</code></pre></div></div>
+
+<p>On the other hand, an unstructured copy refers to an operation over
+data organized in a more flexible manner, with each
+element potentially located at a different address in memory. An example
+would be an array of indirect indices used
+to copy elements from source to destination or vice versa.
+In Realm, an unstructured copy operation is also referred to as an indirect
+copy or gather/scatter, which will be covered in detail in the next
+tutorial.</p>
+
+<p>In the following example, we create two dense one-dimensional(1D) index spaces
+and use them to create two region instances: <code class="language-plaintext highlighter-rouge">inst1</code> and <code class="language-plaintext highlighter-rouge">inst2</code>.
+Both instances have an affine SOA layout:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">RegionInstance</span> <span class="n">inst1</span><span class="p">;</span>
+<span class="n">Event</span> <span class="n">ev1</span> <span class="o">=</span> <span class="n">RegionInstance</span><span class="o">::</span><span class="n">create_instance</span><span class="p">(</span>
+    <span class="n">inst1</span><span class="p">,</span> <span class="n">memories</span><span class="p">[</span><span class="n">mem_idx</span><span class="o">++</span> <span class="o">%</span> <span class="n">memories</span><span class="p">.</span><span class="n">size</span><span class="p">()],</span> <span class="n">src_index_space</span><span class="p">,</span> <span class="n">field_sizes</span><span class="p">,</span>
+    <span class="cm">/*block_size=*/</span><span class="mi">0</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span> <span class="n">user_event</span><span class="p">);</span>
+
+<span class="n">RegionInstance</span> <span class="n">inst2</span><span class="p">;</span>
+<span class="n">Event</span> <span class="n">ev2</span> <span class="o">=</span> <span class="n">RegionInstance</span><span class="o">::</span><span class="n">create_instance</span><span class="p">(</span>
+    <span class="n">inst2</span><span class="p">,</span> <span class="n">memories</span><span class="p">[</span><span class="n">mem_idx</span><span class="o">++</span> <span class="o">%</span> <span class="n">memories</span><span class="p">.</span><span class="n">size</span><span class="p">()],</span> <span class="n">dst_index_space</span><span class="p">,</span>
+    <span class="n">field_sizes</span><span class="p">,</span> <span class="cm">/*block_size=*/</span><span class="mi">0</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span> <span class="n">user_event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="filling-region-instances">Filling Region Instances</h2>
+<p>Index spaces provide a way to populate region instances with specific
+values. We fill both <code class="language-plaintext highlighter-rouge">inst1</code> and <code class="language-plaintext highlighter-rouge">inst2</code> as shown below:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CopySrcDstField</span><span class="o">&gt;</span> <span class="n">dsts</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">dsts</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_field</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="n">FID_BASE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="k">return</span> <span class="n">is</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dsts</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">fill_value</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fill_value</span><span class="p">),</span>
+               <span class="n">wait_on</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This code sets up a vector of <code class="language-plaintext highlighter-rouge">CopySrcDstField</code> objects, specifying
+the destination region instance (<code class="language-plaintext highlighter-rouge">inst1</code> or <code class="language-plaintext highlighter-rouge">inst2</code>), the field
+ID (<code class="language-plaintext highlighter-rouge">FID_BASE</code>), and the size of the field data (<code class="language-plaintext highlighter-rouge">sizeof(int)</code>).
+Like most operations in Realm, the fill operation is asynchronous
+and returns an event that can be waited upon.</p>
+
+<h2 id="copying-region-instances">Copying Region Instances</h2>
+<p>The index spaces that describe the source and destination instances
+do not necessarily have to match in size, so we need to compute an
+intersection between them:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">isect</span><span class="p">;</span>
+  <span class="n">Event</span> <span class="n">isect_event</span> <span class="o">=</span> <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;::</span><span class="n">compute_intersection</span><span class="p">(</span>
+      <span class="n">src_index_space</span><span class="p">,</span> <span class="n">dst_index_space</span><span class="p">,</span> <span class="n">isect</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span>
+      <span class="n">fill_event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This function is one of the set operations provided by
+the interface discussed in the previous tutorial. Once we have
+computed the intersection <code class="language-plaintext highlighter-rouge">isect</code>, we use it to perform the copy
+itself. To specify the source and destination instances
+and their corresponding fields, we use the <code class="language-plaintext highlighter-rouge">CopySrcDstField</code> class:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CopySrcDstField</span><span class="o">&gt;</span> <span class="n">srcs</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">dsts</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">srcs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_field</span><span class="p">(</span><span class="n">inst1</span><span class="p">,</span> <span class="n">FID_BASE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="n">dsts</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_field</span><span class="p">(</span><span class="n">inst2</span><span class="p">,</span> <span class="n">FID_BASE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="n">Event</span> <span class="n">ev3</span> <span class="o">=</span> <span class="n">index_space</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span> <span class="n">fill_event</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Realm provides a set of iterators to access the underlying rectangles 
+and points in index spaces programmatically. It is helpful for
+fine-grained point access to the data stored in a region instance.</p>
+
+<p>In the following code, we iterate over the intersection <code class="language-plaintext highlighter-rouge">isect</code>, get
+a set of points, use them to read and verify actual values from <code class="language-plaintext highlighter-rouge">inst2</code>.
+Even though the instance contains just a simple one-piece affine
+layout, we use <code class="language-plaintext highlighter-rouge">GenericAccessor</code> to pull the values out of the
+instance for <code class="language-plaintext highlighter-rouge">FIB_BASE</code> in case the memory is allocated on a remote
+node:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">GenericAccessor</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">acc</span><span class="p">(</span><span class="n">inst2</span><span class="p">,</span> <span class="n">FID_BASE</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">IndexSpaceIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">it</span><span class="p">(</span><span class="n">isect</span><span class="p">);</span> <span class="n">it</span><span class="p">.</span><span class="n">valid</span><span class="p">;</span> <span class="n">it</span><span class="p">.</span><span class="n">step</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">PointInRectIterator</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">it2</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">rect</span><span class="p">);</span> <span class="n">it2</span><span class="p">.</span><span class="n">valid</span><span class="p">;</span> <span class="n">it2</span><span class="p">.</span><span class="n">step</span><span class="p">())</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/indexspace.h">Indexspace header
+file</a></li>
+</ol>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

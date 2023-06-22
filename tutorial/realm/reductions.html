@@ -1,0 +1,336 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Reductions &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Reductions">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/reductions.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/reductions.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Reductions</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="introduction">Introduction</h2>
+<p>Reductions are an important concept in parallel programming. 
+They combine multiple values into a single value,
+typically to summarize or aggregate data.</p>
+
+<p>In this tutorial, we will walk through an example of using reductions in
+Realm. We will begin by discussing the basics of reductions, then move
+on to the example code, which demonstrates how to perform reductions
+through the copy interface provided by index spaces.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#basics-of-reductions">Basics of Reductions</a></li>
+  <li><a href="#registering-reduction-operators">Registering Reduction Operators</a></li>
+  <li><a href="#performing-reduction-copies">Performing Reduction Copies</a></li>
+  <li><a href="#what-is-next">What is Next</a></li>
+</ul>
+
+<h2 id="basics-of-reductions">Basics of Reductions</h2>
+<p>Reductions are used to combine multiple values into a single value.
+For example, if we have an array of numbers, we might want to compute
+their sum. We could do this by summing the elements of the array in
+parallel, then combining the results using a reduction operation.</p>
+
+<p>Reductions can be performed on various data structures,
+including arrays, matrices, and trees.
+In each case, the reduction operation combines multiple values into a 
+single value. The operation must be associative, which means that the
+order in which the values are combined does not matter. For example,
+addition is associative, but subtraction is not.</p>
+
+<h2 id="registering-reduction-operators">Registering Reduction Operators</h2>
+
+<p>Realm provides reductions through operators such as <code class="language-plaintext highlighter-rouge">fold</code> and
+<code class="language-plaintext highlighter-rouge">apply</code>. The runtime requires that every reduction operation follows
+this convection:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifdef NOT_REALLY_CODE
+</span>    <span class="k">class</span> <span class="nc">MyReductionOp</span> <span class="p">{</span>
+    <span class="nl">public:</span>
+      <span class="k">typedef</span> <span class="kt">int</span> <span class="n">LHS</span><span class="p">;</span>
+      <span class="k">typedef</span> <span class="kt">int</span> <span class="n">RHS</span><span class="p">;</span>
+
+      <span class="kt">void</span> <span class="n">apply</span><span class="p">(</span><span class="n">LHS</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+      <span class="c1">// both of these are optional</span>
+      <span class="k">static</span> <span class="k">const</span> <span class="n">RHS</span> <span class="n">identity</span><span class="p">;</span>
+      <span class="kt">void</span> <span class="n">fold</span><span class="p">(</span><span class="n">RHS</span><span class="o">&amp;</span> <span class="n">rhs1</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs2</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="cp">#endif
+</span></code></pre></div></div>
+<p>Reductions have two types associated with them <code class="language-plaintext highlighter-rouge">left-hand-side (LHS)</code>
+and <code class="language-plaintext highlighter-rouge">right-hand-side (RHS)</code> where <code class="language-plaintext highlighter-rouge">apply</code> combines lhs and rhs into a
+new lhs type and <code class="language-plaintext highlighter-rouge">fold</code> combines two rhs types into a new rhs type.
+In general, for sum reductions, lhs and rhs can be the same
+type, but it is not always the case.</p>
+
+<p>In Realm, reductions are performed via the copy interface provided
+by index spaces, and each reduction operator needs to be registered with
+the runtime first:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rt</span><span class="p">.</span><span class="n">register_reduction</span><span class="o">&lt;</span><span class="n">SumReduction</span><span class="o">&gt;</span><span class="p">(</span><span class="n">REDOP_SUM</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">REDOP_SUM</code> id represents an exclusive sum reduction:
+(TODO: Consider adding non-exclusive)</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SumReduction</span> <span class="p">{</span>
+ <span class="nl">public:</span>
+  <span class="k">using</span> <span class="n">LHS</span> <span class="o">=</span> <span class="n">ComplexType</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">RHS</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="p">&gt;</span>
+  <span class="k">static</span> <span class="kt">void</span> <span class="n">apply</span><span class="p">(</span><span class="n">LHS</span> <span class="o">&amp;</span><span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">EXCLUSIVE</span><span class="p">);</span>
+    <span class="n">lhs</span><span class="p">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">rhs</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">const</span> <span class="n">RHS</span> <span class="n">identity</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">EXCLUSIVE</span><span class="p">&gt;</span>
+  <span class="k">static</span> <span class="kt">void</span> <span class="n">fold</span><span class="p">(</span><span class="n">RHS</span> <span class="o">&amp;</span><span class="n">rhs1</span><span class="p">,</span> <span class="n">RHS</span> <span class="n">rhs2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">EXCLUSIVE</span><span class="p">)</span>
+      <span class="n">rhs1</span> <span class="o">+=</span> <span class="n">rhs2</span><span class="p">;</span>
+    <span class="k">else</span> <span class="p">{</span>
+    <span class="n">__sync_fetch_and_add</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rhs1</span><span class="p">,</span> <span class="n">rhs2</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="performing-reduction-copies">Performing Reduction Copies</h2>
+
+<p>In the example given, the program performs four reduction copies.
+Specifically, there are two non-exclusive fold reductions over the 
+same instance with an integer type, and two exclusive apply reductions
+over the same instance with a left-hand-side <code class="language-plaintext highlighter-rouge">StructType</code>.</p>
+
+<p>The sequence looks as following:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">1.</span> <span class="n">fold</span><span class="o">&lt;</span><span class="n">NON</span><span class="o">-</span><span class="n">EXCL</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">fold</span><span class="o">&lt;</span><span class="n">NON</span><span class="o">-</span><span class="n">EXCL</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span>
+<span class="mf">2.</span> <span class="n">apply</span><span class="o">&lt;</span><span class="n">EXCL</span><span class="o">&gt;</span><span class="p">(</span><span class="n">StructType</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">apply</span><span class="o">&lt;</span><span class="n">EXCL</span><span class="o">&gt;</span><span class="p">(</span><span class="n">StructType</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To execute the reduction copies, the program prepares and issues a
+realm reduction copy by setting the corresponding <code class="language-plaintext highlighter-rouge">redop</code> field and
+calling <code class="language-plaintext highlighter-rouge">domain.copy(...)</code>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CopySrcDstField</span><span class="o">&gt;</span> <span class="n">srcs</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">dsts</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">srcs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_field</span><span class="p">(</span><span class="n">src_inst</span><span class="p">,</span> <span class="n">src_fid</span><span class="p">,</span> <span class="n">src_fsize</span><span class="p">);</span>
+  <span class="n">dsts</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_field</span><span class="p">(</span><span class="n">dst_inst</span><span class="p">,</span> <span class="n">dst_fid</span><span class="p">,</span> <span class="n">dst_fsize</span><span class="p">);</span>
+  <span class="n">dsts</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_redop</span><span class="p">(</span><span class="n">REDOP_SUM</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">exclusive</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">domain</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span> <span class="n">wait_on</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Non-exclusive reductions can be
+handled with atomics inside the reduction operator. In contrast,
+exclusive reductions do not require atomic operations since the
+application explicitly tells Realm that no race situation will appear.
+However, because the program is issuing several reduce-copies over
+the same instance/field, it still needs to ensure some atomicity.</p>
+
+<p>One option for ensuring atomicity is to pre-define the execution order
+of reduce-copies, but this may not be optimal as the order of
+completion may be uncertain. Another option is to use a
+non-exclusive reduction, which handles synchronization with atomics
+inside the reduction operator, but this may be too fine-grained and
+inefficient. Instead, the program uses exclusive reduction with
+reservations to guarantee the atomicity of reduce-copies at a coarse
+level, allowing them to run in either order.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="c1">// Run exclusive applies with reservations.</span>
+  <span class="n">Reservation</span> <span class="n">resrv</span> <span class="o">=</span> <span class="n">Reservation</span><span class="o">::</span><span class="n">create_reservation</span><span class="p">();</span>
+
+  <span class="n">Event</span> <span class="n">resrv_event1</span> <span class="o">=</span> <span class="n">resrv</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="n">fold_event</span><span class="p">);</span>
+  <span class="n">Event</span> <span class="n">apply_event1</span> <span class="o">=</span>
+      <span class="n">reduce</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">StructType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst_inst0</span><span class="p">,</span> <span class="n">dst_inst1</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span>
+                               <span class="cm">/*src_fid=*/</span><span class="n">FID_INT</span><span class="p">,</span>
+                               <span class="cm">/*dst_fid=*/</span><span class="n">FID_COMPLEX_TYPE</span><span class="p">,</span>
+                               <span class="cm">/*src_fsize=*/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
+                               <span class="cm">/*dst_fsize=*/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">StructType</span><span class="p">),</span>
+                               <span class="cm">/*exclusive=*/</span><span class="nb">true</span><span class="p">,</span>
+                               <span class="cm">/*fold=*/</span><span class="nb">false</span><span class="p">,</span> <span class="n">resrv_event1</span><span class="p">);</span>
+  <span class="n">resrv</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="n">apply_event1</span><span class="p">);</span>
+
+  <span class="n">Event</span> <span class="n">resrv_event2</span> <span class="o">=</span> <span class="n">resrv</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="n">fold_event</span><span class="p">);</span>
+  <span class="n">Event</span> <span class="n">apply_event2</span> <span class="o">=</span>
+      <span class="n">reduce</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">StructType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dst_inst0</span><span class="p">,</span> <span class="n">dst_inst1</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span>
+                               <span class="cm">/*src_fid=*/</span><span class="n">FID_INT</span><span class="p">,</span>
+                               <span class="cm">/*dst_fid=*/</span><span class="n">FID_COMPLEX_TYPE</span><span class="p">,</span>
+                               <span class="cm">/*src_fsize=*/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
+                               <span class="cm">/*dst_fsize=*/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">StructType</span><span class="p">),</span>
+                               <span class="cm">/*exclusive=*/</span><span class="nb">true</span><span class="p">,</span>
+                               <span class="cm">/*fold=*/</span><span class="nb">false</span><span class="p">,</span> <span class="n">resrv_event2</span><span class="p">);</span>
+  <span class="n">resrv</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="n">apply_event2</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>For details on reservations, please refer to a dedicated tutorial.</p>
+
+<h2 id="what-is-next">What is Next</h2>
+
+<p>The sum reduction is just one example of what can be done with
+reductions, but many other options are also available.
+In addition to sum, reductions can also be performed using operations
+such as and, or, xor, prod, diff, min, and max. Furthermore, Realm
+allows performing reductions through barriers which is covered in the
+next tutorial.</p>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

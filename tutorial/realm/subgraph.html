@@ -1,0 +1,324 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Subgraph &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="Mermaid">
+
+
+<!-- mermaid Graph -->
+
+  <script type="text/javascript"
+  src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js">
+</script>
+<script>
+$(document).ready(function() {
+    mermaid.initialize({
+        theme: 'forest'
+    });
+});
+</script>
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Subgraph">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/subgraph.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/subgraph.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Subgraph</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="introduction">Introduction</h2>
+
+<p>Realm has introduced a new feature called <code class="language-plaintext highlighter-rouge">Subgraph</code> to capture a group of Realm operations 
+such that they can be re-executed efficiently. This tutorial will provide an example of 
+constructing a Subgraph and compare it with the implementation without Subgraph.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#creating-a-subgraph">Creating A Subgraph</a></li>
+  <li><a href="#instantiating-a-subgraph">Instantiating A Subgraph</a></li>
+  <li><a href="#performance-comparison-with-non-subgraph-implementation">Performance Comparison with Non-subgraph Implementation</a></li>
+  <li><a href="#other-use-cases-of-subgraph">Other Use Cases of Subgraph</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+<h2 id="creating-a-subgraph">Creating A Subgraph</h2>
+
+<p>In the upcoming example, we will examine a task graph consisting of repeated diamond-shaped subtask graphs. 
+Each subtask graph contains five tasks: Init1, Init2, Add1, Add2, and Add3. Clients can use the <code class="language-plaintext highlighter-rouge">Subgraph</code> 
+feature to represent these subtask graphs and avoid the need to construct them repeatedly.</p>
+
+<div class="mermaid">
+    graph TD
+    StartEvent --&gt; Init1_1
+    StartEvent --&gt; Init2_1
+    Init1_1 --&gt; Add1_1
+    Init1_1 --&gt; Add2_1
+    Init2_1 --&gt; Add1_1
+    Init2_1 --&gt; Add2_1
+    Add1_1 --&gt; Add3_1
+    Add2_1 --&gt; Add3_1
+
+    Add3_1 --&gt; Init1_2
+    Add3_1 --&gt; Init2_2
+    Init1_2 --&gt; Add1_2
+    Init1_2 --&gt; Add2_2
+    Init2_2 --&gt; Add1_2
+    Init2_2 --&gt; Add2_2
+    Add1_2 --&gt; Add3_2
+    Add2_2 --&gt; Add3_2
+    Add3_2 --&gt; repeat
+</div>
+
+<ol>
+  <li>To create a subgraph, the first step is to create a <code class="language-plaintext highlighter-rouge">SubgraphDefinition</code> object to describe the graph.
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SubgraphDefinition</span> <span class="n">sd</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>The next step is to fill the <code class="language-plaintext highlighter-rouge">SubgraphDefinition</code> with operations. 
+Five operations that are permitted within a subgraph: task spawn, copy/fill,
+barrier arrival, subgraph instantiation, and reservation acquire/release. The creation of 
+task spawners for the five tasks within the subgraph is demonstrated as follows:
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// there are 5 tasks in the subgraph, so we pick the `tasks` entry and set its size to 5.</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">tasks</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="c1">// set the first task</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">proc</span> <span class="o">=</span> <span class="n">p1</span><span class="p">;</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">task_id</span> <span class="o">=</span> <span class="n">INIT_TASK</span><span class="p">;</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">args</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">init_args1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">InitTaskArgs</span><span class="p">));</span>
+  <span class="p">...</span>
+</code></pre></div>    </div>
+    <p>The <code class="language-plaintext highlighter-rouge">proc</code> represents the processor where the task is launched.
+The <code class="language-plaintext highlighter-rouge">task_id</code> specifies the task ID.
+The <code class="language-plaintext highlighter-rouge">args</code> is used to pass arguments into the task. If we need to overwrite task arguments at later when instantiating a subgraph, 
+we can use the <code class="language-plaintext highlighter-rouge">Interpolation</code> member of the <code class="language-plaintext highlighter-rouge">SubgraphDefinition</code>.
+For other operations, please refer to the <a href="#subgraph-header-file">subgraph header file</a>.</p>
+  </li>
+  <li>Once operations within the subgraph have been defined, we need to specify the
+dependencies between operations, which are also referred to as 
+arrows in the task graph above (for example, Init1_1 depends on StartEvent). 
+The following code illustrates how to specify the dependency for the first task in the subgraph:
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// there are 9 dependencies in the subgraph, so we pick the `dependencies` entry and set its size to 9.</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">dependencies</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+<span class="c1">// set the dependency for the first task</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">dependencies</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">src_op_kind</span> <span class="o">=</span> <span class="n">SubgraphDefinition</span><span class="o">::</span><span class="n">OPKIND_TASK</span><span class="p">;</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">dependencies</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">src_op_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">dependencies</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">tgt_op_kind</span> <span class="o">=</span> <span class="n">SubgraphDefinition</span><span class="o">::</span><span class="n">OPKIND_TASK</span><span class="p">;</span>
+<span class="n">sd</span><span class="p">.</span><span class="n">dependencies</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">tgt_op_index</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div>    </div>
+    <p>The <code class="language-plaintext highlighter-rouge">src</code> and <code class="language-plaintext highlighter-rouge">tgt</code> represent the input and output of a dependency, respectively.
+Additionally, <code class="language-plaintext highlighter-rouge">op_kind</code> is used to identify the type of operation, while <code class="language-plaintext highlighter-rouge">op_index</code> 
+indicates the index location of the operation in <code class="language-plaintext highlighter-rouge">SubgraphDefinition.tasks</code>. 
+Furthermore, <code class="language-plaintext highlighter-rouge">OPKIND_EXT_PRECOND</code> and <code class="language-plaintext highlighter-rouge">OPKIND_EXT_POSTCOND</code> refer
+to the precondition and postcondition events of the subgraph.</p>
+  </li>
+  <li>Once we have defined the operations and dependencies for the <code class="language-plaintext highlighter-rouge">SubgraphDefinition</code>, we can create a
+<code class="language-plaintext highlighter-rouge">Subgraph</code> object using the <code class="language-plaintext highlighter-rouge">Subgraph::create_subgraph method</code>.
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Subgraph</span> <span class="n">sg</span><span class="p">;</span>
+<span class="n">Subgraph</span><span class="o">::</span><span class="n">create_subgraph</span><span class="p">(</span><span class="n">sg</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">()).</span><span class="n">wait</span><span class="p">();</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="instantiating-a-subgraph">Instantiating A Subgraph</h2>
+
+<p>The created subgraph can be instantiated and launched by calling
+the <code class="language-plaintext highlighter-rouge">instantiate</code> method of the subgraph object. By passing the precondition and postcondition
+events, we can concatenate multiple subgraphs into an entire task graph, as shown in the last section.</p>
+
+<h2 id="performance-comparison-with-non-subgraph-implementation">Performance Comparison with Non-subgraph Implementation</h2>
+
+<p>In this example, we also implement the task graph shown in the 2nd section without using <code class="language-plaintext highlighter-rouge">Subgraph</code>, and 
+compare its performance with the subgraph implementation.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./subgraph -ll:cpu 3 -ni 10000
+[0 - 7fae4400f800]    0.396610 {3}{app}: Without subgraph, from constructing graph 362727.05 us, after constructing graph 213723.66 us
+[0 - 7fae4400f800]    0.649626 {3}{app}: With subgraph, from creating subgraph 252666.81 us, from instantiating subgraph 252647.43 us, after instantiating subgraph 208799.71 us
+</code></pre></div></div>
+
+<p>It can be seen that after the graph is constructed or the subgraph is instantiated, the cost of executing
+tasks is similar in both cases. However, using subgraph can significantly reduce the cost of constructing
+the graph. Even though there is no significant improvement in running tasks, 
+clients are still encouraged to use the subgraph when they see the pattern described in 
+this example. When all Realm optimizations are finally in place, Subgraphs
+should improve the task performance, and clients will not have to refactor the application code.</p>
+
+<h2 id="other-use-cases-of-subgraph">Other Use Cases of Subgraph</h2>
+
+<p>The task graph below illustrates a situation where a nested task graph requires synchronization between tasks.
+Specifically, Task 4 needs to wait until Task 2 and Task 3 within Task 1 are completed. However, the current
+event API does not provide a way to describe post-conditional dependency between Task 3 and Task 4.</p>
+
+<pre><code class="language-mermaid">stateDiagram
+[*]  --&gt;  Task1
+state  Task1  {
+Task2  --&gt;  Task3
+Task3  --&gt;  postcondition
+}
+Task1  --&gt;  Task4
+</code></pre>
+
+<p>Even if we implement the code as follows:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e1 = processor.spawn(Task1);
+e2 = processor.spawn(Task4, e1);
+</code></pre></div></div>
+<p>It does not guarantee that the nested Task 2 and Task 3 are finished before launching Task 4.
+One solution is to create a user evernt, use it as the pre-condition of Task 4, pass it into Task 3 
+and trigger it before exiting the Task 3. 
+Another solution is to define the Task 1 as a subgraph and use the <code class="language-plaintext highlighter-rouge">OPKIND_EXT_POSTCOND</code>
+to describe the dependency between Task 3 and Task 4.</p>
+
+<h2 id="references">References</h2>
+
+<div id="subgraph-header-file"></div>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

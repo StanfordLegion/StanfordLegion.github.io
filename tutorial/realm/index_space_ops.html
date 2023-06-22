@@ -1,0 +1,319 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Index Spaces &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Index Spaces">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/index_space_ops.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/index_space_ops.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Index Spaces</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="introduction">Introduction</h2>
+<p>Index space is a core data structure offered by Realm to applications
+as part of it’s public interface. This tutorial introduces the basic 
+knowledge necessary to work with index spaces and discusses how to 
+manage index spaces in the application code.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#creating-index-spaces">Creating Index Spaces</a></li>
+  <li><a href="#set-operations">Set Operations</a></li>
+  <li><a href="#iterating-over-index-spaces">Iterating Over Index Spaces</a></li>
+  <li><a href="#managing-memory-in-index-spaces">Managing Memory In Index Spaces</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+<h2 id="index-space-basics">Index Space Basics</h2>
+<p>An IndexSpace (index space) is a Plain Old Data (POD) structure in
+Realm that defines an N-dimensional space with a set of indices
+(points). It is templated on two parameters: <code class="language-plaintext highlighter-rouge">IndexSpace&lt;N, T&gt;</code>, where <code class="language-plaintext highlighter-rouge">N</code>
+is the number of dimensions and <code class="language-plaintext highlighter-rouge">T</code> is the type of index values.
+Index spaces provide an interface to data copies in Realm and offer a
+number of set operations, such as union, intersection, difference,
+partitioning, and more.</p>
+
+<p>In Realm, two related classes, <code class="language-plaintext highlighter-rouge">Point</code> and <code class="language-plaintext highlighter-rouge">Rect</code>, represent single
+points and ranges of points, respectively, in an index space. An index
+space contains a bounding rectangle and an optional <code class="language-plaintext highlighter-rouge">SparsityMap</code>
+(sparsity map). A sparsity map is the actual dynamically allocated
+object that exists on each node that is interested in accessing its
+data. A sparsity map is used to indicate which indices are present and
+which  ones are missing or “sparse”.</p>
+
+<h2 id="creating-index-spaces">Creating Index Spaces</h2>
+<p>An index space can be constructed from either a list of points or
+rectangles. In this example, all index spaces are constructed from a
+single dense rectangle:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">center_is</span><span class="p">(</span><span class="n">Rect</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                                  <span class="n">Point</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)));</span>
+</code></pre></div></div>
+
+<h2 id="set-operations">Set operations</h2>
+<p>An application can perform various set operations on index spaces. In
+this example, we demonstrate Realm’s set operations that include
+<code class="language-plaintext highlighter-rouge">compute_union</code>, <code class="language-plaintext highlighter-rouge">compute_difference</code>, <code class="language-plaintext highlighter-rouge">compute_intersection</code>,
+and <code class="language-plaintext highlighter-rouge">compute_coverings</code>. Most of
+these operations utilize Realm’s deferred execution model, returning
+an event that can be used to query the operation’s status and use it
+as a pre- or post-condition for subsequent calls.</p>
+
+<p>The tutorial begins by creating a list of disjoint dense index spaces
+in two-dimensional space:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;&gt;</span> <span class="n">subspaces</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">size</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">subspaces</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span>
+        <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Rect</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Point</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">Point</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">y</span><span class="p">))));</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>with the following shape:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----------------------------------
+(0, 0), (0, 1), (0, 2)...(0, 15)
+(1, 0), (1, 1), (1, 2)...(1, 15)
+(2, 0), (2, 1), (2, 2)...(2, 15)
+...
+(15, 0), (15, 1), (15, 2)...(15, 15)
+------------------------------------
+</code></pre></div></div>
+
+<p>Each index space describes a 1D line along
+the x-axis. These index spaces are then passed to <code class="language-plaintext highlighter-rouge">compute_union</code>,
+which constructs an index space with bounds defined by a single
+rectangle. This resulting index space is assigned to the variable
+<code class="language-plaintext highlighter-rouge">union_is</code>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">union_is</span><span class="p">;</span>
+  <span class="n">Event</span> <span class="n">event1</span> <span class="o">=</span>
+      <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;::</span><span class="n">compute_union</span><span class="p">(</span><span class="n">subspaces</span><span class="p">,</span> <span class="n">union_is</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>It may be slightly surprising that <code class="language-plaintext highlighter-rouge">union_is</code> has a sparsity map
+initially because Realm defers the computation of the union
+(and the grouping into a single rectangle). We can call <code class="language-plaintext highlighter-rouge">tighten</code>
+to make the sparsity map disappear, so the result is just a
+dense rectangle:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Return the tightest description possible of the index space.
+ * @param precise false is the sparsity map may be preserved even
+ * for dense spaces.
+ * @return the tightest index space possible.
+ */</span>
+<span class="n">IndexSpace</span><span class="o">&lt;</span><span class="n">N</span><span class="p">,</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">tighten</span><span class="p">(</span><span class="kt">bool</span> <span class="n">precise</span> <span class="o">=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Next, we continue by cutting out a small index space from the center 
+of <code class="language-plaintext highlighter-rouge">union_is</code> to obtain a sparse index space containing four disjoint
+rectangles. This is done using <code class="language-plaintext highlighter-rouge">compute_difference</code>, and the resulting
+index space is assigned to the variable <code class="language-plaintext highlighter-rouge">diffs_is</code>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">diffs_is</span><span class="p">;</span>
+  <span class="n">Event</span> <span class="n">event2</span> <span class="o">=</span> <span class="n">IndexSpace</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;::</span><span class="n">compute_difference</span><span class="p">(</span>
+      <span class="n">union_is</span><span class="p">,</span> <span class="n">center_is</span><span class="p">,</span> <span class="n">diffs_is</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">(),</span> <span class="n">event1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>We then compute the intersection of <code class="language-plaintext highlighter-rouge">diffs_is</code> and <code class="language-plaintext highlighter-rouge">union_is</code>,
+although this is purely for demonstrative purposes since the
+resulting index space, <code class="language-plaintext highlighter-rouge">isect_is</code>, will be the same as <code class="language-plaintext highlighter-rouge">diffs_is</code>.</p>
+
+<h2 id="iterating-over-index-spaces">Iterating Over Index Spaces</h2>
+
+<p>Since the result of an intersection is a sparse index space, the
+rectangles are stored inside the internal sparsity map.
+There are several ways to access the sparsity, such as via an
+<code class="language-plaintext highlighter-rouge">IndexSpaceIterator</code> or using the <code class="language-plaintext highlighter-rouge">compute_covering</code> interface. The
+latter is better suited for building an approximate covering of the
+sparsity map when making region instances.</p>
+
+<p>In this example, we use <code class="language-plaintext highlighter-rouge">IndexSpaceIterator</code> to extract the disjoint
+rectangles from the sparsity maps of both <code class="language-plaintext highlighter-rouge">isect_is</code> and <code class="language-plaintext highlighter-rouge">diffs_is</code>.
+Since both <code class="language-plaintext highlighter-rouge">isect_is</code> and <code class="language-plaintext highlighter-rouge">diffs_is</code> should be the same, this iterator
+validates that this is indeed the case:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">IndexSpaceIterator</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span> <span class="n">diffs_it</span><span class="p">(</span><span class="n">diffs_is</span><span class="p">),</span> <span class="n">isect_it</span><span class="p">(</span><span class="n">isect_is</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">diffs_it</span><span class="p">.</span><span class="n">valid</span> <span class="o">&amp;&amp;</span> <span class="n">isect_it</span><span class="p">.</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">diffs_it</span><span class="p">.</span><span class="n">rect</span> <span class="o">!=</span> <span class="n">isect_it</span><span class="p">.</span><span class="n">rect</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">log_app</span><span class="p">.</span><span class="n">error</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"rects don't match: "</span> <span class="o">&lt;&lt;</span> <span class="n">diffs_it</span><span class="p">.</span><span class="n">rect</span>
+                      <span class="o">&lt;&lt;</span> <span class="s">" != "</span> <span class="o">&lt;&lt;</span> <span class="n">isect_it</span><span class="p">.</span><span class="n">rect</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">diffs_it</span><span class="p">.</span><span class="n">step</span><span class="p">();</span>
+    <span class="n">isect_it</span><span class="p">.</span><span class="n">step</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">diffs_it</span><span class="p">.</span><span class="n">valid</span> <span class="o">||</span> <span class="n">isect_it</span><span class="p">.</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_app</span><span class="p">.</span><span class="n">error</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"At least one iterator is invalid"</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="managing-memory-in-index-spaces">Managing Memory In Index Spaces</h2>
+<p>As discussed earlier, Realm dynamically allocates an underlying sparsity 
+map on the owner node when creating sparse index spaces.
+The allocated sparsity maps are being held during the whole application
+lifetime. This will likely be fixed in one of the upcoming Realm
+releases but users should be aware of this fact.</p>
+
+<h2 id="references">References</h2>
+<ol>
+  <li><a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/indexspace.h">Index spaces header file</a></li>
+</ol>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

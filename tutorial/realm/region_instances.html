@@ -1,0 +1,346 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Region Instances &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Region Instances">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/region_instances.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/region_instances.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Region Instances</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="introduction">Introduction</h2>
+<p>This tutorial will cover how to manage application data in
+Realm. Specifically, we will show how to allocate a blob of data in
+system memory and create writer and reader tasks to access this data.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#data-layouts">Data Layouts</a></li>
+  <li><a href="#creating-instances">Creating Instances</a></li>
+  <li><a href="#accessing-instances">Accessing Instances</a></li>
+  <li><a href="#best-practices">Best Practices</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+<h2 id="data-layouts">Data Layouts</h2>
+<p>Before diving into the specifics of using Realm for data management,
+let us review some commonly used definitions in high-performance
+computing applications:</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">Affine data layout</code>: This type of layout involves mapping
+multi-dimensional data structures to a linear memory space while
+preserving the locality of reference. In an affine layout, the memory
+address of an element is calculated as a linear function of its
+multi-dimensional index.</p>
+  </li>
+  <li>
+    <p>Array-of-structures (AOS): This data layout consists of an array
+composed of a structure that contains multiple fields. Elements of
+the array are stored sequentially in memory, with all the fields for
+an element stored together. AOS is often used when the fields of the
+data structure have varying sizes and types.</p>
+  </li>
+  <li>
+    <p>Structure-of-arrays (SOA): This data layout stores each field of a
+data structure in a separate array. The elements of the array are
+stored in a column-wise fashion, with all the elements for a
+particular field stored together. SOA is often used when the fields
+of the data structure have fixed sizes and types, and when the data
+access pattern is column-wise.</p>
+  </li>
+</ol>
+
+<h2 id="creating-instances">Creating Instances</h2>
+<p>Realm uses <code class="language-plaintext highlighter-rouge">RegionInstances</code> to store persistent application data.
+Region instances offer a comprehensive interface that allows defining
+various data layouts and to accessing them efficiently. Region instances
+are instantiated using the static member function
+<code class="language-plaintext highlighter-rouge">create_instance</code>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="n">Event</span> <span class="nf">create_instance</span><span class="p">(</span><span class="n">RegionInstance</span><span class="o">&amp;</span> <span class="n">inst</span><span class="p">,</span> <span class="n">Memory</span> <span class="n">memory</span><span class="p">,</span>
+                             <span class="n">InstanceLayoutGeneric</span><span class="o">*</span> <span class="n">ilg</span><span class="p">,</span>
+                             <span class="k">const</span> <span class="n">ProfilingRequestSet</span><span class="o">&amp;</span> <span class="n">prs</span><span class="p">,</span>
+                             <span class="n">Event</span> <span class="n">wait_on</span> <span class="o">=</span> <span class="n">Event</span><span class="o">::</span><span class="n">NO_EVENT</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>, which takes as input a <code class="language-plaintext highlighter-rouge">Memory</code> and an <code class="language-plaintext highlighter-rouge">InstanceLayoutGeneric</code> object
+containing information necessary to create a data layout. The operation
+of instance creation, including underlying allocation, is asynchronous
+and returns a runtime event, which can serve as a precondition for any
+subsequent operation.</p>
+
+<p>It should be noted that region instances are always associated with a
+particular memory and cannot be moved; thus, data migration should only
+be accomplished through data copy operations in Realm.</p>
+
+<p>The InstanceLayoutGeneric object provides a powerful interface to
+create any data layout commonly used in HPC applications, including
+AOS, SOA, hybrid layouts, compact layouts, and more complex layouts
+that involve interleaving fields with dimensions or non-trivial tiling.</p>
+
+<p>In this example, an instance is created using the <code class="language-plaintext highlighter-rouge">create_instance</code> function
+with a standard AOS layout:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">Event</span> <span class="n">create_event</span> <span class="o">=</span> <span class="n">RegionInstance</span><span class="o">::</span><span class="n">create_instance</span><span class="p">(</span>
+      <span class="n">task_args</span><span class="p">.</span><span class="n">inst</span><span class="p">,</span> <span class="o">*</span><span class="n">memories</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">task_args</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">field_sizes</span><span class="p">,</span>
+      <span class="cm">/*AOS=*/</span><span class="mi">1</span><span class="p">,</span> <span class="n">ProfilingRequestSet</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>This instance encompasses two logical layouts such as <code class="language-plaintext highlighter-rouge">InstanceLogicalLayout1</code>
+and <code class="language-plaintext highlighter-rouge">InstanceLogicalLayout2</code>. These layouts are attributed by the <code class="language-plaintext highlighter-rouge">FieldID</code>
+and supplied to the instance interface as part of the <code class="language-plaintext highlighter-rouge">field_sizes</code> map:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">FieldID</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">field_sizes</span><span class="p">;</span>
+  <span class="n">field_sizes</span><span class="p">[</span><span class="n">FID1</span><span class="p">]</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">InstanceLogicalLayout1</span><span class="p">);</span>
+  <span class="n">field_sizes</span><span class="p">[</span><span class="n">FID2</span><span class="p">]</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">InstanceLogicalLayout2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="accessing-instances">Accessing Instances</h2>
+<p>It may be necessary for a task to access data stored in a
+region instance directly. Realm offers a set of accessors such as
+<code class="language-plaintext highlighter-rouge">AffineAccessor</code>, <code class="language-plaintext highlighter-rouge">MultiAffineAccessor</code> and <code class="language-plaintext highlighter-rouge">GenericAccessor</code> that
+allow users to access individual elements. GenericAccessor can handle
+any data layout irrespectively whether the data is stored on the local or
+remote node. AffineAccessor is designed to work for local data
+with an affine layout only that is scoped to a single layout piece.
+MultiAffineAccessor allows handling affine layouts with multiple
+pieces.</p>
+
+<p>In this example, the <code class="language-plaintext highlighter-rouge">main_task</code> creates a region instance with an
+affine layout and stores it in the system memory (<code class="language-plaintext highlighter-rouge">SYSTEM_MEM</code>)
+accessible by the executing processor <code class="language-plaintext highlighter-rouge">p</code>. The reader and writer tasks 
+are launched on the same processor as the <code class="language-plaintext highlighter-rouge">main_task</code> which
+allowing them to use the <code class="language-plaintext highlighter-rouge">AffineAccessor</code> to access individual
+elements of an instance provided within <code class="language-plaintext highlighter-rouge">TaskArguments</code>:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">reader_task</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">arglen</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">,</span>
+                 <span class="kt">size_t</span> <span class="n">userlen</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="n">TaskArguments</span> <span class="o">&amp;</span><span class="n">task_args</span> <span class="o">=</span>
+      <span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">TaskArguments</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+  <span class="n">verify</span><span class="o">&lt;</span><span class="n">InstanceLogicalLayout1</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">task_args</span><span class="p">.</span><span class="n">inst</span><span class="p">,</span> <span class="n">task_args</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span>
+                                             <span class="n">FID1</span><span class="p">,</span> <span class="cm">/*add=*/</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">verify</span><span class="o">&lt;</span><span class="n">InstanceLogicalLayout2</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">task_args</span><span class="p">.</span><span class="n">inst</span><span class="p">,</span>
+                                                    <span class="n">task_args</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">FID2</span><span class="p">,</span>
+                                                    <span class="cm">/*add=*/</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">writer_task</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">arglen</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">userdata</span><span class="p">,</span>
+                 <span class="kt">size_t</span> <span class="n">userlen</span><span class="p">,</span> <span class="n">Processor</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="n">TaskArguments</span> <span class="o">&amp;</span><span class="n">task_args</span> <span class="o">=</span>
+      <span class="o">*</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">TaskArguments</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+  <span class="n">update</span><span class="o">&lt;</span><span class="n">InstanceLogicalLayout1</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">task_args</span><span class="p">.</span><span class="n">inst</span><span class="p">,</span> <span class="n">task_args</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span>
+                                             <span class="n">FID1</span><span class="p">,</span> <span class="cm">/*add=*/</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">update</span><span class="o">&lt;</span><span class="n">InstanceLogicalLayout2</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span>
+      <span class="n">task_args</span><span class="p">.</span><span class="n">inst</span><span class="p">,</span> <span class="n">task_args</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">FID2</span><span class="p">,</span> <span class="cm">/*add=*/</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The example demonstrates the control dependency between the writer and
+reader tasks, where the writer task waits for the instance
+completion event (<code class="language-plaintext highlighter-rouge">create_event</code>), and the reader task waits for the 
+writer to complete:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">Event</span> <span class="n">writer_event</span> <span class="o">=</span>
+      <span class="n">p</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">WRITER_TASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">task_args</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">TaskArguments</span><span class="p">),</span> <span class="n">create_event</span><span class="p">);</span>
+  <span class="n">Event</span> <span class="n">reader_event</span> <span class="o">=</span>
+      <span class="n">p</span><span class="p">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">READER_TASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">task_args</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">TaskArguments</span><span class="p">),</span> <span class="n">writer_event</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>All operations, such as creating an instance and writing and reading data, are
+also non-blocking which is achieved through realm’s asynchronous execution
+model.</p>
+
+<h2 id="best-practices">Best Practices</h2>
+<p>The affine data layout is the most commonly used in high-performance
+computing applications and is recommended for Realm applications as
+well. It allows for the efficient traversal of data in both row-major and
+column-major order.</p>
+
+<p>SOA is generally more efficient when accessing a specific
+field of data for a large number of objects, as each field is
+stored contiguously in memory. This can lead to better data locality
+and cache performance, especially when processing large amounts of 
+data.</p>
+
+<p>AOS, on the other hand, is more convenient when accessing
+multiple fields of a single object, as all fields for each object are
+stored together in memory. It can simplify the code needed to access
+the data and can also be more memory efficient for small datasets.</p>
+
+<p>GenericAccessors.  While useful, these accessors are generally more
+expensive and should be used with caution. A read/write operation via
+this accessor could potentially result in a network transaction,
+assuming the data is stored on a remote node.</p>
+
+<p>Accessors use a k-d tree to perform piece lookups that are
+logarithmic in the number of pieces. If we build an accessor for just
+a subset of an instance, it will pre-prune the tree to just the subtree
+that covers the specified subset (assuming this would be a single
+piece, lookups are now constant time again).</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+  <li><a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/instance.h">Instance public header file</a></li>
+</ol>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

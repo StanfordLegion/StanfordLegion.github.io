@@ -1,0 +1,308 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Realm Profiling &#8211; Legion Programming System</title>
+<meta name="description" content="">
+
+<meta name="keywords" content="">
+
+
+<!-- mermaid Graph -->
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realm Profiling">
+<meta property="og:description" content="Home page for the Legion parallel programming system">
+<meta property="og:url" content="/tutorial/realm/profiling.html">
+<meta property="og:site_name" content="Legion Programming System">
+
+
+
+
+
+<link rel="canonical" href="/tutorial/realm/profiling.html">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Legion Programming System Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="icon" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" sizes="48x48" href="/images/favicon/favicon-48x48.png">
+<link rel="icon" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+<link rel="icon" sizes="144x144" href="/images/favicon/favicon-144x144.png">
+<link rel="icon" sizes="192x192" href="/images/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="192x192" href="/images/favicon/apple-icon-precomposed.png">
+<meta name="msapplication-config" content="/images/favicon/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<link rel="manifest" href="/images/favicon/manifest.json">
+
+</head>
+
+<body class="page" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="/">Legion Programming System</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/overview/" >Overview</a></li>
+		        
+				<li><a href="/starting/" >Getting Started</a></li>
+		        
+				<li><a href="/tutorial/" >Tutorials</a></li>
+		        
+				<li><a href="/events/" >Events</a></li>
+		        
+				<li><a href="/documentation/" >Documentation</a></li>
+		        
+				<li><a href="/publications/" >Publications</a></li>
+		        
+				<li><a href="/resources/" >Resources</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+
+<div id="main" role="main"  itemprop="mainContentOfPage">
+  <div class="article-author-side">
+    <a href="https://www.stanford.edu/"><img src="/images/logos/stanford.png" class="bio-photo" alt="Stanford University logo"></a>
+<a href="https://www6.slac.stanford.edu/"><img src="/images/logos/slac.jpg" class="bio-photo" alt="SLAC National Accelerator Laboratory logo"></a>
+<a href="https://www.lanl.gov/"><img src="/images/logos/los-alamos.png" class="bio-photo" alt="Los Alamos National Laboratory logo"></a>
+<a href="https://www.nvidia.com/"><img src="/images/logos/nvidia.png" class="bio-photo" alt="NVIDIA logo"></a>
+<a href="https://www.rdworldonline.com/rd-100-award-winners-announced-in-analytical-test-it-electrical-categories/"><img src="/images/logos/rd100.png" class="bio-photo" alt="Winner of the R&D 100 Award"></a>
+
+<h3>Legion</h3>
+<p>A Data-Centric Parallel Programming System</p>
+
+
+
+
+
+<a href="http://github.com/StanfordLegion/legion" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/CreativeWork">
+    <h1 itemprop="name">Realm Profiling</h1>
+    <div class="article-wrap" itemprop="text">
+      <h2 id="introduction">Introduction</h2>
+
+<p>After developing a functional Realm application, it is often necessary to profile 
+and tune its performance. Realm provides a built-in profiling mechanism allowing 
+users to query profiling information about all Realm operations. This tutorial 
+will explain how to profile a task, instance creation, and copy operation. 
+In addition, we also provide a sophisticated use case of utilizing
+profiling results to make load balance decisions for task launchers.</p>
+
+<p>Here is a list of covered topics:</p>
+
+<ul>
+  <li><a href="#creating-profiling-requests">Creating Profiling Requests</a></li>
+  <li><a href="#adding-performance-metrics">Adding Performance Metrics</a></li>
+  <li><a href="#collecting-profiling-results">Collecting Profiling Results</a></li>
+  <li><a href="#advanced-use-case-load-balancing-task-launcher">Advanced Use Case: Load Balancing Task Launcher</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+<h2 id="creating-profiling-requests">Creating Profiling Requests</h2>
+
+<p>Realm profiling allows clients to profile most of the operations in Realm, such as tasks and 
+instance creation. To tell Realm which profiling information
+we want to collect, we need to create a <code class="language-plaintext highlighter-rouge">ProfilingRequestSet</code> object. Then we can use the
+<code class="language-plaintext highlighter-rouge">add_request</code> method to create a <code class="language-plaintext highlighter-rouge">ProfilingRequest</code> object and add it to the ProfilingRequestSet
+created before.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ProfilingRequestSet</span> <span class="n">task_prs</span><span class="p">;</span>
+<span class="n">task_prs</span><span class="p">.</span><span class="n">add_request</span><span class="p">(</span><span class="n">profile_proc</span><span class="p">,</span> <span class="n">COMPUTE_PROF_TASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">task_result</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ComputeProfResultWrapper</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Realm profiling adopts a callback design, where a profiling task is launched
+to report profiling results when an operation is completed. Therefore, as shown on the code above, 
+we need to specify the task (<code class="language-plaintext highlighter-rouge">COMPUTE_PROF_TASK</code>) and processor (<code class="language-plaintext highlighter-rouge">profile_proc</code>) to be used to launch the task for the ProfilingRequest.
+It is noted that we use utility processor to launch profiling tasks because we want
+to leave the cpu processor for regular tasks. It does not mean that profiling tasks
+can not be launched on cpu processors.</p>
+
+<h2 id="adding-performance-metrics">Adding Performance Metrics</h2>
+
+<p>Once the ProfilingRequest is created, we can add performance metrics that need to be profiled into it. 
+Realm supports a variety of performance metrics that can be specified by the <code class="language-plaintext highlighter-rouge">add_measurement</code>
+method of the ProfilingRequest object.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task_prs</span><span class="p">.</span><span class="n">add_request</span><span class="p">(</span><span class="n">profile_proc</span><span class="p">,</span> <span class="n">COMPUTE_PROF_TASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">task_result</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ComputeProfResultWrapper</span><span class="p">))</span>
+  <span class="p">.</span><span class="n">add_measurement</span><span class="o">&lt;</span><span class="n">ProfilingMeasurements</span><span class="o">::</span><span class="n">OperationTimeline</span><span class="o">&gt;</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The following metrics are used in the tutorial.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">OperationTimeline</code> tracks the timestamps of different stages of an operation. 
+In this example, we use it for tasks and copy operations.</li>
+  <li><code class="language-plaintext highlighter-rouge">OperationProcessorUsage</code> contains the processor where the task is launched.</li>
+  <li><code class="language-plaintext highlighter-rouge">InstanceTimeline</code> tracks the timeline of an instance, including when the instance is created, 
+ready for use, and destroyed.</li>
+  <li><code class="language-plaintext highlighter-rouge">InstanceMemoryUsage</code> includes the memory where the instance is located and the size of the instance.</li>
+  <li><code class="language-plaintext highlighter-rouge">OperationCopyInfo</code> tracks the transfer details for copy and fill operations.</li>
+  <li><code class="language-plaintext highlighter-rouge">OperationMemoryUsage</code> tracks the memory usage for copy and fill operations.</li>
+</ul>
+
+<p>Realm supports many other kinds of <code class="language-plaintext highlighter-rouge">ProfilingMeasurements</code>, and they can be found in the <a href="#profiling-header-file">profiling header file</a>.
+Once the metrics are set, we can pass the ProfilingRequestSet object to Realm APIs that
+support profiling. For example, the following code is an example of setting the <code class="language-plaintext highlighter-rouge">ProfilingRequestSet</code> for tasks.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">worker_procs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">spawn</span><span class="p">(</span><span class="n">COMPUTE_TASK</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">compute_task_args</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ComputeTaskArgs</span><span class="p">),</span> <span class="n">task_prs</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="collecting-profiling-results">Collecting Profiling Results</h2>
+
+<p>As mentioned earlier, after an operation is completed, a profiling task is launched where
+profiling results can be collected. Now we demonstrate how to collect
+the results of the task launched in the <code class="language-plaintext highlighter-rouge">main_task</code>.</p>
+<ol>
+  <li>To gather profiling results of a task, a <code class="language-plaintext highlighter-rouge">ProfilingResponse</code> object is created by passing the <code class="language-plaintext highlighter-rouge">args</code> and <code class="language-plaintext highlighter-rouge">arglen</code>.</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ProfilingResponse</span> <span class="nf">resp</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">arglen</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>It is worth mentioning that for each <code class="language-plaintext highlighter-rouge">ProfilingRequest</code>, there will be one and only 
+one <code class="language-plaintext highlighter-rouge">ProfilingResponse</code> reported back to the client, such that the client can use 
+this feature to make sure all the profiling responses are collected.</p>
+
+<ol>
+  <li>The argument of the profiling task can be retrieved by the <code class="language-plaintext highlighter-rouge">user_data</code> method of the
+ProfilingResponse object.</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">ComputeProfResultWrapper</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ComputeProfResultWrapper</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">user_data</span><span class="p">());</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Then, the <code class="language-plaintext highlighter-rouge">get_measurement</code> method can be used to
+obtain the results of performance metrics requested by the <code class="language-plaintext highlighter-rouge">add_measurement</code> method described
+in the previous section.</li>
+</ol>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ProfilingMeasurements</span><span class="o">::</span><span class="n">OperationTimeline</span> <span class="n">timeline</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">get_measurement</span><span class="p">(</span><span class="n">timeline</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">metrics</span><span class="o">-&gt;</span><span class="n">ready_time</span> <span class="o">=</span> <span class="n">timeline</span><span class="p">.</span><span class="n">ready_time</span><span class="p">;</span>
+  <span class="n">metrics</span><span class="o">-&gt;</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">timeline</span><span class="p">.</span><span class="n">start_time</span><span class="p">;</span>
+  <span class="n">metrics</span><span class="o">-&gt;</span><span class="n">complete_time</span> <span class="o">=</span> <span class="n">timeline</span><span class="p">.</span><span class="n">complete_time</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Sometimes, we want to be notified when
+the results are ready inside the task where the operation needing profiling is launched. For 
+example, in this tutorial, we want to print the results in the <code class="language-plaintext highlighter-rouge">main_task</code>.
+To achieve this, we can create a <code class="language-plaintext highlighter-rouge">UserEvent</code>, pass it as the argument of a profiling task 
+via the <code class="language-plaintext highlighter-rouge">add_request</code> method,
+explicitly trigger it inside the profiling task, and then we can either
+wait for the event as seen in this example explicitly or push it into a CompletionQueue and query it later.</p>
+
+<h2 id="advanced-use-case-load-balancing-task-launcher">Advanced Use Case: Load Balancing Task Launcher</h2>
+
+<p>Real-world applications often have tasks with different costs, and the same task may run at different 
+speeds on different processors. Therefore, a simple round-robin task scheduling may not be sufficient. 
+This section explores the benefits of empirical task distribution using profiling 
+results.
+We repeatedly launch a batch of tasks on a group of worker processors, where each task has a 
+different cost. A standard approach is to profile the tasks offline to obtain their execution time and 
+compute a static load-balancing strategy. In this program, we start with a round-robin strategy.
+Then we profile the tasks and use the profiling results to pick the best worker processor 
+for future iterations dynamically.</p>
+
+<p>Here is the performance comparison between round-robin and profiling guided scheduling:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./profiling -ll:cpu 6
+[0 - 7f59ba4f3800]    0.189922 {3}{app}: With round-robin 38358 us
+[0 - 7f59ba4f3800]    0.212061 {3}{app}: With profiling 21299 us
+</code></pre></div></div>
+
+<p>It turns out the profiling guided one achieves better task load balance.</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+  <li><a href="https://github.com/StanfordLegion/legion/blob/stable/runtime/realm/profiling.h">profiling header file</a></li>
+</ol>
+
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2023 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-20524102-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+          
+
+</body>
+</html>

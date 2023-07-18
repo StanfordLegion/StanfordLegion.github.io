@@ -230,7 +230,7 @@ features that are supported, the outputs are bitwise identical. See
 below for usage instructions for the Rust profilers.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">--proto</span> <span class="s1">'=https'</span> <span class="nt">--tlsv1</span>.2 <span class="nt">-sSf</span> https://sh.rustup.rs | sh
-cargo <span class="nb">install</span> <span class="nt">--path</span> legion/tools/legion_prof_rs
+cargo <span class="nb">install</span> <span class="nt">--locked</span> <span class="nt">--path</span> legion/tools/legion_prof_rs
 legion_prof prof_<span class="k">*</span>.gz</code></pre></figure>
 
 <p>The first line installs Rust. The second installs a <code class="language-plaintext highlighter-rouge">legion_prof</code>

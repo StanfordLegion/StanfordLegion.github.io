@@ -466,7 +466,7 @@
 /home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_domain.h:125: warning: Member DomainT (typedef) of  Legion is not documented.
 /home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:424: warning: Member LG_TASK_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
 /home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:575: warning: Member MAPPER_CALL_NAMES(name) (macro definition) of file legion_types.h is not documented.
-/home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:866: warning: Member LG_MESSAGE_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
+/home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:867: warning: Member LG_MESSAGE_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
 /home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:1218: warning: Member RUNTIME_CALL_DESCRIPTIONS(name) (macro definition) of file legion_types.h is not documented.
 /home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:1671: warning: Member FRIEND_ALL_RUNTIME_CLASSES (macro definition) of file legion_types.h is not documented.
 /home/runner/work/legion.stanford.edu/legion.stanford.edu/_legion/runtime/legion/legion_types.h:1759: warning: Member LEGION_EXTERN_LOGGER_DECLARATIONS (macro definition) of file legion_types.h is not documented.

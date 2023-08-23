@@ -176,6 +176,7 @@
       <li><a href="#distal2022">Tensor Algebra (PLDI 2022)</a> [<a href="/pdfs/distal2022.pdf">PDF</a>]</li>
       <li><a href="#pawatm2022">Distributed Task Fusion (PAW-ATM 2022)</a> [<a href="/pdfs/pawatm2022.pdf">PDF</a>]</li>
       <li><a href="#spdistal2022">Sparse Tensor Algebra (SC 2022)</a> [<a href="/pdfs/spdistal2022.pdf">PDF</a>]</li>
+      <li><a href="#legate-sparse2023">Legate Sparse (SC 2023)</a> [<a href="/pdfs/legate-sparse2023.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Applications:
@@ -770,6 +771,26 @@ eschew by compromising the expressivity of their programming models and/or
 the performance of their implementations. We demonstrate a general class of 
 solutions to these problems via a reduction to the visibility problem from 
 computer graphics.</p>
+
+<p><a name="legate-sparse2023"></a><strong>Legate Sparse: Distributed Sparse Computing in Python</strong> <a href="/pdfs/legate-sparse2023.pdf">PDF</a> <br />
+<em>Rohan Yadav, Wonchan Lee, Melih Elibol, Taylor Lee Patti, Manolis Papadakis, Michael Garland, Alex Aiken, Fredrik Kjolstad and Michael Bauer</em> <br />
+To appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC 2023) <br />
+<strong>Abstract:</strong> The sparse module of the popular SciPy Python library is
+widely used across applications in scientific computing, data analysis
+and machine learning. The standard implementation of SciPy is
+restricted to a single CPU and cannot take advantage of modern
+distributed and accelerated computing resources. We introduce Legate
+Sparse, a system that transparently distributes and accelerates
+unmodified sparse matrix-based SciPy programs across clusters of CPUs
+and GPUs, and composes with cuNumeric, a distributed NumPy
+library. Legate Sparse uses a combination of static and dynamic
+techniques to efficiently compose independently written sparse and
+dense array programming libraries, providing a unified Python
+interface for distributed sparse and dense array computations. We show
+that Legate Sparse is competitive with single-GPU libraries like CuPy
+and achieves 65% of the performance of PETSc on up to 1280 CPU cores
+and 192 GPUs of the Summit supercomputer, while offering the
+productivity benefits of idiomatic SciPy and NumPy.</p>
 
 <h2 id="theses">Theses</h2>
 

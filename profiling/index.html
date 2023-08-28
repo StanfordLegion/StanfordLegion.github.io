@@ -141,7 +141,7 @@ techniques to achieving high performance in Legion applications.</p>
       <li><a href="#generating-legion-prof-logs">Generating Legion Prof Logs</a></li>
       <li><a href="#installing-legion_prof">Installing <code class="language-plaintext highlighter-rouge">legion_prof</code></a></li>
       <li><a href="#viewing-profiles-locally-view-mode">Viewing Profiles Locally (View Mode)</a></li>
-      <li><a href="#sharing-profiles-archive-mode">Saving and Sharing Profiles (Archive Mode)</a></li>
+      <li><a href="#saving-and-sharing-profiles-archive-mode">Saving and Sharing Profiles (Archive Mode)</a></li>
       <li><a href="#remotely-viewing-profiles-serve-and-attach-modes">Remotely Viewing Profiles (Serve and Attach Modes)</a></li>
     </ul>
   </li>
@@ -215,7 +215,7 @@ following:</p>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">curl <span class="nt">--proto</span> <span class="s1">'=https'</span> <span class="nt">--tlsv1</span>.2 <span class="nt">-sSf</span> https://sh.rustup.rs | sh
 cargo <span class="nb">install</span> <span class="nt">--locked</span> <span class="nt">--all-features</span> <span class="nt">--path</span> legion/tools/legion_prof_rs</code></pre></figure>
 
-<p>The first line installs Rust. The second installs <code class="language-plaintext highlighter-rouge">legion_prof</code>
+<p>The first line installs Rust. The second installs the <code class="language-plaintext highlighter-rouge">legion_prof</code>
 binary into <code class="language-plaintext highlighter-rouge">~/.cargo/bin</code>. The supported flags can be queried with
 <code class="language-plaintext highlighter-rouge">legion_prof --help</code>.</p>
 

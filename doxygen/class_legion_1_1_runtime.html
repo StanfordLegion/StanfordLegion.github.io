@@ -1106,10 +1106,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a5e5c849820b8b363331fea7345707aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad454cb6f6219e29c1278480a3dd4d09a"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad454cb6f6219e29c1278480a3dd4d09a">get_legion_version</a> (void)</td></tr>
 <tr class="separator:ad454cb6f6219e29c1278480a3dd4d09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ef2a69a34d383ea70f8630023c29015"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">start</a> (int argc, char **argv, bool background=false, bool supply_default_mapper=true)</td></tr>
-<tr class="separator:a7ef2a69a34d383ea70f8630023c29015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7604218afb83fecd6d9e47a1852b6219"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7604218afb83fecd6d9e47a1852b6219">initialize</a> (int *argc, char ***argv, bool filter=false)</td></tr>
-<tr class="separator:a7604218afb83fecd6d9e47a1852b6219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a935b865d0a3802c281955cfecbff0443"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">start</a> (int argc, char **argv, bool background=false, bool supply_default_mapper=true, bool filter=false)</td></tr>
+<tr class="separator:a935b865d0a3802c281955cfecbff0443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4fd922cb9a64c0d2c0f90b25eb9ce8f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad4fd922cb9a64c0d2c0f90b25eb9ce8f">initialize</a> (int *argc, char ***argv, bool filter=false, bool parse=true)</td></tr>
+<tr class="separator:ad4fd922cb9a64c0d2c0f90b25eb9ce8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c6d29724fa7b7e3679b94b19a20c37c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3c6d29724fa7b7e3679b94b19a20c37c">wait_for_shutdown</a> (void)</td></tr>
 <tr class="separator:a3c6d29724fa7b7e3679b94b19a20c37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a524e0c687da51d111c209e98e4aeb97c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a524e0c687da51d111c209e98e4aeb97c">set_return_code</a> (int return_code)</td></tr>
@@ -10504,12 +10504,12 @@ template&lt;unsigned DIM&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Provide a method to test whether the <a class="el" href="namespace_legion.html">Legion</a> runtime has been started yet or not. Note that this method simply queries at a single point in time and can race with a call to <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> performed by a different thread. </p>
+<p>Provide a method to test whether the <a class="el" href="namespace_legion.html">Legion</a> runtime has been started yet or not. Note that this method simply queries at a single point in time and can race with a call to <a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">Runtime::start</a> performed by a different thread. </p>
 
 </div>
 </div>
-<a id="a7604218afb83fecd6d9e47a1852b6219"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7604218afb83fecd6d9e47a1852b6219">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="ad4fd922cb9a64c0d2c0f90b25eb9ce8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4fd922cb9a64c0d2c0f90b25eb9ce8f">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -10533,7 +10533,13 @@ template&lt;unsigned DIM&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>filter</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>filter</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>parse</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -10551,7 +10557,8 @@ template&lt;unsigned DIM&gt; </div>
   <table class="params">
     <tr><td class="paramname">argc</td><td>pointer to an integer in which to store the argument count </td></tr>
     <tr><td class="paramname">argv</td><td>pointer to array of strings for storing command line args </td></tr>
-    <tr><td class="paramname">filter</td><td>remove any runtime command line arguments </td></tr>
+    <tr><td class="paramname">filter</td><td>remove any legion and realm command line arguments </td></tr>
+    <tr><td class="paramname">parse</td><td>parse any runtime command line arguments during this call (if set to false parsing happens during start method) </td></tr>
   </table>
   </dd>
 </dl>
@@ -11711,7 +11718,7 @@ template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Statically register a new task variant with the runtime with a non-void return type prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically register a new task variant with the runtime with a non-void return type prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">registrar</td><td>the task variant registrar for describing the task </td></tr>
     <tr><td class="paramname">task_name</td><td>an optional name to assign to the logical task </td></tr>
@@ -11764,7 +11771,7 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Statically register a new task variant with the runtime with a void return type prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically register a new task variant with the runtime with a void return type prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">registrar</td><td>the task variant registrar for describing the task </td></tr>
     <tr><td class="paramname">an</td><td>optional name to assign to the logical task </td></tr>
@@ -11845,7 +11852,7 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Statically register a new task variant with the runtime that has already built in the necessary preamble/postamble (i.e. calls to LegionTaskWrapper::legion_task_{pre,post}amble). This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically register a new task variant with the runtime that has already built in the necessary preamble/postamble (i.e. calls to LegionTaskWrapper::legion_task_{pre,post}amble). This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">registrar</td><td>the task variant registrar for describing the task </td></tr>
     <tr><td class="paramname">codedesc</td><td>the code descriptor for the pre-wrapped task </td></tr>
@@ -11907,7 +11914,7 @@ template&lt;typename T , typename UDT , T(*)(const Task *, const std::vector&lt;
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Statically register a new task variant with the runtime with a non-void return type and userd data prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically register a new task variant with the runtime with a non-void return type and userd data prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">registrar</td><td>the task variant registrar for describing the task </td></tr>
     <tr><td class="paramname">user_data</td><td>the user data to associate with the task variant </td></tr>
@@ -11967,7 +11974,7 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Statically register a new task variant with the runtime with a void return type and user data prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a7ef2a69a34d383ea70f8630023c29015">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Statically register a new task variant with the runtime with a void return type and user data prior to the runtime starting. This call must be made on all nodes and it will fail if done after the <a class="el" href="class_legion_1_1_runtime.html#a935b865d0a3802c281955cfecbff0443">Runtime::start</a> method has been invoked. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">registrar</td><td>the task variant registrar for describing the task </td></tr>
     <tr><td class="paramname">user_data</td><td>the user data to associate with the task variant </td></tr>
@@ -14302,8 +14309,8 @@ template&lt;int DIM, typename COORD_T &gt; </div>
 
 </div>
 </div>
-<a id="a7ef2a69a34d383ea70f8630023c29015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ef2a69a34d383ea70f8630023c29015">&#9670;&nbsp;</a></span>start()</h2>
+<a id="a935b865d0a3802c281955cfecbff0443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935b865d0a3802c281955cfecbff0443">&#9670;&nbsp;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -14333,7 +14340,13 @@ template&lt;int DIM, typename COORD_T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>supply_default_mapper</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>supply_default_mapper</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>filter</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -14389,6 +14402,7 @@ Profiling</h2>
     <tr><td class="paramname">argv</td><td>pointer to an array of string arguments of size argc </td></tr>
     <tr><td class="paramname">background</td><td>whether to execute the runtime in the background </td></tr>
     <tr><td class="paramname">supply_default_mapper</td><td>whether the runtime should initialize the default mapper for use by the application </td></tr>
+    <tr><td class="paramname">filter</td><td>filter legion and realm command line arguments </td></tr>
   </table>
   </dd>
 </dl>
@@ -14640,7 +14654,7 @@ Profiling</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 28 2023 23:04:02 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Sep 6 2023 17:04:37 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

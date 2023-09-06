@@ -17,7 +17,7 @@ var searchData=
   ['indexspacet_269',['IndexSpaceT',['../class_legion_1_1_index_space_t.html',1,'Legion']]],
   ['indexspaceunion_270',['IndexSpaceUnion',['../class_legion_1_1_internal_1_1_index_space_union.html',1,'Legion::Internal']]],
   ['indextasklauncher_271',['IndexTaskLauncher',['../struct_legion_1_1_index_task_launcher.html',1,'Legion']]],
-  ['initialize_272',['initialize',['../class_legion_1_1_runtime.html#a7604218afb83fecd6d9e47a1852b6219',1,'Legion::Runtime']]],
+  ['initialize_272',['initialize',['../class_legion_1_1_runtime.html#ad4fd922cb9a64c0d2c0f90b25eb9ce8f',1,'Legion::Runtime']]],
   ['inlinelauncher_273',['InlineLauncher',['../struct_legion_1_1_inline_launcher.html',1,'Legion']]],
   ['inlinemapping_274',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
   ['inputargs_275',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],

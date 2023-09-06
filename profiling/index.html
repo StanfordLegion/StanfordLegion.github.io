@@ -480,7 +480,7 @@ prefixed with <code class="language-plaintext highlighter-rouge">-ll:</code>.</p
  be at least one of these threads. Applications which are 
  very communication intensive may consider increasing the 
  number of threads for handling active messages. The default
- value is 1.</li>
+ value is 1. (Note: this flag is available with the <code class="language-plaintext highlighter-rouge">gasnet1</code> and <code class="language-plaintext highlighter-rouge">mpi</code> networks only, and not available with <code class="language-plaintext highlighter-rouge">gasnetex</code>.)</li>
   <li><code class="language-plaintext highlighter-rouge">-ll:bgwork &lt;int&gt;</code> - Specify the number of 
  background threads. For applications
  which do significant movement of data between distinct 

@@ -168,9 +168,9 @@ enabled processors and print out their address space and ID (a unique identifier
 <p>A <code class="language-plaintext highlighter-rouge">Processor</code> can also be queried by its <code class="language-plaintext highlighter-rouge">kind</code> and the runtime supports the following options:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">TOC_PROC</code> represents a throughput processor, which is usually a CPU core. 
+  <li><code class="language-plaintext highlighter-rouge">LOC_PROC</code> represents a latency processor,which is usually a CPU core. 
 It can be specified by <code class="language-plaintext highlighter-rouge">-ll:cpu</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">LOC_PROC</code> represents a latency processor (GPU).
+  <li><code class="language-plaintext highlighter-rouge">TOC_PROC</code> represents a throughput processor (GPU).
 Currently, Realm supports both NVIDIA and AMD GPUs.
 It can be specified by <code class="language-plaintext highlighter-rouge">-ll:gpu</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">UTIL_PROC</code> represents a CPU processor that is designed for users to run their own background work.

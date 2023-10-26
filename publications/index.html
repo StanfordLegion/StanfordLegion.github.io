@@ -177,6 +177,7 @@
       <li><a href="#pawatm2022">Distributed Task Fusion (PAW-ATM 2022)</a> [<a href="/pdfs/pawatm2022.pdf">PDF</a>]</li>
       <li><a href="#spdistal2022">Sparse Tensor Algebra (SC 2022)</a> [<a href="/pdfs/spdistal2022.pdf">PDF</a>]</li>
       <li><a href="#legate-sparse2023">Legate Sparse (SC 2023)</a> [<a href="/pdfs/legate-sparse2023.pdf">PDF</a>]</li>
+      <li><a href="#automap2023">AutoMap (SC 2023)</a> [<a href="/pdfs/automap2023.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Applications:
@@ -774,7 +775,7 @@ computer graphics.</p>
 
 <p><a name="legate-sparse2023"></a><strong>Legate Sparse: Distributed Sparse Computing in Python</strong> <a href="/pdfs/legate-sparse2023.pdf">PDF</a> <br />
 <em>Rohan Yadav, Wonchan Lee, Melih Elibol, Taylor Lee Patti, Manolis Papadakis, Michael Garland, Alex Aiken, Fredrik Kjolstad and Michael Bauer</em> <br />
-To appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC 2023) <br />
+To appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (<a href="https://sc23.supercomputing.org/presentation/?id=pap119&amp;sess=sess172">SC 2023</a>) <br />
 <strong>Abstract:</strong> The sparse module of the popular SciPy Python library is
 widely used across applications in scientific computing, data analysis
 and machine learning. The standard implementation of SciPy is
@@ -791,6 +792,28 @@ that Legate Sparse is competitive with single-GPU libraries like CuPy
 and achieves 65% of the performance of PETSc on up to 1280 CPU cores
 and 192 GPUs of the Summit supercomputer, while offering the
 productivity benefits of idiomatic SciPy and NumPy.</p>
+
+<p><a name="automap2023"></a><strong>Automated Mapping of Task-Based Programs onto Distributed and Heterogeneous Machines</strong> <a href="/pdfs/automap2023.pdf">PDF</a> <br />
+<em>Thiago S. F. X. Teixeira, Alexandra Henzinger, Rohan Yadav and Alex Aiken</em> <br />
+To appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (<a href="https://sc23.supercomputing.org/presentation/?id=pap389&amp;sess=sess172">SC 2023</a>) <br />
+<strong>Abstract:</strong> In a parallel and distributed application, a <em>mapping</em>
+is a selection of a processor for each computation or task and
+memories for the data collections that each task accesses. Finding
+high-performance mappings is challenging, particularly on
+heterogeneous hardware with multiple choices for processors and
+memories. We show that fast mappings are sensitive to the machine,
+application, and input. Porting to a new machine, modifying the
+application, or using a different input size may necessitate re-tuning
+the mapping to maintain the best possible performance.</p>
+
+<p>We present <em>AutoMap</em>, a system that automatically tunes the mapping to
+the hardware used and finds fast mappings without user intervention or
+code modification. In contrast, hand-written mappings often require
+days of experimentation. AutoMap utilizes a novel <em>constrained
+coordinate-wise</em> descent search algorithm that balances the trade-off
+between running computations quickly and minimizing data
+movement. AutoMap discovers mappings up to 2.41× faster than
+custom, hand-written mappers.</p>
 
 <h2 id="theses">Theses</h2>
 

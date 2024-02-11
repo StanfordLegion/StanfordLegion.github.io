@@ -81,6 +81,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abffe2b6f889d0d106b7f8e2977dfa521"><td class="memItemLeft" align="right" valign="top"><a id="abffe2b6f889d0d106b7f8e2977dfa521"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AttachLauncher</b> (ExternalResource resource, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, const bool restricted=true, const bool mapped=true)</td></tr>
 <tr class="separator:abffe2b6f889d0d106b7f8e2977dfa521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1c0bc67e8333b3e168bf32dd71cb33a"><td class="memItemLeft" align="right" valign="top"><a id="ac1c0bc67e8333b3e168bf32dd71cb33a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize_constraints</b> (bool column_major, bool soa, const std::vector&lt; FieldID &gt; &amp;fields, const std::map&lt; FieldID, size_t &gt; *alignments=NULL)</td></tr>
+<tr class="separator:ac1c0bc67e8333b3e168bf32dd71cb33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d3139eec9d5d7ee6171f16ffbb69a65"><td class="memItemLeft" align="right" valign="top"><a id="a7d3139eec9d5d7ee6171f16ffbb69a65"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>attach_file</b> (const char *file_name, const std::vector&lt; FieldID &gt; &amp;fields, LegionFileMode mode)</td></tr>
 <tr class="separator:a7d3139eec9d5d7ee6171f16ffbb69a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,12 +102,21 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ae353aac601bd3614b9120b5e2d47fac0"><td class="memItemLeft" align="right" valign="top"><a id="ae353aac601bd3614b9120b5e2d47fac0"></a>
 ExternalResource&#160;</td><td class="memItemRight" valign="bottom"><b>resource</b></td></tr>
 <tr class="separator:ae353aac601bd3614b9120b5e2d47fac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3f26414ed2428ac3b4374210c38048a"><td class="memItemLeft" align="right" valign="top"><a id="ab3f26414ed2428ac3b4374210c38048a"></a>
-<a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b></td></tr>
-<tr class="separator:ab3f26414ed2428ac3b4374210c38048a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78161503f4bb98f4b6bb4cf5ae3773a1"><td class="memItemLeft" align="right" valign="top"><a id="a78161503f4bb98f4b6bb4cf5ae3773a1"></a>
 <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
 <tr class="separator:a78161503f4bb98f4b6bb4cf5ae3773a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f26414ed2428ac3b4374210c38048a"><td class="memItemLeft" align="right" valign="top"><a id="ab3f26414ed2428ac3b4374210c38048a"></a>
+<a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b></td></tr>
+<tr class="separator:ab3f26414ed2428ac3b4374210c38048a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3a5b84606d9ccfed9eaccd2fa91dd5"><td class="memItemLeft" align="right" valign="top"><a id="aed3a5b84606d9ccfed9eaccd2fa91dd5"></a>
+std::set&lt; FieldID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>privilege_fields</b></td></tr>
+<tr class="separator:aed3a5b84606d9ccfed9eaccd2fa91dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2654a988e35042287ec9f96434cdb65d"><td class="memItemLeft" align="right" valign="top"><a id="a2654a988e35042287ec9f96434cdb65d"></a>
+const Realm::ExternalInstanceResource *&#160;</td><td class="memItemRight" valign="bottom"><b>external_resource</b></td></tr>
+<tr class="separator:a2654a988e35042287ec9f96434cdb65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc3c1859f70e5b66c0c8d8c80141a47"><td class="memItemLeft" align="right" valign="top"><a id="a7bc3c1859f70e5b66c0c8d8c80141a47"></a>
+LayoutConstraintSet&#160;</td><td class="memItemRight" valign="bottom"><b>constraints</b></td></tr>
+<tr class="separator:a7bc3c1859f70e5b66c0c8d8c80141a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a031cde8463ccc508ca709ec47d16c4cd"><td class="memItemLeft" align="right" valign="top"><a id="a031cde8463ccc508ca709ec47d16c4cd"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>restricted</b></td></tr>
 <tr class="separator:a031cde8463ccc508ca709ec47d16c4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,12 +138,6 @@ std::vector&lt; FieldID &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memitem:ada3e42af2efb21a9b48fabc5c3bc0e4e"><td class="memItemLeft" align="right" valign="top"><a id="ada3e42af2efb21a9b48fabc5c3bc0e4e"></a>
 std::map&lt; FieldID, const char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>field_files</b></td></tr>
 <tr class="separator:ada3e42af2efb21a9b48fabc5c3bc0e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc3c1859f70e5b66c0c8d8c80141a47"><td class="memItemLeft" align="right" valign="top"><a id="a7bc3c1859f70e5b66c0c8d8c80141a47"></a>
-LayoutConstraintSet&#160;</td><td class="memItemRight" valign="bottom"><b>constraints</b></td></tr>
-<tr class="separator:a7bc3c1859f70e5b66c0c8d8c80141a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed3a5b84606d9ccfed9eaccd2fa91dd5"><td class="memItemLeft" align="right" valign="top"><a id="aed3a5b84606d9ccfed9eaccd2fa91dd5"></a>
-std::set&lt; FieldID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>privilege_fields</b></td></tr>
-<tr class="separator:aed3a5b84606d9ccfed9eaccd2fa91dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1057f89d8ca0b3386318978d20e28bf4"><td class="memItemLeft" align="right" valign="top"><a id="a1057f89d8ca0b3386318978d20e28bf4"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>footprint</b></td></tr>
 <tr class="separator:a1057f89d8ca0b3386318978d20e28bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,14 +146,21 @@ const std::vector&lt; <a class="el" href="struct_legion_1_1_static_dependence.ht
 <tr class="separator:acc7e002e81f5413b514a33dad722575c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Attach launchers are used for attaching existing physical resources outside of a <a class="el" href="namespace_legion.html">Legion</a> application to a specific logical region. This can include attaching files or arrays from inter-operating programs. We provide a generic attach launcher than can handle all kinds of attachments. Each attach launcher should be used for attaching only one kind of resource. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html">Runtime</a> </dd></dl>
+<div class="textblock"><p>Attach launchers are used for attaching existing physical resources outside of a <a class="el" href="namespace_legion.html">Legion</a> application to a specific logical region. This can include attaching files or arrays from inter-operating programs. We provide a generic attach launcher than can handle all kinds of attachments. Each attach launcher should be used for attaching only one kind of resource. Resources are described using Realm::ExternalInstanceResource descriptors (interface can be found in realm/instance.h). There are many different kinds of external instance resource descriptors including:</p><ul>
+<li>Realm::ExternalMemoryResource for host pointers (realm/instance.h)</li>
+<li>Realm::ExternalFileResource for POSIX files (realm/instance.h)</li>
+<li>Realm::ExternalCudaMemoryResource for CUDA pointers (realm/cuda/cuda_access.h)</li>
+<li>Realm::ExternalHipMemoryResource for HIP pointers (realm/hip/hip_access.h)</li>
+<li>Realm::ExternalHDF5Resource for HDF5 files (realm/hdf5/hdf5_access.h) ... Please explore the Realm code base for all the different kinds of external resources that you can attach to logical regions. <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html">Runtime</a> </dd></dl>
+</li>
+</ul>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="legion_8h_source.html">legion.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 26 2023 00:04:25 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

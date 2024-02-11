@@ -397,9 +397,9 @@ typedef ::legion_coord_t&#160;</td><td class="memItemRight" valign="bottom"><b>c
 <tr class="memitem:aa87cac3bc4e68c7cc18d7e4d3235e155"><td class="memItemLeft" align="right" valign="top"><a id="aa87cac3bc4e68c7cc18d7e4d3235e155"></a>
 typedef std::map&lt; CustomSerdezID, const Realm::CustomSerdezUntyped * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>SerdezOpTable</b></td></tr>
 <tr class="separator:aa87cac3bc4e68c7cc18d7e4d3235e155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0b840a04bc28a0898d7927c39230120"><td class="memItemLeft" align="right" valign="top"><a id="aa0b840a04bc28a0898d7927c39230120"></a>
-typedef std::map&lt; Realm::ReductionOpID, const Realm::ReductionOpUntyped * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionOpTable</b></td></tr>
-<tr class="separator:aa0b840a04bc28a0898d7927c39230120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6525328a3e20cc5362ca9de34fcab0d7"><td class="memItemLeft" align="right" valign="top"><a id="a6525328a3e20cc5362ca9de34fcab0d7"></a>
+typedef std::map&lt; Realm::ReductionOpID, Realm::ReductionOpUntyped * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReductionOpTable</b></td></tr>
+<tr class="separator:a6525328a3e20cc5362ca9de34fcab0d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4aec42675d82c819583570ee5d607b1"><td class="memItemLeft" align="right" valign="top"><a id="ae4aec42675d82c819583570ee5d607b1"></a>
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>SerdezInitFnptr</b>) (const ReductionOp *, void *&amp;, size_t &amp;)</td></tr>
 <tr class="separator:ae4aec42675d82c819583570ee5d607b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -581,7 +581,7 @@ template&lt;int DIM, typename T  = coord_t&gt; </td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 26 2023 00:04:25 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

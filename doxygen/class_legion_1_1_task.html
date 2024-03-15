@@ -97,6 +97,18 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>get_t
 <tr class="memitem:ade92bee0af8792d1344d615e5ea2bde4"><td class="memItemLeft" align="right" valign="top"><a id="ade92bee0af8792d1344d615e5ea2bde4"></a>
 virtual <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_slice_domain</b> (void) const =0</td></tr>
 <tr class="separator:ade92bee0af8792d1344d615e5ea2bde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac681d9aeb5c46eea82b1ba6917ed4c85"><td class="memItemLeft" align="right" valign="top"><a id="ac681d9aeb5c46eea82b1ba6917ed4c85"></a>
+virtual ShardID&#160;</td><td class="memItemRight" valign="bottom"><b>get_shard_id</b> (void) const =0</td></tr>
+<tr class="separator:ac681d9aeb5c46eea82b1ba6917ed4c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c0ddb28940f279daa5458e62ed713b"><td class="memItemLeft" align="right" valign="top"><a id="a06c0ddb28940f279daa5458e62ed713b"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_total_shards</b> (void) const =0</td></tr>
+<tr class="separator:a06c0ddb28940f279daa5458e62ed713b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20c9ab0a77b66fede53e45ed4c81256"><td class="memItemLeft" align="right" valign="top"><a id="ad20c9ab0a77b66fede53e45ed4c81256"></a>
+virtual <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_shard_point</b> (void) const =0</td></tr>
+<tr class="separator:ad20c9ab0a77b66fede53e45ed4c81256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98378a4213badfb596dd3186031be79c"><td class="memItemLeft" align="right" valign="top"><a id="a98378a4213badfb596dd3186031be79c"></a>
+virtual <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_shard_domain</b> (void) const =0</td></tr>
+<tr class="separator:a98378a4213badfb596dd3186031be79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18c157e782646752df7896b787f1ad6d"><td class="memItemLeft" align="right" valign="top"><a id="a18c157e782646752df7896b787f1ad6d"></a>
 virtual MappableType&#160;</td><td class="memItemRight" valign="bottom"><b>get_mappable_type</b> (void) const</td></tr>
 <tr class="separator:a18c157e782646752df7896b787f1ad6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,9 +119,9 @@ virtual const <a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</
 <tr class="memitem:af3e0c2e937af6f3682ab034fa956b074 inherit pub_methods_class_legion_1_1_mappable"><td class="memItemLeft" align="right" valign="top"><a id="af3e0c2e937af6f3682ab034fa956b074"></a>
 virtual UniqueID&#160;</td><td class="memItemRight" valign="bottom"><b>get_unique_id</b> (void) const =0</td></tr>
 <tr class="separator:af3e0c2e937af6f3682ab034fa956b074 inherit pub_methods_class_legion_1_1_mappable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8d8df7b71126e00281df7dc61402b18 inherit pub_methods_class_legion_1_1_mappable"><td class="memItemLeft" align="right" valign="top"><a id="aa8d8df7b71126e00281df7dc61402b18"></a>
-virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_context_index</b> (void) const =0</td></tr>
-<tr class="separator:aa8d8df7b71126e00281df7dc61402b18 inherit pub_methods_class_legion_1_1_mappable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf53e281f0d0479e0f421ca4d5bd258 inherit pub_methods_class_legion_1_1_mappable"><td class="memItemLeft" align="right" valign="top"><a id="aeaf53e281f0d0479e0f421ca4d5bd258"></a>
+virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_context_index</b> (void) const =0</td></tr>
+<tr class="separator:aeaf53e281f0d0479e0f421ca4d5bd258 inherit pub_methods_class_legion_1_1_mappable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fe53e4cbbd08596f8ee6fa65148d206 inherit pub_methods_class_legion_1_1_mappable"><td class="memItemLeft" align="right" valign="top"><a id="a9fe53e4cbbd08596f8ee6fa65148d206"></a>
 virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>get_depth</b> (void) const =0</td></tr>
 <tr class="separator:a9fe53e4cbbd08596f8ee6fa65148d206 inherit pub_methods_class_legion_1_1_mappable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,6 +167,9 @@ std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.ht
 <tr class="memitem:a26406e082703777862252cdaa4b9ace7"><td class="memItemLeft" align="right" valign="top"><a id="a26406e082703777862252cdaa4b9ace7"></a>
 std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>regions</b></td></tr>
 <tr class="separator:a26406e082703777862252cdaa4b9ace7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257a203de875eb0957ac352ae60f9618"><td class="memItemLeft" align="right" valign="top"><a id="a257a203de875eb0957ac352ae60f9618"></a>
+std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>output_regions</b></td></tr>
+<tr class="separator:a257a203de875eb0957ac352ae60f9618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a366b43062d5fbe499a2fdd17d0c080b0"><td class="memItemLeft" align="right" valign="top"><a id="a366b43062d5fbe499a2fdd17d0c080b0"></a>
 std::vector&lt; <a class="el" href="class_legion_1_1_future.html">Future</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>futures</b></td></tr>
 <tr class="separator:a366b43062d5fbe499a2fdd17d0c080b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +191,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>arglen</b></td></tr
 <tr class="memitem:a3109e0b1c917ed36ea7d8ceea4d0f66f"><td class="memItemLeft" align="right" valign="top"><a id="a3109e0b1c917ed36ea7d8ceea4d0f66f"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_index_space</b></td></tr>
 <tr class="separator:a3109e0b1c917ed36ea7d8ceea4d0f66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2f3be54532d7ffbfc5ea277ca58b96e"><td class="memItemLeft" align="right" valign="top"><a id="ad2f3be54532d7ffbfc5ea277ca58b96e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>concurrent_task</b></td></tr>
+<tr class="separator:ad2f3be54532d7ffbfc5ea277ca58b96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1848631e0e198eab1e1476d123abe58"><td class="memItemLeft" align="right" valign="top"><a id="aa1848631e0e198eab1e1476d123abe58"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>must_epoch_task</b></td></tr>
 <tr class="separator:aa1848631e0e198eab1e1476d123abe58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,7 +291,7 @@ static const MappableType&#160;</td><td class="memItemRight" valign="bottom"><b>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

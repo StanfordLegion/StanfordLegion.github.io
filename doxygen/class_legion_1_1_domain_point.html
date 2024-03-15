@@ -97,10 +97,6 @@ __CUDA_HD__&#160;</td><td class="memItemRight" valign="bottom"><b>DomainPoint</b
 template&lt;int DIM, typename T &gt; </td></tr>
 <tr class="memitem:a7c1d5ab13ab8b87d4f40429d7ed19acc"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>DomainPoint</b> (const Point&lt; DIM, T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a7c1d5ab13ab8b87d4f40429d7ed19acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a630e0a2d75d514809ca947651e7d14a2"><td class="memTemplParams" colspan="2"><a id="a630e0a2d75d514809ca947651e7d14a2"></a>
-template&lt;unsigned DIM&gt; </td></tr>
-<tr class="memitem:a630e0a2d75d514809ca947651e7d14a2"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator LegionRuntime::Arrays::Point&lt; DIM &gt;</b> (void) const</td></tr>
-<tr class="separator:a630e0a2d75d514809ca947651e7d14a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a073db8051c85629be84b897927412cf3"><td class="memTemplParams" colspan="2"><a id="a073db8051c85629be84b897927412cf3"></a>
 template&lt;int DIM, typename T &gt; </td></tr>
 <tr class="memitem:a073db8051c85629be84b897927412cf3"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator Point&lt; DIM, T &gt;</b> (void) const</td></tr>
@@ -196,20 +192,15 @@ __CUDA_HD__ coord_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_in
 <tr class="memitem:a39df4edc8e5ecc0a7c7188b3376c2418"><td class="memItemLeft" align="right" valign="top"><a id="a39df4edc8e5ecc0a7c7188b3376c2418"></a>
 __CUDA_HD__ int&#160;</td><td class="memItemRight" valign="bottom"><b>get_dim</b> (void) const</td></tr>
 <tr class="separator:a39df4edc8e5ecc0a7c7188b3376c2418"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a085da73acfa15ca44850bbc05a0e770b"><td class="memTemplParams" colspan="2"><a id="a085da73acfa15ca44850bbc05a0e770b"></a>
-template&lt;int DIM&gt; </td></tr>
-<tr class="memitem:a085da73acfa15ca44850bbc05a0e770b"><td class="memTemplItemLeft" align="right" valign="top">LegionRuntime::Arrays::Point&lt; DIM &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get_point</b> (void) const</td></tr>
-<tr class="separator:a085da73acfa15ca44850bbc05a0e770b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a448b3aacb896ed001d6b80d65fd50369"><td class="memItemLeft" align="right" valign="top"><a id="a448b3aacb896ed001d6b80d65fd50369"></a>
+__CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>exists</b> (void) const</td></tr>
+<tr class="separator:a448b3aacb896ed001d6b80d65fd50369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a245effdceeeb3b15f7a10082d271726f"><td class="memItemLeft" align="right" valign="top"><a id="a245effdceeeb3b15f7a10082d271726f"></a>
 __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_null</b> (void) const</td></tr>
 <tr class="separator:a245effdceeeb3b15f7a10082d271726f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a88fdf32e03b4db0ef2a0cfbd03b9e229"><td class="memTemplParams" colspan="2"><a id="a88fdf32e03b4db0ef2a0cfbd03b9e229"></a>
-template&lt;int DIM&gt; </td></tr>
-<tr class="memitem:a88fdf32e03b4db0ef2a0cfbd03b9e229"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_point</b> (typename LegionRuntime::Arrays::Point&lt; DIM &gt; p)</td></tr>
-<tr class="separator:a88fdf32e03b4db0ef2a0cfbd03b9e229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96d1b00853de605edbe529f29f169ea4"><td class="memItemLeft" align="right" valign="top"><a id="a96d1b00853de605edbe529f29f169ea4"></a>
 static __CUDA_HD__ <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nil</b> (void)</td></tr>
 <tr class="separator:a96d1b00853de605edbe529f29f169ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,7 +235,7 @@ template&lt;typename T &gt; </td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

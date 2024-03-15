@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['externalresources_1107',['ExternalResources',['../class_legion_1_1_external_resources.html',1,'Legion']]]
+  ['eqkdtreet_1153',['EqKDTreeT',['../class_legion_1_1_internal_1_1_eq_k_d_tree_t.html',1,'Legion::Internal']]],
+  ['externalresources_1154',['ExternalResources',['../class_legion_1_1_external_resources.html',1,'Legion']]]
 ];

@@ -85,15 +85,16 @@ $(function() {
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
 <code>#include &lt;list&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;deque&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;typeinfo&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;unordered_set&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &quot;<a class="el" href="legion__config_8h_source.html">legion/legion_config.h</a>&quot;</code><br />
-<code>#include &quot;legion/legion_template_help.h&quot;</code><br />
 <code>#include &quot;realm.h&quot;</code><br />
 <code>#include &quot;realm/dynamic_templates.h&quot;</code><br />
-<code>#include &quot;legion/accessor.h&quot;</code><br />
 </div>
 <p><a href="legion__types_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -112,6 +113,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_lg_event.html">Legion::Internal::LgEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_pred_event.html">Legion::Internal::PredEvent</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_pred_user_event.html">Legion::Internal::PredUserEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_ap_event.html">Legion::Internal::ApEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +144,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a1e02be745d2059f9aa924b6f93558f7d"><td class="memItemLeft" align="right" valign="top"><a id="a1e02be745d2059f9aa924b6f93558f7d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEGION_DISABLE_DEPRECATED_WARNINGS</b></td></tr>
+<tr class="separator:a1e02be745d2059f9aa924b6f93558f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8912175de0e4d9b7836e0008c803c77e"><td class="memItemLeft" align="right" valign="top"><a id="a8912175de0e4d9b7836e0008c803c77e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LEGION_REENABLE_DEPRECATED_WARNINGS</b></td></tr>
+<tr class="separator:a8912175de0e4d9b7836e0008c803c77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1664dba9533e831f574d23aa75ca03a5"><td class="memItemLeft" align="right" valign="top"><a id="a1664dba9533e831f574d23aa75ca03a5"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>LG_TASK_DESCRIPTIONS</b>(name)</td></tr>
 <tr class="separator:a1664dba9533e831f574d23aa75ca03a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -446,9 +455,6 @@ typedef ::legion_task_id_t&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="memitem:a8365ff554b28b9f469748ca1c240b7c0"><td class="memItemLeft" align="right" valign="top"><a id="a8365ff554b28b9f469748ca1c240b7c0"></a>
 typedef ::legion_layout_constraint_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::LayoutConstraintID</b></td></tr>
 <tr class="separator:a8365ff554b28b9f469748ca1c240b7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55fce3c62187fab6798d017aa39443b0"><td class="memItemLeft" align="right" valign="top"><a id="a55fce3c62187fab6798d017aa39443b0"></a>
-typedef ::legion_replication_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::ReplicationID</b></td></tr>
-<tr class="separator:a55fce3c62187fab6798d017aa39443b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6362335a7c48449ed5835be29fd473f"><td class="memItemLeft" align="right" valign="top"><a id="af6362335a7c48449ed5835be29fd473f"></a>
 typedef ::legion_shard_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::ShardID</b></td></tr>
 <tr class="separator:af6362335a7c48449ed5835be29fd473f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -482,24 +488,39 @@ typedef Internal::MappingCallInfo *&#160;</td><td class="memItemRight" valign="b
 <tr class="memitem:abee9a06af853cbfe8cb6c620098cbc06"><td class="memItemLeft" align="right" valign="top"><a id="abee9a06af853cbfe8cb6c620098cbc06"></a>
 typedef Internal::InstanceManager *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Mapping::PhysicalInstanceImpl</b></td></tr>
 <tr class="separator:abee9a06af853cbfe8cb6c620098cbc06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b604b71bad01037832f242031553d7"><td class="memItemLeft" align="right" valign="top"><a id="a95b604b71bad01037832f242031553d7"></a>
+typedef Internal::CollectiveView *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Mapping::CollectiveViewImpl</b></td></tr>
+<tr class="separator:a95b604b71bad01037832f242031553d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad71be6b120fdfaab895ec67b7ff96deb"><td class="memItemLeft" align="right" valign="top"><a id="ad71be6b120fdfaab895ec67b7ff96deb"></a>
+typedef Internal::LocalLock&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Mapping::LocalLock</b></td></tr>
+<tr class="separator:ad71be6b120fdfaab895ec67b7ff96deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a6b86c77bb593b78e237cc492af858"><td class="memItemLeft" align="right" valign="top"><a id="af6a6b86c77bb593b78e237cc492af858"></a>
 typedef Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::PhysicalInstance</b></td></tr>
 <tr class="separator:af6a6b86c77bb593b78e237cc492af858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20fc7c73e8cd132a797295302f93e0a4"><td class="memItemLeft" align="right" valign="top"><a id="a20fc7c73e8cd132a797295302f93e0a4"></a>
 typedef Realm::CopySrcDstField&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::CopySrcDstField</b></td></tr>
 <tr class="separator:a20fc7c73e8cd132a797295302f93e0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fef611b96d91edca178f9266280dafe"><td class="memItemLeft" align="right" valign="top"><a id="a4fef611b96d91edca178f9266280dafe"></a>
+typedef unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::CollectiveID</b></td></tr>
+<tr class="separator:a4fef611b96d91edca178f9266280dafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39288de6d1cc661cf46e9778678e021d"><td class="memItemLeft" align="right" valign="top"><a id="a39288de6d1cc661cf46e9778678e021d"></a>
 typedef unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::IndexSpaceExprID</b></td></tr>
 <tr class="separator:a39288de6d1cc661cf46e9778678e021d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13bcbf6d3f2296f208741420d5b1bbd4"><td class="memItemLeft" align="right" valign="top"><a id="a13bcbf6d3f2296f208741420d5b1bbd4"></a>
-typedef std::pair&lt; unsigned, DomainPoint &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::TraceLocalID</b></td></tr>
-<tr class="separator:a13bcbf6d3f2296f208741420d5b1bbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646aeb0927c9e582d69bfb85e5a1e2a9"><td class="memItemLeft" align="right" valign="top"><a id="a646aeb0927c9e582d69bfb85e5a1e2a9"></a>
+typedef ContextCoordinate&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::TraceLocalID</b></td></tr>
+<tr class="separator:a646aeb0927c9e582d69bfb85e5a1e2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66ab5ce9303368c780e1d366598a70b"><td class="memItemLeft" align="right" valign="top"><a id="aa66ab5ce9303368c780e1d366598a70b"></a>
+typedef std::vector&lt; ContextCoordinate &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::TaskTreeCoordinates</b></td></tr>
+<tr class="separator:aa66ab5ce9303368c780e1d366598a70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5454cc4c12237b26658a4f55c680b31a"><td class="memItemLeft" align="right" valign="top"><a id="a5454cc4c12237b26658a4f55c680b31a"></a>
 typedef Mapping::Mapper&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::Mapper</b></td></tr>
 <tr class="separator:a5454cc4c12237b26658a4f55c680b31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1299557cc0213c0212c3d407659a879"><td class="memItemLeft" align="right" valign="top"><a id="aa1299557cc0213c0212c3d407659a879"></a>
 typedef Mapping::PhysicalInstance&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::MappingInstance</b></td></tr>
 <tr class="separator:aa1299557cc0213c0212c3d407659a879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4549c1c516818637155de08e9603b7"><td class="memItemLeft" align="right" valign="top"><a id="a5f4549c1c516818637155de08e9603b7"></a>
+typedef Mapping::CollectiveView&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::MappingCollective</b></td></tr>
+<tr class="separator:a5f4549c1c516818637155de08e9603b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8089ad46d54ceb41f641a44efe672a5"><td class="memItemLeft" align="right" valign="top"><a id="ac8089ad46d54ceb41f641a44efe672a5"></a>
 typedef <a class="el" href="class_bit_mask.html">BitMask</a>&lt; LEGION_FIELD_MASK_FIELD_TYPE, LEGION_MAX_FIELDS, LEGION_FIELD_MASK_FIELD_SHIFT, LEGION_FIELD_MASK_FIELD_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::FieldMask</b></td></tr>
 <tr class="separator:ac8089ad46d54ceb41f641a44efe672a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -518,27 +539,6 @@ typedef <a class="el" href="class_compound_bit_mask.html">CompoundBitMask</a>&lt
 <tr class="memitem:a8792f8cdd4cf52d76c153c65f32fe875"><td class="memItemLeft" align="right" valign="top"><a id="a8792f8cdd4cf52d76c153c65f32fe875"></a>
 typedef <a class="el" href="class_bit_mask.html">BitMask</a>&lt; LEGION_PROC_MASK_PROC_TYPE, LEGION_MAX_NUM_PROCS, LEGION_PROC_MASK_PROC_SHIFT, LEGION_PROC_MASK_PROC_MASK &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::ProcessorMask</b></td></tr>
 <tr class="separator:a8792f8cdd4cf52d76c153c65f32fe875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a8a0f6fa76eec655f802fb4b2e83073"><td class="memItemLeft" align="right" valign="top"><a id="a0a8a0f6fa76eec655f802fb4b2e83073"></a>
-typedef LegionRuntime::Accessor::ByteOffset&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::ByteOffset</b></td></tr>
-<tr class="separator:a0a8a0f6fa76eec655f802fb4b2e83073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4cbd4c4d535949582fbb8751806b11"><td class="memItemLeft" align="right" valign="top"><a id="a0f4cbd4c4d535949582fbb8751806b11"></a>
-typedef std::map&lt; Color, ColoredPoints&lt; ptr_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Coloring</b></td></tr>
-<tr class="separator:a0f4cbd4c4d535949582fbb8751806b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84b840d58a7c286591f85c4bc2a1adfc"><td class="memItemLeft" align="right" valign="top"><a id="a84b840d58a7c286591f85c4bc2a1adfc"></a>
-typedef std::map&lt; Color, Domain &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::DomainColoring</b></td></tr>
-<tr class="separator:a84b840d58a7c286591f85c4bc2a1adfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a068c1896363916029299de8652ce4200"><td class="memItemLeft" align="right" valign="top"><a id="a068c1896363916029299de8652ce4200"></a>
-typedef std::map&lt; Color, std::set&lt; Domain &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::MultiDomainColoring</b></td></tr>
-<tr class="separator:a068c1896363916029299de8652ce4200"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e60b75da12fb663df13abd55e7fa36f"><td class="memItemLeft" align="right" valign="top"><a id="a8e60b75da12fb663df13abd55e7fa36f"></a>
-typedef std::map&lt; DomainPoint, ColoredPoints&lt; ptr_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::PointColoring</b></td></tr>
-<tr class="separator:a8e60b75da12fb663df13abd55e7fa36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0bf457cf08f8944eed84d276719cc26"><td class="memItemLeft" align="right" valign="top"><a id="aa0bf457cf08f8944eed84d276719cc26"></a>
-typedef std::map&lt; DomainPoint, Domain &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::DomainPointColoring</b></td></tr>
-<tr class="separator:aa0bf457cf08f8944eed84d276719cc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafabb7eda97a238b7588aba13d04d8f8"><td class="memItemLeft" align="right" valign="top"><a id="aafabb7eda97a238b7588aba13d04d8f8"></a>
-typedef std::map&lt; DomainPoint, std::set&lt; Domain &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::MultiDomainPointColoring</b></td></tr>
-<tr class="separator:aafabb7eda97a238b7588aba13d04d8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -546,20 +546,10 @@ Enumerations</h2></td></tr>
 , <b>PMID_RUNTIME_OVERHEAD</b>
  }</td></tr>
 <tr class="separator:ac7eaa3cb93781bc7c815ab4ffe34b35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefa04a07446918e1e1803941fc274261"><td class="memItemLeft" align="right" valign="top"><a id="aefa04a07446918e1e1803941fc274261"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>OpenState</b> { <br />
-&#160;&#160;<b>NOT_OPEN</b> = 0
+<tr class="memitem:aefa04a07446918e1e1803941fc274261"><td class="memItemLeft" align="right" valign="top"><a id="aefa04a07446918e1e1803941fc274261"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>OpenState</b> { <b>NOT_OPEN</b> = 0
 , <b>OPEN_READ_ONLY</b> = 1
 , <b>OPEN_READ_WRITE</b> = 2
-, <b>OPEN_SINGLE_REDUCE</b> = 3
-, <br />
-&#160;&#160;<b>OPEN_MULTI_REDUCE</b> = 4
-, <b>OPEN_READ_ONLY_PROJ</b> = 5
-, <b>OPEN_READ_WRITE_PROJ</b> = 6
-, <b>OPEN_READ_WRITE_PROJ_DISJOINT_SHALLOW</b> = 7
-, <br />
-&#160;&#160;<b>OPEN_REDUCE_PROJ</b> = 8
-, <b>OPEN_REDUCE_PROJ_DIRTY</b> = 9
-<br />
+, <b>OPEN_REDUCE</b> = 3
  }</td></tr>
 <tr class="separator:aefa04a07446918e1e1803941fc274261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a815e76359562e001214b78fb72a10413"><td class="memItemLeft" align="right" valign="top"><a id="a815e76359562e001214b78fb72a10413"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>REDOP_ID_AVAILABLE</b> = 1
@@ -588,6 +578,21 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a0e11353cfc09c6d5deec6170200289b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c00817035d5f32902e2d65dc3370f8"><td class="memItemLeft" align="right" valign="top"><a id="a59c00817035d5f32902e2d65dc3370f8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>CollectiveKind</b> { <br />
+&#160;&#160;<b>COLLECTIVE_NONE</b> = 0
+, <b>COLLECTIVE_FILL</b> = 1
+, <b>COLLECTIVE_BROADCAST</b> = 2
+, <b>COLLECTIVE_REDUCTION</b> = 3
+, <br />
+&#160;&#160;<b>COLLECTIVE_BUTTERFLY_ALLREDUCE</b> = 4
+, <b>COLLECTIVE_HOURGLASS_ALLREDUCE</b> = 5
+, <b>COLLECTIVE_POINT_TO_POINT</b> = 6
+, <b>COLLECTIVE_REDUCECAST</b> = 7
+, <br />
+&#160;&#160;<b>COLLECTIVE_HAMMER_REDUCTION</b> = 8
+<br />
+ }</td></tr>
+<tr class="separator:a59c00817035d5f32902e2d65dc3370f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcf55dbccf2aad971c8fdfc68d51dff8"><td class="memItemLeft" align="right" valign="top"><a id="afcf55dbccf2aad971c8fdfc68d51dff8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>LgTaskID</b> { <br />
 &#160;&#160;<b>LG_SCHEDULER_ID</b>
 , <b>LG_POST_END_ID</b>
@@ -600,121 +605,122 @@ Enumerations</h2></td></tr>
 , <b>LG_DEFERRED_COMPLETION_ID</b>
 , <br />
 &#160;&#160;<b>LG_DEFERRED_COMMIT_ID</b>
-, <b>LG_DEFERRED_COLLECT_ID</b>
 , <b>LG_PRE_PIPELINE_ID</b>
 , <b>LG_TRIGGER_DEPENDENCE_ID</b>
+, <b>LG_TRIGGER_COMPLETION_ID</b>
 , <br />
-&#160;&#160;<b>LG_TRIGGER_COMPLETION_ID</b>
-, <b>LG_TRIGGER_OP_ID</b>
+&#160;&#160;<b>LG_TRIGGER_OP_ID</b>
 , <b>LG_TRIGGER_TASK_ID</b>
 , <b>LG_DEFER_MAPPER_SCHEDULER_TASK_ID</b>
+, <b>LG_MUST_INDIV_ID</b>
 , <br />
-&#160;&#160;<b>LG_MUST_INDIV_ID</b>
-, <b>LG_MUST_INDEX_ID</b>
+&#160;&#160;<b>LG_MUST_INDEX_ID</b>
 , <b>LG_MUST_MAP_ID</b>
 , <b>LG_MUST_DIST_ID</b>
-, <br />
-&#160;&#160;<b>LG_MUST_LAUNCH_ID</b>
-, <b>LG_DEFERRED_FUTURE_SET_ID</b>
-, <b>LG_DEFERRED_FUTURE_MAP_SET_ID</b>
-, <b>LG_RESOLVE_FUTURE_PRED_ID</b>
+, <b>LG_MUST_LAUNCH_ID</b>
 , <br />
 &#160;&#160;<b>LG_CONTRIBUTE_COLLECTIVE_ID</b>
 , <b>LG_FUTURE_CALLBACK_TASK_ID</b>
-, <b>LG_TOP_FINISH_TASK_ID</b>
+, <b>LG_CALLBACK_RELEASE_TASK_ID</b>
+, <b>LG_FUTURE_BROADCAST_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_TOP_FINISH_TASK_ID</b>
 , <b>LG_MAPPER_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_DISJOINTNESS_TASK_ID</b>
-, <b>LG_DEFER_PHYSICAL_REGISTRATION_TASK_ID</b>
-, <b>LG_PART_INDEPENDENCE_TASK_ID</b>
-, <b>LG_SPACE_INDEPENDENCE_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_PENDING_CHILD_TASK_ID</b>
+, <b>LG_DISJOINTNESS_TASK_ID</b>
 , <b>LG_ISSUE_FRAME_TASK_ID</b>
-, <b>LG_MAPPER_CONTINUATION_TASK_ID</b>
-, <b>LG_TASK_IMPL_SEMANTIC_INFO_REQ_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_INDEX_SPACE_SEMANTIC_INFO_REQ_TASK_ID</b>
+&#160;&#160;<b>LG_TASK_IMPL_SEMANTIC_INFO_REQ_TASK_ID</b>
+, <b>LG_INDEX_SPACE_SEMANTIC_INFO_REQ_TASK_ID</b>
 , <b>LG_INDEX_PART_SEMANTIC_INFO_REQ_TASK_ID</b>
 , <b>LG_FIELD_SPACE_SEMANTIC_INFO_REQ_TASK_ID</b>
-, <b>LG_FIELD_SEMANTIC_INFO_REQ_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_FIELD_INFOS_TASK_ID</b>
+&#160;&#160;<b>LG_FIELD_SEMANTIC_INFO_REQ_TASK_ID</b>
+, <b>LG_DEFER_FIELD_INFOS_TASK_ID</b>
 , <b>LG_REGION_SEMANTIC_INFO_REQ_TASK_ID</b>
 , <b>LG_PARTITION_SEMANTIC_INFO_REQ_TASK_ID</b>
-, <b>LG_INDEX_SPACE_DEFER_CHILD_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_INDEX_PART_DEFER_CHILD_TASK_ID</b>
+&#160;&#160;<b>LG_INDEX_SPACE_DEFER_CHILD_TASK_ID</b>
+, <b>LG_INDEX_PART_DEFER_CHILD_TASK_ID</b>
+, <b>LG_INDEX_PART_DEFER_SHARD_RECTS_TASK_ID</b>
 , <b>LG_DEFERRED_ENQUEUE_TASK_ID</b>
-, <b>LG_DEFER_MAPPER_MESSAGE_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_DEFER_MAPPER_MESSAGE_TASK_ID</b>
 , <b>LG_REMOTE_VIEW_CREATION_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_DEFERRED_DISTRIBUTE_TASK_ID</b>
+, <b>LG_DEFERRED_DISTRIBUTE_TASK_ID</b>
 , <b>LG_DEFER_PERFORM_MAPPING_TASK_ID</b>
-, <b>LG_DEFERRED_LAUNCH_TASK_ID</b>
-, <b>LG_MISSPECULATE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_FIND_COPY_PRE_TASK_ID</b>
+&#160;&#160;<b>LG_FINALIZE_OUTPUT_TREE_TASK_ID</b>
+, <b>LG_DEFERRED_LAUNCH_TASK_ID</b>
+, <b>LG_MISPREDICATION_TASK_ID</b>
+, <b>LG_DEFER_TRIGGER_TASK_COMPLETE_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_ORDER_CONCURRENT_LAUNCH_TASK_ID</b>
 , <b>LG_DEFER_MATERIALIZED_VIEW_TASK_ID</b>
 , <b>LG_DEFER_REDUCTION_VIEW_TASK_ID</b>
-, <b>LG_DEFER_PHI_VIEW_REF_TASK_ID</b>
+, <b>LG_DEFER_PHI_VIEW_REGISTRATION_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_PHI_VIEW_REGISTRATION_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_COMPOSITE_COPY_TASK_ID</b>
 , <b>LG_TIGHTEN_INDEX_SPACE_TASK_ID</b>
-, <b>LG_REMOTE_PHYSICAL_REQUEST_TASK_ID</b>
-, <b>LG_REMOTE_PHYSICAL_RESPONSE_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_REPLAY_SLICE_TASK_ID</b>
+, <b>LG_REPLAY_SLICE_TASK_ID</b>
 , <b>LG_TRANSITIVE_REDUCTION_TASK_ID</b>
-, <b>LG_DELETE_TEMPLATE_TASK_ID</b>
-, <b>LG_REFINEMENT_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_REMOTE_REF_TASK_ID</b>
-, <b>LG_DEFER_RAY_TRACE_TASK_ID</b>
-, <b>LG_DEFER_RAY_TRACE_FINISH_TASK_ID</b>
-, <b>LG_DEFER_SUBSET_REQUEST_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_DEFER_MAKE_OWNER_TASK_ID</b>
-, <b>LG_DEFER_MERGE_OR_FORWARD_TASK_ID</b>
-, <b>LG_DEFER_EQ_RESPONSE_TASK_ID</b>
-, <b>LG_DEFER_REMOVE_EQ_REF_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_DEFER_REMOTE_REF_UPDATE_TASK_ID</b>
-, <b>LG_DEFER_REMOTE_UNREGISTER_TASK_ID</b>
+&#160;&#160;<b>LG_DELETE_TEMPLATE_TASK_ID</b>
+, <b>LG_DEFER_MAKE_OWNER_TASK_ID</b>
+, <b>LG_DEFER_APPLY_STATE_TASK_ID</b>
 , <b>LG_COPY_FILL_AGGREGATION_TASK_ID</b>
-, <b>LG_COPY_FILL_DELETION_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_FINALIZE_EQ_SETS_TASK_ID</b>
+&#160;&#160;<b>LG_COPY_FILL_DELETION_TASK_ID</b>
+, <b>LG_FINALIZE_EQ_SETS_TASK_ID</b>
+, <b>LG_FINALIZE_OUTPUT_EQ_SET_TASK_ID</b>
 , <b>LG_DEFERRED_COPY_ACROSS_TASK_ID</b>
-, <b>LG_DEFER_REMOTE_OP_DELETION_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_DEFER_REMOTE_OP_DELETION_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_INSTANCE_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_DEFER_REMOTE_REDUCTION_TASK_ID</b>
+, <b>LG_DEFER_REMOTE_REDUCTION_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_UPDATE_TASK_ID</b>
-, <b>LG_DEFER_REMOTE_ACQUIRE_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_DEFER_REMOTE_ACQUIRE_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_RELEASE_TASK_ID</b>
-, <br />
-&#160;&#160;<b>LG_DEFER_REMOTE_COPIES_ACROSS_TASK_ID</b>
+, <b>LG_DEFER_REMOTE_COPIES_ACROSS_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_OVERWRITE_TASK_ID</b>
-, <b>LG_DEFER_REMOTE_FILTER_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_DEFER_REMOTE_FILTER_TASK_ID</b>
 , <b>LG_DEFER_PERFORM_TRAVERSAL_TASK_ID</b>
+, <b>LG_DEFER_PERFORM_ANALYSIS_TASK_ID</b>
+, <b>LG_DEFER_PERFORM_REMOTE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_PERFORM_REMOTE_TASK_ID</b>
-, <b>LG_DEFER_PERFORM_UPDATE_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_PERFORM_UPDATE_TASK_ID</b>
+, <b>LG_DEFER_PERFORM_REGISTRATION_TASK_ID</b>
 , <b>LG_DEFER_PERFORM_OUTPUT_TASK_ID</b>
-, <b>LG_DEFER_INDIVIDUAL_MANAGER_TASK_ID</b>
+, <b>LG_DEFER_PHYSICAL_MANAGER_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_COLLECTIVE_MANAGER_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_DELETE_PHYSICAL_MANAGER_TASK_ID</b>
 , <b>LG_DEFER_VERIFY_PARTITION_TASK_ID</b>
 , <b>LG_DEFER_RELEASE_ACQUIRED_TASK_ID</b>
 , <b>LG_DEFER_COPY_ACROSS_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_MALLOC_INSTANCE_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_COLLECTIVE_MESSAGE_TASK_ID</b>
+, <b>LG_FREE_EAGER_INSTANCE_TASK_ID</b>
+, <b>LG_MALLOC_INSTANCE_TASK_ID</b>
 , <b>LG_FREE_INSTANCE_TASK_ID</b>
-, <b>LG_YIELD_TASK_ID</b>
-, <b>LG_BEGIN_SHUTDOWN_TASK_IDS</b>
 , <br />
-&#160;&#160;<b>LG_RETRY_SHUTDOWN_TASK_ID</b> = LG_BEGIN_SHUTDOWN_TASK_IDS
+&#160;&#160;<b>LG_DEFER_TRACE_PRECONDITION_TASK_ID</b>
+, <b>LG_DEFER_TRACE_POSTCONDITION_TASK_ID</b>
+, <b>LG_DEFER_TRACE_UPDATE_TASK_ID</b>
+, <b>LG_FINALIZE_OUTPUT_ID</b>
+, <br />
+&#160;&#160;<b>LG_DEFER_DELETE_FUTURE_INSTANCE_TASK_ID</b>
+, <b>LG_FREE_EXTERNAL_TASK_ID</b>
+, <b>LG_DEFER_CONSENSUS_MATCH_TASK_ID</b>
+, <b>LG_DEFER_COLLECTIVE_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_DEFER_RECORD_COMPLETE_REPLAY_TASK_ID</b>
+, <b>LG_DEFER_ISSUE_FILL_TASK_ID</b>
+, <b>LG_DEFER_MUST_EPOCH_RETURN_TASK_ID</b>
+, <b>LG_YIELD_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_BEGIN_SHUTDOWN_TASK_IDS</b>
+, <b>LG_RETRY_SHUTDOWN_TASK_ID</b> = LG_BEGIN_SHUTDOWN_TASK_IDS
 , <b>LG_MESSAGE_ID</b>
 , <b>LG_LAST_TASK_ID</b>
 <br />
@@ -728,51 +734,65 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<b>SLICE_TASK_CALL</b>
 , <b>MAP_TASK_CALL</b>
+, <b>REPLICATE_TASK_CALL</b>
 , <b>SELECT_VARIANT_CALL</b>
-, <b>POSTMAP_TASK_CALL</b>
 , <br />
-&#160;&#160;<b>TASK_SELECT_SOURCES_CALL</b>
+&#160;&#160;<b>POSTMAP_TASK_CALL</b>
+, <b>TASK_SELECT_SOURCES_CALL</b>
 , <b>TASK_SPECULATE_CALL</b>
 , <b>TASK_REPORT_PROFILING_CALL</b>
+, <br />
+&#160;&#160;<b>TASK_SELECT_SHARDING_FUNCTOR_CALL</b>
 , <b>MAP_INLINE_CALL</b>
-, <br />
-&#160;&#160;<b>INLINE_SELECT_SOURCES_CALL</b>
+, <b>INLINE_SELECT_SOURCES_CALL</b>
 , <b>INLINE_REPORT_PROFILING_CALL</b>
-, <b>MAP_COPY_CALL</b>
-, <b>COPY_SELECT_SOURCES_CALL</b>
 , <br />
-&#160;&#160;<b>COPY_SPECULATE_CALL</b>
+&#160;&#160;<b>MAP_COPY_CALL</b>
+, <b>COPY_SELECT_SOURCES_CALL</b>
+, <b>COPY_SPECULATE_CALL</b>
 , <b>COPY_REPORT_PROFILING_CALL</b>
+, <br />
+&#160;&#160;<b>COPY_SELECT_SHARDING_FUNCTOR_CALL</b>
 , <b>CLOSE_SELECT_SOURCES_CALL</b>
 , <b>CLOSE_REPORT_PROFILING_CALL</b>
+, <b>CLOSE_SELECT_SHARDING_FUNCTOR_CALL</b>
 , <br />
 &#160;&#160;<b>MAP_ACQUIRE_CALL</b>
 , <b>ACQUIRE_SPECULATE_CALL</b>
 , <b>ACQUIRE_REPORT_PROFILING_CALL</b>
-, <b>MAP_RELEASE_CALL</b>
+, <b>ACQUIRE_SELECT_SHARDING_FUNCTOR_CALL</b>
 , <br />
-&#160;&#160;<b>RELEASE_SELECT_SOURCES_CALL</b>
+&#160;&#160;<b>MAP_RELEASE_CALL</b>
+, <b>RELEASE_SELECT_SOURCES_CALL</b>
 , <b>RELEASE_SPECULATE_CALL</b>
 , <b>RELEASE_REPORT_PROFILING_CALL</b>
+, <br />
+&#160;&#160;<b>RELEASE_SELECT_SHARDING_FUNCTOR_CALL</b>
 , <b>SELECT_PARTITION_PROJECTION_CALL</b>
-, <br />
-&#160;&#160;<b>MAP_PARTITION_CALL</b>
+, <b>MAP_PARTITION_CALL</b>
 , <b>PARTITION_SELECT_SOURCES_CALL</b>
-, <b>PARTITION_REPORT_PROFILING_CALL</b>
-, <b>CONFIGURE_CONTEXT_CALL</b>
 , <br />
-&#160;&#160;<b>SELECT_TUNABLE_VALUE_CALL</b>
+&#160;&#160;<b>PARTITION_REPORT_PROFILING_CALL</b>
+, <b>PARTITION_SELECT_SHARDING_FUNCTOR_CALL</b>
+, <b>FILL_SELECT_SHARDING_FUNCTOR_CALL</b>
+, <b>MAP_FUTURE_MAP_REDUCTION_CALL</b>
+, <br />
+&#160;&#160;<b>CONFIGURE_CONTEXT_CALL</b>
+, <b>SELECT_TUNABLE_VALUE_CALL</b>
+, <b>MUST_EPOCH_SELECT_SHARDING_FUNCTOR_CALL</b>
 , <b>MAP_MUST_EPOCH_CALL</b>
-, <b>MAP_DATAFLOW_GRAPH_CALL</b>
+, <br />
+&#160;&#160;<b>MAP_DATAFLOW_GRAPH_CALL</b>
 , <b>MEMOIZE_OPERATION_CALL</b>
-, <br />
-&#160;&#160;<b>SELECT_TASKS_TO_MAP_CALL</b>
+, <b>SELECT_TASKS_TO_MAP_CALL</b>
 , <b>SELECT_STEAL_TARGETS_CALL</b>
-, <b>PERMIT_STEAL_REQUEST_CALL</b>
-, <b>HANDLE_MESSAGE_CALL</b>
 , <br />
-&#160;&#160;<b>HANDLE_TASK_RESULT_CALL</b>
-, <b>APPLICATION_MAPPER_CALL</b>
+&#160;&#160;<b>PERMIT_STEAL_REQUEST_CALL</b>
+, <b>HANDLE_MESSAGE_CALL</b>
+, <b>HANDLE_TASK_RESULT_CALL</b>
+, <b>HANDLE_INSTANCE_COLLECTION_CALL</b>
+, <br />
+&#160;&#160;<b>APPLICATION_MAPPER_CALL</b>
 , <b>LAST_MAPPER_CALL</b>
 <br />
  }</td></tr>
@@ -802,18 +822,21 @@ Enumerations</h2></td></tr>
 , <b>MAPPER_VIRTUAL_CHANNEL</b> = 1
 , <br />
 &#160;&#160;<b>TASK_VIRTUAL_CHANNEL</b> = 2
+, <b>INDEX_SPACE_VIRTUAL_CHANNEL</b> = 3
 , <b>FIELD_SPACE_VIRTUAL_CHANNEL</b> = 4
 , <b>REFERENCE_VIRTUAL_CHANNEL</b> = 6
-, <b>UPDATE_VIRTUAL_CHANNEL</b> = 7
 , <br />
-&#160;&#160;<b>SUBSET_VIRTUAL_CHANNEL</b> = 8
-, <b>CONTEXT_VIRTUAL_CHANNEL</b> = 9
+&#160;&#160;<b>UPDATE_VIRTUAL_CHANNEL</b> = 7
+, <b>SUBSET_VIRTUAL_CHANNEL</b> = 8
+, <b>COLLECTIVE_VIRTUAL_CHANNEL</b> = 9
 , <b>LAYOUT_CONSTRAINT_VIRTUAL_CHANNEL</b> = 10
-, <b>EXPRESSION_VIRTUAL_CHANNEL</b> = 11
 , <br />
-&#160;&#160;<b>MIGRATION_VIRTUAL_CHANNEL</b> = 12
+&#160;&#160;<b>EXPRESSION_VIRTUAL_CHANNEL</b> = 11
+, <b>MIGRATION_VIRTUAL_CHANNEL</b> = 12
 , <b>TRACING_VIRTUAL_CHANNEL</b> = 13
-, <b>MAX_NUM_VIRTUAL_CHANNELS</b> = 14
+, <b>RENDEZVOUS_VIRTUAL_CHANNEL</b> = 14
+, <br />
+&#160;&#160;<b>MAX_NUM_VIRTUAL_CHANNELS</b> = 15
 <br />
  }</td></tr>
 <tr class="separator:ae811b79b6a720ed293d5277f31a9f654"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -829,202 +852,312 @@ Enumerations</h2></td></tr>
 , <b>SEND_SHARED_OWNERSHIP</b>
 , <br />
 &#160;&#160;<b>SEND_INDEX_SPACE_REQUEST</b>
+, <b>SEND_INDEX_SPACE_RESPONSE</b>
 , <b>SEND_INDEX_SPACE_RETURN</b>
 , <b>SEND_INDEX_SPACE_SET</b>
-, <b>SEND_INDEX_SPACE_CHILD_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_INDEX_SPACE_CHILD_RESPONSE</b>
+&#160;&#160;<b>SEND_INDEX_SPACE_CHILD_REQUEST</b>
+, <b>SEND_INDEX_SPACE_CHILD_RESPONSE</b>
 , <b>SEND_INDEX_SPACE_COLORS_REQUEST</b>
 , <b>SEND_INDEX_SPACE_COLORS_RESPONSE</b>
-, <b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_RESPONSE</b>
+&#160;&#160;<b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_REQUEST</b>
+, <b>SEND_INDEX_SPACE_REMOTE_EXPRESSION_RESPONSE</b>
 , <b>SEND_INDEX_SPACE_GENERATE_COLOR_REQUEST</b>
 , <b>SEND_INDEX_SPACE_GENERATE_COLOR_RESPONSE</b>
-, <b>SEND_INDEX_SPACE_RELEASE_COLOR</b>
 , <br />
-&#160;&#160;<b>SEND_INDEX_PARTITION_NOTIFICATION</b>
+&#160;&#160;<b>SEND_INDEX_SPACE_RELEASE_COLOR</b>
+, <b>SEND_INDEX_PARTITION_NOTIFICATION</b>
 , <b>SEND_INDEX_PARTITION_REQUEST</b>
-, <b>SEND_INDEX_PARTITION_RETURN</b>
-, <b>SEND_INDEX_PARTITION_CHILD_REQUEST</b>
+, <b>SEND_INDEX_PARTITION_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_INDEX_PARTITION_CHILD_RESPONSE</b>
-, <b>SEND_INDEX_PARTITION_DISJOINT_UPDATE</b>
+&#160;&#160;<b>SEND_INDEX_PARTITION_RETURN</b>
+, <b>SEND_INDEX_PARTITION_CHILD_REQUEST</b>
+, <b>SEND_INDEX_PARTITION_CHILD_RESPONSE</b>
+, <b>SEND_INDEX_PARTITION_CHILD_REPLICATION</b>
+, <br />
+&#160;&#160;<b>SEND_INDEX_PARTITION_DISJOINT_UPDATE</b>
+, <b>SEND_INDEX_PARTITION_SHARD_RECTS_REQUEST</b>
+, <b>SEND_INDEX_PARTITION_SHARD_RECTS_RESPONSE</b>
+, <b>SEND_INDEX_PARTITION_REMOTE_INTERFERENCE_REQUEST</b>
+, <br />
+&#160;&#160;<b>SEND_INDEX_PARTITION_REMOTE_INTERFERENCE_RESPONSE</b>
 , <b>SEND_FIELD_SPACE_NODE</b>
 , <b>SEND_FIELD_SPACE_REQUEST</b>
+, <b>SEND_FIELD_SPACE_RETURN</b>
 , <br />
-&#160;&#160;<b>SEND_FIELD_SPACE_RETURN</b>
-, <b>SEND_FIELD_SPACE_ALLOCATOR_REQUEST</b>
+&#160;&#160;<b>SEND_FIELD_SPACE_ALLOCATOR_REQUEST</b>
 , <b>SEND_FIELD_SPACE_ALLOCATOR_RESPONSE</b>
 , <b>SEND_FIELD_SPACE_ALLOCATOR_INVALIDATION</b>
+, <b>SEND_FIELD_SPACE_ALLOCATOR_FLUSH</b>
 , <br />
-&#160;&#160;<b>SEND_FIELD_SPACE_ALLOCATOR_FLUSH</b>
-, <b>SEND_FIELD_SPACE_ALLOCATOR_FREE</b>
+&#160;&#160;<b>SEND_FIELD_SPACE_ALLOCATOR_FREE</b>
 , <b>SEND_FIELD_SPACE_INFOS_REQUEST</b>
 , <b>SEND_FIELD_SPACE_INFOS_RESPONSE</b>
+, <b>SEND_FIELD_ALLOC_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_FIELD_ALLOC_REQUEST</b>
-, <b>SEND_FIELD_SIZE_UPDATE</b>
+&#160;&#160;<b>SEND_FIELD_SIZE_UPDATE</b>
 , <b>SEND_FIELD_FREE</b>
 , <b>SEND_FIELD_FREE_INDEXES</b>
+, <b>SEND_FIELD_SPACE_LAYOUT_INVALIDATION</b>
 , <br />
-&#160;&#160;<b>SEND_FIELD_SPACE_LAYOUT_INVALIDATION</b>
-, <b>SEND_LOCAL_FIELD_ALLOC_REQUEST</b>
+&#160;&#160;<b>SEND_LOCAL_FIELD_ALLOC_REQUEST</b>
 , <b>SEND_LOCAL_FIELD_ALLOC_RESPONSE</b>
 , <b>SEND_LOCAL_FIELD_FREE</b>
+, <b>SEND_LOCAL_FIELD_UPDATE</b>
 , <br />
-&#160;&#160;<b>SEND_LOCAL_FIELD_UPDATE</b>
-, <b>SEND_TOP_LEVEL_REGION_REQUEST</b>
+&#160;&#160;<b>SEND_TOP_LEVEL_REGION_REQUEST</b>
 , <b>SEND_TOP_LEVEL_REGION_RETURN</b>
 , <b>INDEX_SPACE_DESTRUCTION_MESSAGE</b>
+, <b>INDEX_PARTITION_DESTRUCTION_MESSAGE</b>
 , <br />
-&#160;&#160;<b>INDEX_PARTITION_DESTRUCTION_MESSAGE</b>
-, <b>FIELD_SPACE_DESTRUCTION_MESSAGE</b>
+&#160;&#160;<b>FIELD_SPACE_DESTRUCTION_MESSAGE</b>
 , <b>LOGICAL_REGION_DESTRUCTION_MESSAGE</b>
+, <b>INDIVIDUAL_REMOTE_FUTURE_SIZE</b>
+, <b>INDIVIDUAL_REMOTE_OUTPUT_REGISTRATION</b>
+, <br />
+&#160;&#160;<b>INDIVIDUAL_REMOTE_MAPPED</b>
 , <b>INDIVIDUAL_REMOTE_COMPLETE</b>
-, <br />
-&#160;&#160;<b>INDIVIDUAL_REMOTE_COMMIT</b>
+, <b>INDIVIDUAL_REMOTE_COMMIT</b>
 , <b>SLICE_REMOTE_MAPPED</b>
-, <b>SLICE_REMOTE_COMPLETE</b>
+, <br />
+&#160;&#160;<b>SLICE_REMOTE_COMPLETE</b>
 , <b>SLICE_REMOTE_COMMIT</b>
+, <b>SLICE_VERIFY_CONCURRENT_EXECUTION</b>
+, <b>SLICE_CONCURRENT_ALLREDUCE_REQUEST</b>
 , <br />
-&#160;&#160;<b>SLICE_FIND_INTRA_DEP</b>
+&#160;&#160;<b>SLICE_CONCURRENT_ALLREDUCE_RESPONSE</b>
+, <b>SLICE_FIND_INTRA_DEP</b>
 , <b>SLICE_RECORD_INTRA_DEP</b>
-, <b>SLICE_COLLECTIVE_REQUEST</b>
-, <b>SLICE_COLLECTIVE_RESPONSE</b>
+, <b>SLICE_REMOTE_COLLECTIVE_RENDEZVOUS</b>
 , <br />
-&#160;&#160;<b>DISTRIBUTED_REMOTE_REGISTRATION</b>
-, <b>DISTRIBUTED_VALID_UPDATE</b>
-, <b>DISTRIBUTED_GC_UPDATE</b>
-, <b>DISTRIBUTED_RESOURCE_UPDATE</b>
+&#160;&#160;<b>SLICE_REMOTE_VERSIONING_COLLECTIVE_RENDEZVOUS</b>
+, <b>SLICE_REMOTE_OUTPUT_EXTENTS</b>
+, <b>SLICE_REMOTE_OUTPUT_REGISTRATION</b>
+, <b>DISTRIBUTED_REMOTE_REGISTRATION</b>
 , <br />
-&#160;&#160;<b>DISTRIBUTED_CREATE_ADD</b>
-, <b>DISTRIBUTED_CREATE_REMOVE</b>
-, <b>DISTRIBUTED_UNREGISTER</b>
+&#160;&#160;<b>DISTRIBUTED_DOWNGRADE_REQUEST</b>
+, <b>DISTRIBUTED_DOWNGRADE_RESPONSE</b>
+, <b>DISTRIBUTED_DOWNGRADE_SUCCESS</b>
+, <b>DISTRIBUTED_DOWNGRADE_UPDATE</b>
+, <br />
+&#160;&#160;<b>DISTRIBUTED_DOWNGRADE_RESTART</b>
+, <b>DISTRIBUTED_GLOBAL_ACQUIRE_REQUEST</b>
+, <b>DISTRIBUTED_GLOBAL_ACQUIRE_RESPONSE</b>
+, <b>DISTRIBUTED_VALID_ACQUIRE_REQUEST</b>
+, <br />
+&#160;&#160;<b>DISTRIBUTED_VALID_ACQUIRE_RESPONSE</b>
 , <b>SEND_ATOMIC_RESERVATION_REQUEST</b>
-, <br />
-&#160;&#160;<b>SEND_ATOMIC_RESERVATION_RESPONSE</b>
+, <b>SEND_ATOMIC_RESERVATION_RESPONSE</b>
 , <b>SEND_PADDED_RESERVATION_REQUEST</b>
-, <b>SEND_PADDED_RESERVATION_RESPONSE</b>
-, <b>SEND_BACK_LOGICAL_STATE</b>
 , <br />
-&#160;&#160;<b>SEND_MATERIALIZED_VIEW</b>
+&#160;&#160;<b>SEND_PADDED_RESERVATION_RESPONSE</b>
+, <b>SEND_CREATED_REGION_CONTEXTS</b>
+, <b>SEND_MATERIALIZED_VIEW</b>
 , <b>SEND_FILL_VIEW</b>
+, <br />
+&#160;&#160;<b>SEND_FILL_VIEW_VALUE</b>
 , <b>SEND_PHI_VIEW</b>
 , <b>SEND_REDUCTION_VIEW</b>
+, <b>SEND_REPLICATED_VIEW</b>
 , <br />
-&#160;&#160;<b>SEND_INSTANCE_MANAGER</b>
-, <b>SEND_COLLECTIVE_MANAGER</b>
-, <b>SEND_COLLECTIVE_MESSAGE</b>
-, <b>SEND_CREATE_TOP_VIEW_REQUEST</b>
+&#160;&#160;<b>SEND_ALLREDUCE_VIEW</b>
+, <b>SEND_INSTANCE_MANAGER</b>
+, <b>SEND_MANAGER_UPDATE</b>
+, <b>SEND_COLLECTIVE_DISTRIBUTE_FILL</b>
 , <br />
-&#160;&#160;<b>SEND_CREATE_TOP_VIEW_RESPONSE</b>
+&#160;&#160;<b>SEND_COLLECTIVE_DISTRIBUTE_POINT</b>
+, <b>SEND_COLLECTIVE_DISTRIBUTE_POINTWISE</b>
+, <b>SEND_COLLECTIVE_DISTRIBUTE_REDUCTION</b>
+, <b>SEND_COLLECTIVE_DISTRIBUTE_BROADCAST</b>
+, <br />
+&#160;&#160;<b>SEND_COLLECTIVE_DISTRIBUTE_REDUCECAST</b>
+, <b>SEND_COLLECTIVE_DISTRIBUTE_HOURGLASS</b>
+, <b>SEND_COLLECTIVE_DISTRIBUTE_ALLREDUCE</b>
+, <b>SEND_COLLECTIVE_HAMMER_REDUCTION</b>
+, <br />
+&#160;&#160;<b>SEND_COLLECTIVE_FUSE_GATHER</b>
+, <b>SEND_COLLECTIVE_USER_REQUEST</b>
+, <b>SEND_COLLECTIVE_USER_RESPONSE</b>
+, <b>SEND_COLLECTIVE_REGISTER_USER</b>
+, <br />
+&#160;&#160;<b>SEND_COLLECTIVE_REMOTE_INSTANCES_REQUEST</b>
+, <b>SEND_COLLECTIVE_REMOTE_INSTANCES_RESPONSE</b>
+, <b>SEND_COLLECTIVE_NEAREST_INSTANCES_REQUEST</b>
+, <b>SEND_COLLECTIVE_NEAREST_INSTANCES_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_COLLECTIVE_REMOTE_REGISTRATION</b>
+, <b>SEND_COLLECTIVE_FINALIZE_MAPPING</b>
+, <b>SEND_COLLECTIVE_VIEW_CREATION</b>
+, <b>SEND_COLLECTIVE_VIEW_DELETION</b>
+, <br />
+&#160;&#160;<b>SEND_COLLECTIVE_VIEW_RELEASE</b>
+, <b>SEND_COLLECTIVE_VIEW_NOTIFICATION</b>
+, <b>SEND_COLLECTIVE_VIEW_MAKE_VALID</b>
+, <b>SEND_COLLECTIVE_VIEW_MAKE_INVALID</b>
+, <br />
+&#160;&#160;<b>SEND_COLLECTIVE_VIEW_INVALIDATE_REQUEST</b>
+, <b>SEND_COLLECTIVE_VIEW_INVALIDATE_RESPONSE</b>
+, <b>SEND_COLLECTIVE_VIEW_ADD_REMOTE_REFERENCE</b>
+, <b>SEND_COLLECTIVE_VIEW_REMOVE_REMOTE_REFERENCE</b>
+, <br />
+&#160;&#160;<b>SEND_CREATE_TOP_VIEW_REQUEST</b>
+, <b>SEND_CREATE_TOP_VIEW_RESPONSE</b>
 , <b>SEND_VIEW_REQUEST</b>
 , <b>SEND_VIEW_REGISTER_USER</b>
-, <b>SEND_VIEW_FIND_COPY_PRE_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_VIEW_FIND_COPY_PRE_RESPONSE</b>
+&#160;&#160;<b>SEND_VIEW_FIND_COPY_PRE_REQUEST</b>
 , <b>SEND_VIEW_ADD_COPY_USER</b>
-, <b>SEND_VIEW_REPLICATION_REQUEST</b>
+, <b>SEND_VIEW_FIND_LAST_USERS_REQUEST</b>
+, <b>SEND_VIEW_FIND_LAST_USERS_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_VIEW_REPLICATION_REQUEST</b>
 , <b>SEND_VIEW_REPLICATION_RESPONSE</b>
-, <br />
-&#160;&#160;<b>SEND_VIEW_REPLICATION_REMOVAL</b>
+, <b>SEND_VIEW_REPLICATION_REMOVAL</b>
 , <b>SEND_MANAGER_REQUEST</b>
-, <b>SEND_FUTURE_RESULT</b>
-, <b>SEND_FUTURE_SUBSCRIPTION</b>
 , <br />
-&#160;&#160;<b>SEND_FUTURE_NOTIFICATION</b>
-, <b>SEND_FUTURE_BROADCAST</b>
+&#160;&#160;<b>SEND_FUTURE_RESULT</b>
+, <b>SEND_FUTURE_RESULT_SIZE</b>
+, <b>SEND_FUTURE_SUBSCRIPTION</b>
+, <b>SEND_FUTURE_CREATE_INSTANCE_REQUEST</b>
+, <br />
+&#160;&#160;<b>SEND_FUTURE_CREATE_INSTANCE_RESPONSE</b>
 , <b>SEND_FUTURE_MAP_REQUEST</b>
 , <b>SEND_FUTURE_MAP_RESPONSE</b>
+, <b>SEND_REPL_COMPUTE_EQUIVALENCE_SETS</b>
 , <br />
-&#160;&#160;<b>SEND_MAPPER_MESSAGE</b>
+&#160;&#160;<b>SEND_REPL_OUTPUT_EQUIVALENCE_SET</b>
+, <b>SEND_REPL_REFINE_EQUIVALENCE_SETS</b>
+, <b>SEND_REPL_EQUIVALENCE_SET_NOTIFICATION</b>
+, <b>SEND_REPL_INTRA_SPACE_DEP</b>
+, <br />
+&#160;&#160;<b>SEND_REPL_BROADCAST_UPDATE</b>
+, <b>SEND_REPL_CREATED_REGIONS</b>
+, <b>SEND_REPL_TRACE_EVENT_REQUEST</b>
+, <b>SEND_REPL_TRACE_EVENT_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_REPL_TRACE_FRONTIER_REQUEST</b>
+, <b>SEND_REPL_TRACE_FRONTIER_RESPONSE</b>
+, <b>SEND_REPL_TRACE_UPDATE</b>
+, <b>SEND_REPL_IMPLICIT_RENDEZVOUS</b>
+, <br />
+&#160;&#160;<b>SEND_REPL_FIND_COLLECTIVE_VIEW</b>
+, <b>SEND_MAPPER_MESSAGE</b>
 , <b>SEND_MAPPER_BROADCAST</b>
 , <b>SEND_TASK_IMPL_SEMANTIC_REQ</b>
-, <b>SEND_INDEX_SPACE_SEMANTIC_REQ</b>
 , <br />
-&#160;&#160;<b>SEND_INDEX_PARTITION_SEMANTIC_REQ</b>
+&#160;&#160;<b>SEND_INDEX_SPACE_SEMANTIC_REQ</b>
+, <b>SEND_INDEX_PARTITION_SEMANTIC_REQ</b>
 , <b>SEND_FIELD_SPACE_SEMANTIC_REQ</b>
 , <b>SEND_FIELD_SEMANTIC_REQ</b>
-, <b>SEND_LOGICAL_REGION_SEMANTIC_REQ</b>
 , <br />
-&#160;&#160;<b>SEND_LOGICAL_PARTITION_SEMANTIC_REQ</b>
+&#160;&#160;<b>SEND_LOGICAL_REGION_SEMANTIC_REQ</b>
+, <b>SEND_LOGICAL_PARTITION_SEMANTIC_REQ</b>
 , <b>SEND_TASK_IMPL_SEMANTIC_INFO</b>
 , <b>SEND_INDEX_SPACE_SEMANTIC_INFO</b>
-, <b>SEND_INDEX_PARTITION_SEMANTIC_INFO</b>
 , <br />
-&#160;&#160;<b>SEND_FIELD_SPACE_SEMANTIC_INFO</b>
+&#160;&#160;<b>SEND_INDEX_PARTITION_SEMANTIC_INFO</b>
+, <b>SEND_FIELD_SPACE_SEMANTIC_INFO</b>
 , <b>SEND_FIELD_SEMANTIC_INFO</b>
 , <b>SEND_LOGICAL_REGION_SEMANTIC_INFO</b>
-, <b>SEND_LOGICAL_PARTITION_SEMANTIC_INFO</b>
 , <br />
-&#160;&#160;<b>SEND_REMOTE_CONTEXT_REQUEST</b>
+&#160;&#160;<b>SEND_LOGICAL_PARTITION_SEMANTIC_INFO</b>
+, <b>SEND_REMOTE_CONTEXT_REQUEST</b>
 , <b>SEND_REMOTE_CONTEXT_RESPONSE</b>
-, <b>SEND_REMOTE_CONTEXT_RELEASE</b>
-, <b>SEND_REMOTE_CONTEXT_FREE</b>
+, <b>SEND_REMOTE_CONTEXT_PHYSICAL_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_REMOTE_CONTEXT_PHYSICAL_REQUEST</b>
-, <b>SEND_REMOTE_CONTEXT_PHYSICAL_RESPONSE</b>
+&#160;&#160;<b>SEND_REMOTE_CONTEXT_PHYSICAL_RESPONSE</b>
+, <b>SEND_REMOTE_CONTEXT_FIND_COLLECTIVE_VIEW_REQUEST</b>
+, <b>SEND_REMOTE_CONTEXT_FIND_COLLECTIVE_VIEW_RESPONSE</b>
 , <b>SEND_COMPUTE_EQUIVALENCE_SETS_REQUEST</b>
-, <b>SEND_EQUIVALENCE_SET_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_RESPONSE</b>
-, <b>SEND_EQUIVALENCE_SET_SUBSET_REQUEST</b>
-, <b>SEND_EQUIVALENCE_SET_SUBSET_RESPONSE</b>
-, <b>SEND_EQUIVALENCE_SET_SUBSET_UPDATE</b>
+&#160;&#160;<b>SEND_COMPUTE_EQUIVALENCE_SETS_RESPONSE</b>
+, <b>SEND_COMPUTE_EQUIVALENCE_SETS_PENDING</b>
+, <b>SEND_OUTPUT_EQUIVALENCE_SET_REQUEST</b>
+, <b>SEND_OUTPUT_EQUIVALENCE_SET_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_RAY_TRACE_REQUEST</b>
-, <b>SEND_EQUIVALENCE_SET_RAY_TRACE_RESPONSE</b>
-, <b>SEND_EQUIVALENCE_SET_MIGRATION</b>
+&#160;&#160;<b>SEND_CANCEL_EQUIVALENCE_SETS_SUBSCRIPTION</b>
+, <b>SEND_INVALIDATE_EQUIVALENCE_SETS_SUBSCRIPTION</b>
+, <b>SEND_EQUIVALENCE_SET_CREATION</b>
+, <b>SEND_EQUIVALENCE_SET_REUSE</b>
+, <br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REQUEST</b>
+, <b>SEND_EQUIVALENCE_SET_RESPONSE</b>
+, <b>SEND_EQUIVALENCE_SET_REPLICATION_REQUEST</b>
+, <b>SEND_EQUIVALENCE_SET_REPLICATION_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_MIGRATION</b>
 , <b>SEND_EQUIVALENCE_SET_OWNER_UPDATE</b>
+, <b>SEND_EQUIVALENCE_SET_CLONE_REQUEST</b>
+, <b>SEND_EQUIVALENCE_SET_CLONE_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_REFINEMENT</b>
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_CAPTURE_REQUEST</b>
+, <b>SEND_EQUIVALENCE_SET_CAPTURE_RESPONSE</b>
 , <b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INSTANCES</b>
 , <b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_INVALID</b>
+, <br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_REQUEST_ANTIVALID</b>
 , <b>SEND_EQUIVALENCE_SET_REMOTE_UPDATES</b>
-, <br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_ACQUIRES</b>
+, <b>SEND_EQUIVALENCE_SET_REMOTE_ACQUIRES</b>
 , <b>SEND_EQUIVALENCE_SET_REMOTE_RELEASES</b>
-, <b>SEND_EQUIVALENCE_SET_REMOTE_COPIES_ACROSS</b>
+, <br />
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_COPIES_ACROSS</b>
 , <b>SEND_EQUIVALENCE_SET_REMOTE_OVERWRITES</b>
+, <b>SEND_EQUIVALENCE_SET_REMOTE_FILTERS</b>
+, <b>SEND_EQUIVALENCE_SET_REMOTE_CLONES</b>
 , <br />
-&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_FILTERS</b>
-, <b>SEND_EQUIVALENCE_SET_REMOTE_INSTANCES</b>
-, <b>SEND_EQUIVALENCE_SET_STALE_UPDATE</b>
+&#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_INSTANCES</b>
 , <b>SEND_INSTANCE_REQUEST</b>
-, <br />
-&#160;&#160;<b>SEND_INSTANCE_RESPONSE</b>
+, <b>SEND_INSTANCE_RESPONSE</b>
 , <b>SEND_EXTERNAL_CREATE_REQUEST</b>
-, <b>SEND_EXTERNAL_CREATE_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_EXTERNAL_CREATE_RESPONSE</b>
 , <b>SEND_EXTERNAL_ATTACH</b>
-, <br />
-&#160;&#160;<b>SEND_EXTERNAL_DETACH</b>
+, <b>SEND_EXTERNAL_DETACH</b>
 , <b>SEND_GC_PRIORITY_UPDATE</b>
-, <b>SEND_GC_REQUEST</b>
-, <b>SEND_GC_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_GC_ACQUIRE</b>
-, <b>SEND_GC_ACQUIRED</b>
+&#160;&#160;<b>SEND_GC_REQUEST</b>
+, <b>SEND_GC_RESPONSE</b>
+, <b>SEND_GC_ACQUIRE</b>
+, <b>SEND_GC_FAILED</b>
+, <br />
+&#160;&#160;<b>SEND_GC_MISMATCH</b>
+, <b>SEND_GC_NOTIFY</b>
 , <b>SEND_GC_DEBUG_REQUEST</b>
 , <b>SEND_GC_DEBUG_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_ACQUIRE_REQUEST</b>
+&#160;&#160;<b>SEND_GC_RECORD_EVENT</b>
+, <b>SEND_ACQUIRE_REQUEST</b>
 , <b>SEND_ACQUIRE_RESPONSE</b>
 , <b>SEND_VARIANT_BROADCAST</b>
-, <b>SEND_CONSTRAINT_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_CONSTRAINT_RESPONSE</b>
+&#160;&#160;<b>SEND_CONSTRAINT_REQUEST</b>
+, <b>SEND_CONSTRAINT_RESPONSE</b>
 , <b>SEND_CONSTRAINT_RELEASE</b>
 , <b>SEND_TOP_LEVEL_TASK_COMPLETE</b>
-, <b>SEND_MPI_RANK_EXCHANGE</b>
 , <br />
-&#160;&#160;<b>SEND_LIBRARY_MAPPER_REQUEST</b>
+&#160;&#160;<b>SEND_MPI_RANK_EXCHANGE</b>
+, <b>SEND_REPLICATE_DISTRIBUTION</b>
+, <b>SEND_REPLICATE_COLLECTIVE_VERSIONING</b>
+, <b>SEND_REPLICATE_COLLECTIVE_MAPPING</b>
+, <br />
+&#160;&#160;<b>SEND_REPLICATE_VIRTUAL_RENDEZVOUS</b>
+, <b>SEND_REPLICATE_POST_MAPPED</b>
+, <b>SEND_REPLICATE_POST_EXECUTION</b>
+, <b>SEND_REPLICATE_TRIGGER_COMPLETE</b>
+, <br />
+&#160;&#160;<b>SEND_REPLICATE_TRIGGER_COMMIT</b>
+, <b>SEND_CONTROL_REPLICATE_RENDEZVOUS_MESSAGE</b>
+, <b>SEND_LIBRARY_MAPPER_REQUEST</b>
 , <b>SEND_LIBRARY_MAPPER_RESPONSE</b>
-, <b>SEND_LIBRARY_TRACE_REQUEST</b>
-, <b>SEND_LIBRARY_TRACE_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_LIBRARY_PROJECTION_REQUEST</b>
+&#160;&#160;<b>SEND_LIBRARY_TRACE_REQUEST</b>
+, <b>SEND_LIBRARY_TRACE_RESPONSE</b>
+, <b>SEND_LIBRARY_PROJECTION_REQUEST</b>
 , <b>SEND_LIBRARY_PROJECTION_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_LIBRARY_SHARDING_REQUEST</b>
+, <b>SEND_LIBRARY_SHARDING_RESPONSE</b>
 , <b>SEND_LIBRARY_TASK_REQUEST</b>
 , <b>SEND_LIBRARY_TASK_RESPONSE</b>
 , <br />
@@ -1035,15 +1168,78 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<b>SEND_REMOTE_OP_REPORT_UNINIT</b>
 , <b>SEND_REMOTE_OP_PROFILING_COUNT_UPDATE</b>
+, <b>SEND_REMOTE_OP_COMPLETION_EFFECT</b>
 , <b>SEND_REMOTE_TRACE_UPDATE</b>
-, <b>SEND_REMOTE_TRACE_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_REMOTE_TRACE_EQ_REQUEST</b>
-, <b>SEND_REMOTE_TRACE_EQ_RESPONSE</b>
+&#160;&#160;<b>SEND_REMOTE_TRACE_RESPONSE</b>
+, <b>SEND_FREE_EXTERNAL_ALLOCATION</b>
+, <b>SEND_NOTIFY_COLLECTED_INSTANCES</b>
+, <b>SEND_CREATE_FUTURE_INSTANCE_REQUEST</b>
+, <br />
+&#160;&#160;<b>SEND_CREATE_FUTURE_INSTANCE_RESPONSE</b>
+, <b>SEND_FREE_FUTURE_INSTANCE</b>
+, <b>SEND_REMOTE_DISTRIBUTED_ID_REQUEST</b>
+, <b>SEND_REMOTE_DISTRIBUTED_ID_RESPONSE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_FUTURE_ALLREDUCE</b>
+, <b>SEND_CONTROL_REPLICATION_FUTURE_BROADCAST</b>
+, <b>SEND_CONTROL_REPLICATION_FUTURE_REDUCTION</b>
+, <b>SEND_CONTROL_REPLICATION_VALUE_ALLREDUCE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_VALUE_BROADCAST</b>
+, <b>SEND_CONTROL_REPLICATION_VALUE_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_BUFFER_BROADCAST</b>
+, <b>SEND_CONTROL_REPLICATION_SHARD_SYNC_TREE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_SHARD_EVENT_TREE</b>
+, <b>SEND_CONTROL_REPLICATION_SINGLE_TASK_TREE</b>
+, <b>SEND_CONTROL_REPLICATION_CROSS_PRODUCT_PARTITION</b>
+, <b>SEND_CONTROL_REPLICATION_SHARDING_GATHER_COLLECTIVE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_INDIRECT_COPY_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_FIELD_DESCRIPTOR_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_FIELD_DESCRIPTOR_GATHER</b>
+, <b>SEND_CONTROL_REPLICATION_DEPPART_RESULT_SCATTER</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_BUFFER_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_FUTURE_NAME_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_MAPPING_BROADCAST</b>
+, <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_MAPPING_EXCHANGE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_MUST_EPOCH_DEPENDENCE_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_COMPLETION_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_CHECK_COLLECTIVE_MAPPING</b>
+, <b>SEND_CONTROL_REPLICATION_CHECK_COLLECTIVE_SOURCES</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_TEMPLATE_INDEX_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_UNORDERED_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_CONSENSUS_MATCH</b>
+, <b>SEND_CONTROL_REPLICATION_VERIFY_CONTROL_REPLICATION_EXCHANGE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_OUTPUT_SIZE_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_LAUNCH_SPACE</b>
+, <b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_UPPER_BOUND</b>
+, <b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_EXCHANGE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_SHARD_PARTICIPANTS_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_IMPLICIT_SHARDING_FUNCTOR</b>
+, <b>SEND_CONTROL_REPLICATION_CREATE_FILL_VIEW</b>
+, <b>SEND_CONTROL_REPLICATION_VERSIONING_RENDEZVOUS</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_VIEW_RENDEZVOUS</b>
+, <b>SEND_CONTROL_REPLICATION_CONCURRENT_EXECUTION_VALIDATION</b>
+, <b>SEND_CONTROL_REPLICATION_CONCURRENT_ALLREDUCE</b>
+, <b>SEND_CONTROL_REPLICATION_PROJECTION_TREE_EXCHANGE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_TIMEOUT_MATCH_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_MASK_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_PREDICATE_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_CROSS_PRODUCT_EXCHANGE</b>
+, <br />
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_SLOW_BARRIER</b>
 , <b>SEND_SHUTDOWN_NOTIFICATION</b>
 , <b>SEND_SHUTDOWN_RESPONSE</b>
-, <br />
-&#160;&#160;<b>LAST_SEND_KIND</b>
+, <b>LAST_SEND_KIND</b>
 <br />
  }</td></tr>
 <tr class="separator:a8e0c16368be14df1436eb87f08dd4f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1083,254 +1279,261 @@ Enumerations</h2></td></tr>
 &#160;&#160;<b>MAPPER_IS_LEAF_VARIANT_CALL</b>
 , <b>MAPPER_IS_INNER_VARIANT_CALL</b>
 , <b>MAPPER_IS_IDEMPOTENT_VARIANT_CALL</b>
-, <b>MAPPER_REGISTER_TASK_VARIANT_CALL</b>
+, <b>MAPPER_IS_REPLICABLE_VARIANT_CALL</b>
 , <br />
-&#160;&#160;<b>MAPPER_FILTER_VARIANTS_CALL</b>
+&#160;&#160;<b>MAPPER_REGISTER_TASK_VARIANT_CALL</b>
+, <b>MAPPER_FILTER_VARIANTS_CALL</b>
 , <b>MAPPER_FILTER_INSTANCES_CALL</b>
 , <b>MAPPER_CREATE_PHYSICAL_INSTANCE_CALL</b>
-, <b>MAPPER_FIND_OR_CREATE_PHYSICAL_INSTANCE_CALL</b>
 , <br />
-&#160;&#160;<b>MAPPER_FIND_PHYSICAL_INSTANCE_CALL</b>
+&#160;&#160;<b>MAPPER_FIND_OR_CREATE_PHYSICAL_INSTANCE_CALL</b>
+, <b>MAPPER_FIND_PHYSICAL_INSTANCE_CALL</b>
 , <b>MAPPER_FIND_PHYSICAL_INSTANCES_CALL</b>
 , <b>MAPPER_SET_GC_PRIORITY_CALL</b>
-, <b>MAPPER_ACQUIRE_INSTANCE_CALL</b>
 , <br />
-&#160;&#160;<b>MAPPER_ACQUIRE_INSTANCES_CALL</b>
+&#160;&#160;<b>MAPPER_ACQUIRE_INSTANCE_CALL</b>
+, <b>MAPPER_ACQUIRE_INSTANCES_CALL</b>
 , <b>MAPPER_ACQUIRE_AND_FILTER_INSTANCES_CALL</b>
 , <b>MAPPER_RELEASE_INSTANCE_CALL</b>
-, <b>MAPPER_RELEASE_INSTANCES_CALL</b>
 , <br />
-&#160;&#160;<b>MAPPER_CREATE_INDEX_SPACE_CALL</b>
+&#160;&#160;<b>MAPPER_RELEASE_INSTANCES_CALL</b>
+, <b>MAPPER_SUBSCRIBE_INSTANCE_CALL</b>
+, <b>MAPPER_UNSUBSCRIBE_INSTANCE_CALL</b>
+, <b>MAPPER_COLLECT_INSTANCE_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_COLLECT_INSTANCES_CALL</b>
+, <b>MAPPER_ACQUIRE_FUTURE_CALL</b>
+, <b>MAPPER_CREATE_INDEX_SPACE_CALL</b>
 , <b>MAPPER_UNION_INDEX_SPACES_CALL</b>
-, <b>MAPPER_INTERSECT_INDEX_SPACES_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_INTERSECT_INDEX_SPACES_CALL</b>
 , <b>MAPPER_SUBTRACT_INDEX_SPACES_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_INDEX_SPACE_EMPTY_CALL</b>
+, <b>MAPPER_INDEX_SPACE_EMPTY_CALL</b>
 , <b>MAPPER_INDEX_SPACES_OVERLAP_CALL</b>
-, <b>MAPPER_INDEX_SPACE_DOMINATES_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_INDEX_SPACE_DOMINATES_CALL</b>
 , <b>MAPPER_HAS_INDEX_PARTITION_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_GET_INDEX_PARTITION_CALL</b>
+, <b>MAPPER_GET_INDEX_PARTITION_CALL</b>
 , <b>MAPPER_GET_INDEX_SUBSPACE_CALL</b>
-, <b>MAPPER_GET_INDEX_SPACE_DOMAIN_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_GET_INDEX_SPACE_DOMAIN_CALL</b>
 , <b>MAPPER_GET_INDEX_PARTITION_CS_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_GET_INDEX_PARTITION_CS_NAME_CALL</b>
+, <b>MAPPER_GET_INDEX_PARTITION_CS_NAME_CALL</b>
 , <b>MAPPER_GET_INDEX_SPACE_PARTITION_COLORS_CALL</b>
-, <b>MAPPER_IS_INDEX_PARTITION_DISJOINT_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_IS_INDEX_PARTITION_DISJOINT_CALL</b>
 , <b>MAPPER_IS_INDEX_PARTITION_COMPLETE_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_GET_INDEX_SPACE_COLOR_CALL</b>
+, <b>MAPPER_GET_INDEX_SPACE_COLOR_CALL</b>
 , <b>MAPPER_GET_INDEX_SPACE_COLOR_POINT_CALL</b>
-, <b>MAPPER_GET_INDEX_PARTITION_COLOR_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_GET_INDEX_PARTITION_COLOR_CALL</b>
 , <b>MAPPER_GET_PARENT_INDEX_SPACE_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_HAS_PARENT_INDEX_PARTITION_CALL</b>
+, <b>MAPPER_HAS_PARENT_INDEX_PARTITION_CALL</b>
 , <b>MAPPER_GET_PARENT_INDEX_PARTITION_CALL</b>
-, <b>MAPPER_GET_INDEX_SPACE_DEPTH_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_GET_INDEX_SPACE_DEPTH_CALL</b>
 , <b>MAPPER_GET_INDEX_PARTITION_DEPTH_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_GET_FIELD_SIZE_CALL</b>
+, <b>MAPPER_GET_FIELD_SIZE_CALL</b>
 , <b>MAPPER_GET_FIELD_SPACE_FIELDS_CALL</b>
-, <b>MAPPER_GET_LOGICAL_PARTITION_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_GET_LOGICAL_PARTITION_CALL</b>
 , <b>MAPPER_GET_LOGICAL_PARTITION_BY_COLOR_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_GET_LOGICAL_PARTITION_BY_TREE_CALL</b>
+, <b>MAPPER_GET_LOGICAL_PARTITION_BY_TREE_CALL</b>
 , <b>MAPPER_GET_LOGICAL_SUBREGION_CALL</b>
-, <b>MAPPER_GET_LOGICAL_SUBREGION_BY_COLOR_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_GET_LOGICAL_SUBREGION_BY_COLOR_CALL</b>
 , <b>MAPPER_GET_LOGICAL_SUBREGION_BY_TREE_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_GET_LOGICAL_REGION_COLOR_CALL</b>
+, <b>MAPPER_GET_LOGICAL_REGION_COLOR_CALL</b>
 , <b>MAPPER_GET_LOGICAL_REGION_COLOR_POINT_CALL</b>
-, <b>MAPPER_GET_LOGICAL_PARTITION_COLOR_CALL</b>
+, <br />
+&#160;&#160;<b>MAPPER_GET_LOGICAL_PARTITION_COLOR_CALL</b>
 , <b>MAPPER_GET_PARENT_LOGICAL_REGION_CALL</b>
-, <br />
-&#160;&#160;<b>MAPPER_HAS_PARENT_LOGICAL_PARTITION_CALL</b>
+, <b>MAPPER_HAS_PARENT_LOGICAL_PARTITION_CALL</b>
 , <b>MAPPER_GET_PARENT_LOGICAL_PARTITION_CALL</b>
-, <b>MAPPER_RETRIEVE_SEMANTIC_INFO_CALL</b>
-, <b>MAPPER_RETRIEVE_NAME_CALL</b>
 , <br />
-&#160;&#160;<b>PACK_BASE_TASK_CALL</b>
-, <b>UNPACK_BASE_TASK_CALL</b>
+&#160;&#160;<b>MAPPER_RETRIEVE_SEMANTIC_INFO_CALL</b>
+, <b>MAPPER_RETRIEVE_NAME_CALL</b>
+, <b>MAPPER_AUTO_LOCK_CALL</b>
+, <b>PACK_BASE_TASK_CALL</b>
+, <br />
+&#160;&#160;<b>UNPACK_BASE_TASK_CALL</b>
 , <b>TASK_PRIVILEGE_CHECK_CALL</b>
 , <b>CLONE_TASK_CALL</b>
+, <b>COMPUTE_POINT_REQUIREMENTS_CALL</b>
 , <br />
-&#160;&#160;<b>COMPUTE_POINT_REQUIREMENTS_CALL</b>
-, <b>EARLY_MAP_REGIONS_CALL</b>
-, <b>INTRA_TASK_ALIASING_CALL</b>
+&#160;&#160;<b>INTRA_TASK_ALIASING_CALL</b>
 , <b>ACTIVATE_SINGLE_CALL</b>
-, <br />
-&#160;&#160;<b>DEACTIVATE_SINGLE_CALL</b>
+, <b>DEACTIVATE_SINGLE_CALL</b>
 , <b>SELECT_INLINE_VARIANT_CALL</b>
-, <b>INLINE_CHILD_TASK_CALL</b>
+, <br />
+&#160;&#160;<b>INLINE_CHILD_TASK_CALL</b>
 , <b>PACK_SINGLE_TASK_CALL</b>
-, <br />
-&#160;&#160;<b>UNPACK_SINGLE_TASK_CALL</b>
+, <b>UNPACK_SINGLE_TASK_CALL</b>
 , <b>PACK_REMOTE_CONTEXT_CALL</b>
-, <b>HAS_CONFLICTING_INTERNAL_CALL</b>
+, <br />
+&#160;&#160;<b>HAS_CONFLICTING_INTERNAL_CALL</b>
 , <b>FIND_CONFLICTING_CALL</b>
-, <br />
-&#160;&#160;<b>FIND_CONFLICTING_INTERNAL_CALL</b>
+, <b>FIND_CONFLICTING_INTERNAL_CALL</b>
 , <b>CHECK_REGION_DEPENDENCE_CALL</b>
-, <b>FIND_PARENT_REGION_REQ_CALL</b>
+, <br />
+&#160;&#160;<b>FIND_PARENT_REGION_REQ_CALL</b>
 , <b>FIND_PARENT_REGION_CALL</b>
-, <br />
-&#160;&#160;<b>CHECK_PRIVILEGE_CALL</b>
+, <b>CHECK_PRIVILEGE_CALL</b>
 , <b>TRIGGER_SINGLE_CALL</b>
-, <b>INITIALIZE_MAP_TASK_CALL</b>
+, <br />
+&#160;&#160;<b>INITIALIZE_MAP_TASK_CALL</b>
 , <b>FINALIZE_MAP_TASK_CALL</b>
-, <br />
-&#160;&#160;<b>VALIDATE_VARIANT_SELECTION_CALL</b>
+, <b>VALIDATE_VARIANT_SELECTION_CALL</b>
 , <b>MAP_ALL_REGIONS_CALL</b>
-, <b>INITIALIZE_REGION_TREE_CONTEXTS_CALL</b>
+, <br />
+&#160;&#160;<b>INITIALIZE_REGION_TREE_CONTEXTS_CALL</b>
 , <b>INVALIDATE_REGION_TREE_CONTEXTS_CALL</b>
-, <br />
-&#160;&#160;<b>CREATE_INSTANCE_TOP_VIEW_CALL</b>
+, <b>CREATE_INSTANCE_TOP_VIEW_CALL</b>
 , <b>LAUNCH_TASK_CALL</b>
-, <b>ACTIVATE_MULTI_CALL</b>
+, <br />
+&#160;&#160;<b>ACTIVATE_MULTI_CALL</b>
 , <b>DEACTIVATE_MULTI_CALL</b>
-, <br />
-&#160;&#160;<b>SLICE_INDEX_SPACE_CALL</b>
+, <b>SLICE_INDEX_SPACE_CALL</b>
 , <b>CLONE_MULTI_CALL</b>
-, <b>MULTI_TRIGGER_EXECUTION_CALL</b>
+, <br />
+&#160;&#160;<b>MULTI_TRIGGER_EXECUTION_CALL</b>
 , <b>PACK_MULTI_CALL</b>
-, <br />
-&#160;&#160;<b>UNPACK_MULTI_CALL</b>
+, <b>UNPACK_MULTI_CALL</b>
 , <b>ACTIVATE_INDIVIDUAL_CALL</b>
-, <b>DEACTIVATE_INDIVIDUAL_CALL</b>
+, <br />
+&#160;&#160;<b>DEACTIVATE_INDIVIDUAL_CALL</b>
 , <b>INDIVIDUAL_PERFORM_MAPPING_CALL</b>
-, <br />
-&#160;&#160;<b>INDIVIDUAL_RETURN_VIRTUAL_CALL</b>
+, <b>INDIVIDUAL_RETURN_VIRTUAL_CALL</b>
 , <b>INDIVIDUAL_TRIGGER_COMPLETE_CALL</b>
-, <b>INDIVIDUAL_TRIGGER_COMMIT_CALL</b>
+, <br />
+&#160;&#160;<b>INDIVIDUAL_TRIGGER_COMMIT_CALL</b>
 , <b>INDIVIDUAL_POST_MAPPED_CALL</b>
-, <br />
-&#160;&#160;<b>INDIVIDUAL_PACK_TASK_CALL</b>
+, <b>INDIVIDUAL_PACK_TASK_CALL</b>
 , <b>INDIVIDUAL_UNPACK_TASK_CALL</b>
-, <b>INDIVIDUAL_PACK_REMOTE_COMPLETE_CALL</b>
+, <br />
+&#160;&#160;<b>INDIVIDUAL_PACK_REMOTE_COMPLETE_CALL</b>
 , <b>INDIVIDUAL_UNPACK_REMOTE_COMPLETE_CALL</b>
-, <br />
-&#160;&#160;<b>POINT_ACTIVATE_CALL</b>
+, <b>POINT_ACTIVATE_CALL</b>
 , <b>POINT_DEACTIVATE_CALL</b>
-, <b>POINT_TASK_COMPLETE_CALL</b>
+, <br />
+&#160;&#160;<b>POINT_TASK_COMPLETE_CALL</b>
 , <b>POINT_TASK_COMMIT_CALL</b>
-, <br />
-&#160;&#160;<b>POINT_PACK_TASK_CALL</b>
+, <b>POINT_PACK_TASK_CALL</b>
 , <b>POINT_UNPACK_TASK_CALL</b>
-, <b>POINT_TASK_POST_MAPPED_CALL</b>
+, <br />
+&#160;&#160;<b>POINT_TASK_POST_MAPPED_CALL</b>
 , <b>REMOTE_TASK_ACTIVATE_CALL</b>
-, <br />
-&#160;&#160;<b>REMOTE_TASK_DEACTIVATE_CALL</b>
+, <b>REMOTE_TASK_DEACTIVATE_CALL</b>
 , <b>REMOTE_UNPACK_CONTEXT_CALL</b>
-, <b>INDEX_ACTIVATE_CALL</b>
+, <br />
+&#160;&#160;<b>INDEX_ACTIVATE_CALL</b>
 , <b>INDEX_DEACTIVATE_CALL</b>
+, <b>INDEX_COMPUTE_FAT_PATH_CALL</b>
+, <b>INDEX_PREMAP_TASK_CALL</b>
 , <br />
-&#160;&#160;<b>INDEX_COMPUTE_FAT_PATH_CALL</b>
-, <b>INDEX_EARLY_MAP_TASK_CALL</b>
-, <b>INDEX_DISTRIBUTE_CALL</b>
+&#160;&#160;<b>INDEX_DISTRIBUTE_CALL</b>
 , <b>INDEX_PERFORM_MAPPING_CALL</b>
-, <br />
-&#160;&#160;<b>INDEX_COMPLETE_CALL</b>
+, <b>INDEX_COMPLETE_CALL</b>
 , <b>INDEX_COMMIT_CALL</b>
-, <b>INDEX_PERFORM_INLINING_CALL</b>
+, <br />
+&#160;&#160;<b>INDEX_PERFORM_INLINING_CALL</b>
 , <b>INDEX_CLONE_AS_SLICE_CALL</b>
-, <br />
-&#160;&#160;<b>INDEX_HANDLE_FUTURE</b>
+, <b>INDEX_HANDLE_FUTURE</b>
 , <b>INDEX_RETURN_SLICE_MAPPED_CALL</b>
-, <b>INDEX_RETURN_SLICE_COMPLETE_CALL</b>
+, <br />
+&#160;&#160;<b>INDEX_RETURN_SLICE_COMPLETE_CALL</b>
 , <b>INDEX_RETURN_SLICE_COMMIT_CALL</b>
-, <br />
-&#160;&#160;<b>SLICE_ACTIVATE_CALL</b>
+, <b>SLICE_ACTIVATE_CALL</b>
 , <b>SLICE_DEACTIVATE_CALL</b>
-, <b>SLICE_APPLY_VERSION_INFO_CALL</b>
+, <br />
+&#160;&#160;<b>SLICE_APPLY_VERSION_INFO_CALL</b>
 , <b>SLICE_DISTRIBUTE_CALL</b>
-, <br />
-&#160;&#160;<b>SLICE_PERFORM_MAPPING_CALL</b>
+, <b>SLICE_PERFORM_MAPPING_CALL</b>
 , <b>SLICE_LAUNCH_CALL</b>
-, <b>SLICE_MAP_AND_LAUNCH_CALL</b>
+, <br />
+&#160;&#160;<b>SLICE_MAP_AND_LAUNCH_CALL</b>
 , <b>SLICE_PACK_TASK_CALL</b>
-, <br />
-&#160;&#160;<b>SLICE_UNPACK_TASK_CALL</b>
+, <b>SLICE_UNPACK_TASK_CALL</b>
 , <b>SLICE_CLONE_AS_SLICE_CALL</b>
-, <b>SLICE_HANDLE_FUTURE_CALL</b>
+, <br />
+&#160;&#160;<b>SLICE_HANDLE_FUTURE_CALL</b>
 , <b>SLICE_CLONE_AS_POINT_CALL</b>
-, <br />
-&#160;&#160;<b>SLICE_ENUMERATE_POINTS_CALL</b>
+, <b>SLICE_ENUMERATE_POINTS_CALL</b>
 , <b>SLICE_MAPPED_CALL</b>
-, <b>SLICE_COMPLETE_CALL</b>
+, <br />
+&#160;&#160;<b>SLICE_COMPLETE_CALL</b>
 , <b>SLICE_COMMIT_CALL</b>
-, <br />
-&#160;&#160;<b>REALM_SPAWN_META_CALL</b>
+, <b>REALM_SPAWN_META_CALL</b>
 , <b>REALM_SPAWN_TASK_CALL</b>
-, <b>REALM_CREATE_INSTANCE_CALL</b>
+, <br />
+&#160;&#160;<b>REALM_CREATE_INSTANCE_CALL</b>
 , <b>REALM_ISSUE_COPY_CALL</b>
-, <br />
-&#160;&#160;<b>REALM_ISSUE_FILL_CALL</b>
+, <b>REALM_ISSUE_FILL_CALL</b>
 , <b>REGION_TREE_LOGICAL_ANALYSIS_CALL</b>
-, <b>REGION_TREE_LOGICAL_FENCE_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_TREE_LOGICAL_FENCE_CALL</b>
 , <b>REGION_TREE_VERSIONING_ANALYSIS_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_TREE_ADVANCE_VERSION_NUMBERS_CALL</b>
+, <b>REGION_TREE_ADVANCE_VERSION_NUMBERS_CALL</b>
 , <b>REGION_TREE_INITIALIZE_CONTEXT_CALL</b>
-, <b>REGION_TREE_INVALIDATE_CONTEXT_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_TREE_INVALIDATE_CONTEXT_CALL</b>
 , <b>REGION_TREE_PREMAP_ONLY_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_TREE_PHYSICAL_REGISTER_ONLY_CALL</b>
+, <b>REGION_TREE_PHYSICAL_REGISTER_ONLY_CALL</b>
 , <b>REGION_TREE_PHYSICAL_REGISTER_USERS_CALL</b>
-, <b>REGION_TREE_PHYSICAL_PERFORM_CLOSE_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_TREE_PHYSICAL_PERFORM_CLOSE_CALL</b>
 , <b>REGION_TREE_PHYSICAL_CLOSE_CONTEXT_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_TREE_PHYSICAL_COPY_ACROSS_CALL</b>
+, <b>REGION_TREE_PHYSICAL_COPY_ACROSS_CALL</b>
 , <b>REGION_TREE_PHYSICAL_REDUCE_ACROSS_CALL</b>
-, <b>REGION_TREE_PHYSICAL_CONVERT_MAPPING_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_TREE_PHYSICAL_CONVERT_MAPPING_CALL</b>
 , <b>REGION_TREE_PHYSICAL_FILL_FIELDS_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_TREE_PHYSICAL_ATTACH_EXTERNAL_CALL</b>
+, <b>REGION_TREE_PHYSICAL_ATTACH_EXTERNAL_CALL</b>
 , <b>REGION_TREE_PHYSICAL_DETACH_EXTERNAL_CALL</b>
-, <b>REGION_NODE_REGISTER_LOGICAL_USER_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_NODE_REGISTER_LOGICAL_USER_CALL</b>
 , <b>REGION_NODE_CLOSE_LOGICAL_NODE_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_NODE_SIPHON_LOGICAL_CHILDREN_CALL</b>
+, <b>REGION_NODE_SIPHON_LOGICAL_CHILDREN_CALL</b>
 , <b>REGION_NODE_SIPHON_LOGICAL_PROJECTION_CALL</b>
-, <b>REGION_NODE_PERFORM_LOGICAL_CLOSES_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_NODE_PERFORM_LOGICAL_CLOSES_CALL</b>
 , <b>REGION_NODE_FIND_VALID_INSTANCE_VIEWS_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_NODE_FIND_VALID_REDUCTION_VIEWS_CALL</b>
+, <b>REGION_NODE_FIND_VALID_REDUCTION_VIEWS_CALL</b>
 , <b>REGION_NODE_ISSUE_UPDATE_COPIES_CALL</b>
-, <b>REGION_NODE_SORT_COPY_INSTANCES_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_NODE_SORT_COPY_INSTANCES_CALL</b>
 , <b>REGION_NODE_ISSUE_GROUPED_COPIES_CALL</b>
-, <br />
-&#160;&#160;<b>REGION_NODE_ISSUE_UPDATE_REDUCTIONS_CALL</b>
+, <b>REGION_NODE_ISSUE_UPDATE_REDUCTIONS_CALL</b>
 , <b>REGION_NODE_PREMAP_REGION_CALL</b>
-, <b>REGION_NODE_REGISTER_REGION_CALL</b>
+, <br />
+&#160;&#160;<b>REGION_NODE_REGISTER_REGION_CALL</b>
 , <b>REGION_NODE_CLOSE_STATE_CALL</b>
-, <br />
-&#160;&#160;<b>CURRENT_STATE_RECORD_VERSION_NUMBERS_CALL</b>
+, <b>CURRENT_STATE_RECORD_VERSION_NUMBERS_CALL</b>
 , <b>CURRENT_STATE_ADVANCE_VERSION_NUMBERS_CALL</b>
-, <b>PHYSICAL_STATE_CAPTURE_STATE_CALL</b>
+, <br />
+&#160;&#160;<b>PHYSICAL_STATE_CAPTURE_STATE_CALL</b>
 , <b>PHYSICAL_STATE_APPLY_PATH_ONLY_CALL</b>
-, <br />
-&#160;&#160;<b>PHYSICAL_STATE_APPLY_STATE_CALL</b>
+, <b>PHYSICAL_STATE_APPLY_STATE_CALL</b>
 , <b>PHYSICAL_STATE_MAKE_LOCAL_CALL</b>
-, <b>MATERIALIZED_VIEW_FIND_LOCAL_PRECONDITIONS_CALL</b>
+, <br />
+&#160;&#160;<b>MATERIALIZED_VIEW_FIND_LOCAL_PRECONDITIONS_CALL</b>
 , <b>MATERIALIZED_VIEW_FIND_LOCAL_COPY_PRECONDITIONS_CALL</b>
-, <br />
-&#160;&#160;<b>MATERIALIZED_VIEW_FILTER_PREVIOUS_USERS_CALL</b>
+, <b>MATERIALIZED_VIEW_FILTER_PREVIOUS_USERS_CALL</b>
 , <b>MATERIALIZED_VIEW_FILTER_CURRENT_USERS_CALL</b>
-, <b>MATERIALIZED_VIEW_FILTER_LOCAL_USERS_CALL</b>
+, <br />
+&#160;&#160;<b>MATERIALIZED_VIEW_FILTER_LOCAL_USERS_CALL</b>
 , <b>REDUCTION_VIEW_PERFORM_REDUCTION_CALL</b>
-, <br />
-&#160;&#160;<b>REDUCTION_VIEW_PERFORM_DEFERRED_REDUCTION_CALL</b>
+, <b>REDUCTION_VIEW_PERFORM_DEFERRED_REDUCTION_CALL</b>
 , <b>REDUCTION_VIEW_PERFORM_DEFERRED_REDUCTION_ACROSS_CALL</b>
-, <b>REDUCTION_VIEW_FIND_COPY_PRECONDITIONS_CALL</b>
+, <br />
+&#160;&#160;<b>REDUCTION_VIEW_FIND_COPY_PRECONDITIONS_CALL</b>
 , <b>REDUCTION_VIEW_FIND_USER_PRECONDITIONS_CALL</b>
-, <br />
-&#160;&#160;<b>REDUCTION_VIEW_FILTER_LOCAL_USERS_CALL</b>
+, <b>REDUCTION_VIEW_FILTER_LOCAL_USERS_CALL</b>
 , <b>PHYSICAL_TRACE_EXECUTE_CALL</b>
-, <b>PHYSICAL_TRACE_PRECONDITION_CHECK_CALL</b>
-, <b>PHYSICAL_TRACE_OPTIMIZE_CALL</b>
 , <br />
-&#160;&#160;<b>LAST_RUNTIME_CALL_KIND</b>
+&#160;&#160;<b>PHYSICAL_TRACE_PRECONDITION_CHECK_CALL</b>
+, <b>PHYSICAL_TRACE_OPTIMIZE_CALL</b>
+, <b>LAST_RUNTIME_CALL_KIND</b>
 <br />
  }</td></tr>
 <tr class="separator:a7d5adf3e4df46dd071bd301db2ae564f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1346,6 +1549,137 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ab645f7e17948535b6740eb7e4f2bed71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5eece5b0af7134529f4e2a89f44a793"><td class="memItemLeft" align="right" valign="top"><a id="af5eece5b0af7134529f4e2a89f44a793"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>CollectiveIndexLocation</b> { <br />
+&#160;&#160;<b>COLLECTIVE_LOC_1</b> = 1
+, <b>COLLECTIVE_LOC_2</b> = 2
+, <b>COLLECTIVE_LOC_3</b> = 3
+, <b>COLLECTIVE_LOC_4</b> = 4
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_5</b> = 5
+, <b>COLLECTIVE_LOC_6</b> = 6
+, <b>COLLECTIVE_LOC_7</b> = 7
+, <b>COLLECTIVE_LOC_8</b> = 8
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_9</b> = 9
+, <b>COLLECTIVE_LOC_10</b> = 10
+, <b>COLLECTIVE_LOC_11</b> = 11
+, <b>COLLECTIVE_LOC_12</b> = 12
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_13</b> = 13
+, <b>COLLECTIVE_LOC_14</b> = 14
+, <b>COLLECTIVE_LOC_15</b> = 15
+, <b>COLLECTIVE_LOC_16</b> = 16
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_17</b> = 17
+, <b>COLLECTIVE_LOC_18</b> = 18
+, <b>COLLECTIVE_LOC_19</b> = 19
+, <b>COLLECTIVE_LOC_20</b> = 20
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_21</b> = 21
+, <b>COLLECTIVE_LOC_22</b> = 22
+, <b>COLLECTIVE_LOC_23</b> = 23
+, <b>COLLECTIVE_LOC_24</b> = 24
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_25</b> = 25
+, <b>COLLECTIVE_LOC_26</b> = 26
+, <b>COLLECTIVE_LOC_27</b> = 27
+, <b>COLLECTIVE_LOC_28</b> = 28
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_29</b> = 29
+, <b>COLLECTIVE_LOC_30</b> = 30
+, <b>COLLECTIVE_LOC_31</b> = 31
+, <b>COLLECTIVE_LOC_32</b> = 32
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_33</b> = 33
+, <b>COLLECTIVE_LOC_34</b> = 34
+, <b>COLLECTIVE_LOC_35</b> = 35
+, <b>COLLECTIVE_LOC_36</b> = 36
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_37</b> = 37
+, <b>COLLECTIVE_LOC_38</b> = 38
+, <b>COLLECTIVE_LOC_39</b> = 39
+, <b>COLLECTIVE_LOC_40</b> = 40
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_41</b> = 41
+, <b>COLLECTIVE_LOC_42</b> = 42
+, <b>COLLECTIVE_LOC_43</b> = 43
+, <b>COLLECTIVE_LOC_44</b> = 44
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_45</b> = 45
+, <b>COLLECTIVE_LOC_46</b> = 46
+, <b>COLLECTIVE_LOC_47</b> = 47
+, <b>COLLECTIVE_LOC_48</b> = 48
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_49</b> = 49
+, <b>COLLECTIVE_LOC_50</b> = 50
+, <b>COLLECTIVE_LOC_51</b> = 51
+, <b>COLLECTIVE_LOC_52</b> = 52
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_53</b> = 53
+, <b>COLLECTIVE_LOC_54</b> = 54
+, <b>COLLECTIVE_LOC_55</b> = 55
+, <b>COLLECTIVE_LOC_56</b> = 56
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_57</b> = 57
+, <b>COLLECTIVE_LOC_58</b> = 58
+, <b>COLLECTIVE_LOC_59</b> = 59
+, <b>COLLECTIVE_LOC_60</b> = 60
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_61</b> = 61
+, <b>COLLECTIVE_LOC_62</b> = 62
+, <b>COLLECTIVE_LOC_63</b> = 63
+, <b>COLLECTIVE_LOC_64</b> = 64
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_65</b> = 65
+, <b>COLLECTIVE_LOC_66</b> = 66
+, <b>COLLECTIVE_LOC_70</b> = 70
+, <b>COLLECTIVE_LOC_71</b> = 71
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_72</b> = 72
+, <b>COLLECTIVE_LOC_73</b> = 73
+, <b>COLLECTIVE_LOC_74</b> = 74
+, <b>COLLECTIVE_LOC_75</b> = 75
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_76</b> = 76
+, <b>COLLECTIVE_LOC_77</b> = 77
+, <b>COLLECTIVE_LOC_78</b> = 78
+, <b>COLLECTIVE_LOC_79</b> = 79
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_80</b> = 80
+, <b>COLLECTIVE_LOC_81</b> = 81
+, <b>COLLECTIVE_LOC_82</b> = 82
+, <b>COLLECTIVE_LOC_83</b> = 83
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_84</b> = 84
+, <b>COLLECTIVE_LOC_85</b> = 85
+, <b>COLLECTIVE_LOC_86</b> = 86
+, <b>COLLECTIVE_LOC_87</b> = 87
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_88</b> = 88
+, <b>COLLECTIVE_LOC_89</b> = 89
+, <b>COLLECTIVE_LOC_90</b> = 90
+, <b>COLLECTIVE_LOC_91</b> = 91
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_92</b> = 92
+, <b>COLLECTIVE_LOC_93</b> = 93
+, <b>COLLECTIVE_LOC_94</b> = 94
+, <b>COLLECTIVE_LOC_95</b> = 95
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_96</b> = 96
+, <b>COLLECTIVE_LOC_97</b> = 97
+, <b>COLLECTIVE_LOC_98</b> = 98
+, <b>COLLECTIVE_LOC_99</b> = 99
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_100</b> = 100
+, <b>COLLECTIVE_LOC_101</b> = 101
+, <b>COLLECTIVE_LOC_102</b> = 102
+, <b>COLLECTIVE_LOC_103</b> = 103
+, <br />
+&#160;&#160;<b>COLLECTIVE_LOC_104</b> = 104
+, <b>COLLECTIVE_LOC_105</b> = 105
+<br />
+ }</td></tr>
+<tr class="separator:af5eece5b0af7134529f4e2a89f44a793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6124708d53aaa959136e45b6d7d6fbc8"><td class="memItemLeft" align="right" valign="top"><a id="a6124708d53aaa959136e45b6d7d6fbc8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>RegistrationCallbackMode</b> { <b>NO_REGISTRATION_CALLBACK</b> = 0
 , <b>LOCAL_REGISTRATION_CALLBACK</b> = 1
 , <b>GLOBAL_REGISTRATION_CALLBACK</b> = 2
@@ -1408,7 +1742,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

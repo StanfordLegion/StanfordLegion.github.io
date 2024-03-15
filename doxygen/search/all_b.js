@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['next_944',['next',['../class_legion_1_1_index_iterator.html#a21c9138f0b8362edc4dc999a0739198b',1,'Legion::IndexIterator']]],
-  ['next_5fspan_945',['next_span',['../class_legion_1_1_index_iterator.html#a66e892944effd48b4c55f7a80ab68091',1,'Legion::IndexIterator']]],
-  ['no_5fpart_946',['NO_PART',['../class_legion_1_1_logical_partition.html#a40eb51801ca8602f783f6c4fd1efd0df',1,'Legion::LogicalPartition']]],
-  ['no_5fregion_947',['NO_REGION',['../class_legion_1_1_logical_region.html#a5b1fb82290bce3f864e05b3e81f9b2b0',1,'Legion::LogicalRegion']]],
-  ['no_5fspace_948',['NO_SPACE',['../class_legion_1_1_index_space.html#af15b5e310a283a304977cb8f587ceb07',1,'Legion::IndexSpace::NO_SPACE()'],['../class_legion_1_1_field_space.html#ae82f519f4c4691966acb1f18e8152f29',1,'Legion::FieldSpace::NO_SPACE()']]],
-  ['nt_5ftemplatehelper_949',['NT_TemplateHelper',['../struct_legion_1_1_internal_1_1_n_t___template_helper.html',1,'Legion::Internal']]]
+  ['map_5fregion_972',['map_region',['../class_legion_1_1_runtime.html#a72a56d287882bf9d1b937dd9a909b409',1,'Legion::Runtime::map_region(Context ctx, const InlineLauncher &amp;launcher)'],['../class_legion_1_1_runtime.html#a86b8d2c9bdf3f2cd0bd0402461b383e1',1,'Legion::Runtime::map_region(Context ctx, const RegionRequirement &amp;req, MapperID id=0, MappingTagID tag=0, const char *provenance=NULL)'],['../class_legion_1_1_runtime.html#a35289dab953525dd68eb1a872ba19611',1,'Legion::Runtime::map_region(Context ctx, unsigned idx, MapperID id=0, MappingTagID tag=0, const char *provenance=NULL)']]],
+  ['mappable_973',['Mappable',['../class_legion_1_1_mappable.html',1,'Legion']]],
+  ['memoizable_974',['Memoizable',['../class_legion_1_1_internal_1_1_memoizable.html',1,'Legion::Internal']]],
+  ['mpi_5fhandoff_5fto_5flegion_975',['mpi_handoff_to_legion',['../class_legion_1_1_m_p_i_legion_handshake.html#a31dc62d5ef169915a806c792d1cd3d19',1,'Legion::MPILegionHandshake']]],
+  ['mpi_5fwait_5fon_5flegion_976',['mpi_wait_on_legion',['../class_legion_1_1_m_p_i_legion_handshake.html#a8b364a1ccade595e3dc3753ac272bb20',1,'Legion::MPILegionHandshake']]],
+  ['mpilegionhandshake_977',['MPILegionHandshake',['../class_legion_1_1_m_p_i_legion_handshake.html',1,'Legion']]],
+  ['mustepoch_978',['MustEpoch',['../class_legion_1_1_must_epoch.html',1,'Legion']]],
+  ['mustepochlauncher_979',['MustEpochLauncher',['../struct_legion_1_1_must_epoch_launcher.html',1,'Legion']]]
 ];

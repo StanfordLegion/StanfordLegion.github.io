@@ -66,6 +66,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
@@ -77,6 +78,11 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="legion_8h_source.html">legion.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5bdef83ce9405e63ac099796aba01f05"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5bdef83ce9405e63ac099796aba01f05">PointTransformFnptr</a>) (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;domain, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;range)</td></tr>
+<tr class="separator:a5bdef83ce9405e63ac099796aba01f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4bfb413efd2de89152ad9e930769e46f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4bfb413efd2de89152ad9e930769e46f">create_index_space</a> (Context ctx, size_t max_num_elmts)</td></tr>
@@ -87,32 +93,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a33c1b802f7bfb0c85e8192053cf9abfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20209f3cd0ba38d596257d05d6b34164"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a20209f3cd0ba38d596257d05d6b34164">destroy_index_space</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle, const bool unordered=false, const bool recurse=true, const char *provenance=NULL)</td></tr>
 <tr class="separator:a20209f3cd0ba38d596257d05d6b34164"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51cb6acd03b57e45fd3857704ffcb0a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a51cb6acd03b57e45fd3857704ffcb0a7">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;color_space, const PointColoring &amp;coloring, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, bool allocable=false)</td></tr>
-<tr class="separator:a51cb6acd03b57e45fd3857704ffcb0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70dc84f7aae18e1c437e01d6498a433e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a70dc84f7aae18e1c437e01d6498a433e">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const Coloring &amp;coloring, bool disjoint, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a70dc84f7aae18e1c437e01d6498a433e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae76572904db634ccda408fd3e85bc555"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae76572904db634ccda408fd3e85bc555">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;color_space, const DomainPointColoring &amp;coloring, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:ae76572904db634ccda408fd3e85bc555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1089cb44f5721ddfa8539107ef96983b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1089cb44f5721ddfa8539107ef96983b">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_domain.html">Domain</a> color_space, const DomainColoring &amp;coloring, bool disjoint, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a1089cb44f5721ddfa8539107ef96983b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11784fd73bdd77db112bcf8e14d73d8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a11784fd73bdd77db112bcf8e14d73d8c">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;color_space, const MultiDomainPointColoring &amp;coloring, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a11784fd73bdd77db112bcf8e14d73d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702eb790c35bcbd2a8c8497226c6f8c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a702eb790c35bcbd2a8c8497226c6f8c6">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, <a class="el" href="class_legion_1_1_domain.html">Domain</a> color_space, const MultiDomainColoring &amp;coloring, bool disjoint, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a702eb790c35bcbd2a8c8497226c6f8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a673027fda1ad8b8749cb37a6aa8c49"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5a673027fda1ad8b8749cb37a6aa8c49"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5a673027fda1ad8b8749cb37a6aa8c49">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, const T &amp;mapping, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a5a673027fda1ad8b8749cb37a6aa8c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e44777b685baa2b21f0bf04ed516c13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4e44777b685baa2b21f0bf04ed516c13">create_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> parent, LegionRuntime::Accessor::RegionAccessor&lt; LegionRuntime::Accessor::AccessorType::Generic &gt; field_accessor, Color color=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a4e44777b685baa2b21f0bf04ed516c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8690291c53e667b2dc50fca6ea5dae0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8690291c53e667b2dc50fca6ea5dae0a">create_shared_ownership</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle)</td></tr>
 <tr class="separator:a8690291c53e667b2dc50fca6ea5dae0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af43b0a87f19f1d6ceb1aca434dfd6d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af43b0a87f19f1d6ceb1aca434dfd6d16">destroy_index_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> handle, const bool unordered=false, const bool recurse=true, const char *provenance=NULL)</td></tr>
 <tr class="separator:af43b0a87f19f1d6ceb1aca434dfd6d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memTemplParams" colspan="2">template&lt;unsigned DIM&gt; </td></tr>
-<tr class="memitem:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab69648bdfc893258e57b6d0e75cab8d4">get_index_subspace</a> (Context ctx, <a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> p, LegionRuntime::Arrays::Point&lt; DIM &gt; color_point)</td></tr>
-<tr class="separator:ab69648bdfc893258e57b6d0e75cab8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a103e10f383ee4ec5d3f04ffcc4cc6ac1"><td class="memItemLeft" align="right" valign="top">ptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a103e10f383ee4ec5d3f04ffcc4cc6ac1">safe_cast</a> (Context ctx, ptr_t pointer, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region)</td></tr>
-<tr class="separator:a103e10f383ee4ec5d3f04ffcc4cc6ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9158340668c0d8becc481ca648cc9782"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a9158340668c0d8becc481ca648cc9782">safe_cast</a> (Context ctx, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> point, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region)</td></tr>
 <tr class="separator:a9158340668c0d8becc481ca648cc9782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4184bff14eff459b500fc356da61a63c"><td class="memTemplParams" colspan="2">template&lt;int DIM, typename COORD_T &gt; </td></tr>
@@ -140,22 +124,22 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a47d4d7b61fd5b0ffd1a34fa4ebfdb689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9349fe8247c32783efe2c30b2b43f7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae9349fe8247c32783efe2c30b2b43f7b">destroy_logical_partition</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_partition.html">LogicalPartition</a> handle, const bool unordered=false)</td></tr>
 <tr class="separator:ae9349fe8247c32783efe2c30b2b43f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1550f7305763dadb37ce5a42572425b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_allocator.html">IndexAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1550f7305763dadb37ce5a42572425b9">create_index_allocator</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle)</td></tr>
-<tr class="separator:a1550f7305763dadb37ce5a42572425b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473b956419423f8621e5817cee41729c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a473b956419423f8621e5817cee41729c">reset_equivalence_sets</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> region, const std::set&lt; FieldID &gt; &amp;fields)</td></tr>
+<tr class="separator:a473b956419423f8621e5817cee41729c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3819fe6203528d2e753f3a09325eec8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_field_allocator.html">FieldAllocator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3819fe6203528d2e753f3a09325eec8c">create_field_allocator</a> (Context ctx, <a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> handle)</td></tr>
 <tr class="separator:a3819fe6203528d2e753f3a09325eec8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a387ad10ef63b243e9edbb1c1622fc4e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a387ad10ef63b243e9edbb1c1622fc4e7">create_argument_map</a> (Context ctx)</td></tr>
 <tr class="separator:a387ad10ef63b243e9edbb1c1622fc4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b7d00659246b245b91410987e65eea0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7b7d00659246b245b91410987e65eea0">execute_task</a> (Context ctx, const <a class="el" href="struct_legion_1_1_task_launcher.html">TaskLauncher</a> &amp;launcher)</td></tr>
-<tr class="separator:a7b7d00659246b245b91410987e65eea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e8d31f02a06b0b63824d1eb9f79b4eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0e8d31f02a06b0b63824d1eb9f79b4eb">execute_index_space</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;launcher)</td></tr>
-<tr class="separator:a0e8d31f02a06b0b63824d1eb9f79b4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f07a1164d549f044af6db3f0830008"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa6f07a1164d549f044af6db3f0830008">execute_index_space</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;launcher, ReductionOpID redop, bool deterministic=false)</td></tr>
-<tr class="separator:aa6f07a1164d549f044af6db3f0830008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cc6d21a6ae61814eecd74bf6fdf17bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4cc6d21a6ae61814eecd74bf6fdf17bb">reduce_future_map</a> (Context ctx, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;future_map, ReductionOpID redop, bool deterministic=false, const char *provenance=NULL)</td></tr>
-<tr class="separator:a4cc6d21a6ae61814eecd74bf6fdf17bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04ef382f66b480e80d87607641912573"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a04ef382f66b480e80d87607641912573">construct_future_map</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> domain, const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &gt; &amp;data, bool collective=false, ShardingID sid=0, bool implicit_sharding=false)</td></tr>
-<tr class="separator:a04ef382f66b480e80d87607641912573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bd8617cc504337611cfb408b702e02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af3bd8617cc504337611cfb408b702e02">execute_task</a> (Context ctx, const <a class="el" href="struct_legion_1_1_task_launcher.html">TaskLauncher</a> &amp;launcher, std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt; *outputs=NULL)</td></tr>
+<tr class="separator:af3bd8617cc504337611cfb408b702e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0eac79fb726772d302eb7e76fa0ea61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa0eac79fb726772d302eb7e76fa0ea61">execute_index_space</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;launcher, std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt; *outputs=NULL)</td></tr>
+<tr class="separator:aa0eac79fb726772d302eb7e76fa0ea61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e431f51374f36abad5b5b633a9d96f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0e431f51374f36abad5b5b633a9d96f0">execute_index_space</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;launcher, ReductionOpID redop, bool ordered=true, std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt; *outputs=NULL)</td></tr>
+<tr class="separator:a0e431f51374f36abad5b5b633a9d96f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af273283e6f99f10747f6012266698c0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af273283e6f99f10747f6012266698c0f">reduce_future_map</a> (Context ctx, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;future_map, ReductionOpID redop, bool ordered=true, MapperID map_id=0, MappingTagID tag=0, const char *provenance=NULL, <a class="el" href="class_legion_1_1_future.html">Future</a> initial_value=<a class="el" href="class_legion_1_1_future.html">Future</a>())</td></tr>
+<tr class="separator:af273283e6f99f10747f6012266698c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df8ba671ab83f333cc6a0964c44908e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1df8ba671ab83f333cc6a0964c44908e">construct_future_map</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> domain, const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &gt; &amp;data, bool collective=false, ShardingID sid=0, bool implicit_sharding=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:a1df8ba671ab83f333cc6a0964c44908e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac44a830e573aea91f8b471b282e11320"><td class="memItemLeft" align="right" valign="top"><a id="ac44a830e573aea91f8b471b282e11320"></a>
 <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>construct_future_map</b> (Context ctx, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;domain, const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &gt; &amp;data, bool collective=false, ShardingID sid=0, bool implicit_sharding=false)</td></tr>
 <tr class="separator:ac44a830e573aea91f8b471b282e11320"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +148,11 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="memitem:a3843e832f7959937430dd22656fe7c69"><td class="memItemLeft" align="right" valign="top"><a id="a3843e832f7959937430dd22656fe7c69"></a>
 <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>construct_future_map</b> (Context ctx, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;domain, const std::map&lt; <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>, <a class="el" href="class_legion_1_1_future.html">Future</a> &gt; &amp;futures, bool collective=false, ShardingID sid=0, bool implicit_sharding=false)</td></tr>
 <tr class="separator:a3843e832f7959937430dd22656fe7c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e56c93f7b8ef606b5b8d0317029fa2"><td class="memItemLeft" align="right" valign="top"><a id="aa5e56c93f7b8ef606b5b8d0317029fa2"></a>
+<a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transform_future_map</b> (Context ctx, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;fm, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> new_domain, <a class="el" href="class_legion_1_1_runtime.html#a5bdef83ce9405e63ac099796aba01f05">PointTransformFnptr</a> fnptr, const char *provenance=NULL)</td></tr>
+<tr class="separator:aa5e56c93f7b8ef606b5b8d0317029fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f470c92e19453b95f32a0e6205821dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5f470c92e19453b95f32a0e6205821dc">transform_future_map</a> (Context ctx, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;fm, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> new_domain, <a class="el" href="class_legion_1_1_point_transform_functor.html">PointTransformFunctor</a> *functor, bool take_ownership=false, const char *provenance=NULL)</td></tr>
+<tr class="separator:a5f470c92e19453b95f32a0e6205821dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a607c1fa178a6f1369b4471ec1414b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a9a607c1fa178a6f1369b4471ec1414b0">execute_task</a> (Context ctx, TaskID task_id, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &amp;arg, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0)</td></tr>
 <tr class="separator:a9a607c1fa178a6f1369b4471ec1414b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e5e4f0c7a374673017c11c064bae7c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a7e5e4f0c7a374673017c11c064bae7c3">execute_index_space</a> (Context ctx, TaskID task_id, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> domain, const std::vector&lt; <a class="el" href="struct_legion_1_1_index_space_requirement.html">IndexSpaceRequirement</a> &gt; &amp;indexes, const std::vector&lt; <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &gt; &amp;fields, const std::vector&lt; <a class="el" href="struct_legion_1_1_region_requirement.html">RegionRequirement</a> &gt; &amp;regions, const <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &amp;global_arg, const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;arg_map, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, bool must_paralleism=false, MapperID id=0, MappingTagID tag=0)</td></tr>
@@ -182,6 +171,10 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:a4d36874abe2077cd4ea544a357c336b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab27b33e7667fa68655141d7bdc68965e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab27b33e7667fa68655141d7bdc68965e">unmap_all_regions</a> (Context ctx)</td></tr>
 <tr class="separator:ab27b33e7667fa68655141d7bdc68965e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aa7945b5bc4df88901e932ea11e6f45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_output_region.html">OutputRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4aa7945b5bc4df88901e932ea11e6f45">get_output_region</a> (Context ctx, unsigned index)</td></tr>
+<tr class="separator:a4aa7945b5bc4df88901e932ea11e6f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6a966b541d3dc4ba3be1d641c9bce0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8d6a966b541d3dc4ba3be1d641c9bce0">get_output_regions</a> (Context ctx, std::vector&lt; <a class="el" href="class_legion_1_1_output_region.html">OutputRegion</a> &gt; &amp;regions)</td></tr>
+<tr class="separator:a8d6a966b541d3dc4ba3be1d641c9bce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a140bb70e85c103a86fab13e7d496eb7c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a140bb70e85c103a86fab13e7d496eb7c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a140bb70e85c103a86fab13e7d496eb7c">fill_field</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, const T &amp;value, <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> pred=Predicate::TRUE_PRED)</td></tr>
 <tr class="separator:a140bb70e85c103a86fab13e7d496eb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,6 +193,8 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:ae6e5fbafa51f0d505fb4878db79d9fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92453823db486b1a23ff6e1017da2bd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a92453823db486b1a23ff6e1017da2bd3">fill_fields</a> (Context ctx, const <a class="el" href="struct_legion_1_1_index_fill_launcher.html">IndexFillLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:a92453823db486b1a23ff6e1017da2bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea2c03ecfb8cca959329a0ae8e9d82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8ea2c03ecfb8cca959329a0ae8e9d82d">discard_fields</a> (Context ctx, const <a class="el" href="struct_legion_1_1_discard_launcher.html">DiscardLauncher</a> &amp;launcher)</td></tr>
+<tr class="separator:a8ea2c03ecfb8cca959329a0ae8e9d82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf0b11fbbbd98d975ae1472ea1d25cec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abf0b11fbbbd98d975ae1472ea1d25cec">attach_external_resource</a> (Context ctx, const <a class="el" href="struct_legion_1_1_attach_launcher.html">AttachLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:abf0b11fbbbd98d975ae1472ea1d25cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf5cfc4047ce453b5b6642ed23803770"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abf5cfc4047ce453b5b6642ed23803770">detach_external_resource</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region, const bool flush=true, const bool unordered=false, const char *provenance=NULL)</td></tr>
@@ -232,8 +227,8 @@ template&lt;int DIM, typename COORD_T &gt; </td></tr>
 <tr class="separator:aba44e7bfcbc9f7dbf78fd3865fcc8122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe54270c655c3a1f30d38e8370b732f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_predicate.html">Predicate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abe54270c655c3a1f30d38e8370b732f0">create_predicate</a> (Context ctx, const <a class="el" href="struct_legion_1_1_predicate_launcher.html">PredicateLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:abe54270c655c3a1f30d38e8370b732f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35f8b658d5534f78088c7e268567b0e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a35f8b658d5534f78088c7e268567b0e0">get_predicate_future</a> (Context ctx, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;p)</td></tr>
-<tr class="separator:a35f8b658d5534f78088c7e268567b0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e622f2f82c702dad900c5930cee0fd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6e622f2f82c702dad900c5930cee0fd6">get_predicate_future</a> (Context ctx, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;p, const char *provenance=NULL)</td></tr>
+<tr class="separator:a6e622f2f82c702dad900c5930cee0fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaffbe858643c9083a6a9ef39e472e7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_lock.html">Lock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aeaffbe858643c9083a6a9ef39e472e7e">create_lock</a> (Context ctx)</td></tr>
 <tr class="separator:aeaffbe858643c9083a6a9ef39e472e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55c3a2fca0f3456220fde2736431712a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a55c3a2fca0f3456220fde2736431712a">destroy_lock</a> (Context ctx, <a class="el" href="class_legion_1_1_lock.html">Lock</a> l)</td></tr>
@@ -323,22 +318,22 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:aae005a8b8c1f513af1c52029d22bbf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74371677d9d67f800329ac5c770c54c4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_legion_1_1_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a74371677d9d67f800329ac5c770c54c4">get_current_task</a> (Context ctx)</td></tr>
 <tr class="separator:a74371677d9d67f800329ac5c770c54c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab11516344528774fbfbe0ebcc037c4c5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab11516344528774fbfbe0ebcc037c4c5">query_available_memory</a> (Context ctx, Memory target)</td></tr>
+<tr class="separator:ab11516344528774fbfbe0ebcc037c4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae436d1051bfac794d153ea776aca9f93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae436d1051bfac794d153ea776aca9f93">raise_region_exception</a> (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region, bool nuclear)</td></tr>
 <tr class="separator:ae436d1051bfac794d153ea776aca9f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7ef2dd2dff921f5ad8dd208aac18333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ad7ef2dd2dff921f5ad8dd208aac18333">yield</a> (Context ctx)</td></tr>
 <tr class="separator:ad7ef2dd2dff921f5ad8dd208aac18333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfd9a2972ac9b068d579ac15379d72f2"><td class="memItemLeft" align="right" valign="top">ShardID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abfd9a2972ac9b068d579ac15379d72f2">local_shard</a> (Context ctx)</td></tr>
-<tr class="separator:abfd9a2972ac9b068d579ac15379d72f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af322e2707640ed384e51b642ed9e3ac0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af322e2707640ed384e51b642ed9e3ac0">total_shards</a> (Context ctx)</td></tr>
-<tr class="separator:af322e2707640ed384e51b642ed9e3ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e36b1db79f5cb6cd4c49882472e20de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0e36b1db79f5cb6cd4c49882472e20de">concurrent_task_barrier</a> (Context ctx)</td></tr>
+<tr class="separator:a0e36b1db79f5cb6cd4c49882472e20de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7065b4e925dd6a6f7402840e7bde2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a9d7065b4e925dd6a6f7402840e7bde2c">is_MPI_interop_configured</a> (void)</td></tr>
+<tr class="separator:a9d7065b4e925dd6a6f7402840e7bde2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51590b28041537778aab81d790ebdbe2"><td class="memItemLeft" align="right" valign="top">const std::map&lt; int, AddressSpace &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a51590b28041537778aab81d790ebdbe2">find_forward_MPI_mapping</a> (void)</td></tr>
 <tr class="separator:a51590b28041537778aab81d790ebdbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac27b2638c8aa39d366886a678f63749d"><td class="memItemLeft" align="right" valign="top">const std::map&lt; AddressSpace, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac27b2638c8aa39d366886a678f63749d">find_reverse_MPI_mapping</a> (void)</td></tr>
 <tr class="separator:ac27b2638c8aa39d366886a678f63749d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2b6769d9ee8de7892f0b5d5c3cc4ab3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa2b6769d9ee8de7892f0b5d5c3cc4ab3">find_local_MPI_rank</a> (void)</td></tr>
 <tr class="separator:aa2b6769d9ee8de7892f0b5d5c3cc4ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d7065b4e925dd6a6f7402840e7bde2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a9d7065b4e925dd6a6f7402840e7bde2c">is_MPI_interop_configured</a> (void)</td></tr>
-<tr class="separator:a9d7065b4e925dd6a6f7402840e7bde2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02665b2e9420a73f96b5b2ca0bedcbae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a02665b2e9420a73f96b5b2ca0bedcbae">attach_semantic_information</a> (TaskID task_id, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false, bool local_only=false)</td></tr>
 <tr class="separator:a02665b2e9420a73f96b5b2ca0bedcbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3650321803a3a960e89ef809f346e64c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3650321803a3a960e89ef809f346e64c">attach_semantic_information</a> (<a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle, SemanticTag tag, const void *buffer, size_t size, bool is_mutable=false)</td></tr>
@@ -431,14 +426,14 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:a8d2e4e8576f3b6408824b643b79f79b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b45946044f7672c734111a4960d4c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a97b45946044f7672c734111a4960d4c2">launch_top_level_task</a> (const <a class="el" href="struct_legion_1_1_task_launcher.html">TaskLauncher</a> &amp;launcher)</td></tr>
 <tr class="separator:a97b45946044f7672c734111a4960d4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fd4333221923bb6e88d8ab6da24cea9"><td class="memItemLeft" align="right" valign="top">Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a1fd4333221923bb6e88d8ab6da24cea9">begin_implicit_task</a> (TaskID top_task_id, MapperID mapper_id, Processor::Kind proc_kind, const char *task_name=NULL, bool control_replicable=false, unsigned shard_per_address_space=1, int shard_id=-1)</td></tr>
-<tr class="separator:a1fd4333221923bb6e88d8ab6da24cea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320582997f37da5b4889bb78426fa244"><td class="memItemLeft" align="right" valign="top">Context&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a320582997f37da5b4889bb78426fa244">begin_implicit_task</a> (TaskID top_task_id, MapperID mapper_id, Processor::Kind proc_kind, const char *task_name=NULL, bool control_replicable=false, unsigned shard_per_address_space=1, int shard_id=-1, <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> shard_point=<a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>())</td></tr>
+<tr class="separator:a320582997f37da5b4889bb78426fa244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c72c6636df75996f3719961fdea4716"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a3c72c6636df75996f3719961fdea4716">unbind_implicit_task_from_external_thread</a> (Context ctx)</td></tr>
 <tr class="separator:a3c72c6636df75996f3719961fdea4716"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacba31e40f227459297e0d98901582af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aacba31e40f227459297e0d98901582af">bind_implicit_task_to_external_thread</a> (Context ctx)</td></tr>
 <tr class="separator:aacba31e40f227459297e0d98901582af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa64e8a16a1b5769cd8542338f0200100"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa64e8a16a1b5769cd8542338f0200100">finish_implicit_task</a> (Context ctx)</td></tr>
-<tr class="separator:aa64e8a16a1b5769cd8542338f0200100"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f25e3db2caab68cbcc8316523ff6395"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8f25e3db2caab68cbcc8316523ff6395">finish_implicit_task</a> (Context ctx, Realm::Event effects=Realm::Event::NO_EVENT)</td></tr>
+<tr class="separator:a8f25e3db2caab68cbcc8316523ff6395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc6acec0e7ede9fd3e052b3c3e2df6b"><td class="memItemLeft" align="right" valign="top">LayoutConstraintID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aadc6acec0e7ede9fd3e052b3c3e2df6b">register_layout</a> (const <a class="el" href="struct_legion_1_1_layout_constraint_registrar.html">LayoutConstraintRegistrar</a> &amp;registrar)</td></tr>
 <tr class="separator:aadc6acec0e7ede9fd3e052b3c3e2df6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae495979ba6641b365c2c0b9ee4be7818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae495979ba6641b365c2c0b9ee4be7818">release_layout</a> (LayoutConstraintID layout_id)</td></tr>
@@ -465,14 +460,17 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5838b3cc5e9ce88b9e37b6790179cc1d"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
 <tr class="memitem:a5838b3cc5e9ce88b9e37b6790179cc1d"><td class="memTemplItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a5838b3cc5e9ce88b9e37b6790179cc1d">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const UDT &amp;user_data, VariantID vid=LEGION_AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:a5838b3cc5e9ce88b9e37b6790179cc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4de4e1d191026fd2d0af78a6495e4d43"><td class="memItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a4de4e1d191026fd2d0af78a6495e4d43">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID)</td></tr>
-<tr class="separator:a4de4e1d191026fd2d0af78a6495e4d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6bd108dcc0d2c3a343b3d56c59179f5"><td class="memItemLeft" align="right" valign="top">VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab6bd108dcc0d2c3a343b3d56c59179f5">register_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, size_t return_type_size=LEGION_MAX_RETURN_SIZE, VariantID vid=LEGION_AUTO_GENERATE_ID, bool has_return_type_size=true)</td></tr>
+<tr class="separator:ab6bd108dcc0d2c3a343b3d56c59179f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a331d5f51281659e1ced9b2c43ac2cfbd"><td class="memItemLeft" align="right" valign="top"><a id="a331d5f51281659e1ced9b2c43ac2cfbd"></a>
 ShardID&#160;</td><td class="memItemRight" valign="bottom"><b>get_shard_id</b> (Context ctx, bool I_know_what_I_am_doing=false)</td></tr>
 <tr class="separator:a331d5f51281659e1ced9b2c43ac2cfbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52660c9bb2c9630a3c445b8028609035"><td class="memItemLeft" align="right" valign="top"><a id="a52660c9bb2c9630a3c445b8028609035"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_num_shards</b> (Context ctx, bool I_know_what_I_am_doing=false)</td></tr>
 <tr class="separator:a52660c9bb2c9630a3c445b8028609035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9b803f3c046cedcd2a1743bba48c26"><td class="memItemLeft" align="right" valign="top"><a id="abf9b803f3c046cedcd2a1743bba48c26"></a>
+<a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><b>consensus_match</b> (Context ctx, const void *input, void *output, size_t num_elements, size_t element_size, const char *provenance=NULL)</td></tr>
+<tr class="separator:abf9b803f3c046cedcd2a1743bba48c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:ac0b3d4e90852fe581ec4cbcab476baa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac0b3d4e90852fe581ec4cbcab476baa7">create_index_space</a> (Context ctx, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, TypeTag type_tag=0, const char *provenance=NULL)</td></tr>
 <tr class="separator:ac0b3d4e90852fe581ec4cbcab476baa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -637,9 +635,9 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
 <tr class="memitem:a544f4384cb5009d1ba42eacf1c37c811"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create_partition_by_domain</b> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;domain_future_map, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)</td></tr>
 <tr class="separator:a544f4384cb5009d1ba42eacf1c37c811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a8d752159a39993951df0ad41f0ed8560"><td class="memTemplParams" colspan="2">template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
-<tr class="memitem:a8d752159a39993951df0ad41f0ed8560"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a8d752159a39993951df0ad41f0ed8560">create_partition_by_rectangles</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const std::map&lt; Point&lt; COLOR_DIM, COLOR_COORD_T &gt;, std::vector&lt; Rect&lt; DIM, COORD_T &gt; &gt; &gt; &amp;rectangles, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL)</td></tr>
-<tr class="separator:a8d752159a39993951df0ad41f0ed8560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a1758cdb2044aa8a3ac420d0b8726dc"><td class="memTemplParams" colspan="2">template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &gt; </td></tr>
+<tr class="memitem:a6a1758cdb2044aa8a3ac420d0b8726dc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition_t.html">IndexPartitionT</a>&lt; DIM, COORD_T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6a1758cdb2044aa8a3ac420d0b8726dc">create_partition_by_rectangles</a> (Context ctx, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; DIM, COORD_T &gt; parent, const std::map&lt; Point&lt; COLOR_DIM, COLOR_COORD_T &gt;, std::vector&lt; Rect&lt; DIM, COORD_T &gt; &gt; &gt; &amp;rectangles, <a class="el" href="class_legion_1_1_index_space_t.html">IndexSpaceT</a>&lt; COLOR_DIM, COLOR_COORD_T &gt; color_space, bool perform_intersections=true, PartitionKind part_kind=LEGION_COMPUTE_KIND, Color color=LEGION_AUTO_GENERATE_ID, const char *provenance=NULL, bool collective=false)</td></tr>
+<tr class="separator:a6a1758cdb2044aa8a3ac420d0b8726dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:ac3eff619ee6af41d64afc6dcfab212f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ac3eff619ee6af41d64afc6dcfab212f1">create_partition_by_field</a> (Context ctx, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, FieldID fid, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> color_space, Color color=LEGION_AUTO_GENERATE_ID, MapperID id=0, MappingTagID tag=0, PartitionKind part_kind=LEGION_DISJOINT_KIND, <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> map_arg=<a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a>(), const char *provenance=NULL)</td></tr>
 <tr class="separator:ac3eff619ee6af41d64afc6dcfab212f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1086,6 +1084,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:acf0909cfe0ea7e5636968cc61eaada18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af960d0cdd23cb7dd8e535920f5073095"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#af960d0cdd23cb7dd8e535920f5073095">preregister_sharding_functor</a> (ShardingID sid, <a class="el" href="class_legion_1_1_sharding_functor.html">ShardingFunctor</a> *functor)</td></tr>
 <tr class="separator:af960d0cdd23cb7dd8e535920f5073095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e8adcc76801e10b362e603184b367b7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_sharding_functor.html">ShardingFunctor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a0e8adcc76801e10b362e603184b367b7">get_sharding_functor</a> (ShardingID sid)</td></tr>
+<tr class="separator:a0e8adcc76801e10b362e603184b367b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1cd6d9bff2aefe7087b35844ab9217a"><td class="memItemLeft" align="right" valign="top">static ReductionOpID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ae1cd6d9bff2aefe7087b35844ab9217a">generate_static_reduction_id</a> (void)</td></tr>
 <tr class="separator:ae1cd6d9bff2aefe7087b35844ab9217a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e8b66a348ea56e232301cfcfb20338e"><td class="memTemplParams" colspan="2">template&lt;typename REDOP &gt; </td></tr>
@@ -1168,14 +1168,16 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>perform_regist
 <tr class="memitem:abf7a3743c8dc7d4e777d44c964c35344"><td class="memTemplParams" colspan="2">template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *, const UDT &amp;) TASK_PTR&gt; </td></tr>
 <tr class="memitem:abf7a3743c8dc7d4e777d44c964c35344"><td class="memTemplItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abf7a3743c8dc7d4e777d44c964c35344">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const UDT &amp;user_data, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID)</td></tr>
 <tr class="separator:abf7a3743c8dc7d4e777d44c964c35344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41ffe9b3f048f6606a0435271a134e29"><td class="memItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a41ffe9b3f048f6606a0435271a134e29">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool check_task_id=true)</td></tr>
-<tr class="separator:a41ffe9b3f048f6606a0435271a134e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70b64e9154bdcba50eac638d7e9c99d"><td class="memItemLeft" align="right" valign="top">static VariantID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aa70b64e9154bdcba50eac638d7e9c99d">preregister_task_variant</a> (const <a class="el" href="struct_legion_1_1_task_variant_registrar.html">TaskVariantRegistrar</a> &amp;registrar, const CodeDescriptor &amp;codedesc, const void *user_data=NULL, size_t user_len=0, const char *task_name=NULL, VariantID vid=LEGION_AUTO_GENERATE_ID, size_t return_type_size=LEGION_MAX_RETURN_SIZE, bool has_return_type_size=true, bool check_task_id=true)</td></tr>
+<tr class="separator:aa70b64e9154bdcba50eac638d7e9c99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75cae296df9a998053907a268f907c9e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a75cae296df9a998053907a268f907c9e">legion_task_preamble</a> (const void *data, size_t datalen, Processor p, const <a class="el" href="class_legion_1_1_task.html">Task</a> *&amp;task, const std::vector&lt; <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> &gt; *&amp;reg, Context &amp;ctx, <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&amp;runtime)</td></tr>
 <tr class="separator:a75cae296df9a998053907a268f907c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab89f0d1e1c5051981e85dda090ee3141"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#ab89f0d1e1c5051981e85dda090ee3141">legion_task_postamble</a> (<a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *runtime, Context ctx, const void *retvalptr=NULL, size_t retvalsize=0, bool owned=false, Realm::RegionInstance inst=Realm::RegionInstance::NO_INST)</td></tr>
-<tr class="separator:ab89f0d1e1c5051981e85dda090ee3141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a475a28e7ac108578586f5038eb4e8b09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a475a28e7ac108578586f5038eb4e8b09">legion_task_postamble</a> (<a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *runtime, Context ctx, <a class="el" href="class_legion_1_1_future_functor.html">FutureFunctor</a> *callback_functor, bool owned=false)</td></tr>
-<tr class="separator:a475a28e7ac108578586f5038eb4e8b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe0ba758d169fb8df8f7f03dc961a66"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#abbe0ba758d169fb8df8f7f03dc961a66">legion_task_postamble</a> (Context ctx, const void *retvalptr=NULL, size_t retvalsize=0, bool owned=false, Realm::RegionInstance inst=Realm::RegionInstance::NO_INST, const void *metadataptr=NULL, size_t metadatasize=0)</td></tr>
+<tr class="separator:abbe0ba758d169fb8df8f7f03dc961a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa358a3e15281edd025f53abbbc2b568"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#aaa358a3e15281edd025f53abbbc2b568">legion_task_postamble</a> (Context ctx, const void *retvalptr, size_t retvalsize, bool owned, const Realm::ExternalInstanceResource &amp;allocation, void(*freefunc)(const Realm::ExternalInstanceResource &amp;)=NULL, const void *metadataptr=NULL, size_t metadatasize=0)</td></tr>
+<tr class="separator:aaa358a3e15281edd025f53abbbc2b568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e8a94e27a29be6628f23730e25e786"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a98e8a94e27a29be6628f23730e25e786">legion_task_postamble</a> (Context ctx, <a class="el" href="class_legion_1_1_future_functor.html">FutureFunctor</a> *callback_functor, bool owned=false)</td></tr>
+<tr class="separator:a98e8a94e27a29be6628f23730e25e786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d51b64f40ce794ff98b1403994c11f3"><td class="memTemplParams" colspan="2">template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp;, Context, Runtime *) TASK_PTR&gt; </td></tr>
 <tr class="memitem:a6d51b64f40ce794ff98b1403994c11f3"><td class="memTemplItemLeft" align="right" valign="top">static TaskID&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_runtime.html#a6d51b64f40ce794ff98b1403994c11f3">register_legion_task</a> (TaskID id, Processor::Kind proc_kind, bool single, bool index, VariantID vid=LEGION_AUTO_GENERATE_ID, <a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a> options=<a class="el" href="struct_legion_1_1_task_config_options.html">TaskConfigOptions</a>(), const char *task_name=NULL)</td></tr>
 <tr class="separator:a6d51b64f40ce794ff98b1403994c11f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1208,7 +1210,33 @@ Protected Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> class is the primary interface for <a class="el" href="namespace_legion.html">Legion</a>. Every task is given a reference to the runtime as part of its arguments. All <a class="el" href="namespace_legion.html">Legion</a> operations are then performed by directing the runtime to perform them through the methods of this class. The methods in <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> are broken into three categories. The first group of calls are the methods that can be used by application tasks during runtime. The second group contains calls for initializing the runtime during start-up callback. The final section of calls are static methods that are used to configure the runtime prior to starting it up.</p>
 <p>A note on context free functions: context free functions have equivalent functionality to their non-context-free couterparts. However, context free functions can be safely used in a leaf task while any runtime function that requires a context cannot be used in a leaf task. If your task variant only uses context free functions as part of its implementation then it is safe for you to annotate it as a leaf task variant. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a5bdef83ce9405e63ac099796aba01f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bdef83ce9405e63ac099796aba01f05">&#9670;&nbsp;</a></span>PointTransformFnptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>(* Legion::Runtime::PointTransformFnptr) (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;point, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;domain, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;range)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Apply a transform to a <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>. All points that access the <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> will be transformed by the 'transform' function before accessing the backing future map. Note that multiple transforms can be composed this way to create new FutureMaps. This version takes a function pointer which must take a domain point and the range of the original future map and returns a new domain point that must fall within the range. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">fm</td><td>future map to apply a new coordinate space to </td></tr>
+    <tr><td class="paramname">new_domain</td><td>an index space to describe the domain of points for the transformed future map </td></tr>
+    <tr><td class="paramname">fnptr</td><td>a function pointer to call to transform points </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new future map with the coordinate space transformed </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae96cf3328e9b69c7df53c25982286b13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae96cf3328e9b69c7df53c25982286b13">&#9670;&nbsp;</a></span>acquire_grant()</h2>
 
@@ -1587,7 +1615,7 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000032">Deprecated:</a></b></dt><dd>Attach an normal file as a physical region. This attach is similar to attach_hdf5 operation, except that the file has exact same data format as in-memory physical region. Data lays out as SOA in file. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>Attach an normal file as a physical region. This attach is similar to attach_hdf5 operation, except that the file has exact same data format as in-memory physical region. Data lays out as SOA in file. </dd></dl>
 
 </div>
 </div>
@@ -1640,7 +1668,7 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000030">Deprecated:</a></b></dt><dd>Attach an HDF5 file as a physical region. The file must already exist. <a class="el" href="namespace_legion.html">Legion</a> will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>Attach an HDF5 file as a physical region. The file must already exist. <a class="el" href="namespace_legion.html">Legion</a> will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -2370,8 +2398,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1fd4333221923bb6e88d8ab6da24cea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fd4333221923bb6e88d8ab6da24cea9">&#9670;&nbsp;</a></span>begin_implicit_task()</h2>
+<a id="a320582997f37da5b4889bb78426fa244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320582997f37da5b4889bb78426fa244">&#9670;&nbsp;</a></span>begin_implicit_task()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2416,7 +2444,13 @@ Protected Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>shard_id</em> = <code>-1</code>&#160;</td>
+          <td class="paramname"><em>shard_id</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>&#160;</td>
+          <td class="paramname"><em>shard_point</em> = <code><a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2617,6 +2651,28 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0e36b1db79f5cb6cd4c49882472e20de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e36b1db79f5cb6cd4c49882472e20de">&#9670;&nbsp;</a></span>concurrent_task_barrier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::concurrent_task_barrier </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This method provides a mechanism for performing a blocking barrier inside the point tasks of concurrent index space task launch. This may seem very un-Legion-like and indeed it is. However, there is one very important use case that we've identified where it is imperative that we have such a feature and there's really no good way to work around the issue at the moment other than to provide this feature.</p>
+<p>Launching collective kernels on a GPU is currently an unsafe thing to do (see this section of the CUDA programming guide: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#streams">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#streams</a> "for example, inter-kernel communication is undefined") which means that technically using collective kernel libraries such as NCCL is illegal in CUDA programs. To help make this safer, we recommend putting a barrier both before and after every single collective kernel launch performed in a concurrent index space task launch. Yes, we know this sucks and it will probably hurt your performance. Please raise issues with the NVIDIA CUDA team.</p>
+<p>To use this method all variants selected by each point task must have set the 'concurrent_barrier' flag when they were registered which tells the runtime to make this barrier available. The runtime will check that all variants in the concurrent index space task launch have this set. It will raise an error if any of the selected variants do not have this set (as this probably means you have some points that are going to expect to arrive on the barrier while others will not). This method will perform a barrier across the N tasks in the concurrent index space task launch. The expected cost of this barrier is O(log N) in the number of tasks N in the collective index space task launch.</p>
+<p>When using this barrier to address the CUDA issue described above: it is the user's responsibility to make sure that one barrier is performed before the kernel is launched and one is performed after the launch in order to be avoid deadlocks. Furthermore, it is the user's responsibility to make sure that the kernel has actually been issued to GPU driver (be very careful with non-blocking communicators). </p>
+
+</div>
+</div>
 <a id="a5fd293aa87d221487f044562a81bddb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fd293aa87d221487f044562a81bddb4">&#9670;&nbsp;</a></span>configure_MPI_interoperability()</h2>
 
@@ -2720,8 +2776,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a04ef382f66b480e80d87607641912573"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04ef382f66b480e80d87607641912573">&#9670;&nbsp;</a></span>construct_future_map() <span class="overload">[2/2]</span></h2>
+<a id="a1df8ba671ab83f333cc6a0964c44908e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df8ba671ab83f333cc6a0964c44908e">&#9670;&nbsp;</a></span>construct_future_map() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2760,7 +2816,13 @@ Protected Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>implicit_sharding</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>implicit_sharding</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2777,6 +2839,7 @@ Protected Member Functions</h2></td></tr>
     <tr><td class="paramname">collective</td><td>whether shards from a control replicated context should work collectively to construct the map </td></tr>
     <tr><td class="paramname">sid</td><td>the sharding function ID that describes the sharding pattern if collective=true </td></tr>
     <tr><td class="paramname">implicit_sharding</td><td>if collective=true this says whether the sharding should be implicitly handled by the runtime and the sharding function ID ignored </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
   </table>
   </dd>
 </dl>
@@ -2799,7 +2862,7 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000026">Deprecated:</a></b></dt><dd>Create an argument map in the given context. This method is deprecated as argument maps can now be created directly by a simple declaration. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>Create an argument map in the given context. This method is deprecated as argument maps can now be created directly by a simple declaration. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -3372,538 +3435,6 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1550f7305763dadb37ce5a42572425b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1550f7305763dadb37ce5a42572425b9">&#9670;&nbsp;</a></span>create_index_allocator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_allocator.html">IndexAllocator</a> Legion::Runtime::create_index_allocator </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>handle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000025">Deprecated:</a></b></dt><dd>Create an index allocator object for a given index space This method is deprecated becasue index spaces no longer support dynamic allocation. This will still work only if there is exactly one allocator made for the index space throughout the duration of its lifetime. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">handle</td><td>for the index space to create an allocator </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a new index space allocator for the given index space </dd></dl>
-
-</div>
-</div>
-<a id="a70dc84f7aae18e1c437e01d6498a433e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70dc84f7aae18e1c437e01d6498a433e">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[1/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Coloring &amp;&#160;</td>
-          <td class="paramname"><em>coloring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>disjoint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>See the previous create_index_partition call Create an index partition. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>index space being partitioned </td></tr>
-    <tr><td class="paramname">coloring</td><td>the coloring of the parent index space </td></tr>
-    <tr><td class="paramname">disjoint</td><td>whether the partitioning is disjoint or not </td></tr>
-    <tr><td class="paramname">color</td><td>optional color name for the partition </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the next index partition </dd></dl>
-
-</div>
-</div>
-<a id="ae76572904db634ccda408fd3e85bc555"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae76572904db634ccda408fd3e85bc555">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[2/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;&#160;</td>
-          <td class="paramname"><em>color_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const DomainPointColoring &amp;&#160;</td>
-          <td class="paramname"><em>coloring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PartitionKind&#160;</td>
-          <td class="paramname"><em>part_kind</em> = <code>LEGION_COMPUTE_KIND</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>Create an index partition from a domain point coloring </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>the index space being partitioned </td></tr>
-    <tr><td class="paramname">color_space</td><td>space of colors for the partition </td></tr>
-    <tr><td class="paramname">coloring</td><td>the coloring of the parent index space </td></tr>
-    <tr><td class="paramname">part_kind</td><td>the kind of partition or whether to compute it </td></tr>
-    <tr><td class="paramname">color</td><td>optional color for the new partition </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the new index partition </dd></dl>
-
-</div>
-</div>
-<a id="a11784fd73bdd77db112bcf8e14d73d8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11784fd73bdd77db112bcf8e14d73d8c">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[3/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;&#160;</td>
-          <td class="paramname"><em>color_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const MultiDomainPointColoring &amp;&#160;</td>
-          <td class="paramname"><em>coloring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PartitionKind&#160;</td>
-          <td class="paramname"><em>part_kind</em> = <code>LEGION_COMPUTE_KIND</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000018">Deprecated:</a></b></dt><dd>Create an index partition from a multi-domain point coloring </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>the index space being partitioned </td></tr>
-    <tr><td class="paramname">color_space</td><td>space of colors for the partition </td></tr>
-    <tr><td class="paramname">coloring</td><td>the coloring of the parent index space </td></tr>
-    <tr><td class="paramname">part_kind</td><td>the kind of partition or whether to compute it </td></tr>
-    <tr><td class="paramname">color</td><td>optional color for the new partition </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the new index partition </dd></dl>
-
-</div>
-</div>
-<a id="a51cb6acd03b57e45fd3857704ffcb0a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51cb6acd03b57e45fd3857704ffcb0a7">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[4/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;&#160;</td>
-          <td class="paramname"><em>color_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const PointColoring &amp;&#160;</td>
-          <td class="paramname"><em>coloring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PartitionKind&#160;</td>
-          <td class="paramname"><em>part_kind</em> = <code>LEGION_COMPUTE_KIND</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>allocable</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>Create an index partition from a point coloring </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>index space being partitioned </td></tr>
-    <tr><td class="paramname">color_space</td><td>space of colors for the partition </td></tr>
-    <tr><td class="paramname">coloring</td><td>the coloring of the parent index space </td></tr>
-    <tr><td class="paramname">part_kind</td><td>the kind of partition or whether to compute it </td></tr>
-    <tr><td class="paramname">color</td><td>optional color for the new partition </td></tr>
-    <tr><td class="paramname">allocable</td><td>whether the child index spaces are allocable </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the new index partition </dd></dl>
-
-</div>
-</div>
-<a id="a5a673027fda1ad8b8749cb37a6aa8c49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a673027fda1ad8b8749cb37a6aa8c49">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[5/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>mapping</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000020">Deprecated:</a></b></dt><dd>Create an index partitioning from a typed mapping. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>index space being partitioned </td></tr>
-    <tr><td class="paramname">mapping</td><td>the mapping of points to colors </td></tr>
-    <tr><td class="paramname">color</td><td>optional color name for the partition </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the next index partition </dd></dl>
-
-</div>
-</div>
-<a id="a1089cb44f5721ddfa8539107ef96983b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1089cb44f5721ddfa8539107ef96983b">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[6/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td>
-          <td class="paramname"><em>color_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const DomainColoring &amp;&#160;</td>
-          <td class="paramname"><em>coloring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>disjoint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000017">Deprecated:</a></b></dt><dd>See the previous create index partition call Create an index partition from a domain color space and coloring. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>index space being partitioned </td></tr>
-    <tr><td class="paramname">color_space</td><td>the domain of colors </td></tr>
-    <tr><td class="paramname">coloring</td><td>the domain coloring of the parent index space </td></tr>
-    <tr><td class="paramname">disjoint</td><td>whether the partitioning is disjoint or not </td></tr>
-    <tr><td class="paramname">color</td><td>optional color name for the partition </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the next index partition </dd></dl>
-
-</div>
-</div>
-<a id="a702eb790c35bcbd2a8c8497226c6f8c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a702eb790c35bcbd2a8c8497226c6f8c6">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[7/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td>
-          <td class="paramname"><em>color_space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const MultiDomainColoring &amp;&#160;</td>
-          <td class="paramname"><em>coloring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>disjoint</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000019">Deprecated:</a></b></dt><dd>See the previous create index partition call Create an index partitiong from a domain color space and a multi-domain coloring which allows multiple domains to be associated with each color. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">parent</td><td>index space being partitioned </td></tr>
-    <tr><td class="paramname">color_space</td><td>the domain of colors </td></tr>
-    <tr><td class="paramname">coloring</td><td>the multi-domain coloring </td></tr>
-    <tr><td class="paramname">disjoint</td><td>whether the partitioning is disjoint or not </td></tr>
-    <tr><td class="paramname">color</td><td>optional color name for the partition </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the next index partition </dd></dl>
-
-</div>
-</div>
-<a id="a4e44777b685baa2b21f0bf04ed516c13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e44777b685baa2b21f0bf04ed516c13">&#9670;&nbsp;</a></span>create_index_partition() <span class="overload">[8/8]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a> Legion::Runtime::create_index_partition </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LegionRuntime::Accessor::RegionAccessor&lt; LegionRuntime::Accessor::AccessorType::Generic &gt;&#160;</td>
-          <td class="paramname"><em>field_accessor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000021">Deprecated:</a></b></dt><dd></dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_legion_1_1_runtime.html#ac3eff619ee6af41d64afc6dcfab212f1">create_partition_by_field</a> instead Create an index partitioning from an existing field in a physical instance. This requires that the field accessor be valid for the entire parent index space. By definition colors are always non-negative. The runtime will iterate over the field accessor and interpret values as signed integers. Any locations less than zero will be ignored. Values greater than or equal to zero will be colored and placed in the appropriate subregion. By definition this partitioning mechanism has to disjoint since each pointer value has at most one color. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
-    <tr><td class="paramname">field_accessor</td><td>field accessor for the coloring field </td></tr>
-    <tr><td class="paramname">disjoint</td><td>whether the partitioning is disjoint or not </td></tr>
-    <tr><td class="paramname">complete</td><td>whether the partitioning is complete or not </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>handle for the next index partition </dd></dl>
-
-</div>
-</div>
 <a id="ac0b3d4e90852fe581ec4cbcab476baa7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0b3d4e90852fe581ec4cbcab476baa7">&#9670;&nbsp;</a></span>create_index_space() <span class="overload">[1/6]</span></h2>
 
@@ -3979,7 +3510,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>Create a new top-level index space based on a set of domains </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>Create a new top-level index space based on a set of domains </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
@@ -4159,7 +3690,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>Create a new top-level index space with the maximum number of elements </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000004">Deprecated:</a></b></dt><dd>Create a new top-level index space with the maximum number of elements </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
@@ -5359,8 +4890,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a8d752159a39993951df0ad41f0ed8560"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d752159a39993951df0ad41f0ed8560">&#9670;&nbsp;</a></span>create_partition_by_rectangles()</h2>
+<a id="a6a1758cdb2044aa8a3ac420d0b8726dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a1758cdb2044aa8a3ac420d0b8726dc">&#9670;&nbsp;</a></span>create_partition_by_rectangles()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5413,7 +4944,13 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>collective</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -5432,6 +4969,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
     <tr><td class="paramname">part_kind</td><td>specify the partition kind or ask to compute it </td></tr>
     <tr><td class="paramname">color</td><td>the color of the result of the partition </td></tr>
     <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
+    <tr><td class="paramname">collective</td><td>whether shards from a control replicated context should work collectively to construct the map </td></tr>
   </table>
   </dd>
 </dl>
@@ -6534,7 +6072,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000033">Deprecated:</a></b></dt><dd>Detach an normal file. THis detach operation is similar to detach_hdf5 </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>Detach an normal file. THis detach operation is similar to detach_hdf5 </dd></dl>
 
 </div>
 </div>
@@ -6563,7 +6101,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000031">Deprecated:</a></b></dt><dd>Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to <a class="el" href="namespace_legion.html">Legion</a>'s deferred execution model. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to <a class="el" href="namespace_legion.html">Legion</a>'s deferred execution model. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -6598,6 +6136,41 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
 </table>
 </div><div class="memdoc">
 <p>Disable recording of profiling information. </p>
+
+</div>
+</div>
+<a id="a8ea2c03ecfb8cca959329a0ae8e9d82d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ea2c03ecfb8cca959329a0ae8e9d82d">&#9670;&nbsp;</a></span>discard_fields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::discard_fields </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_legion_1_1_discard_launcher.html">DiscardLauncher</a> &amp;&#160;</td>
+          <td class="paramname"><em>launcher</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Discard the data inside the fields of a particular logical region </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">launcher</td><td>the launcher that describes the discard operation </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -6738,45 +6311,8 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
 
 </div>
 </div>
-<a id="a0e8d31f02a06b0b63824d1eb9f79b4eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e8d31f02a06b0b63824d1eb9f79b4eb">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> Legion::Runtime::execute_index_space </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;&#160;</td>
-          <td class="paramname"><em>launcher</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Launch an index space of tasks with arguments specified by the index launcher configuration. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">launcher</td><td>the task launcher configuration </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a future map for return values of the points in the index space of tasks </dd></dl>
-
-</div>
-</div>
-<a id="aa6f07a1164d549f044af6db3f0830008"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6f07a1164d549f044af6db3f0830008">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[2/4]</span></h2>
+<a id="a0e431f51374f36abad5b5b633a9d96f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e431f51374f36abad5b5b633a9d96f0">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6803,7 +6339,13 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>deterministic</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>ordered</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt; *&#160;</td>
+          <td class="paramname"><em>outputs</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -6818,11 +6360,56 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
     <tr><td class="paramname">launcher</td><td>the task launcher configuration </td></tr>
     <tr><td class="paramname">redop</td><td>ID for the reduction op to use for reducing return values </td></tr>
-    <tr><td class="paramname">deterministic</td><td>request that the reduced future value be computed in a deterministic way (more expensive than non-deterministic) </td></tr>
+    <tr><td class="paramname">ordered</td><td>request that the reduced future value be computed in an ordered way so that all shards see a consistent result, this is more expensive than unordered which allows for the creation of a butterfly all-reduce network across the shards, integer reductions should be safe to use with the unordered mode and still give the same result on each shard whereas floating point reductions may produce different answers on each shard if ordered is set to false </td></tr>
+    <tr><td class="paramname">outputs</td><td>optional output requirements </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a future result representing the reduction of all the return values from the index space of tasks </dd></dl>
+
+</div>
+</div>
+<a id="aa0eac79fb726772d302eb7e76fa0ea61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0eac79fb726772d302eb7e76fa0ea61">&#9670;&nbsp;</a></span>execute_index_space() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> Legion::Runtime::execute_index_space </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> &amp;&#160;</td>
+          <td class="paramname"><em>launcher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt; *&#160;</td>
+          <td class="paramname"><em>outputs</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Launch an index space of tasks with arguments specified by the index launcher configuration. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_legion_1_1_index_task_launcher.html">IndexTaskLauncher</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">launcher</td><td>the task launcher configuration </td></tr>
+    <tr><td class="paramname">outputs</td><td>optional output requirements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a future map for return values of the points in the index space of tasks </dd></dl>
 
 </div>
 </div>
@@ -6911,7 +6498,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000028">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -7030,7 +6617,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000029">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -7083,8 +6670,8 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
 
 </div>
 </div>
-<a id="a7b7d00659246b245b91410987e65eea0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b7d00659246b245b91410987e65eea0">&#9670;&nbsp;</a></span>execute_task() <span class="overload">[1/2]</span></h2>
+<a id="af3bd8617cc504337611cfb408b702e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3bd8617cc504337611cfb408b702e02">&#9670;&nbsp;</a></span>execute_task() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7099,7 +6686,13 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="struct_legion_1_1_task_launcher.html">TaskLauncher</a> &amp;&#160;</td>
-          <td class="paramname"><em>launcher</em>&#160;</td>
+          <td class="paramname"><em>launcher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_legion_1_1_output_requirement.html">OutputRequirement</a> &gt; *&#160;</td>
+          <td class="paramname"><em>outputs</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -7113,6 +6706,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
     <tr><td class="paramname">launcher</td><td>the task launcher configuration </td></tr>
+    <tr><td class="paramname">outputs</td><td>optional output requirements </td></tr>
   </table>
   </dd>
 </dl>
@@ -7187,7 +6781,7 @@ template&lt;int DIM, typename COORD_T , int COLOR_DIM, typename COLOR_COORD_T &g
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000027">Deprecated:</a></b></dt><dd>An older method for launching a single task maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. <br  />
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>An older method for launching a single task maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. <br  />
  </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -7731,8 +7325,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aa64e8a16a1b5769cd8542338f0200100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa64e8a16a1b5769cd8542338f0200100">&#9670;&nbsp;</a></span>finish_implicit_task()</h2>
+<a id="a8f25e3db2caab68cbcc8316523ff6395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f25e3db2caab68cbcc8316523ff6395">&#9670;&nbsp;</a></span>finish_implicit_task()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7741,12 +7335,22 @@ template&lt;typename T &gt; </div>
           <td class="memname">void Legion::Runtime::finish_implicit_task </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">Realm::Event&#160;</td>
+          <td class="paramname"><em>effects</em> = <code>Realm::Event::NO_EVENT</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is the final method for marking the end of an implicit top-level task. Note that it executes asychronously and it is still the responsibility of the user to wait for the runtime to shutdown when all of it's effects are done. The Context object is no longer valid after this call. </p>
+<p>This is the final method for marking the end of an implicit top-level task. If there are any asynchronous effects that were launched during the implicit top-level task (such as a CUDA kernel launch) then users are required to capture all those effects as a Realm event to tell <a class="el" href="namespace_legion.html">Legion</a> when all those effects are completed. Finishing an implicit top-level task still requires waiting explicitly for the runtime to shutdown. The Context object is no longer valid after this call. </p>
 
 </div>
 </div>
@@ -9017,7 +8621,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000023">Deprecated:</a></b></dt><dd>Return the domains that represent the index space. While the previous call only works when there is a single domain for the index space, this call will work in all circumstances. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>Return the domains that represent the index space. While the previous call only works when there is a single domain for the index space, this call will work in all circumstances. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -9072,7 +8676,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="aaf32a26bbbbf07ba7f7aca9d4109d589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf32a26bbbbf07ba7f7aca9d4109d589">&#9670;&nbsp;</a></span>get_index_subspace() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf32a26bbbbf07ba7f7aca9d4109d589">&#9670;&nbsp;</a></span>get_index_subspace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -9111,52 +8715,6 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>handle for the index space with the specified color </dd></dl>
-
-</div>
-</div>
-<a id="ab69648bdfc893258e57b6d0e75cab8d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab69648bdfc893258e57b6d0e75cab8d4">&#9670;&nbsp;</a></span>get_index_subspace() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;unsigned DIM&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> Legion::Runtime::get_index_subspace </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_index_partition.html">IndexPartition</a>&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LegionRuntime::Arrays::Point&lt; DIM &gt;&#160;</td>
-          <td class="paramname"><em>color_point</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000024">Deprecated:</a></b></dt><dd>Get an index subspace from a partition with a given color point. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">p</td><td>parent index partition handle </td></tr>
-    <tr><td class="paramname">color_point</td><td>point containing color value of index subspace </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the corresponding index space to the specified color point </dd></dl>
 
 </div>
 </div>
@@ -9793,6 +9351,76 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
+<a id="a4aa7945b5bc4df88901e932ea11e6f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aa7945b5bc4df88901e932ea11e6f45">&#9670;&nbsp;</a></span>get_output_region()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_legion_1_1_output_region.html">OutputRegion</a> Legion::Runtime::get_output_region </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return a single output region of a task. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">index</td><td>the output region index to query </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8d6a966b541d3dc4ba3be1d641c9bce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6a966b541d3dc4ba3be1d641c9bce0">&#9670;&nbsp;</a></span>get_output_regions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::get_output_regions </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_legion_1_1_output_region.html">OutputRegion</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>regions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return all output regions of a task. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">regions</td><td>a vector to which output regions are returned </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a9ca198b6c23f72a8e0269e50d49ae556"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ca198b6c23f72a8e0269e50d49ae556">&#9670;&nbsp;</a></span>get_parent_index_partition()</h2>
 
@@ -9937,8 +9565,8 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
-<a id="a35f8b658d5534f78088c7e268567b0e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35f8b658d5534f78088c7e268567b0e0">&#9670;&nbsp;</a></span>get_predicate_future()</h2>
+<a id="a6e622f2f82c702dad900c5930cee0fd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e622f2f82c702dad900c5930cee0fd6">&#9670;&nbsp;</a></span>get_predicate_future()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -9953,7 +9581,13 @@ template&lt;unsigned DIM&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -9966,6 +9600,7 @@ template&lt;unsigned DIM&gt; </div>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
     <tr><td class="paramname">pred</td><td>the predicate for which to get a future </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
   </table>
   </dd>
 </dl>
@@ -10105,6 +9740,39 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
+<a id="a0e8adcc76801e10b362e603184b367b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e8adcc76801e10b362e603184b367b7">&#9670;&nbsp;</a></span>get_sharding_functor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_legion_1_1_sharding_functor.html">ShardingFunctor</a>* Legion::Runtime::get_sharding_functor </td>
+          <td>(</td>
+          <td class="paramtype">ShardingID&#160;</td>
+          <td class="paramname"><em>sid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return a pointer to a given sharding functor object. The runtime retains ownership of this object. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sid</td><td>ID of the sharding functor to find </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer o the sharding functor if it exists </dd></dl>
+
+</div>
+</div>
 <a id="a183d30f63de89ea1f1becf1b3a36fda1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a183d30f63de89ea1f1becf1b3a36fda1">&#9670;&nbsp;</a></span>get_tunable_value()</h2>
 
@@ -10142,7 +9810,7 @@ template&lt;unsigned DIM&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000034">Deprecated:</a></b></dt><dd>This is the old method for asking the mapper to specify a tunable value. It will assume that the resulting tunable future can be interpreted as an integer. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>This is the old method for asking the mapper to specify a tunable value. It will assume that the resulting tunable future can be interpreted as an integer. </dd></dl>
 
 </div>
 </div>
@@ -10397,7 +10065,7 @@ template&lt;unsigned DIM&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000022">Deprecated:</a></b></dt><dd>Return if the given index space is represented by multiple domains or just a single one. If multiple domains represent the index space then 'get_index_space_domains' should be used for getting the set of domains. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>Return if the given index space is represented by multiple domains or just a single one. If multiple domains represent the index space then 'get_index_space_domains' should be used for getting the set of domains. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -10935,8 +10603,8 @@ template&lt;unsigned DIM&gt; </div>
 
 </div>
 </div>
-<a id="ab89f0d1e1c5051981e85dda090ee3141"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab89f0d1e1c5051981e85dda090ee3141">&#9670;&nbsp;</a></span>legion_task_postamble() <span class="overload">[1/2]</span></h2>
+<a id="aaa358a3e15281edd025f53abbbc2b568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa358a3e15281edd025f53abbbc2b568">&#9670;&nbsp;</a></span>legion_task_postamble() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -10947,12 +10615,91 @@ template&lt;unsigned DIM&gt; </div>
         <tr>
           <td class="memname">static void Legion::Runtime::legion_task_postamble </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&#160;</td>
-          <td class="paramname"><em>runtime</em>, </td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>retvalptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>retvalsize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>owned</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Realm::ExternalInstanceResource &amp;&#160;</td>
+          <td class="paramname"><em>allocation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(const Realm::ExternalInstanceResource &amp;)&#160;</td>
+          <td class="paramname"><em>freefunc</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>metadataptr</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>metadatasize</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This variant of the <a class="el" href="namespace_legion.html">Legion</a> task postamble allows clients to return data in arbitrary memory locations as a future result. Realm::ExternalInstanceResource objects provide ways of describing all kinds of external allocations that <a class="el" href="namespace_legion.html">Legion</a> can understand </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
+    <tr><td class="paramname">retvalptr</td><td>raw pointer for the allocation (can be NULL) </td></tr>
+    <tr><td class="paramname">retvalsize</td><td>the size of the return value in bytes </td></tr>
+    <tr><td class="paramname">owned</td><td>whether the runtime takes ownership of this result </td></tr>
+    <tr><td class="paramname">allocation</td><td>an external instance resource description of the future result data </td></tr>
+    <tr><td class="paramname">freefunc</td><td>optional function pointer to invoke to free the resources associated with an external resource </td></tr>
+    <tr><td class="paramname">metadataptr</td><td>a pointer to host memory that contains metadata for the future. The runtime will always make a copy of this data if it is not NULL. </td></tr>
+    <tr><td class="paramname">metadatasize</td><td>the size of the metadata buffer if non-NULL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abbe0ba758d169fb8df8f7f03dc961a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe0ba758d169fb8df8f7f03dc961a66">&#9670;&nbsp;</a></span>legion_task_postamble() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Legion::Runtime::legion_task_postamble </td>
+          <td>(</td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
         </tr>
@@ -10978,7 +10725,19 @@ template&lt;unsigned DIM&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Realm::RegionInstance&#160;</td>
-          <td class="paramname"><em>inst</em> = <code>Realm::RegionInstance::NO_INST</code>&#160;</td>
+          <td class="paramname"><em>inst</em> = <code>Realm::RegionInstance::NO_INST</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>metadataptr</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>metadatasize</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -10992,22 +10751,23 @@ template&lt;unsigned DIM&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This is the necessary postamble call to use when registering a task variant with an explicit CodeDescriptor. It passes back the task return value and completes the task. It should be the last thing called before the task finishes. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This is the necessary postamble call to use when registering a task variant with an explicit CodeDescriptor. It passes back the task return value and completes the task. It should be the last thing called before the task finishes. Note that if the return value is not backed by an instance, then it must be in host-visible memory. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">runtime</td><td>the runtime pointer </td></tr>
     <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
     <tr><td class="paramname">retvalptr</td><td>pointer to the return value </td></tr>
     <tr><td class="paramname">retvalsize</td><td>the size of the return value in bytes </td></tr>
-    <tr><td class="paramname">owned</td><td>whether the runtime now owns this result </td></tr>
+    <tr><td class="paramname">owned</td><td>whether the runtime takes ownership of this result </td></tr>
     <tr><td class="paramname">inst</td><td>optional Realm instance containing the data that <a class="el" href="namespace_legion.html">Legion</a> should take ownership of </td></tr>
+    <tr><td class="paramname">metadataptr</td><td>a pointer to host memory that contains metadata for the future. The runtime will always make a copy of this data if it is not NULL. </td></tr>
+    <tr><td class="paramname">metadatasize</td><td>the size of the metadata buffer if non-NULL </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a475a28e7ac108578586f5038eb4e8b09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a475a28e7ac108578586f5038eb4e8b09">&#9670;&nbsp;</a></span>legion_task_postamble() <span class="overload">[2/2]</span></h2>
+<a id="a98e8a94e27a29be6628f23730e25e786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e8a94e27a29be6628f23730e25e786">&#9670;&nbsp;</a></span>legion_task_postamble() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -11018,12 +10778,6 @@ template&lt;unsigned DIM&gt; </div>
         <tr>
           <td class="memname">static void Legion::Runtime::legion_task_postamble </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *&#160;</td>
-          <td class="paramname"><em>runtime</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">Context&#160;</td>
           <td class="paramname"><em>ctx</em>, </td>
         </tr>
@@ -11053,7 +10807,6 @@ template&lt;unsigned DIM&gt; </div>
 </div><div class="memdoc">
 <p>This variant of the <a class="el" href="namespace_legion.html">Legion</a> task postamble allows users to pass in a future functor object to serve as a callback interface for <a class="el" href="namespace_legion.html">Legion</a> to query so that it is only invoked in the case where futures actually need to be serialized. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">runtime</td><td>the runtime pointer </td></tr>
     <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
     <tr><td class="paramname">callback_functor</td><td>pointer to the callback object </td></tr>
     <tr><td class="paramname">owned</td><td>whether <a class="el" href="namespace_legion.html">Legion</a> should take ownership of the object </td></tr>
@@ -11138,31 +10891,6 @@ template&lt;unsigned DIM&gt; </div>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="abfd9a2972ac9b068d579ac15379d72f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfd9a2972ac9b068d579ac15379d72f2">&#9670;&nbsp;</a></span>local_shard()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ShardID Legion::Runtime::local_shard </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Return the ShardID for the execution of this task in a control-replicated context. If the task is not control replicated then the ShardID will always be zero. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the ShardID for this execution of the task </dd></dl>
 
 </div>
 </div>
@@ -11633,7 +11361,7 @@ template&lt;unsigned DIM&gt; </div>
 <p>Register a projection functor before the runtime has started only. The runtime will update the projection functor so that it has contains a valid runtime pointer prior to the projection functor ever being invoked. The runtime takes ownership for deleting the projection functor after the application has finished executing. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pid</td><td>the projection ID to use for the registration </td></tr>
-    <tr><td class="paramname">functor</td><td>the objecto register for handling projections </td></tr>
+    <tr><td class="paramname">functor</td><td>the object to register for handling projections </td></tr>
   </table>
   </dd>
 </dl>
@@ -11673,7 +11401,13 @@ template&lt;unsigned DIM&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Register a sharding functor before the runtime has started only. The sharding functor will be invoked to handle queries during control replication about which shard owns a given point in an index space launch. </p>
+<p>Register a sharding functor before the runtime has started only. The sharding functor will be invoked to handle queries during control replication about which shard owns a given point in an index space launch. The runtime takes ownership for deleting the sharding functor after the application has finished executing. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sid</td><td>the sharding ID to use for the registration </td></tr>
+    <tr><td class="paramname">functor</td><td>the object too register for handling sharding </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -11783,8 +11517,8 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
 
 </div>
 </div>
-<a id="a41ffe9b3f048f6606a0435271a134e29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41ffe9b3f048f6606a0435271a134e29">&#9670;&nbsp;</a></span>preregister_task_variant() <span class="overload">[3/5]</span></h2>
+<a id="aa70b64e9154bdcba50eac638d7e9c99d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70b64e9154bdcba50eac638d7e9c99d">&#9670;&nbsp;</a></span>preregister_task_variant() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -11838,6 +11572,12 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>has_return_type_size</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>check_task_id</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
@@ -11858,7 +11598,8 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
     <tr><td class="paramname">codedesc</td><td>the code descriptor for the pre-wrapped task </td></tr>
     <tr><td class="paramname">user_data</td><td>pointer to optional user data to associate with the task variant </td></tr>
     <tr><td class="paramname">user_len</td><td>size of optional user_data in bytes </td></tr>
-    <tr><td class="paramname">has_return_type</td><td>boolean indicating a non-void return type </td></tr>
+    <tr><td class="paramname">return_type_size</td><td>size in bytes of the maximum return type produced by this task variant </td></tr>
+    <tr><td class="paramname">has_return_type_size</td><td>boolean indicating whether the max return_type_size is valid or not, in cases with unbounded output futures this should be set to false but will come with a significant performance penalty </td></tr>
     <tr><td class="paramname">check_task_id</td><td>verify validity of the task ID </td></tr>
   </table>
   </dd>
@@ -12053,6 +11794,35 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
 
 </div>
 </div>
+<a id="ab11516344528774fbfbe0ebcc037c4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab11516344528774fbfbe0ebcc037c4c5">&#9670;&nbsp;</a></span>query_available_memory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Legion::Runtime::query_available_memory </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Memory&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Query the space available to this task in a given memory. This is an instantaneous value and may be subject to change. If the mapper has provided an upper bound for a pool in this memory then it will reflect how much space is left available in that pool, otherwise it will reflect the space left in the actual memory. Note that the space available does not imply that you can create an instance of this size as the memory may be fragmented and the largest hole might be much smaller than the size returned by this function. </p>
+
+</div>
+</div>
 <a id="ae436d1051bfac794d153ea776aca9f93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae436d1051bfac794d153ea776aca9f93">&#9670;&nbsp;</a></span>raise_region_exception()</h2>
 
@@ -12095,8 +11865,8 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
 
 </div>
 </div>
-<a id="a4cc6d21a6ae61814eecd74bf6fdf17bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cc6d21a6ae61814eecd74bf6fdf17bb">&#9670;&nbsp;</a></span>reduce_future_map()</h2>
+<a id="af273283e6f99f10747f6012266698c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af273283e6f99f10747f6012266698c0f">&#9670;&nbsp;</a></span>reduce_future_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -12123,13 +11893,31 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>deterministic</em> = <code>false</code>, </td>
+          <td class="paramname"><em>ordered</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapperID&#160;</td>
+          <td class="paramname"><em>map_id</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MappingTagID&#160;</td>
+          <td class="paramname"><em>tag</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td>
+          <td class="paramname"><em>initial_value</em> = <code><a class="el" href="class_legion_1_1_future.html">Future</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -12143,7 +11931,9 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
     <tr><td class="paramname">future_map</td><td>the future map to reduct the value </td></tr>
     <tr><td class="paramname">redop</td><td>ID for the reduction op to use for reducing values </td></tr>
-    <tr><td class="paramname">deterministic</td><td>request that the reduced future be computed in a deterministic way (more expensive than non-deterministic) </td></tr>
+    <tr><td class="paramname">ordered</td><td>request that the reduced future value be computed in an ordered way so that all shards see a consistent result, this is more expensive than unordered which allows for the creation of a butterfly all-reduce network across the shards, integer reductions should be safe to use with the unordered mode and still give the same result on each shard whereas floating point reductions may produce different answers on each shard if ordered is set to false </td></tr>
+    <tr><td class="paramname">map_id</td><td>mapper to use for deciding where to map the output future </td></tr>
+    <tr><td class="paramname">tag</td><td>pass-through value to the mapper for application context </td></tr>
     <tr><td class="paramname">provenance</td><td>an optional string for describing the provenance of this invocation </td></tr>
   </table>
   </dd>
@@ -12343,7 +12133,7 @@ template&lt;typename T , typename UDT , T(*)(const Task *, const std::vector&lt;
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000040">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000022">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>the ID at which to assign the task </td></tr>
@@ -12432,7 +12222,7 @@ template&lt;typename UDT , void(*)(const Task *, const std::vector&lt; PhysicalR
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000041">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000023">Deprecated:</a></b></dt><dd>Same as the register_legion_task above, but allow for users to pass some static data that will be passed as an argument to all invocations of the function. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>the ID at which to assign the task </td></tr>
@@ -12515,7 +12305,7 @@ template&lt;typename T , T(*)(const Task *, const std::vector&lt; PhysicalRegion
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000038">Deprecated:</a></b></dt><dd>Register a task with a template return type for the given kind of processor. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000020">Deprecated:</a></b></dt><dd>Register a task with a template return type for the given kind of processor. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>the ID to assign to the task </td></tr>
@@ -12597,7 +12387,7 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000039">Deprecated:</a></b></dt><dd>Register a task with a void return type for the given kind of processor. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000021">Deprecated:</a></b></dt><dd>Register a task with a void return type for the given kind of processor. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>the ID to assign to the task </td></tr>
@@ -12639,7 +12429,7 @@ template&lt;LogicalRegion(*)(LogicalPartition, const DomainPoint &amp;, Runtime 
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000036">Deprecated:</a></b></dt><dd>Register a partition projection function that can be used to map from an upper bound of a logical partition down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000018">Deprecated:</a></b></dt><dd>Register a partition projection function that can be used to map from an upper bound of a logical partition down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>the projection ID to register the function at </td></tr>
@@ -12832,7 +12622,7 @@ template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) 
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000035">Deprecated:</a></b></dt><dd>Register a region projection function that can be used to map from an upper bound of a logical region down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000017">Deprecated:</a></b></dt><dd>Register a region projection function that can be used to map from an upper bound of a logical region down to a specific logical sub-region for a given domain point during index task execution. The projection ID zero is reserved for runtime use. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>the projection ID to register the function at </td></tr>
@@ -12880,12 +12670,20 @@ template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Register a sharding functor for handling control replication queries about which shard owns which a given point in an index space launch. </p>
+<p>Register a sharding functor for handling control replication queries about which shard owns which a given point in an index space launch. The ShardingID must be non-zero because zero is the special "round-robin" sharding functor. The runtime takes ownership of for deleting the sharding functor after the application has finished executing. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sid</td><td>the sharding ID to use for the registration </td></tr>
+    <tr><td class="paramname">functor</td><td>the object to register for handling sharding requests </td></tr>
+    <tr><td class="paramname">silence_warnings</td><td>disable warnings about dynamic registration </td></tr>
+    <tr><td class="paramname">warning_string</td><td>a string to be reported with any warnings </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a4de4e1d191026fd2d0af78a6495e4d43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4de4e1d191026fd2d0af78a6495e4d43">&#9670;&nbsp;</a></span>register_task_variant() <span class="overload">[1/5]</span></h2>
+<a id="ab6bd108dcc0d2c3a343b3d56c59179f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6bd108dcc0d2c3a343b3d56c59179f5">&#9670;&nbsp;</a></span>register_task_variant() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -12924,7 +12722,13 @@ template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) 
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VariantID&#160;</td>
-          <td class="paramname"><em>vid</em> = <code>LEGION_AUTO_GENERATE_ID</code>&#160;</td>
+          <td class="paramname"><em>vid</em> = <code>LEGION_AUTO_GENERATE_ID</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>has_return_type_size</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -12939,8 +12743,9 @@ template&lt;LogicalRegion(*)(LogicalRegion, const DomainPoint &amp;, Runtime *) 
     <tr><td class="paramname">codedesc</td><td>the code descriptor for the pre-wrapped task </td></tr>
     <tr><td class="paramname">user_data</td><td>pointer to optional user data to associate with the task variant </td></tr>
     <tr><td class="paramname">user_len</td><td>size of optional user_data in bytes </td></tr>
-    <tr><td class="paramname">has_return_type</td><td>boolean if this has a non-void return type </td></tr>
+    <tr><td class="paramname">return_type_size</td><td>size in bytes of the maximum return type produced by this task variant </td></tr>
     <tr><td class="paramname">vid</td><td>optional variant ID to use </td></tr>
+    <tr><td class="paramname">has_return_type_size</td><td>boolean indicating whether the max return_type_size is valid or not, in cases with unbounded output futures this should be set to false but will come with a significant performance penalty </td></tr>
   </table>
   </dd>
 </dl>
@@ -13244,6 +13049,55 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
   <table class="params">
     <tr><td class="paramname">mapper</td><td>pointer to the mapper object to use as the new default mapper </td></tr>
     <tr><td class="paramname">proc</td><td>the processor to associate the mapper with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a473b956419423f8621e5817cee41729c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a473b956419423f8621e5817cee41729c">&#9670;&nbsp;</a></span>reset_equivalence_sets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Runtime::reset_equivalence_sets </td>
+          <td>(</td>
+          <td class="paramtype">Context&#160;</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::set&lt; FieldID &gt; &amp;&#160;</td>
+          <td class="paramname"><em>fields</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Internally the runtime creates "equivalence sets" which are subsets of logical regions that it uses for performing its analyses. In general, these equivalence sets are established on a first touch basis and then altered using runtime heuristics. However, you can influence their selection using this API call which will reset the equivalence sets for certain fields on a arbitrary region in the region tree (note you must have privileges on this region). The next task to use this region or any overlapping regions will create new equivalence sets. Therefore it is useful to use this to inform the runtime when switching from one partition to a new partition. Note that this method will only impact your performance and has no bearing on the correctness of your application. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">parent</td><td>the logical region where privileges are derived from </td></tr>
+    <tr><td class="paramname">region</td><td>the region to reset the equivalence sets for </td></tr>
+    <tr><td class="paramname">fields</td><td>the fields for which these should apply </td></tr>
   </table>
   </dd>
 </dl>
@@ -13958,7 +13812,7 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
 </div>
 </div>
 <a id="a9158340668c0d8becc481ca648cc9782"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9158340668c0d8becc481ca648cc9782">&#9670;&nbsp;</a></span>safe_cast() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9158340668c0d8becc481ca648cc9782">&#9670;&nbsp;</a></span>safe_cast() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -14001,7 +13855,7 @@ template&lt;void(*)(const Task *, const std::vector&lt; PhysicalRegion &gt; &amp
 </div>
 </div>
 <a id="a4184bff14eff459b500fc356da61a63c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4184bff14eff459b500fc356da61a63c">&#9670;&nbsp;</a></span>safe_cast() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4184bff14eff459b500fc356da61a63c">&#9670;&nbsp;</a></span>safe_cast() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -14042,49 +13896,6 @@ template&lt;int DIM, typename COORD_T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>if the point is in the logical region </dd></dl>
-
-</div>
-</div>
-<a id="a103e10f383ee4ec5d3f04ffcc4cc6ac1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a103e10f383ee4ec5d3f04ffcc4cc6ac1">&#9670;&nbsp;</a></span>safe_cast() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptr_t Legion::Runtime::safe_cast </td>
-          <td>(</td>
-          <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ptr_t&#160;</td>
-          <td class="paramname"><em>pointer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a>&#160;</td>
-          <td class="paramname"><em>region</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Safe cast a pointer down to a target region. If the pointer is not in the target region, then a nil pointer is returned. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
-    <tr><td class="paramname">pointer</td><td>the pointer to be case </td></tr>
-    <tr><td class="paramname">region</td><td>the target logical region </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the same pointer if it can be safely cast, otherwise nil </dd></dl>
 
 </div>
 </div>
@@ -14213,7 +14024,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000037">Deprecated:</a></b></dt><dd>This call allows the application to register a callback function that will be run prior to beginning any task execution on every runtime in the system. It can be used to register or update the mapping between mapper IDs and mappers, register reductions, register projection function, register coloring functions, or configure any other static runtime variables prior to beginning the application. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000019">Deprecated:</a></b></dt><dd>This call allows the application to register a callback function that will be run prior to beginning any task execution on every runtime in the system. It can be used to register or update the mapping between mapper IDs and mappers, register reductions, register projection function, register coloring functions, or configure any other static runtime variables prior to beginning the application. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callback</td><td>function pointer to the callback function to be run </td></tr>
@@ -14380,7 +14191,7 @@ Messaging</h2>
 medium sized active messages on Infiniband clusters.</h2>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Configuration Flags</h2>
-<p>-lg:no_dyn Disable dynamic disjointness tests when the runtime has been compiled with macro DYNAMIC_TESTS defined which enables dynamic disjointness testing. -lg:epoch &lt;int&gt; Change the size of garbage collection epochs. The default value is 64. Increasing it adds latency to the garbage collection but makes it more efficient. Decreasing the value reduces latency, but adds inefficiency to the collection. -lg:unsafe_launch Tell the runtime to skip any checks for checking for deadlock between a parent task and the sub-operations that it is launching. Note that this is unsafe for a reason. The application can and will deadlock if any currently mapped regions conflict with those requested by a child task or other operation. -lg:unsafe_mapper Tell the runtime to skip any checks for validating the correctness of the results from mapper calls. Turning this off may result in internal crashes in the runtime if the mapper provides invalid output from any mapper call. (Default: false in debug mode, true in release mode.) -lg:safe_mapper Tell the runtime to perform all correctness checks on mapper calls regardless of the optimization level. (Default: true in debug mode, false in release mode.) -lg:local &lt;int&gt; Specify the maximum number of local fields </p>
+<p>-lg:no_dyn Disable dynamic disjointness tests when the runtime has been compiled with macro DYNAMIC_TESTS defined which enables dynamic disjointness testing. -lg:epoch &lt;int&gt; Change the size of garbage collection epochs. The default value is 64. Increasing it adds latency to the garbage collection but makes it more efficient. Decreasing the value reduces latency, but adds inefficiency to the collection. -lg:unsafe_launch Tell the runtime to skip any checks for checking for deadlock between a parent task and the sub-operations that it is launching. Note that this is unsafe for a reason. The application can and will deadlock if any currently mapped regions conflict with those requested by a child task or other operation. -lg:unsafe_mapper Tell the runtime to skip any checks for validating the correctness of the results from mapper calls. Turning this off may result in internal crashes in the runtime if the mapper provides invalid output from any mapper call. (Default: false in debug mode, true in release mode.) -lg:safe_mapper Tell the runtime to perform all correctness checks on mapper calls regardless of the optimization level. (Default: true in debug mode, false in release mode.) -lg:safe_ctrlrepl &lt;level&gt; Perform dynamic checks to verify the correctness of control replication. This will compute a hash of all the arguments to each call into the runtime and perform a collective to compare it across the shards to see if they all align. Level 0: no checks Level 1: sound but incomplete checks (no false positives) Level 2: unsound but complete checks (no false negatives) -lg:local &lt;int&gt; Specify the maximum number of local fields </p>
 <h2><a class="anchor" id="autotoc_md8"></a>
 permitted in any field space within a context.</h2>
 <h2><a class="anchor" id="autotoc_md9"></a>
@@ -14456,28 +14267,67 @@ Profiling</h2>
 
 </div>
 </div>
-<a id="af322e2707640ed384e51b642ed9e3ac0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af322e2707640ed384e51b642ed9e3ac0">&#9670;&nbsp;</a></span>total_shards()</h2>
+<a id="a5f470c92e19453b95f32a0e6205821dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f470c92e19453b95f32a0e6205821dc">&#9670;&nbsp;</a></span>transform_future_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Legion::Runtime::total_shards </td>
+          <td class="memname"><a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> Legion::Runtime::transform_future_map </td>
           <td>(</td>
           <td class="paramtype">Context&#160;</td>
-          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> &amp;&#160;</td>
+          <td class="paramname"><em>fm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a>&#160;</td>
+          <td class="paramname"><em>new_domain</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_legion_1_1_point_transform_functor.html">PointTransformFunctor</a> *&#160;</td>
+          <td class="paramname"><em>functor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>take_ownership</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return the total number of shards for the execution of this task in a control-replicated context. If the task is not control-replicated then the total number of shards will always be one. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Apply a transform to a <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a>. All points that access the <a class="el" href="class_legion_1_1_future_map.html">FutureMap</a> will be transformed by the 'transform' function before accessing the backing future map. Note that multiple transforms can be composed this way to create new FutureMaps. This version takes a pointer PointTransform functor object to invoke to transform the coordinate spaces of the points. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">enclosing</td><td>task context </td></tr>
+    <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
+    <tr><td class="paramname">fm</td><td>future map to apply a new coordinate space to </td></tr>
+    <tr><td class="paramname">new_domain</td><td>an index space to describe the domain of points for the transformed future map </td></tr>
+    <tr><td class="paramname">functor</td><td>pointer to a functor to transform points </td></tr>
+    <tr><td class="paramname">take_ownership</td><td>whether the runtime should delete the functor </td></tr>
+    <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the total number of shards in the execution of the task </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a new future map with the coordinate space transformed </dd></dl>
 
 </div>
 </div>
@@ -14654,7 +14504,7 @@ Profiling</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

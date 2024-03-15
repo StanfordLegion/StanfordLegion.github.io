@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['instance_5ffields_2103',['instance_fields',['../struct_legion_1_1_region_requirement.html#a8557780a79b6e633a5fb985b85fdf150',1,'Legion::RegionRequirement']]]
+  ['global_5findexing_2185',['global_indexing',['../struct_legion_1_1_output_requirement.html#ad79dba634848788f6cc2fdc856d484e1',1,'Legion::OutputRequirement']]]
 ];

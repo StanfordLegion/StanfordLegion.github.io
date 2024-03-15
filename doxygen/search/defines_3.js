@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['destroy_5farray_2146',['DESTROY_ARRAY',['../legion__c_8h.html#a1fcbc6fb0ca5a73a75254f7e63f0d149',1,'legion_c.h']]]
+  ['destroy_5farray_2234',['DESTROY_ARRAY',['../legion__c_8h.html#a1fcbc6fb0ca5a73a75254f7e63f0d149',1,'legion_c.h']]]
 ];

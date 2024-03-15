@@ -68,7 +68,9 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">legion_c_util.h File Reference</div>  </div>
 </div><!--header-->
@@ -85,6 +87,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_colored_points.html">Legion::ColoredPoints</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_c_object_wrapper.html">Legion::CObjectWrapper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_c_object_wrapper_1_1_blockify.html">Legion::CObjectWrapper::Blockify&lt; DIM &gt;</a></td></tr>
@@ -130,6 +134,30 @@ Macros</h2></td></tr>
 <tr class="separator:acfe798fbd466d25a7ea669be7b1bca68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88bb60e6f780e2bba75b21c00bd9c3da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>NEW_AFFINE_TRANSFORM_WRAPPER</b>(D1,  D2)</td></tr>
 <tr class="separator:a88bb60e6f780e2bba75b21c00bd9c3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac3b51447affa293b7c5fc4abf1ed0517"><td class="memItemLeft" align="right" valign="top"><a id="ac3b51447affa293b7c5fc4abf1ed0517"></a>
+typedef std::map&lt; Color, ColoredPoints &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Coloring</b></td></tr>
+<tr class="separator:ac3b51447affa293b7c5fc4abf1ed0517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b840d58a7c286591f85c4bc2a1adfc"><td class="memItemLeft" align="right" valign="top"><a id="a84b840d58a7c286591f85c4bc2a1adfc"></a>
+typedef std::map&lt; Color, Domain &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::DomainColoring</b></td></tr>
+<tr class="separator:a84b840d58a7c286591f85c4bc2a1adfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6c0868c5d19876857ddff269fe34dd"><td class="memItemLeft" align="right" valign="top"><a id="a8a6c0868c5d19876857ddff269fe34dd"></a>
+typedef std::map&lt; DomainPoint, ColoredPoints &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::PointColoring</b></td></tr>
+<tr class="separator:a8a6c0868c5d19876857ddff269fe34dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0bf457cf08f8944eed84d276719cc26"><td class="memItemLeft" align="right" valign="top"><a id="aa0bf457cf08f8944eed84d276719cc26"></a>
+typedef std::map&lt; DomainPoint, Domain &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::DomainPointColoring</b></td></tr>
+<tr class="separator:aa0bf457cf08f8944eed84d276719cc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafabb7eda97a238b7588aba13d04d8f8"><td class="memItemLeft" align="right" valign="top"><a id="aafabb7eda97a238b7588aba13d04d8f8"></a>
+typedef std::map&lt; DomainPoint, std::set&lt; Domain &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::MultiDomainPointColoring</b></td></tr>
+<tr class="separator:aafabb7eda97a238b7588aba13d04d8f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa4bebd563aaceb7740b5b61872afbef7"><td class="memItemLeft" align="right" valign="top"><a id="aa4bebd563aaceb7740b5b61872afbef7"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structlegion__ptr__t.html">legion_ptr_t</a> &amp;lhs, const <a class="el" href="structlegion__ptr__t.html">legion_ptr_t</a> &amp;rhs)</td></tr>
+<tr class="separator:aa4bebd563aaceb7740b5b61872afbef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_legion.html">Legion</a> C API: C++ Conversion Utilities </p>
@@ -151,7 +179,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">      <span class="keyword">typedef</span> <a class="code" href="class_legion_1_1_unsafe_field_accessor.html">Legion::UnsafeFieldAccessor</a>&lt;char,DIM,coord_t, \</div>
 <div class="line">                Realm::AffineAccessor&lt;char,DIM,coord_t&gt; &gt;   ArrayAccessor##DIM##D;</div>
-<div class="ttc" id="aclass_legion_1_1_unsafe_field_accessor_html"><div class="ttname"><a href="class_legion_1_1_unsafe_field_accessor.html">Legion::UnsafeFieldAccessor</a></div><div class="ttdef"><b>Definition:</b> legion_types.h:167</div></div>
+<div class="ttc" id="aclass_legion_1_1_unsafe_field_accessor_html"><div class="ttname"><a href="class_legion_1_1_unsafe_field_accessor.html">Legion::UnsafeFieldAccessor</a></div><div class="ttdef"><b>Definition:</b> legion_types.h:202</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -368,7 +396,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

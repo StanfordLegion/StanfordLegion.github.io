@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['redop_2115',['redop',['../struct_legion_1_1_region_requirement.html#aa2c2cf591d76a346c73f206efe242259',1,'Legion::RegionRequirement']]],
-  ['region_2116',['region',['../struct_legion_1_1_region_requirement.html#afa58665b7cef4dce5bb14b57aab2e117',1,'Legion::RegionRequirement']]]
+  ['no_5fpart_2188',['NO_PART',['../class_legion_1_1_logical_partition.html#a40eb51801ca8602f783f6c4fd1efd0df',1,'Legion::LogicalPartition']]],
+  ['no_5fregion_2189',['NO_REGION',['../class_legion_1_1_logical_region.html#a5b1fb82290bce3f864e05b3e81f9b2b0',1,'Legion::LogicalRegion']]],
+  ['no_5fspace_2190',['NO_SPACE',['../class_legion_1_1_index_space.html#af15b5e310a283a304977cb8f587ceb07',1,'Legion::IndexSpace::NO_SPACE()'],['../class_legion_1_1_field_space.html#ae82f519f4c4691966acb1f18e8152f29',1,'Legion::FieldSpace::NO_SPACE()']]]
 ];

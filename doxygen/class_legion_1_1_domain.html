@@ -155,10 +155,6 @@ __CUDA_HD__ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dense</b>
 template&lt;int DIM, typename T &gt; </td></tr>
 <tr class="memitem:ad5be9417d59cd2cb9c39028603a04659"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__ Rect&lt; DIM, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>bounds</b> (void) const</td></tr>
 <tr class="separator:ad5be9417d59cd2cb9c39028603a04659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38f477b076f4a3500ae48e3b2c3ef237"><td class="memTemplParams" colspan="2"><a id="a38f477b076f4a3500ae48e3b2c3ef237"></a>
-template&lt;int DIM&gt; </td></tr>
-<tr class="memitem:a38f477b076f4a3500ae48e3b2c3ef237"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator LegionRuntime::Arrays::Rect&lt; DIM &gt;</b> (void) const</td></tr>
-<tr class="separator:a38f477b076f4a3500ae48e3b2c3ef237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14636c2bb4af8abb34b059acecf2c763"><td class="memTemplParams" colspan="2"><a id="a14636c2bb4af8abb34b059acecf2c763"></a>
 template&lt;int DIM, typename T &gt; </td></tr>
 <tr class="memitem:a14636c2bb4af8abb34b059acecf2c763"><td class="memTemplItemLeft" align="right" valign="top">__CUDA_HD__&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator Rect&lt; DIM, T &gt;</b> (void) const</td></tr>
@@ -197,21 +193,9 @@ __CUDA_HD__ <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint<
 <tr class="memitem:a4e351f5b5535f7c8ee7958778ad29355"><td class="memItemLeft" align="right" valign="top"><a id="a4e351f5b5535f7c8ee7958778ad29355"></a>
 <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>convex_hull</b> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;p) const</td></tr>
 <tr class="separator:a4e351f5b5535f7c8ee7958778ad29355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9447c8201779f5c6b4b4dd4d7b3acc7c"><td class="memTemplParams" colspan="2"><a id="a9447c8201779f5c6b4b4dd4d7b3acc7c"></a>
-template&lt;int DIM&gt; </td></tr>
-<tr class="memitem:a9447c8201779f5c6b4b4dd4d7b3acc7c"><td class="memTemplItemLeft" align="right" valign="top">LegionRuntime::Arrays::Rect&lt; DIM &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get_rect</b> (void) const</td></tr>
-<tr class="separator:a9447c8201779f5c6b4b4dd4d7b3acc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a329969d2eb5d443d3a764098254c60cf"><td class="memTemplParams" colspan="2"><a id="a329969d2eb5d443d3a764098254c60cf"></a>
-template&lt;int DIM&gt; </td></tr>
-<tr class="memitem:a329969d2eb5d443d3a764098254c60cf"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_rect</b> (typename LegionRuntime::Arrays::Rect&lt; DIM &gt; r)</td></tr>
-<tr class="separator:a329969d2eb5d443d3a764098254c60cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5f8a10419147f94a852fd30b6498eac"><td class="memTemplParams" colspan="2"><a id="ac5f8a10419147f94a852fd30b6498eac"></a>
-template&lt;int DIM&gt; </td></tr>
-<tr class="memitem:ac5f8a10419147f94a852fd30b6498eac"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_point</b> (typename LegionRuntime::Arrays::Point&lt; DIM &gt; p)</td></tr>
-<tr class="separator:ac5f8a10419147f94a852fd30b6498eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816b62ac45a94d3c086e387be2b60658"><td class="memItemLeft" align="right" valign="top"><a id="a816b62ac45a94d3c086e387be2b60658"></a>
 static <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>from_domain_point</b> (const <a class="el" href="class_legion_1_1_domain_point.html">DomainPoint</a> &amp;p)</td></tr>
 <tr class="separator:a816b62ac45a94d3c086e387be2b60658"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,7 +232,7 @@ static const <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;<
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 11 2024 20:00:22 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -784,83 +784,84 @@ $(function() {
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        assert(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      }</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> std::string&amp; get_provenance_string(<span class="keywordtype">bool</span> human=<span class="keyword">true</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">new</span> std::string());</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;      }</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> has_parent_task(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;      }</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* get_task_name(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;      }</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a> get_slice_domain(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        <span class="keywordflow">return</span> Domain::NO_DOMAIN;</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;      }</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      <span class="keyword">virtual</span> ShardID get_shard_id(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;      }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> get_total_shards(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;      };</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain_point.html">DomainPoint</a> get_shard_point(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_legion_1_1_domain_point.html">DomainPoint</a>();</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;      };</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a> get_shard_domain(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;        assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a>();</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;      }</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    };</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;};</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160; </div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __LEGION_C_UTIL_H__</span></div>
-<div class="ttc" id="aclass_legion_1_1_argument_map_html"><div class="ttname"><a href="class_legion_1_1_argument_map.html">Legion::ArgumentMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:552</div></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> std::string_view&amp; get_provenance_string(</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;          <span class="keywordtype">bool</span> human=<span class="keyword">true</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">new</span> std::string_view());</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;      }</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> has_parent_task(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;      }</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;      <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* get_task_name(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;      }</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a> get_slice_domain(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;        <span class="keywordflow">return</span> Domain::NO_DOMAIN;</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      }</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;      <span class="keyword">virtual</span> ShardID get_shard_id(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;      }</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> get_total_shards(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;      };</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain_point.html">DomainPoint</a> get_shard_point(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_legion_1_1_domain_point.html">DomainPoint</a>();</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;      };</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;      <span class="keyword">virtual</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a> get_shard_domain(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;        assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_legion_1_1_domain.html">Domain</a>();</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;      }</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    };</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;};</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __LEGION_C_UTIL_H__</span></div>
+<div class="ttc" id="aclass_legion_1_1_argument_map_html"><div class="ttname"><a href="class_legion_1_1_argument_map.html">Legion::ArgumentMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:558</div></div>
 <div class="ttc" id="aclass_legion_1_1_c_context_html"><div class="ttname"><a href="class_legion_1_1_c_context.html">Legion::CContext</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:656</div></div>
 <div class="ttc" id="aclass_legion_1_1_c_object_wrapper_html"><div class="ttname"><a href="class_legion_1_1_c_object_wrapper.html">Legion::CObjectWrapper</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:53</div></div>
-<div class="ttc" id="aclass_legion_1_1_copy_html"><div class="ttname"><a href="class_legion_1_1_copy.html">Legion::Copy</a></div><div class="ttdef"><b>Definition:</b> legion.h:4401</div></div>
+<div class="ttc" id="aclass_legion_1_1_copy_html"><div class="ttname"><a href="class_legion_1_1_copy.html">Legion::Copy</a></div><div class="ttdef"><b>Definition:</b> legion.h:4447</div></div>
 <div class="ttc" id="aclass_legion_1_1_domain_1_1_domain_point_iterator_html"><div class="ttname"><a href="class_legion_1_1_domain_1_1_domain_point_iterator.html">Legion::Domain::DomainPointIterator</a></div><div class="ttdef"><b>Definition:</b> legion_domain.h:351</div></div>
 <div class="ttc" id="aclass_legion_1_1_domain_html"><div class="ttname"><a href="class_legion_1_1_domain.html">Legion::Domain</a></div><div class="ttdef"><b>Definition:</b> legion_domain.h:253</div></div>
 <div class="ttc" id="aclass_legion_1_1_domain_point_html"><div class="ttname"><a href="class_legion_1_1_domain_point.html">Legion::DomainPoint</a></div><div class="ttdef"><b>Definition:</b> legion_domain.h:132</div></div>
-<div class="ttc" id="aclass_legion_1_1_external_resources_html"><div class="ttname"><a href="class_legion_1_1_external_resources.html">Legion::ExternalResources</a></div><div class="ttdef"><b>Definition:</b> legion.h:2683</div></div>
+<div class="ttc" id="aclass_legion_1_1_external_resources_html"><div class="ttname"><a href="class_legion_1_1_external_resources.html">Legion::ExternalResources</a></div><div class="ttdef"><b>Definition:</b> legion.h:2729</div></div>
 <div class="ttc" id="aclass_legion_1_1_field_allocator_html"><div class="ttname"><a href="class_legion_1_1_field_allocator.html">Legion::FieldAllocator</a></div><div class="ttdef"><b>Definition:</b> legion.h:373</div></div>
-<div class="ttc" id="aclass_legion_1_1_fill_html"><div class="ttname"><a href="class_legion_1_1_fill.html">Legion::Fill</a></div><div class="ttdef"><b>Definition:</b> legion.h:4518</div></div>
-<div class="ttc" id="aclass_legion_1_1_future_html"><div class="ttname"><a href="class_legion_1_1_future.html">Legion::Future</a></div><div class="ttdef"><b>Definition:</b> legion.h:1172</div></div>
-<div class="ttc" id="aclass_legion_1_1_future_map_html"><div class="ttname"><a href="class_legion_1_1_future_map.html">Legion::FutureMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:1374</div></div>
-<div class="ttc" id="aclass_legion_1_1_inline_mapping_html"><div class="ttname"><a href="class_legion_1_1_inline_mapping.html">Legion::InlineMapping</a></div><div class="ttdef"><b>Definition:</b> legion.h:4430</div></div>
-<div class="ttc" id="aclass_legion_1_1_mappable_html"><div class="ttname"><a href="class_legion_1_1_mappable.html">Legion::Mappable</a></div><div class="ttdef"><b>Definition:</b> legion.h:4259</div></div>
-<div class="ttc" id="aclass_legion_1_1_physical_region_html"><div class="ttname"><a href="class_legion_1_1_physical_region.html">Legion::PhysicalRegion</a></div><div class="ttdef"><b>Definition:</b> legion.h:2537</div></div>
-<div class="ttc" id="aclass_legion_1_1_point_transform_functor_html"><div class="ttname"><a href="class_legion_1_1_point_transform_functor.html">Legion::PointTransformFunctor</a></div><div class="ttdef"><b>Definition:</b> legion.h:4968</div></div>
-<div class="ttc" id="aclass_legion_1_1_predicate_html"><div class="ttname"><a href="class_legion_1_1_predicate.html">Legion::Predicate</a></div><div class="ttdef"><b>Definition:</b> legion.h:645</div></div>
-<div class="ttc" id="aclass_legion_1_1_runtime_html"><div class="ttname"><a href="class_legion_1_1_runtime.html">Legion::Runtime</a></div><div class="ttdef"><b>Definition:</b> legion.h:5008</div></div>
-<div class="ttc" id="aclass_legion_1_1_task_html"><div class="ttname"><a href="class_legion_1_1_task.html">Legion::Task</a></div><div class="ttdef"><b>Definition:</b> legion.h:4330</div></div>
+<div class="ttc" id="aclass_legion_1_1_fill_html"><div class="ttname"><a href="class_legion_1_1_fill.html">Legion::Fill</a></div><div class="ttdef"><b>Definition:</b> legion.h:4564</div></div>
+<div class="ttc" id="aclass_legion_1_1_future_html"><div class="ttname"><a href="class_legion_1_1_future.html">Legion::Future</a></div><div class="ttdef"><b>Definition:</b> legion.h:1178</div></div>
+<div class="ttc" id="aclass_legion_1_1_future_map_html"><div class="ttname"><a href="class_legion_1_1_future_map.html">Legion::FutureMap</a></div><div class="ttdef"><b>Definition:</b> legion.h:1391</div></div>
+<div class="ttc" id="aclass_legion_1_1_inline_mapping_html"><div class="ttname"><a href="class_legion_1_1_inline_mapping.html">Legion::InlineMapping</a></div><div class="ttdef"><b>Definition:</b> legion.h:4476</div></div>
+<div class="ttc" id="aclass_legion_1_1_mappable_html"><div class="ttname"><a href="class_legion_1_1_mappable.html">Legion::Mappable</a></div><div class="ttdef"><b>Definition:</b> legion.h:4305</div></div>
+<div class="ttc" id="aclass_legion_1_1_physical_region_html"><div class="ttname"><a href="class_legion_1_1_physical_region.html">Legion::PhysicalRegion</a></div><div class="ttdef"><b>Definition:</b> legion.h:2583</div></div>
+<div class="ttc" id="aclass_legion_1_1_point_transform_functor_html"><div class="ttname"><a href="class_legion_1_1_point_transform_functor.html">Legion::PointTransformFunctor</a></div><div class="ttdef"><b>Definition:</b> legion.h:5014</div></div>
+<div class="ttc" id="aclass_legion_1_1_predicate_html"><div class="ttname"><a href="class_legion_1_1_predicate.html">Legion::Predicate</a></div><div class="ttdef"><b>Definition:</b> legion.h:651</div></div>
+<div class="ttc" id="aclass_legion_1_1_runtime_html"><div class="ttname"><a href="class_legion_1_1_runtime.html">Legion::Runtime</a></div><div class="ttdef"><b>Definition:</b> legion.h:5054</div></div>
+<div class="ttc" id="aclass_legion_1_1_task_html"><div class="ttname"><a href="class_legion_1_1_task.html">Legion::Task</a></div><div class="ttdef"><b>Definition:</b> legion.h:4376</div></div>
 <div class="ttc" id="aclass_legion_1_1_task_mut_html"><div class="ttname"><a href="class_legion_1_1_task_mut.html">Legion::TaskMut</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:702</div></div>
 <div class="ttc" id="alegion_8h_html"><div class="ttname"><a href="legion_8h.html">legion.h</a></div></div>
 <div class="ttc" id="alegion__c_8h_html"><div class="ttname"><a href="legion__c_8h.html">legion_c.h</a></div></div>
 <div class="ttc" id="alegion__c_8h_html_ac456143edca3648144bea7899e03a38e"><div class="ttname"><a href="legion__c_8h.html#ac456143edca3648144bea7899e03a38e">ACCESSOR_ARRAY</a></div><div class="ttdeci">#define ACCESSOR_ARRAY(DIM)</div><div class="ttdef"><b>Definition:</b> legion_c.h:5193</div></div>
 <div class="ttc" id="anamespace_legion_html"><div class="ttname"><a href="namespace_legion.html">Legion</a></div></div>
-<div class="ttc" id="astruct_legion_1_1_acquire_launcher_html"><div class="ttname"><a href="struct_legion_1_1_acquire_launcher.html">Legion::AcquireLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:3999</div></div>
-<div class="ttc" id="astruct_legion_1_1_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2188</div></div>
+<div class="ttc" id="astruct_legion_1_1_acquire_launcher_html"><div class="ttname"><a href="struct_legion_1_1_acquire_launcher.html">Legion::AcquireLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:4045</div></div>
+<div class="ttc" id="astruct_legion_1_1_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_attach_launcher.html">Legion::AttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2205</div></div>
 <div class="ttc" id="astruct_legion_1_1_c_object_wrapper_1_1_blockify_html"><div class="ttname"><a href="struct_legion_1_1_c_object_wrapper_1_1_blockify.html">Legion::CObjectWrapper::Blockify</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:220</div></div>
 <div class="ttc" id="astruct_legion_1_1_colored_points_html"><div class="ttname"><a href="struct_legion_1_1_colored_points.html">Legion::ColoredPoints</a></div><div class="ttdef"><b>Definition:</b> legion_c_util.h:42</div></div>
-<div class="ttc" id="astruct_legion_1_1_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_copy_launcher.html">Legion::CopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1811</div></div>
-<div class="ttc" id="astruct_legion_1_1_discard_launcher_html"><div class="ttname"><a href="struct_legion_1_1_discard_launcher.html">Legion::DiscardLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2147</div></div>
-<div class="ttc" id="astruct_legion_1_1_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_fill_launcher.html">Legion::FillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1980</div></div>
-<div class="ttc" id="astruct_legion_1_1_index_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_attach_launcher.html">Legion::IndexAttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2280</div></div>
-<div class="ttc" id="astruct_legion_1_1_index_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_copy_launcher.html">Legion::IndexCopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1892</div></div>
-<div class="ttc" id="astruct_legion_1_1_index_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_fill_launcher.html">Legion::IndexFillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2040</div></div>
-<div class="ttc" id="astruct_legion_1_1_index_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_task_launcher.html">Legion::IndexTaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1626</div></div>
-<div class="ttc" id="astruct_legion_1_1_inline_launcher_html"><div class="ttname"><a href="struct_legion_1_1_inline_launcher.html">Legion::InlineLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1751</div></div>
-<div class="ttc" id="astruct_legion_1_1_must_epoch_launcher_html"><div class="ttname"><a href="struct_legion_1_1_must_epoch_launcher.html">Legion::MustEpochLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:4106</div></div>
-<div class="ttc" id="astruct_legion_1_1_output_requirement_html"><div class="ttname"><a href="struct_legion_1_1_output_requirement.html">Legion::OutputRequirement</a></div><div class="ttdef"><b>Definition:</b> legion.h:1067</div></div>
-<div class="ttc" id="astruct_legion_1_1_region_requirement_html"><div class="ttname"><a href="struct_legion_1_1_region_requirement.html">Legion::RegionRequirement</a></div><div class="ttdef"><b>Definition:</b> legion.h:864</div></div>
-<div class="ttc" id="astruct_legion_1_1_release_launcher_html"><div class="ttname"><a href="struct_legion_1_1_release_launcher.html">Legion::ReleaseLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:4047</div></div>
-<div class="ttc" id="astruct_legion_1_1_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_task_launcher.html">Legion::TaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1523</div></div>
+<div class="ttc" id="astruct_legion_1_1_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_copy_launcher.html">Legion::CopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1828</div></div>
+<div class="ttc" id="astruct_legion_1_1_discard_launcher_html"><div class="ttname"><a href="struct_legion_1_1_discard_launcher.html">Legion::DiscardLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2164</div></div>
+<div class="ttc" id="astruct_legion_1_1_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_fill_launcher.html">Legion::FillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1997</div></div>
+<div class="ttc" id="astruct_legion_1_1_index_attach_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_attach_launcher.html">Legion::IndexAttachLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2297</div></div>
+<div class="ttc" id="astruct_legion_1_1_index_copy_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_copy_launcher.html">Legion::IndexCopyLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1909</div></div>
+<div class="ttc" id="astruct_legion_1_1_index_fill_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_fill_launcher.html">Legion::IndexFillLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:2057</div></div>
+<div class="ttc" id="astruct_legion_1_1_index_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_index_task_launcher.html">Legion::IndexTaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1643</div></div>
+<div class="ttc" id="astruct_legion_1_1_inline_launcher_html"><div class="ttname"><a href="struct_legion_1_1_inline_launcher.html">Legion::InlineLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1768</div></div>
+<div class="ttc" id="astruct_legion_1_1_must_epoch_launcher_html"><div class="ttname"><a href="struct_legion_1_1_must_epoch_launcher.html">Legion::MustEpochLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:4152</div></div>
+<div class="ttc" id="astruct_legion_1_1_output_requirement_html"><div class="ttname"><a href="struct_legion_1_1_output_requirement.html">Legion::OutputRequirement</a></div><div class="ttdef"><b>Definition:</b> legion.h:1073</div></div>
+<div class="ttc" id="astruct_legion_1_1_region_requirement_html"><div class="ttname"><a href="struct_legion_1_1_region_requirement.html">Legion::RegionRequirement</a></div><div class="ttdef"><b>Definition:</b> legion.h:870</div></div>
+<div class="ttc" id="astruct_legion_1_1_release_launcher_html"><div class="ttname"><a href="struct_legion_1_1_release_launcher.html">Legion::ReleaseLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:4093</div></div>
+<div class="ttc" id="astruct_legion_1_1_task_launcher_html"><div class="ttname"><a href="struct_legion_1_1_task_launcher.html">Legion::TaskLauncher</a></div><div class="ttdef"><b>Definition:</b> legion.h:1540</div></div>
 <div class="ttc" id="astructlegion__byte__offset__t_html"><div class="ttname"><a href="structlegion__byte__offset__t.html">legion_byte_offset_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:299</div></div>
 <div class="ttc" id="astructlegion__domain__affine__transform__t_html"><div class="ttname"><a href="structlegion__domain__affine__transform__t.html">legion_domain_affine_transform_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:240</div></div>
 <div class="ttc" id="astructlegion__domain__point__t_html"><div class="ttname"><a href="structlegion__domain__point__t.html">legion_domain_point_t</a></div><div class="ttdef"><b>Definition:</b> legion_c.h:195</div></div>
@@ -885,7 +886,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 8 2024 16:56:19 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

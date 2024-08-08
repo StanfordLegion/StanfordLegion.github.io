@@ -123,6 +123,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (con
 <tr class="separator:aacb127fa549370677abb0450b9421613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2bb23117b24da5f7c51c622458f86e4"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_future.html#ad2bb23117b24da5f7c51c622458f86e4">get_buffer</a> (Memory::Kind memory, size_t *extent_in_bytes=NULL, bool check_extent=false, bool silence_warnings=false, const char *warning_string=NULL) const</td></tr>
 <tr class="separator:ad2bb23117b24da5f7c51c622458f86e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eb461b73f04b58ae977eda0ce6e741f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_future.html#a0eb461b73f04b58ae977eda0ce6e741f">get_memories</a> (std::set&lt; Memory &gt; &amp;memories, bool silence_warnings=false, const char *warning_string=NULL) const</td></tr>
+<tr class="separator:a0eb461b73f04b58ae977eda0ce6e741f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5462bca8da2c4d74daeaddf0ae39ee9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa5462bca8da2c4d74daeaddf0ae39ee9"><td class="memTemplItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_legion_1_1_future.html#aa5462bca8da2c4d74daeaddf0ae39ee9">get_reference</a> (bool silence_warnings=false, const char *warning_string=NULL) const</td></tr>
 <tr class="separator:aa5462bca8da2c4d74daeaddf0ae39ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -323,6 +325,41 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a const pointer to the future data in the specified memory </dd></dl>
+
+</div>
+</div>
+<a id="a0eb461b73f04b58ae977eda0ce6e741f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb461b73f04b58ae977eda0ce6e741f">&#9670;&nbsp;</a></span>get_memories()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Legion::Future::get_memories </td>
+          <td>(</td>
+          <td class="paramtype">std::set&lt; Memory &gt; &amp;&#160;</td>
+          <td class="paramname"><em>memories</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>silence_warnings</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>warning_string</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Report an instantaneous set of available memories where instances for the this future exist. These will only be memories local to the current process in which the call is performed. The result of this query might be come stale as soon as it is returned since it is only a snapshot of the memories where the future has copies. </p>
 
 </div>
 </div>
@@ -656,7 +693,7 @@ template&lt;typename T , PrivilegeMode PM = LEGION_READ_ONLY&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2024 18:08:35 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 8 2024 16:56:20 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

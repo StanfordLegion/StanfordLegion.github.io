@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Legion Runtime: Legion::FieldSpaceRequirement Struct Reference</title>
+<title>Legion Runtime: Legion::PoolBounds Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,16 +61,16 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespace_legion.html">Legion</a></li><li class="navelem"><a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_legion.html">Legion</a></li><li class="navelem"><a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="struct_legion_1_1_field_space_requirement-members.html">List of all members</a>  </div>
+<a href="struct_legion_1_1_pool_bounds-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Legion::FieldSpaceRequirement Struct Reference</div>  </div>
+<div class="title">Legion::PoolBounds Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -78,31 +78,33 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adcf2d17733f8b0773672c403e693873c"><td class="memItemLeft" align="right" valign="top"><a id="adcf2d17733f8b0773672c403e693873c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>FieldSpaceRequirement</b> (<a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a> _handle, AllocateMode _priv, bool _verified=false)</td></tr>
-<tr class="separator:adcf2d17733f8b0773672c403e693873c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae23f2d44852327dfe3c95b57cce5be"><td class="memItemLeft" align="right" valign="top"><a id="a1ae23f2d44852327dfe3c95b57cce5be"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &amp;req) const</td></tr>
-<tr class="separator:a1ae23f2d44852327dfe3c95b57cce5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bf6451646e0678cf66432b9501c8d49"><td class="memItemLeft" align="right" valign="top"><a id="a3bf6451646e0678cf66432b9501c8d49"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="struct_legion_1_1_field_space_requirement.html">FieldSpaceRequirement</a> &amp;req) const</td></tr>
-<tr class="separator:a3bf6451646e0678cf66432b9501c8d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cc1b38588493dfa6fbeffa7e502e08"><td class="memItemLeft" align="right" valign="top"><a id="af6cc1b38588493dfa6fbeffa7e502e08"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (uint64_t s=0, uint32_t a=16)</td></tr>
+<tr class="separator:af6cc1b38588493dfa6fbeffa7e502e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8439df0453684ceac6f32778094fe09"><td class="memItemLeft" align="right" valign="top"><a id="ac8439df0453684ceac6f32778094fe09"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (const <a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;)=default</td></tr>
+<tr class="separator:ac8439df0453684ceac6f32778094fe09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04421e38ef18c2b29e85daf51fb48d6c"><td class="memItemLeft" align="right" valign="top"><a id="a04421e38ef18c2b29e85daf51fb48d6c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (<a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:a04421e38ef18c2b29e85daf51fb48d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc72954771c4bdca3d382e21c492561"><td class="memItemLeft" align="right" valign="top"><a id="abcc72954771c4bdca3d382e21c492561"></a>
+<a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;)=default</td></tr>
+<tr class="separator:abcc72954771c4bdca3d382e21c492561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71f0f691d0b0f3567b356f2a6bfa917"><td class="memItemLeft" align="right" valign="top"><a id="ab71f0f691d0b0f3567b356f2a6bfa917"></a>
+<a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:ab71f0f691d0b0f3567b356f2a6bfa917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a8e869e88e4fa578eee937bb9dee18c0c"><td class="memItemLeft" align="right" valign="top"><a id="a8e869e88e4fa578eee937bb9dee18c0c"></a>
-<a class="el" href="class_legion_1_1_field_space.html">FieldSpace</a>&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b></td></tr>
-<tr class="separator:a8e869e88e4fa578eee937bb9dee18c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc35fc7bf3186b8f7997e2f8267bceaa"><td class="memItemLeft" align="right" valign="top"><a id="abc35fc7bf3186b8f7997e2f8267bceaa"></a>
-AllocateMode&#160;</td><td class="memItemRight" valign="bottom"><b>privilege</b></td></tr>
-<tr class="separator:abc35fc7bf3186b8f7997e2f8267bceaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab00c3a5551cd0eefc37dd23596d8756"><td class="memItemLeft" align="right" valign="top"><a id="aab00c3a5551cd0eefc37dd23596d8756"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>verified</b></td></tr>
-<tr class="separator:aab00c3a5551cd0eefc37dd23596d8756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cfb956e60a9f6c9bb904d5ef86bdb98"><td class="memItemLeft" align="right" valign="top"><a id="a3cfb956e60a9f6c9bb904d5ef86bdb98"></a>
+uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
+<tr class="separator:a3cfb956e60a9f6c9bb904d5ef86bdb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ee9a5c6e393fcd25d3002f55735c04a"><td class="memItemLeft" align="right" valign="top"><a id="a4ee9a5c6e393fcd25d3002f55735c04a"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>alignment</b></td></tr>
+<tr class="separator:a4ee9a5c6e393fcd25d3002f55735c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Field space requirements can be used to specify that a task requires additional privileges on a field spaces such as the ability to allocate and free fields.</dd></dl>
-<p>This class is maintained for backwards compatibility with <a class="el" href="namespace_legion.html">Legion</a> applications written to previous versions of this interface and can safely be ignored for newer programs. </p>
+<div class="textblock"><p>A small helper class for tracking the bounds on what memory pools can support when they are created </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="legion_8h_source.html">legion.h</a></li>
 </ul>

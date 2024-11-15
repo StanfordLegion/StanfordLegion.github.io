@@ -78,9 +78,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af6cc1b38588493dfa6fbeffa7e502e08"><td class="memItemLeft" align="right" valign="top"><a id="af6cc1b38588493dfa6fbeffa7e502e08"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (uint64_t s=0, uint32_t a=16)</td></tr>
-<tr class="separator:af6cc1b38588493dfa6fbeffa7e502e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa901f90d3ba49b0bf8ee986d696d11f2"><td class="memItemLeft" align="right" valign="top"><a id="aa901f90d3ba49b0bf8ee986d696d11f2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (UnboundPoolScope s)</td></tr>
+<tr class="separator:aa901f90d3ba49b0bf8ee986d696d11f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a5a9408ed36a8b609ea04360cffb1a"><td class="memItemLeft" align="right" valign="top"><a id="af3a5a9408ed36a8b609ea04360cffb1a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (size_t s=0, uint32_t a=16)</td></tr>
+<tr class="separator:af3a5a9408ed36a8b609ea04360cffb1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8439df0453684ceac6f32778094fe09"><td class="memItemLeft" align="right" valign="top"><a id="ac8439df0453684ceac6f32778094fe09"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PoolBounds</b> (const <a class="el" href="struct_legion_1_1_pool_bounds.html">PoolBounds</a> &amp;)=default</td></tr>
 <tr class="separator:ac8439df0453684ceac6f32778094fe09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,12 +99,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3cfb956e60a9f6c9bb904d5ef86bdb98"><td class="memItemLeft" align="right" valign="top"><a id="a3cfb956e60a9f6c9bb904d5ef86bdb98"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
-<tr class="separator:a3cfb956e60a9f6c9bb904d5ef86bdb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae24096e010aa8e0ba0b9d49c7d8a7e62"><td class="memItemLeft" align="right" valign="top"><a id="ae24096e010aa8e0ba0b9d49c7d8a7e62"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
+<tr class="separator:ae24096e010aa8e0ba0b9d49c7d8a7e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ee9a5c6e393fcd25d3002f55735c04a"><td class="memItemLeft" align="right" valign="top"><a id="a4ee9a5c6e393fcd25d3002f55735c04a"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>alignment</b></td></tr>
 <tr class="separator:a4ee9a5c6e393fcd25d3002f55735c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346f905c4b03e7a5cbb0981081e68b8a"><td class="memItemLeft" align="right" valign="top"><a id="a346f905c4b03e7a5cbb0981081e68b8a"></a>
+UnboundPoolScope&#160;</td><td class="memItemRight" valign="bottom"><b>scope</b></td></tr>
+<tr class="separator:a346f905c4b03e7a5cbb0981081e68b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A small helper class for tracking the bounds on what memory pools can support when they are created </p>
@@ -111,7 +117,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>alignment</b></td
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 8 2024 16:56:20 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Nov 15 2024 21:17:06 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

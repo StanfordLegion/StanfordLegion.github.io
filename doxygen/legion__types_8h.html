@@ -96,16 +96,13 @@ $(function() {
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &quot;<a class="el" href="legion__config_8h_source.html">legion/legion_config.h</a>&quot;</code><br />
 <code>#include &quot;realm.h&quot;</code><br />
+<code>#include &quot;realm/id.h&quot;</code><br />
 <code>#include &quot;realm/dynamic_templates.h&quot;</code><br />
 </div>
 <p><a href="legion__types_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_internal_1_1_profiling_response_handler.html">Legion::Internal::ProfilingResponseHandler</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_profiling_response_base.html">Legion::Internal::ProfilingResponseBase</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_lg_task_args.html">Legion::Internal::LgTaskArgs&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_legion_1_1_internal_1_1_n_t___template_helper.html">Legion::Internal::NT_TemplateHelper</a></td></tr>
@@ -268,6 +265,9 @@ typedef ::legion_launch_constraint_t&#160;</td><td class="memItemRight" valign="
 <tr class="memitem:afce0e5a0ab7ada07fb4b42233fad392e"><td class="memItemLeft" align="right" valign="top"><a id="afce0e5a0ab7ada07fb4b42233fad392e"></a>
 typedef ::legion_specialized_constraint_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::SpecializedKind</b></td></tr>
 <tr class="separator:afce0e5a0ab7ada07fb4b42233fad392e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac71674f260acf184367765b19cfd5279"><td class="memItemLeft" align="right" valign="top"><a id="ac71674f260acf184367765b19cfd5279"></a>
+typedef ::legion_unbounded_pool_scope_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::UnboundPoolScope</b></td></tr>
+<tr class="separator:ac71674f260acf184367765b19cfd5279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab65ee6c78278edd5bcdf2d818d18c94"><td class="memItemLeft" align="right" valign="top"><a id="aab65ee6c78278edd5bcdf2d818d18c94"></a>
 typedef IndexTaskLauncher&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::IndexLauncher</b></td></tr>
 <tr class="separator:aab65ee6c78278edd5bcdf2d818d18c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -647,82 +647,84 @@ Enumerations</h2></td></tr>
 &#160;&#160;<b>LG_INDEX_PART_DEFER_SHARD_RECTS_TASK_ID</b>
 , <b>LG_DEFERRED_ENQUEUE_TASK_ID</b>
 , <b>LG_DEFER_MAPPER_MESSAGE_TASK_ID</b>
-, <b>LG_REMOTE_VIEW_CREATION_TASK_ID</b>
+, <b>LG_DEFER_MAPPER_COLLECTION_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFERRED_DISTRIBUTE_TASK_ID</b>
+&#160;&#160;<b>LG_REMOTE_VIEW_CREATION_TASK_ID</b>
+, <b>LG_DEFERRED_DISTRIBUTE_TASK_ID</b>
 , <b>LG_DEFER_PERFORM_MAPPING_TASK_ID</b>
 , <b>LG_FINALIZE_OUTPUT_TREE_TASK_ID</b>
-, <b>LG_DEFERRED_LAUNCH_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_MISPREDICATION_TASK_ID</b>
+&#160;&#160;<b>LG_DEFERRED_LAUNCH_TASK_ID</b>
+, <b>LG_MISPREDICATION_TASK_ID</b>
 , <b>LG_DEFER_TRIGGER_CHILDREN_COMMIT_TASK_ID</b>
 , <b>LG_ORDER_CONCURRENT_LAUNCH_TASK_ID</b>
-, <b>LG_DEFER_MATERIALIZED_VIEW_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_REDUCTION_VIEW_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_MATERIALIZED_VIEW_TASK_ID</b>
+, <b>LG_DEFER_REDUCTION_VIEW_TASK_ID</b>
 , <b>LG_DEFER_PHI_VIEW_REGISTRATION_TASK_ID</b>
 , <b>LG_DEFER_COMPOSITE_COPY_TASK_ID</b>
-, <b>LG_TIGHTEN_INDEX_SPACE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_REPLAY_SLICE_TASK_ID</b>
+&#160;&#160;<b>LG_TIGHTEN_INDEX_SPACE_TASK_ID</b>
+, <b>LG_REPLAY_SLICE_TASK_ID</b>
 , <b>LG_TRANSITIVE_REDUCTION_TASK_ID</b>
 , <b>LG_DELETE_TEMPLATE_TASK_ID</b>
-, <b>LG_DEFER_MAKE_OWNER_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_APPLY_STATE_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_MAKE_OWNER_TASK_ID</b>
+, <b>LG_DEFER_APPLY_STATE_TASK_ID</b>
 , <b>LG_COPY_FILL_AGGREGATION_TASK_ID</b>
 , <b>LG_COPY_FILL_DELETION_TASK_ID</b>
-, <b>LG_FINALIZE_EQ_SETS_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_FINALIZE_OUTPUT_EQ_SET_TASK_ID</b>
+&#160;&#160;<b>LG_FINALIZE_EQ_SETS_TASK_ID</b>
+, <b>LG_FINALIZE_OUTPUT_EQ_SET_TASK_ID</b>
 , <b>LG_DEFERRED_COPY_ACROSS_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_OP_DELETION_TASK_ID</b>
-, <b>LG_DEFER_REMOTE_INSTANCE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_REMOTE_REDUCTION_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_REMOTE_INSTANCE_TASK_ID</b>
+, <b>LG_DEFER_REMOTE_REDUCTION_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_UPDATE_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_ACQUIRE_TASK_ID</b>
-, <b>LG_DEFER_REMOTE_RELEASE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_REMOTE_COPIES_ACROSS_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_REMOTE_RELEASE_TASK_ID</b>
+, <b>LG_DEFER_REMOTE_COPIES_ACROSS_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_OVERWRITE_TASK_ID</b>
 , <b>LG_DEFER_REMOTE_FILTER_TASK_ID</b>
-, <b>LG_DEFER_PERFORM_TRAVERSAL_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_PERFORM_ANALYSIS_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_PERFORM_TRAVERSAL_TASK_ID</b>
+, <b>LG_DEFER_PERFORM_ANALYSIS_TASK_ID</b>
 , <b>LG_DEFER_PERFORM_REMOTE_TASK_ID</b>
 , <b>LG_DEFER_PERFORM_UPDATE_TASK_ID</b>
-, <b>LG_DEFER_PERFORM_REGISTRATION_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_PERFORM_OUTPUT_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_PERFORM_REGISTRATION_TASK_ID</b>
+, <b>LG_DEFER_PERFORM_OUTPUT_TASK_ID</b>
 , <b>LG_DEFER_PHYSICAL_MANAGER_TASK_ID</b>
 , <b>LG_DEFER_DELETE_PHYSICAL_MANAGER_TASK_ID</b>
-, <b>LG_DEFER_VERIFY_PARTITION_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_RELEASE_ACQUIRED_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_VERIFY_PARTITION_TASK_ID</b>
+, <b>LG_DEFER_RELEASE_ACQUIRED_TASK_ID</b>
 , <b>LG_DEFER_COPY_ACROSS_TASK_ID</b>
 , <b>LG_DEFER_COLLECTIVE_MESSAGE_TASK_ID</b>
-, <b>LG_FREE_EAGER_INSTANCE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_MALLOC_INSTANCE_TASK_ID</b>
+&#160;&#160;<b>LG_FREE_EAGER_INSTANCE_TASK_ID</b>
+, <b>LG_MALLOC_INSTANCE_TASK_ID</b>
 , <b>LG_FREE_INSTANCE_TASK_ID</b>
 , <b>LG_DEFER_TRACE_UPDATE_TASK_ID</b>
-, <b>LG_FINALIZE_OUTPUT_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_DELETE_FUTURE_INSTANCE_TASK_ID</b>
+&#160;&#160;<b>LG_FINALIZE_OUTPUT_ID</b>
+, <b>LG_DEFER_DELETE_FUTURE_INSTANCE_TASK_ID</b>
 , <b>LG_FREE_EXTERNAL_TASK_ID</b>
 , <b>LG_DEFER_CONSENSUS_MATCH_TASK_ID</b>
-, <b>LG_DEFER_COLLECTIVE_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_DEFER_ISSUE_FILL_TASK_ID</b>
+&#160;&#160;<b>LG_DEFER_COLLECTIVE_TASK_ID</b>
+, <b>LG_DEFER_ISSUE_FILL_TASK_ID</b>
 , <b>LG_DEFER_MUST_EPOCH_RETURN_TASK_ID</b>
 , <b>LG_DEFER_DELETION_COMMIT_TASK_ID</b>
-, <b>LG_YIELD_TASK_ID</b>
 , <br />
-&#160;&#160;<b>LG_BEGIN_SHUTDOWN_TASK_IDS</b>
+&#160;&#160;<b>LG_YIELD_TASK_ID</b>
+, <b>LG_BEGIN_SHUTDOWN_TASK_IDS</b>
 , <b>LG_RETRY_SHUTDOWN_TASK_ID</b> = LG_BEGIN_SHUTDOWN_TASK_IDS
 , <b>LG_MESSAGE_ID</b>
-, <b>LG_LAST_TASK_ID</b>
+, <br />
+&#160;&#160;<b>LG_LAST_TASK_ID</b>
 <br />
  }</td></tr>
 <tr class="separator:afcf55dbccf2aad971c8fdfc68d51dff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -836,7 +838,8 @@ Enumerations</h2></td></tr>
 , <b>TRACING_VIRTUAL_CHANNEL</b> = 13
 , <b>RENDEZVOUS_VIRTUAL_CHANNEL</b> = 14
 , <br />
-&#160;&#160;<b>MAX_NUM_VIRTUAL_CHANNELS</b> = 15
+&#160;&#160;<b>PROFILING_VIRTUAL_CHANNEL</b> = 15
+, <b>MAX_NUM_VIRTUAL_CHANNELS</b> = 16
 <br />
  }</td></tr>
 <tr class="separator:ae811b79b6a720ed293d5277f31a9f654"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1112,141 +1115,144 @@ Enumerations</h2></td></tr>
 , <b>SEND_EQUIVALENCE_SET_REMOTE_FILTERS</b>
 , <br />
 &#160;&#160;<b>SEND_EQUIVALENCE_SET_REMOTE_INSTANCES</b>
+, <b>SEND_EQUIVALENCE_SET_FILTER_INVALIDATIONS</b>
 , <b>SEND_INSTANCE_REQUEST</b>
 , <b>SEND_INSTANCE_RESPONSE</b>
-, <b>SEND_EXTERNAL_CREATE_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_EXTERNAL_CREATE_RESPONSE</b>
+&#160;&#160;<b>SEND_EXTERNAL_CREATE_REQUEST</b>
+, <b>SEND_EXTERNAL_CREATE_RESPONSE</b>
 , <b>SEND_EXTERNAL_ATTACH</b>
 , <b>SEND_EXTERNAL_DETACH</b>
-, <b>SEND_GC_PRIORITY_UPDATE</b>
 , <br />
-&#160;&#160;<b>SEND_GC_REQUEST</b>
+&#160;&#160;<b>SEND_GC_PRIORITY_UPDATE</b>
+, <b>SEND_GC_REQUEST</b>
 , <b>SEND_GC_RESPONSE</b>
 , <b>SEND_GC_ACQUIRE</b>
-, <b>SEND_GC_FAILED</b>
 , <br />
-&#160;&#160;<b>SEND_GC_MISMATCH</b>
+&#160;&#160;<b>SEND_GC_FAILED</b>
+, <b>SEND_GC_MISMATCH</b>
 , <b>SEND_GC_NOTIFY</b>
 , <b>SEND_GC_DEBUG_REQUEST</b>
-, <b>SEND_GC_DEBUG_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_GC_RECORD_EVENT</b>
+&#160;&#160;<b>SEND_GC_DEBUG_RESPONSE</b>
+, <b>SEND_GC_RECORD_EVENT</b>
 , <b>SEND_ACQUIRE_REQUEST</b>
 , <b>SEND_ACQUIRE_RESPONSE</b>
-, <b>SEND_VARIANT_BROADCAST</b>
 , <br />
-&#160;&#160;<b>SEND_CONSTRAINT_REQUEST</b>
+&#160;&#160;<b>SEND_VARIANT_BROADCAST</b>
+, <b>SEND_CONSTRAINT_REQUEST</b>
 , <b>SEND_CONSTRAINT_RESPONSE</b>
 , <b>SEND_CONSTRAINT_RELEASE</b>
-, <b>SEND_TOP_LEVEL_TASK_COMPLETE</b>
 , <br />
-&#160;&#160;<b>SEND_MPI_RANK_EXCHANGE</b>
+&#160;&#160;<b>SEND_TOP_LEVEL_TASK_COMPLETE</b>
+, <b>SEND_MPI_RANK_EXCHANGE</b>
 , <b>SEND_REPLICATE_DISTRIBUTION</b>
 , <b>SEND_REPLICATE_COLLECTIVE_VERSIONING</b>
-, <b>SEND_REPLICATE_COLLECTIVE_MAPPING</b>
 , <br />
-&#160;&#160;<b>SEND_REPLICATE_VIRTUAL_RENDEZVOUS</b>
+&#160;&#160;<b>SEND_REPLICATE_COLLECTIVE_MAPPING</b>
+, <b>SEND_REPLICATE_VIRTUAL_RENDEZVOUS</b>
 , <b>SEND_REPLICATE_STARTUP_COMPLETE</b>
 , <b>SEND_REPLICATE_POST_MAPPED</b>
-, <b>SEND_REPLICATE_TRIGGER_COMPLETE</b>
 , <br />
-&#160;&#160;<b>SEND_REPLICATE_TRIGGER_COMMIT</b>
+&#160;&#160;<b>SEND_REPLICATE_TRIGGER_COMPLETE</b>
+, <b>SEND_REPLICATE_TRIGGER_COMMIT</b>
 , <b>SEND_CONTROL_REPLICATE_RENDEZVOUS_MESSAGE</b>
 , <b>SEND_LIBRARY_MAPPER_REQUEST</b>
-, <b>SEND_LIBRARY_MAPPER_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_LIBRARY_TRACE_REQUEST</b>
+&#160;&#160;<b>SEND_LIBRARY_MAPPER_RESPONSE</b>
+, <b>SEND_LIBRARY_TRACE_REQUEST</b>
 , <b>SEND_LIBRARY_TRACE_RESPONSE</b>
 , <b>SEND_LIBRARY_PROJECTION_REQUEST</b>
-, <b>SEND_LIBRARY_PROJECTION_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_LIBRARY_SHARDING_REQUEST</b>
+&#160;&#160;<b>SEND_LIBRARY_PROJECTION_RESPONSE</b>
+, <b>SEND_LIBRARY_SHARDING_REQUEST</b>
 , <b>SEND_LIBRARY_SHARDING_RESPONSE</b>
 , <b>SEND_LIBRARY_TASK_REQUEST</b>
-, <b>SEND_LIBRARY_TASK_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_LIBRARY_REDOP_REQUEST</b>
+&#160;&#160;<b>SEND_LIBRARY_TASK_RESPONSE</b>
+, <b>SEND_LIBRARY_REDOP_REQUEST</b>
 , <b>SEND_LIBRARY_REDOP_RESPONSE</b>
 , <b>SEND_LIBRARY_SERDEZ_REQUEST</b>
-, <b>SEND_LIBRARY_SERDEZ_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_REMOTE_OP_REPORT_UNINIT</b>
+&#160;&#160;<b>SEND_LIBRARY_SERDEZ_RESPONSE</b>
+, <b>SEND_REMOTE_OP_REPORT_UNINIT</b>
 , <b>SEND_REMOTE_OP_PROFILING_COUNT_UPDATE</b>
 , <b>SEND_REMOTE_OP_COMPLETION_EFFECT</b>
-, <b>SEND_REMOTE_TRACE_UPDATE</b>
 , <br />
-&#160;&#160;<b>SEND_REMOTE_TRACE_RESPONSE</b>
+&#160;&#160;<b>SEND_REMOTE_TRACE_UPDATE</b>
+, <b>SEND_REMOTE_TRACE_RESPONSE</b>
 , <b>SEND_FREE_EXTERNAL_ALLOCATION</b>
 , <b>SEND_NOTIFY_COLLECTED_INSTANCES</b>
-, <b>SEND_CREATE_FUTURE_INSTANCE_REQUEST</b>
 , <br />
-&#160;&#160;<b>SEND_CREATE_FUTURE_INSTANCE_RESPONSE</b>
+&#160;&#160;<b>SEND_CREATE_FUTURE_INSTANCE_REQUEST</b>
+, <b>SEND_CREATE_FUTURE_INSTANCE_RESPONSE</b>
 , <b>SEND_FREE_FUTURE_INSTANCE</b>
 , <b>SEND_REMOTE_DISTRIBUTED_ID_REQUEST</b>
-, <b>SEND_REMOTE_DISTRIBUTED_ID_RESPONSE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_FUTURE_ALLREDUCE</b>
+&#160;&#160;<b>SEND_REMOTE_DISTRIBUTED_ID_RESPONSE</b>
+, <b>SEND_CONTROL_REPLICATION_FUTURE_ALLREDUCE</b>
 , <b>SEND_CONTROL_REPLICATION_FUTURE_BROADCAST</b>
 , <b>SEND_CONTROL_REPLICATION_FUTURE_REDUCTION</b>
-, <b>SEND_CONTROL_REPLICATION_VALUE_ALLREDUCE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_VALUE_BROADCAST</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_VALUE_ALLREDUCE</b>
+, <b>SEND_CONTROL_REPLICATION_VALUE_BROADCAST</b>
 , <b>SEND_CONTROL_REPLICATION_VALUE_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_BUFFER_BROADCAST</b>
-, <b>SEND_CONTROL_REPLICATION_SHARD_SYNC_TREE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_SHARD_EVENT_TREE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_SHARD_SYNC_TREE</b>
+, <b>SEND_CONTROL_REPLICATION_SHARD_EVENT_TREE</b>
 , <b>SEND_CONTROL_REPLICATION_SINGLE_TASK_TREE</b>
 , <b>SEND_CONTROL_REPLICATION_CROSS_PRODUCT_PARTITION</b>
-, <b>SEND_CONTROL_REPLICATION_SHARDING_GATHER_COLLECTIVE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_INDIRECT_COPY_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_SHARDING_GATHER_COLLECTIVE</b>
+, <b>SEND_CONTROL_REPLICATION_INDIRECT_COPY_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_FIELD_DESCRIPTOR_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_FIELD_DESCRIPTOR_GATHER</b>
-, <b>SEND_CONTROL_REPLICATION_DEPPART_RESULT_SCATTER</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_BUFFER_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_DEPPART_RESULT_SCATTER</b>
+, <b>SEND_CONTROL_REPLICATION_BUFFER_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_FUTURE_NAME_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_MAPPING_BROADCAST</b>
-, <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_MAPPING_EXCHANGE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_MUST_EPOCH_DEPENDENCE_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_MUST_EPOCH_MAPPING_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_DEPENDENCE_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_MUST_EPOCH_COMPLETION_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_CHECK_COLLECTIVE_MAPPING</b>
-, <b>SEND_CONTROL_REPLICATION_CHECK_COLLECTIVE_SOURCES</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_TEMPLATE_INDEX_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_CHECK_COLLECTIVE_SOURCES</b>
+, <b>SEND_CONTROL_REPLICATION_TEMPLATE_INDEX_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_UNORDERED_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_CONSENSUS_MATCH</b>
-, <b>SEND_CONTROL_REPLICATION_VERIFY_CONTROL_REPLICATION_EXCHANGE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_OUTPUT_SIZE_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_VERIFY_CONTROL_REPLICATION_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_OUTPUT_SIZE_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_LAUNCH_SPACE</b>
 , <b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_UPPER_BOUND</b>
-, <b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_EXCHANGE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_SHARD_PARTICIPANTS_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_INDEX_ATTACH_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_SHARD_PARTICIPANTS_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_IMPLICIT_SHARDING_FUNCTOR</b>
 , <b>SEND_CONTROL_REPLICATION_CREATE_FILL_VIEW</b>
-, <b>SEND_CONTROL_REPLICATION_VERSIONING_RENDEZVOUS</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_VIEW_RENDEZVOUS</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_VERSIONING_RENDEZVOUS</b>
+, <b>SEND_CONTROL_REPLICATION_VIEW_RENDEZVOUS</b>
 , <b>SEND_CONTROL_REPLICATION_CONCURRENT_MAPPING_RENDEZVOUS</b>
 , <b>SEND_CONTROL_REPLICATION_CONCURRENT_ALLREDUCE</b>
-, <b>SEND_CONTROL_REPLICATION_PROJECTION_TREE_EXCHANGE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_TIMEOUT_MATCH_EXCHANGE</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_PROJECTION_TREE_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_TIMEOUT_MATCH_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_MASK_EXCHANGE</b>
 , <b>SEND_CONTROL_REPLICATION_PREDICATE_EXCHANGE</b>
-, <b>SEND_CONTROL_REPLICATION_CROSS_PRODUCT_EXCHANGE</b>
 , <br />
-&#160;&#160;<b>SEND_CONTROL_REPLICATION_TRACING_SET_DEDUPLICATION</b>
+&#160;&#160;<b>SEND_CONTROL_REPLICATION_CROSS_PRODUCT_EXCHANGE</b>
+, <b>SEND_CONTROL_REPLICATION_TRACING_SET_DEDUPLICATION</b>
 , <b>SEND_CONTROL_REPLICATION_SLOW_BARRIER</b>
+, <b>SEND_PROFILER_EVENT_TRIGGER</b>
+, <br />
+&#160;&#160;<b>SEND_PROFILER_EVENT_POISON</b>
 , <b>SEND_SHUTDOWN_NOTIFICATION</b>
 , <b>SEND_SHUTDOWN_RESPONSE</b>
-, <br />
-&#160;&#160;<b>LAST_SEND_KIND</b>
+, <b>LAST_SEND_KIND</b>
 <br />
  }</td></tr>
 <tr class="separator:a8e0c16368be14df1436eb87f08dd4f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1699,15 +1705,24 @@ Variables</h2></td></tr>
 <tr class="memitem:a5547bb833883acfa834eca94f92973e9"><td class="memItemLeft" align="right" valign="top"><a id="a5547bb833883acfa834eca94f92973e9"></a>
 thread_local TaskContext *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_context</b></td></tr>
 <tr class="separator:a5547bb833883acfa834eca94f92973e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f4f15106e25df5406134ac0f979ab0"><td class="memItemLeft" align="right" valign="top"><a id="a28f4f15106e25df5406134ac0f979ab0"></a>
+thread_local MappingCallInfo *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_mapper_call</b></td></tr>
+<tr class="separator:a28f4f15106e25df5406134ac0f979ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01de6d1dc287082d6bad5b29973c8eb6"><td class="memItemLeft" align="right" valign="top"><a id="a01de6d1dc287082d6bad5b29973c8eb6"></a>
 thread_local Runtime *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_runtime</b></td></tr>
 <tr class="separator:a01de6d1dc287082d6bad5b29973c8eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedeef9d49559ee54e60ef69a87b7b278"><td class="memItemLeft" align="right" valign="top"><a id="aedeef9d49559ee54e60ef69a87b7b278"></a>
+thread_local LegionProfInstance *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_profiler</b></td></tr>
+<tr class="separator:aedeef9d49559ee54e60ef69a87b7b278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9303590e2c695afa01128ae99719a868"><td class="memItemLeft" align="right" valign="top"><a id="a9303590e2c695afa01128ae99719a868"></a>
 thread_local AutoLock *&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::local_lock_list</b></td></tr>
 <tr class="separator:a9303590e2c695afa01128ae99719a868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafbb1c5e854acf7be6c9c9d4c83ae3fe"><td class="memItemLeft" align="right" valign="top"><a id="aafbb1c5e854acf7be6c9c9d4c83ae3fe"></a>
 thread_local ::legion_unique_id_t&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_provenance</b></td></tr>
 <tr class="separator:aafbb1c5e854acf7be6c9c9d4c83ae3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82b0e71d88dfa1c79da08cb53f240403"><td class="memItemLeft" align="right" valign="top"><a id="a82b0e71d88dfa1c79da08cb53f240403"></a>
+thread_local LgEvent&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::implicit_fevent</b></td></tr>
+<tr class="separator:a82b0e71d88dfa1c79da08cb53f240403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5367ccd9886bf62e90eaa4d54e0cce39"><td class="memItemLeft" align="right" valign="top"><a id="a5367ccd9886bf62e90eaa4d54e0cce39"></a>
 thread_local unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::Internal::inside_registration_callback</b></td></tr>
 <tr class="separator:a5367ccd9886bf62e90eaa4d54e0cce39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1750,7 +1765,7 @@ const LegionColor&#160;</td><td class="memItemRight" valign="bottom"><b>Legion::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 8 2024 16:56:20 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Nov 15 2024 21:17:06 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

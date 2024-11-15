@@ -398,6 +398,9 @@ typedef enum legion_specialized_constraint_t&#160;</td><td class="memItemRight" 
 <tr class="memitem:abf5d81489245df39bb8f22c691eeb785"><td class="memItemLeft" align="right" valign="top"><a id="abf5d81489245df39bb8f22c691eeb785"></a>
 typedef enum legion_domain_max_rect_dim_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_domain_max_rect_dim_t</b></td></tr>
 <tr class="separator:abf5d81489245df39bb8f22c691eeb785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95cb65b1158aa412f5768406a483e766"><td class="memItemLeft" align="right" valign="top"><a id="a95cb65b1158aa412f5768406a483e766"></a>
+typedef enum legion_unbound_pool_scope_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_unbounded_pool_scope_t</b></td></tr>
+<tr class="separator:a95cb65b1158aa412f5768406a483e766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea1516da83e0f1b54a4a7e06a6890448"><td class="memItemLeft" align="right" valign="top"><a id="aea1516da83e0f1b54a4a7e06a6890448"></a>
 typedef realm_processor_kind_t&#160;</td><td class="memItemRight" valign="bottom"><b>legion_processor_kind_t</b></td></tr>
 <tr class="separator:aea1516da83e0f1b54a4a7e06a6890448"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1154,6 +1157,7 @@ Enumerations</h2></td></tr>
 , <b>LEGION_FATAL_COLLECTIVE_PARTIAL_FIELD_OVERLAP</b> = 2018
 , <br />
 &#160;&#160;<b>LEGION_FATAL_MORTON_TILING_FAILURE</b> = 2019
+, <b>LEGION_FATAL_NO_CRITICAL_PATH_DYNAMIC_COLLECTIVES</b> = 2020
 <br />
  }</td></tr>
 <tr class="separator:adcdaf79180040afe53aabd65efa644b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1211,6 +1215,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<b>LEGION_MUST_PREMAP_FLAG</b> = 0x00000008
 , <b>LEGION_COMPLETE_PROJECTION_WRITE_FLAG</b> = 0x00000010
 , <b>LEGION_CREATED_OUTPUT_REQUIREMENT_FLAG</b> = 0x00000020
+, <b>LEGION_SUPPRESS_WARNINGS_FLAG</b> = 0x00000040
 <br />
  }</td></tr>
 <tr class="separator:a86d17511da434e11344c40733abe9e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1315,7 +1320,7 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a2192bed0bcc308f1a40f115418cae75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25fd0a8b9a8df96206984098465456e2"><td class="memItemLeft" align="right" valign="top"><a id="a25fd0a8b9a8df96206984098465456e2"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_builtin_redop_t</b> { <br />
-&#160;&#160;<b>LEGION_REDOP_BASE</b> = LEGION_MAX_APPLICATION_REDOP_ID
+&#160;&#160;<b>LEGION_REDOP_BASE</b> = LEGION_MAX_APPLICATION_REDOP_ID + 1
 , <b>LEGION_REDOP_OR_BOOL</b> = LEGION_REDOP_VALUE(SUM,BOOL)
 , <b>LEGION_REDOP_SUM_INT8</b> = LEGION_REDOP_VALUE(SUM,INT8)
 , <b>LEGION_REDOP_SUM_INT16</b> = LEGION_REDOP_VALUE(SUM,INT16)
@@ -1574,6 +1579,12 @@ Enumerations</h2></td></tr>
 <tr class="separator:a375652ca7bf57d7bd39af65a577519c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a5e72527b87453ff1938640f60d400a"><td class="memItemLeft" align="right" valign="top"><a id="a5a5e72527b87453ff1938640f60d400a"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_domain_max_rect_dim_t</b> </td></tr>
 <tr class="separator:a5a5e72527b87453ff1938640f60d400a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dd640873539a00a838d07a5a35392eb"><td class="memItemLeft" align="right" valign="top"><a id="a1dd640873539a00a838d07a5a35392eb"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>legion_unbound_pool_scope_t</b> { <b>LEGION_BOUNDED_POOL</b>
+, <b>LEGION_STRICT_UNBOUNDED_POOL</b>
+, <b>LEGION_INDEX_TASK_UNBOUNDED_POOL</b>
+, <b>LEGION_PERMISSIVE_UNBOUNDED_POOL</b>
+ }</td></tr>
+<tr class="separator:a1dd640873539a00a838d07a5a35392eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a24da1a1bc9c567e362288168daca030e"></a>
@@ -1684,7 +1695,7 @@ Enumerations</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 8 2024 16:56:20 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Nov 15 2024 21:17:06 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

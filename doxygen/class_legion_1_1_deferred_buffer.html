@@ -79,30 +79,30 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab03cea211de1ee8b43fbcc1facbaba34"><td class="memItemLeft" align="right" valign="top"><a id="ab03cea211de1ee8b43fbcc1facbaba34"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory::Kind kind, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
-<tr class="separator:ab03cea211de1ee8b43fbcc1facbaba34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04793b81f6be0fb3bf038580b61c4f8a"><td class="memItemLeft" align="right" valign="top"><a id="a04793b81f6be0fb3bf038580b61c4f8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory::Kind kind, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
-<tr class="separator:a04793b81f6be0fb3bf038580b61c4f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58bc0b9a7bf32cd78246561cbe18d039"><td class="memItemLeft" align="right" valign="top"><a id="a58bc0b9a7bf32cd78246561cbe18d039"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory memory, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
-<tr class="separator:a58bc0b9a7bf32cd78246561cbe18d039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb643043e3080235702568a569098cc9"><td class="memItemLeft" align="right" valign="top"><a id="adb643043e3080235702568a569098cc9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory memory, const T *initial_value=NULL, size_t alignment=16, bool fortran_order_dims=false)</td></tr>
-<tr class="separator:adb643043e3080235702568a569098cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2426223749a141557ea8b3d2756fce33"><td class="memItemLeft" align="right" valign="top"><a id="a2426223749a141557ea8b3d2756fce33"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory::Kind kind, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=16)</td></tr>
-<tr class="separator:a2426223749a141557ea8b3d2756fce33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27149945c3367208d069907aea3f6a16"><td class="memItemLeft" align="right" valign="top"><a id="a27149945c3367208d069907aea3f6a16"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory::Kind kind, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=16)</td></tr>
-<tr class="separator:a27149945c3367208d069907aea3f6a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91814a5990e71ff0a0e34a559e067663"><td class="memItemLeft" align="right" valign="top"><a id="a91814a5990e71ff0a0e34a559e067663"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory memory, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=16)</td></tr>
-<tr class="separator:a91814a5990e71ff0a0e34a559e067663"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3df7f34f730074fb364d9d00fd81c90e"><td class="memItemLeft" align="right" valign="top"><a id="a3df7f34f730074fb364d9d00fd81c90e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory memory, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=16)</td></tr>
-<tr class="separator:a3df7f34f730074fb364d9d00fd81c90e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3cc4279e9f498982abb1c2e486f624b"><td class="memItemLeft" align="right" valign="top"><a id="ad3cc4279e9f498982abb1c2e486f624b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory::Kind kind, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;(), bool fortran_order_dims=false)</td></tr>
+<tr class="separator:ad3cc4279e9f498982abb1c2e486f624b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765dff6a25325c534d59d9e6a8d1ea97"><td class="memItemLeft" align="right" valign="top"><a id="a765dff6a25325c534d59d9e6a8d1ea97"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory::Kind kind, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;(), bool fortran_order_dims=false)</td></tr>
+<tr class="separator:a765dff6a25325c534d59d9e6a8d1ea97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1753adb9e96a0a290ca0c76b0f9b63e"><td class="memItemLeft" align="right" valign="top"><a id="ac1753adb9e96a0a290ca0c76b0f9b63e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory memory, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;(), bool fortran_order_dims=false)</td></tr>
+<tr class="separator:ac1753adb9e96a0a290ca0c76b0f9b63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f0b2cb3630f834da7881628901dab12"><td class="memItemLeft" align="right" valign="top"><a id="a9f0b2cb3630f834da7881628901dab12"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory memory, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;(), bool fortran_order_dims=false)</td></tr>
+<tr class="separator:a9f0b2cb3630f834da7881628901dab12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0791e19c78d0df5aee646f966819c164"><td class="memItemLeft" align="right" valign="top"><a id="a0791e19c78d0df5aee646f966819c164"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory::Kind kind, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;())</td></tr>
+<tr class="separator:a0791e19c78d0df5aee646f966819c164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d0f9ed5dea8c112c204eb58fe9f3820"><td class="memItemLeft" align="right" valign="top"><a id="a7d0f9ed5dea8c112c204eb58fe9f3820"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory::Kind kind, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;())</td></tr>
+<tr class="separator:a7d0f9ed5dea8c112c204eb58fe9f3820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b9554784ac66b5d426b615d014f208b"><td class="memItemLeft" align="right" valign="top"><a id="a8b9554784ac66b5d426b615d014f208b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (Memory memory, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;bounds, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;())</td></tr>
+<tr class="separator:a8b9554784ac66b5d426b615d014f208b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae551cd356b2ad0624537b307ce629f24"><td class="memItemLeft" align="right" valign="top"><a id="ae551cd356b2ad0624537b307ce629f24"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DeferredBuffer</b> (const Rect&lt; DIM, COORD_T &gt; &amp;bounds, Memory memory, std::array&lt; DimensionKind, DIM &gt; ordering, const T *initial_value=NULL, size_t alignment=std::alignment_of&lt; T &gt;())</td></tr>
+<tr class="separator:ae551cd356b2ad0624537b307ce629f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83f5ea0ae487cda3a1cfeab57d3ecc0"><td class="memItemLeft" align="right" valign="top"><a id="ae83f5ea0ae487cda3a1cfeab57d3ecc0"></a>
 __CUDA_HD__ T&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (const Point&lt; DIM, COORD_T &gt; &amp;p) const</td></tr>
 <tr class="separator:ae83f5ea0ae487cda3a1cfeab57d3ecc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,7 +166,7 @@ class Legion::DeferredBuffer&lt; T, DIM, COORD_T, CHECK_BOUNDS &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 8 2024 16:56:20 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Nov 15 2024 21:17:06 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

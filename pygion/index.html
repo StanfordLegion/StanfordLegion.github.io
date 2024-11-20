@@ -136,16 +136,21 @@
 
 <p>For an overview of Pygion, the <a href="/pdfs/pygion2019.pdf">original PAW-ATM paper</a>.</p>
 
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pygion</span> <span class="kn">import</span> <span class="n">task</span>
+
+<span class="o">@</span><span class="n">task</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Hello, Legion!"</span><span class="p">)</span></code></pre></figure>
+
 <h2 id="getting-started">Getting Started</h2>
 
 <p>Pygion lives in the main Legion repo under
 <a href="https://github.com/StanfordLegion/legion/tree/stable/bindings/python"><code class="language-plaintext highlighter-rouge">bindings/python</code></a>. To
 get started with Pygion, build with Make in that directory:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/StanfordLegion/legion.git
-cd legion/bindings/python
-make LG_RT_DIR=$PWD/../../runtime -j4
-</code></pre></div></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/StanfordLegion/legion.git
+<span class="nb">cd </span>legion/bindings/python
+make <span class="nv">LG_RT_DIR</span><span class="o">=</span><span class="nv">$PWD</span>/../../runtime <span class="nt">-j4</span></code></pre></figure>
 
 <p>Customize the <code class="language-plaintext highlighter-rouge">-j</code> flag parameter to control the number of threads used to build, depending on your machine.</p>
 
@@ -153,13 +158,12 @@ make LG_RT_DIR=$PWD/../../runtime -j4
 
 <p>If you prefer to use CMake, then build Legion at the top level <code class="language-plaintext highlighter-rouge">-DLegion_BUILD_BINDINGS=ON -DLegion_USE_Python=ON</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/StanfordLegion/legion.git
-cd legion
-mkdir build
-cd build
-cmake .. -DLegion_BUILD_BINDINGS=ON -DLegion_USE_Python=ON -DCMAKE_INSTALL_PREFIX=$PWD/../install
-make install -j4
-</code></pre></div></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/StanfordLegion/legion.git
+<span class="nb">cd </span>legion
+<span class="nb">mkdir </span>build
+<span class="nb">cd </span>build
+cmake .. <span class="nt">-DLegion_BUILD_BINDINGS</span><span class="o">=</span>ON <span class="nt">-DLegion_USE_Python</span><span class="o">=</span>ON <span class="nt">-DCMAKE_INSTALL_PREFIX</span><span class="o">=</span><span class="nv">$PWD</span>/../install
+make <span class="nb">install</span> <span class="nt">-j4</span></code></pre></figure>
 
 <h2 id="examples">Examples</h2>
 

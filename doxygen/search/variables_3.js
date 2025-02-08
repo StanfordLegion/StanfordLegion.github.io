@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handle_5ftype_2202',['handle_type',['../struct_legion_1_1_region_requirement.html#a0e8c14b4df54cd748fac18e732b353e6',1,'Legion::RegionRequirement']]]
+  ['handle_5ftype_0',['handle_type',['../struct_legion_1_1_region_requirement.html#a0e8c14b4df54cd748fac18e732b353e6',1,'Legion::RegionRequirement']]]
 ];

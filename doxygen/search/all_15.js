@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['wait_5fall_5fresults_1117',['wait_all_results',['../class_legion_1_1_future_map.html#a72d8d34cbbf297d557bd9e3a92e79671',1,'Legion::FutureMap']]],
-  ['wait_5ffor_5fshutdown_1118',['wait_for_shutdown',['../class_legion_1_1_runtime.html#a3c6d29724fa7b7e3679b94b19a20c37c',1,'Legion::Runtime']]],
-  ['wait_5funtil_5fvalid_1119',['wait_until_valid',['../class_legion_1_1_physical_region.html#a515a7e2a0c90236f4a3e00c9971c9a56',1,'Legion::PhysicalRegion']]]
+  ['wait_5fall_5fresults_0',['wait_all_results',['../class_legion_1_1_future_map.html#a72d8d34cbbf297d557bd9e3a92e79671',1,'Legion::FutureMap']]],
+  ['wait_5ffor_5fshutdown_1',['wait_for_shutdown',['../class_legion_1_1_runtime.html#a3c6d29724fa7b7e3679b94b19a20c37c',1,'Legion::Runtime']]],
+  ['wait_5funtil_5fvalid_2',['wait_until_valid',['../class_legion_1_1_physical_region.html#a515a7e2a0c90236f4a3e00c9971c9a56',1,'Legion::PhysicalRegion']]],
+  ['will_20never_20query_20any_20mapper_20about_20stealing_3',['will never query any mapper about stealing.',['../class_legion_1_1_runtime.html#autotoc_md2',1,'']]],
+  ['within_20a_20context_4',['permitted in any field space within a context.',['../class_legion_1_1_runtime.html#autotoc_md8',1,'']]]
 ];

@@ -72,6 +72,7 @@ $(function() {
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>generate_dynamic_concurrent_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a0d13bec5f148c91aea39e9c9f3db21a3">Legion::Runtime</a></li>
 <li>generate_dynamic_mapper_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a710dd7fbc03f776789c4b0ee538a50f9">Legion::Runtime</a></li>
 <li>generate_dynamic_projection_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#aff251c3730c6ef38345121889807c879">Legion::Runtime</a></li>
 <li>generate_dynamic_reduction_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#affb54cd8076ac9a0604bba29bff183bc">Legion::Runtime</a></li>
@@ -79,6 +80,7 @@ $(function() {
 <li>generate_dynamic_sharding_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a3218b7f14c3a92c47be12d0ddcb77694">Legion::Runtime</a></li>
 <li>generate_dynamic_task_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a249a6a1cd0c1a87157a916681b0c6a21">Legion::Runtime</a></li>
 <li>generate_dynamic_trace_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a676e0571bd9be25788063ded6303189a">Legion::Runtime</a></li>
+<li>generate_library_concurrent_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a39866bbe069424892750d3e379fe1975">Legion::Runtime</a></li>
 <li>generate_library_mapper_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a1cfa9087b19781f3a645e7dba9d45557">Legion::Runtime</a></li>
 <li>generate_library_projection_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#aa8752180deb9b0547d2eaab51e78a45f">Legion::Runtime</a></li>
 <li>generate_library_reduction_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a96be12e76153f4dc356421f7072db801">Legion::Runtime</a></li>
@@ -86,6 +88,7 @@ $(function() {
 <li>generate_library_sharding_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#ace3cbdfa056de737b5187c350a0000a8">Legion::Runtime</a></li>
 <li>generate_library_task_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a8cc9e3ca9a0efc36d04bc2bd7e2c8ae4">Legion::Runtime</a></li>
 <li>generate_library_trace_ids()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#ab11042f09a94d61949dae96d611eb944">Legion::Runtime</a></li>
+<li>generate_static_concurrent_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a5e771bf19ed1e51acc00300cbd7866bd">Legion::Runtime</a></li>
 <li>generate_static_mapper_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#ae9bdb63597d855c08e6bc37ffeaec90d">Legion::Runtime</a></li>
 <li>generate_static_projection_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#afa9313599c62c1c03089d4b4fea19463">Legion::Runtime</a></li>
 <li>generate_static_reduction_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#ae1cd6d9bff2aefe7087b35844ab9217a">Legion::Runtime</a></li>
@@ -94,6 +97,7 @@ $(function() {
 <li>generate_static_task_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a0807fe3cf812682fcbdb29e1ebaa0918">Legion::Runtime</a></li>
 <li>generate_static_trace_id()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a2d11b01690d3c3859b75d92094ddd720">Legion::Runtime</a></li>
 <li>get_buffer()&#160;:&#160;<a class="el" href="class_legion_1_1_future.html#a15dda14764261ff8626671525d697ab1">Legion::Future</a></li>
+<li>get_concurrent_coloring_functor()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a7cfa8e7cba503724889394e5048e55fa">Legion::Runtime</a></li>
 <li>get_context()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">Legion::Runtime</a></li>
 <li>get_context_task()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a6559479135dec50170e98444169a182d">Legion::Runtime</a></li>
 <li>get_current_task()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a417a9c336ffbae842c538b1b2a4db747">Legion::Runtime</a></li>
@@ -155,7 +159,7 @@ $(function() {
 <li>get_projection_functor()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a9a607ddd94e5ff656946595b7812254c">Legion::Runtime</a></li>
 <li>get_reduction_op()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a91d8bbfe67b92a2137a288c6af2dfa65">Legion::Runtime</a></li>
 <li>get_reference()&#160;:&#160;<a class="el" href="class_legion_1_1_future.html#ab36fb6367050f498fe2e8e85e85a4ecd">Legion::Future</a></li>
-<li>get_result()&#160;:&#160;<a class="el" href="class_legion_1_1_future.html#a8f2b520fb8ed45a8a9f004b7c43738f1">Legion::Future</a>, <a class="el" href="class_legion_1_1_future_map.html#a4e5561deb92f40526249f976d56cf479">Legion::FutureMap</a></li>
+<li>get_result()&#160;:&#160;<a class="el" href="class_legion_1_1_future.html#a8f2b520fb8ed45a8a9f004b7c43738f1">Legion::Future</a>, <a class="el" href="class_legion_1_1_future_map.html#ae4b284de8052f2e4a8320f4f0d08e275">Legion::FutureMap</a></li>
 <li>get_runtime()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a3cb8e35e5952729fccabd441deab3f58">Legion::Runtime</a></li>
 <li>get_serdez_op()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a2746b780c671089ce07e1dab913fca13">Legion::Runtime</a></li>
 <li>get_sharding_functor()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a8ca37a50dd5054713572f749342daabd">Legion::Runtime</a></li>
@@ -170,7 +174,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 5 2025 18:09:59 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jun 2 2025 16:27:37 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

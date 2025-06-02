@@ -214,7 +214,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Invert the projection function. Given a logical region for this operation return all of the points that alias with it. Dependences will be resolved in the order that they are returned to the runtime. The returned result must not be empty because it must contain at least the point for the given operation. </p>
+<p>Invert the projection function. Given a logical region for this operation return all of the points that alias with it. Dependences will be resolved in the order that they are returned to the runtime. The returned result can only be empty if the region to be inverted is not actually in the range of the projection given the launch domain. If the region is in the range of the projection then the returned result cannot be empty because it must contain at least the one point that maps to the particular region. </p>
 
 </div>
 </div>
@@ -804,7 +804,7 @@ Protected Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 5 2025 18:09:59 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jun 2 2025 16:27:37 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

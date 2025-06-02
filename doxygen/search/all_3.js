@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['debugging_0',['Debugging',['../class_legion_1_1_runtime.html#autotoc_md11',1,'']]],
+  ['debugging_0',['Debugging',['../class_legion_1_1_runtime.html#autotoc_md13',1,'']]],
   ['defer_5fdynamic_5fcollective_5farrival_1',['defer_dynamic_collective_arrival',['../class_legion_1_1_runtime.html#a714e67a25827ba66bc3b58cd6748edce',1,'Legion::Runtime']]],
   ['deferredbuffer_2',['DeferredBuffer',['../class_legion_1_1_deferred_buffer.html',1,'Legion']]],
   ['deferredreduction_3',['DeferredReduction',['../class_legion_1_1_deferred_reduction.html',1,'Legion']]],

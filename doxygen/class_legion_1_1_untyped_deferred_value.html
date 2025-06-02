@@ -75,12 +75,25 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_legion_1_1_untyped_deferred_value-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Legion::UntypedDeferredValue Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="legion_8h_source.html">legion.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Legion::UntypedDeferredValue:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_legion_1_1_untyped_deferred_value.png" usemap="#Legion::UntypedDeferredValue_map" alt=""/>
+  <map id="Legion::UntypedDeferredValue_map" name="Legion::UntypedDeferredValue_map">
+<area href="class_legion_1_1_deferred_value.html" alt="Legion::DeferredValue&lt; REDOP::RHS &gt;" shape="rect" coords="0,56,308,80"/>
+<area href="class_legion_1_1_deferred_value.html" alt="Legion::DeferredValue&lt; T &gt;" shape="rect" coords="318,56,626,80"/>
+<area href="class_legion_1_1_deferred_reduction.html" alt="Legion::DeferredReduction&lt; REDOP, EXCLUSIVE &gt;" shape="rect" coords="0,112,308,136"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -90,14 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aba1184a884a3345b5a010a5b7b37d84b" id="r_aba1184a884a3345b5a010a5b7b37d84b"><td class="memItemLeft" align="right" valign="top"><a id="aba1184a884a3345b5a010a5b7b37d84b" name="aba1184a884a3345b5a010a5b7b37d84b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>UntypedDeferredValue</b> (size_t field_size, Memory::Kind memory_kind=Memory::Z_COPY_MEM, const void *initial_value=NULL, size_t alignment=16)</td></tr>
 <tr class="separator:aba1184a884a3345b5a010a5b7b37d84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5740dd242db5f4991d214486e0b6162d" id="r_a5740dd242db5f4991d214486e0b6162d"><td class="memTemplParams" colspan="2"><a id="a5740dd242db5f4991d214486e0b6162d" name="a5740dd242db5f4991d214486e0b6162d"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5740dd242db5f4991d214486e0b6162d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>UntypedDeferredValue</b> (const <a class="el" href="class_legion_1_1_deferred_value.html">DeferredValue</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:a5740dd242db5f4991d214486e0b6162d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b89d5ff8d3779318b90a83080ee3cd5" id="r_a2b89d5ff8d3779318b90a83080ee3cd5"><td class="memTemplParams" colspan="2"><a id="a2b89d5ff8d3779318b90a83080ee3cd5" name="a2b89d5ff8d3779318b90a83080ee3cd5"></a>
-template&lt;typename REDOP , bool EXCLUSIVE&gt; </td></tr>
-<tr class="memitem:a2b89d5ff8d3779318b90a83080ee3cd5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>UntypedDeferredValue</b> (const <a class="el" href="class_legion_1_1_deferred_reduction.html">DeferredReduction</a>&lt; REDOP, EXCLUSIVE &gt; &amp;rhs)</td></tr>
-<tr class="separator:a2b89d5ff8d3779318b90a83080ee3cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53c72cd8cf8f5639891c20c149bd5c3" id="r_af53c72cd8cf8f5639891c20c149bd5c3"><td class="memItemLeft" align="right" valign="top"><a id="af53c72cd8cf8f5639891c20c149bd5c3" name="af53c72cd8cf8f5639891c20c149bd5c3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UntypedDeferredValue</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_value.html">UntypedDeferredValue</a> &amp;rhs)</td></tr>
+<tr class="separator:af53c72cd8cf8f5639891c20c149bd5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a768dfdb10b9f383a1f12f1831a237671" id="r_a768dfdb10b9f383a1f12f1831a237671"><td class="memTemplParams" colspan="2"><a id="a768dfdb10b9f383a1f12f1831a237671" name="a768dfdb10b9f383a1f12f1831a237671"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a768dfdb10b9f383a1f12f1831a237671"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator DeferredValue&lt; T &gt;</b> (void) const</td></tr>
@@ -106,12 +114,36 @@ template&lt;typename T &gt; </td></tr>
 template&lt;typename REDOP , bool EXCLUSIVE&gt; </td></tr>
 <tr class="memitem:a317c3381ee7032635b893fefeebd5a36"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator DeferredReduction&lt; REDOP, EXCLUSIVE &gt;</b> (void) const</td></tr>
 <tr class="separator:a317c3381ee7032635b893fefeebd5a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8704510ceed22a8fe667167739107cee" id="r_a8704510ceed22a8fe667167739107cee"><td class="memItemLeft" align="right" valign="top"><a id="a8704510ceed22a8fe667167739107cee" name="a8704510ceed22a8fe667167739107cee"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>field_size</b> (void) const</td></tr>
+<tr class="separator:a8704510ceed22a8fe667167739107cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0980057e02e19f6dcb39ebcec3953c85" id="r_a0980057e02e19f6dcb39ebcec3953c85"><td class="memItemLeft" align="right" valign="top"><a id="a0980057e02e19f6dcb39ebcec3953c85" name="a0980057e02e19f6dcb39ebcec3953c85"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>finalize</b> (Context ctx) const</td></tr>
 <tr class="separator:a0980057e02e19f6dcb39ebcec3953c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8cad35a004155314669a514993b2ef" id="r_a0c8cad35a004155314669a514993b2ef"><td class="memItemLeft" align="right" valign="top"><a id="a0c8cad35a004155314669a514993b2ef" name="a0c8cad35a004155314669a514993b2ef"></a>
 Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>get_instance</b> (void) const</td></tr>
 <tr class="separator:a0c8cad35a004155314669a514993b2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a58ee6472ee479a9cd89b88d833c4a03a" id="r_a58ee6472ee479a9cd89b88d833c4a03a"><td class="memItemLeft" align="right" valign="top"><a id="a58ee6472ee479a9cd89b88d833c4a03a" name="a58ee6472ee479a9cd89b88d833c4a03a"></a>
+static Memory&#160;</td><td class="memItemRight" valign="bottom"><b>get_memory_from_kind</b> (Memory::Kind kind, bool value)</td></tr>
+<tr class="separator:a58ee6472ee479a9cd89b88d833c4a03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dee44b6d6a3657fa410f120f93a1b70" id="r_a5dee44b6d6a3657fa410f120f93a1b70"><td class="memItemLeft" align="right" valign="top"><a id="a5dee44b6d6a3657fa410f120f93a1b70" name="a5dee44b6d6a3657fa410f120f93a1b70"></a>
+static Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>allocate_instance</b> (Memory memory, Realm::InstanceLayoutGeneric *layout)</td></tr>
+<tr class="separator:a5dee44b6d6a3657fa410f120f93a1b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc30341f6d481bd39709349d693d4bd" id="r_afbc30341f6d481bd39709349d693d4bd"><td class="memItemLeft" align="right" valign="top"><a id="afbc30341f6d481bd39709349d693d4bd" name="afbc30341f6d481bd39709349d693d4bd"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy_instance</b> (Realm::RegionInstance, Realm::Event precondition)</td></tr>
+<tr class="separator:afbc30341f6d481bd39709349d693d4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0501a875287bf9873cc2dc2bb473d576" id="r_a0501a875287bf9873cc2dc2bb473d576"><td class="memItemLeft" align="right" valign="top"><a id="a0501a875287bf9873cc2dc2bb473d576" name="a0501a875287bf9873cc2dc2bb473d576"></a>
+static <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_index_space_bounds</b> (<a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> space)</td></tr>
+<tr class="separator:a0501a875287bf9873cc2dc2bb473d576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:af5df6c43b977f13e3c4308f000efe444" id="r_af5df6c43b977f13e3c4308f000efe444"><td class="memItemLeft" align="right" valign="top"><a id="af5df6c43b977f13e3c4308f000efe444" name="af5df6c43b977f13e3c4308f000efe444"></a>
+Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b></td></tr>
+<tr class="separator:af5df6c43b977f13e3c4308f000efe444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a type-erased deferred value with the type of the field. </p>
@@ -121,7 +153,7 @@ Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>get_
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 5 2025 18:09:59 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jun 2 2025 16:27:37 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -88,7 +88,8 @@ Inheritance diagram for Legion::DeferredReduction&lt; REDOP, EXCLUSIVE &gt;:</di
  <div class="center">
   <img src="class_legion_1_1_deferred_reduction.png" usemap="#Legion::DeferredReduction_3C_20REDOP_2C_20EXCLUSIVE_20_3E_map" alt=""/>
   <map id="Legion::DeferredReduction_3C_20REDOP_2C_20EXCLUSIVE_20_3E_map" name="Legion::DeferredReduction_3C_20REDOP_2C_20EXCLUSIVE_20_3E_map">
-<area href="class_legion_1_1_deferred_value.html" alt="Legion::DeferredValue&lt; REDOP::RHS &gt;" shape="rect" coords="0,0,308,24"/>
+<area href="class_legion_1_1_deferred_value.html" alt="Legion::DeferredValue&lt; REDOP::RHS &gt;" shape="rect" coords="0,56,308,80"/>
+<area href="class_legion_1_1_untyped_deferred_value.html" alt="Legion::UntypedDeferredValue" shape="rect" coords="0,0,308,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -147,19 +148,57 @@ __CUDA_HD__&#160;</td><td class="memItemRight" valign="bottom"><b>operator REDOP
 <tr class="memitem:a22eebf5f04629b04e31d9cfdb05c47f8 inherit pub_methods_class_legion_1_1_deferred_value" id="r_a22eebf5f04629b04e31d9cfdb05c47f8"><td class="memItemLeft" align="right" valign="top">
 __CUDA_HD__ <a class="el" href="class_legion_1_1_deferred_value.html">DeferredValue</a>&lt; REDOP::RHS &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (REDOP::RHS value)</td></tr>
 <tr class="separator:a22eebf5f04629b04e31d9cfdb05c47f8 inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12dc4f86e10cff8438860038bf098c8b inherit pub_methods_class_legion_1_1_deferred_value" id="r_a12dc4f86e10cff8438860038bf098c8b"><td class="memItemLeft" align="right" valign="top">
+<tr class="inherit_header pub_methods_class_legion_1_1_untyped_deferred_value"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_legion_1_1_untyped_deferred_value')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_legion_1_1_untyped_deferred_value.html">Legion::UntypedDeferredValue</a></td></tr>
+<tr class="memitem:abc457643f50edcc5240ffb8769377e7c inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_abc457643f50edcc5240ffb8769377e7c"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>UntypedDeferredValue</b> (size_t field_size, Memory target_memory, const void *initial_value=NULL, size_t alignment=16)</td></tr>
+<tr class="separator:abc457643f50edcc5240ffb8769377e7c inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba1184a884a3345b5a010a5b7b37d84b inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_aba1184a884a3345b5a010a5b7b37d84b"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>UntypedDeferredValue</b> (size_t field_size, Memory::Kind memory_kind=Memory::Z_COPY_MEM, const void *initial_value=NULL, size_t alignment=16)</td></tr>
+<tr class="separator:aba1184a884a3345b5a010a5b7b37d84b inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53c72cd8cf8f5639891c20c149bd5c3 inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_af53c72cd8cf8f5639891c20c149bd5c3"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>UntypedDeferredValue</b> (const <a class="el" href="class_legion_1_1_untyped_deferred_value.html">UntypedDeferredValue</a> &amp;rhs)</td></tr>
+<tr class="separator:af53c72cd8cf8f5639891c20c149bd5c3 inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a768dfdb10b9f383a1f12f1831a237671 inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_a768dfdb10b9f383a1f12f1831a237671"><td class="memTemplParams" colspan="2">
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a768dfdb10b9f383a1f12f1831a237671 inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator DeferredValue&lt; T &gt;</b> (void) const</td></tr>
+<tr class="separator:a768dfdb10b9f383a1f12f1831a237671 inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317c3381ee7032635b893fefeebd5a36 inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_a317c3381ee7032635b893fefeebd5a36"><td class="memTemplParams" colspan="2">
+template&lt;typename REDOP , bool EXCLUSIVE&gt; </td></tr>
+<tr class="memitem:a317c3381ee7032635b893fefeebd5a36 inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator DeferredReduction&lt; REDOP, EXCLUSIVE &gt;</b> (void) const</td></tr>
+<tr class="separator:a317c3381ee7032635b893fefeebd5a36 inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8704510ceed22a8fe667167739107cee inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_a8704510ceed22a8fe667167739107cee"><td class="memItemLeft" align="right" valign="top">
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>field_size</b> (void) const</td></tr>
+<tr class="separator:a8704510ceed22a8fe667167739107cee inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0980057e02e19f6dcb39ebcec3953c85 inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_a0980057e02e19f6dcb39ebcec3953c85"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>finalize</b> (Context ctx) const</td></tr>
-<tr class="separator:a12dc4f86e10cff8438860038bf098c8b inherit pub_methods_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a0980057e02e19f6dcb39ebcec3953c85 inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8cad35a004155314669a514993b2ef inherit pub_methods_class_legion_1_1_untyped_deferred_value" id="r_a0c8cad35a004155314669a514993b2ef"><td class="memItemLeft" align="right" valign="top">
+Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>get_instance</b> (void) const</td></tr>
+<tr class="separator:a0c8cad35a004155314669a514993b2ef inherit pub_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_static_methods_class_legion_1_1_untyped_deferred_value"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_class_legion_1_1_untyped_deferred_value')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="class_legion_1_1_untyped_deferred_value.html">Legion::UntypedDeferredValue</a></td></tr>
+<tr class="memitem:a58ee6472ee479a9cd89b88d833c4a03a inherit pro_static_methods_class_legion_1_1_untyped_deferred_value" id="r_a58ee6472ee479a9cd89b88d833c4a03a"><td class="memItemLeft" align="right" valign="top">
+static Memory&#160;</td><td class="memItemRight" valign="bottom"><b>get_memory_from_kind</b> (Memory::Kind kind, bool value)</td></tr>
+<tr class="separator:a58ee6472ee479a9cd89b88d833c4a03a inherit pro_static_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dee44b6d6a3657fa410f120f93a1b70 inherit pro_static_methods_class_legion_1_1_untyped_deferred_value" id="r_a5dee44b6d6a3657fa410f120f93a1b70"><td class="memItemLeft" align="right" valign="top">
+static Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>allocate_instance</b> (Memory memory, Realm::InstanceLayoutGeneric *layout)</td></tr>
+<tr class="separator:a5dee44b6d6a3657fa410f120f93a1b70 inherit pro_static_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc30341f6d481bd39709349d693d4bd inherit pro_static_methods_class_legion_1_1_untyped_deferred_value" id="r_afbc30341f6d481bd39709349d693d4bd"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy_instance</b> (Realm::RegionInstance, Realm::Event precondition)</td></tr>
+<tr class="separator:afbc30341f6d481bd39709349d693d4bd inherit pro_static_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0501a875287bf9873cc2dc2bb473d576 inherit pro_static_methods_class_legion_1_1_untyped_deferred_value" id="r_a0501a875287bf9873cc2dc2bb473d576"><td class="memItemLeft" align="right" valign="top">
+static <a class="el" href="class_legion_1_1_domain.html">Domain</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_index_space_bounds</b> (<a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> space)</td></tr>
+<tr class="separator:a0501a875287bf9873cc2dc2bb473d576 inherit pro_static_methods_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_legion_1_1_deferred_value"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_legion_1_1_deferred_value')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_legion_1_1_deferred_value.html">Legion::DeferredValue&lt; REDOP::RHS &gt;</a></td></tr>
-<tr class="memitem:a0acd10347ce0341d3508fdb2d4473271 inherit pro_attribs_class_legion_1_1_deferred_value" id="r_a0acd10347ce0341d3508fdb2d4473271"><td class="memItemLeft" align="right" valign="top">
-Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b></td></tr>
-<tr class="separator:a0acd10347ce0341d3508fdb2d4473271 inherit pro_attribs_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad08d2aeb1e5cc1d4b6ae6f30fd6317be inherit pro_attribs_class_legion_1_1_deferred_value" id="r_ad08d2aeb1e5cc1d4b6ae6f30fd6317be"><td class="memItemLeft" align="right" valign="top">
 Realm::AffineAccessor&lt; REDOP::RHS, 1, coord_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>accessor</b></td></tr>
 <tr class="separator:ad08d2aeb1e5cc1d4b6ae6f30fd6317be inherit pro_attribs_class_legion_1_1_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_legion_1_1_untyped_deferred_value"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_legion_1_1_untyped_deferred_value')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_legion_1_1_untyped_deferred_value.html">Legion::UntypedDeferredValue</a></td></tr>
+<tr class="memitem:af5df6c43b977f13e3c4308f000efe444 inherit pro_attribs_class_legion_1_1_untyped_deferred_value" id="r_af5df6c43b977f13e3c4308f000efe444"><td class="memItemLeft" align="right" valign="top">
+Realm::RegionInstance&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b></td></tr>
+<tr class="separator:af5df6c43b977f13e3c4308f000efe444 inherit pro_attribs_class_legion_1_1_untyped_deferred_value"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename REDOP, bool EXCLUSIVE = false&gt;<br />
@@ -173,7 +212,7 @@ class Legion::DeferredReduction&lt; REDOP, EXCLUSIVE &gt;</div><p>This is a spec
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 5 2025 18:09:59 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jun 2 2025 16:27:37 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

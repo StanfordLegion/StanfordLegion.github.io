@@ -20,5 +20,5 @@ var searchData=
   ['untypedbuffer_17',['UntypedBuffer',['../class_legion_1_1_untyped_buffer.html',1,'Legion']]],
   ['untypeddeferredbuffer_18',['UntypedDeferredBuffer',['../class_legion_1_1_untyped_deferred_buffer.html',1,'Legion']]],
   ['untypeddeferredvalue_19',['UntypedDeferredValue',['../class_legion_1_1_untyped_deferred_value.html',1,'Legion']]],
-  ['using_20the_20next_20two_20flags_20',['operations commit using the next two flags.',['../class_legion_1_1_runtime.html#autotoc_md10',1,'']]]
+  ['using_20the_20next_20two_20flags_20',['operations commit using the next two flags.',['../class_legion_1_1_runtime.html#autotoc_md12',1,'']]]
 ];

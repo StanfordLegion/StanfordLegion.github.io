@@ -174,6 +174,8 @@ Static Public Member Functions</h2></td></tr>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a84771deb48169ad4b4907c97296f00d9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_value</b> (const T &amp;value)</td></tr>
 <tr class="separator:a84771deb48169ad4b4907c97296f00d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e2dfec5ecb29cf51168263e0ad5e86" id="r_ab7e2dfec5ecb29cf51168263e0ad5e86"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_future.html#ab7e2dfec5ecb29cf51168263e0ad5e86">from_domain</a> (const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;d, bool take_ownership, const char *provenance=NULL, bool shard_local=false)</td></tr>
+<tr class="separator:ab7e2dfec5ecb29cf51168263e0ad5e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d5f623595b655c6b20433f746bcff4f" id="r_a1d5f623595b655c6b20433f746bcff4f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_legion_1_1_future.html">Future</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_legion_1_1_future.html#a1d5f623595b655c6b20433f746bcff4f">from_untyped_pointer</a> (<a class="el" href="class_legion_1_1_runtime.html">Runtime</a> *rt, const void *buffer, size_t bytes, bool take_ownership=false)</td></tr>
 <tr class="separator:a1d5f623595b655c6b20433f746bcff4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4439c236110ad00b15015254311d5cba" id="r_a4439c236110ad00b15015254311d5cba"><td class="memItemLeft" align="right" valign="top"><a id="a4439c236110ad00b15015254311d5cba" name="a4439c236110ad00b15015254311d5cba"></a>
@@ -193,6 +195,55 @@ FRIEND_ALL_RUNTIME_CLASSES&#160;</td><td class="memItemRight" valign="bottom"><b
 <div class="textblock"><p>Futures are the objects returned from asynchronous task launches. Applications can wait on futures to get their values, pass futures as arguments and preconditions to other tasks, or use them to create predicates if they are boolean futures. Futures are lightweight handles that can be passed by value or stored in data structures. However, futures should not escape the context in which they are created as the runtime garbage collects them after the enclosing task context completes execution.</p>
 <p>Since futures can be the result of predicated tasks we also provide a mechanism for checking whether the future contains an empty result. An empty future will be returned for all futures which come from tasks which predicates that resolve to false. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab7e2dfec5ecb29cf51168263e0ad5e86" name="ab7e2dfec5ecb29cf51168263e0ad5e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e2dfec5ecb29cf51168263e0ad5e86">&#9670;&#160;</a></span>from_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_legion_1_1_future.html">Future</a> Legion::Future::from_domain </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_legion_1_1_domain.html">Domain</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>take_ownership</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>provenance</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>shard_local</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If you are creating a future from a <a class="el" href="class_legion_1_1_domain.html">Domain</a> then you need to use this method to construct the future in a way to ensure that the <a class="el" href="class_legion_1_1_domain.html">Domain</a> maintains the right lifetime. </p>
+
+</div>
+</div>
 <a id="a1d5f623595b655c6b20433f746bcff4f" name="a1d5f623595b655c6b20433f746bcff4f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d5f623595b655c6b20433f746bcff4f">&#9670;&#160;</a></span>from_untyped_pointer()</h2>
 
@@ -703,7 +754,7 @@ template&lt;typename T , PrivilegeMode PM = LEGION_READ_ONLY&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 5 2025 18:09:59 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Jun 2 2025 16:27:37 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -7,6 +7,7 @@ var searchData=
   ['coloredpoints_4',['ColoredPoints',['../struct_legion_1_1_colored_points.html',1,'Legion']]],
   ['colorspacelinearizationt_5',['ColorSpaceLinearizationT',['../class_legion_1_1_internal_1_1_color_space_linearization_t.html',1,'Legion::Internal']]],
   ['compoundbitmask_6',['CompoundBitMask',['../class_compound_bit_mask.html',1,'']]],
-  ['copy_7',['Copy',['../class_legion_1_1_copy.html',1,'Legion']]],
-  ['copylauncher_8',['CopyLauncher',['../struct_legion_1_1_copy_launcher.html',1,'Legion']]]
+  ['concurrentcoloringfunctor_7',['ConcurrentColoringFunctor',['../class_legion_1_1_concurrent_coloring_functor.html',1,'Legion']]],
+  ['copy_8',['Copy',['../class_legion_1_1_copy.html',1,'Legion']]],
+  ['copylauncher_9',['CopyLauncher',['../struct_legion_1_1_copy_launcher.html',1,'Legion']]]
 ];

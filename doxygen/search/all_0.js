@@ -22,12 +22,12 @@ var searchData=
   ['allocate_5flocal_5ffield_19',['allocate_local_field',['../class_legion_1_1_field_allocator.html#a34fee55a7d68ca3560ec63f1ce9f98eb',1,'Legion::FieldAllocator']]],
   ['allocate_5flocal_5ffields_20',['allocate_local_fields',['../class_legion_1_1_field_allocator.html#a2a90d246d36c13c08f67921b59571b7b',1,'Legion::FieldAllocator']]],
   ['allreducecollective_21',['AllReduceCollective',['../class_legion_1_1_internal_1_1_all_reduce_collective.html',1,'Legion::Internal']]],
-  ['an_20application_20beginning_22',['one or more nodes prior to an application beginning.',['../class_legion_1_1_runtime.html#autotoc_md12',1,'']]],
+  ['an_20application_20beginning_22',['one or more nodes prior to an application beginning.',['../class_legion_1_1_runtime.html#autotoc_md14',1,'']]],
   ['any_20field_20space_20within_20a_20context_23',['permitted in any field space within a context.',['../class_legion_1_1_runtime.html#autotoc_md8',1,'']]],
   ['any_20mapper_20about_20stealing_24',['will never query any mapper about stealing.',['../class_legion_1_1_runtime.html#autotoc_md2',1,'']]],
   ['apbarrier_25',['ApBarrier',['../class_legion_1_1_internal_1_1_ap_barrier.html',1,'Legion::Internal']]],
   ['apevent_26',['ApEvent',['../class_legion_1_1_internal_1_1_ap_event.html',1,'Legion::Internal']]],
-  ['application_20beginning_27',['one or more nodes prior to an application beginning.',['../class_legion_1_1_runtime.html#autotoc_md12',1,'']]],
+  ['application_20beginning_27',['one or more nodes prior to an application beginning.',['../class_legion_1_1_runtime.html#autotoc_md14',1,'']]],
   ['apuserevent_28',['ApUserEvent',['../class_legion_1_1_internal_1_1_ap_user_event.html',1,'Legion::Internal']]],
   ['argumentmap_29',['ArgumentMap',['../class_legion_1_1_argument_map.html',1,'Legion']]],
   ['arrive_5fdynamic_5fcollective_30',['arrive_dynamic_collective',['../class_legion_1_1_runtime.html#a125adaa5cd839477ccd82a3e29ed5512',1,'Legion::Runtime']]],
@@ -40,5 +40,5 @@ var searchData=
   ['attachlauncher_37',['AttachLauncher',['../struct_legion_1_1_attach_launcher.html',1,'Legion']]],
   ['autolock_38',['AutoLock',['../class_legion_1_1_internal_1_1_auto_lock.html',1,'Legion::Internal']]],
   ['autotrylock_39',['AutoTryLock',['../class_legion_1_1_internal_1_1_auto_try_lock.html',1,'Legion::Internal']]],
-  ['ax_20b_20c_40',['[y0, y1] = Ax + [b, c]',['../struct_legion_1_1_scale_transform.html#autotoc_md14',1,'']]]
+  ['ax_20b_20c_40',['[y0, y1] = Ax + [b, c]',['../struct_legion_1_1_scale_transform.html#autotoc_md16',1,'']]]
 ];

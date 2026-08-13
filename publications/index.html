@@ -180,6 +180,7 @@
       <li><a href="#legate-sparse2023">Legate Sparse (SC 2023)</a> [<a href="/pdfs/legate-sparse2023.pdf">PDF</a>]</li>
       <li><a href="#automap2023">AutoMap (SC 2023)</a> [<a href="/pdfs/automap2023.pdf">PDF</a>]</li>
       <li><a href="#fusion2025">Task and Kernel Fusion (ASPLOS 2025)</a> [<a href="/pdfs/fusion2025.pdf">PDF</a>]</li>
+      <li><a href="#relight2026">Checkpointing (OOPSLA 2026)</a> [<a href="/pdfs/relight2026.pdf">PDF</a>]</li>
     </ul>
   </li>
   <li>Applications:
@@ -870,6 +871,12 @@ also finds optimization opportunities missed by the original application
 developers, enabling high-level Python programs to match or exceed the 
 performance of an explicitly parallel MPI library.</p>
 
+<p><a name="relight2026"></a><strong>Relight: Simple User-Level Checkpointing and Fast-Forward Replay for Distributed Task-Based Systems</strong> <a href="/pdfs/relight2026.pdf">PDF</a> <br />
+<em>Elliott Slaughter, Rupanshu Soi, Michael Bauer, and Alex Aiken</em> <br />
+In the Conference on Object-Oriented Programming, Systems, Languages, and Applications (<a href="https://2026.splashcon.org/details/oopsla-2026/108/Relight-Simple-User-Level-Checkpointing-and-Fast-Forward-Replay-for-Distributed-Task">OOPSLA 2026</a>) <br />
+<strong>Abstract:</strong> Checkpointing, or periodic saving of program state to storage, is the de facto standard technique used to mitigate risks of nondeterministic bugs, hardware faults, and job wall-time limits in long-running programs.
+Traditional approaches require users to manually manage the migration of data to and from storage when capturing checkpoints and when resuming execution. However, for task-based programs, where the user has already factored the computation into tasks and the program data into collections, sufficient information is available to automatically capture and resume from checkpoints with minimal code changes. We present Relight, the first framework for automatic, distributed checkpointing of task-based programs that provides an efficient fast-forward replay for full job recovery. On a set of already-optimized benchmarks, we demonstrate that Relight delivers checkpointing performance and scalability comparable to the original, unmodified codes when running on up to 512 nodes of the Piz Daint supercomputer.</p>
+
 <h2 id="theses">Theses</h2>
 
 <p><a name="bauer_thesis"></a><em>Note: The following thesis is a thorough guide to the Legion programming model and covers many implementation details that are not documented elsewhere.</em><br />
@@ -1182,7 +1189,7 @@ high-performance machines.</p>
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2025 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2026 Legion. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

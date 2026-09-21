@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['close_0',['Close',['../class_legion_1_1_close.html',1,'Legion']]],
+  ['closeprofilinginfo_1',['CloseProfilingInfo',['../struct_legion_1_1_mapping_1_1_mapper_1_1_close_profiling_info.html',1,'Legion::Mapping::Mapper']]],
+  ['collective_2',['Collective',['../class_collective.html',1,'']]],
+  ['collectiveview_3',['CollectiveView',['../class_legion_1_1_mapping_1_1_collective_view.html',1,'Legion::Mapping']]],
+  ['colocationconstraint_4',['ColocationConstraint',['../class_legion_1_1_colocation_constraint.html',1,'Legion']]],
+  ['colorspacelinearizationt_5',['ColorSpaceLinearizationT',['../class_legion_1_1_internal_1_1_color_space_linearization_t.html',1,'Legion::Internal']]],
+  ['concurrentcoloringfunctor_6',['ConcurrentColoringFunctor',['../class_legion_1_1_concurrent_coloring_functor.html',1,'Legion']]],
+  ['contextconfigoutput_7',['ContextConfigOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_context_config_output.html',1,'Legion::Mapping::Mapper']]],
+  ['copy_8',['Copy',['../class_legion_1_1_copy.html',1,'Legion']]],
+  ['copylauncher_9',['CopyLauncher',['../struct_legion_1_1_copy_launcher.html',1,'Legion']]],
+  ['copyprofilinginfo_10',['CopyProfilingInfo',['../struct_legion_1_1_mapping_1_1_mapper_1_1_copy_profiling_info.html',1,'Legion::Mapping::Mapper']]],
+  ['createclosetemporaryinput_11',['CreateCloseTemporaryInput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_close_temporary_input.html',1,'Legion::Mapping::Mapper']]],
+  ['createclosetemporaryoutput_12',['CreateCloseTemporaryOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_close_temporary_output.html',1,'Legion::Mapping::Mapper']]],
+  ['createcopytemporaryinput_13',['CreateCopyTemporaryInput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_copy_temporary_input.html',1,'Legion::Mapping::Mapper']]],
+  ['createcopytemporaryoutput_14',['CreateCopyTemporaryOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_copy_temporary_output.html',1,'Legion::Mapping::Mapper']]],
+  ['createinlinetemporaryinput_15',['CreateInlineTemporaryInput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_inline_temporary_input.html',1,'Legion::Mapping::Mapper']]],
+  ['createinlinetemporaryoutput_16',['CreateInlineTemporaryOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_inline_temporary_output.html',1,'Legion::Mapping::Mapper']]],
+  ['createpartitiontemporaryinput_17',['CreatePartitionTemporaryInput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_partition_temporary_input.html',1,'Legion::Mapping::Mapper']]],
+  ['createpartitiontemporaryoutput_18',['CreatePartitionTemporaryOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_partition_temporary_output.html',1,'Legion::Mapping::Mapper']]],
+  ['createreleasetemporaryinput_19',['CreateReleaseTemporaryInput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_release_temporary_input.html',1,'Legion::Mapping::Mapper']]],
+  ['createreleasetemporaryoutput_20',['CreateReleaseTemporaryOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_release_temporary_output.html',1,'Legion::Mapping::Mapper']]],
+  ['createtasktemporaryinput_21',['CreateTaskTemporaryInput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_task_temporary_input.html',1,'Legion::Mapping::Mapper']]],
+  ['createtasktemporaryoutput_22',['CreateTaskTemporaryOutput',['../struct_legion_1_1_mapping_1_1_mapper_1_1_create_task_temporary_output.html',1,'Legion::Mapping::Mapper']]]
+];

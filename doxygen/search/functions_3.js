@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['defer_5fdynamic_5fcollective_5farrival_0',['defer_dynamic_collective_arrival',['../class_legion_1_1_runtime.html#a714e67a25827ba66bc3b58cd6748edce',1,'Legion::Runtime']]],
+  ['destroy_5fdeferred_5fbuffer_1',['destroy_deferred_buffer',['../class_legion_1_1_runtime.html#abf5e881652f89eb2bcf03bdf3481b75e',1,'Legion::Runtime']]],
+  ['destroy_5fdeferred_5fvalue_2',['destroy_deferred_value',['../class_legion_1_1_runtime.html#a7759b611b3b295cd05705e11e45cb8ca',1,'Legion::Runtime']]],
+  ['destroy_5fdynamic_5fcollective_3',['destroy_dynamic_collective',['../class_legion_1_1_runtime.html#a7a37a1dbbbfafef022fc55463d807b9c',1,'Legion::Runtime']]],
+  ['destroy_5ffield_5fspace_4',['destroy_field_space',['../class_legion_1_1_runtime.html#a497b1a071d0a52b7c538f084496743f5',1,'Legion::Runtime']]],
+  ['destroy_5findex_5fpartition_5',['destroy_index_partition',['../class_legion_1_1_runtime.html#a02e5c86c4fa7f8b182e13d21aced8d16',1,'Legion::Runtime']]],
+  ['destroy_5findex_5fspace_6',['destroy_index_space',['../class_legion_1_1_runtime.html#afe7122e206744500a5bbb12c4cd331a4',1,'Legion::Runtime']]],
+  ['destroy_5flock_7',['destroy_lock',['../class_legion_1_1_runtime.html#a55c3a2fca0f3456220fde2736431712a',1,'Legion::Runtime']]],
+  ['destroy_5flogical_5fpartition_8',['destroy_logical_partition',['../class_legion_1_1_runtime.html#ae9349fe8247c32783efe2c30b2b43f7b',1,'Legion::Runtime']]],
+  ['destroy_5flogical_5fregion_9',['destroy_logical_region',['../class_legion_1_1_runtime.html#a717644084094beb6a8407c1f74f1db91',1,'Legion::Runtime']]],
+  ['destroy_5fphase_5fbarrier_10',['destroy_phase_barrier',['../class_legion_1_1_runtime.html#a7fb709efc503d8500f9710cb892b45a7',1,'Legion::Runtime']]],
+  ['detach_5fexternal_5fresource_11',['detach_external_resource',['../class_legion_1_1_runtime.html#a80fe6b29c581e78ee891a17ea9c46099',1,'Legion::Runtime']]],
+  ['detach_5fexternal_5fresources_12',['detach_external_resources',['../class_legion_1_1_runtime.html#aaae1443b1283d42fac647787bae322b6',1,'Legion::Runtime']]],
+  ['detach_5ffile_13',['detach_file',['../class_legion_1_1_runtime.html#af840cc317084b2faccf5321557755c8e',1,'Legion::Runtime']]],
+  ['detach_5fhdf5_14',['detach_hdf5',['../class_legion_1_1_runtime.html#ad93bf3b151012fb90aac52137eaf652f',1,'Legion::Runtime']]],
+  ['disable_5fprofiling_15',['disable_profiling',['../class_legion_1_1_runtime.html#a3b1338247926eef76421390573c82cc3',1,'Legion::Runtime']]],
+  ['discard_5ffields_16',['discard_fields',['../class_legion_1_1_runtime.html#a8ea2c03ecfb8cca959329a0ae8e9d82d',1,'Legion::Runtime']]],
+  ['dump_5fprofiling_17',['dump_profiling',['../class_legion_1_1_runtime.html#ae3959f5e3dcedc969475d839dfb3a573',1,'Legion::Runtime']]]
+];

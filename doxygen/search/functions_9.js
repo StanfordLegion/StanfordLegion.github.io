@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['launch_5ftop_5flevel_5ftask_0',['launch_top_level_task',['../class_legion_1_1_runtime.html#a97b45946044f7672c734111a4960d4c2',1,'Legion::Runtime']]],
+  ['legion_5fhandoff_5fto_5fext_1',['legion_handoff_to_ext',['../class_legion_1_1_legion_handshake.html#a044b3b59a7c0e899686c3d3f8d25ad27',1,'Legion::LegionHandshake']]],
+  ['legion_5fhandoff_5fto_5fmpi_2',['legion_handoff_to_mpi',['../class_legion_1_1_m_p_i_legion_handshake.html#a2bd8bb781f5c182ab999ad7e8dfdf19e',1,'Legion::MPILegionHandshake']]],
+  ['legion_5ftask_5fpostamble_3',['legion_task_postamble',['../class_legion_1_1_runtime.html#a70163426035a00e0013ec7fbdadf2335',1,'Legion::Runtime::legion_task_postamble(Context ctx, const void *retvalptr=nullptr, size_t retvalsize=0, bool owned=false, Realm::RegionInstance inst=Realm::RegionInstance::NO_INST, const void *metadataptr=nullptr, size_t metadatasize=0)'],['../class_legion_1_1_runtime.html#a3e152658fbe81fb705ecc59712643380',1,'Legion::Runtime::legion_task_postamble(Context ctx, const void *retvalptr, size_t retvalsize, bool owned, const Realm::ExternalInstanceResource &amp;allocation, void(*freefunc)(const Realm::ExternalInstanceResource &amp;)=nullptr, const void *metadataptr=nullptr, size_t metadatasize=0)'],['../class_legion_1_1_runtime.html#a98e8a94e27a29be6628f23730e25e786',1,'Legion::Runtime::legion_task_postamble(Context ctx, FutureFunctor *callback_functor, bool owned=false)'],['../class_legion_1_1_runtime.html#af0137b0a6a8055887a2a1c6232230345',1,'Legion::Runtime::legion_task_postamble(Context ctx, const Domain &amp;domain, bool take_ownership, const void *metadataptr=nullptr, size_t metadatasize=0)']]],
+  ['legion_5ftask_5fpreamble_4',['legion_task_preamble',['../class_legion_1_1_runtime.html#a75cae296df9a998053907a268f907c9e',1,'Legion::Runtime']]],
+  ['legion_5fwait_5fon_5fext_5',['legion_wait_on_ext',['../class_legion_1_1_legion_handshake.html#a9385f6927b0ee75c68dc266423f345a1',1,'Legion::LegionHandshake']]],
+  ['legion_5fwait_5fon_5fmpi_6',['legion_wait_on_mpi',['../class_legion_1_1_m_p_i_legion_handshake.html#a5e8bf4cb8ab74eedff58086309b896b3',1,'Legion::MPILegionHandshake']]],
+  ['log_5fonce_7',['log_once',['../class_legion_1_1_runtime.html#a71eda2e1e351ddb779295fd6d6313edd',1,'Legion::Runtime']]]
+];

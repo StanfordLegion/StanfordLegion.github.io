@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,23 +92,28 @@ $(function() {
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>handle_instance_collection()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_mapper.html#ac0d8d14c6e25c9afa5f9302ccf442998">Legion::Mapping::Mapper</a></li>
+<li>handle_instance_collection()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_mapper.html#ac0d8d14c6e25c9afa5f9302ccf442998">Legion::Mapping::Mapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#aa8beeb325452050d746519d7fd1ddc90">Legion::Mapping::NullMapper</a></li>
 <li>handle_type&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#a0e8c14b4df54cd748fac18e732b353e6">Legion::RegionRequirement</a></li>
 <li>has_context()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#ac2bae127d301ae23323b0341b01ab94e">Legion::Runtime</a></li>
 <li>has_index_partition()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a2db78ed39353a434fad6b403c52fb5a8">Legion::Runtime</a></li>
 <li>has_index_subspace()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#aa3614582fe1829077771a7c6003654dc">Legion::Runtime</a></li>
 <li>has_logical_partition_by_color()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#ab45e29c1e287be2765f1c7e36d51be7e">Legion::Runtime</a></li>
 <li>has_logical_subregion_by_color()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#abf8611680f7d1150f80e8512bee304fb">Legion::Runtime</a></li>
+<li>has_mapping()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_mapping_memoizer.html#a4edae204818e5501f1c09f19b579b9b2">Legion::Mapping::Utilities::MappingMemoizer</a></li>
 <li>has_multiple_domains()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#adb0ee94d82c36b374cf3804a48f7a16b">Legion::Runtime</a></li>
 <li>has_parent_index_partition()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a1be0f5a074a6df83b283fc0acd5f3e83">Legion::Runtime</a></li>
 <li>has_parent_logical_partition()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a4aab2f2c259fd3c203ad15374f38f991">Legion::Runtime</a></li>
 <li>has_point()&#160;:&#160;<a class="el" href="class_legion_1_1_argument_map.html#a8e179b26a4afe09d035095bf34243ac3">Legion::ArgumentMap</a></li>
 <li>has_runtime()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#af0b93b22fb8f780717fa6310e289dad3">Legion::Runtime</a></li>
+<li>has_variant()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_shim_mapper_1_1_task_variant_collection.html#ac3f003d4e3bd5a1ffe1d2403b995c480">Legion::Mapping::ShimMapper::TaskVariantCollection</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['Get Mapper Name',['../class_legion_1_1_mapping_1_1_mapper.html#autotoc_md1',1,'']]],
+  ['name_0',['Get Mapper Name',['../class_legion_1_1_mapping_1_1_wrapper_mapper.html#autotoc_md1',1,'']]],
   ['never_20query_20any_20mapper_20about_20stealing_1',['will never query any mapper about stealing.',['../class_legion_1_1_runtime.html#autotoc_md98',1,'']]],
   ['next_20operation_20to_20start_2',['permitting the next operation to start.',['../class_legion_1_1_runtime.html#autotoc_md100',1,'']]],
   ['next_20two_20flags_3',['operations commit using the next two flags.',['../class_legion_1_1_runtime.html#autotoc_md108',1,'']]],
@@ -10,5 +10,8 @@ var searchData=
   ['nodes_20prior_20to_20an_20application_20beginning_7',['one or more nodes prior to an application beginning.',['../class_legion_1_1_runtime.html#autotoc_md110',1,'']]],
   ['not_20impact_20correctness_8',['Not specifying an upper bound will not impact correctness.',['../struct_legion_1_1_mapping_1_1_mapper_1_1_future_map_reduction_input.html#autotoc_md73',1,'']]],
   ['not_20specifying_20an_20upper_20bound_20will_20not_20impact_20correctness_9',['Not specifying an upper bound will not impact correctness.',['../struct_legion_1_1_mapping_1_1_mapper_1_1_future_map_reduction_input.html#autotoc_md73',1,'']]],
-  ['nt_5ftemplatehelper_10',['NT_TemplateHelper',['../struct_legion_1_1_internal_1_1_n_t___template_helper.html',1,'Legion::Internal']]]
+  ['notify_5fmapping_10',['notify_mapping',['../class_legion_1_1_mapping_1_1_utilities_1_1_mapping_memoizer.html#a1f859b49ed74077b78162f3bd111c0c0',1,'Legion::Mapping::Utilities::MappingMemoizer']]],
+  ['nt_5ftemplatehelper_11',['NT_TemplateHelper',['../struct_legion_1_1_internal_1_1_n_t___template_helper.html',1,'Legion::Internal']]],
+  ['null_5fmapper_2eh_12',['null_mapper.h',['../null__mapper_8h.html',1,'']]],
+  ['nullmapper_13',['NullMapper',['../class_legion_1_1_mapping_1_1_null_mapper.html',1,'Legion::Mapping']]]
 ];

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_legion_1_1_mapping_1_1_mapper.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>Legion</b></li><li class="navelem"><b>Mapping</b></li><li class="navelem"><a class="el" href="class_legion_1_1_mapping_1_1_mapper.html">Mapper</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -84,6 +100,23 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="mapping_8h_source.html">mapping.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Legion::Mapping::Mapper:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_legion_1_1_mapping_1_1_mapper.png" usemap="#Legion::Mapping::Mapper_map" alt=""/>
+  <map id="Legion::Mapping::Mapper_map" name="Legion::Mapping::Mapper_map">
+<area href="class_legion_1_1_mapping_1_1_default_mapper.html" alt="Legion::Mapping::DefaultMapper" shape="rect" coords="115,56,335,80"/>
+<area href="class_legion_1_1_mapping_1_1_forwarding_mapper.html" alt="Legion::Mapping::ForwardingMapper" shape="rect" coords="460,56,680,80"/>
+<area href="class_legion_1_1_mapping_1_1_null_mapper.html" alt="Legion::Mapping::NullMapper" shape="rect" coords="690,56,910,80"/>
+<area href="class_legion_1_1_mapping_1_1_replay_mapper.html" alt="Legion::Mapping::ReplayMapper" shape="rect" coords="920,56,1140,80"/>
+<area href="class_legion_1_1_mapping_1_1_wrapper_mapper.html" alt="Legion::Mapping::WrapperMapper" shape="rect" coords="1150,56,1370,80"/>
+<area href="class_legion_1_1_mapping_1_1_shim_mapper.html" alt="Legion::Mapping::ShimMapper" shape="rect" coords="0,112,220,136"/>
+<area href="class_legion_1_1_mapping_1_1_test_mapper.html" alt="Legion::Mapping::TestMapper" shape="rect" coords="230,112,450,136"/>
+<area href="class_legion_1_1_mapping_1_1_logging_wrapper.html" alt="Legion::Mapping::LoggingWrapper" shape="rect" coords="460,112,680,136"/>
+<area href="class_legion_1_1_mapping_1_1_debug_mapper.html" alt="Legion::Mapping::DebugMapper" shape="rect" coords="920,112,1140,136"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -464,6 +497,8 @@ Get Mapper Synchronization Model</h2>
 Get Mapper Name</h2>
 <p>Specify a name that the runtime can use for referring to this mapper. This will primarily be used for providing helpful error messages so semantically meaningful names are encouraged. This mapper call must be immutable as it may be made before the synchronization model has been chosen. </p>
 
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#a6920e01a1b0543727a1d9aa2d4782fce">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#a82c2d966a814b09b84b74f616b430b87">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#abda22e81953b57a6274000cdae34d9b1">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#a7fc08d7bcf0ad49d54c2a36ebc226c04">Legion::Mapping::NullMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#afca8986e278e6a4f0e7ba4adf17fae00">Legion::Mapping::ReplayMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_wrapper_mapper.html#af521eb86a4f6a4c44fb9fbfbf59a16ed">Legion::Mapping::WrapperMapper</a>.</p>
+
 </div>
 </div>
 <a id="ac0d8d14c6e25c9afa5f9302ccf442998" name="ac0d8d14c6e25c9afa5f9302ccf442998"></a>
@@ -504,6 +539,8 @@ Get Mapper Name</h2>
 Handle Instance Collection</h2>
 <p>If a mapper successfully subscribed to an instance then it will receive this callback from the runtime when the instance has been collected by the garbage collector. </p>
 
+<p>Reimplemented in <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#aa8beeb325452050d746519d7fd1ddc90">Legion::Mapping::NullMapper</a>.</p>
+
 </div>
 </div>
 <a id="ab3ab042d8ac0e7868b8da1ba61c1eb68" name="ab3ab042d8ac0e7868b8da1ba61c1eb68"></a>
@@ -533,6 +570,8 @@ Handle Instance Collection</h2>
  <h2><a class="anchor" id="autotoc_md5"></a>
 Request Valid Instances</h2>
 <p>Indicate whether the runtime should populate the valid instances as inputs for mapping operations. This will control the setting for all operations that are not tasks. For tasks, this will just set the initial value of 'valid_instances' in the select_task_options struct as we give mappers more control over needing valid inputs for tasks than generic operations at the moment. We provide a default implementation of this method because older versions of the runtime would always fill in this data structure, however, we now allow mappers to disable this in order to reduce the cost of physical analysis done for mapping operations. </p>
+
+<p>Reimplemented in <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#aa7c1ae8af72fe60564f34a9201cdc151">Legion::Mapping::ForwardingMapper</a>.</p>
 
 </div>
 </div>
@@ -586,6 +625,8 @@ Request Valid Instances</h2>
 Select Sharding Functor</h2>
 <p>This mapper call is invoked whenever the enclosing parent task for the acquire being launched has been control replicated and it's up to the mapper for this task to pick a sharding functor to determine which shard will own the point(s) of the acquire . The mapper must return the same sharding functor for all instances of the acquire. The runtime will verify this in debug mode but not in release mode. </p>
 
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#aaf25744a65eed35491cf7b1b4b8f1a7c">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#a8be8efb8d6d7a22d4a1ce17235cd30f3">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#a8be8efb8d6d7a22d4a1ce17235cd30f3">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#ad61b074ca1d310b9d94f3c98237e9529">Legion::Mapping::NullMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#a4628ad85e5f283e8303b1df19cb07a3a">Legion::Mapping::ReplayMapper</a>.</p>
+
 </div>
 </div>
 <a id="ac0c33a8e586c8e35cc257ef7c3fca242" name="ac0c33a8e586c8e35cc257ef7c3fca242"></a>
@@ -637,6 +678,8 @@ Select Sharding Functor</h2>
  <h2><a class="anchor" id="autotoc_md45"></a>
 Select Sharding Functor</h2>
 <p>This mapper call is invoked whenever the enclosing parent task for the close being launched has been control replicated and it's up to the mapper for this task to pick a sharding functor to determine which shard will own the point(s) of the close. The mapper must return the same sharding functor for all instances of the close. The runtime will verify this in debug mode but not in release mode. </p>
+
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#af5192f21ff975a5d248fa35249f6accf">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#aa5b982746371d580ad68c7eb3972ef8a">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#aa5b982746371d580ad68c7eb3972ef8a">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#a7c5729e5ab42b9e0764856fe6006f45a">Legion::Mapping::NullMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#a5fa0b191942606b35a6b6174b6f73807">Legion::Mapping::ReplayMapper</a>.</p>
 
 </div>
 </div>
@@ -690,6 +733,8 @@ Select Sharding Functor</h2>
 Select Sharding Functor</h2>
 <p>This mapper call is invoked whenever the enclosing parent task for the copy being launched has been control replicated and it's up to the mapper for this copy to pick a sharding functor to determine which shard will own the point(s) of the copy. The mapper must return the same sharding functor for all instances of the copy. The runtime will verify this in debug mode but not in release mode. </p>
 
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#ad01568ccbce317a38e301acec73118f1">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#ab74646c179fec4e19160e466b0bb4609">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#ab74646c179fec4e19160e466b0bb4609">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#a09cb391afbc5f1a8b463f47795d52a07">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#af003fe9ca2673cb9e41deb666e03588b">Legion::Mapping::NullMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#ac9d77e3671777bc03e8725b423f42208">Legion::Mapping::ReplayMapper</a>.</p>
+
 </div>
 </div>
 <a id="ae893c1df0c57b42e11ba6559535e9dfb" name="ae893c1df0c57b42e11ba6559535e9dfb"></a>
@@ -741,6 +786,8 @@ Select Sharding Functor</h2>
  <h2><a class="anchor" id="autotoc_md71"></a>
 Select Sharding Functor</h2>
 <p>This mapper call is invoked whenever the enclosing parent task for the fill being launched has been control replicated and it's up to the mapper for this task to pick a sharding functor to determine which shard will own the points of the fill. The mapper must return the same sharding functor for all instances of the fill. The runtime will verify this in debug mode but not in release mode. </p>
+
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#a4d6231992572b606ebe2f3a187529b87">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#a8ee1469046fb530b6c286b231a9a70ed">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#a8ee1469046fb530b6c286b231a9a70ed">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#ae4242bc80df5a363011f99c7ecb4a70e">Legion::Mapping::NullMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#a9d722bcbee1f682b81d55746591b1f7d">Legion::Mapping::ReplayMapper</a>.</p>
 
 </div>
 </div>
@@ -794,6 +841,8 @@ Select Sharding Functor</h2>
 Select Sharding Functor</h2>
 <p>This mapper call is invoked whenever the enclosing parent task for the partition being launched has been control replicated and it's up to the mapper for this task to pick a sharding functor to determine which shard will own the point(s) of the partition. The mapper must return the same sharding functor for all instances of the partition. The runtime will verify this in debug mode but not in release mode. </p>
 
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#a24b3efe482ab6170e4383ed805dcdd05">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#ac16b48ec71a25c33642e0a5ede929e27">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#ac16b48ec71a25c33642e0a5ede929e27">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#a4eacd9456fb18dc47996dad543c9a8de">Legion::Mapping::NullMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#accb0cbc28423af4d1ae71a4f1fdc086f">Legion::Mapping::ReplayMapper</a>.</p>
+
 </div>
 </div>
 <a id="a7831ade79a9301d1dbaeed8555a7ac7a" name="a7831ade79a9301d1dbaeed8555a7ac7a"></a>
@@ -846,15 +895,21 @@ Select Sharding Functor</h2>
 Select Sharding Functor</h2>
 <p>This mapper call is invoked whenever the enclosing parent task for the release being launched has been control replicated and it's up to the mapper for this task to pick a sharding functor to determine which shard will own the point(s) of the release. The mapper must return the same sharding functor for all instances of the release. The runtime will verify this in debug mode but not in release mode. </p>
 
+<p>Implemented in <a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#a3b29ad299501f9d1a07ca7c107bbb165">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#a9f0ea3c491f3636ce9001128986fc4b0">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#a9f0ea3c491f3636ce9001128986fc4b0">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#a15f350485f0d388ac1256ba9a0c36318">Legion::Mapping::NullMapper</a>, and <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#a36caea6d8bd99a1a059bbc402cf4e26c">Legion::Mapping::ReplayMapper</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>legion/api/<a class="el" href="mapping_8h_source.html">mapping.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_legion.html">Legion</a></li><li class="navelem"><a class="el" href="namespace_legion_1_1_mapping.html">Mapping</a></li><li class="navelem"><a class="el" href="class_legion_1_1_mapping_1_1_mapper.html">Mapper</a></li>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

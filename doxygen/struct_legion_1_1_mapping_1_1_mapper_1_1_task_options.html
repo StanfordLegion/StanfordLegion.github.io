@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('struct_legion_1_1_mapping_1_1_mapper_1_1_task_options.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>Legion</b></li><li class="navelem"><b>Mapping</b></li><li class="navelem"><a class="el" href="class_legion_1_1_mapping_1_1_mapper.html">Mapper</a></li><li class="navelem"><a class="el" href="struct_legion_1_1_mapping_1_1_mapper_1_1_task_options.html">TaskOptions</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -119,8 +135,8 @@ Select Task Options</h2>
 <p>This mapper call happens immediately after the task is launched and before any other stages of the pipeline. This gives the mapper control over the execution of this task before the runtime puts it in the task pipeline. Below are the fields of the <a class="el" href="struct_legion_1_1_mapping_1_1_mapper_1_1_task_options.html">TaskOptions</a> struct and their semantics.</p>
 <p>target_proc default:local processor This field will only be obeyed by single task launches. It sets the initial processor where the task will be sent after dependence analysis if the task is to be eagerly evaluated. Index space tasks will invoke slice_domain to determine where its components should be sent.</p>
 <p>inline_task default:false Specify whether this task should be inlined directly into the parent task using the parent task's regions. If the regions are not already mapped, they will be re-mapped and the task will be executed on the local processor. The mapper should select an alternative call to the select_inline_variant call to select the task variant to be used.</p>
-<p>spawn_task default:false This field is inspired by Cilk and has equivalent semantics. If a task is spawned, then it becomes eligible for stealing, otherwise it will traverse the task pipeline as directed by the mapper. The one deviation from Cilk stealing is that stealing in Legion is managed by the mappers instead of implicitly by the Legion runtime.</p>
-<p>map_locally default:false Tasks have the option of either being mapped on the processor on which they were created or being mapped on their ultimate destination processor. Mapping on the local processor where the task was created can be more efficient in some cases since it requires less meta-data movement by the runtime, but can also be subject to having an incomplete view of the destination memories during the mapping process. In general a task should only be mapped locally if it is a leaf task as the runtime will need to move the meta-data for a task anyway if it is going to launch sub-tasks. Note that deciding to map a task locally disqualifies that task from being stolen as it will have already been mapped once it enters the ready queue.</p>
+<p>spawn_task default:false This field is inspired by Cilk and has equivalent semantics. If a task is spawned, then it becomes eligible for stealing, otherwise it will traverse the task pipeline as directed by the mapper. The one deviation from Cilk stealing is that stealing in <a class="el" href="namespace_legion.html">Legion</a> is managed by the mappers instead of implicitly by the <a class="el" href="namespace_legion.html">Legion</a> runtime.</p>
+<p>map_locally default:false Tasks have the option of either being mapped on the processor on which they were created or being mapped on their ultimate destination processor. <a class="el" href="namespace_legion_1_1_mapping.html">Mapping</a> on the local processor where the task was created can be more efficient in some cases since it requires less meta-data movement by the runtime, but can also be subject to having an incomplete view of the destination memories during the mapping process. In general a task should only be mapped locally if it is a leaf task as the runtime will need to move the meta-data for a task anyway if it is going to launch sub-tasks. Note that deciding to map a task locally disqualifies that task from being stolen as it will have already been mapped once it enters the ready queue.</p>
 <p>valid_instance default:result of request_valid_instances When calls to map_task are performed, it's often the case that the mapper will want to know the currently valid instances are for that region. There is some overhead to doing this and the mapper may want to avoid this overhead in cases where it knows it won't need the information such as when it is going to virtually map all the regions for an inner task. By setting this flag to false the mapper can opt-out of receiving the valid instance information for a task.</p>
 <p>replicate default:false Enable replication of the individual tasks for this operation. This is useful for performing redundant computation to avoid communication. There are requirements on the properties of replicated tasks and how they are mapped. Replicated tasks are not allowed to have reduction-only privileges. Furthermore the mapper must map any regions with write privileges for different copies of the task to different instances.</p>
 <p>parent_priority default:current If the mapper for the parent task permits child operations to mutate the priority of the parent task then the mapper can use this field to alter the priority of the parent task</p>
@@ -129,9 +145,13 @@ Select Task Options</h2>
 <li>legion/api/<a class="el" href="mapping_8h_source.html">mapping.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_legion.html">Legion</a></li><li class="navelem"><a class="el" href="namespace_legion_1_1_mapping.html">Mapping</a></li><li class="navelem"><a class="el" href="class_legion_1_1_mapping_1_1_mapper.html">Mapper</a></li><li class="navelem"><a class="el" href="struct_legion_1_1_mapping_1_1_mapper_1_1_task_options.html">TaskOptions</a></li>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

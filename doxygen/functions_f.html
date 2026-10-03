@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_f.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,8 +95,14 @@ $(function() {
 <li>field_space&#160;:&#160;<a class="el" href="struct_legion_1_1_output_requirement.html#ab998b3612d3e1259fe8e6feb002ed301">Legion::OutputRequirement</a></li>
 <li>fill_field()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a140bb70e85c103a86fab13e7d496eb7c">Legion::Runtime</a></li>
 <li>fill_fields()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a113667a31d9e922b56cd95d2f5409b58">Legion::Runtime</a></li>
+<li>filter_memories()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_machine_query_interface.html#a84edb02636ef0b6551edcecb1f4c88df">Legion::Mapping::Utilities::MachineQueryInterface</a></li>
+<li>filter_processors()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_machine_query_interface.html#abd7b6b8356da4c92e9881f302852c337">Legion::Mapping::Utilities::MachineQueryInterface</a></li>
 <li>find_forward_MPI_mapping()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#aaf64f9ddc711500ea1823badc9847b36">Legion::Runtime</a></li>
+<li>find_global_memory()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_machine_query_interface.html#ae9bff867d2b52239b67f12ffccbbe9be">Legion::Mapping::Utilities::MachineQueryInterface</a></li>
 <li>find_local_MPI_rank()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#aa2b6769d9ee8de7892f0b5d5c3cc4ab3">Legion::Runtime</a></li>
+<li>find_memory_kind()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_machine_query_interface.html#a35ac113843334598bab62bd9b4202bb6">Legion::Mapping::Utilities::MachineQueryInterface</a></li>
+<li>find_memory_stack()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_machine_query_interface.html#aaeb23f851896487d508caf89dfa58e71">Legion::Mapping::Utilities::MachineQueryInterface</a></li>
+<li>find_processor_kind()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_machine_query_interface.html#a009f7131ca8f07c59cbee2370c66f654">Legion::Mapping::Utilities::MachineQueryInterface</a></li>
 <li>find_reverse_MPI_mapping()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a60e13ebb9c1159f1a69a593dd161ed9b">Legion::Runtime</a></li>
 <li>finish_implicit_task()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a8f25e3db2caab68cbcc8316523ff6395">Legion::Runtime</a></li>
 <li>flags&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#ae61db267f7f5cf23f65eebda28a11f4d">Legion::RegionRequirement</a></li>
@@ -87,9 +113,12 @@ $(function() {
 <li>from_value()&#160;:&#160;<a class="el" href="class_legion_1_1_future.html#a8a5f95c981e5e2ed8f5119c037f93290">Legion::Future</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

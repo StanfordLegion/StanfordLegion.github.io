@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tag_0',['tag',['../struct_legion_1_1_region_requirement.html#a99daa01e4bb69154391412b5951ac11c',1,'Legion::RegionRequirement']]]
+  ['single_5ftask_0',['single_task',['../class_legion_1_1_mapping_1_1_shim_mapper_1_1_task_variant_collection_1_1_variant.html#a3d838177467968b4007eeaf8fc3147ef',1,'Legion::Mapping::ShimMapper::TaskVariantCollection::Variant']]]
 ];

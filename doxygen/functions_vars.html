@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_vars.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -76,6 +96,7 @@ $(function() {
 <li>flags&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#ae61db267f7f5cf23f65eebda28a11f4d">Legion::RegionRequirement</a></li>
 <li>global_indexing&#160;:&#160;<a class="el" href="struct_legion_1_1_output_requirement.html#ad79dba634848788f6cc2fdc856d484e1">Legion::OutputRequirement</a></li>
 <li>handle_type&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#a0e8c14b4df54cd748fac18e732b353e6">Legion::RegionRequirement</a></li>
+<li>index_space&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_shim_mapper_1_1_task_variant_collection_1_1_variant.html#ab61fbc40903579539f247b6633882754">Legion::Mapping::ShimMapper::TaskVariantCollection::Variant</a></li>
 <li>instance_fields&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#a8557780a79b6e633a5fb985b85fdf150">Legion::RegionRequirement</a></li>
 <li>NO_PART&#160;:&#160;<a class="el" href="class_legion_1_1_logical_partition.html#a40eb51801ca8602f783f6c4fd1efd0df">Legion::LogicalPartition</a></li>
 <li>NO_REGION&#160;:&#160;<a class="el" href="class_legion_1_1_logical_region.html#a5b1fb82290bce3f864e05b3e81f9b2b0">Legion::LogicalRegion</a></li>
@@ -90,12 +111,16 @@ $(function() {
 <li>prop&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#a9d2e1f75e6e34c7ea4b0d00dfe36f259">Legion::RegionRequirement</a></li>
 <li>redop&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#aa2c2cf591d76a346c73f206efe242259">Legion::RegionRequirement</a></li>
 <li>region&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#afa58665b7cef4dce5bb14b57aab2e117">Legion::RegionRequirement</a></li>
+<li>single_task&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_shim_mapper_1_1_task_variant_collection_1_1_variant.html#a3d838177467968b4007eeaf8fc3147ef">Legion::Mapping::ShimMapper::TaskVariantCollection::Variant</a></li>
 <li>tag&#160;:&#160;<a class="el" href="struct_legion_1_1_region_requirement.html#a99daa01e4bb69154391412b5951ac11c">Legion::RegionRequirement</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

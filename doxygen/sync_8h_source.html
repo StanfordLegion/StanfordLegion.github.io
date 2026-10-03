@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -51,6 +55,23 @@ $(function() {
 $(document).ready(function() { init_codefold(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('sync_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,16 +93,11 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_17023b40b296185730d08639a5a65dbc.html">legion</a></li><li class="navelem"><a class="el" href="dir_545c491a5cd8b581c42d05f39ac4bf79.html">api</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">sync.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Copyright 2026 Stanford University, NVIDIA Corporation</span></div>
+<a href="sync_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Copyright 2026 Stanford University, NVIDIA Corporation</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
@@ -99,114 +115,120 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef __LEGION_SYNCHRONIZATION_H__</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define __LEGION_SYNCHRONIZATION_H__</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;legion/api/types.h&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span>Legion {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_legion_1_1_lock.html">   52</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a> {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// Only the runtime is allowed to make non-empty locks</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>(Reservation r);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> acquire(<span class="keywordtype">unsigned</span> mode = 0, <span class="keywordtype">bool</span> exclusive = <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> release(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    Reservation reservation_lock;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  };</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">legion/api/types.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_legion.html">Legion</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_legion_1_1_lock.html">   57</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a> {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">// Only the runtime is allowed to make non-empty locks</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>(Reservation r);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> acquire(<span class="keywordtype">unsigned</span> mode = 0, <span class="keywordtype">bool</span> exclusive = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> release(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    Reservation reservation_lock;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  };</div>
 </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="struct_legion_1_1_lock_request.html">   76</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="struct_legion_1_1_lock_request.html">LockRequest</a> {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_struct" href="struct_legion_1_1_lock_request.html">LockRequest</a>(<a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a> l, <span class="keywordtype">unsigned</span> mode = 0, <span class="keywordtype">bool</span> exclusive = <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a> lock;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">unsigned</span> mode;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> exclusive;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  };</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="struct_legion_1_1_lock_request.html">   81</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="struct_legion_1_1_lock_request.html">LockRequest</a> {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_struct" href="struct_legion_1_1_lock_request.html">LockRequest</a>(<a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a> l, <span class="keywordtype">unsigned</span> mode = 0, <span class="keywordtype">bool</span> exclusive = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_class" href="class_legion_1_1_lock.html">Lock</a> lock;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">unsigned</span> mode;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span> exclusive;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  };</div>
 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="foldopen" id="foldopen00097" data-start="{" data-end="};">
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_legion_1_1_grant.html">   97</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a> {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">~Grant</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// Only the runtime is allowed to make non-empty grants</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>(Internal::GrantImpl* impl);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> impl == g.impl; }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> impl &lt; g.impl; }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    Internal::GrantImpl* impl;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  };</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_legion_1_1_grant.html">  102</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a> {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">~Grant</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// Only the runtime is allowed to make non-empty grants</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>(Internal::GrantImpl* impl);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> impl == g.impl; }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> impl &lt; g.impl; }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_grant.html">Grant</a>&amp; g);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    Internal::GrantImpl* impl;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  };</div>
 </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="foldopen" id="foldopen00142" data-start="{" data-end="};">
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="class_legion_1_1_phase_barrier.html">  142</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a> {</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">// Only the runtime is allowed to make non-empty phase barriers</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>(<a class="code hl_class" href="class_legion_1_1_internal_1_1_ap_barrier.html">Internal::ApBarrier</a> b);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordtype">void</span> arrive(<span class="keywordtype">unsigned</span> count = 1);</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">void</span> wait(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> alter_arrival_count(<span class="keywordtype">int</span> delta);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    Realm::Barrier get_barrier(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> phase_barrier; }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordtype">bool</span> exists(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <a class="code hl_class" href="class_legion_1_1_internal_1_1_ap_barrier.html">Internal::ApBarrier</a> phase_barrier;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; pb);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>  };</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="};">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="class_legion_1_1_phase_barrier.html">  147</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a> {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// Only the runtime is allowed to make non-empty phase barriers</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>(<a class="code hl_class" href="class_legion_1_1_internal_1_1_ap_barrier.html">Internal::ApBarrier</a> b);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">void</span> arrive(<span class="keywordtype">unsigned</span> count = 1);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">void</span> wait(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordtype">void</span> alter_arrival_count(<span class="keywordtype">int</span> delta);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    Realm::Barrier get_barrier(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> phase_barrier; }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">bool</span> exists(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_class" href="class_legion_1_1_internal_1_1_ap_barrier.html">Internal::ApBarrier</a> phase_barrier;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a>&amp; pb);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  };</div>
 </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="foldopen" id="foldopen00178" data-start="{" data-end="};">
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_legion_1_1_dynamic_collective.html">  178</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_dynamic_collective.html">DynamicCollective</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a> {</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <a class="code hl_class" href="class_legion_1_1_dynamic_collective.html">DynamicCollective</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// Only the runtime is allowed to make non-empty dynamic collectives</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_class" href="class_legion_1_1_dynamic_collective.html">DynamicCollective</a>(<a class="code hl_class" href="class_legion_1_1_internal_1_1_ap_barrier.html">Internal::ApBarrier</a> b, ReductionOpID redop);</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="comment">// All the same operations as a phase barrier</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> arrive(<span class="keyword">const</span> <span class="keywordtype">void</span>* value, <span class="keywordtype">size_t</span> size, <span class="keywordtype">unsigned</span> count = 1);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    ReductionOpID redop;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  };</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="};">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="class_legion_1_1_dynamic_collective.html">  183</a></span>  <span class="keyword">class </span><a class="code hl_class" href="class_legion_1_1_dynamic_collective.html">DynamicCollective</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_legion_1_1_phase_barrier.html">PhaseBarrier</a> {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_class" href="class_legion_1_1_dynamic_collective.html">DynamicCollective</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="comment">// Only the runtime is allowed to make non-empty dynamic collectives</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    FRIEND_ALL_RUNTIME_CLASSES</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_class" href="class_legion_1_1_dynamic_collective.html">DynamicCollective</a>(<a class="code hl_class" href="class_legion_1_1_internal_1_1_ap_barrier.html">Internal::ApBarrier</a> b, ReductionOpID redop);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="comment">// All the same operations as a phase barrier</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">void</span> arrive(<span class="keyword">const</span> <span class="keywordtype">void</span>* value, <span class="keywordtype">size_t</span> size, <span class="keywordtype">unsigned</span> count = 1);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    ReductionOpID redop;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  };</div>
 </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}  <span class="comment">// namespace Legion</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#include &quot;legion/api/sync.inl&quot;</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">#endif  </span><span class="comment">// __LEGION_SYNCHRONIZATION_H__</span></div>
-<div class="ttc" id="aclass_legion_1_1_dynamic_collective_html"><div class="ttname"><a href="class_legion_1_1_dynamic_collective.html">Legion::DynamicCollective</a></div><div class="ttdef"><b>Definition</b> sync.h:178</div></div>
-<div class="ttc" id="aclass_legion_1_1_grant_html"><div class="ttname"><a href="class_legion_1_1_grant.html">Legion::Grant</a></div><div class="ttdef"><b>Definition</b> sync.h:97</div></div>
-<div class="ttc" id="aclass_legion_1_1_internal_1_1_ap_barrier_html"><div class="ttname"><a href="class_legion_1_1_internal_1_1_ap_barrier.html">Legion::Internal::ApBarrier</a></div><div class="ttdef"><b>Definition</b> types.h:898</div></div>
-<div class="ttc" id="aclass_legion_1_1_lock_html"><div class="ttname"><a href="class_legion_1_1_lock.html">Legion::Lock</a></div><div class="ttdef"><b>Definition</b> sync.h:52</div></div>
-<div class="ttc" id="aclass_legion_1_1_phase_barrier_html"><div class="ttname"><a href="class_legion_1_1_phase_barrier.html">Legion::PhaseBarrier</a></div><div class="ttdef"><b>Definition</b> sync.h:142</div></div>
-<div class="ttc" id="astruct_legion_1_1_lock_request_html"><div class="ttname"><a href="struct_legion_1_1_lock_request.html">Legion::LockRequest</a></div><div class="ttdef"><b>Definition</b> sync.h:76</div></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}  <span class="comment">// namespace Legion</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="preprocessor">#include &quot;legion/api/sync.inl&quot;</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">#endif  </span><span class="comment">// __LEGION_SYNCHRONIZATION_H__</span></div>
+<div class="ttc" id="aclass_legion_1_1_dynamic_collective_html"><div class="ttname"><a href="class_legion_1_1_dynamic_collective.html">Legion::DynamicCollective</a></div><div class="ttdef"><b>Definition</b> sync.h:183</div></div>
+<div class="ttc" id="aclass_legion_1_1_grant_html"><div class="ttname"><a href="class_legion_1_1_grant.html">Legion::Grant</a></div><div class="ttdef"><b>Definition</b> sync.h:102</div></div>
+<div class="ttc" id="aclass_legion_1_1_internal_1_1_ap_barrier_html"><div class="ttname"><a href="class_legion_1_1_internal_1_1_ap_barrier.html">Legion::Internal::ApBarrier</a></div><div class="ttdef"><b>Definition</b> types.h:907</div></div>
+<div class="ttc" id="aclass_legion_1_1_lock_html"><div class="ttname"><a href="class_legion_1_1_lock.html">Legion::Lock</a></div><div class="ttdef"><b>Definition</b> sync.h:57</div></div>
+<div class="ttc" id="aclass_legion_1_1_phase_barrier_html"><div class="ttname"><a href="class_legion_1_1_phase_barrier.html">Legion::PhaseBarrier</a></div><div class="ttdef"><b>Definition</b> sync.h:147</div></div>
+<div class="ttc" id="anamespace_legion_html"><div class="ttname"><a href="namespace_legion.html">Legion</a></div><div class="ttdef"><b>Definition</b> accessors.h:29</div></div>
+<div class="ttc" id="astruct_legion_1_1_lock_request_html"><div class="ttname"><a href="struct_legion_1_1_lock_request.html">Legion::LockRequest</a></div><div class="ttdef"><b>Definition</b> sync.h:81</div></div>
+<div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_17023b40b296185730d08639a5a65dbc.html">legion</a></li><li class="navelem"><a class="el" href="dir_545c491a5cd8b581c42d05f39ac4bf79.html">api</a></li><li class="navelem"><a class="el" href="sync_8h.html">sync.h</a></li>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

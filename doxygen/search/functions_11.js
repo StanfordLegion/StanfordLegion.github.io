@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['wait_5fall_5fresults_0',['wait_all_results',['../class_legion_1_1_future_map.html#a21b45fb1bee59d26b8e598c4ba22d525',1,'Legion::FutureMap']]],
-  ['wait_5ffor_5fshutdown_1',['wait_for_shutdown',['../class_legion_1_1_runtime.html#a3c6d29724fa7b7e3679b94b19a20c37c',1,'Legion::Runtime']]],
-  ['wait_5funtil_5fvalid_2',['wait_until_valid',['../class_legion_1_1_physical_region.html#ac27b7a6bb5990d82235723f0f1e48357',1,'Legion::PhysicalRegion']]]
+  ['unbind_5fimplicit_5ftask_5ffrom_5fexternal_5fthread_0',['unbind_implicit_task_from_external_thread',['../class_legion_1_1_runtime.html#a3c72c6636df75996f3719961fdea4716',1,'Legion::Runtime']]],
+  ['union_5findex_5fspaces_1',['union_index_spaces',['../class_legion_1_1_runtime.html#a5fa9c3d0b86805de0b4cec84813d0494',1,'Legion::Runtime']]],
+  ['unmap_5fall_5fregions_2',['unmap_all_regions',['../class_legion_1_1_runtime.html#ab27b33e7667fa68655141d7bdc68965e',1,'Legion::Runtime']]],
+  ['unmap_5fregion_3',['unmap_region',['../class_legion_1_1_runtime.html#a4d36874abe2077cd4ea544a357c336b4',1,'Legion::Runtime']]]
 ];

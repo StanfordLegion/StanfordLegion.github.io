@@ -15,10 +15,13 @@ var searchData=
   ['indexspacet_12',['IndexSpaceT',['../class_legion_1_1_index_space_t.html',1,'Legion']]],
   ['indexspaceunion_13',['IndexSpaceUnion',['../class_legion_1_1_internal_1_1_index_space_union.html',1,'Legion::Internal']]],
   ['indextasklauncher_14',['IndexTaskLauncher',['../struct_legion_1_1_index_task_launcher.html',1,'Legion']]],
-  ['inlinelauncher_15',['InlineLauncher',['../struct_legion_1_1_inline_launcher.html',1,'Legion']]],
-  ['inlinemapping_16',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
-  ['inlineprofilinginfo_17',['InlineProfilingInfo',['../struct_legion_1_1_mapping_1_1_mapper_1_1_inline_profiling_info.html',1,'Legion::Mapping::Mapper']]],
-  ['inputargs_18',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],
-  ['isaconstraint_19',['ISAConstraint',['../class_legion_1_1_i_s_a_constraint.html',1,'Legion']]],
-  ['iterator_20',['iterator',['../class_legion_1_1_span_1_1iterator.html',1,'Legion::Span']]]
+  ['inline_15',['Inline',['../class_legion_1_1_mapping_1_1_shim_mapper_1_1_inline.html',1,'Legion::Mapping::ShimMapper']]],
+  ['inlinelauncher_16',['InlineLauncher',['../struct_legion_1_1_inline_launcher.html',1,'Legion']]],
+  ['inlinemapping_17',['InlineMapping',['../class_legion_1_1_inline_mapping.html',1,'Legion']]],
+  ['inlinemappinginfo_18',['InlineMappingInfo',['../struct_legion_1_1_mapping_1_1_replay_mapper_1_1_inline_mapping_info.html',1,'Legion::Mapping::ReplayMapper']]],
+  ['inlineprofilinginfo_19',['InlineProfilingInfo',['../struct_legion_1_1_mapping_1_1_mapper_1_1_inline_profiling_info.html',1,'Legion::Mapping::Mapper']]],
+  ['inputargs_20',['InputArgs',['../struct_legion_1_1_input_args.html',1,'Legion']]],
+  ['instanceinfo_21',['InstanceInfo',['../struct_legion_1_1_mapping_1_1_replay_mapper_1_1_instance_info.html',1,'Legion::Mapping::ReplayMapper']]],
+  ['isaconstraint_22',['ISAConstraint',['../class_legion_1_1_i_s_a_constraint.html',1,'Legion']]],
+  ['iterator_23',['iterator',['../class_legion_1_1_span_1_1iterator.html',1,'Legion::Span']]]
 ];

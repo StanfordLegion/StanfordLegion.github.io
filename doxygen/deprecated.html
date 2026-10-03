@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('deprecated.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,7 +88,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div><div class="header">
   <div class="headertitle"><div class="title">Deprecated List</div></div>
 </div><!--header-->
@@ -82,7 +102,7 @@ $(function() {
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a80f4f7c08d42f4607e79df8a20a55146">Legion::Runtime::attach_file</a>  (Context ctx, const char *file_name, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, const std::vector&lt; FieldID &gt; &amp;field_vec, LegionFileMode mode)</dt>
 <dd><a class="anchor" id="_deprecated000014"></a> Attach an normal file as a physical region. This attach is similar to attach_hdf5 operation, except that the file has exact same data format as in-memory physical region. Data lays out as SOA in file.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a18a9db6622557604ab9687729cfa89b6">Legion::Runtime::attach_hdf5</a>  (Context ctx, const char *file_name, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> handle, <a class="el" href="class_legion_1_1_logical_region.html">LogicalRegion</a> parent, const std::map&lt; FieldID, const char * &gt; &amp;field_map, LegionFileMode mode)</dt>
-<dd><a class="anchor" id="_deprecated000012"></a> Attach an HDF5 file as a physical region. The file must already exist. Legion will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls.  </dd>
+<dd><a class="anchor" id="_deprecated000012"></a> Attach an HDF5 file as a physical region. The file must already exist. <a class="el" href="namespace_legion.html">Legion</a> will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a387ad10ef63b243e9edbb1c1622fc4e7">Legion::Runtime::create_argument_map</a>  (Context ctx)</dt>
 <dd><a class="anchor" id="_deprecated000008"></a> Create an argument map in the given context. This method is deprecated as argument maps can now be created directly by a simple declaration.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a0ccb642113a2bad26c3b4ec900633d24">Legion::Runtime::create_index_space</a>  (Context ctx, const std::set&lt; Domain &gt; &amp;domains)</dt>
@@ -92,13 +112,13 @@ $(function() {
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#af840cc317084b2faccf5321557755c8e">Legion::Runtime::detach_file</a>  (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region)</dt>
 <dd><a class="anchor" id="_deprecated000015"></a> Detach an normal file. THis detach operation is similar to detach_hdf5  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#ad93bf3b151012fb90aac52137eaf652f">Legion::Runtime::detach_hdf5</a>  (Context ctx, <a class="el" href="class_legion_1_1_physical_region.html">PhysicalRegion</a> region)</dt>
-<dd><a class="anchor" id="_deprecated000013"></a> Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to Legion's deferred execution model.  </dd>
+<dd><a class="anchor" id="_deprecated000013"></a> Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to <a class="el" href="namespace_legion.html">Legion</a>'s deferred execution model.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a7e5e4f0c7a374673017c11c064bae7c3">Legion::Runtime::execute_index_space</a>  (Context ctx, TaskID task_id, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> domain, const std::vector&lt; IndexSpaceRequirement &gt; &amp;indexes, const std::vector&lt; FieldSpaceRequirement &gt; &amp;fields, const std::vector&lt; RegionRequirement &gt; &amp;regions, const <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &amp;global_arg, const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;arg_map, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, bool must_paralleism=false, MapperID id=0, MappingTagID tag=0)</dt>
-<dd><a class="anchor" id="_deprecated000010"></a> An older method for launching an index space of tasks maintained for backwards compatibility with older Legion programs.  </dd>
+<dd><a class="anchor" id="_deprecated000010"></a> An older method for launching an index space of tasks maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a041162c3fe46047c46e9e00a26f75528">Legion::Runtime::execute_index_space</a>  (Context ctx, TaskID task_id, const <a class="el" href="class_legion_1_1_domain.html">Domain</a> domain, const std::vector&lt; IndexSpaceRequirement &gt; &amp;indexes, const std::vector&lt; FieldSpaceRequirement &gt; &amp;fields, const std::vector&lt; RegionRequirement &gt; &amp;regions, const <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &amp;global_arg, const <a class="el" href="class_legion_1_1_argument_map.html">ArgumentMap</a> &amp;arg_map, ReductionOpID reduction, const <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &amp;initial_value, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, bool must_parallelism=false, MapperID id=0, MappingTagID tag=0)</dt>
-<dd><a class="anchor" id="_deprecated000011"></a> An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older Legion programs.  </dd>
+<dd><a class="anchor" id="_deprecated000011"></a> An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a9a607c1fa178a6f1369b4471ec1414b0">Legion::Runtime::execute_task</a>  (Context ctx, TaskID task_id, const std::vector&lt; IndexSpaceRequirement &gt; &amp;indexes, const std::vector&lt; FieldSpaceRequirement &gt; &amp;fields, const std::vector&lt; RegionRequirement &gt; &amp;regions, const <a class="el" href="class_legion_1_1_untyped_buffer.html">UntypedBuffer</a> &amp;arg, const <a class="el" href="class_legion_1_1_predicate.html">Predicate</a> &amp;predicate=Predicate::TRUE_PRED, MapperID id=0, MappingTagID tag=0)</dt>
-<dd><a class="anchor" id="_deprecated000009"></a> An older method for launching a single task maintained for backwards compatibility with older Legion programs.  </dd>
+<dd><a class="anchor" id="_deprecated000009"></a> An older method for launching a single task maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a1afb2c536734219c0f4c8973219c1e1e">Legion::Runtime::get_index_space_domains</a>  (Context ctx, <a class="el" href="class_legion_1_1_index_space.html">IndexSpace</a> handle, std::vector&lt; Domain &gt; &amp;domains)</dt>
 <dd><a class="anchor" id="_deprecated000007"></a> Return the domains that represent the index space. While the previous call only works when there is a single domain for the index space, this call will work in all circumstances.  </dd>
 <dt>Member <a class="el" href="class_legion_1_1_runtime.html#a183d30f63de89ea1f1becf1b3a36fda1">Legion::Runtime::get_tunable_value</a>  (Context ctx, TunableID tid, MapperID mapper=0, MappingTagID tag=0)</dt>
@@ -122,9 +142,12 @@ $(function() {
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['unbind_5fimplicit_5ftask_5ffrom_5fexternal_5fthread_0',['unbind_implicit_task_from_external_thread',['../class_legion_1_1_runtime.html#a3c72c6636df75996f3719961fdea4716',1,'Legion::Runtime']]],
-  ['union_5findex_5fspaces_1',['union_index_spaces',['../class_legion_1_1_runtime.html#a5fa9c3d0b86805de0b4cec84813d0494',1,'Legion::Runtime']]],
-  ['unmap_5fall_5fregions_2',['unmap_all_regions',['../class_legion_1_1_runtime.html#ab27b33e7667fa68655141d7bdc68965e',1,'Legion::Runtime']]],
-  ['unmap_5fregion_3',['unmap_region',['../class_legion_1_1_runtime.html#a4d36874abe2077cd4ea544a357c336b4',1,'Legion::Runtime']]]
+  ['to_5fstring_0',['to_string',['../mapping__utilities_8h.html#a0896c5dee1850ae808c81ca8a2bf9af9',1,'Legion::Mapping::Utilities']]],
+  ['transform_5ffuture_5fmap_1',['transform_future_map',['../class_legion_1_1_runtime.html#acd7f67cb91ca30bbfb5eb802ea4cca5f',1,'Legion::Runtime']]]
 ];

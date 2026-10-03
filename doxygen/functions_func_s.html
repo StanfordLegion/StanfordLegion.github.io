@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_func_s.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -73,9 +93,12 @@ $(function() {
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>safe_cast()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a4184bff14eff459b500fc356da61a63c">Legion::Runtime</a></li>
-<li>select_sharding_functor()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_mapper.html#a1ec41cc5ae62e5be59697171ddb7a117">Legion::Mapping::Mapper</a></li>
+<li>select_sharding_functor()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_default_mapper.html#ad01568ccbce317a38e301acec73118f1">Legion::Mapping::DefaultMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_forwarding_mapper.html#a9f0ea3c491f3636ce9001128986fc4b0">Legion::Mapping::ForwardingMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_logging_wrapper.html#ab74646c179fec4e19160e466b0bb4609">Legion::Mapping::LoggingWrapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_mapper.html#a00c288cd76445e37a0bc6e287e337c2b">Legion::Mapping::Mapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_null_mapper.html#ad61b074ca1d310b9d94f3c98237e9529">Legion::Mapping::NullMapper</a>, <a class="el" href="class_legion_1_1_mapping_1_1_replay_mapper.html#ac9d77e3671777bc03e8725b423f42208">Legion::Mapping::ReplayMapper</a></li>
 <li>select_tunable_value()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a6d3125a143085099dcd60c99a692b5f8">Legion::Runtime</a></li>
+<li>set_gather_in_original_processor()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_mapping_profiler.html#a5dfc3595726ba6512eeae723cce0b8ea">Legion::Mapping::Utilities::MappingProfiler</a></li>
 <li>set_local_task_variable_untyped()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#aa81a5d4b439a2afa8d4d9c1e25848407">Legion::Runtime</a></li>
+<li>set_max_profiling_samples()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_mapping_profiler.html#a5051dbb0586291741fa0690faa5bbb9c">Legion::Mapping::Utilities::MappingProfiler</a></li>
+<li>set_needed_profiling_samples()&#160;:&#160;<a class="el" href="class_legion_1_1_mapping_1_1_utilities_1_1_mapping_profiler.html#a05c549fb463755b90eb3d9ad5986c955">Legion::Mapping::Utilities::MappingProfiler</a></li>
 <li>set_point()&#160;:&#160;<a class="el" href="class_legion_1_1_argument_map.html#a08a106cfb3f8fdf066e4b61012d7d26e">Legion::ArgumentMap</a></li>
 <li>set_point_arg()&#160;:&#160;<a class="el" href="class_legion_1_1_argument_map.html#aad46af49418800c66833e81771c5c414">Legion::ArgumentMap</a></li>
 <li>set_registration_callback()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#af0af3c5c6d3456b11808e9f8e06c5701">Legion::Runtime</a></li>
@@ -87,9 +110,12 @@ $(function() {
 <li>subtract_index_spaces()&#160;:&#160;<a class="el" href="class_legion_1_1_runtime.html#a4cc0b0b0080a4fd9c0e88420f6efbd64">Legion::Runtime</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

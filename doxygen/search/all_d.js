@@ -23,6 +23,7 @@ var searchData=
   ['orreduction_3c_20uint64_5ft_20_3e_20',['OrReduction&lt; uint64_t &gt;',['../class_legion_1_1_or_reduction_3_01uint64__t_01_4.html',1,'Legion']]],
   ['orreduction_3c_20uint8_5ft_20_3e_21',['OrReduction&lt; uint8_t &gt;',['../class_legion_1_1_or_reduction_3_01uint8__t_01_4.html',1,'Legion']]],
   ['out_20of_20order_20execution_22',['Out-of-order Execution',['../class_legion_1_1_runtime.html#autotoc_md99',1,'']]],
-  ['outputregion_23',['OutputRegion',['../class_legion_1_1_output_region.html',1,'Legion']]],
-  ['outputrequirement_24',['OutputRequirement',['../struct_legion_1_1_output_requirement.html',1,'Legion']]]
+  ['output_5fregion_2eh_23',['output_region.h',['../output__region_8h.html',1,'']]],
+  ['outputregion_24',['OutputRegion',['../class_legion_1_1_output_region.html',1,'Legion']]],
+  ['outputrequirement_25',['OutputRequirement',['../struct_legion_1_1_output_requirement.html',1,'Legion']]]
 ];

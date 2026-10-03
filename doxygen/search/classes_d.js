@@ -38,7 +38,10 @@ var searchData=
   ['prodreduction_3c_20uint32_5ft_20_3e_35',['ProdReduction&lt; uint32_t &gt;',['../class_legion_1_1_prod_reduction_3_01uint32__t_01_4.html',1,'Legion']]],
   ['prodreduction_3c_20uint64_5ft_20_3e_36',['ProdReduction&lt; uint64_t &gt;',['../class_legion_1_1_prod_reduction_3_01uint64__t_01_4.html',1,'Legion']]],
   ['prodreduction_3c_20uint8_5ft_20_3e_37',['ProdReduction&lt; uint8_t &gt;',['../class_legion_1_1_prod_reduction_3_01uint8__t_01_4.html',1,'Legion']]],
-  ['profilingrequest_38',['ProfilingRequest',['../class_legion_1_1_mapping_1_1_profiling_request.html',1,'Legion::Mapping']]],
-  ['profilingresponse_39',['ProfilingResponse',['../class_legion_1_1_mapping_1_1_profiling_response.html',1,'Legion::Mapping']]],
-  ['projectionfunctor_40',['ProjectionFunctor',['../class_legion_1_1_projection_functor.html',1,'Legion']]]
+  ['profile_38',['Profile',['../struct_legion_1_1_mapping_1_1_utilities_1_1_mapping_profiler_1_1_profile.html',1,'Legion::Mapping::Utilities::MappingProfiler']]],
+  ['profilingoption_39',['ProfilingOption',['../struct_legion_1_1_mapping_1_1_utilities_1_1_mapping_profiler_1_1_profiling_option.html',1,'Legion::Mapping::Utilities::MappingProfiler']]],
+  ['profilingrequest_40',['ProfilingRequest',['../class_legion_1_1_mapping_1_1_profiling_request.html',1,'Legion::Mapping']]],
+  ['profilingresponse_41',['ProfilingResponse',['../class_legion_1_1_mapping_1_1_profiling_response.html',1,'Legion::Mapping']]],
+  ['profilingsamplemsg_42',['ProfilingSampleMsg',['../struct_legion_1_1_mapping_1_1_default_mapper_1_1_profiling_sample_msg.html',1,'Legion::Mapping::DefaultMapper']]],
+  ['projectionfunctor_43',['ProjectionFunctor',['../class_legion_1_1_projection_functor.html',1,'Legion']]]
 ];

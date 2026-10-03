@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_legion_1_1_runtime.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>Legion</b></li><li class="navelem"><a class="el" href="class_legion_1_1_runtime.html">Runtime</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -1264,7 +1280,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ab0c485bb658d7ac21ce5a24a10159b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> class is the primary interface for Legion. Every task is given a reference to the runtime as part of its arguments. All Legion operations are then performed by directing the runtime to perform them through the methods of this class. The methods in <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> are broken into three categories. The first group of calls are the methods that can be used by application tasks during runtime. The second group contains calls for initializing the runtime during start-up callback. The final section of calls are static methods that are used to configure the runtime prior to starting it up.</p>
+<div class="textblock"><p>The <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> class is the primary interface for <a class="el" href="namespace_legion.html">Legion</a>. Every task is given a reference to the runtime as part of its arguments. All <a class="el" href="namespace_legion.html">Legion</a> operations are then performed by directing the runtime to perform them through the methods of this class. The methods in <a class="el" href="class_legion_1_1_runtime.html">Runtime</a> are broken into three categories. The first group of calls are the methods that can be used by application tasks during runtime. The second group contains calls for initializing the runtime during start-up callback. The final section of calls are static methods that are used to configure the runtime prior to starting it up.</p>
 <p>A note on context free functions: context free functions have equivalent functionality to their non-context-free couterparts. However, context free functions can be safely used in a leaf task while any runtime function that requires a context cannot be used in a leaf task. If your task variant only uses context free functions as part of its implementation then it is safe for you to annotate it as a leaf task variant. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="afe0fc3756bb198fa90172817b6c159a5" name="afe0fc3756bb198fa90172817b6c159a5"></a>
@@ -1415,7 +1431,7 @@ Protected Member Functions</h2></td></tr>
     <tr><td class="paramname">callback</td><td>function pointer to the callback function to be run </td></tr>
     <tr><td class="paramname">buffer</td><td>optional argument buffer to pass to the callback </td></tr>
     <tr><td class="paramname">dedup</td><td>whether to deduplicate this with other registration callbacks for the same function </td></tr>
-    <tr><td class="paramname">dedup_tag</td><td>a tag to use for deduplication in the case where applications may want to deduplicate across multiple callbacks with the same function pointer </td></tr>
+    <tr><td class="paramname">dedup_tag</td><td>tag to include in the deduplication key; callbacks with the same function and tag are deduplicated, while callbacks with different tags are treated as distinct </td></tr>
   </table>
   </dd>
 </dl>
@@ -1798,7 +1814,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>Attach an HDF5 file as a physical region. The file must already exist. Legion will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>Attach an HDF5 file as a physical region. The file must already exist. <a class="el" href="namespace_legion.html">Legion</a> will defer the attach operation until all other operations on the logical region are finished. After the attach operation succeeds, then all other physical instances for the logical region will be invalidated, making the physical instance the only valid version of the logical region. The resulting physical instance is attached with restricted coherence (the same as logical regions mapped with simultaneous coherence). All operations using the logical region will be required to use the physical instance until the restricted coherence is removed using an acquire operation. The restricted coherence can be reinstated by performing a release operation. Just like other physical regions, the HDF5 file can be both mapped and unmapped after it is created. The runtime will report an error for an attempt to attach an file to a logical region which is already mapped in the enclosing parent task's context. The runtime will also report an error if the task launching the attach operation does not have the necessary privileges (read-write) on the logical region. The resulting physical region is unmapped, but can be mapped using the standard inline mapping calls. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -2826,7 +2842,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Configre the runtime for interoperability with MPI. This call should be made once in each MPI process before invoking the 'start' function when running Legion within the same process as MPI. As a result of this call the 'find_forward_MPI_mapping' and 'find_reverse_MPI_mapping' methods on a runtime instance will return a map which associates an AddressSpace with each MPI rank. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Configre the runtime for interoperability with MPI. This call should be made once in each MPI process before invoking the 'start' function when running <a class="el" href="namespace_legion.html">Legion</a> within the same process as MPI. As a result of this call the 'find_forward_MPI_mapping' and 'find_reverse_MPI_mapping' methods on a runtime instance will return a map which associates an AddressSpace with each MPI rank. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rank</td><td>the integer naming this MPI rank </td></tr>
   </table>
@@ -3318,11 +3334,11 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create a handshake object for exchanging control between an external application and Legion. We make this a static method so that it can be created before the Legion runtime is initialized. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Create a handshake object for exchanging control between an external application and <a class="el" href="namespace_legion.html">Legion</a>. We make this a static method so that it can be created before the <a class="el" href="namespace_legion.html">Legion</a> runtime is initialized. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">init_in_ext</td><td>who owns initial control of the handshake, by default it is the external application </td></tr>
-    <tr><td class="paramname">ext_participants</td><td>number of calls that need to be made to the handshake to pass control from the external application to Legion </td></tr>
-    <tr><td class="paramname">legion_participants</td><td>number of calls that need to be made to the handshake to pass control from Legion to the external application </td></tr>
+    <tr><td class="paramname">ext_participants</td><td>number of calls that need to be made to the handshake to pass control from the external application to <a class="el" href="namespace_legion.html">Legion</a> </td></tr>
+    <tr><td class="paramname">legion_participants</td><td>number of calls that need to be made to the handshake to pass control from <a class="el" href="namespace_legion.html">Legion</a> to the external application </td></tr>
   </table>
   </dd>
 </dl>
@@ -3554,11 +3570,11 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create a handshake object for exchanging control between MPI and Legion. We make this a static method so that it can be created before the Legion runtime is initialized. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Create a handshake object for exchanging control between MPI and <a class="el" href="namespace_legion.html">Legion</a>. We make this a static method so that it can be created before the <a class="el" href="namespace_legion.html">Legion</a> runtime is initialized. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">init_in_MPI</td><td>who owns initial control of the handshake, by default it is MPI </td></tr>
-    <tr><td class="paramname">mpi_participants</td><td>number of calls that need to be made to the handshake to pass control from MPI to Legion </td></tr>
-    <tr><td class="paramname">legion_participants</td><td>number of calls that need to be made to the handshake to pass control from Legion to MPI </td></tr>
+    <tr><td class="paramname">mpi_participants</td><td>number of calls that need to be made to the handshake to pass control from MPI to <a class="el" href="namespace_legion.html">Legion</a> </td></tr>
+    <tr><td class="paramname">legion_participants</td><td>number of calls that need to be made to the handshake to pass control from <a class="el" href="namespace_legion.html">Legion</a> to MPI </td></tr>
   </table>
   </dd>
 </dl>
@@ -3608,13 +3624,13 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create a new top-level index space based on the given domain bounds If the bounds contains a Realm index space then Legion will take ownership of any sparsity maps. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Create a new top-level index space based on the given domain bounds If the bounds contains a Realm index space then <a class="el" href="namespace_legion.html">Legion</a> will take ownership of any sparsity maps. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
     <tr><td class="paramname">bounds</td><td>the bounds for the new index space </td></tr>
     <tr><td class="paramname">type_tag</td><td>optional type tag to use for the index space </td></tr>
     <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this index space </td></tr>
-    <tr><td class="paramname">take_ownership</td><td>whether Legion should take ownership of the sparsity map or not, if not then Legion will add its own reference </td></tr>
+    <tr><td class="paramname">take_ownership</td><td>whether <a class="el" href="namespace_legion.html">Legion</a> should take ownership of the sparsity map or not, if not then <a class="el" href="namespace_legion.html">Legion</a> will add its own reference </td></tr>
   </table>
   </dd>
 </dl>
@@ -3788,7 +3804,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create a new top-level index space from a future which contains a <a class="el" href="class_legion_1_1_domain.html">Domain</a> object. If the <a class="el" href="class_legion_1_1_domain.html">Domain</a> conaints a Realm index space then Legion will take ownership of any sparsity maps. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Create a new top-level index space from a future which contains a <a class="el" href="class_legion_1_1_domain.html">Domain</a> object. If the <a class="el" href="class_legion_1_1_domain.html">Domain</a> conaints a Realm index space then <a class="el" href="namespace_legion.html">Legion</a> will take ownership of any sparsity maps. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the enclosing task context </td></tr>
     <tr><td class="paramname">dimensions</td><td>number of dimensions for the created space </td></tr>
@@ -4566,7 +4582,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
     <tr><td class="paramname">part_kind</td><td>specify the partition kind or ask to compute it </td></tr>
     <tr><td class="paramname">color</td><td>the color of the result of the partition </td></tr>
     <tr><td class="paramname">provenance</td><td>an optional string describing the provenance information for this operation </td></tr>
-    <tr><td class="paramname">take_ownership</td><td>whether Legion should take ownership of the domains or not </td></tr>
+    <tr><td class="paramname">take_ownership</td><td>whether <a class="el" href="namespace_legion.html">Legion</a> should take ownership of the domains or not </td></tr>
   </table>
   </dd>
 </dl>
@@ -6330,7 +6346,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to Legion's deferred execution model. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>Detach an HDF5 file. This can only be performed on a physical region that was created by calling attach_hdf5. The runtime will properly defer the detach call until all other operations on the logical region are complete. It is the responsibility of the user to perform the necessary operations to flush any data back to the physical instance before detaching (e.g. releasing coherence, etc). If the physical region is still mapped when this function is called, then it will be unmapped by this call. Note that this file may not actually get detached until much later in the execution of the program due to <a class="el" href="namespace_legion.html">Legion</a>'s deferred execution model. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -6727,7 +6743,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks maintained for backwards compatibility with older Legion programs. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -6846,7 +6862,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older Legion programs. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>An older method for launching an index space of tasks that reduce all of their values by a reduction operation down to a single future. Maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -7009,7 +7025,7 @@ template&lt;typename COORD_T  = coord_t&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>An older method for launching a single task maintained for backwards compatibility with older Legion programs. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>An older method for launching a single task maintained for backwards compatibility with older <a class="el" href="namespace_legion.html">Legion</a> programs. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
@@ -7529,7 +7545,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return the local MPI rank ID for the current Legion runtime </p>
+<p>Return the local MPI rank ID for the current <a class="el" href="namespace_legion.html">Legion</a> runtime </p>
 
 </div>
 </div>
@@ -7577,7 +7593,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is the final method for marking the end of an implicit top-level task. If there are any asynchronous effects that were launched during the implicit top-level task (such as a CUDA kernel launch) then users are required to capture all those effects as a Realm event to tell Legion when all those effects are completed. Finishing an implicit top-level task still requires waiting explicitly for the runtime to shutdown. The Context object is no longer valid after this call. </p>
+<p>This is the final method for marking the end of an implicit top-level task. If there are any asynchronous effects that were launched during the implicit top-level task (such as a CUDA kernel launch) then users are required to capture all those effects as a Realm event to tell <a class="el" href="namespace_legion.html">Legion</a> when all those effects are completed. Finishing an implicit top-level task still requires waiting explicitly for the runtime to shutdown. The Context object is no longer valid after this call. </p>
 
 </div>
 </div>
@@ -8375,7 +8391,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get the context for the currently executing task this must be called inside of an actual Legion task. Calling it outside of a Legion task will result in undefined behavior </p><dl class="section return"><dt>Returns</dt><dd>the context for the enclosing task in which we are executing </dd></dl>
+<p>Get the context for the currently executing task this must be called inside of an actual <a class="el" href="namespace_legion.html">Legion</a> task. Calling it outside of a <a class="el" href="namespace_legion.html">Legion</a> task will result in undefined behavior </p><dl class="section return"><dt>Returns</dt><dd>the context for the enclosing task in which we are executing </dd></dl>
 
 </div>
 </div>
@@ -9310,7 +9326,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return a string representing the Legion version. This string can be compared in application code against the LEGION_VERSION macro defined by <a class="el" href="legion_8h.html">legion.h</a> to detect header/library mismatches. </p>
+<p>Return a string representing the <a class="el" href="namespace_legion.html">Legion</a> version. This string can be compared in application code against the LEGION_VERSION macro defined by <a class="el" href="legion_8h.html">legion.h</a> to detect header/library mismatches. </p>
 
 </div>
 </div>
@@ -9777,7 +9793,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the mapper runtime for passing to a newly created mapper. </p><dl class="section return"><dt>Returns</dt><dd>a pointer to the mapper runtime for this Legion instance </dd></dl>
+<p>Get the mapper runtime for passing to a newly created mapper. </p><dl class="section return"><dt>Returns</dt><dd>a pointer to the mapper runtime for this <a class="el" href="namespace_legion.html">Legion</a> instance </dd></dl>
 
 </div>
 </div>
@@ -9804,7 +9820,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the maximum number of dimensions that Legion was configured to support in this build. </p><dl class="section return"><dt>Returns</dt><dd>the maximum number of dimensions that Legion supports </dd></dl>
+<p>Return the maximum number of dimensions that <a class="el" href="namespace_legion.html">Legion</a> was configured to support in this build. </p><dl class="section return"><dt>Returns</dt><dd>the maximum number of dimensions that <a class="el" href="namespace_legion.html">Legion</a> supports </dd></dl>
 
 </div>
 </div>
@@ -10154,13 +10170,13 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Provide a mechanism for finding the Legion runtime pointer for a processor wrapper tasks that are starting a new application level task. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Provide a mechanism for finding the <a class="el" href="namespace_legion.html">Legion</a> runtime pointer for a processor wrapper tasks that are starting a new application level task. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">processor</td><td>the task will run on </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the Legion runtime pointer for the specified processor </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="namespace_legion.html">Legion</a> runtime pointer for the specified processor </dd></dl>
 
 </div>
 </div>
@@ -10294,7 +10310,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the base time in nanoseconds on THIS node with which all other aboslute timings can be compared. This value will not change during the course of the lifetime of a Legion application and may therefore be safely cached. </p>
+<p>Return the base time in nanoseconds on THIS node with which all other aboslute timings can be compared. This value will not change during the course of the lifetime of a <a class="el" href="namespace_legion.html">Legion</a> application and may therefore be safely cached. </p>
 
 </div>
 </div>
@@ -10321,7 +10337,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Test whether we are inside of a Legion task and therefore have a context available. This can be used to see if it is safe to call '<a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">Runtime::get_context</a>'. </p><dl class="section return"><dt>Returns</dt><dd>boolean indicating if we are inside of a Legion task </dd></dl>
+<p>Test whether we are inside of a <a class="el" href="namespace_legion.html">Legion</a> task and therefore have a context available. This can be used to see if it is safe to call '<a class="el" href="class_legion_1_1_runtime.html#a0ae1696024e39fb7afc5ed87797ad8ff">Runtime::get_context</a>'. </p><dl class="section return"><dt>Returns</dt><dd>boolean indicating if we are inside of a <a class="el" href="namespace_legion.html">Legion</a> task </dd></dl>
 
 </div>
 </div>
@@ -10629,7 +10645,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Provide a method to test whether the Legion runtime has been started yet or not. Note that this method simply queries at a single point in time and can race with a call to <a class="el" href="class_legion_1_1_runtime.html#af061eb24e7a642912907f07a2faeb823">Runtime::start</a> performed by a different thread. </p>
+<p>Provide a method to test whether the <a class="el" href="namespace_legion.html">Legion</a> runtime has been started yet or not. Note that this method simply queries at a single point in time and can race with a call to <a class="el" href="class_legion_1_1_runtime.html#af061eb24e7a642912907f07a2faeb823">Runtime::start</a> performed by a different thread. </p>
 
 </div>
 </div>
@@ -10690,7 +10706,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This 'initialize' method is an optional method that provides users a way to look at the command line arguments before they actually start the Legion runtime. Users will still need to call 'start' in order to actually start the Legion runtime but this way they can do some static initialization and use their own command line parameters to initialize the runtime prior to actually starting it. The resulting 'argc' and 'argv' should be passed into the 'start' method or undefined behavior will occur. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This 'initialize' method is an optional method that provides users a way to look at the command line arguments before they actually start the <a class="el" href="namespace_legion.html">Legion</a> runtime. Users will still need to call 'start' in order to actually start the <a class="el" href="namespace_legion.html">Legion</a> runtime but this way they can do some static initialization and use their own command line parameters to initialize the runtime prior to actually starting it. The resulting 'argc' and 'argv' should be passed into the 'start' method or undefined behavior will occur. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">argc</td><td>pointer to an integer in which to store the argument count </td></tr>
     <tr><td class="paramname">argv</td><td>pointer to array of strings for storing command line args </td></tr>
@@ -10964,7 +10980,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Issue a Legion execution fence in the current context. A Legion execution fence guarantees that all of the tasks issued in the context prior to the fence will finish running before the tasks after the fence begin to map. This will allow the necessary propagation of Legion meta-data such as modifications to the region tree made prior to the fence visible to tasks issued after the fence. </p>
+<p>Issue a <a class="el" href="namespace_legion.html">Legion</a> execution fence in the current context. A <a class="el" href="namespace_legion.html">Legion</a> execution fence guarantees that all of the tasks issued in the context prior to the fence will finish running before the tasks after the fence begin to map. This will allow the necessary propagation of <a class="el" href="namespace_legion.html">Legion</a> meta-data such as modifications to the region tree made prior to the fence visible to tasks issued after the fence. </p>
 
 </div>
 </div>
@@ -10993,7 +11009,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Issue a Legion mapping fence in the current context. A Legion mapping fence guarantees that all of the tasks issued in the context prior to the fence will finish mapping before the tasks after the fence begin to map. This can be useful as a performance optimization to minimize the number of mapping independence tests required. </p>
+<p>Issue a <a class="el" href="namespace_legion.html">Legion</a> mapping fence in the current context. A <a class="el" href="namespace_legion.html">Legion</a> mapping fence guarantees that all of the tasks issued in the context prior to the fence will finish mapping before the tasks after the fence begin to map. This can be useful as a performance optimization to minimize the number of mapping independence tests required. </p>
 
 </div>
 </div>
@@ -11070,7 +11086,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>After the runtime is started, users can launch as many top-level tasks as they want using this method. Each one will start a new top-level task and returns values with a future. Currently we only permit this to be called from threads not managed by Legion. </p>
+<p>After the runtime is started, users can launch as many top-level tasks as they want using this method. Each one will start a new top-level task and returns values with a future. Currently we only permit this to be called from threads not managed by <a class="el" href="namespace_legion.html">Legion</a>. </p>
 
 </div>
 </div>
@@ -11125,11 +11141,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This is a special variant of Legion task postamble for returning a <a class="el" href="class_legion_1_1_domain.html">Domain</a> as a value from a task. Clients can specify whether Legion should take ownership of the sparsity map of the domain or not. If not, then Legion will add its own reference to keep the sparsity map for the domain alive if necessary. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This is a special variant of <a class="el" href="namespace_legion.html">Legion</a> task postamble for returning a <a class="el" href="class_legion_1_1_domain.html">Domain</a> as a value from a task. Clients can specify whether <a class="el" href="namespace_legion.html">Legion</a> should take ownership of the sparsity map of the domain or not. If not, then <a class="el" href="namespace_legion.html">Legion</a> will add its own reference to keep the sparsity map for the domain alive if necessary. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
     <tr><td class="paramname">domain</td><td>the domain to return as a reuslt </td></tr>
-    <tr><td class="paramname">take_ownership</td><td>whether Legion takes ownership of the domain </td></tr>
+    <tr><td class="paramname">take_ownership</td><td>whether <a class="el" href="namespace_legion.html">Legion</a> takes ownership of the domain </td></tr>
     <tr><td class="paramname">metadataptr</td><td>a pointer to host memory that contains metadata for the future. The runtime will always make a copy of this data if it is not nullptr. </td></tr>
     <tr><td class="paramname">metadatasize</td><td>the size of the metadata buffer if non-nullptr </td></tr>
   </table>
@@ -11207,7 +11223,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This variant of the Legion task postamble allows clients to return data in arbitrary memory locations as a future result. Realm::ExternalInstanceResource objects provide ways of describing all kinds of external allocations that Legion can understand </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This variant of the <a class="el" href="namespace_legion.html">Legion</a> task postamble allows clients to return data in arbitrary memory locations as a future result. Realm::ExternalInstanceResource objects provide ways of describing all kinds of external allocations that <a class="el" href="namespace_legion.html">Legion</a> can understand </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
     <tr><td class="paramname">retvalptr</td><td>raw pointer for the allocation (can be nullptr) </td></tr>
@@ -11292,7 +11308,7 @@ template&lt;typename T &gt; </div>
     <tr><td class="paramname">retvalptr</td><td>pointer to the return value </td></tr>
     <tr><td class="paramname">retvalsize</td><td>the size of the return value in bytes </td></tr>
     <tr><td class="paramname">owned</td><td>whether the runtime takes ownership of this result </td></tr>
-    <tr><td class="paramname">inst</td><td>optional Realm instance containing the data that Legion should take ownership of </td></tr>
+    <tr><td class="paramname">inst</td><td>optional Realm instance containing the data that <a class="el" href="namespace_legion.html">Legion</a> should take ownership of </td></tr>
     <tr><td class="paramname">metadataptr</td><td>a pointer to host memory that contains metadata for the future. The runtime will always make a copy of this data if it is not nullptr. </td></tr>
     <tr><td class="paramname">metadatasize</td><td>the size of the metadata buffer if non-nullptr </td></tr>
   </table>
@@ -11340,11 +11356,11 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This variant of the Legion task postamble allows users to pass in a future functor object to serve as a callback interface for Legion to query so that it is only invoked in the case where futures actually need to be serialized. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This variant of the <a class="el" href="namespace_legion.html">Legion</a> task postamble allows users to pass in a future functor object to serve as a callback interface for <a class="el" href="namespace_legion.html">Legion</a> to query so that it is only invoked in the case where futures actually need to be serialized. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>the context for the task </td></tr>
     <tr><td class="paramname">callback_functor</td><td>pointer to the callback object </td></tr>
-    <tr><td class="paramname">owned</td><td>whether Legion should take ownership of the object </td></tr>
+    <tr><td class="paramname">owned</td><td>whether <a class="el" href="namespace_legion.html">Legion</a> should take ownership of the object </td></tr>
   </table>
   </dd>
 </dl>
@@ -11414,7 +11430,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This is the necessary preamble call to use when registering a task variant with an explicit CodeDescriptor. It takes the base Realm task arguments and will return the equivalent Legion task arguments from the runtime. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This is the necessary preamble call to use when registering a task variant with an explicit CodeDescriptor. It takes the base Realm task arguments and will return the equivalent <a class="el" href="namespace_legion.html">Legion</a> task arguments from the runtime. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>pointer to the Realm task data </td></tr>
     <tr><td class="paramname">datalen</td><td>size of the Realm task data in bytes </td></tr>
@@ -11660,13 +11676,13 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This call allows applications to request a registration callback be performed after the runtime has started. The application can select whether this registration is performed locally (e.g. once on the local node) or globally across all nodes in the machine. The method will not return until the registration has been performed on all the target address spaces. All function pointers passed into this method with 'global' set to true must "portable", meaning that we can lookup their shared object name and symbol name. This means they either need to originate with a shared object or the binary must be linked with '-rdynamic'. It's up the user to guarantee this or Legion will raise an error about a non-portable function pointer. For any given function pointer all calls must be made with the same value of 'global' or hangs can occur. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This call allows applications to request a registration callback be performed after the runtime has started. The application can select whether this registration is performed locally (e.g. once on the local node) or globally across all nodes in the machine. The method will not return until the registration has been performed on all the target address spaces. All function pointers passed into this method with 'global' set to true must "portable", meaning that we can lookup their shared object name and symbol name. This means they either need to originate with a shared object or the binary must be linked with '-rdynamic'. It's up the user to guarantee this or <a class="el" href="namespace_legion.html">Legion</a> will raise an error about a non-portable function pointer. For any given function pointer all calls must be made with the same value of 'global' or hangs can occur. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>enclosing task context </td></tr>
     <tr><td class="paramname">global</td><td>whether this registration needs to be performed in all address spaces or just the local one </td></tr>
     <tr><td class="paramname">buffer</td><td>optional buffer of data to pass to callback </td></tr>
     <tr><td class="paramname">dedup</td><td>whether to deduplicate this with other registration callbacks for the same function </td></tr>
-    <tr><td class="paramname">dedup_tag</td><td>a tag to use for deduplication in the case where applications may want to deduplicate across multiple callbacks with the same function pointer </td></tr>
+    <tr><td class="paramname">dedup_tag</td><td>tag to include in the deduplication key; callbacks with the same function and tag are deduplicated, while callbacks with different tags are treated as distinct </td></tr>
   </table>
   </dd>
 </dl>
@@ -12589,7 +12605,7 @@ template&lt;typename UDT , void(*)(const <a class="el" href="class_legion_1_1_ta
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Record an asynchronous completion effect for this task. An "asynchronous effect" can be whatever you want it to be as long as Realm permits you to make an event for it. For example it could be a CUDA event or a CUDA stream that you have converted to a Realm event and you want to make sure any asynchronous GPU work represented by one of those primitives is reflected in the completion of this task eventhough you're going to exit the host-side execution of this task before it is finished. Legion will make sure this event is reflected in the complete of the task meaning the task won't be considered done until all its effects are done as well. You technically don't have to use this API for correctness; you can invoke the Realm version of this API directly as well, but it will not work with implicit top-level tasks and you also will not get support for analyzing these efffects as part of Legion's critical path infrastructure without using it. </p>
+<p>Record an asynchronous completion effect for this task. An "asynchronous effect" can be whatever you want it to be as long as Realm permits you to make an event for it. For example it could be a CUDA event or a CUDA stream that you have converted to a Realm event and you want to make sure any asynchronous GPU work represented by one of those primitives is reflected in the completion of this task eventhough you're going to exit the host-side execution of this task before it is finished. <a class="el" href="namespace_legion.html">Legion</a> will make sure this event is reflected in the complete of the task meaning the task won't be considered done until all its effects are done as well. You technically don't have to use this API for correctness; you can invoke the Realm version of this API directly as well, but it will not work with implicit top-level tasks and you also will not get support for analyzing these efffects as part of <a class="el" href="namespace_legion.html">Legion</a>'s critical path infrastructure without using it. </p>
 
 </div>
 </div>
@@ -14795,7 +14811,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Similar to Legion's ancestral predecessor Sequoia, Legion supports tunable variables which are integers supplied by the mapper for individual task contexts. The idea is that there are some parameters which should be considered parameters determined by the underlying hardware. To make these parameters explicit, we express them as tunables which are filled in at runtime by mapper objects. This method will return asynchronously with a future that will be set once the mapper fills in the value for the future. It is the responsibility of the application to maintain consistency on the expected types for a given tunable between the application and the mapper. </p>
+<p>Similar to <a class="el" href="namespace_legion.html">Legion</a>'s ancestral predecessor Sequoia, <a class="el" href="namespace_legion.html">Legion</a> supports tunable variables which are integers supplied by the mapper for individual task contexts. The idea is that there are some parameters which should be considered parameters determined by the underlying hardware. To make these parameters explicit, we express them as tunables which are filled in at runtime by mapper objects. This method will return asynchronously with a future that will be set once the mapper fills in the value for the future. It is the responsibility of the application to maintain consistency on the expected types for a given tunable between the application and the mapper. </p>
 
 </div>
 </div>
@@ -14904,7 +14920,7 @@ template&lt;int DIM, typename COORD_T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Set the return code for the application from Legion. This will be returned as the result from 'start' or 'wait_for_shutdown'. The default is zero. If multiple non-zero values are set then at least one of the non-zero values will be returned. </p>
+<p>Set the return code for the application from <a class="el" href="namespace_legion.html">Legion</a>. This will be returned as the result from 'start' or 'wait_for_shutdown'. The default is zero. If multiple non-zero values are set then at least one of the non-zero values will be returned. </p>
 
 </div>
 </div>
@@ -15045,7 +15061,7 @@ Out-of-order Execution</h2>
 permitting the next operation to start.</h2>
 <h2><a class="anchor" id="autotoc_md101"></a>
 Messaging</h2>
-<p>-lg:message &lt;int&gt; Maximum size in bytes of the active messages to be sent between instances of the Legion runtime. This can help avoid the use of expensive per-pair-of-node RDMA buffers in the low-level runtime. Default value is 4K which should guarantee </p>
+<p>-lg:message &lt;int&gt; Maximum size in bytes of the active messages to be sent between instances of the <a class="el" href="namespace_legion.html">Legion</a> runtime. This can help avoid the use of expensive per-pair-of-node RDMA buffers in the low-level runtime. Default value is 4K which should guarantee </p>
 <h2><a class="anchor" id="autotoc_md102"></a>
 medium sized active messages on Infiniband clusters.</h2>
 <h2><a class="anchor" id="autotoc_md103"></a>
@@ -15055,7 +15071,7 @@ Configuration Flags</h2>
 permitted in any field space within a context.</h2>
 <h2><a class="anchor" id="autotoc_md105"></a>
 Tracing</h2>
-<p>-lg:no_tracing Disable execution with tracing of any kind. All calls to begin and end traces will be ignored. -lg:no_physical_tracing Disable physical tracing. All calls to begin and end traces will only be performed with regards to logical dependence analysis. -lg:no_auto_tracing Disable auto-tracing by default so that Legion is not trying to find traces inside tasks. Mappers can still override this default value and set it to true to opt-in to auto-tracing -lg:no_trace_optimization Turn off all trace optimizations -lg:no_fence_elision Turn off the fence elision optimization that improves the performance of back-to-back idempotent trace replays -lg:no_transitive_reduction Turn off the transitive reduction </p>
+<p>-lg:no_tracing Disable execution with tracing of any kind. All calls to begin and end traces will be ignored. -lg:no_physical_tracing Disable physical tracing. All calls to begin and end traces will only be performed with regards to logical dependence analysis. -lg:no_auto_tracing Disable auto-tracing by default so that <a class="el" href="namespace_legion.html">Legion</a> is not trying to find traces inside tasks. Mappers can still override this default value and set it to true to opt-in to auto-tracing -lg:no_trace_optimization Turn off all trace optimizations -lg:no_fence_elision Turn off the fence elision optimization that improves the performance of back-to-back idempotent trace replays -lg:no_transitive_reduction Turn off the transitive reduction </p>
 <h2><a class="anchor" id="autotoc_md106"></a>
 optimization that is performed on captured traces</h2>
 <h2><a class="anchor" id="autotoc_md107"></a>
@@ -15065,12 +15081,12 @@ Resiliency</h2>
 operations commit using the next two flags.</h2>
 <h2><a class="anchor" id="autotoc_md109"></a>
 Debugging</h2>
-<p>-lg:warn Enable all verbose runtime warnings -lg:warn_backtrace Print a backtrace for each warning -lg:werror Promote all legion warnings into errors -lg:leaks Report information about resource leaks -lg:ldb &lt;replay_file&gt; Replay the execution of the application with the associated replay file generted by LegionSpy. This will run the application in the Legion debugger. -lg:replay &lt;replay_file&gt; Rerun the execution of the application with the associated replay file generated by LegionSpy. -lg:disjointness Verify the specified disjointness of partitioning operations. This flag is now a synonym for -lg:partcheck -lg:partcheck This flag will ask the runtime to dynamically verify that all correctness properties for partitions are upheld. This includes checking that the parent region dominates all subregions and that all annotations of disjointness and completeness from the user are correct. This is an expensive test and users should expect a significant slow-down of their application when using it. -lg:registration Record the mapping from Realm task IDs to task variant names for debugging Realm runtime error messages. -lg:test Replace the default mapper with the test mapper which will generate sound but random mapping decision in order to stress-test the runtime. -lg:delay &lt;sec&gt; Delay the start of the runtime by 'sec' seconds. This is often useful for attaching debuggers on </p>
+<p>-lg:warn Enable all verbose runtime warnings -lg:warn_backtrace Print a backtrace for each warning -lg:werror Promote all legion warnings into errors -lg:leaks Report information about resource leaks -lg:ldb &lt;replay_file&gt; Replay the execution of the application with the associated replay file generted by LegionSpy. This will run the application in the <a class="el" href="namespace_legion.html">Legion</a> debugger. -lg:replay &lt;replay_file&gt; Rerun the execution of the application with the associated replay file generated by LegionSpy. -lg:disjointness Verify the specified disjointness of partitioning operations. This flag is now a synonym for -lg:partcheck -lg:partcheck This flag will ask the runtime to dynamically verify that all correctness properties for partitions are upheld. This includes checking that the parent region dominates all subregions and that all annotations of disjointness and completeness from the user are correct. This is an expensive test and users should expect a significant slow-down of their application when using it. -lg:registration Record the mapping from Realm task IDs to task variant names for debugging Realm runtime error messages. -lg:test Replace the default mapper with the test mapper which will generate sound but random mapping decision in order to stress-test the runtime. -lg:delay &lt;sec&gt; Delay the start of the runtime by 'sec' seconds. This is often useful for attaching debuggers on </p>
 <h2><a class="anchor" id="autotoc_md110"></a>
 one or more nodes prior to an application beginning.</h2>
 <h2><a class="anchor" id="autotoc_md111"></a>
 Profiling</h2>
-<p>-lg:spy &lt;int&gt; Enable Legion Spy logging for off-load postprocessing by the Legion Spy script. Legion Spy is valuable for understanding properties of an application such as the shapes of region trees and the kinds of tasks/operations that are created. Formal verification of the Legion runtime can also be performed. Different logging levels are required for different properites. Level 0: No logging. Level 1: Light-weight logging sufficient for generating pictures of execution graphs and region trees Level 2: Heavy-weight logging needed for formal verification of the runtime itself but will not require any Legion Spy emulation. Level 3: Logging of equivalence sets for analysis of how well the runtime heurisitics for dependence analysis are working. -lg:prof &lt;int&gt; Specify the number of nodes on which to enable profiling information to be collected. By default all nodes are disabled. Zero will disable all profiling while each number greater than zero will profile on that number of nodes. -lg:serializer &lt;string&gt; Specify the kind of serializer to use: 'ascii' or 'binary'. The default is 'binary'. -lg:prof_logfile &lt;filename&gt; If using a binary serializer the name of the output file to write to. -lg:prof_footprint &lt;int&gt; The maximum goal size of Legion Prof footprint during runtime in MBs. If the total data captured by the profiler exceeds this footprint, the runtime will begin dumping data out to the output file in a minimally invasive way while the application is still running. The default is 512 (MB). -lg:prof_latency &lt;int&gt; The goal latency in microseconds of intermediate profiling tasks to be writing to output files if the maximum footprint size is exceeded. This allows control over the granularity so they can be made small enough to interleave with other runtime work. The default is 100 (us). -lg:prof_call_threshold &lt;int&gt; The minimum size of runtime and mapper calls in order for them to be logged by the profiler in microseconds. All runtime and mapper calls that are less than this threshold will be discarded and will not be recorded in the profiling logs. The default value is 1 (us) so all calls that take less than 1 us are elided. -lg:prof_self Perform self-profiling so that the profiling response meta-tasks are also recorded in the profile. In general these are tiny and not worth profiling, but you might still want to see them. They are not recorded by default. -lg:prof_critical_paths Enable critical path logging which will capture Realm event graph structures. This may add 50% overhead to execution and increase profile log sizes by a multiplicative factor. -lg:prof_no_critical_paths Disable logging for performing critial path analysis as it is can greatly increase the size of the Legion Prof log files</p>
+<p>-lg:spy &lt;int&gt; Enable <a class="el" href="namespace_legion.html">Legion</a> Spy logging for off-load postprocessing by the <a class="el" href="namespace_legion.html">Legion</a> Spy script. <a class="el" href="namespace_legion.html">Legion</a> Spy is valuable for understanding properties of an application such as the shapes of region trees and the kinds of tasks/operations that are created. Formal verification of the <a class="el" href="namespace_legion.html">Legion</a> runtime can also be performed. Different logging levels are required for different properites. Level 0: No logging. Level 1: Light-weight logging sufficient for generating pictures of execution graphs and region trees Level 2: Heavy-weight logging needed for formal verification of the runtime itself but will not require any <a class="el" href="namespace_legion.html">Legion</a> Spy emulation. Level 3: Logging of equivalence sets for analysis of how well the runtime heurisitics for dependence analysis are working. -lg:prof &lt;int&gt; Specify the number of nodes on which to enable profiling information to be collected. By default all nodes are disabled. Zero will disable all profiling while each number greater than zero will profile on that number of nodes. -lg:serializer &lt;string&gt; Specify the kind of serializer to use: 'ascii' or 'binary'. The default is 'binary'. -lg:prof_logfile &lt;filename&gt; If using a binary serializer the name of the output file to write to. -lg:prof_footprint &lt;int&gt; The maximum goal size of <a class="el" href="namespace_legion.html">Legion</a> Prof footprint during runtime in MBs. If the total data captured by the profiler exceeds this footprint, the runtime will begin dumping data out to the output file in a minimally invasive way while the application is still running. The default is 512 (MB). -lg:prof_latency &lt;int&gt; The goal latency in microseconds of intermediate profiling tasks to be writing to output files if the maximum footprint size is exceeded. This allows control over the granularity so they can be made small enough to interleave with other runtime work. The default is 100 (us). -lg:prof_call_threshold &lt;int&gt; The minimum size of runtime and mapper calls in order for them to be logged by the profiler in microseconds. All runtime and mapper calls that are less than this threshold will be discarded and will not be recorded in the profiling logs. The default value is 1 (us) so all calls that take less than 1 us are elided. -lg:prof_self Perform self-profiling so that the profiling response meta-tasks are also recorded in the profile. In general these are tiny and not worth profiling, but you might still want to see them. They are not recorded by default. -lg:prof_critical_paths Enable critical path logging which will capture Realm event graph structures. This may add 50% overhead to execution and increase profile log sizes by a multiplicative factor. -lg:prof_no_critical_paths Disable logging for performing critial path analysis as it is can greatly increase the size of the <a class="el" href="namespace_legion.html">Legion</a> Prof log files</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">argc</td><td>the number of input arguments </td></tr>
@@ -15079,7 +15095,7 @@ Profiling</h2>
     <tr><td class="paramname">supply_default_mapper</td><td>whether the runtime should initialize the default mapper for use by the application </td></tr>
     <tr><td class="paramname">filter</td><td>filter legion and realm command line arguments </td></tr>
     <tr><td class="paramname">realm_initialize_network</td><td>invoke Realm's network initialization </td></tr>
-    <tr><td class="paramname">realm_configure_machine</td><td>finish configuring the Realm machine model from the command line if not previously configured. If you set this to false then you must ensure that the Realm machine model is fully configured before invoking the Legion start method. </td></tr>
+    <tr><td class="paramname">realm_configure_machine</td><td>finish configuring the Realm machine model from the command line if not previously configured. If you set this to false then you must ensure that the Realm machine model is fully configured before invoking the <a class="el" href="namespace_legion.html">Legion</a> start method. </td></tr>
   </table>
   </dd>
 </dl>
@@ -15379,7 +15395,7 @@ Profiling</h2>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Yield the task to allow other tasks on the processor. In most Legion programs calling this should never be necessary. However, sometimes an application may want to put its own polling loop inside a task. If it does it may need to yield the processor that it is running on to allow other tasks to run on that processor. This can be accomplished by invoking this method. The task will be pre-empted and other eligible tasks will be permitted to run on this processor. </p>
+<p>Yield the task to allow other tasks on the processor. In most <a class="el" href="namespace_legion.html">Legion</a> programs calling this should never be necessary. However, sometimes an application may want to put its own polling loop inside a task. If it does it may need to yield the processor that it is running on to allow other tasks to run on that processor. This can be accomplished by invoking this method. The task will be pre-empted and other eligible tasks will be permitted to run on this processor. </p>
 
 </div>
 </div>
@@ -15387,9 +15403,13 @@ Profiling</h2>
 <li>legion/api/<a class="el" href="runtime_8h_source.html">runtime.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 21 2026 16:59:46 for Legion Runtime by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_legion.html">Legion</a></li><li class="navelem"><a class="el" href="class_legion_1_1_runtime.html">Runtime</a></li>
+    <li class="footer">Generated on Sat Oct 3 2026 02:56:22 for Legion Runtime by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

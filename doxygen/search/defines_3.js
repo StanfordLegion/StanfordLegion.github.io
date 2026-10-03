@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['destroy_5farray_0',['DESTROY_ARRAY',['../c__bindings_8h.html#a1fcbc6fb0ca5a73a75254f7e63f0d149',1,'c_bindings.h']]]
+];

@@ -30,8 +30,9 @@ var searchData=
   ['locallock_27',['LocalLock',['../class_legion_1_1_internal_1_1_local_lock.html',1,'Legion::Internal']]],
   ['lock_28',['Lock',['../class_legion_1_1_lock.html',1,'Legion']]],
   ['lockrequest_29',['LockRequest',['../struct_legion_1_1_lock_request.html',1,'Legion']]],
-  ['logicalpartition_30',['LogicalPartition',['../class_legion_1_1_logical_partition.html',1,'Legion']]],
-  ['logicalpartitiont_31',['LogicalPartitionT',['../class_legion_1_1_logical_partition_t.html',1,'Legion']]],
-  ['logicalregion_32',['LogicalRegion',['../class_legion_1_1_logical_region.html',1,'Legion']]],
-  ['logicalregiont_33',['LogicalRegionT',['../class_legion_1_1_logical_region_t.html',1,'Legion']]]
+  ['loggingwrapper_30',['LoggingWrapper',['../class_legion_1_1_mapping_1_1_logging_wrapper.html',1,'Legion::Mapping']]],
+  ['logicalpartition_31',['LogicalPartition',['../class_legion_1_1_logical_partition.html',1,'Legion']]],
+  ['logicalpartitiont_32',['LogicalPartitionT',['../class_legion_1_1_logical_partition_t.html',1,'Legion']]],
+  ['logicalregion_33',['LogicalRegion',['../class_legion_1_1_logical_region.html',1,'Legion']]],
+  ['logicalregiont_34',['LogicalRegionT',['../class_legion_1_1_logical_region_t.html',1,'Legion']]]
 ];
